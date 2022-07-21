@@ -1,5 +1,9 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.HashMap;
+import java.util.Map;
+import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
@@ -9,7 +13,7 @@ import software.amazon.smithy.ruby.codegen.middleware.Middleware;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareBuilder;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
 
-public class Signers implements RubyIntegration {
+public class Credentials implements RubyIntegration {
 
     @Override
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
@@ -66,6 +70,7 @@ public class Signers implements RubyIntegration {
                 * `~/.aws/credentials` and `~/.aws/config`
                 """;
 
+        // TODO: We need a client config builder because region is shared
         ClientConfig region = (new ClientConfig.Builder())
                 .name("region")
                 .type("String")
@@ -78,12 +83,39 @@ public class Signers implements RubyIntegration {
                 .defaultValue("nil")
                 .build();
 
-        Middleware signer = (new Middleware.Builder())
-                .klass("Middleware::Signer")
-                .step(MiddlewareStackStep.FINALIZE)
-                // .addConfig(credentialProvider)
-                .addConfig(region)
+        String serviceName = context.settings().getService().getName();
+        String signerInstance = "AWS::SigV4::Signer.new("
+                + "service: '" + serviceName + "',"
+                + "region: cfg[:region],"
+                + "credential_provider: cfg[:credential_provider]" + ")";
+
+        ClientConfig signer = (new ClientConfig.Builder()
+                .name("signer")
+                .type("AWS::SigV4::Signer")
+                .documentation("An instance of SigV4 signer used to sign requests.")
+                .defaults(new ConfigProviderChain.Builder()
+                        .dynamicProvider(signerInstance)
+                        .build()))
                 .build();
-        // middlewareBuilder.register(signer);
+
+        Middleware signatureV4 = (new Middleware.Builder())
+                // Do not render if operation has optional auth
+                .operationPredicate((model, service, operation) -> !operation.hasTrait(OptionalAuthTrait.class))
+                .addConfig(signer)
+                // If has unsigned body, then pass true
+                .operationParams((ctx, operation) -> {
+                    Map<String, String> params = new HashMap<>();
+                    if (operation.hasTrait(UnsignedPayloadTrait.class)) {
+                        params.put("unsigned_body", "true");
+                    }
+                    return params;
+                })
+                .klass("AWS::SDK::Core::Middleware::Signer")
+                .step(MiddlewareStackStep.FINALIZE)
+                //.addConfig(credentialProvider)
+                //.addConfig(region)
+                .build();
+
+        middlewareBuilder.register(signatureV4);
     }
 }
