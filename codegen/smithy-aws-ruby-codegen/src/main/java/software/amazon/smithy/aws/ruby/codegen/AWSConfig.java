@@ -17,6 +17,11 @@ public final class AWSConfig {
                 * `~/.aws/credentials` and `~/.aws/config`
                 """;
 
+    private static final String profileDocumentation = """
+            Used when loading credentials and configuration from the shared credentials file
+            at HOME/.aws/credentials.  When not specified, 'default' is used.
+            """;
+
     public static final ClientConfig REGION = (new ClientConfig.Builder())
             .name("region")
             .type("String")
@@ -24,9 +29,18 @@ public final class AWSConfig {
             .defaults(new ConfigProviderChain.Builder()
                     .envProvider("AWS_REGION", "String")
                     .sharedConfigProvider("region", "String")
-                    .staticProvider("nil")
                     .build())
-            .defaultValue("nil")
+            .build();
+
+    public static final ClientConfig PROFILE = (new ClientConfig.Builder())
+            .name("profile")
+            .type("String")
+            .documentation(regionDocumentation)
+            .documentationDefaultValue("default")
+            .defaults(new ConfigProviderChain.Builder()
+                    .envProvider("AWS_PROFILE", "String")
+                    .staticProvider("'default'")
+                    .build())
             .build();
 
     private AWSConfig() { }

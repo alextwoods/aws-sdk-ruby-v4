@@ -84,11 +84,12 @@ public class Sigv4Auth implements RubyIntegration {
         ClientFragment initializeSigner = new ClientFragment.Builder()
                 .addConfig(credentialProvider)
                 .addConfig(AWSConfig.REGION)
+                .addConfig(AWSConfig.PROFILE)
                 .render( (f, c) -> {
-                    return "AWS::SigV4::Signer.new("
+                    return "proc { |cfg| AWS::SigV4::Signer.new("
                             + "service: '" + sigV4Trait.getName() + "', "
                             + "region: cfg[:region], "
-                            + "credential_provider: cfg[:credential_provider]" + ")";
+                            + "credential_provider: cfg[:credential_provider]" + ") }";
                 }).build();
 
         ClientConfig signer = (new ClientConfig.Builder()
@@ -112,7 +113,7 @@ public class Sigv4Auth implements RubyIntegration {
                     }
                     return params;
                 })
-                .klass("AWS::SDK::Core::Middleware::Signer")
+                .klass("AWS::SDK::Core::Middleware::SignatureV4")
                 .step(MiddlewareStackStep.FINALIZE)
                 .addConfig(signer)
                 .build();

@@ -21,11 +21,12 @@ module AWS::SDK::Core
         signature = compute_signature(request, context)
 
         # apply signature headers
-        req.headers.update(signature.headers)
+        request.headers.update(signature.headers)
 
-        @app.call(input, context)
-
+        output = @app.call(input, context)
         output.metadata[:sigv4_signature] = signature
+
+        output
       end
 
       private
@@ -50,7 +51,7 @@ module AWS::SDK::Core
         @signer.sign_request(
           http_method: request.http_method,
           url: request.url,
-          headers: request.headers,
+          headers: request.headers.to_h,
           body: request.body,
           **context[:signer_params]
         )
