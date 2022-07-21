@@ -62,12 +62,13 @@ module AWS::SDK::Core
       end
 
       def determine_credentials_path
-        ENV['AWS_SHARED_CREDENTIALS_FILE'] ||
+        ENV.fetch('AWS_SHARED_CREDENTIALS_FILE') do
           default_shared_config_path('credentials')
+        end
       end
 
       def determine_config_path
-        ENV['AWS_CONFIG_FILE'] || default_shared_config_path('config')
+        ENV.fetch('AWS_CONFIG_FILE') { default_shared_config_path('config') }
       end
 
       def default_shared_config_path(file)

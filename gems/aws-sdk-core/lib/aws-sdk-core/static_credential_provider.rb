@@ -35,7 +35,7 @@ module AWS::SDK::Core
         new(
           access_key_id: ENV['AWS_ACCESS_KEY_ID'],
           secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-          session_token: ENV['AWS_SESSION_TOKEN']
+          session_token: ENV.fetch('AWS_SESSION_TOKEN', nil)
         )
       end
     end

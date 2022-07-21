@@ -50,11 +50,11 @@ module AWS::SDK::Core
         if payload_version == 1
           parse_payload_format_v1(creds_json, proc_invocation)
         else
-          raise "Invalid version (#{payload_version}) for credentials payload "\
-                "from: #{proc_invocation}."
+          raise "Invalid version (#{payload_version}) for credentials " \
+                "payload from: #{proc_invocation}."
         end
       else
-        raise "Failure executing #{proc_invocation}: the credential process "\
+        raise "Failure executing #{proc_invocation}: the credential process " \
               'had non zero exit status and failed to provide credentials.'
       end
     end
@@ -74,7 +74,7 @@ module AWS::SDK::Core
 
     def parse_payload_format_v1(creds_json, proc_invocation)
       unless creds_json['AccessKeyId'] && creds_json['SecretAccessKey']
-        raise 'Invalid JSON payload for credentials from: '\
+        raise 'Invalid JSON payload for credentials from: ' \
               "#{proc_invocation}."
       end
 
