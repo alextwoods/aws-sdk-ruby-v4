@@ -49,11 +49,13 @@ module AWS::SDK::Core
 
       def compute_signature(request, context)
         @signer.sign_request(
-          http_method: request.http_method,
-          url: request.url,
-          headers: request.headers.to_h,
-          body: request.body,
-          **context[:signer_params]
+          request: {
+            http_method: request.http_method,
+            url: request.url,
+            headers: request.headers.to_h,
+            body: request.body
+          },
+          **context.metadata.fetch(:signer_params, {})
         )
       end
     end

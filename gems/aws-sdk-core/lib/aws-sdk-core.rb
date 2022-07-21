@@ -31,6 +31,9 @@ require_relative 'aws-sdk-core/shared_config_provider'
 # Utilities
 require_relative 'aws-sdk-core/ec2_metadata'
 
+# Middleware
+require_relative 'aws-sdk-core/middleware'
+
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core
   GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
