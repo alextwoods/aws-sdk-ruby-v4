@@ -17,7 +17,7 @@ end
 
 group :development do
   gem 'rbs'
-  gem 'rubocop', '<= 1.27.0'
+  gem 'rubocop'
   gem 'steep'
 end
 

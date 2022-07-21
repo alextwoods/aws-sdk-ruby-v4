@@ -7,7 +7,3 @@ $LOAD_PATH.unshift("#{GEMS_DIR}/aws-sdk-core/lib")
 $LOAD_PATH.unshift("#{GEMS_DIR}/aws-sigv4/lib")
 
 require 'aws-sdk-core'
-
-Dir.glob("#{ROOT}/tasks/*.rake").each do |task_file|
-  load(task_file)
-end
