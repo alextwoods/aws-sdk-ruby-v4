@@ -186,6 +186,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectConfigurationException, Errors::ProjectNotFoundException, Errors::InvalidServiceRoleException, Errors::ValidationException, Errors::ConcurrentModificationException, Errors::LimitExceededException, Errors::TeamMemberAlreadyAssociatedException]),
         data_parser: Parsers::AssociateTeamMember
@@ -319,6 +322,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectConfigurationException, Errors::InvalidServiceRoleException, Errors::ProjectAlreadyExistsException, Errors::ValidationException, Errors::ConcurrentModificationException, Errors::LimitExceededException, Errors::ProjectCreationFailedException]),
         data_parser: Parsers::CreateProject
@@ -411,6 +417,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::UserProfileAlreadyExistsException]),
         data_parser: Parsers::CreateUserProfile
@@ -494,6 +503,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidServiceRoleException, Errors::ValidationException, Errors::ConcurrentModificationException]),
         data_parser: Parsers::DeleteProject
@@ -564,6 +576,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException]),
@@ -644,6 +659,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectConfigurationException, Errors::ProjectNotFoundException, Errors::InvalidServiceRoleException, Errors::ValidationException, Errors::ConcurrentModificationException]),
         data_parser: Parsers::DescribeProject
@@ -717,6 +735,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::UserProfileNotFoundException]),
@@ -793,6 +814,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::InvalidServiceRoleException, Errors::ValidationException, Errors::ConcurrentModificationException]),
@@ -871,6 +895,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ValidationException]),
@@ -953,6 +980,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::InvalidNextTokenException, Errors::ValidationException]),
         data_parser: Parsers::ListResources
@@ -1031,6 +1061,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::InvalidNextTokenException, Errors::ValidationException]),
@@ -1115,6 +1148,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::InvalidNextTokenException, Errors::ValidationException]),
         data_parser: Parsers::ListTeamMembers
@@ -1195,6 +1231,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ValidationException]),
         data_parser: Parsers::ListUserProfiles
@@ -1271,6 +1310,9 @@ module AWS::SDK::CodeStar
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::ValidationException, Errors::ConcurrentModificationException, Errors::LimitExceededException]),
         data_parser: Parsers::TagProject
@@ -1344,6 +1386,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::ValidationException, Errors::ConcurrentModificationException, Errors::LimitExceededException]),
@@ -1420,6 +1465,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectNotFoundException, Errors::ValidationException]),
@@ -1510,6 +1558,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProjectConfigurationException, Errors::ProjectNotFoundException, Errors::InvalidServiceRoleException, Errors::TeamMemberNotFoundException, Errors::ValidationException, Errors::ConcurrentModificationException, Errors::LimitExceededException]),
@@ -1602,6 +1653,9 @@ module AWS::SDK::CodeStar
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::UserProfileNotFoundException]),

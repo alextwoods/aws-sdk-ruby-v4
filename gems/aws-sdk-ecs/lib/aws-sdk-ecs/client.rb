@@ -172,6 +172,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::UpdateInProgressException, Errors::InvalidParameterException, Errors::LimitExceededException, Errors::ClientException]),
         data_parser: Parsers::CreateCapacityProvider
@@ -400,6 +403,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1006,6 +1012,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::PlatformUnknownException, Errors::UnsupportedFeatureException, Errors::ClientException, Errors::PlatformTaskDefinitionIncompatibilityException]),
         data_parser: Parsers::CreateService
@@ -1274,6 +1283,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::PlatformUnknownException, Errors::UnsupportedFeatureException, Errors::ClientException, Errors::PlatformTaskDefinitionIncompatibilityException]),
         data_parser: Parsers::CreateTaskSet
@@ -1360,6 +1372,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1449,6 +1464,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::TargetNotFoundException, Errors::InvalidParameterException]),
@@ -1550,6 +1568,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1667,6 +1688,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterContainsServicesException, Errors::ClusterNotFoundException, Errors::ClusterContainsTasksException, Errors::ServerException, Errors::UpdateInProgressException, Errors::ClusterContainsContainerInstancesException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1881,6 +1905,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DeleteService
@@ -2013,6 +2040,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::TaskSetNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::UnsupportedFeatureException, Errors::ClientException]),
@@ -2166,6 +2196,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2428,6 +2461,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DeregisterTaskDefinition
@@ -2557,6 +2593,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2695,6 +2734,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2842,6 +2884,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -3047,6 +3092,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -3315,6 +3363,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeTaskDefinition
@@ -3460,6 +3511,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::UnsupportedFeatureException, Errors::ClientException]),
@@ -3667,6 +3721,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeTasks
@@ -3745,6 +3802,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::ClientException]),
@@ -3840,6 +3900,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::TargetNotConnectedException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -3961,6 +4024,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListAccountSettings
@@ -4078,6 +4144,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::InvalidParameterException]),
         data_parser: Parsers::ListAttributes
@@ -4166,6 +4235,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4280,6 +4352,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListContainerInstances
@@ -4385,6 +4460,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListServices
@@ -4458,6 +4536,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4576,6 +4657,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListTaskDefinitionFamilies
@@ -4691,6 +4775,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4834,6 +4921,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListTasks
@@ -4954,6 +5044,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::PutAccountSetting
@@ -5039,6 +5132,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -5130,6 +5226,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::TargetNotFoundException, Errors::AttributeLimitExceededException, Errors::InvalidParameterException]),
@@ -5293,6 +5392,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ResourceInUseException, Errors::ServerException, Errors::UpdateInProgressException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -5523,6 +5625,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -6259,6 +6364,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::RegisterTaskDefinition
@@ -6723,6 +6831,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::BlockedException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::PlatformUnknownException, Errors::UnsupportedFeatureException, Errors::ClientException, Errors::PlatformTaskDefinitionIncompatibilityException]),
         data_parser: Parsers::RunTask
@@ -7071,6 +7182,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::StartTask
@@ -7279,6 +7393,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::StopTask
@@ -7360,6 +7477,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -7467,6 +7587,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ServerException, Errors::ClientException]),
@@ -7605,6 +7728,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::SubmitTaskStateChange
@@ -7718,6 +7844,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::TagResource
@@ -7793,6 +7922,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -7894,6 +8026,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -8032,6 +8167,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::UpdateCluster
@@ -8155,6 +8293,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -8297,6 +8438,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::MissingVersionException, Errors::NoUpdateAvailableException, Errors::ServerException, Errors::UpdateInProgressException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -8488,6 +8632,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -9002,6 +9149,9 @@ module AWS::SDK::ECS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::PlatformUnknownException, Errors::ClientException, Errors::PlatformTaskDefinitionIncompatibilityException]),
         data_parser: Parsers::UpdateService
@@ -9132,6 +9282,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::TaskSetNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::UnsupportedFeatureException, Errors::ClientException]),
@@ -9268,6 +9421,9 @@ module AWS::SDK::ECS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceNotFoundException, Errors::AccessDeniedException, Errors::ClusterNotFoundException, Errors::TaskSetNotFoundException, Errors::ServiceNotActiveException, Errors::ServerException, Errors::InvalidParameterException, Errors::UnsupportedFeatureException, Errors::ClientException]),

@@ -140,6 +140,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::CancelRotateSecret
@@ -391,6 +394,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionFailure, Errors::ResourceExistsException, Errors::DecryptionFailure, Errors::InvalidParameterException, Errors::PreconditionNotMetException, Errors::MalformedPolicyDocumentException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::CreateSecret
@@ -469,6 +475,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -592,6 +601,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::DeleteSecret
@@ -699,6 +711,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -813,6 +828,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::InternalServiceError]),
         data_parser: Parsers::GetRandomPassword
@@ -894,6 +912,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -1004,6 +1025,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DecryptionFailure, Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::GetSecretValue
@@ -1112,6 +1136,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -1243,6 +1270,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::InternalServiceError]),
         data_parser: Parsers::ListSecrets
@@ -1334,6 +1364,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::MalformedPolicyDocumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError, Errors::PublicPolicyException]),
@@ -1500,6 +1533,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionFailure, Errors::ResourceExistsException, Errors::DecryptionFailure, Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::PutSecretValue
@@ -1587,6 +1623,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -1683,6 +1722,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::ReplicateSecretToRegions
@@ -1761,6 +1803,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -1905,6 +1950,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::RotateSecret
@@ -1980,6 +2028,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -2106,6 +2157,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::TagResource
@@ -2200,6 +2254,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
@@ -2355,6 +2412,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionFailure, Errors::ResourceExistsException, Errors::DecryptionFailure, Errors::InvalidParameterException, Errors::PreconditionNotMetException, Errors::MalformedPolicyDocumentException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::UpdateSecret
@@ -2466,6 +2526,9 @@ module AWS::SDK::SecretsManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),
         data_parser: Parsers::UpdateSecretVersionStage
@@ -2564,6 +2627,9 @@ module AWS::SDK::SecretsManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::MalformedPolicyDocumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::InternalServiceError]),

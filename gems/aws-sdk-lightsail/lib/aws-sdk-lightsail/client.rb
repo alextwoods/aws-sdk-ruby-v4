@@ -107,6 +107,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::AllocateStaticIp
@@ -219,6 +222,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::AttachCertificateToDistribution
@@ -314,6 +320,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -416,6 +425,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::AttachInstancesToLoadBalancer
@@ -513,6 +525,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::AttachLoadBalancerTlsCertificate
@@ -600,6 +615,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -697,6 +715,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -856,6 +877,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CopySnapshot
@@ -1012,6 +1036,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateBucket
@@ -1117,6 +1144,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -1279,6 +1309,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateCertificate
@@ -1379,6 +1412,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -1504,6 +1540,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -1766,6 +1805,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateContainerService
@@ -1933,6 +1975,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateContainerServiceDeployment
@@ -2022,6 +2067,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -2142,6 +2190,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -2331,6 +2382,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateDiskFromSnapshot
@@ -2463,6 +2517,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -2675,6 +2732,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateDistribution
@@ -2775,6 +2835,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -2881,6 +2944,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateDomainEntry
@@ -2981,6 +3047,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -3151,6 +3220,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -3379,6 +3451,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateInstancesFromSnapshot
@@ -3493,6 +3568,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -3647,6 +3725,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateLoadBalancer
@@ -3765,6 +3846,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -4058,6 +4142,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateRelationalDatabase
@@ -4230,6 +4317,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateRelationalDatabaseFromSnapshot
@@ -4340,6 +4430,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateRelationalDatabaseSnapshot
@@ -4427,6 +4520,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -4518,6 +4614,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -4636,6 +4735,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteBucket
@@ -4732,6 +4834,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteBucketAccessKey
@@ -4821,6 +4926,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -4916,6 +5024,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteContactMethod
@@ -5000,6 +5111,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteContainerImage
@@ -5067,6 +5181,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -5163,6 +5280,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteDisk
@@ -5256,6 +5376,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteDiskSnapshot
@@ -5340,6 +5463,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -5426,6 +5552,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -5526,6 +5655,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteDomainEntry
@@ -5617,6 +5749,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteInstance
@@ -5704,6 +5839,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -5804,6 +5942,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteKeyPair
@@ -5896,6 +6037,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteKnownHostKeys
@@ -5984,6 +6128,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6082,6 +6229,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6198,6 +6348,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteRelationalDatabase
@@ -6284,6 +6437,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6372,6 +6528,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6462,6 +6621,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6559,6 +6721,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DetachInstancesFromLoadBalancer
@@ -6642,6 +6807,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6731,6 +6899,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DisableAddOn
@@ -6798,6 +6969,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6892,6 +7066,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -6991,6 +7168,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::ExportSnapshot
@@ -7064,6 +7244,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -7183,6 +7366,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetAlarms
@@ -7263,6 +7449,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -7364,6 +7553,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetBlueprints
@@ -7448,6 +7640,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetBucketAccessKeys
@@ -7530,6 +7725,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -7710,6 +7908,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetBucketMetricData
@@ -7840,6 +8041,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetBuckets
@@ -7940,6 +8144,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -8075,6 +8282,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetCertificates
@@ -8168,6 +8378,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetCloudFormationStackRecords
@@ -8259,6 +8472,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetContactMethods
@@ -8325,6 +8541,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::AccessDeniedException]),
@@ -8405,6 +8624,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -8571,6 +8793,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetContainerLog
@@ -8674,6 +8899,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -8839,6 +9067,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetContainerServiceMetricData
@@ -8913,6 +9144,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -9039,6 +9273,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetContainerServices
@@ -9135,6 +9372,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetDisk
@@ -9223,6 +9463,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -9318,6 +9561,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -9420,6 +9666,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetDisks
@@ -9492,6 +9741,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -9568,6 +9820,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -9812,6 +10067,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetDistributionMetricData
@@ -9943,6 +10201,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetDistributions
@@ -10032,6 +10293,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -10127,6 +10391,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -10234,6 +10501,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -10375,6 +10645,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetInstance
@@ -10471,6 +10744,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -10737,6 +11013,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetInstanceMetricData
@@ -10815,6 +11094,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -10928,6 +11210,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -11047,6 +11332,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetInstanceSnapshots
@@ -11117,6 +11405,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -11263,6 +11554,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetInstances
@@ -11344,6 +11638,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -11436,6 +11733,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -11538,6 +11838,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -11846,6 +12149,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetLoadBalancerMetricData
@@ -11962,6 +12268,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetLoadBalancerTlsCertificates
@@ -12046,6 +12355,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::AccessDeniedException]),
@@ -12154,6 +12466,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetLoadBalancers
@@ -12237,6 +12552,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -12328,6 +12646,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -12422,6 +12743,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetOperationsForResource
@@ -12509,6 +12833,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -12622,6 +12949,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabase
@@ -12704,6 +13034,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -12796,6 +13129,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabaseBundles
@@ -12886,6 +13222,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13015,6 +13354,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabaseLogEvents
@@ -13084,6 +13426,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13169,6 +13514,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13411,6 +13759,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabaseMetricData
@@ -13501,6 +13852,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabaseParameters
@@ -13589,6 +13943,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13683,6 +14040,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13801,6 +14161,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetRelationalDatabases
@@ -13880,6 +14243,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -13965,6 +14331,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -14053,6 +14422,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::ImportKeyPair
@@ -14116,6 +14488,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -14215,6 +14590,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::OpenInstancePublicPorts
@@ -14292,6 +14670,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -14545,6 +14926,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::PutAlarm
@@ -14649,6 +15033,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::PutInstancePublicPorts
@@ -14736,6 +15123,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::RebootInstance
@@ -14822,6 +15212,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -14934,6 +15327,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::RegisterContainerImage
@@ -15017,6 +15413,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15107,6 +15506,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15204,6 +15606,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15310,6 +15715,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15422,6 +15830,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::SetResourceAccessForBucket
@@ -15515,6 +15926,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::StartInstance
@@ -15602,6 +16016,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15705,6 +16122,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::StopInstance
@@ -15795,6 +16215,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -15897,6 +16320,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -16010,6 +16436,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::TestAlarm
@@ -16087,6 +16516,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -16185,6 +16617,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -16345,6 +16780,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateBucket
@@ -16449,6 +16887,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -16637,6 +17078,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateContainerService
@@ -16782,6 +17226,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateDistribution
@@ -16882,6 +17329,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateDistributionBundle
@@ -16981,6 +17431,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -17112,6 +17565,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
@@ -17301,6 +17757,9 @@ module AWS::SDK::Lightsail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateRelationalDatabase
@@ -17408,6 +17867,9 @@ module AWS::SDK::Lightsail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationFailureException, Errors::ServiceException, Errors::UnauthenticatedException, Errors::InvalidInputException, Errors::AccountSetupInProgressException, Errors::NotFoundException, Errors::AccessDeniedException]),

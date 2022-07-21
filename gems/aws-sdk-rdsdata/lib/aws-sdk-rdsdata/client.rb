@@ -182,6 +182,9 @@ module AWS::SDK::RDSData
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::StatementTimeoutException]),
         data_parser: Parsers::BatchExecuteStatement
@@ -274,6 +277,9 @@ module AWS::SDK::RDSData
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::StatementTimeoutException]),
         data_parser: Parsers::BeginTransaction
@@ -351,6 +357,9 @@ module AWS::SDK::RDSData
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::NotFoundException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::StatementTimeoutException]),
@@ -483,6 +492,9 @@ module AWS::SDK::RDSData
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException]),
@@ -690,6 +702,9 @@ module AWS::SDK::RDSData
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::StatementTimeoutException]),
         data_parser: Parsers::ExecuteStatement
@@ -766,6 +781,9 @@ module AWS::SDK::RDSData
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableError, Errors::AccessDeniedException, Errors::NotFoundException, Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::StatementTimeoutException]),

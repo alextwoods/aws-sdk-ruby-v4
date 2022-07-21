@@ -99,6 +99,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DomainLimitExceeded, Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::AcceptDomainTransferFromAnotherAwsAccount
@@ -182,6 +185,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -281,6 +287,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
         data_parser: Parsers::CheckDomainAvailability
@@ -374,6 +383,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
         data_parser: Parsers::CheckDomainTransferability
@@ -461,6 +473,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD]),
         data_parser: Parsers::DeleteDomain
@@ -536,6 +551,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::DeleteTagsForDomain
@@ -603,6 +621,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
@@ -678,6 +699,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::DisableDomainTransferLock
@@ -751,6 +775,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD]),
         data_parser: Parsers::EnableDomainAutoRenew
@@ -821,6 +848,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -893,6 +923,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -1006,6 +1039,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
         data_parser: Parsers::GetDomainDetail
@@ -1111,6 +1147,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
         data_parser: Parsers::GetDomainSuggestions
@@ -1185,6 +1224,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -1292,6 +1334,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
         data_parser: Parsers::ListDomains
@@ -1381,6 +1426,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -1494,6 +1542,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
         data_parser: Parsers::ListPrices
@@ -1566,6 +1617,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -1776,6 +1830,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DomainLimitExceeded, Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::RegisterDomain
@@ -1857,6 +1914,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -1943,6 +2003,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::RenewDomain
@@ -2015,6 +2078,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::ResendContactReachabilityEmail
@@ -2083,6 +2149,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD]),
@@ -2301,6 +2370,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DomainLimitExceeded, Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::TransferDomain
@@ -2409,6 +2481,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::TransferDomainToAnotherAwsAccount
@@ -2510,6 +2585,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -2627,6 +2705,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::UpdateDomainContactPrivacy
@@ -2714,6 +2795,9 @@ module AWS::SDK::Route53Domains
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequest, Errors::InvalidInput, Errors::TLDRulesViolation, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
         data_parser: Parsers::UpdateDomainNameservers
@@ -2792,6 +2876,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::UnsupportedTLD, Errors::OperationLimitExceeded]),
@@ -2889,6 +2976,9 @@ module AWS::SDK::Route53Domains
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),

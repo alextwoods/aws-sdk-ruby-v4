@@ -119,6 +119,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::AssociateDelegateToResource
@@ -194,6 +197,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -275,6 +281,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::CancelMailboxExportJob
@@ -351,6 +360,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EmailAddressInUseException, Errors::EntityStateException, Errors::InvalidParameterException, Errors::MailDomainNotFoundException, Errors::MailDomainStateException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::CreateAlias
@@ -423,6 +435,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameAvailabilityException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException, Errors::ReservedNameException]),
@@ -545,6 +560,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::CreateMobileDeviceAccessRule
@@ -644,6 +662,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameAvailabilityException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::LimitExceededException, Errors::DirectoryInUseException]),
         data_parser: Parsers::CreateOrganization
@@ -722,6 +743,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameAvailabilityException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException, Errors::ReservedNameException]),
@@ -804,6 +828,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameAvailabilityException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException, Errors::ReservedNameException, Errors::InvalidPasswordException]),
         data_parser: Parsers::CreateUser
@@ -878,6 +905,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -958,6 +988,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeleteAlias
@@ -1025,6 +1058,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -1097,6 +1133,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -1175,6 +1214,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -1269,6 +1311,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeleteMobileDeviceAccessOverride
@@ -1343,6 +1388,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -1422,6 +1470,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeleteOrganization
@@ -1495,6 +1546,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeleteResource
@@ -1566,6 +1620,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -1643,6 +1700,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeleteUser
@@ -1718,6 +1778,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeregisterFromWorkMail
@@ -1791,6 +1854,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidCustomSesConfigurationException, Errors::MailDomainInUseException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DeregisterMailDomain
@@ -1860,6 +1926,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -1939,6 +2008,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DescribeGroup
@@ -2007,6 +2079,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -2092,6 +2167,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DescribeMailboxExportJob
@@ -2169,6 +2247,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException]),
@@ -2254,6 +2335,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DescribeResource
@@ -2334,6 +2418,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DescribeUser
@@ -2412,6 +2499,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::DisassociateDelegateFromResource
@@ -2487,6 +2577,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -2574,6 +2667,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::GetAccessControlEffect
@@ -2649,6 +2745,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -2731,6 +2830,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::MailDomainNotFoundException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::GetMailDomain
@@ -2805,6 +2907,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -2895,6 +3000,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -2992,6 +3100,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::GetMobileDeviceAccessOverride
@@ -3075,6 +3186,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -3160,6 +3274,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -3253,6 +3370,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListGroupMembers
@@ -3339,6 +3459,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListGroups
@@ -3419,6 +3542,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -3508,6 +3634,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -3599,6 +3728,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -3707,6 +3839,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListMobileDeviceAccessOverrides
@@ -3795,6 +3930,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListMobileDeviceAccessRules
@@ -3875,6 +4013,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException]),
@@ -3964,6 +4105,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListResourceDelegates
@@ -4051,6 +4195,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::ListResources
@@ -4122,6 +4269,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException]),
@@ -4210,6 +4360,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -4325,6 +4478,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::PutAccessControlRule
@@ -4401,6 +4557,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::PutEmailMonitoringConfiguration
@@ -4472,6 +4631,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -4563,6 +4725,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -4662,6 +4827,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::PutMobileDeviceAccessOverride
@@ -4752,6 +4920,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::PutRetentionPolicy
@@ -4828,6 +4999,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::MailDomainInUseException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -4912,6 +5086,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityAlreadyRegisteredException, Errors::EmailAddressInUseException, Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::MailDomainNotFoundException, Errors::MailDomainStateException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::RegisterToWorkMail
@@ -4988,6 +5165,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException, Errors::InvalidPasswordException]),
@@ -5091,6 +5271,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::LimitExceededException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::StartMailboxExportJob
@@ -5169,6 +5352,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyTagsException, Errors::ResourceNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::TagResource
@@ -5244,6 +5430,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException]),
         data_parser: Parsers::UntagResource
@@ -5315,6 +5504,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::MailDomainNotFoundException, Errors::MailDomainStateException, Errors::OrganizationNotFoundException, Errors::OrganizationStateException]),
@@ -5393,6 +5585,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityStateException, Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -5514,6 +5709,9 @@ module AWS::SDK::WorkMail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
         data_parser: Parsers::UpdateMobileDeviceAccessRule
@@ -5591,6 +5789,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EmailAddressInUseException, Errors::EntityStateException, Errors::InvalidParameterException, Errors::DirectoryUnavailableException, Errors::UnsupportedOperationException, Errors::MailDomainNotFoundException, Errors::MailDomainStateException, Errors::DirectoryServiceAuthenticationFailedException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException]),
@@ -5678,6 +5879,9 @@ module AWS::SDK::WorkMail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameAvailabilityException, Errors::EmailAddressInUseException, Errors::EntityStateException, Errors::DirectoryUnavailableException, Errors::MailDomainNotFoundException, Errors::MailDomainStateException, Errors::OrganizationNotFoundException, Errors::EntityNotFoundException, Errors::OrganizationStateException, Errors::InvalidConfigurationException]),

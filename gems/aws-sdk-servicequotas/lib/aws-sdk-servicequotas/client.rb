@@ -76,6 +76,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::OrganizationNotInAllFeaturesModeException, Errors::AWSServiceAccessNotEnabledException]),
         data_parser: Parsers::AssociateServiceQuotaTemplate
@@ -153,6 +156,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException, Errors::NoSuchResourceException]),
         data_parser: Parsers::DeleteServiceQuotaIncreaseRequestFromTemplate
@@ -217,6 +223,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException, Errors::ServiceQuotaTemplateNotInUseException]),
@@ -313,6 +322,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::NoSuchResourceException]),
         data_parser: Parsers::GetAWSDefaultServiceQuota
@@ -376,6 +388,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException, Errors::ServiceQuotaTemplateNotInUseException]),
@@ -459,6 +474,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::NoSuchResourceException]),
@@ -556,6 +574,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::NoSuchResourceException]),
         data_parser: Parsers::GetServiceQuota
@@ -641,6 +662,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException, Errors::NoSuchResourceException]),
@@ -744,6 +768,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidPaginationTokenException, Errors::NoSuchResourceException]),
         data_parser: Parsers::ListAWSDefaultServiceQuotas
@@ -841,6 +868,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidPaginationTokenException, Errors::NoSuchResourceException]),
@@ -944,6 +974,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidPaginationTokenException, Errors::NoSuchResourceException]),
         data_parser: Parsers::ListRequestedServiceQuotaChangeHistoryByQuota
@@ -1035,6 +1068,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException]),
@@ -1139,6 +1175,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidPaginationTokenException, Errors::NoSuchResourceException]),
         data_parser: Parsers::ListServiceQuotas
@@ -1217,6 +1256,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidPaginationTokenException]),
         data_parser: Parsers::ListServices
@@ -1290,6 +1332,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::NoSuchResourceException]),
@@ -1379,6 +1424,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::TemplatesNotAvailableInRegionException, Errors::NoAvailableOrganizationException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::QuotaExceededException, Errors::DependencyAccessDeniedException, Errors::AWSServiceAccessNotEnabledException, Errors::NoSuchResourceException]),
@@ -1471,6 +1519,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ResourceAlreadyExistsException, Errors::InvalidResourceStateException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::QuotaExceededException, Errors::DependencyAccessDeniedException, Errors::NoSuchResourceException]),
         data_parser: Parsers::RequestServiceQuotaIncrease
@@ -1550,6 +1601,9 @@ module AWS::SDK::ServiceQuotas
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::TooManyTagsException, Errors::TagPolicyViolationException, Errors::NoSuchResourceException]),
         data_parser: Parsers::TagResource
@@ -1625,6 +1679,9 @@ module AWS::SDK::ServiceQuotas
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IllegalArgumentException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::NoSuchResourceException]),

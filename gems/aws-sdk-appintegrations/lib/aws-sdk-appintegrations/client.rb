@@ -129,6 +129,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::DuplicateResourceException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceQuotaExceededException]),
         data_parser: Parsers::CreateDataIntegration
@@ -226,6 +229,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::DuplicateResourceException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceQuotaExceededException]),
         data_parser: Parsers::CreateEventIntegration
@@ -300,6 +306,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeleteDataIntegration
@@ -367,6 +376,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
@@ -452,6 +464,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetDataIntegration
@@ -526,6 +541,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
@@ -614,6 +632,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListDataIntegrationAssociations
@@ -696,6 +717,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError]),
@@ -783,6 +807,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListEventIntegrationAssociations
@@ -866,6 +893,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError]),
         data_parser: Parsers::ListEventIntegrations
@@ -934,6 +964,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
@@ -1009,6 +1042,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::TagResource
@@ -1081,6 +1117,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
@@ -1163,6 +1202,9 @@ module AWS::SDK::AppIntegrations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateDataIntegration
@@ -1234,6 +1276,9 @@ module AWS::SDK::AppIntegrations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServiceError, Errors::ResourceNotFoundException]),

@@ -121,6 +121,9 @@ module AWS::SDK::Mobile
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateProject
@@ -201,6 +204,9 @@ module AWS::SDK::Mobile
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteProject
@@ -279,6 +285,9 @@ module AWS::SDK::Mobile
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
@@ -373,6 +382,9 @@ module AWS::SDK::Mobile
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeProject
@@ -458,6 +470,9 @@ module AWS::SDK::Mobile
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ExportBundle
@@ -533,6 +548,9 @@ module AWS::SDK::Mobile
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
@@ -623,6 +641,9 @@ module AWS::SDK::Mobile
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListBundles
@@ -706,6 +727,9 @@ module AWS::SDK::Mobile
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),
@@ -802,6 +826,9 @@ module AWS::SDK::Mobile
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::AccountActionRequiredException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::NotFoundException, Errors::InternalFailureException, Errors::ServiceUnavailableException]),

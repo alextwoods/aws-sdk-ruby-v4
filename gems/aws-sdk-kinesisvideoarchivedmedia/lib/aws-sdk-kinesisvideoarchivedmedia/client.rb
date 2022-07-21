@@ -134,6 +134,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidCodecPrivateDataException, Errors::InvalidMediaFrameException, Errors::MissingCodecPrivateDataException, Errors::NoDataRetentionException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException, Errors::UnsupportedStreamMediaTypeException]),
         data_parser: Parsers::GetClip
@@ -492,6 +495,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidCodecPrivateDataException, Errors::MissingCodecPrivateDataException, Errors::NoDataRetentionException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException, Errors::UnsupportedStreamMediaTypeException]),
@@ -925,6 +931,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidCodecPrivateDataException, Errors::MissingCodecPrivateDataException, Errors::NoDataRetentionException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException, Errors::UnsupportedStreamMediaTypeException]),
         data_parser: Parsers::GetHLSStreamingSessionURL
@@ -1058,6 +1067,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetImages
@@ -1174,6 +1186,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
@@ -1312,6 +1327,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),

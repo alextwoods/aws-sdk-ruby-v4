@@ -92,6 +92,9 @@ module AWS::SDK::IoTDataPlane
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::UnauthorizedException, Errors::UnsupportedDocumentEncodingException]),
         data_parser: Parsers::DeleteThingShadow
@@ -169,6 +172,9 @@ module AWS::SDK::IoTDataPlane
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::UnauthorizedException]),
         data_parser: Parsers::GetRetainedMessage
@@ -243,6 +249,9 @@ module AWS::SDK::IoTDataPlane
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::UnauthorizedException, Errors::UnsupportedDocumentEncodingException]),
@@ -323,6 +332,9 @@ module AWS::SDK::IoTDataPlane
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -412,6 +424,9 @@ module AWS::SDK::IoTDataPlane
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -506,6 +521,9 @@ module AWS::SDK::IoTDataPlane
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::UnauthorizedException]),
         data_parser: Parsers::Publish
@@ -585,6 +603,9 @@ module AWS::SDK::IoTDataPlane
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::InternalFailureException, Errors::InvalidRequestException, Errors::MethodNotAllowedException, Errors::ThrottlingException, Errors::RequestEntityTooLargeException, Errors::UnauthorizedException, Errors::UnsupportedDocumentEncodingException, Errors::ConflictException]),

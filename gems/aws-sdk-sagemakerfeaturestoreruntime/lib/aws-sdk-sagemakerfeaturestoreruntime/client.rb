@@ -134,6 +134,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessForbidden, Errors::ServiceUnavailable, Errors::ValidationError, Errors::InternalFailure]),
         data_parser: Parsers::BatchGetRecord
@@ -212,6 +215,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessForbidden, Errors::ServiceUnavailable, Errors::ValidationError, Errors::InternalFailure]),
@@ -297,6 +303,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessForbidden, Errors::ServiceUnavailable, Errors::ValidationError, Errors::InternalFailure, Errors::ResourceNotFound]),
@@ -390,6 +399,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessForbidden, Errors::ServiceUnavailable, Errors::ValidationError, Errors::InternalFailure]),

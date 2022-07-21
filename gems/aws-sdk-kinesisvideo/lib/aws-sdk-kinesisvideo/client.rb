@@ -100,6 +100,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::AccountChannelLimitExceededException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::TagsPerResourceExceededLimitException]),
         data_parser: Parsers::CreateSignalingChannel
@@ -222,6 +225,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccountStreamLimitExceededException, Errors::ClientLimitExceededException, Errors::DeviceStreamLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidDeviceException, Errors::ResourceInUseException, Errors::TagsPerResourceExceededLimitException]),
         data_parser: Parsers::CreateStream
@@ -298,6 +304,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::VersionMismatchException]),
@@ -384,6 +393,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::VersionMismatchException]),
         data_parser: Parsers::DeleteStream
@@ -468,6 +480,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeImageGenerationConfiguration
@@ -543,6 +558,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -627,6 +645,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeSignalingChannel
@@ -709,6 +730,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
@@ -800,6 +824,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
@@ -897,6 +924,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetSignalingChannelEndpoint
@@ -990,6 +1020,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException]),
@@ -1088,6 +1121,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException]),
         data_parser: Parsers::ListStreams
@@ -1165,6 +1201,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -1250,6 +1289,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidResourceFormatException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListTagsForStream
@@ -1333,6 +1375,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException, Errors::TagsPerResourceExceededLimitException]),
@@ -1423,6 +1468,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidResourceFormatException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException, Errors::TagsPerResourceExceededLimitException]),
         data_parser: Parsers::TagStream
@@ -1499,6 +1547,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -1582,6 +1633,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidResourceFormatException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
@@ -1697,6 +1751,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::VersionMismatchException]),
         data_parser: Parsers::UpdateDataRetention
@@ -1788,6 +1845,9 @@ module AWS::SDK::KinesisVideo
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NoDataRetentionException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateImageGenerationConfiguration
@@ -1868,6 +1928,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NoDataRetentionException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
@@ -1953,6 +2016,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::VersionMismatchException]),
@@ -2059,6 +2125,9 @@ module AWS::SDK::KinesisVideo
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::InvalidArgumentException, Errors::NotAuthorizedException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::VersionMismatchException]),

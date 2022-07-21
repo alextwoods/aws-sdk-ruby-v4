@@ -135,6 +135,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::CreateDataset
@@ -270,6 +273,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::CreateModel
@@ -359,6 +365,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -460,6 +469,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::DeleteDataset
@@ -554,6 +566,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::DeleteModel
@@ -643,6 +658,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::DeleteProject
@@ -730,6 +748,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -824,6 +845,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -938,6 +962,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::DescribeModelPackagingJob
@@ -1016,6 +1043,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -1111,6 +1141,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -1226,6 +1259,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::ListDatasetEntries
@@ -1327,6 +1363,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::ListModelPackagingJobs
@@ -1424,6 +1463,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::ListModels
@@ -1510,6 +1552,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::ListProjects
@@ -1582,6 +1627,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -1689,6 +1737,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -1866,6 +1917,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::StartModelPackagingJob
@@ -1959,6 +2013,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::StopModel
@@ -2039,6 +2096,9 @@ module AWS::SDK::LookoutVision
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
         data_parser: Parsers::TagResource
@@ -2114,6 +2174,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -2227,6 +2290,9 @@ module AWS::SDK::LookoutVision
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::ValidationException, Errors::ConflictException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),

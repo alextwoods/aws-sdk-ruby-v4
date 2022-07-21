@@ -114,6 +114,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidARNFault, Errors::CacheClusterNotFoundFault, Errors::SnapshotNotFoundFault, Errors::UserNotFoundFault, Errors::CacheSubnetGroupNotFoundFault, Errors::InvalidReplicationGroupStateFault, Errors::UserGroupNotFoundFault, Errors::ReservedCacheNodeNotFoundFault, Errors::CacheParameterGroupNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::AddTagsToResource
@@ -208,6 +211,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidCacheSecurityGroupStateFault, Errors::AuthorizationAlreadyExistsFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::AuthorizeCacheSecurityGroupIngress
@@ -301,6 +307,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ServiceUpdateNotFoundFault]),
         data_parser: Parsers::BatchApplyUpdateAction
@@ -393,6 +402,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ServiceUpdateNotFoundFault]),
@@ -539,6 +551,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReplicationGroupNotUnderMigrationFault, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault]),
@@ -775,6 +790,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::SnapshotAlreadyExistsFault, Errors::TagQuotaPerResourceExceeded, Errors::InvalidSnapshotStateFault, Errors::SnapshotNotFoundFault, Errors::SnapshotQuotaExceededFault, Errors::InvalidParameterCombinationException]),
@@ -1398,6 +1416,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidVPCNetworkStateFault, Errors::CacheSecurityGroupNotFoundFault, Errors::CacheClusterAlreadyExistsFault, Errors::NodeQuotaForClusterExceededFault, Errors::NodeQuotaForCustomerExceededFault, Errors::CacheSubnetGroupNotFoundFault, Errors::InvalidReplicationGroupStateFault, Errors::InvalidParameterValueException, Errors::CacheParameterGroupNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::ClusterQuotaForCustomerExceededFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::CreateCacheCluster
@@ -1515,6 +1536,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheParameterGroupAlreadyExistsFault, Errors::TagQuotaPerResourceExceeded, Errors::CacheParameterGroupQuotaExceededFault, Errors::InvalidParameterCombinationException, Errors::InvalidCacheParameterGroupStateFault]),
         data_parser: Parsers::CreateCacheParameterGroup
@@ -1613,6 +1637,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheSecurityGroupQuotaExceededFault, Errors::TagQuotaPerResourceExceeded, Errors::InvalidParameterCombinationException, Errors::CacheSecurityGroupAlreadyExistsFault]),
@@ -1716,6 +1743,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheSubnetGroupAlreadyExistsFault, Errors::InvalidSubnet, Errors::SubnetNotAllowedFault, Errors::TagQuotaPerResourceExceeded, Errors::CacheSubnetGroupQuotaExceededFault, Errors::CacheSubnetQuotaExceededFault]),
@@ -1832,6 +1862,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupAlreadyExistsFault, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault]),
@@ -2632,6 +2665,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidVPCNetworkStateFault, Errors::CacheSecurityGroupNotFoundFault, Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::NodeGroupsPerReplicationGroupQuotaExceededFault, Errors::NodeQuotaForClusterExceededFault, Errors::NodeQuotaForCustomerExceededFault, Errors::CacheSubnetGroupNotFoundFault, Errors::UserGroupNotFoundFault, Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault, Errors::CacheParameterGroupNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::ClusterQuotaForCustomerExceededFault, Errors::ReplicationGroupAlreadyExistsFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::InvalidUserGroupStateFault]),
         data_parser: Parsers::CreateReplicationGroup
@@ -2772,6 +2808,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::SnapshotAlreadyExistsFault, Errors::TagQuotaPerResourceExceeded, Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::SnapshotQuotaExceededFault, Errors::SnapshotFeatureNotSupportedFault, Errors::InvalidParameterCombinationException, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::CreateSnapshot
@@ -2883,6 +2922,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::UserQuotaExceededFault, Errors::TagQuotaPerResourceExceeded, Errors::UserAlreadyExistsFault, Errors::InvalidParameterCombinationException, Errors::DuplicateUserNameFault, Errors::ServiceLinkedRoleNotFoundFault]),
         data_parser: Parsers::CreateUser
@@ -2982,6 +3024,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::UserGroupAlreadyExistsFault, Errors::TagQuotaPerResourceExceeded, Errors::UserNotFoundFault, Errors::UserGroupQuotaExceededFault, Errors::DuplicateUserNameFault, Errors::DefaultUserRequired, Errors::ServiceLinkedRoleNotFoundFault]),
@@ -3095,6 +3140,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault, Errors::InvalidParameterCombinationException]),
@@ -3293,6 +3341,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidVPCNetworkStateFault, Errors::NoOperationFault, Errors::InvalidCacheClusterStateFault, Errors::NodeGroupsPerReplicationGroupQuotaExceededFault, Errors::NodeQuotaForCustomerExceededFault, Errors::InvalidReplicationGroupStateFault, Errors::InvalidParameterValueException, Errors::ClusterQuotaForCustomerExceededFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault]),
         data_parser: Parsers::DecreaseReplicaCount
@@ -3471,6 +3522,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::SnapshotAlreadyExistsFault, Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::SnapshotQuotaExceededFault, Errors::SnapshotFeatureNotSupportedFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DeleteCacheCluster
@@ -3543,6 +3597,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidCacheParameterGroupStateFault]),
@@ -3618,6 +3675,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidCacheSecurityGroupStateFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DeleteCacheSecurityGroup
@@ -3689,6 +3749,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheSubnetGroupInUse, Errors::CacheSubnetGroupNotFoundFault]),
@@ -3800,6 +3863,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault]),
@@ -3963,6 +4029,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::SnapshotAlreadyExistsFault, Errors::SnapshotQuotaExceededFault, Errors::SnapshotFeatureNotSupportedFault, Errors::InvalidParameterCombinationException, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::DeleteReplicationGroup
@@ -4083,6 +4152,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidSnapshotStateFault, Errors::SnapshotNotFoundFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DeleteSnapshot
@@ -4163,6 +4235,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidUserStateFault, Errors::DefaultUserAssociatedToUserGroupFault, Errors::UserNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault]),
         data_parser: Parsers::DeleteUser
@@ -4242,6 +4317,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidUserGroupStateFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::UserGroupNotFoundFault]),
@@ -4432,6 +4510,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheClusterNotFoundFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeCacheClusters
@@ -4564,6 +4645,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeCacheEngineVersions
@@ -4656,6 +4740,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidParameterCombinationException]),
@@ -4774,6 +4861,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeCacheParameters
@@ -4871,6 +4961,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidParameterCombinationException]),
@@ -4972,6 +5065,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheSubnetGroupNotFoundFault]),
@@ -5097,6 +5193,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeEngineDefaultParameters
@@ -5215,6 +5314,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeEvents
@@ -5319,6 +5421,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidParameterCombinationException]),
@@ -5484,6 +5589,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault]),
@@ -5878,6 +5986,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedCacheNodeNotFoundFault, Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeReservedCacheNodes
@@ -6265,6 +6376,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ReservedCacheNodesOfferingNotFoundFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeReservedCacheNodesOfferings
@@ -6364,6 +6478,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException, Errors::ServiceUpdateNotFoundFault]),
@@ -6523,6 +6640,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheClusterNotFoundFault, Errors::SnapshotNotFoundFault, Errors::InvalidParameterCombinationException]),
@@ -6684,6 +6804,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DescribeUpdateActions
@@ -6774,6 +6897,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::UserGroupNotFoundFault]),
@@ -6881,6 +7007,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UserNotFoundFault, Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault]),
         data_parser: Parsers::DescribeUsers
@@ -6980,6 +7109,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault, Errors::InvalidParameterCombinationException]),
         data_parser: Parsers::DisassociateGlobalReplicationGroup
@@ -7078,6 +7210,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault, Errors::InvalidParameterCombinationException]),
@@ -7194,6 +7329,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault]),
@@ -7369,6 +7507,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidVPCNetworkStateFault, Errors::InvalidKMSKeyFault, Errors::NoOperationFault, Errors::InvalidCacheClusterStateFault, Errors::NodeGroupsPerReplicationGroupQuotaExceededFault, Errors::NodeQuotaForCustomerExceededFault, Errors::InvalidReplicationGroupStateFault, Errors::InvalidParameterValueException, Errors::ClusterQuotaForCustomerExceededFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::IncreaseReplicaCount
@@ -7462,6 +7603,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheClusterNotFoundFault, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::ListAllowedNodeTypeModifications
@@ -7542,6 +7686,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedCacheNodeNotFoundFault, Errors::CacheSecurityGroupNotFoundFault, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidARNFault, Errors::CacheClusterNotFoundFault, Errors::SnapshotNotFoundFault, Errors::UserNotFoundFault, Errors::CacheSubnetGroupNotFoundFault, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault, Errors::UserGroupNotFoundFault]),
@@ -8041,6 +8188,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidVPCNetworkStateFault, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidCacheSecurityGroupStateFault, Errors::CacheParameterGroupNotFoundFault, Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::NodeQuotaForClusterExceededFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::NodeQuotaForCustomerExceededFault]),
         data_parser: Parsers::ModifyCacheCluster
@@ -8120,6 +8270,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidGlobalReplicationGroupStateFault, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidCacheParameterGroupStateFault]),
@@ -8213,6 +8366,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSubnet, Errors::SubnetNotAllowedFault, Errors::CacheSubnetQuotaExceededFault, Errors::CacheSubnetGroupNotFoundFault, Errors::SubnetInUse]),
@@ -8330,6 +8486,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault]),
@@ -8716,6 +8875,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidVPCNetworkStateFault, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidKMSKeyFault, Errors::InvalidCacheSecurityGroupStateFault, Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::NodeQuotaForClusterExceededFault, Errors::NodeQuotaForCustomerExceededFault, Errors::InvalidReplicationGroupStateFault, Errors::UserGroupNotFoundFault, Errors::InvalidParameterValueException, Errors::CacheParameterGroupNotFoundFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::ReplicationGroupNotFoundFault, Errors::InvalidUserGroupStateFault]),
         data_parser: Parsers::ModifyReplicationGroup
@@ -8912,6 +9074,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidVPCNetworkStateFault, Errors::InvalidKMSKeyFault, Errors::InvalidCacheClusterStateFault, Errors::NodeGroupsPerReplicationGroupQuotaExceededFault, Errors::InsufficientCacheClusterCapacityFault, Errors::InvalidParameterCombinationException, Errors::NodeQuotaForCustomerExceededFault, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault]),
         data_parser: Parsers::ModifyReplicationGroupShardConfiguration
@@ -9010,6 +9175,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidUserStateFault, Errors::UserNotFoundFault, Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault]),
         data_parser: Parsers::ModifyUser
@@ -9098,6 +9266,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::UserNotFoundFault, Errors::InvalidParameterCombinationException, Errors::DuplicateUserNameFault, Errors::DefaultUserRequired, Errors::InvalidUserGroupStateFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::UserGroupNotFoundFault]),
@@ -9214,6 +9385,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ReservedCacheNodeAlreadyExistsFault, Errors::ReservedCacheNodesOfferingNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::InvalidParameterCombinationException, Errors::ReservedCacheNodeQuotaExceededFault]),
         data_parser: Parsers::PurchaseReservedCacheNodesOffering
@@ -9308,6 +9482,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::GlobalReplicationGroupNotFoundFault, Errors::InvalidGlobalReplicationGroupStateFault]),
@@ -9471,6 +9648,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheClusterNotFoundFault, Errors::InvalidCacheClusterStateFault]),
         data_parser: Parsers::RebootCacheCluster
@@ -9554,6 +9734,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidARNFault, Errors::CacheClusterNotFoundFault, Errors::SnapshotNotFoundFault, Errors::UserNotFoundFault, Errors::CacheSubnetGroupNotFoundFault, Errors::InvalidReplicationGroupStateFault, Errors::UserGroupNotFoundFault, Errors::ReservedCacheNodeNotFoundFault, Errors::TagNotFoundFault, Errors::CacheParameterGroupNotFoundFault, Errors::ReplicationGroupNotFoundFault]),
@@ -9649,6 +9832,9 @@ module AWS::SDK::ElastiCache
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidGlobalReplicationGroupStateFault, Errors::CacheParameterGroupNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidCacheParameterGroupStateFault]),
         data_parser: Parsers::ResetCacheParameterGroup
@@ -9738,6 +9924,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::CacheSecurityGroupNotFoundFault, Errors::InvalidCacheSecurityGroupStateFault, Errors::AuthorizationNotFoundFault, Errors::InvalidParameterCombinationException]),
@@ -9889,6 +10078,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupAlreadyUnderMigrationFault, Errors::ReplicationGroupNotFoundFault]),
@@ -10101,6 +10293,9 @@ module AWS::SDK::ElastiCache
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidKMSKeyFault, Errors::NodeGroupNotFoundFault, Errors::InvalidCacheClusterStateFault, Errors::TestFailoverNotAvailableFault, Errors::InvalidParameterCombinationException, Errors::InvalidReplicationGroupStateFault, Errors::ReplicationGroupNotFoundFault, Errors::APICallRateForCustomerExceededFault]),

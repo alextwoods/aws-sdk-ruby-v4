@@ -239,6 +239,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceAlreadyExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateAlarmModel
@@ -454,6 +457,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceAlreadyExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateDetectorModel
@@ -552,6 +558,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceAlreadyExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateInput
@@ -619,6 +628,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
@@ -688,6 +700,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteDetectorModel
@@ -754,6 +769,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
@@ -924,6 +942,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeAlarmModel
@@ -1092,6 +1113,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeDetectorModel
@@ -1162,6 +1186,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
@@ -1242,6 +1269,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeInput
@@ -1311,6 +1341,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::UnsupportedOperationException]),
@@ -1399,6 +1432,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::GetDetectorModelAnalysisResults
@@ -1486,6 +1522,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListAlarmModelVersions
@@ -1563,6 +1602,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ServiceUnavailableException]),
@@ -1651,6 +1693,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListDetectorModelVersions
@@ -1728,6 +1773,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ServiceUnavailableException]),
@@ -1828,6 +1876,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListInputRoutings
@@ -1908,6 +1959,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListInputs
@@ -1978,6 +2032,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
@@ -2060,6 +2117,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::UnsupportedOperationException]),
@@ -2234,6 +2294,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::StartDetectorModelAnalysis
@@ -2312,6 +2375,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::TagResource
@@ -2384,6 +2450,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
@@ -2594,6 +2663,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::UpdateAlarmModel
@@ -2793,6 +2865,9 @@ module AWS::SDK::IoTEvents
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::UpdateDetectorModel
@@ -2881,6 +2956,9 @@ module AWS::SDK::IoTEvents
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalFailureException, Errors::ThrottlingException, Errors::InvalidRequestException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException]),

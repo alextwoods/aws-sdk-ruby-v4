@@ -107,6 +107,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AddApplicationCloudWatchLoggingOption
@@ -269,6 +272,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CodeValidationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AddApplicationInput
@@ -366,6 +372,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -491,6 +500,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -633,6 +645,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AddApplicationReferenceDataSource
@@ -749,6 +764,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -1169,6 +1187,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::CodeValidationException, Errors::TooManyTagsException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateApplication
@@ -1260,6 +1281,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::CreateApplicationPresignedUrl
@@ -1332,6 +1356,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::InvalidApplicationConfigurationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::CreateApplicationSnapshot
@@ -1403,6 +1430,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -1499,6 +1529,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeleteApplicationCloudWatchLoggingOption
@@ -1581,6 +1614,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -1670,6 +1706,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeleteApplicationOutput
@@ -1756,6 +1795,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeleteApplicationReferenceDataSource
@@ -1833,6 +1875,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -1922,6 +1967,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -2151,6 +2199,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeApplication
@@ -2228,6 +2279,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -2458,6 +2512,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeApplicationVersion
@@ -2582,6 +2639,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::UnsupportedOperationException, Errors::ResourceProvisionedThroughputExceededException, Errors::UnableToDetectSchemaException, Errors::InvalidArgumentException, Errors::InvalidRequestException]),
         data_parser: Parsers::DiscoverInputSchema
@@ -2666,6 +2726,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::InvalidArgumentException]),
@@ -2755,6 +2818,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListApplicationVersions
@@ -2843,6 +2909,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException]),
         data_parser: Parsers::ListApplications
@@ -2915,6 +2984,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -3149,6 +3221,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::RollbackApplication
@@ -3237,6 +3312,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
@@ -3327,6 +3405,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::StopApplication
@@ -3406,6 +3487,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyTagsException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::TagResource
@@ -3480,6 +3564,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyTagsException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),
@@ -3920,6 +4007,9 @@ module AWS::SDK::KinesisAnalyticsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CodeValidationException, Errors::InvalidApplicationConfigurationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateApplication
@@ -4012,6 +4102,9 @@ module AWS::SDK::KinesisAnalyticsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationException, Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::InvalidArgumentException, Errors::ResourceNotFoundException]),

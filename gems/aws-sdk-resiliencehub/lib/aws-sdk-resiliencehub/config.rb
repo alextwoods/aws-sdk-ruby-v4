@@ -35,6 +35,9 @@ module AWS::SDK::Resiliencehub
   #      * `standard` - A standardized set of retry rules across the AWS SDKs. This includes support for retry quotas, which limit the number of unsuccessful retries a client can make.
   #      * `adaptive` - An experimental retry mode that includes all the functionality of `standard` mode along with automatic client side throttling.  This is a provisional mode that may change behavior in the future.
   #
+  #   @option args [AWS::SigV4::Signer] :signer
+  #     An instance of SigV4 signer used to sign requests.
+  #
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs stub_responses}.
   #
@@ -65,6 +68,9 @@ module AWS::SDK::Resiliencehub
   # @!attribute retry_mode
   #   @return [String]
   #
+  # @!attribute signer
+  #   @return [AWS::SigV4::Signer]
+  #
   # @!attribute stub_responses
   #   @return [Boolean]
   #
@@ -80,6 +86,7 @@ module AWS::SDK::Resiliencehub
     :logger,
     :max_attempts,
     :retry_mode,
+    :signer,
     :stub_responses,
     :validate_input,
     keyword_init: true
@@ -97,6 +104,7 @@ module AWS::SDK::Resiliencehub
       Hearth::Validator.validate!(logger, Logger, context: 'options[:logger]')
       Hearth::Validator.validate!(max_attempts, Integer, context: 'options[:max_attempts]')
       Hearth::Validator.validate!(retry_mode, String, context: 'options[:retry_mode]')
+      Hearth::Validator.validate!(signer, AWS::SigV4::Signer, context: 'options[:signer]')
       Hearth::Validator.validate!(stub_responses, TrueClass, FalseClass, context: 'options[:stub_responses]')
       Hearth::Validator.validate!(validate_input, TrueClass, FalseClass, context: 'options[:validate_input]')
     end
@@ -111,6 +119,7 @@ module AWS::SDK::Resiliencehub
         logger: [proc { |cfg| Logger.new($stdout, level: cfg[:log_level]) } ],
         max_attempts: [3],
         retry_mode: ['standard'],
+        signer: [AWS::SigV4::Signer.new(service: 'AwsResilienceHub',region: cfg[:region],credential_provider: cfg[:credential_provider])],
         stub_responses: [false],
         validate_input: [true]
       }.freeze

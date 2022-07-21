@@ -183,6 +183,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::AcceptMatch
@@ -329,6 +332,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::NotFoundException, Errors::OutOfCapacityException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::ClaimGameServer
@@ -461,6 +467,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::LimitExceededException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -647,6 +656,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -993,6 +1005,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::ConflictException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateFleet
@@ -1118,6 +1133,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -1393,6 +1411,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::LimitExceededException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateGameServerGroup
@@ -1599,6 +1620,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::ConflictException, Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::FleetCapacityExceededException, Errors::InternalServiceException, Errors::InvalidRequestException, Errors::IdempotentParameterMismatchException]),
@@ -1811,6 +1835,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -2063,6 +2090,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateMatchmakingConfiguration
@@ -2206,6 +2236,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateMatchmakingRuleSet
@@ -2319,6 +2352,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidGameSessionStatusException, Errors::GameSessionFullException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -2441,6 +2477,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidGameSessionStatusException, Errors::GameSessionFullException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -2610,6 +2649,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateScript
@@ -2725,6 +2767,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateVpcPeeringAuthorization
@@ -2837,6 +2882,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::CreateVpcPeeringConnection
@@ -2919,6 +2967,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3008,6 +3059,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3110,6 +3164,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3220,6 +3277,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3376,6 +3436,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DeleteGameServerGroup
@@ -3467,6 +3530,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DeleteGameSessionQueue
@@ -3550,6 +3616,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3647,6 +3716,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DeleteMatchmakingRuleSet
@@ -3736,6 +3808,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -3828,6 +3903,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DeleteScript
@@ -3916,6 +3994,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -4007,6 +4088,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -4107,6 +4191,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DeregisterGameServer
@@ -4201,6 +4288,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -4297,6 +4387,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -4449,6 +4542,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -4606,6 +4702,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeFleetAttributes
@@ -4752,6 +4851,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeFleetCapacity
@@ -4877,6 +4979,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -5013,6 +5118,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeFleetLocationAttributes
@@ -5132,6 +5240,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeFleetLocationCapacity
@@ -5245,6 +5356,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -5369,6 +5483,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -5511,6 +5628,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeFleetUtilization
@@ -5619,6 +5739,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -5732,6 +5855,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -5865,6 +5991,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -6038,6 +6167,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeGameSessionDetails
@@ -6159,6 +6291,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -6285,6 +6420,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -6473,6 +6611,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeGameSessions
@@ -6610,6 +6751,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -6749,6 +6893,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeMatchmaking
@@ -6884,6 +7031,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeMatchmakingConfigurations
@@ -6998,6 +7148,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -7161,6 +7314,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribePlayerSessions
@@ -7269,6 +7425,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -7435,6 +7594,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeScalingPolicies
@@ -7535,6 +7697,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeScript
@@ -7618,6 +7783,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -7716,6 +7884,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::DescribeVpcPeeringConnections
@@ -7806,6 +7977,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -7925,6 +8099,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -8050,6 +8227,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -8183,6 +8363,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::ListBuilds
@@ -8314,6 +8497,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::ListFleets
@@ -8429,6 +8615,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -8551,6 +8740,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::ListGameServers
@@ -8653,6 +8845,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -8778,6 +8973,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -9057,6 +9255,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::PutScalingPolicy
@@ -9194,6 +9395,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::LimitExceededException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::RegisterGameServer
@@ -9294,6 +9498,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::RequestUploadCredentials
@@ -9376,6 +9583,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -9498,6 +9708,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -9805,6 +10018,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::TerminalRoutingStrategyException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::SearchGameSessions
@@ -9922,6 +10138,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -10123,6 +10342,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -10328,6 +10550,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::StartMatchBackfill
@@ -10504,6 +10729,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::StartMatchmaking
@@ -10627,6 +10855,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::StopFleetActions
@@ -10741,6 +10972,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::StopGameSessionPlacement
@@ -10837,6 +11071,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -10969,6 +11206,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -11105,6 +11345,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::TagResource
@@ -11234,6 +11477,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::TaggingFailedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UntagResource
@@ -11346,6 +11592,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UpdateAlias
@@ -11450,6 +11699,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -11591,6 +11843,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -11744,6 +11999,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::ConflictException, Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UpdateFleetCapacity
@@ -11860,6 +12118,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -12006,6 +12267,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -12181,6 +12445,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UpdateGameServerGroup
@@ -12318,6 +12585,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::NotFoundException, Errors::InvalidGameSessionStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -12488,6 +12758,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -12701,6 +12974,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::NotFoundException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UpdateMatchmakingConfiguration
@@ -12828,6 +13104,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidFleetStatusException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
@@ -12967,6 +13246,9 @@ module AWS::SDK::GameLift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::UnauthorizedException, Errors::InternalServiceException, Errors::InvalidRequestException]),
         data_parser: Parsers::UpdateScript
@@ -13062,6 +13344,9 @@ module AWS::SDK::GameLift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedRegionException, Errors::InternalServiceException, Errors::InvalidRequestException]),

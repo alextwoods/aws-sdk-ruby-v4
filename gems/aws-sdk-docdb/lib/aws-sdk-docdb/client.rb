@@ -113,6 +113,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SourceNotFoundFault, Errors::SubscriptionNotFoundFault]),
         data_parser: Parsers::AddSourceIdentifierToSubscription
@@ -193,6 +196,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault, Errors::DBClusterNotFoundFault]),
@@ -304,6 +310,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault]),
@@ -425,6 +434,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupQuotaExceededFault, Errors::DBParameterGroupAlreadyExistsFault, Errors::DBParameterGroupNotFoundFault]),
@@ -633,6 +645,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::SnapshotQuotaExceededFault, Errors::KMSKeyNotAccessibleFault]),
@@ -932,6 +947,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGlobalClusterStateFault, Errors::DBClusterAlreadyExistsFault, Errors::DBClusterQuotaExceededFault, Errors::InvalidDBClusterStateFault, Errors::InvalidVPCNetworkStateFault, Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault, Errors::DBSubnetGroupNotFoundFault, Errors::GlobalClusterNotFoundFault, Errors::InvalidDBSubnetGroupStateFault, Errors::InvalidSubnet, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBClusterNotFoundFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::InsufficientStorageClusterCapacityFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault]),
         data_parser: Parsers::CreateDBCluster
@@ -1049,6 +1067,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupQuotaExceededFault, Errors::DBParameterGroupAlreadyExistsFault]),
@@ -1175,6 +1196,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::SnapshotQuotaExceededFault, Errors::DBClusterNotFoundFault]),
@@ -1397,6 +1421,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSecurityGroupNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidVPCNetworkStateFault, Errors::InstanceQuotaExceededFault, Errors::StorageTypeNotSupportedFault, Errors::AuthorizationNotFoundFault, Errors::DBSubnetGroupNotFoundFault, Errors::InvalidSubnet, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBParameterGroupNotFoundFault, Errors::DBClusterNotFoundFault, Errors::InsufficientDBInstanceCapacityFault, Errors::DBInstanceAlreadyExistsFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault]),
         data_parser: Parsers::CreateDBInstance
@@ -1500,6 +1527,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSubnet, Errors::DBSubnetQuotaExceededFault, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBSubnetGroupQuotaExceededFault, Errors::DBSubnetGroupAlreadyExistsFault]),
@@ -1646,6 +1676,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SNSInvalidTopicFault, Errors::SNSTopicArnNotFoundFault, Errors::SubscriptionAlreadyExistFault, Errors::SubscriptionCategoryNotFoundFault, Errors::SourceNotFoundFault, Errors::EventSubscriptionQuotaExceededFault, Errors::SNSNoAuthorizationFault]),
         data_parser: Parsers::CreateEventSubscription
@@ -1758,6 +1791,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlobalClusterAlreadyExistsFault, Errors::InvalidDBClusterStateFault, Errors::DBClusterNotFoundFault, Errors::GlobalClusterQuotaExceededFault]),
@@ -1908,6 +1944,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::SnapshotQuotaExceededFault, Errors::DBClusterNotFoundFault]),
         data_parser: Parsers::DeleteDBCluster
@@ -1987,6 +2026,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault, Errors::InvalidDBParameterGroupStateFault]),
@@ -2078,6 +2120,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidDBClusterSnapshotStateFault]),
@@ -2220,6 +2265,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault, Errors::SnapshotQuotaExceededFault, Errors::DBSnapshotAlreadyExistsFault]),
         data_parser: Parsers::DeleteDBInstance
@@ -2298,6 +2346,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBSubnetStateFault, Errors::DBSubnetGroupNotFoundFault, Errors::InvalidDBSubnetGroupStateFault]),
@@ -2379,6 +2430,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidEventSubscriptionStateFault, Errors::SubscriptionNotFoundFault]),
@@ -2466,6 +2520,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGlobalClusterStateFault, Errors::GlobalClusterNotFoundFault]),
@@ -2579,6 +2636,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CertificateNotFoundFault]),
         data_parser: Parsers::DescribeCertificates
@@ -2685,6 +2745,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
@@ -2804,6 +2867,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::DescribeDBClusterParameters
@@ -2881,6 +2947,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault]),
@@ -3050,6 +3119,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault]),
         data_parser: Parsers::DescribeDBClusterSnapshots
@@ -3209,6 +3281,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault]),
         data_parser: Parsers::DescribeDBClusters
@@ -3349,6 +3424,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3529,6 +3607,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault]),
         data_parser: Parsers::DescribeDBInstances
@@ -3636,6 +3717,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSubnetGroupNotFoundFault]),
@@ -3747,6 +3831,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEngineDefaultClusterParameters
@@ -3833,6 +3920,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3943,6 +4033,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault]),
@@ -4099,6 +4192,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEvents
@@ -4207,6 +4303,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlobalClusterNotFoundFault]),
@@ -4332,6 +4431,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeOrderableDBInstanceOptions
@@ -4453,6 +4555,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -4582,6 +4687,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterNotFoundFault]),
         data_parser: Parsers::FailoverDBCluster
@@ -4665,6 +4773,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault, Errors::DBClusterNotFoundFault]),
@@ -4915,6 +5026,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBSecurityGroupStateFault, Errors::InvalidSubnet, Errors::DBClusterAlreadyExistsFault, Errors::InvalidDBClusterStateFault, Errors::InvalidVPCNetworkStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterNotFoundFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::StorageQuotaExceededFault, Errors::DBSubnetGroupNotFoundFault, Errors::InvalidDBSubnetGroupStateFault]),
         data_parser: Parsers::ModifyDBCluster
@@ -5019,6 +5133,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault, Errors::InvalidDBParameterGroupStateFault]),
         data_parser: Parsers::ModifyDBClusterParameterGroup
@@ -5111,6 +5228,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault, Errors::SharedSnapshotQuotaExceededFault, Errors::InvalidDBClusterSnapshotStateFault]),
@@ -5336,6 +5456,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBSecurityGroupStateFault, Errors::DBSecurityGroupNotFoundFault, Errors::InvalidVPCNetworkStateFault, Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault, Errors::StorageTypeNotSupportedFault, Errors::AuthorizationNotFoundFault, Errors::DBParameterGroupNotFoundFault, Errors::InsufficientDBInstanceCapacityFault, Errors::DBInstanceAlreadyExistsFault, Errors::DBUpgradeDependencyFailureFault, Errors::StorageQuotaExceededFault, Errors::CertificateNotFoundFault]),
         data_parser: Parsers::ModifyDBInstance
@@ -5428,6 +5551,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubnetAlreadyInUse, Errors::InvalidSubnet, Errors::DBSubnetQuotaExceededFault, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBSubnetGroupNotFoundFault]),
@@ -5531,6 +5657,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SNSInvalidTopicFault, Errors::SNSTopicArnNotFoundFault, Errors::SubscriptionCategoryNotFoundFault, Errors::EventSubscriptionQuotaExceededFault, Errors::SNSNoAuthorizationFault, Errors::SubscriptionNotFoundFault]),
@@ -5641,6 +5770,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGlobalClusterStateFault, Errors::GlobalClusterNotFoundFault]),
@@ -5794,6 +5926,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault]),
         data_parser: Parsers::RebootDBInstance
@@ -5885,6 +6020,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGlobalClusterStateFault, Errors::DBClusterNotFoundFault, Errors::GlobalClusterNotFoundFault]),
         data_parser: Parsers::RemoveFromGlobalCluster
@@ -5973,6 +6111,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SourceNotFoundFault, Errors::SubscriptionNotFoundFault]),
         data_parser: Parsers::RemoveSourceIdentifierFromSubscription
@@ -6047,6 +6188,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault, Errors::DBClusterNotFoundFault]),
@@ -6149,6 +6293,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault, Errors::InvalidDBParameterGroupStateFault]),
@@ -6366,6 +6513,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterAlreadyExistsFault, Errors::DBClusterQuotaExceededFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::InvalidVPCNetworkStateFault, Errors::InsufficientDBClusterCapacityFault, Errors::DBSubnetGroupNotFoundFault, Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidSubnet, Errors::InvalidDBSnapshotStateFault, Errors::InvalidRestoreFault, Errors::DBSnapshotNotFoundFault, Errors::InsufficientStorageClusterCapacityFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault]),
@@ -6595,6 +6745,9 @@ module AWS::SDK::DocDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterAlreadyExistsFault, Errors::DBClusterQuotaExceededFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::InvalidVPCNetworkStateFault, Errors::InsufficientDBClusterCapacityFault, Errors::DBSubnetGroupNotFoundFault, Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidSubnet, Errors::InvalidDBSnapshotStateFault, Errors::InvalidRestoreFault, Errors::DBClusterNotFoundFault, Errors::InsufficientStorageClusterCapacityFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault]),
         data_parser: Parsers::RestoreDBClusterToPointInTime
@@ -6712,6 +6865,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterNotFoundFault]),
@@ -6831,6 +6987,9 @@ module AWS::SDK::DocDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterNotFoundFault]),

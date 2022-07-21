@@ -93,6 +93,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::AssociateChannelFlow
@@ -190,6 +193,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -300,6 +306,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -433,6 +442,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::CreateChannel
@@ -523,6 +535,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -646,6 +661,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -772,6 +790,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::CreateChannelMembership
@@ -876,6 +897,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::CreateChannelModerator
@@ -953,6 +977,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -1035,6 +1062,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DeleteChannelBan
@@ -1105,6 +1135,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -1186,6 +1219,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -1270,6 +1306,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DeleteChannelMessage
@@ -1350,6 +1389,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -1443,6 +1485,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeChannel
@@ -1532,6 +1577,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeChannelBan
@@ -1612,6 +1660,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -1701,6 +1752,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -1795,6 +1849,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeChannelMembershipForAppInstanceUser
@@ -1885,6 +1942,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeChannelModeratedByAppInstanceUser
@@ -1972,6 +2032,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeChannelModerator
@@ -2051,6 +2114,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -2136,6 +2202,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -2238,6 +2307,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -2353,6 +2425,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::GetChannelMessageStatus
@@ -2416,6 +2491,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -2509,6 +2587,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListChannelBans
@@ -2597,6 +2678,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -2701,6 +2785,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListChannelMemberships
@@ -2800,6 +2887,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -2925,6 +3015,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListChannelMessages
@@ -3016,6 +3109,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -3132,6 +3228,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListChannels
@@ -3214,6 +3313,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -3311,6 +3413,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListChannelsModeratedByAppInstanceUser
@@ -3381,6 +3486,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -3477,6 +3585,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::PutChannelMembershipPreferences
@@ -3560,6 +3671,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -3658,6 +3772,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -3783,6 +3900,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::SendChannelMessage
@@ -3860,6 +3980,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ResourceLimitExceededException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
         data_parser: Parsers::TagResource
@@ -3933,6 +4056,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException]),
@@ -4026,6 +4152,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::UpdateChannel
@@ -4114,6 +4243,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
@@ -4210,6 +4342,9 @@ module AWS::SDK::ChimeSDKMessaging
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),
         data_parser: Parsers::UpdateChannelMessage
@@ -4287,6 +4422,9 @@ module AWS::SDK::ChimeSDKMessaging
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedClientException, Errors::ForbiddenException, Errors::ThrottledClientException, Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::ServiceFailureException, Errors::ConflictException]),

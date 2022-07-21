@@ -83,6 +83,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceInUseException, Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::CancelJob
@@ -406,6 +409,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -806,6 +812,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::CreatePipeline
@@ -1019,6 +1028,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::CreatePreset
@@ -1089,6 +1101,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceInUseException, Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::DeletePipeline
@@ -1158,6 +1173,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -1351,6 +1369,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -1547,6 +1568,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::ListJobsByStatus
@@ -1646,6 +1670,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -1778,6 +1805,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -1957,6 +1987,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::ReadJob
@@ -2051,6 +2084,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -2174,6 +2210,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::ReadPreset
@@ -2265,6 +2304,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
@@ -2637,6 +2679,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException, Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::UpdatePipeline
@@ -2768,6 +2813,9 @@ module AWS::SDK::ElasticTranscoder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException, Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),
         data_parser: Parsers::UpdatePipelineNotifications
@@ -2878,6 +2926,9 @@ module AWS::SDK::ElasticTranscoder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException, Errors::IncompatibleVersionException, Errors::ValidationException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServiceException]),

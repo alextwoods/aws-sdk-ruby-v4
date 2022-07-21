@@ -80,6 +80,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::AcceptGrant
@@ -151,6 +154,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ValidationException]),
@@ -267,6 +273,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntitlementNotAllowedException, Errors::NoEntitlementsAllowedException, Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::UnsupportedDigitalSignatureMethodException, Errors::AccessDeniedException, Errors::ValidationException]),
         data_parser: Parsers::CheckoutBorrowLicense
@@ -377,6 +386,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoEntitlementsAllowedException, Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::UnsupportedDigitalSignatureMethodException, Errors::AccessDeniedException, Errors::ValidationException]),
         data_parser: Parsers::CheckoutLicense
@@ -471,6 +483,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -568,6 +583,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -710,6 +728,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -871,6 +892,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException]),
         data_parser: Parsers::CreateLicenseConfiguration
@@ -949,6 +973,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -1064,6 +1091,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -1211,6 +1241,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ValidationException]),
         data_parser: Parsers::CreateLicenseVersion
@@ -1308,6 +1341,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::CreateToken
@@ -1387,6 +1423,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::DeleteGrant
@@ -1461,6 +1500,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ValidationException]),
         data_parser: Parsers::DeleteLicense
@@ -1529,6 +1571,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -1600,6 +1645,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::DeleteLicenseManagerReportGenerator
@@ -1667,6 +1715,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::RateLimitExceededException, Errors::RedirectException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -1741,6 +1792,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -1817,6 +1871,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -1901,6 +1958,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -2010,6 +2070,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
         data_parser: Parsers::GetLicense
@@ -2113,6 +2176,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetLicenseConfiguration
@@ -2190,6 +2256,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -2283,6 +2352,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::GetLicenseManagerReportGenerator
@@ -2358,6 +2430,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
         data_parser: Parsers::GetLicenseUsage
@@ -2426,6 +2501,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -2513,6 +2591,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FilterLimitExceededException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -2644,6 +2725,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::ListDistributedGrants
@@ -2733,6 +2817,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -2876,6 +2963,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FilterLimitExceededException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListLicenseConfigurations
@@ -2973,6 +3063,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -3090,6 +3183,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::ListLicenseManagerReportGenerators
@@ -3170,6 +3266,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -3284,6 +3383,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -3434,6 +3536,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
         data_parser: Parsers::ListLicenses
@@ -3563,6 +3668,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -3723,6 +3831,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::ListReceivedLicenses
@@ -3852,6 +3963,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FilterLimitExceededException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::FailedDependencyException]),
         data_parser: Parsers::ListResourceInventory
@@ -3923,6 +4037,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -4031,6 +4148,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ValidationException]),
@@ -4148,6 +4268,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FilterLimitExceededException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListUsageForLicenseConfiguration
@@ -4218,6 +4341,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
@@ -4296,6 +4422,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
         data_parser: Parsers::TagResource
@@ -4369,6 +4498,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),
@@ -4483,6 +4615,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException]),
         data_parser: Parsers::UpdateLicenseConfiguration
@@ -4593,6 +4728,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::ResourceLimitExceededException, Errors::ValidationException]),
         data_parser: Parsers::UpdateLicenseManagerReportGenerator
@@ -4676,6 +4814,9 @@ module AWS::SDK::LicenseManager
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException, Errors::InvalidResourceStateException, Errors::LicenseUsageException]),
         data_parser: Parsers::UpdateLicenseSpecificationsForResource
@@ -4757,6 +4898,9 @@ module AWS::SDK::LicenseManager
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::RateLimitExceededException, Errors::ServerInternalException, Errors::AuthorizationException, Errors::AccessDeniedException]),

@@ -2,18 +2,35 @@ package software.amazon.smithy.aws.ruby.codegen;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
+
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.KnowledgeIndex;
+import software.amazon.smithy.model.knowledge.ServiceIndex;
+import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
+import software.amazon.smithy.ruby.codegen.ClientFragment;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
 import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
+import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.middleware.Middleware;
 
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareBuilder;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
 
-public class Credentials implements RubyIntegration {
+public class Sigv4Auth implements RubyIntegration {
+
+    private static final Logger LOGGER =
+            Logger.getLogger(Sigv4Auth.class.getName());
+
+    @Override
+    public boolean includeFor(ServiceShape service, Model model) {
+        return new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
+    }
 
     @Override
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
@@ -61,40 +78,25 @@ public class Credentials implements RubyIntegration {
                 .defaultValue("*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
-        String regionDocumentation = """
-                The AWS region to connect to. The configured `:region` is
-                used to determine the service `:endpoint`. When not passed,
-                a default `:region` is searched for in the following locations:
-                                
-                * `ENV['AWS_REGION']`
-                * `~/.aws/credentials` and `~/.aws/config`
-                """;
+        SigV4Trait sigV4Trait = (SigV4Trait) new ServiceIndex(context.model())
+                .getAuthSchemes(context.service()).get(SigV4Trait.ID);
 
-        // TODO: We need a client config builder because region is shared
-        ClientConfig region = (new ClientConfig.Builder())
-                .name("region")
-                .type("String")
-                .documentation(regionDocumentation)
-                .defaults(new ConfigProviderChain.Builder()
-                        .envProvider("AWS_REGION", "String")
-                        .sharedConfigProvider("region", "String")
-                        .staticProvider("nil")
-                        .build())
-                .defaultValue("nil")
-                .build();
-
-        String serviceName = context.settings().getService().getName();
-        String signerInstance = "AWS::SigV4::Signer.new("
-                + "service: '" + serviceName + "',"
-                + "region: cfg[:region],"
-                + "credential_provider: cfg[:credential_provider]" + ")";
+        ClientFragment initializeSigner = new ClientFragment.Builder()
+                .addConfig(credentialProvider)
+                .addConfig(AWSConfig.REGION)
+                .render( (f, c) -> {
+                    return "AWS::SigV4::Signer.new("
+                            + "service: '" + sigV4Trait.getName() + "', "
+                            + "region: cfg[:region], "
+                            + "credential_provider: cfg[:credential_provider]" + ")";
+                }).build();
 
         ClientConfig signer = (new ClientConfig.Builder()
                 .name("signer")
                 .type("AWS::SigV4::Signer")
                 .documentation("An instance of SigV4 signer used to sign requests.")
                 .defaults(new ConfigProviderChain.Builder()
-                        .dynamicProvider(signerInstance)
+                        .dynamicProvider(initializeSigner)
                         .build()))
                 .build();
 
@@ -112,8 +114,7 @@ public class Credentials implements RubyIntegration {
                 })
                 .klass("AWS::SDK::Core::Middleware::Signer")
                 .step(MiddlewareStackStep.FINALIZE)
-                //.addConfig(credentialProvider)
-                //.addConfig(region)
+                .addConfig(signer)
                 .build();
 
         middlewareBuilder.register(signatureV4);

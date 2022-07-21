@@ -89,6 +89,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::CancelImageCreation
@@ -236,6 +239,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::InvalidParameterCombinationException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::InvalidVersionNumberException, Errors::ServiceException, Errors::ResourceInUseException]),
@@ -416,6 +422,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::ResourceAlreadyExistsException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::InvalidVersionNumberException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateContainerRecipe
@@ -567,6 +576,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::ResourceAlreadyExistsException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::InvalidParameterCombinationException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateDistributionConfiguration
@@ -677,6 +689,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
@@ -807,6 +822,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::ResourceAlreadyExistsException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
@@ -968,6 +986,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::ResourceAlreadyExistsException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::InvalidVersionNumberException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateImageRecipe
@@ -1119,6 +1140,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::ResourceAlreadyExistsException, Errors::InvalidRequestException, Errors::ServiceQuotaExceededException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateInfrastructureConfiguration
@@ -1187,6 +1211,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
@@ -1257,6 +1284,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
         data_parser: Parsers::DeleteContainerRecipe
@@ -1325,6 +1355,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
@@ -1415,6 +1448,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
         data_parser: Parsers::DeleteImage
@@ -1483,6 +1519,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
@@ -1553,6 +1592,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
         data_parser: Parsers::DeleteImageRecipe
@@ -1621,6 +1663,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ResourceDependencyException, Errors::ServiceException]),
@@ -1718,6 +1763,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::GetComponent
@@ -1786,6 +1834,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ServiceException]),
@@ -1898,6 +1949,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::GetContainerRecipe
@@ -1966,6 +2020,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ServiceException]),
@@ -2091,6 +2148,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -2331,6 +2391,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::GetImage
@@ -2423,6 +2486,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::GetImagePipeline
@@ -2491,6 +2557,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ServiceException]),
@@ -2599,6 +2668,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::GetImageRecipe
@@ -2667,6 +2739,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ServiceException]),
@@ -2762,6 +2837,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -2895,6 +2973,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::InvalidParameterCombinationException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::InvalidVersionNumberException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::ImportComponent
@@ -3021,6 +3102,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ImportVmImage
@@ -3126,6 +3210,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -3277,6 +3364,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListComponents
@@ -3399,6 +3489,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListContainerRecipes
@@ -3495,6 +3588,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -3643,6 +3739,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListImageBuildVersions
@@ -3724,6 +3823,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -3856,6 +3958,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -4000,6 +4105,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListImagePipelines
@@ -4119,6 +4227,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -4259,6 +4370,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListImages
@@ -4359,6 +4473,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::InvalidPaginationTokenException, Errors::ForbiddenException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::ListInfrastructureConfigurations
@@ -4427,6 +4544,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -4504,6 +4624,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::PutComponentPolicy
@@ -4577,6 +4700,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
@@ -4654,6 +4780,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::PutImagePolicy
@@ -4730,6 +4859,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException]),
         data_parser: Parsers::PutImageRecipePolicy
@@ -4805,6 +4937,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::StartImagePipelineExecution
@@ -4879,6 +5014,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::ServiceException]),
         data_parser: Parsers::TagResource
@@ -4951,6 +5089,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -5100,6 +5241,9 @@ module AWS::SDK::Imagebuilder
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::InvalidParameterCombinationException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateDistributionConfiguration
@@ -5228,6 +5372,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),
@@ -5393,6 +5540,9 @@ module AWS::SDK::Imagebuilder
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CallRateLimitExceededException, Errors::InvalidRequestException, Errors::ForbiddenException, Errors::IdempotentParameterMismatchException, Errors::ServiceUnavailableException, Errors::ClientException, Errors::ServiceException, Errors::ResourceInUseException]),

@@ -231,6 +231,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidPolicyException, Errors::InvalidTagException, Errors::InvalidArgsException]),
         data_parser: Parsers::CreateCertificateAuthority
@@ -326,6 +329,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::RequestInProgressException, Errors::ResourceNotFoundException, Errors::InvalidArgsException]),
@@ -443,6 +449,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::PermissionAlreadyExistsException]),
         data_parser: Parsers::CreatePermission
@@ -538,6 +547,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
@@ -650,6 +662,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeletePermission
@@ -754,6 +769,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::LockoutPreventedException, Errors::ResourceNotFoundException]),
@@ -941,6 +959,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeCertificateAuthority
@@ -1023,6 +1044,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::ResourceNotFoundException, Errors::InvalidArgsException]),
@@ -1114,6 +1138,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::RequestInProgressException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetCertificate
@@ -1191,6 +1218,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetCertificateAuthorityCertificate
@@ -1267,6 +1297,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::RequestInProgressException, Errors::ResourceNotFoundException]),
@@ -1369,6 +1402,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
@@ -1582,6 +1618,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::CertificateMismatchException, Errors::InvalidRequestException, Errors::RequestInProgressException, Errors::ResourceNotFoundException, Errors::MalformedCertificateException]),
@@ -1838,6 +1877,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidStateException, Errors::MalformedCSRException, Errors::InvalidArnException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::InvalidArgsException]),
         data_parser: Parsers::IssueCertificate
@@ -1997,6 +2039,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException]),
         data_parser: Parsers::ListCertificateAuthorities
@@ -2118,6 +2163,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException, Errors::InvalidNextTokenException]),
         data_parser: Parsers::ListPermissions
@@ -2210,6 +2258,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
@@ -2320,6 +2371,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::LockoutPreventedException, Errors::ResourceNotFoundException, Errors::InvalidPolicyException]),
         data_parser: Parsers::PutPolicy
@@ -2401,6 +2455,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException]),
@@ -2512,6 +2569,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::RequestFailedException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::RequestAlreadyProcessedException, Errors::InvalidRequestException, Errors::LimitExceededException, Errors::RequestInProgressException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::RevokeCertificate
@@ -2600,6 +2660,9 @@ module AWS::SDK::ACMPCA
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyTagsException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException, Errors::InvalidTagException]),
         data_parser: Parsers::TagCertificateAuthority
@@ -2684,6 +2747,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException, Errors::InvalidTagException]),
@@ -2790,6 +2856,9 @@ module AWS::SDK::ACMPCA
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidStateException, Errors::InvalidArnException, Errors::ResourceNotFoundException, Errors::InvalidPolicyException, Errors::InvalidArgsException]),

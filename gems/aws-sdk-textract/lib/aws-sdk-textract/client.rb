@@ -203,6 +203,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::HumanLoopQuotaExceededException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::UnsupportedDocumentException, Errors::InternalServerError]),
         data_parser: Parsers::AnalyzeDocument
@@ -339,6 +342,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::UnsupportedDocumentException, Errors::InternalServerError]),
         data_parser: Parsers::AnalyzeExpense
@@ -433,6 +439,9 @@ module AWS::SDK::Textract
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::UnsupportedDocumentException, Errors::InternalServerError]),
@@ -560,6 +569,9 @@ module AWS::SDK::Textract
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::UnsupportedDocumentException, Errors::InternalServerError]),
@@ -734,6 +746,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InvalidJobIdException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::GetDocumentAnalysis
@@ -884,6 +899,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InvalidJobIdException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::GetDocumentTextDetection
@@ -1019,6 +1037,9 @@ module AWS::SDK::Textract
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InvalidJobIdException, Errors::ThrottlingException, Errors::ProvisionedThroughputExceededException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError]),
@@ -1176,6 +1197,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError, Errors::LimitExceededException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::UnsupportedDocumentException]),
         data_parser: Parsers::StartDocumentAnalysis
@@ -1306,6 +1330,9 @@ module AWS::SDK::Textract
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError, Errors::LimitExceededException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::UnsupportedDocumentException]),
         data_parser: Parsers::StartDocumentTextDetection
@@ -1434,6 +1461,9 @@ module AWS::SDK::Textract
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::BadDocumentException, Errors::ThrottlingException, Errors::InvalidKMSKeyException, Errors::InvalidS3ObjectException, Errors::InvalidParameterException, Errors::InternalServerError, Errors::LimitExceededException, Errors::ProvisionedThroughputExceededException, Errors::DocumentTooLargeException, Errors::UnsupportedDocumentException]),

@@ -185,6 +185,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::ConflictException]),
         data_parser: Parsers::CreateConnector
@@ -275,6 +278,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::ConflictException]),
         data_parser: Parsers::CreateCustomPlugin
@@ -358,6 +364,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException, Errors::ConflictException]),
         data_parser: Parsers::CreateWorkerConfiguration
@@ -431,6 +440,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::DeleteConnector
@@ -499,6 +511,9 @@ module AWS::SDK::KafkaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
@@ -623,6 +638,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::DescribeConnector
@@ -711,6 +729,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::DescribeCustomPlugin
@@ -787,6 +808,9 @@ module AWS::SDK::KafkaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
@@ -921,6 +945,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListConnectors
@@ -1015,6 +1042,9 @@ module AWS::SDK::KafkaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListCustomPlugins
@@ -1098,6 +1128,9 @@ module AWS::SDK::KafkaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
@@ -1192,6 +1225,9 @@ module AWS::SDK::KafkaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ServiceUnavailableException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),

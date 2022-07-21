@@ -115,6 +115,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AddFacetToObject
@@ -191,6 +194,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::SchemaAlreadyExistsException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -285,6 +291,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::LinkNameAlreadyInUseException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AttachObject
@@ -365,6 +374,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotPolicyException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AttachPolicy
@@ -443,6 +455,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::LimitExceededException, Errors::NotIndexException, Errors::IndexedAttributeMissingException, Errors::LinkNameAlreadyInUseException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -560,6 +575,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -828,6 +846,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException]),
         data_parser: Parsers::BatchRead
@@ -1034,6 +1055,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::BatchWriteException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException]),
         data_parser: Parsers::BatchWrite
@@ -1114,6 +1138,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryAlreadyExistsException, Errors::ResourceNotFoundException]),
@@ -1252,6 +1279,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::FacetAlreadyExistsException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::InvalidRuleException]),
         data_parser: Parsers::CreateFacet
@@ -1346,6 +1376,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::LinkNameAlreadyInUseException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::UnsupportedIndexTypeException, Errors::ResourceNotFoundException]),
@@ -1460,6 +1493,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::LinkNameAlreadyInUseException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::UnsupportedIndexTypeException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::CreateObject
@@ -1549,6 +1585,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::SchemaAlreadyExistsException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException]),
@@ -1654,6 +1693,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::FacetAlreadyExistsException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::InvalidRuleException]),
         data_parser: Parsers::CreateTypedLinkFacet
@@ -1723,6 +1765,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::DirectoryNotDisabledException, Errors::LimitExceededException, Errors::ValidationException, Errors::DirectoryDeletedException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -1798,6 +1843,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::FacetInUseException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -1875,6 +1923,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ObjectNotDetachedException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DeleteObject
@@ -1943,6 +1994,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::StillContainsLinksException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -2016,6 +2070,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -2095,6 +2152,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::ObjectAlreadyDetachedException, Errors::NotIndexException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -2178,6 +2238,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::NotNodeException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DetachObject
@@ -2255,6 +2318,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotPolicyException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -2350,6 +2416,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DetachTypedLink
@@ -2418,6 +2487,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::DirectoryDeletedException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -2488,6 +2560,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::DirectoryDeletedException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::EnableDirectory
@@ -2556,6 +2631,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -2628,6 +2706,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException]),
@@ -2706,6 +2787,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -2822,6 +2906,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetLinkAttributes
@@ -2925,6 +3012,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetObjectAttributes
@@ -3008,6 +3098,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetObjectInformation
@@ -3076,6 +3169,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -3151,6 +3247,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -3234,6 +3333,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -3337,6 +3439,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListAttachedIndices
@@ -3412,6 +3517,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -3496,6 +3604,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException]),
@@ -3599,6 +3710,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListFacetAttributes
@@ -3677,6 +3791,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -3815,6 +3932,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListIncomingTypedLinks
@@ -3941,6 +4061,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::NotIndexException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListIndex
@@ -4019,6 +4142,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::AccessDeniedException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -4131,6 +4257,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListObjectAttributes
@@ -4224,6 +4353,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::NotNodeException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -4320,6 +4452,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -4423,6 +4558,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CannotListParentOfRootException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListObjectParents
@@ -4514,6 +4652,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
@@ -4652,6 +4793,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListOutgoingTypedLinks
@@ -4744,6 +4888,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotPolicyException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListPolicyAttachments
@@ -4822,6 +4969,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -4908,6 +5058,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidTaggingRequestException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -5008,6 +5161,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListTypedLinkFacetAttributes
@@ -5088,6 +5244,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -5187,6 +5346,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidNextTokenException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::LookupPolicy
@@ -5270,6 +5432,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::SchemaAlreadyPublishedException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::PublishSchema
@@ -5342,6 +5507,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidSchemaDocException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::InvalidRuleException]),
@@ -5424,6 +5592,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::RemoveFacetFromObject
@@ -5502,6 +5673,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidTaggingRequestException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::TagResource
@@ -5576,6 +5750,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidTaggingRequestException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -5703,6 +5880,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidFacetUpdateException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::InvalidRuleException]),
         data_parser: Parsers::UpdateFacet
@@ -5811,6 +5991,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateLinkAttributes
@@ -5910,6 +6093,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetValidationException, Errors::LinkNameAlreadyInUseException, Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::DirectoryNotEnabledException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateObjectAttributes
@@ -5984,6 +6170,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException]),
@@ -6099,6 +6288,9 @@ module AWS::SDK::CloudDirectory
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FacetNotFoundException, Errors::FacetValidationException, Errors::InvalidArnException, Errors::InvalidFacetUpdateException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::InvalidRuleException]),
         data_parser: Parsers::UpdateTypedLinkFacet
@@ -6176,6 +6368,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::SchemaAlreadyExistsException, Errors::AccessDeniedException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::IncompatibleSchemaException]),
@@ -6257,6 +6452,9 @@ module AWS::SDK::CloudDirectory
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::RetryableConflictException, Errors::AccessDeniedException, Errors::LimitExceededException, Errors::ValidationException, Errors::InvalidAttachmentException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::IncompatibleSchemaException]),

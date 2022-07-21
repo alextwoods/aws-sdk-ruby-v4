@@ -104,6 +104,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBClusterRoleQuotaExceededFault, Errors::InvalidDBClusterStateFault, Errors::DBClusterRoleAlreadyExistsFault]),
         data_parser: Parsers::AddRoleToDBCluster
@@ -209,6 +212,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault, Errors::SourceNotFoundFault]),
         data_parser: Parsers::AddSourceIdentifierToSubscription
@@ -289,6 +295,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault]),
@@ -397,6 +406,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -522,6 +534,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupAlreadyExistsFault, Errors::DBParameterGroupQuotaExceededFault, Errors::DBParameterGroupNotFoundFault]),
@@ -684,6 +699,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterSnapshotStateFault, Errors::SnapshotQuotaExceededFault, Errors::KMSKeyNotAccessibleFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::InvalidDBClusterStateFault, Errors::DBClusterSnapshotNotFoundFault]),
         data_parser: Parsers::CopyDBClusterSnapshot
@@ -805,6 +823,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupAlreadyExistsFault, Errors::DBParameterGroupQuotaExceededFault, Errors::DBParameterGroupNotFoundFault]),
@@ -1156,6 +1177,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InsufficientStorageClusterCapacityFault, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::GlobalClusterNotFoundFault, Errors::DBSubnetGroupNotFoundFault, Errors::InvalidDBSubnetGroupStateFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault, Errors::InvalidVPCNetworkStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::InvalidSubnet, Errors::DBInstanceNotFoundFault, Errors::InvalidGlobalClusterStateFault, Errors::DBClusterAlreadyExistsFault, Errors::InvalidDBClusterStateFault, Errors::DBClusterQuotaExceededFault]),
         data_parser: Parsers::CreateDBCluster
@@ -1263,6 +1287,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBInstanceNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::DBClusterEndpointQuotaExceededFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterEndpointAlreadyExistsFault]),
@@ -1390,6 +1417,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupAlreadyExistsFault, Errors::DBParameterGroupQuotaExceededFault]),
         data_parser: Parsers::CreateDBClusterParameterGroup
@@ -1516,6 +1546,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::SnapshotQuotaExceededFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::InvalidDBClusterStateFault]),
@@ -1995,6 +2028,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InstanceQuotaExceededFault, Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBSubnetGroupNotFoundFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault, Errors::InvalidVPCNetworkStateFault, Errors::OptionGroupNotFoundFault, Errors::DBInstanceAlreadyExistsFault, Errors::InvalidSubnet, Errors::InsufficientDBInstanceCapacityFault, Errors::DomainNotFoundFault, Errors::ProvisionedIopsNotAvailableInAZFault, Errors::DBSecurityGroupNotFoundFault, Errors::StorageTypeNotSupportedFault, Errors::InvalidDBClusterStateFault, Errors::AuthorizationNotFoundFault, Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::CreateDBInstance
@@ -2123,6 +2159,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupAlreadyExistsFault, Errors::DBParameterGroupQuotaExceededFault]),
         data_parser: Parsers::CreateDBParameterGroup
@@ -2226,6 +2265,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBSubnetGroupQuotaExceededFault, Errors::DBSubnetQuotaExceededFault, Errors::DBSubnetGroupAlreadyExistsFault, Errors::InvalidSubnet]),
@@ -2392,6 +2434,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionCategoryNotFoundFault, Errors::SourceNotFoundFault, Errors::SNSInvalidTopicFault, Errors::SubscriptionAlreadyExistFault, Errors::SNSNoAuthorizationFault, Errors::EventSubscriptionQuotaExceededFault, Errors::SNSTopicArnNotFoundFault]),
         data_parser: Parsers::CreateEventSubscription
@@ -2511,6 +2556,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::GlobalClusterQuotaExceededFault, Errors::InvalidDBClusterStateFault, Errors::GlobalClusterAlreadyExistsFault]),
@@ -2686,6 +2734,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::SnapshotQuotaExceededFault, Errors::DBClusterSnapshotAlreadyExistsFault, Errors::InvalidDBClusterStateFault]),
         data_parser: Parsers::DeleteDBCluster
@@ -2764,6 +2815,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterEndpointStateFault, Errors::DBClusterEndpointNotFoundFault, Errors::InvalidDBClusterStateFault]),
@@ -2845,6 +2899,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
@@ -2942,6 +2999,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterSnapshotNotFoundFault]),
@@ -3180,6 +3240,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotQuotaExceededFault, Errors::DBInstanceNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::DBSnapshotAlreadyExistsFault, Errors::InvalidDBInstanceStateFault]),
         data_parser: Parsers::DeleteDBInstance
@@ -3261,6 +3324,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::DeleteDBParameterGroup
@@ -3338,6 +3404,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSubnetGroupNotFoundFault, Errors::InvalidDBSubnetGroupStateFault, Errors::InvalidDBSubnetStateFault]),
@@ -3419,6 +3488,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidEventSubscriptionStateFault, Errors::SubscriptionNotFoundFault]),
@@ -3503,6 +3575,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlobalClusterNotFoundFault, Errors::InvalidGlobalClusterStateFault]),
@@ -3631,6 +3706,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault]),
         data_parser: Parsers::DescribeDBClusterEndpoints
@@ -3739,6 +3817,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
@@ -3858,6 +3939,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::DescribeDBClusterParameters
@@ -3941,6 +4025,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault]),
@@ -4138,6 +4225,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterSnapshotNotFoundFault]),
         data_parser: Parsers::DescribeDBClusterSnapshots
@@ -4322,6 +4412,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault]),
         data_parser: Parsers::DescribeDBClusters
@@ -4475,6 +4568,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4709,6 +4805,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault]),
         data_parser: Parsers::DescribeDBInstances
@@ -4816,6 +4915,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
@@ -4936,6 +5038,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::DescribeDBParameters
@@ -5044,6 +5149,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSubnetGroupNotFoundFault]),
@@ -5156,6 +5264,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEngineDefaultClusterParameters
@@ -5266,6 +5377,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEngineDefaultParameters
@@ -5351,6 +5465,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5462,6 +5579,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault]),
@@ -5626,6 +5746,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEvents
@@ -5731,6 +5854,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlobalClusterNotFoundFault]),
@@ -5871,6 +5997,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeOrderableDBInstanceOptions
@@ -5994,6 +6123,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribePendingMaintenanceActions
@@ -6077,6 +6209,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault]),
@@ -6225,6 +6360,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault]),
         data_parser: Parsers::FailoverDBCluster
@@ -6332,6 +6470,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::GlobalClusterNotFoundFault, Errors::InvalidGlobalClusterStateFault, Errors::InvalidDBClusterStateFault]),
         data_parser: Parsers::FailoverGlobalCluster
@@ -6416,6 +6557,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault]),
@@ -6724,6 +6868,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBSubnetGroupNotFoundFault, Errors::InvalidDBSubnetGroupStateFault, Errors::DBClusterAlreadyExistsFault, Errors::StorageQuotaExceededFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBSecurityGroupStateFault, Errors::InvalidVPCNetworkStateFault, Errors::InvalidDBInstanceStateFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::InvalidSubnet]),
         data_parser: Parsers::ModifyDBCluster
@@ -6817,6 +6964,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterEndpointStateFault, Errors::DBInstanceNotFoundFault, Errors::DBClusterEndpointNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault]),
@@ -6923,6 +7073,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
@@ -7038,6 +7191,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBClusterSnapshotStateFault, Errors::SharedSnapshotQuotaExceededFault, Errors::DBClusterSnapshotNotFoundFault]),
@@ -7517,6 +7673,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::StorageQuotaExceededFault, Errors::InvalidDBSecurityGroupStateFault, Errors::InvalidVPCNetworkStateFault, Errors::OptionGroupNotFoundFault, Errors::DBInstanceAlreadyExistsFault, Errors::DBUpgradeDependencyFailureFault, Errors::InvalidDBInstanceStateFault, Errors::InsufficientDBInstanceCapacityFault, Errors::CertificateNotFoundFault, Errors::DBInstanceNotFoundFault, Errors::DomainNotFoundFault, Errors::ProvisionedIopsNotAvailableInAZFault, Errors::DBSecurityGroupNotFoundFault, Errors::StorageTypeNotSupportedFault, Errors::AuthorizationNotFoundFault, Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::ModifyDBInstance
@@ -7637,6 +7796,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
         data_parser: Parsers::ModifyDBParameterGroup
@@ -7731,6 +7893,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBSubnetGroupDoesNotCoverEnoughAZs, Errors::DBSubnetGroupNotFoundFault, Errors::DBSubnetQuotaExceededFault, Errors::SubnetAlreadyInUse, Errors::InvalidSubnet]),
@@ -7842,6 +8007,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault, Errors::SubscriptionCategoryNotFoundFault, Errors::SNSInvalidTopicFault, Errors::SNSNoAuthorizationFault, Errors::EventSubscriptionQuotaExceededFault, Errors::SNSTopicArnNotFoundFault]),
@@ -7972,6 +8140,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlobalClusterNotFoundFault, Errors::InvalidGlobalClusterStateFault]),
         data_parser: Parsers::ModifyGlobalCluster
@@ -8098,6 +8269,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterStateFault]),
@@ -8292,6 +8466,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBInstanceNotFoundFault, Errors::InvalidDBInstanceStateFault]),
         data_parser: Parsers::RebootDBInstance
@@ -8384,6 +8561,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::GlobalClusterNotFoundFault, Errors::InvalidGlobalClusterStateFault]),
         data_parser: Parsers::RemoveFromGlobalCluster
@@ -8461,6 +8641,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBClusterRoleNotFoundFault, Errors::InvalidDBClusterStateFault]),
@@ -8549,6 +8732,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault, Errors::SourceNotFoundFault]),
         data_parser: Parsers::RemoveSourceIdentifierFromSubscription
@@ -8624,6 +8810,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::DBInstanceNotFoundFault, Errors::DBSnapshotNotFoundFault]),
@@ -8726,6 +8915,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
@@ -8836,6 +9028,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDBParameterGroupStateFault, Errors::DBParameterGroupNotFoundFault]),
@@ -9110,6 +9305,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InsufficientDBClusterCapacityFault, Errors::InsufficientStorageClusterCapacityFault, Errors::InvalidDBSnapshotStateFault, Errors::DBSubnetGroupNotFoundFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault, Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidVPCNetworkStateFault, Errors::OptionGroupNotFoundFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::InvalidSubnet, Errors::DBSnapshotNotFoundFault, Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterAlreadyExistsFault, Errors::InvalidRestoreFault, Errors::DBClusterQuotaExceededFault]),
@@ -9415,6 +9613,9 @@ module AWS::SDK::Neptune
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InsufficientDBClusterCapacityFault, Errors::InsufficientStorageClusterCapacityFault, Errors::InvalidDBSnapshotStateFault, Errors::DBSubnetGroupNotFoundFault, Errors::KMSKeyNotAccessibleFault, Errors::StorageQuotaExceededFault, Errors::DBClusterSnapshotNotFoundFault, Errors::InvalidVPCNetworkStateFault, Errors::OptionGroupNotFoundFault, Errors::DBClusterParameterGroupNotFoundFault, Errors::InvalidSubnet, Errors::InvalidDBClusterSnapshotStateFault, Errors::DBClusterAlreadyExistsFault, Errors::InvalidDBClusterStateFault, Errors::InvalidRestoreFault, Errors::DBClusterQuotaExceededFault]),
         data_parser: Parsers::RestoreDBClusterToPointInTime
@@ -9543,6 +9744,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault]),
@@ -9676,6 +9880,9 @@ module AWS::SDK::Neptune
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DBClusterNotFoundFault, Errors::InvalidDBClusterStateFault, Errors::InvalidDBInstanceStateFault]),

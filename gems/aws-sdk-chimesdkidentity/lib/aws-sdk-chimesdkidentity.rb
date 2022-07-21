@@ -7,8 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-core'
 require 'hearth'
+require 'aws-sdk-core'
 
 require_relative 'aws-sdk-chimesdkidentity/builders'
 require_relative 'aws-sdk-chimesdkidentity/client'

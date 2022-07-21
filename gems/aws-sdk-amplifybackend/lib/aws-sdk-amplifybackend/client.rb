@@ -90,6 +90,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CloneBackend
@@ -179,6 +182,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -287,6 +293,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -438,6 +447,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateBackendAuth
@@ -513,6 +525,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -609,6 +624,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateBackendStorage
@@ -679,6 +697,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -756,6 +777,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -865,6 +889,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteBackendAPI
@@ -946,6 +973,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1031,6 +1061,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteBackendStorage
@@ -1102,6 +1135,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1185,6 +1221,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GenerateBackendAPIModels
@@ -1264,6 +1303,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1390,6 +1432,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetBackendAPI
@@ -1467,6 +1512,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1599,6 +1647,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetBackendAuth
@@ -1681,6 +1732,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1770,6 +1824,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetBackendStorage
@@ -1844,6 +1901,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1939,6 +1999,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ImportBackendAuth
@@ -2022,6 +2085,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2126,6 +2192,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListBackendJobs
@@ -2198,6 +2267,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2276,6 +2348,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::RemoveAllBackends
@@ -2343,6 +2418,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2451,6 +2529,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2596,6 +2677,9 @@ module AWS::SDK::AmplifyBackend
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateBackendAuth
@@ -2680,6 +2764,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2772,6 +2859,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -2866,6 +2956,9 @@ module AWS::SDK::AmplifyBackend
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GatewayTimeoutException, Errors::NotFoundException, Errors::BadRequestException, Errors::TooManyRequestsException]),

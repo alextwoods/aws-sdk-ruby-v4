@@ -111,6 +111,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::NotOrganizationMasterAccountException, Errors::InvalidTagParameterException, Errors::InvalidTrailNameException, Errors::ResourceNotFoundException, Errors::EventDataStoreNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::TagsLimitExceededException, Errors::UnsupportedOperationException, Errors::ResourceTypeNotSupportedException, Errors::CloudTrailARNInvalidException]),
         data_parser: Parsers::AddTags
@@ -187,6 +190,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::InactiveQueryException, Errors::EventDataStoreNotFoundException, Errors::InvalidParameterException, Errors::QueryIdNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException]),
@@ -327,6 +333,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::NotOrganizationMasterAccountException, Errors::EventDataStoreAlreadyExistsException, Errors::InvalidTagParameterException, Errors::OperationNotPermittedException, Errors::OrganizationsNotInUseException, Errors::UnsupportedOperationException, Errors::CloudTrailAccessNotEnabledException, Errors::EventDataStoreMaxLimitExceededException, Errors::OrganizationNotInAllFeaturesModeException, Errors::InvalidParameterException, Errors::InsufficientDependencyServiceAccessPermissionException]),
@@ -508,6 +517,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::TrailNotProvidedException, Errors::NotOrganizationMasterAccountException, Errors::KmsKeyDisabledException, Errors::InvalidTagParameterException, Errors::InvalidTrailNameException, Errors::OrganizationsNotInUseException, Errors::UnsupportedOperationException, Errors::InvalidS3BucketNameException, Errors::InsufficientEncryptionPolicyException, Errors::CloudTrailAccessNotEnabledException, Errors::InsufficientS3BucketPolicyException, Errors::InvalidCloudWatchLogsLogGroupArnException, Errors::InvalidParameterCombinationException, Errors::InsufficientSnsTopicPolicyException, Errors::InvalidS3PrefixException, Errors::InvalidKmsKeyIdException, Errors::OperationNotPermittedException, Errors::InvalidSnsTopicNameException, Errors::InvalidCloudWatchLogsRoleArnException, Errors::MaximumNumberOfTrailsExceededException, Errors::S3BucketDoesNotExistException, Errors::KmsException, Errors::TrailAlreadyExistsException, Errors::OrganizationNotInAllFeaturesModeException, Errors::CloudTrailInvalidClientTokenIdException, Errors::CloudWatchLogsDeliveryUnavailableException, Errors::InsufficientDependencyServiceAccessPermissionException, Errors::KmsKeyNotFoundException]),
         data_parser: Parsers::CreateTrail
@@ -582,6 +594,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::EventDataStoreNotFoundException, Errors::EventDataStoreTerminationProtectedException, Errors::InvalidParameterException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
         data_parser: Parsers::DeleteEventDataStore
@@ -654,6 +669,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::NotOrganizationMasterAccountException, Errors::InvalidTrailNameException, Errors::InvalidHomeRegionException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
@@ -737,6 +755,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EventDataStoreNotFoundException, Errors::InvalidParameterException, Errors::QueryIdNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException]),
@@ -849,6 +870,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTrailNameException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::DescribeTrails
@@ -938,6 +962,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EventDataStoreNotFoundException, Errors::InvalidParameterException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException]),
@@ -1071,6 +1098,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTrailNameException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::GetEventSelectors
@@ -1172,6 +1202,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InsightNotEnabledException, Errors::InvalidTrailNameException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::GetInsightSelectors
@@ -1264,6 +1297,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMaxResultsException, Errors::EventDataStoreNotFoundException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::QueryIdNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::GetQueryResults
@@ -1348,6 +1384,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTrailNameException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
@@ -1437,6 +1476,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTrailNameException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
@@ -1535,6 +1577,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMaxResultsException, Errors::InvalidNextTokenException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::ListEventDataStores
@@ -1624,6 +1669,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTimeRangeException, Errors::InvalidTokenException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
@@ -1726,6 +1774,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDateRangeException, Errors::InvalidQueryStatusException, Errors::InvalidMaxResultsException, Errors::EventDataStoreNotFoundException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::ListQueries
@@ -1809,6 +1860,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTokenException, Errors::InvalidTrailNameException, Errors::ResourceNotFoundException, Errors::ResourceTypeNotSupportedException, Errors::EventDataStoreNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException, Errors::CloudTrailARNInvalidException]),
         data_parser: Parsers::ListTags
@@ -1885,6 +1939,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
@@ -2042,6 +2099,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTimeRangeException, Errors::InvalidMaxResultsException, Errors::InvalidLookupAttributesException, Errors::InvalidNextTokenException, Errors::InvalidEventCategoryException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
@@ -2249,6 +2309,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::InvalidTrailNameException, Errors::InvalidHomeRegionException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::InvalidEventSelectorsException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
         data_parser: Parsers::PutEventSelectors
@@ -2332,6 +2395,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InsufficientEncryptionPolicyException, Errors::NotOrganizationMasterAccountException, Errors::S3BucketDoesNotExistException, Errors::InsufficientS3BucketPolicyException, Errors::KmsException, Errors::InvalidTrailNameException, Errors::InvalidHomeRegionException, Errors::InvalidInsightSelectorsException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::PutInsightSelectors
@@ -2413,6 +2479,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::InvalidTagParameterException, Errors::InvalidTrailNameException, Errors::ResourceNotFoundException, Errors::ResourceTypeNotSupportedException, Errors::EventDataStoreNotFoundException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException, Errors::CloudTrailARNInvalidException]),
@@ -2506,6 +2575,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::EventDataStoreNotFoundException, Errors::OperationNotPermittedException, Errors::OrganizationsNotInUseException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException, Errors::CloudTrailAccessNotEnabledException, Errors::EventDataStoreMaxLimitExceededException, Errors::InvalidEventDataStoreStatusException, Errors::OrganizationNotInAllFeaturesModeException, Errors::InvalidParameterException, Errors::InsufficientDependencyServiceAccessPermissionException]),
         data_parser: Parsers::RestoreEventDataStore
@@ -2578,6 +2650,9 @@ module AWS::SDK::CloudTrail
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::InvalidTrailNameException, Errors::InvalidHomeRegionException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
         data_parser: Parsers::StartLogging
@@ -2647,6 +2722,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EventDataStoreNotFoundException, Errors::InvalidParameterException, Errors::InactiveEventDataStoreException, Errors::InvalidQueryStatementException, Errors::OperationNotPermittedException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException, Errors::MaxConcurrentQueriesException]),
@@ -2725,6 +2803,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotOrganizationMasterAccountException, Errors::InvalidTrailNameException, Errors::InvalidHomeRegionException, Errors::TrailNotFoundException, Errors::OperationNotPermittedException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
@@ -2856,6 +2937,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudTrailAccessNotEnabledException, Errors::NotOrganizationMasterAccountException, Errors::EventDataStoreNotFoundException, Errors::OrganizationNotInAllFeaturesModeException, Errors::InvalidParameterException, Errors::InactiveEventDataStoreException, Errors::OperationNotPermittedException, Errors::OrganizationsNotInUseException, Errors::EventDataStoreARNInvalidException, Errors::UnsupportedOperationException, Errors::InsufficientDependencyServiceAccessPermissionException]),
@@ -3039,6 +3123,9 @@ module AWS::SDK::CloudTrail
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TrailNotProvidedException, Errors::NotOrganizationMasterAccountException, Errors::KmsKeyDisabledException, Errors::InvalidTrailNameException, Errors::OrganizationsNotInUseException, Errors::InvalidEventSelectorsException, Errors::UnsupportedOperationException, Errors::InvalidS3BucketNameException, Errors::InsufficientEncryptionPolicyException, Errors::CloudTrailAccessNotEnabledException, Errors::InsufficientS3BucketPolicyException, Errors::InvalidCloudWatchLogsLogGroupArnException, Errors::InvalidParameterCombinationException, Errors::InvalidHomeRegionException, Errors::InsufficientSnsTopicPolicyException, Errors::InvalidS3PrefixException, Errors::TrailNotFoundException, Errors::InvalidKmsKeyIdException, Errors::OperationNotPermittedException, Errors::InvalidSnsTopicNameException, Errors::InvalidCloudWatchLogsRoleArnException, Errors::S3BucketDoesNotExistException, Errors::KmsException, Errors::OrganizationNotInAllFeaturesModeException, Errors::CloudTrailInvalidClientTokenIdException, Errors::CloudWatchLogsDeliveryUnavailableException, Errors::InsufficientDependencyServiceAccessPermissionException, Errors::KmsKeyNotFoundException]),

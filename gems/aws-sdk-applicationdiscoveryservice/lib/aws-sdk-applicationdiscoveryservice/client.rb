@@ -208,6 +208,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::AssociateConfigurationItemsToApplication
@@ -290,6 +293,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::BatchDeleteImportData
@@ -362,6 +368,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -452,6 +461,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::CreateTags
@@ -522,6 +534,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -607,6 +622,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -726,6 +744,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DescribeAgents
@@ -824,6 +845,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DescribeConfigurations
@@ -917,6 +941,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DescribeContinuousExports
@@ -1009,6 +1036,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -1126,6 +1156,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DescribeExportTasks
@@ -1227,6 +1260,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -1337,6 +1373,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DescribeTags
@@ -1411,6 +1450,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::DisassociateConfigurationItemsFromApplication
@@ -1481,6 +1523,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -1574,6 +1619,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -1690,6 +1738,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::ListConfigurations
@@ -1790,6 +1841,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::ListServerNeighbors
@@ -1858,6 +1912,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::ConflictErrorException, Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException, Errors::ResourceInUseException]),
@@ -1939,6 +1996,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -2052,6 +2112,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
@@ -2192,6 +2255,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException, Errors::ResourceInUseException]),
         data_parser: Parsers::StartImportTask
@@ -2261,6 +2327,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException, Errors::ResourceInUseException]),
@@ -2337,6 +2406,9 @@ module AWS::SDK::ApplicationDiscoveryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),
         data_parser: Parsers::StopDataCollectionByAgentIds
@@ -2412,6 +2484,9 @@ module AWS::SDK::ApplicationDiscoveryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InvalidParameterException, Errors::AuthorizationErrorException, Errors::ServerInternalErrorException, Errors::HomeRegionNotSetException]),

@@ -89,6 +89,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidKMSArn, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::NoSuchKeySigningKey, Errors::InvalidSigningStatus]),
         data_parser: Parsers::ActivateKeySigningKey
@@ -210,6 +213,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::InvalidVPCId, Errors::LimitsExceeded, Errors::NotAuthorizedException, Errors::NoSuchHostedZone, Errors::ConflictingDomainExists, Errors::PublicZoneVPCAssociation]),
@@ -338,6 +344,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::CidrBlockInUseException, Errors::CidrCollectionVersionMismatchException, Errors::LimitsExceeded, Errors::ConcurrentModification, Errors::NoSuchCidrCollectionException]),
@@ -547,6 +556,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::InvalidChangeBatch, Errors::NoSuchHealthCheck, Errors::NoSuchHostedZone]),
         data_parser: Parsers::ChangeResourceRecordSets
@@ -648,6 +660,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::ThrottlingException, Errors::NoSuchHealthCheck, Errors::NoSuchHostedZone]),
         data_parser: Parsers::ChangeTagsForResource
@@ -730,6 +745,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::LimitsExceeded, Errors::ConcurrentModification, Errors::CidrCollectionAlreadyExistsException]),
@@ -931,6 +949,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::TooManyHealthChecks, Errors::HealthCheckAlreadyExists]),
@@ -1139,6 +1160,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::InvalidVPCId, Errors::TooManyHostedZones, Errors::DelegationSetNotAvailable, Errors::DelegationSetNotReusable, Errors::NoSuchDelegationSet, Errors::ConflictingDomainExists, Errors::InvalidDomainName, Errors::HostedZoneAlreadyExists]),
         data_parser: Parsers::CreateHostedZone
@@ -1293,6 +1317,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::InvalidKMSArn, Errors::InvalidKeySigningKeyName, Errors::InvalidArgument, Errors::TooManyKeySigningKeys, Errors::KeySigningKeyAlreadyExists, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::NoSuchHostedZone, Errors::InvalidSigningStatus]),
@@ -1544,6 +1571,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::QueryLoggingConfigAlreadyExists, Errors::InsufficientCloudWatchLogsResourcePolicy, Errors::ConcurrentModification, Errors::NoSuchCloudWatchLogsLogGroup, Errors::NoSuchHostedZone]),
         data_parser: Parsers::CreateQueryLoggingConfig
@@ -1685,6 +1715,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::DelegationSetAlreadyReusable, Errors::InvalidArgument, Errors::LimitsExceeded, Errors::HostedZoneNotFound, Errors::DelegationSetNotAvailable, Errors::DelegationSetAlreadyCreated]),
         data_parser: Parsers::CreateReusableDelegationSet
@@ -1770,6 +1803,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::InvalidTrafficPolicyDocument, Errors::TooManyTrafficPolicies, Errors::TrafficPolicyAlreadyExists]),
@@ -1877,6 +1913,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy, Errors::TooManyTrafficPolicyInstances, Errors::NoSuchHostedZone, Errors::TrafficPolicyInstanceAlreadyExists]),
         data_parser: Parsers::CreateTrafficPolicyInstance
@@ -1970,6 +2009,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidInput, Errors::InvalidTrafficPolicyDocument, Errors::NoSuchTrafficPolicy, Errors::TooManyTrafficPolicyVersionsForCurrentPolicy, Errors::ConcurrentModification]),
         data_parser: Parsers::CreateTrafficPolicyVersion
@@ -2061,6 +2103,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidVPCId, Errors::TooManyVPCAssociationAuthorizations, Errors::ConcurrentModification, Errors::NoSuchHostedZone]),
         data_parser: Parsers::CreateVPCAssociationAuthorization
@@ -2139,6 +2184,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::KeySigningKeyInUse, Errors::NoSuchKeySigningKey, Errors::InvalidSigningStatus, Errors::KeySigningKeyInParentDSRecord]),
         data_parser: Parsers::DeactivateKeySigningKey
@@ -2207,6 +2255,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::CidrCollectionInUseException, Errors::ConcurrentModification, Errors::NoSuchCidrCollectionException]),
@@ -2289,6 +2340,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHealthCheck, Errors::HealthCheckInUse]),
@@ -2404,6 +2458,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::HostedZoneNotEmpty, Errors::NoSuchHostedZone, Errors::InvalidDomainName]),
         data_parser: Parsers::DeleteHostedZone
@@ -2486,6 +2543,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidKMSArn, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::NoSuchKeySigningKey, Errors::InvalidSigningStatus]),
         data_parser: Parsers::DeleteKeySigningKey
@@ -2556,6 +2616,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchQueryLoggingConfig, Errors::ConcurrentModification]),
@@ -2631,6 +2694,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DelegationSetInUse, Errors::InvalidInput, Errors::DelegationSetNotReusable, Errors::NoSuchDelegationSet]),
@@ -2719,6 +2785,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy, Errors::TrafficPolicyInUse, Errors::ConcurrentModification]),
         data_parser: Parsers::DeleteTrafficPolicy
@@ -2796,6 +2865,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::NoSuchTrafficPolicyInstance]),
@@ -2884,6 +2956,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidVPCId, Errors::VPCAssociationAuthorizationNotFound, Errors::ConcurrentModification, Errors::NoSuchHostedZone]),
         data_parser: Parsers::DeleteVPCAssociationAuthorization
@@ -2957,6 +3032,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidKMSArn, Errors::DNSSECNotFound, Errors::InvalidArgument, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::NoSuchHostedZone, Errors::KeySigningKeyInParentDSRecord]),
@@ -3092,6 +3170,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidVPCId, Errors::LastVPCAssociation, Errors::VPCAssociationNotFound, Errors::NoSuchHostedZone]),
         data_parser: Parsers::DisassociateVPCFromHostedZone
@@ -3164,6 +3245,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HostedZonePartiallyDelegated, Errors::InvalidInput, Errors::InvalidKMSArn, Errors::DNSSECNotFound, Errors::InvalidArgument, Errors::InvalidKeySigningKeyStatus, Errors::ConcurrentModification, Errors::NoSuchHostedZone, Errors::KeySigningKeyWithActiveStatusNotFound]),
@@ -3275,6 +3359,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
         data_parser: Parsers::GetAccountLimit
@@ -3364,6 +3451,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchChange]),
         data_parser: Parsers::GetChange
@@ -3437,6 +3527,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3527,6 +3620,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidArgument, Errors::NoSuchHostedZone]),
@@ -3672,6 +3768,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchGeoLocation]),
         data_parser: Parsers::GetGeoLocation
@@ -3784,6 +3883,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHealthCheck, Errors::IncompatibleVersion]),
         data_parser: Parsers::GetHealthCheck
@@ -3847,6 +3949,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3930,6 +4035,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHealthCheck]),
@@ -4018,6 +4126,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHealthCheck]),
@@ -4108,6 +4219,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHostedZone]),
         data_parser: Parsers::GetHostedZone
@@ -4171,6 +4285,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -4265,6 +4382,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::HostedZoneNotPrivate, Errors::NoSuchHostedZone]),
         data_parser: Parsers::GetHostedZoneLimit
@@ -4340,6 +4460,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchQueryLoggingConfig]),
         data_parser: Parsers::GetQueryLoggingConfig
@@ -4414,6 +4537,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::DelegationSetNotReusable, Errors::NoSuchDelegationSet]),
@@ -4496,6 +4622,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchDelegationSet]),
         data_parser: Parsers::GetReusableDelegationSetLimit
@@ -4577,6 +4706,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy]),
@@ -4667,6 +4799,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicyInstance]),
         data_parser: Parsers::GetTrafficPolicyInstance
@@ -4731,6 +4866,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4818,6 +4956,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchCidrLocationException, Errors::NoSuchCidrCollectionException]),
         data_parser: Parsers::ListCidrBlocks
@@ -4899,6 +5040,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -4982,6 +5126,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchCidrCollectionException]),
@@ -5104,6 +5251,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -5234,6 +5384,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::IncompatibleVersion]),
         data_parser: Parsers::ListHealthChecks
@@ -5343,6 +5496,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::DelegationSetNotReusable, Errors::NoSuchDelegationSet]),
@@ -5511,6 +5667,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidDomainName]),
         data_parser: Parsers::ListHostedZonesByName
@@ -5650,6 +5809,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidPaginationToken]),
         data_parser: Parsers::ListHostedZonesByVPC
@@ -5749,6 +5911,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidPaginationToken, Errors::NoSuchHostedZone]),
@@ -5995,6 +6160,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHostedZone]),
         data_parser: Parsers::ListResourceRecordSets
@@ -6087,6 +6255,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
         data_parser: Parsers::ListReusableDelegationSets
@@ -6175,6 +6346,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::ThrottlingException, Errors::NoSuchHealthCheck, Errors::NoSuchHostedZone]),
@@ -6268,6 +6442,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::ThrottlingException, Errors::NoSuchHealthCheck, Errors::NoSuchHostedZone]),
@@ -6366,6 +6543,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput]),
@@ -6503,6 +6683,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicyInstance]),
         data_parser: Parsers::ListTrafficPolicyInstances
@@ -6630,6 +6813,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicyInstance, Errors::NoSuchHostedZone]),
@@ -6782,6 +6968,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy, Errors::NoSuchTrafficPolicyInstance]),
         data_parser: Parsers::ListTrafficPolicyInstancesByPolicy
@@ -6884,6 +7073,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy]),
         data_parser: Parsers::ListTrafficPolicyVersions
@@ -6978,6 +7170,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::InvalidPaginationToken, Errors::NoSuchHostedZone]),
@@ -7102,6 +7297,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchHostedZone]),
@@ -7576,6 +7774,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::HealthCheckVersionMismatch, Errors::NoSuchHealthCheck]),
         data_parser: Parsers::UpdateHealthCheck
@@ -7661,6 +7862,9 @@ module AWS::SDK::Route53
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::PriorRequestNotComplete, Errors::NoSuchHostedZone]),
         data_parser: Parsers::UpdateHostedZoneComment
@@ -7745,6 +7949,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInput, Errors::NoSuchTrafficPolicy, Errors::ConcurrentModification]),
@@ -7860,6 +8067,9 @@ module AWS::SDK::Route53
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictingTypes, Errors::InvalidInput, Errors::NoSuchTrafficPolicy, Errors::PriorRequestNotComplete, Errors::NoSuchTrafficPolicyInstance]),

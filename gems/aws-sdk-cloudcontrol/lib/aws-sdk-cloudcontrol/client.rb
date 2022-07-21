@@ -92,6 +92,9 @@ module AWS::SDK::CloudControl
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::RequestTokenNotFoundException]),
         data_parser: Parsers::CancelResourceRequest
@@ -216,6 +219,9 @@ module AWS::SDK::CloudControl
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ClientTokenConflictException, Errors::ConcurrentOperationException, Errors::GeneralServiceException, Errors::HandlerFailureException, Errors::HandlerInternalFailureException, Errors::InvalidCredentialsException, Errors::InvalidRequestException, Errors::NetworkFailureException, Errors::NotStabilizedException, Errors::NotUpdatableException, Errors::PrivateTypeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceInternalErrorException, Errors::ServiceLimitExceededException, Errors::ThrottlingException, Errors::TypeNotFoundException, Errors::UnsupportedActionException]),
         data_parser: Parsers::CreateResource
@@ -325,6 +331,9 @@ module AWS::SDK::CloudControl
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ClientTokenConflictException, Errors::ConcurrentOperationException, Errors::GeneralServiceException, Errors::HandlerFailureException, Errors::HandlerInternalFailureException, Errors::InvalidCredentialsException, Errors::InvalidRequestException, Errors::NetworkFailureException, Errors::NotStabilizedException, Errors::NotUpdatableException, Errors::PrivateTypeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceInternalErrorException, Errors::ServiceLimitExceededException, Errors::ThrottlingException, Errors::TypeNotFoundException, Errors::UnsupportedActionException]),
         data_parser: Parsers::DeleteResource
@@ -419,6 +428,9 @@ module AWS::SDK::CloudControl
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::GeneralServiceException, Errors::HandlerFailureException, Errors::HandlerInternalFailureException, Errors::InvalidCredentialsException, Errors::InvalidRequestException, Errors::NetworkFailureException, Errors::NotStabilizedException, Errors::NotUpdatableException, Errors::PrivateTypeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceInternalErrorException, Errors::ServiceLimitExceededException, Errors::ThrottlingException, Errors::TypeNotFoundException, Errors::UnsupportedActionException]),
         data_parser: Parsers::GetResource
@@ -501,6 +513,9 @@ module AWS::SDK::CloudControl
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestTokenNotFoundException]),
@@ -607,6 +622,9 @@ module AWS::SDK::CloudControl
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListResourceRequests
@@ -706,6 +724,9 @@ module AWS::SDK::CloudControl
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::GeneralServiceException, Errors::HandlerFailureException, Errors::HandlerInternalFailureException, Errors::InvalidCredentialsException, Errors::InvalidRequestException, Errors::NetworkFailureException, Errors::NotStabilizedException, Errors::NotUpdatableException, Errors::PrivateTypeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceInternalErrorException, Errors::ServiceLimitExceededException, Errors::ThrottlingException, Errors::TypeNotFoundException, Errors::UnsupportedActionException]),
@@ -828,6 +849,9 @@ module AWS::SDK::CloudControl
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ClientTokenConflictException, Errors::ConcurrentOperationException, Errors::GeneralServiceException, Errors::HandlerFailureException, Errors::HandlerInternalFailureException, Errors::InvalidCredentialsException, Errors::InvalidRequestException, Errors::NetworkFailureException, Errors::NotStabilizedException, Errors::NotUpdatableException, Errors::PrivateTypeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceInternalErrorException, Errors::ServiceLimitExceededException, Errors::ThrottlingException, Errors::TypeNotFoundException, Errors::UnsupportedActionException]),

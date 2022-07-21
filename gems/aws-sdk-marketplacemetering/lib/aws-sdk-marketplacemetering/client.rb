@@ -205,6 +205,9 @@ module AWS::SDK::MarketplaceMetering
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DisabledApiException, Errors::InvalidUsageAllocationsException, Errors::InvalidUsageDimensionException, Errors::InternalServiceErrorException, Errors::InvalidCustomerIdentifierException, Errors::InvalidTagException, Errors::ThrottlingException, Errors::TimestampOutOfBoundsException, Errors::InvalidProductCodeException]),
         data_parser: Parsers::BatchMeterUsage
@@ -325,6 +328,9 @@ module AWS::SDK::MarketplaceMetering
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateRequestException, Errors::InvalidEndpointRegionException, Errors::InvalidUsageAllocationsException, Errors::InvalidUsageDimensionException, Errors::InternalServiceErrorException, Errors::InvalidTagException, Errors::ThrottlingException, Errors::TimestampOutOfBoundsException, Errors::CustomerNotEntitledException, Errors::InvalidProductCodeException]),
         data_parser: Parsers::MeterUsage
@@ -444,6 +450,9 @@ module AWS::SDK::MarketplaceMetering
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRegionException, Errors::DisabledApiException, Errors::InvalidPublicKeyVersionException, Errors::InternalServiceErrorException, Errors::ThrottlingException, Errors::PlatformNotSupportedException, Errors::CustomerNotEntitledException, Errors::InvalidProductCodeException]),
         data_parser: Parsers::RegisterUsage
@@ -533,6 +542,9 @@ module AWS::SDK::MarketplaceMetering
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredTokenException, Errors::DisabledApiException, Errors::InternalServiceErrorException, Errors::InvalidTokenException, Errors::ThrottlingException]),

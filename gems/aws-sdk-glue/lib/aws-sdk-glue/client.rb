@@ -158,6 +158,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::BatchCreatePartition
@@ -238,6 +241,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::OperationTimeoutException]),
@@ -334,6 +340,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -435,6 +444,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchDeleteTable
@@ -526,6 +538,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -623,6 +638,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -769,6 +787,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchGetCrawlers
@@ -846,6 +867,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -952,6 +976,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -1475,6 +1502,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchGetJobs
@@ -1616,6 +1646,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InvalidStateException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchGetPartition
@@ -1718,6 +1751,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -1906,6 +1942,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchGetWorkflows
@@ -1991,6 +2030,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -2145,6 +2187,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::BatchUpdatePartition
@@ -2222,6 +2267,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::CancelMLTaskRun
@@ -2298,6 +2346,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
         data_parser: Parsers::CancelStatement
@@ -2371,6 +2422,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -2454,6 +2508,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -2563,6 +2620,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::CreateClassifier
@@ -2659,6 +2719,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -2859,6 +2922,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::CreateCrawler
@@ -2941,6 +3007,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException]),
@@ -3035,6 +3104,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -3231,6 +3303,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::ValidationException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException]),
@@ -3879,6 +3954,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::IdempotentParameterMismatchException]),
         data_parser: Parsers::CreateJob
@@ -4099,6 +4177,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException]),
         data_parser: Parsers::CreateMLTransform
@@ -4238,6 +4319,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::CreatePartition
@@ -4323,6 +4407,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::CreatePartitionIndex
@@ -4405,6 +4492,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException]),
@@ -4555,6 +4645,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateSchema
@@ -4652,6 +4745,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::CreateScript
@@ -4740,6 +4836,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -4896,6 +4995,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::ValidationException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException]),
@@ -5057,6 +5159,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::CreateTable
@@ -5199,6 +5304,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::IdempotentParameterMismatchException]),
         data_parser: Parsers::CreateTrigger
@@ -5287,6 +5395,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -5377,6 +5488,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::CreateWorkflow
@@ -5446,6 +5560,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteBlueprint
@@ -5513,6 +5630,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::OperationTimeoutException]),
@@ -5603,6 +5723,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteColumnStatisticsForPartition
@@ -5686,6 +5809,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteColumnStatisticsForTable
@@ -5759,6 +5885,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteConnection
@@ -5828,6 +5957,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SchedulerTransitioningException, Errors::EntityNotFoundException, Errors::OperationTimeoutException, Errors::CrawlerRunningException]),
         data_parser: Parsers::DeleteCrawler
@@ -5896,6 +6028,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -5983,6 +6118,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteDatabase
@@ -6050,6 +6188,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -6120,6 +6261,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -6194,6 +6338,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -6279,6 +6426,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeletePartition
@@ -6359,6 +6509,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::ConflictException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeletePartitionIndex
@@ -6433,6 +6586,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteRegistry
@@ -6504,6 +6660,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConditionCheckFailureException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -6579,6 +6738,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -6673,6 +6835,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::DeleteSchemaVersions
@@ -6740,6 +6905,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -6813,6 +6981,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -6907,6 +7078,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteTable
@@ -6990,6 +7164,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteTableVersion
@@ -7059,6 +7236,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -7137,6 +7317,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::DeleteUserDefinedFunction
@@ -7205,6 +7388,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -7298,6 +7484,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetBlueprint
@@ -7380,6 +7569,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::OperationTimeoutException]),
@@ -7470,6 +7662,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetBlueprintRuns
@@ -7541,6 +7736,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::OperationTimeoutException]),
@@ -7643,6 +7841,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::OperationTimeoutException]),
@@ -7751,6 +7952,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException]),
@@ -7891,6 +8095,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetColumnStatisticsForPartition
@@ -8024,6 +8231,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetColumnStatisticsForTable
@@ -8120,6 +8330,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -8232,6 +8445,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -8372,6 +8588,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetCrawler
@@ -8460,6 +8679,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException]),
@@ -8607,6 +8829,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException]),
         data_parser: Parsers::GetCrawlers
@@ -8678,6 +8903,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -8754,6 +8982,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -8845,6 +9076,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -8955,6 +9189,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetDatabases
@@ -9037,6 +9274,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -9139,6 +9379,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -9247,6 +9490,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -9763,6 +10009,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetJob
@@ -9842,6 +10091,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::ValidationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -9947,6 +10199,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -10054,6 +10309,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -10576,6 +10834,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetJobs
@@ -10673,6 +10934,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -10796,6 +11060,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -10921,6 +11188,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -11079,6 +11349,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetMLTransforms
@@ -11172,6 +11445,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -11306,6 +11582,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetPartition
@@ -11401,6 +11680,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::ConflictException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -11668,6 +11950,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InvalidStateException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetPartitions
@@ -11791,6 +12076,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetPlan
@@ -11867,6 +12155,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -11952,6 +12243,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetResourcePolicies
@@ -12026,6 +12320,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -12120,6 +12417,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetSchema
@@ -12208,6 +12508,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -12307,6 +12610,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetSchemaVersion
@@ -12403,6 +12709,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetSchemaVersionsDiff
@@ -12484,6 +12793,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -12572,6 +12884,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -12664,6 +12979,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetSession
@@ -12755,6 +13073,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -12907,6 +13228,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetTable
@@ -13054,6 +13378,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13209,6 +13536,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13371,6 +13701,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetTables
@@ -13440,6 +13773,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13538,6 +13874,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13647,6 +13986,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13780,6 +14122,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::PermissionTypeMismatchException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -13924,6 +14269,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::PermissionTypeMismatchException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -14072,6 +14420,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::PermissionTypeMismatchException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetUnfilteredTableMetadata
@@ -14160,6 +14511,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -14261,6 +14615,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -14444,6 +14801,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetWorkflow
@@ -14619,6 +14979,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetWorkflowRun
@@ -14692,6 +15055,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -14874,6 +15240,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::GetWorkflowRuns
@@ -14941,6 +15310,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::OperationTimeoutException]),
@@ -15022,6 +15394,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -15110,6 +15485,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException]),
         data_parser: Parsers::ListCrawlers
@@ -15188,6 +15566,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -15276,6 +15657,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::ListDevEndpoints
@@ -15360,6 +15744,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -15472,6 +15859,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::ListMLTransforms
@@ -15552,6 +15942,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -15649,6 +16042,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListSchemaVersions
@@ -15738,6 +16134,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -15844,6 +16243,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListSessions
@@ -15935,6 +16337,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListStatements
@@ -16025,6 +16430,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::ListTriggers
@@ -16099,6 +16507,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -16182,6 +16593,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -16284,6 +16698,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConditionCheckFailureException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::PutResourcePolicy
@@ -16382,6 +16799,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException]),
         data_parser: Parsers::PutSchemaVersionMetadata
@@ -16459,6 +16879,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::AlreadyExistsException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -16570,6 +16993,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::QuerySchemaVersionMetadata
@@ -16658,6 +17084,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException]),
@@ -16757,6 +17186,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
         data_parser: Parsers::RemoveSchemaVersionMetadata
@@ -16836,6 +17268,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -16918,6 +17353,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalWorkflowStateException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::ResumeWorkflowRun
@@ -16994,6 +17432,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::ValidationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException]),
@@ -17178,6 +17619,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::SearchTables
@@ -17255,6 +17699,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalBlueprintStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::StartBlueprintRun
@@ -17325,6 +17772,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::OperationTimeoutException, Errors::CrawlerRunningException]),
         data_parser: Parsers::StartCrawler
@@ -17394,6 +17844,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SchedulerTransitioningException, Errors::NoScheduleException, Errors::EntityNotFoundException, Errors::OperationTimeoutException, Errors::SchedulerRunningException]),
@@ -17475,6 +17928,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -17577,6 +18033,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -17730,6 +18189,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::StartJobRun
@@ -17805,6 +18267,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::MLTransformNotReadyException]),
@@ -17893,6 +18358,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::StartMLLabelingSetGenerationTaskRun
@@ -17963,6 +18431,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
@@ -18039,6 +18510,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::ConcurrentRunsExceededException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::StartWorkflowRun
@@ -18106,6 +18580,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::CrawlerNotRunningException, Errors::CrawlerStoppingException, Errors::OperationTimeoutException]),
@@ -18176,6 +18653,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SchedulerTransitioningException, Errors::EntityNotFoundException, Errors::OperationTimeoutException, Errors::SchedulerNotRunningException]),
@@ -18250,6 +18730,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::IllegalSessionStateException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
         data_parser: Parsers::StopSession
@@ -18318,6 +18801,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -18390,6 +18876,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::IllegalWorkflowStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -18468,6 +18957,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::TagResource
@@ -18541,6 +19033,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -18618,6 +19113,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::IllegalBlueprintStateException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -18722,6 +19220,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::VersionMismatchException]),
@@ -18909,6 +19410,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdateColumnStatisticsForPartition
@@ -19089,6 +19593,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdateColumnStatisticsForTable
@@ -19183,6 +19690,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -19376,6 +19886,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::VersionMismatchException, Errors::CrawlerRunningException]),
         data_parser: Parsers::UpdateCrawler
@@ -19449,6 +19962,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SchedulerTransitioningException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::VersionMismatchException]),
@@ -19549,6 +20065,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -19668,6 +20187,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::ValidationException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
@@ -20210,6 +20732,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdateJob
@@ -20348,6 +20873,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::AccessDeniedException]),
@@ -20496,6 +21024,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdatePartition
@@ -20572,6 +21103,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -20673,6 +21207,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException]),
@@ -20830,6 +21367,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException, Errors::ResourceNumberLimitExceededException]),
         data_parser: Parsers::UpdateTable
@@ -20966,6 +21506,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdateTrigger
@@ -21060,6 +21603,9 @@ module AWS::SDK::Glue
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GlueEncryptionException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),
         data_parser: Parsers::UpdateUserDefinedFunction
@@ -21142,6 +21688,9 @@ module AWS::SDK::Glue
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InternalServiceException, Errors::EntityNotFoundException, Errors::InvalidInputException, Errors::OperationTimeoutException]),

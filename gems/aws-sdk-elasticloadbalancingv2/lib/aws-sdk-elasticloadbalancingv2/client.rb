@@ -136,6 +136,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CertificateNotFoundException, Errors::ListenerNotFoundException, Errors::TooManyCertificatesException]),
         data_parser: Parsers::AddListenerCertificates
@@ -218,6 +221,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateTagKeysException, Errors::ListenerNotFoundException, Errors::LoadBalancerNotFoundException, Errors::RuleNotFoundException, Errors::TargetGroupNotFoundException, Errors::TooManyTagsException]),
@@ -514,6 +520,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ALPNPolicyNotSupportedException, Errors::CertificateNotFoundException, Errors::DuplicateListenerException, Errors::IncompatibleProtocolsException, Errors::InvalidConfigurationRequestException, Errors::InvalidLoadBalancerActionException, Errors::LoadBalancerNotFoundException, Errors::SSLPolicyNotFoundException, Errors::TargetGroupAssociationLimitException, Errors::TargetGroupNotFoundException, Errors::TooManyActionsException, Errors::TooManyCertificatesException, Errors::TooManyListenersException, Errors::TooManyRegistrationsForTargetIdException, Errors::TooManyTagsException, Errors::TooManyTargetsException, Errors::TooManyUniqueTargetGroupsPerLoadBalancerException, Errors::UnsupportedProtocolException]),
         data_parser: Parsers::CreateListener
@@ -722,6 +731,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AllocationIdNotFoundException, Errors::AvailabilityZoneNotSupportedException, Errors::DuplicateLoadBalancerNameException, Errors::DuplicateTagKeysException, Errors::InvalidConfigurationRequestException, Errors::InvalidSchemeException, Errors::InvalidSecurityGroupException, Errors::InvalidSubnetException, Errors::OperationNotPermittedException, Errors::ResourceInUseException, Errors::SubnetNotFoundException, Errors::TooManyLoadBalancersException, Errors::TooManyTagsException]),
@@ -975,6 +987,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleProtocolsException, Errors::InvalidConfigurationRequestException, Errors::InvalidLoadBalancerActionException, Errors::ListenerNotFoundException, Errors::PriorityInUseException, Errors::TargetGroupAssociationLimitException, Errors::TargetGroupNotFoundException, Errors::TooManyActionsException, Errors::TooManyRegistrationsForTargetIdException, Errors::TooManyRulesException, Errors::TooManyTagsException, Errors::TooManyTargetGroupsException, Errors::TooManyTargetsException, Errors::TooManyUniqueTargetGroupsPerLoadBalancerException, Errors::UnsupportedProtocolException]),
@@ -1232,6 +1247,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateTargetGroupNameException, Errors::InvalidConfigurationRequestException, Errors::TooManyTagsException, Errors::TooManyTargetGroupsException]),
         data_parser: Parsers::CreateTargetGroup
@@ -1301,6 +1319,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::ResourceInUseException]),
@@ -1376,6 +1397,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LoadBalancerNotFoundException, Errors::OperationNotPermittedException, Errors::ResourceInUseException]),
         data_parser: Parsers::DeleteLoadBalancer
@@ -1444,6 +1468,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::RuleNotFoundException]),
@@ -1516,6 +1543,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException]),
@@ -1596,6 +1626,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTargetException, Errors::TargetGroupNotFoundException]),
@@ -1697,6 +1730,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAccountLimits
@@ -1785,6 +1821,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException]),
@@ -1933,6 +1972,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::LoadBalancerNotFoundException, Errors::UnsupportedProtocolException]),
         data_parser: Parsers::DescribeListeners
@@ -2027,6 +2069,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LoadBalancerNotFoundException]),
@@ -2142,6 +2187,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LoadBalancerNotFoundException]),
@@ -2302,6 +2350,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::RuleNotFoundException, Errors::UnsupportedProtocolException]),
         data_parser: Parsers::DescribeRules
@@ -2400,6 +2451,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SSLPolicyNotFoundException]),
         data_parser: Parsers::DescribeSSLPolicies
@@ -2479,6 +2533,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::LoadBalancerNotFoundException, Errors::RuleNotFoundException, Errors::TargetGroupNotFoundException]),
@@ -2572,6 +2629,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TargetGroupNotFoundException]),
@@ -2689,6 +2749,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LoadBalancerNotFoundException, Errors::TargetGroupNotFoundException]),
         data_parser: Parsers::DescribeTargetGroups
@@ -2777,6 +2840,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HealthUnavailableException, Errors::InvalidTargetException, Errors::TargetGroupNotFoundException]),
@@ -3043,6 +3109,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ALPNPolicyNotSupportedException, Errors::CertificateNotFoundException, Errors::DuplicateListenerException, Errors::IncompatibleProtocolsException, Errors::InvalidConfigurationRequestException, Errors::InvalidLoadBalancerActionException, Errors::ListenerNotFoundException, Errors::SSLPolicyNotFoundException, Errors::TargetGroupAssociationLimitException, Errors::TargetGroupNotFoundException, Errors::TooManyActionsException, Errors::TooManyCertificatesException, Errors::TooManyListenersException, Errors::TooManyRegistrationsForTargetIdException, Errors::TooManyTargetsException, Errors::TooManyUniqueTargetGroupsPerLoadBalancerException, Errors::UnsupportedProtocolException]),
         data_parser: Parsers::ModifyListener
@@ -3126,6 +3195,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::LoadBalancerNotFoundException]),
@@ -3366,6 +3438,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncompatibleProtocolsException, Errors::InvalidLoadBalancerActionException, Errors::OperationNotPermittedException, Errors::RuleNotFoundException, Errors::TargetGroupAssociationLimitException, Errors::TargetGroupNotFoundException, Errors::TooManyActionsException, Errors::TooManyRegistrationsForTargetIdException, Errors::TooManyTargetsException, Errors::TooManyUniqueTargetGroupsPerLoadBalancerException, Errors::UnsupportedProtocolException]),
         data_parser: Parsers::ModifyRule
@@ -3515,6 +3590,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::TargetGroupNotFoundException]),
         data_parser: Parsers::ModifyTargetGroup
@@ -3595,6 +3673,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::TargetGroupNotFoundException]),
@@ -3686,6 +3767,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTargetException, Errors::TargetGroupNotFoundException, Errors::TooManyRegistrationsForTargetIdException, Errors::TooManyTargetsException]),
         data_parser: Parsers::RegisterTargets
@@ -3766,6 +3850,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::OperationNotPermittedException]),
         data_parser: Parsers::RemoveListenerCertificates
@@ -3844,6 +3931,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ListenerNotFoundException, Errors::LoadBalancerNotFoundException, Errors::RuleNotFoundException, Errors::TargetGroupNotFoundException, Errors::TooManyTagsException]),
         data_parser: Parsers::RemoveTags
@@ -3920,6 +4010,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::InvalidSubnetException, Errors::LoadBalancerNotFoundException]),
@@ -4070,6 +4163,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::PriorityInUseException, Errors::RuleNotFoundException]),
         data_parser: Parsers::SetRulePriorities
@@ -4148,6 +4244,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::InvalidSecurityGroupException, Errors::LoadBalancerNotFoundException]),
@@ -4277,6 +4376,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AllocationIdNotFoundException, Errors::AvailabilityZoneNotSupportedException, Errors::InvalidConfigurationRequestException, Errors::InvalidSubnetException, Errors::LoadBalancerNotFoundException, Errors::SubnetNotFoundException]),

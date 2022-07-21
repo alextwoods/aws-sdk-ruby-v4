@@ -105,6 +105,9 @@ module AWS::SDK::ChimeSDKMeetings
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::UnprocessableEntityException, Errors::UnauthorizedException]),
         data_parser: Parsers::BatchCreateAttendee
@@ -188,6 +191,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ForbiddenException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::ConflictException]),
@@ -282,6 +288,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::UnprocessableEntityException, Errors::UnauthorizedException]),
@@ -429,6 +438,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -604,6 +616,9 @@ module AWS::SDK::ChimeSDKMeetings
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::UnauthorizedException]),
         data_parser: Parsers::CreateMeetingWithAttendees
@@ -678,6 +693,9 @@ module AWS::SDK::ChimeSDKMeetings
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnauthorizedException]),
         data_parser: Parsers::DeleteAttendee
@@ -747,6 +765,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -830,6 +851,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -917,6 +941,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -1006,6 +1033,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnauthorizedException]),
@@ -1105,6 +1135,9 @@ module AWS::SDK::ChimeSDKMeetings
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::UnprocessableEntityException, Errors::UnauthorizedException]),
         data_parser: Parsers::StartMeetingTranscription
@@ -1171,6 +1204,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ServiceFailureException, Errors::ForbiddenException, Errors::NotFoundException, Errors::ThrottlingException, Errors::UnprocessableEntityException, Errors::UnauthorizedException]),
@@ -1259,6 +1295,9 @@ module AWS::SDK::ChimeSDKMeetings
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::BadRequestException, Errors::ForbiddenException, Errors::NotFoundException, Errors::UnauthorizedException, Errors::ConflictException]),

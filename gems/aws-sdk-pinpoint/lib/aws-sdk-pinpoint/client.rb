@@ -88,6 +88,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::CreateApp
@@ -443,6 +446,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::CreateCampaign
@@ -528,6 +534,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
@@ -624,6 +633,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -728,6 +740,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -840,6 +855,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
@@ -1221,6 +1239,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::CreateJourney
@@ -1331,6 +1352,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
         data_parser: Parsers::CreatePushTemplate
@@ -1424,6 +1448,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -1614,6 +1641,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::CreateSegment
@@ -1697,6 +1727,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
@@ -1783,6 +1816,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
         data_parser: Parsers::CreateVoiceTemplate
@@ -1860,6 +1896,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -1941,6 +1980,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteApnsChannel
@@ -2020,6 +2062,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -2101,6 +2146,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteApnsVoipChannel
@@ -2181,6 +2229,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteApnsVoipSandboxChannel
@@ -2254,6 +2305,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -2333,6 +2387,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -2544,6 +2601,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteCampaign
@@ -2627,6 +2687,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteEmailChannel
@@ -2700,6 +2763,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -2807,6 +2873,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteEndpoint
@@ -2880,6 +2949,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -2960,6 +3032,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteGcmChannel
@@ -3033,6 +3108,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -3245,6 +3323,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteJourney
@@ -3318,6 +3399,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -3399,6 +3483,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -3532,6 +3619,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteSegment
@@ -3614,6 +3704,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteSmsChannel
@@ -3687,6 +3780,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -3796,6 +3892,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteUserEndpoints
@@ -3874,6 +3973,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteVoiceChannel
@@ -3947,6 +4049,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -4025,6 +4130,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -4106,6 +4214,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApnsChannel
@@ -4185,6 +4296,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -4266,6 +4380,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApnsVoipChannel
@@ -4346,6 +4463,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApnsVoipSandboxChannel
@@ -4419,6 +4539,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -4522,6 +4645,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApplicationDateRangeKpi
@@ -4605,6 +4731,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApplicationSettings
@@ -4686,6 +4815,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetApps
@@ -4764,6 +4896,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -4975,6 +5110,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetCampaign
@@ -5070,6 +5208,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -5177,6 +5318,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -5391,6 +5535,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -5613,6 +5760,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetCampaignVersions
@@ -5830,6 +5980,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetCampaigns
@@ -5908,6 +6061,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -5991,6 +6147,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6077,6 +6236,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6184,6 +6346,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetEndpoint
@@ -6257,6 +6422,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6347,6 +6515,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6445,6 +6616,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetExportJobs
@@ -6523,6 +6697,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6617,6 +6794,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6718,6 +6898,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -6849,6 +7032,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetInAppMessages
@@ -6957,6 +7143,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -7169,6 +7358,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetJourney
@@ -7276,6 +7468,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetJourneyDateRangeKpi
@@ -7367,6 +7562,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetJourneyExecutionActivityMetrics
@@ -7451,6 +7649,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -7561,6 +7762,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetPushTemplate
@@ -7641,6 +7845,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -7729,6 +7936,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -7862,6 +8072,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetSegment
@@ -7962,6 +8175,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8067,6 +8283,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8203,6 +8422,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8347,6 +8569,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetSegmentVersions
@@ -8486,6 +8711,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetSegments
@@ -8567,6 +8795,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8651,6 +8882,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8760,6 +8994,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::GetUserEndpoints
@@ -8837,6 +9074,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -8922,6 +9162,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -9141,6 +9384,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::ListJourneys
@@ -9210,6 +9456,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9302,6 +9551,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -9396,6 +9648,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException]),
         data_parser: Parsers::ListTemplates
@@ -9482,6 +9737,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::PhoneNumberValidate
@@ -9563,6 +9821,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -9708,6 +9969,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::PutEvents
@@ -9792,6 +10056,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -10021,6 +10288,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::SendMessages
@@ -10122,6 +10392,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -10337,6 +10610,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::SendUsersMessages
@@ -10413,6 +10689,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::TagResource
@@ -10485,6 +10764,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -10572,6 +10854,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -10667,6 +10952,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateApnsChannel
@@ -10760,6 +11048,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -10855,6 +11146,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateApnsVoipChannel
@@ -10948,6 +11242,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -11056,6 +11353,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateApplicationSettings
@@ -11143,6 +11443,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -11503,6 +11806,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateCampaign
@@ -11597,6 +11903,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateEmailChannel
@@ -11689,6 +11998,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -11804,6 +12116,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -11921,6 +12236,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateEndpointsBatch
@@ -12007,6 +12325,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -12126,6 +12447,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -12511,6 +12835,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateJourney
@@ -12729,6 +13056,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateJourneyState
@@ -12846,6 +13176,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdatePushTemplate
@@ -12943,6 +13276,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -13137,6 +13473,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateSegment
@@ -13227,6 +13566,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -13319,6 +13661,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateSmsTemplate
@@ -13399,6 +13744,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -13484,6 +13832,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
@@ -13577,6 +13928,9 @@ module AWS::SDK::Pinpoint
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateVoiceTemplate
@@ -13654,6 +14008,9 @@ module AWS::SDK::Pinpoint
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::TooManyRequestsException, Errors::PayloadTooLargeException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::MethodNotAllowedException, Errors::NotFoundException]),

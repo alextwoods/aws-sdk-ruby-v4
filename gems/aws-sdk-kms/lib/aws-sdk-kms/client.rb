@@ -197,6 +197,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::CancelKeyDeletion
@@ -326,6 +329,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::KMSInternalException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException]),
@@ -482,6 +488,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidAliasNameException, Errors::DependencyTimeoutException, Errors::AlreadyExistsException]),
         data_parser: Parsers::CreateAlias
@@ -621,6 +630,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncorrectTrustAnchorException, Errors::CustomKeyStoreNameInUseException, Errors::CloudHsmClusterInUseException, Errors::KMSInternalException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException]),
@@ -855,6 +867,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
@@ -1350,6 +1365,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::DependencyTimeoutException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::MalformedPolicyDocumentException, Errors::TagException]),
         data_parser: Parsers::CreateKey
@@ -1570,6 +1588,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::InvalidCiphertextException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException, Errors::IncorrectKeyException]),
         data_parser: Parsers::Decrypt
@@ -1685,6 +1706,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -1808,6 +1832,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::KMSInternalException, Errors::CustomKeyStoreHasCMKsException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException]),
         data_parser: Parsers::DeleteCustomKeyStore
@@ -1919,6 +1946,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -2076,6 +2106,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::CustomKeyStoreNotFoundException]),
@@ -2287,6 +2320,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::DescribeKey
@@ -2381,6 +2417,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -2499,6 +2538,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -2620,6 +2662,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::KMSInternalException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException]),
         data_parser: Parsers::DisconnectCustomKeyStore
@@ -2712,6 +2757,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -2838,6 +2886,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -3072,6 +3123,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::Encrypt
@@ -3295,6 +3349,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::GenerateDataKey
@@ -3495,6 +3552,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::GenerateDataKeyPair
@@ -3681,6 +3741,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
@@ -3876,6 +3939,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::GenerateDataKeyWithoutPlaintext
@@ -3999,6 +4065,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::GenerateMac
@@ -4081,6 +4150,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::KMSInternalException, Errors::DependencyTimeoutException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException]),
@@ -4176,6 +4248,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -4314,6 +4389,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::GetKeyRotationStatus
@@ -4444,6 +4522,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -4597,6 +4678,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
@@ -4772,6 +4856,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredImportTokenException, Errors::NotFoundException, Errors::InvalidArnException, Errors::InvalidImportTokenException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidCiphertextException, Errors::DependencyTimeoutException, Errors::IncorrectKeyMaterialException]),
         data_parser: Parsers::ImportKeyMaterial
@@ -4920,6 +5007,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::DependencyTimeoutException]),
@@ -5090,6 +5180,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGrantIdException, Errors::NotFoundException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::ListGrants
@@ -5212,6 +5305,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::ListKeyPolicies
@@ -5325,6 +5421,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::DependencyTimeoutException]),
@@ -5462,6 +5561,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException]),
@@ -5611,6 +5713,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::DependencyTimeoutException]),
         data_parser: Parsers::ListRetirableGrants
@@ -5759,6 +5864,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException, Errors::MalformedPolicyDocumentException]),
@@ -6037,6 +6145,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::InvalidCiphertextException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException, Errors::IncorrectKeyException]),
@@ -6353,6 +6464,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::AlreadyExistsException, Errors::MalformedPolicyDocumentException, Errors::TagException]),
         data_parser: Parsers::ReplicateKey
@@ -6487,6 +6601,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGrantIdException, Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::RetireGrant
@@ -6618,6 +6735,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidGrantIdException, Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -6767,6 +6887,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -6939,6 +7062,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException]),
         data_parser: Parsers::Sign
@@ -7082,6 +7208,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::TagException]),
         data_parser: Parsers::TagResource
@@ -7212,6 +7341,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::TagException]),
@@ -7367,6 +7499,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::NotFoundException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -7531,6 +7666,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CustomKeyStoreNameInUseException, Errors::KMSInternalException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterNotRelatedException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException]),
         data_parser: Parsers::UpdateCustomKeyStore
@@ -7639,6 +7777,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::DependencyTimeoutException]),
@@ -7793,6 +7934,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::InvalidArnException, Errors::UnsupportedOperationException, Errors::KMSInternalException, Errors::KMSInvalidStateException]),
@@ -7955,6 +8099,9 @@ module AWS::SDK::KMS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::DependencyTimeoutException, Errors::InvalidGrantTokenException, Errors::KMSInvalidSignatureException]),
         data_parser: Parsers::Verify
@@ -8074,6 +8221,9 @@ module AWS::SDK::KMS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::DisabledException, Errors::KMSInvalidMacException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::InvalidGrantTokenException]),

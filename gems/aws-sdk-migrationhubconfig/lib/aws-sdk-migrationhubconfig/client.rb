@@ -121,6 +121,9 @@ module AWS::SDK::MigrationHubConfig
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::DryRunOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateHomeRegionControl
@@ -223,6 +226,9 @@ module AWS::SDK::MigrationHubConfig
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServerError, Errors::ThrottlingException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeHomeRegionControls
@@ -290,6 +296,9 @@ module AWS::SDK::MigrationHubConfig
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServerError, Errors::ThrottlingException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),

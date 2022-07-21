@@ -123,6 +123,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedNodeAlreadyMigratedFault, Errors::UnsupportedOperationFault, Errors::InvalidReservedNodeStateFault, Errors::ReservedNodeAlreadyExistsFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::DependentServiceUnavailableFault, Errors::ReservedNodeNotFoundFault]),
         data_parser: Parsers::AcceptReservedNodeExchange
@@ -206,6 +209,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PartnerNotFoundFault, Errors::ClusterNotFoundFault, Errors::UnauthorizedPartnerIntegrationFault]),
@@ -300,6 +306,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault, Errors::InvalidNamespaceFault]),
@@ -418,6 +427,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AuthorizationQuotaExceededFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::ClusterSecurityGroupNotFoundFault, Errors::AuthorizationAlreadyExistsFault]),
         data_parser: Parsers::AuthorizeClusterSecurityGroupIngress
@@ -503,6 +515,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault]),
@@ -591,6 +606,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::InvalidClusterStateFault, Errors::InvalidAuthorizationStateFault, Errors::EndpointAuthorizationsPerClusterLimitExceededFault, Errors::ClusterNotFoundFault, Errors::EndpointAuthorizationAlreadyExistsFault]),
@@ -719,6 +737,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AuthorizationQuotaExceededFault, Errors::ClusterSnapshotNotFoundFault, Errors::DependentServiceRequestThrottlingFault, Errors::InvalidClusterSnapshotStateFault, Errors::LimitExceededFault, Errors::AuthorizationAlreadyExistsFault]),
         data_parser: Parsers::AuthorizeSnapshotAccess
@@ -799,6 +820,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchDeleteRequestSizeExceededFault]),
@@ -892,6 +916,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRetentionPeriodFault, Errors::BatchModifyClusterSnapshotsLimitExceededFault]),
         data_parser: Parsers::BatchModifyClusterSnapshots
@@ -979,6 +1006,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResizeNotFoundFault, Errors::UnsupportedOperationFault, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
@@ -1149,6 +1179,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotAlreadyExistsFault, Errors::ClusterSnapshotNotFoundFault, Errors::ClusterSnapshotQuotaExceededFault, Errors::InvalidRetentionPeriodFault, Errors::InvalidClusterSnapshotStateFault]),
         data_parser: Parsers::CopyClusterSnapshot
@@ -1223,6 +1256,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AuthenticationProfileAlreadyExistsFault, Errors::AuthenticationProfileQuotaExceededFault, Errors::InvalidAuthenticationProfileRequestFault]),
@@ -1789,6 +1825,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmClientCertificateNotFoundFault, Errors::ClusterQuotaExceededFault, Errors::InvalidClusterSubnetGroupStateFault, Errors::TagLimitExceededFault, Errors::InvalidVPCNetworkStateFault, Errors::ClusterSecurityGroupNotFoundFault, Errors::DependentServiceRequestThrottlingFault, Errors::HsmConfigurationNotFoundFault, Errors::NumberOfNodesQuotaExceededFault, Errors::ClusterAlreadyExistsFault, Errors::ClusterParameterGroupNotFoundFault, Errors::ClusterSubnetGroupNotFoundFault, Errors::InvalidSubnet, Errors::InsufficientClusterCapacityFault, Errors::InvalidClusterTrackFault, Errors::InvalidElasticIpFault, Errors::SnapshotScheduleNotFoundFault, Errors::InvalidRetentionPeriodFault, Errors::UnauthorizedOperation, Errors::NumberOfNodesPerClusterLimitExceededFault, Errors::LimitExceededFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateCluster
@@ -1914,6 +1953,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupAlreadyExistsFault, Errors::ClusterParameterGroupQuotaExceededFault, Errors::TagLimitExceededFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateClusterParameterGroup
@@ -2032,6 +2074,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSecurityGroupQuotaExceededFault, Errors::ClusterSecurityGroupAlreadyExistsFault, Errors::TagLimitExceededFault, Errors::InvalidTagFault]),
@@ -2188,6 +2233,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotAlreadyExistsFault, Errors::InvalidClusterStateFault, Errors::TagLimitExceededFault, Errors::ClusterSnapshotQuotaExceededFault, Errors::InvalidRetentionPeriodFault, Errors::ClusterNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateClusterSnapshot
@@ -2315,6 +2363,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSubnet, Errors::ClusterSubnetGroupAlreadyExistsFault, Errors::TagLimitExceededFault, Errors::UnauthorizedOperation, Errors::ClusterSubnetQuotaExceededFault, Errors::DependentServiceRequestThrottlingFault, Errors::ClusterSubnetGroupQuotaExceededFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateClusterSubnetGroup
@@ -2425,6 +2476,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EndpointsPerAuthorizationLimitExceededFault, Errors::ClusterSubnetGroupNotFoundFault, Errors::UnsupportedOperationFault, Errors::EndpointAlreadyExistsFault, Errors::InvalidClusterStateFault, Errors::AccessToClusterDeniedFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::EndpointsPerClusterLimitExceededFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault]),
@@ -2596,6 +2650,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EventSubscriptionQuotaExceededFault, Errors::SubscriptionSeverityNotFoundFault, Errors::SubscriptionEventIdNotFoundFault, Errors::SubscriptionCategoryNotFoundFault, Errors::SNSTopicArnNotFoundFault, Errors::TagLimitExceededFault, Errors::SubscriptionAlreadyExistFault, Errors::SNSNoAuthorizationFault, Errors::SourceNotFoundFault, Errors::InvalidTagFault, Errors::SNSInvalidTopicFault]),
         data_parser: Parsers::CreateEventSubscription
@@ -2687,6 +2744,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmClientCertificateAlreadyExistsFault, Errors::TagLimitExceededFault, Errors::HsmClientCertificateQuotaExceededFault, Errors::InvalidTagFault]),
@@ -2801,6 +2861,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TagLimitExceededFault, Errors::HsmConfigurationQuotaExceededFault, Errors::InvalidTagFault, Errors::HsmConfigurationAlreadyExistsFault]),
@@ -2947,6 +3010,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ScheduledActionTypeUnsupportedFault, Errors::ScheduledActionAlreadyExistsFault, Errors::InvalidScheduledActionFault, Errors::ScheduledActionQuotaExceededFault, Errors::UnauthorizedOperation, Errors::InvalidScheduleFault]),
         data_parser: Parsers::CreateScheduledAction
@@ -3062,6 +3128,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotCopyGrantAlreadyExistsFault, Errors::TagLimitExceededFault, Errors::DependentServiceRequestThrottlingFault, Errors::SnapshotCopyGrantQuotaExceededFault, Errors::LimitExceededFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateSnapshotCopyGrant
@@ -3174,6 +3243,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotScheduleQuotaExceededFault, Errors::ScheduleDefinitionTypeUnsupportedFault, Errors::TagLimitExceededFault, Errors::SnapshotScheduleAlreadyExistsFault, Errors::InvalidScheduleFault, Errors::InvalidTagFault]),
         data_parser: Parsers::CreateSnapshotSchedule
@@ -3260,6 +3332,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ResourceNotFoundFault, Errors::TagLimitExceededFault, Errors::InvalidTagFault]),
@@ -3378,6 +3453,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UsageLimitAlreadyExistsFault, Errors::InvalidUsageLimitFault, Errors::UnsupportedOperationFault, Errors::InvalidClusterStateFault, Errors::TagLimitExceededFault, Errors::ClusterNotFoundFault, Errors::LimitExceededFault]),
         data_parser: Parsers::CreateUsageLimit
@@ -3462,6 +3540,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault]),
         data_parser: Parsers::DeauthorizeDataShare
@@ -3530,6 +3611,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAuthenticationProfileRequestFault, Errors::AuthenticationProfileNotFoundFault]),
@@ -3807,6 +3891,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotAlreadyExistsFault, Errors::InvalidClusterStateFault, Errors::ClusterSnapshotQuotaExceededFault, Errors::InvalidRetentionPeriodFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DeleteCluster
@@ -3888,6 +3975,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupNotFoundFault, Errors::InvalidClusterParameterGroupStateFault]),
         data_parser: Parsers::DeleteClusterParameterGroup
@@ -3963,6 +4053,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterSecurityGroupStateFault, Errors::ClusterSecurityGroupNotFoundFault]),
@@ -4090,6 +4183,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotNotFoundFault, Errors::InvalidClusterSnapshotStateFault]),
         data_parser: Parsers::DeleteClusterSnapshot
@@ -4157,6 +4253,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSubnetGroupNotFoundFault, Errors::InvalidClusterSubnetStateFault, Errors::InvalidClusterSubnetGroupStateFault]),
@@ -4247,6 +4346,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::ClusterNotFoundFault, Errors::EndpointNotFoundFault, Errors::InvalidEndpointStateFault]),
         data_parser: Parsers::DeleteEndpointAccess
@@ -4314,6 +4416,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSubscriptionStateFault, Errors::SubscriptionNotFoundFault]),
@@ -4383,6 +4488,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmClientCertificateNotFoundFault, Errors::InvalidHsmClientCertificateStateFault]),
         data_parser: Parsers::DeleteHsmClientCertificate
@@ -4450,6 +4558,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmConfigurationNotFoundFault, Errors::InvalidHsmConfigurationStateFault]),
@@ -4533,6 +4644,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PartnerNotFoundFault, Errors::ClusterNotFoundFault, Errors::UnauthorizedPartnerIntegrationFault]),
         data_parser: Parsers::DeletePartner
@@ -4602,6 +4716,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ScheduledActionNotFoundFault, Errors::UnauthorizedOperation]),
         data_parser: Parsers::DeleteScheduledAction
@@ -4670,6 +4787,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotCopyGrantNotFoundFault, Errors::InvalidSnapshotCopyGrantStateFault]),
         data_parser: Parsers::DeleteSnapshotCopyGrant
@@ -4737,6 +4857,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotScheduleNotFoundFault, Errors::InvalidClusterSnapshotScheduleStateFault]),
@@ -4814,6 +4937,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DeleteTags
@@ -4881,6 +5007,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::UsageLimitNotFoundFault]),
@@ -4958,6 +5087,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAccountAttributes
@@ -5029,6 +5161,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAuthenticationProfileRequestFault, Errors::AuthenticationProfileNotFoundFault]),
@@ -5131,6 +5266,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
@@ -5269,6 +5407,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeClusterParameterGroups
@@ -5387,6 +5528,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupNotFoundFault]),
@@ -5534,6 +5678,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSecurityGroupNotFoundFault, Errors::InvalidTagFault]),
@@ -5774,6 +5921,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotNotFoundFault, Errors::ClusterNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeClusterSnapshots
@@ -5913,6 +6063,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSubnetGroupNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeClusterSubnetGroups
@@ -6005,6 +6158,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterTrackFault, Errors::UnauthorizedOperation]),
@@ -6122,6 +6278,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6387,6 +6546,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeClusters
@@ -6480,6 +6642,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault]),
@@ -6584,6 +6749,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNamespaceFault]),
         data_parser: Parsers::DescribeDataSharesForConsumer
@@ -6686,6 +6854,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNamespaceFault]),
@@ -6792,6 +6963,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6910,6 +7084,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault, Errors::EndpointNotFoundFault]),
         data_parser: Parsers::DescribeEndpointAccess
@@ -7015,6 +7192,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DescribeEndpointAuthorization
@@ -7096,6 +7276,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7235,6 +7418,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionNotFoundFault, Errors::InvalidTagFault]),
@@ -7412,6 +7598,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEvents
@@ -7540,6 +7729,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmClientCertificateNotFoundFault, Errors::InvalidTagFault]),
@@ -7673,6 +7865,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmConfigurationNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeHsmConfigurations
@@ -7752,6 +7947,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundFault]),
@@ -7878,6 +8076,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotNotFoundFault, Errors::InvalidClusterSnapshotStateFault, Errors::ClusterNotFoundFault, Errors::AccessToSnapshotDeniedFault]),
         data_parser: Parsers::DescribeNodeConfigurationOptions
@@ -7993,6 +8194,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeOrderableClusterOptions
@@ -8080,6 +8284,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterNotFoundFault, Errors::UnauthorizedPartnerIntegrationFault]),
@@ -8180,6 +8387,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ReservedNodeNotFoundFault, Errors::ReservedNodeExchangeNotFoundFault]),
@@ -8292,6 +8502,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::DependentServiceUnavailableFault]),
         data_parser: Parsers::DescribeReservedNodeOfferings
@@ -8398,6 +8611,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependentServiceUnavailableFault, Errors::ReservedNodeNotFoundFault]),
         data_parser: Parsers::DescribeReservedNodes
@@ -8492,6 +8708,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResizeNotFoundFault, Errors::ClusterNotFoundFault]),
@@ -8636,6 +8855,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ScheduledActionNotFoundFault, Errors::UnauthorizedOperation]),
         data_parser: Parsers::DescribeScheduledActions
@@ -8759,6 +8981,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotCopyGrantNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeSnapshotCopyGrants
@@ -8878,6 +9103,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSnapshotSchedules
@@ -8942,6 +9170,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9052,6 +9283,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TableRestoreNotFoundFault, Errors::ClusterNotFoundFault]),
@@ -9229,6 +9463,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault, Errors::InvalidTagFault]),
         data_parser: Parsers::DescribeTags
@@ -9379,6 +9616,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DescribeUsageLimits
@@ -9458,6 +9698,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
@@ -9673,6 +9916,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault, Errors::SnapshotCopyAlreadyDisabledFault]),
         data_parser: Parsers::DisableSnapshotCopy
@@ -9766,6 +10012,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault, Errors::InvalidNamespaceFault]),
@@ -9900,6 +10149,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BucketNotFoundFault, Errors::InvalidClusterStateFault, Errors::InvalidS3BucketNameFault, Errors::ClusterNotFoundFault, Errors::InvalidS3KeyPrefixFault, Errors::InsufficientS3BucketPolicyFault]),
@@ -10137,6 +10389,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotCopyGrantNotFoundFault, Errors::InvalidClusterStateFault, Errors::CopyToRegionDisabledFault, Errors::UnknownSnapshotCopyRegionFault, Errors::InvalidRetentionPeriodFault, Errors::UnauthorizedOperation, Errors::DependentServiceRequestThrottlingFault, Errors::ClusterNotFoundFault, Errors::LimitExceededFault, Errors::SnapshotCopyAlreadyEnabledFault, Errors::IncompatibleOrderableOptions]),
         data_parser: Parsers::EnableSnapshotCopy
@@ -10329,6 +10584,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::GetClusterCredentials
@@ -10421,6 +10679,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ClusterNotFoundFault]),
@@ -10546,6 +10807,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedNodeAlreadyMigratedFault, Errors::UnsupportedOperationFault, Errors::InvalidReservedNodeStateFault, Errors::ClusterSnapshotNotFoundFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::DependentServiceUnavailableFault, Errors::ClusterNotFoundFault, Errors::ReservedNodeNotFoundFault]),
         data_parser: Parsers::GetReservedNodeExchangeConfigurationOptions
@@ -10641,6 +10905,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedNodeAlreadyMigratedFault, Errors::UnsupportedOperationFault, Errors::InvalidReservedNodeStateFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::DependentServiceUnavailableFault, Errors::ReservedNodeNotFoundFault]),
         data_parser: Parsers::GetReservedNodeExchangeOfferings
@@ -10727,6 +10994,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::ModifyAquaConfiguration
@@ -10801,6 +11071,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AuthenticationProfileQuotaExceededFault, Errors::InvalidAuthenticationProfileRequestFault, Errors::AuthenticationProfileNotFoundFault]),
@@ -11269,6 +11542,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HsmClientCertificateNotFoundFault, Errors::InvalidClusterStateFault, Errors::ClusterSecurityGroupNotFoundFault, Errors::DependentServiceRequestThrottlingFault, Errors::HsmConfigurationNotFoundFault, Errors::NumberOfNodesQuotaExceededFault, Errors::ClusterAlreadyExistsFault, Errors::ClusterParameterGroupNotFoundFault, Errors::InsufficientClusterCapacityFault, Errors::InvalidClusterTrackFault, Errors::TableLimitExceededFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::InvalidElasticIpFault, Errors::InvalidRetentionPeriodFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault, Errors::UnsupportedOptionFault, Errors::NumberOfNodesPerClusterLimitExceededFault, Errors::LimitExceededFault]),
         data_parser: Parsers::ModifyCluster
@@ -11483,6 +11759,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterOnLatestRevisionFault, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
@@ -11709,6 +11988,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
@@ -11939,6 +12221,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::ModifyClusterMaintenance
@@ -12033,6 +12318,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupNotFoundFault, Errors::InvalidClusterParameterGroupStateFault]),
@@ -12158,6 +12446,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotNotFoundFault, Errors::InvalidRetentionPeriodFault, Errors::InvalidClusterSnapshotStateFault]),
         data_parser: Parsers::ModifyClusterSnapshot
@@ -12236,6 +12527,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotScheduleNotFoundFault, Errors::ClusterNotFoundFault, Errors::InvalidClusterSnapshotScheduleStateFault]),
@@ -12335,6 +12629,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSubnetGroupNotFoundFault, Errors::InvalidSubnet, Errors::SubnetAlreadyInUse, Errors::UnauthorizedOperation, Errors::ClusterSubnetQuotaExceededFault, Errors::DependentServiceRequestThrottlingFault]),
         data_parser: Parsers::ModifyClusterSubnetGroup
@@ -12429,6 +12726,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault, Errors::EndpointNotFoundFault, Errors::InvalidEndpointStateFault]),
@@ -12558,6 +12858,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubscriptionSeverityNotFoundFault, Errors::SubscriptionEventIdNotFoundFault, Errors::SubscriptionCategoryNotFoundFault, Errors::InvalidSubscriptionStateFault, Errors::SNSTopicArnNotFoundFault, Errors::SNSNoAuthorizationFault, Errors::SourceNotFoundFault, Errors::SubscriptionNotFoundFault, Errors::SNSInvalidTopicFault]),
@@ -12698,6 +13001,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ScheduledActionTypeUnsupportedFault, Errors::ScheduledActionNotFoundFault, Errors::InvalidScheduledActionFault, Errors::UnauthorizedOperation, Errors::InvalidScheduleFault]),
@@ -12937,6 +13243,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::SnapshotCopyDisabledFault, Errors::InvalidRetentionPeriodFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::ModifySnapshotCopyRetentionPeriod
@@ -13028,6 +13337,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotScheduleNotFoundFault, Errors::InvalidScheduleFault, Errors::SnapshotScheduleUpdateInProgressFault]),
         data_parser: Parsers::ModifySnapshotSchedule
@@ -13117,6 +13429,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidUsageLimitFault, Errors::UnsupportedOperationFault, Errors::UsageLimitNotFoundFault]),
@@ -13325,6 +13640,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::PauseCluster
@@ -13423,6 +13741,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperationFault, Errors::ReservedNodeAlreadyExistsFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::ReservedNodeQuotaExceededFault]),
@@ -13638,6 +13959,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::RebootCluster
@@ -13716,6 +14040,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDataShareFault]),
@@ -13815,6 +14142,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterParameterGroupNotFoundFault, Errors::InvalidClusterParameterGroupStateFault]),
@@ -14090,6 +14420,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReservedNodeAlreadyMigratedFault, Errors::InvalidClusterStateFault, Errors::InvalidReservedNodeStateFault, Errors::ReservedNodeAlreadyExistsFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::DependentServiceUnavailableFault, Errors::NumberOfNodesQuotaExceededFault, Errors::ReservedNodeNotFoundFault, Errors::InsufficientClusterCapacityFault, Errors::UnsupportedOperationFault, Errors::UnauthorizedOperation, Errors::ClusterNotFoundFault, Errors::UnsupportedOptionFault, Errors::NumberOfNodesPerClusterLimitExceededFault, Errors::LimitExceededFault]),
@@ -14555,6 +14888,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidReservedNodeStateFault, Errors::ClusterQuotaExceededFault, Errors::ReservedNodeAlreadyExistsFault, Errors::InvalidRestoreFault, Errors::DependentServiceUnavailableFault, Errors::HsmConfigurationNotFoundFault, Errors::NumberOfNodesQuotaExceededFault, Errors::InvalidSubnet, Errors::UnauthorizedOperation, Errors::AccessToSnapshotDeniedFault, Errors::LimitExceededFault, Errors::InvalidTagFault, Errors::ReservedNodeAlreadyMigratedFault, Errors::HsmClientCertificateNotFoundFault, Errors::InvalidClusterSubnetGroupStateFault, Errors::TagLimitExceededFault, Errors::ReservedNodeOfferingNotFoundFault, Errors::InvalidVPCNetworkStateFault, Errors::ClusterSecurityGroupNotFoundFault, Errors::DependentServiceRequestThrottlingFault, Errors::ClusterAlreadyExistsFault, Errors::ClusterParameterGroupNotFoundFault, Errors::ReservedNodeNotFoundFault, Errors::ClusterSubnetGroupNotFoundFault, Errors::InsufficientClusterCapacityFault, Errors::UnsupportedOperationFault, Errors::ClusterSnapshotNotFoundFault, Errors::InvalidClusterTrackFault, Errors::InvalidElasticIpFault, Errors::SnapshotScheduleNotFoundFault, Errors::InvalidClusterSnapshotStateFault, Errors::NumberOfNodesPerClusterLimitExceededFault]),
         data_parser: Parsers::RestoreFromClusterSnapshot
@@ -14686,6 +15022,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InProgressTableRestoreQuotaExceededFault, Errors::UnsupportedOperationFault, Errors::InvalidClusterStateFault, Errors::ClusterSnapshotNotFoundFault, Errors::InvalidClusterSnapshotStateFault, Errors::ClusterNotFoundFault, Errors::InvalidTableRestoreArgumentFault]),
@@ -14894,6 +15233,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InsufficientClusterCapacityFault, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::ResumeCluster
@@ -15007,6 +15349,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterSecurityGroupStateFault, Errors::ClusterSecurityGroupNotFoundFault, Errors::AuthorizationNotFoundFault]),
         data_parser: Parsers::RevokeClusterSecurityGroupIngress
@@ -15099,6 +15444,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::InvalidAuthorizationStateFault, Errors::InvalidClusterSecurityGroupStateFault, Errors::ClusterNotFoundFault, Errors::EndpointAuthorizationNotFoundFault, Errors::EndpointNotFoundFault, Errors::InvalidEndpointStateFault]),
@@ -15226,6 +15574,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClusterSnapshotNotFoundFault, Errors::AccessToSnapshotDeniedFault, Errors::AuthorizationNotFoundFault]),
@@ -15437,6 +15788,9 @@ module AWS::SDK::Redshift
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidClusterStateFault, Errors::DependentServiceRequestThrottlingFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::RotateEncryptionKey
@@ -15526,6 +15880,9 @@ module AWS::SDK::Redshift
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PartnerNotFoundFault, Errors::ClusterNotFoundFault, Errors::UnauthorizedPartnerIntegrationFault]),

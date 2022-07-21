@@ -139,6 +139,9 @@ module AWS::SDK::KinesisVideoMedia
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientLimitExceededException, Errors::ConnectionLimitExceededException, Errors::InvalidArgumentException, Errors::InvalidEndpointException, Errors::NotAuthorizedException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::GetMedia

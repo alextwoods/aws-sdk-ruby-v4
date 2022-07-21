@@ -186,6 +186,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::CreationLimitExceededException, Errors::DuplicateRecordException]),
         data_parser: Parsers::CreateBudget
@@ -331,6 +334,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::CreationLimitExceededException, Errors::DuplicateRecordException]),
         data_parser: Parsers::CreateBudgetAction
@@ -422,6 +428,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::CreationLimitExceededException, Errors::DuplicateRecordException]),
         data_parser: Parsers::CreateNotification
@@ -511,6 +520,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::CreationLimitExceededException, Errors::DuplicateRecordException]),
         data_parser: Parsers::CreateSubscriber
@@ -585,6 +597,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -701,6 +716,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ResourceLockedException]),
         data_parser: Parsers::DeleteBudgetAction
@@ -785,6 +803,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -877,6 +898,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -988,6 +1012,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -1103,6 +1130,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -1241,6 +1271,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::InvalidNextTokenException]),
         data_parser: Parsers::DescribeBudgetActionHistories
@@ -1353,6 +1386,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::InvalidNextTokenException]),
@@ -1471,6 +1507,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::InvalidNextTokenException]),
         data_parser: Parsers::DescribeBudgetActionsForBudget
@@ -1561,6 +1600,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ExpiredNextTokenException, Errors::InvalidNextTokenException]),
@@ -1677,6 +1719,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ExpiredNextTokenException, Errors::InvalidNextTokenException]),
@@ -1795,6 +1840,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ExpiredNextTokenException, Errors::InvalidNextTokenException]),
         data_parser: Parsers::DescribeBudgets
@@ -1882,6 +1930,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ExpiredNextTokenException, Errors::InvalidNextTokenException]),
@@ -1978,6 +2029,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ExpiredNextTokenException, Errors::InvalidNextTokenException]),
         data_parser: Parsers::DescribeSubscribersForNotification
@@ -2067,6 +2121,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ResourceLockedException]),
@@ -2183,6 +2240,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException]),
@@ -2362,6 +2422,9 @@ module AWS::SDK::Budgets
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::ResourceLockedException]),
         data_parser: Parsers::UpdateBudgetAction
@@ -2446,6 +2509,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::DuplicateRecordException]),
@@ -2538,6 +2604,9 @@ module AWS::SDK::Budgets
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::NotFoundException, Errors::AccessDeniedException, Errors::InternalErrorException, Errors::DuplicateRecordException]),

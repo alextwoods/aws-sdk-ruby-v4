@@ -84,6 +84,9 @@ module AWS::SDK::Polly
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LexiconNotFoundException, Errors::ServiceFailureException]),
         data_parser: Parsers::DeleteLexicon
@@ -204,6 +207,9 @@ module AWS::SDK::Polly
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ServiceFailureException]),
         data_parser: Parsers::DescribeVoices
@@ -281,6 +287,9 @@ module AWS::SDK::Polly
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LexiconNotFoundException, Errors::ServiceFailureException]),
@@ -370,6 +379,9 @@ module AWS::SDK::Polly
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTaskIdException, Errors::ServiceFailureException, Errors::SynthesisTaskNotFoundException]),
         data_parser: Parsers::GetSpeechSynthesisTask
@@ -449,6 +461,9 @@ module AWS::SDK::Polly
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ServiceFailureException]),
@@ -550,6 +565,9 @@ module AWS::SDK::Polly
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ServiceFailureException]),
         data_parser: Parsers::ListSpeechSynthesisTasks
@@ -628,6 +646,9 @@ module AWS::SDK::Polly
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidLexiconException, Errors::LexiconSizeExceededException, Errors::MaxLexemeLengthExceededException, Errors::MaxLexiconsNumberExceededException, Errors::ServiceFailureException, Errors::UnsupportedPlsAlphabetException, Errors::UnsupportedPlsLanguageException]),
@@ -794,6 +815,9 @@ module AWS::SDK::Polly
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EngineNotSupportedException, Errors::InvalidS3BucketException, Errors::InvalidS3KeyException, Errors::InvalidSampleRateException, Errors::InvalidSnsTopicArnException, Errors::InvalidSsmlException, Errors::LanguageNotSupportedException, Errors::LexiconNotFoundException, Errors::MarksNotSupportedForFormatException, Errors::ServiceFailureException, Errors::SsmlMarksNotSupportedForTextTypeException, Errors::TextLengthExceededException]),
         data_parser: Parsers::StartSpeechSynthesisTask
@@ -950,6 +974,9 @@ module AWS::SDK::Polly
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EngineNotSupportedException, Errors::InvalidSampleRateException, Errors::InvalidSsmlException, Errors::LanguageNotSupportedException, Errors::LexiconNotFoundException, Errors::MarksNotSupportedForFormatException, Errors::ServiceFailureException, Errors::SsmlMarksNotSupportedForTextTypeException, Errors::TextLengthExceededException]),

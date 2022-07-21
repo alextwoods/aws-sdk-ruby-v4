@@ -92,6 +92,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::ConfigureLogs
@@ -195,6 +198,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -411,6 +417,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::CreatePackagingConfiguration
@@ -508,6 +517,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::CreatePackagingGroup
@@ -574,6 +586,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -642,6 +657,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::DeletePackagingConfiguration
@@ -708,6 +726,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -789,6 +810,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -916,6 +940,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::DescribePackagingConfiguration
@@ -992,6 +1019,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -1079,6 +1109,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
@@ -1217,6 +1250,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::ListPackagingConfigurations
@@ -1301,6 +1337,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),
         data_parser: Parsers::ListPackagingGroups
@@ -1369,6 +1408,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1444,6 +1486,9 @@ module AWS::SDK::MediaPackageVod
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::TagResource
@@ -1516,6 +1561,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -1601,6 +1649,9 @@ module AWS::SDK::MediaPackageVod
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::UnprocessableEntityException]),

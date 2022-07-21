@@ -196,6 +196,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ConflictException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateApplication
@@ -308,6 +311,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ConflictException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -479,6 +485,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateCloudFormationChangeSet
@@ -560,6 +569,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateCloudFormationTemplate
@@ -626,6 +638,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ConflictException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -736,6 +751,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetApplication
@@ -809,6 +827,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -887,6 +908,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -972,6 +996,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListApplicationDependencies
@@ -1053,6 +1080,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1136,6 +1166,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException]),
@@ -1226,6 +1259,9 @@ module AWS::SDK::ServerlessApplicationRepository
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
         data_parser: Parsers::PutApplicationPolicy
@@ -1297,6 +1333,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::BadRequestException, Errors::TooManyRequestsException]),
@@ -1429,6 +1468,9 @@ module AWS::SDK::ServerlessApplicationRepository
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::ConflictException, Errors::BadRequestException, Errors::TooManyRequestsException]),

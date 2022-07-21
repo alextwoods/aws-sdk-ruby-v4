@@ -131,6 +131,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::MalformedArnException, Errors::ResourceShareInvitationAlreadyAcceptedException, Errors::OperationNotPermittedException, Errors::ResourceShareInvitationArnNotFoundException, Errors::ResourceShareInvitationAlreadyRejectedException, Errors::ResourceShareInvitationExpiredException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::AcceptResourceShareInvitation
@@ -273,6 +276,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::ResourceShareLimitExceededException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidStateTransitionException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ThrottlingException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::AssociateResourceShare
@@ -383,6 +389,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
@@ -557,6 +566,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::TagPolicyViolationException, Errors::ResourceShareLimitExceededException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidStateTransitionException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateResourceShare
@@ -638,6 +650,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidStateTransitionException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
@@ -777,6 +792,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::ResourceShareLimitExceededException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidStateTransitionException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DisassociateResourceShare
@@ -865,6 +883,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidStateTransitionException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DisassociateResourceSharePermission
@@ -935,6 +956,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationNotPermittedException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -1020,6 +1044,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -1118,6 +1145,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::ResourceArnNotFoundException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -1257,6 +1287,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::GetResourceShareAssociations
@@ -1376,6 +1409,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMaxResultsException, Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::ResourceShareInvitationArnNotFoundException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -1531,6 +1567,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::GetResourceShares
@@ -1656,6 +1695,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MissingRequiredParameterException, Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::ResourceShareInvitationArnNotFoundException, Errors::ResourceShareInvitationAlreadyRejectedException, Errors::InvalidParameterException, Errors::ResourceShareInvitationExpiredException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListPendingInvitationResources
@@ -1757,6 +1799,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -1861,6 +1906,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::OperationNotPermittedException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -2033,6 +2081,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListPrincipals
@@ -2133,6 +2184,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -2246,6 +2300,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -2412,6 +2469,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::MalformedArnException, Errors::InvalidResourceTypeException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListResources
@@ -2484,6 +2544,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MissingRequiredParameterException, Errors::ResourceShareLimitExceededException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -2585,6 +2648,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatchException, Errors::MalformedArnException, Errors::ResourceShareInvitationAlreadyAcceptedException, Errors::OperationNotPermittedException, Errors::ResourceShareInvitationArnNotFoundException, Errors::ResourceShareInvitationAlreadyRejectedException, Errors::ResourceShareInvitationExpiredException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::RejectResourceShareInvitation
@@ -2664,6 +2730,9 @@ module AWS::SDK::RAM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TagPolicyViolationException, Errors::MalformedArnException, Errors::ResourceArnNotFoundException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::TagLimitExceededException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::TagResource
@@ -2738,6 +2807,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ServerInternalException, Errors::ServiceUnavailableException]),
@@ -2841,6 +2913,9 @@ module AWS::SDK::RAM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MissingRequiredParameterException, Errors::IdempotentParameterMismatchException, Errors::MalformedArnException, Errors::OperationNotPermittedException, Errors::UnknownResourceException, Errors::InvalidParameterException, Errors::ServerInternalException, Errors::InvalidClientTokenException, Errors::ServiceUnavailableException]),

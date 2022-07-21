@@ -7,8 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'aws-sdk-core'
 require 'hearth'
+require 'aws-sdk-core'
 
 require_relative 'aws-sdk-sagemakera2iruntime/builders'
 require_relative 'aws-sdk-sagemakera2iruntime/client'

@@ -250,6 +250,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::CreateEnvironmentEC2
@@ -343,6 +346,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::CreateEnvironmentMembership
@@ -411,6 +417,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
@@ -484,6 +493,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
@@ -601,6 +613,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::DescribeEnvironmentMemberships
@@ -670,6 +685,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
@@ -755,6 +773,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::DescribeEnvironments
@@ -834,6 +855,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::ListEnvironments
@@ -906,6 +930,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::InternalServerErrorException, Errors::NotFoundException]),
@@ -989,6 +1016,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConcurrentAccessException, Errors::InternalServerErrorException, Errors::NotFoundException]),
         data_parser: Parsers::TagResource
@@ -1064,6 +1094,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConcurrentAccessException, Errors::InternalServerErrorException, Errors::NotFoundException]),
@@ -1162,6 +1195,9 @@ module AWS::SDK::Cloud9
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
         data_parser: Parsers::UpdateEnvironment
@@ -1257,6 +1293,9 @@ module AWS::SDK::Cloud9
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::Signer,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::BadRequestException, Errors::ForbiddenException, Errors::LimitExceededException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ConflictException]),
