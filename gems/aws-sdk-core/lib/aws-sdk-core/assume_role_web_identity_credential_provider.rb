@@ -31,7 +31,7 @@ module AWS::SDK::Core
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
-      return unless AWS::SDK::Core.sts_loaded?
+      next unless AWS::SDK::Core.sts_loaded?
 
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if profile_config['web_identity_token_file'] && profile_config['role_arn']
@@ -49,7 +49,7 @@ module AWS::SDK::Core
     end
 
     ENVIRONMENT = proc do |_cfg|
-      return unless AWS::SDK::Core.sts_loaded?
+      next unless AWS::SDK::Core.sts_loaded?
 
       if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
         new(
