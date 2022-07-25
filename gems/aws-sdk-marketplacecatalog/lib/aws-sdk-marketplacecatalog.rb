@@ -7,8 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'hearth'
 require 'aws-sdk-core'
+require 'hearth'
 
 require_relative 'aws-sdk-marketplacecatalog/builders'
 require_relative 'aws-sdk-marketplacecatalog/client'

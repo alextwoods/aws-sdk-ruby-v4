@@ -97,7 +97,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -182,7 +182,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -261,7 +261,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -334,7 +334,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -463,7 +463,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -590,7 +590,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -772,7 +772,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -963,7 +963,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1183,7 +1183,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1308,7 +1308,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1379,7 +1379,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1460,7 +1460,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1545,7 +1545,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1625,7 +1625,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1705,7 +1705,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1791,7 +1791,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1866,7 +1866,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -1975,7 +1975,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2071,7 +2071,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2193,7 +2193,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2311,7 +2311,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2431,7 +2431,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2525,7 +2525,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2611,7 +2611,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2716,7 +2716,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -2871,7 +2871,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3013,7 +3013,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3148,7 +3148,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3255,7 +3255,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3329,7 +3329,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3403,7 +3403,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3574,7 +3574,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3687,7 +3687,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3767,7 +3767,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3849,7 +3849,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -3953,7 +3953,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4035,7 +4035,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4138,7 +4138,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4236,7 +4236,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4379,7 +4379,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4483,7 +4483,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4584,7 +4584,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4687,7 +4687,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -4824,7 +4824,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -5021,7 +5021,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -5132,7 +5132,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
@@ -5234,7 +5234,7 @@ module AWS::SDK::ElasticBeanstalk
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(AWS::SDK::Core::Middleware::Signer,
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,

@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
   spec.summary       = 'TEST SERVICE'
   spec.files         = Dir['lib/**/*.rb']
 
-  spec.add_runtime_dependency 'hearth', '~> 1.0.0.pre1'
   spec.add_runtime_dependency 'aws-sdk-core', '~> 4.0.0.pre1'
+  spec.add_runtime_dependency 'hearth', '~> 1.0.0.pre1'
 end

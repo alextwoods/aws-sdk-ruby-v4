@@ -29,7 +29,8 @@ jobs:
         run: bundle install
 
       - name: Unit tests
-        run: bundle exec rake test:spec
+        # TODO - run all when possible
+        run: bundle exec rspec gems/aws-sdk-core gems/aws-sigv4
 
   rubocop:
     runs-on: ubuntu-latest
