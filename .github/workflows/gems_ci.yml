@@ -30,7 +30,7 @@ jobs:
 
       - name: Unit tests
         # TODO - run all when possible
-        run: bundle exec rspec gems/aws-sdk-core gems/aws-sigv4
+        run: bundle exec rspec -I gems/aws-sdk-core/lib -I gems/aws-sigv4/lib gems/aws-sdk-core gems/aws-sigv4
 
   rubocop:
     runs-on: ubuntu-latest
