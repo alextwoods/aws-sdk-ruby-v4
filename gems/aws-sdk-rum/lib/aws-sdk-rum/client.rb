@@ -145,6 +145,9 @@ module AWS::SDK::RUM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ConflictException, Errors::ValidationException, Errors::ServiceQuotaExceededException, Errors::InternalServerException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateAppMonitor
@@ -211,6 +214,9 @@ module AWS::SDK::RUM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
@@ -304,6 +310,9 @@ module AWS::SDK::RUM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
@@ -404,6 +413,9 @@ module AWS::SDK::RUM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::GetAppMonitorData
@@ -483,6 +495,9 @@ module AWS::SDK::RUM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListAppMonitors
@@ -552,6 +567,9 @@ module AWS::SDK::RUM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException]),
@@ -659,6 +677,9 @@ module AWS::SDK::RUM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::PutRumEvents
@@ -746,6 +767,9 @@ module AWS::SDK::RUM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::TagResource
@@ -818,6 +842,9 @@ module AWS::SDK::RUM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException]),
@@ -931,6 +958,9 @@ module AWS::SDK::RUM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),

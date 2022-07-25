@@ -84,6 +84,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException, Errors::LimitExceededException]),
         data_parser: Parsers::ApproveSkill
@@ -156,6 +159,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException]),
         data_parser: Parsers::AssociateContactWithAddressBook
@@ -227,6 +233,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::DeviceNotRegisteredException, Errors::NotFoundException]),
@@ -302,6 +311,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::DeviceNotRegisteredException, Errors::LimitExceededException]),
         data_parser: Parsers::AssociateDeviceWithRoom
@@ -375,6 +387,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException]),
         data_parser: Parsers::AssociateSkillGroupWithRoom
@@ -447,6 +462,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::SkillNotLinkedException, Errors::NotFoundException]),
         data_parser: Parsers::AssociateSkillWithSkillGroup
@@ -514,6 +532,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -601,6 +622,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::LimitExceededException]),
@@ -712,6 +736,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException]),
         data_parser: Parsers::CreateBusinessReportSchedule
@@ -819,6 +846,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException]),
@@ -937,6 +967,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateContact
@@ -1022,6 +1055,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::LimitExceededException]),
@@ -1144,6 +1180,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ConcurrentModificationException, Errors::InvalidServiceLinkedRoleStateException, Errors::InvalidCertificateAuthorityException, Errors::LimitExceededException]),
@@ -1288,6 +1327,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ConcurrentModificationException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateProfile
@@ -1383,6 +1425,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateRoom
@@ -1469,6 +1514,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::ConcurrentModificationException, Errors::LimitExceededException]),
@@ -1565,6 +1613,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateUser
@@ -1632,6 +1683,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -1702,6 +1756,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteBusinessReportSchedule
@@ -1769,6 +1826,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -1838,6 +1898,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteContact
@@ -1905,6 +1968,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidCertificateAuthorityException, Errors::NotFoundException]),
@@ -1980,6 +2046,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeviceNotRegisteredException, Errors::NotFoundException, Errors::LimitExceededException]),
         data_parser: Parsers::DeleteDeviceUsageData
@@ -2047,6 +2116,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAssociatedException]),
@@ -2116,6 +2188,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::ResourceInUseException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteNetworkProfile
@@ -2184,6 +2259,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteProfile
@@ -2251,6 +2329,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -2328,6 +2409,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException]),
         data_parser: Parsers::DeleteRoomSkillParameter
@@ -2400,6 +2484,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteSkillAuthorization
@@ -2467,6 +2554,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -2540,6 +2630,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteUser
@@ -2612,6 +2705,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateContactFromAddressBook
@@ -2681,6 +2777,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::DeviceNotRegisteredException]),
@@ -2754,6 +2853,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::DisassociateSkillFromSkillGroup
@@ -2822,6 +2924,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -2897,6 +3002,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException]),
         data_parser: Parsers::DisassociateSkillGroupFromRoom
@@ -2964,6 +3072,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -3037,6 +3148,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetAddressBook
@@ -3101,6 +3215,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -3184,6 +3301,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetConferenceProvider
@@ -3265,6 +3385,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -3354,6 +3477,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetDevice
@@ -3428,6 +3554,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetGateway
@@ -3500,6 +3629,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetGatewayGroup
@@ -3567,6 +3699,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -3647,6 +3782,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSecretsManagerResourceException, Errors::NotFoundException]),
@@ -3744,6 +3882,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetProfile
@@ -3817,6 +3958,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -3898,6 +4042,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::GetRoomSkillParameter
@@ -3969,6 +4116,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -4062,6 +4212,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBusinessReportSchedules
@@ -4150,6 +4303,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4246,6 +4402,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::ListDeviceEvents
@@ -4324,6 +4483,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4410,6 +4572,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4507,6 +4672,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListSkills
@@ -4583,6 +4751,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4691,6 +4862,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListSkillsStoreSkillsByCategory
@@ -4772,6 +4946,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -4858,6 +5035,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::ListTags
@@ -4928,6 +5108,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -5010,6 +5193,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::PutInvitationConfiguration
@@ -5089,6 +5275,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException]),
@@ -5170,6 +5359,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedException, Errors::ConcurrentModificationException]),
@@ -5275,6 +5467,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidDeviceException, Errors::NotFoundException, Errors::LimitExceededException]),
         data_parser: Parsers::RegisterAVSDevice
@@ -5344,6 +5539,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -5429,6 +5627,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::ResolveRoom
@@ -5500,6 +5701,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -5606,6 +5810,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5722,6 +5929,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5847,6 +6057,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchDevices
@@ -5956,6 +6169,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6069,6 +6285,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchProfiles
@@ -6178,6 +6397,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchRooms
@@ -6284,6 +6506,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6395,6 +6620,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchUsers
@@ -6504,6 +6732,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::LimitExceededException]),
         data_parser: Parsers::SendAnnouncement
@@ -6572,6 +6803,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::InvalidUserStatusException, Errors::NotFoundException]),
@@ -6672,6 +6906,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeviceNotRegisteredException]),
         data_parser: Parsers::StartDeviceSync
@@ -6740,6 +6977,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -6819,6 +7059,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
         data_parser: Parsers::TagResource
@@ -6893,6 +7136,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -6969,6 +7215,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NameInUseException, Errors::NotFoundException]),
@@ -7061,6 +7310,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
@@ -7155,6 +7407,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFoundException]),
@@ -7260,6 +7515,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateContact
@@ -7331,6 +7589,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::DeviceNotRegisteredException, Errors::NotFoundException]),
@@ -7414,6 +7675,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameInUseException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateGateway
@@ -7490,6 +7754,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameInUseException, Errors::NotFoundException]),
@@ -7588,6 +7855,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NameInUseException, Errors::InvalidCertificateAuthorityException, Errors::InvalidSecretsManagerResourceException, Errors::NotFoundException]),
@@ -7727,6 +7997,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NameInUseException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateProfile
@@ -7811,6 +8084,9 @@ module AWS::SDK::AlexaForBusiness
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NameInUseException, Errors::NotFoundException]),
         data_parser: Parsers::UpdateRoom
@@ -7886,6 +8162,9 @@ module AWS::SDK::AlexaForBusiness
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentModificationException, Errors::NameInUseException, Errors::NotFoundException]),

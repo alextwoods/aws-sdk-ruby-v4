@@ -95,6 +95,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::BuildBotLocale
@@ -217,6 +220,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -402,6 +408,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::CreateBotAlias
@@ -537,6 +546,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::CreateBotLocale
@@ -633,6 +645,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -752,6 +767,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -1107,6 +1125,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::CreateIntent
@@ -1188,6 +1209,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -1315,6 +1339,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -1555,6 +1582,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::CreateSlot
@@ -1735,6 +1765,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::CreateSlotType
@@ -1799,6 +1832,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -1884,6 +1920,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteBot
@@ -1963,6 +2002,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -2046,6 +2088,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -2131,6 +2176,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteBotVersion
@@ -2214,6 +2262,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteCustomVocabulary
@@ -2284,6 +2335,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteExport
@@ -2353,6 +2407,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -2437,6 +2494,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteIntent
@@ -2514,6 +2574,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -2601,6 +2664,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailedException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
         data_parser: Parsers::DeleteResourcePolicyStatement
@@ -2685,6 +2751,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -2779,6 +2848,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DeleteSlotType
@@ -2870,6 +2942,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException]),
         data_parser: Parsers::DeleteUtterances
@@ -2946,6 +3021,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -3057,6 +3135,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DescribeBotAlias
@@ -3156,6 +3237,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -3278,6 +3362,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
         data_parser: Parsers::DescribeBotRecommendation
@@ -3362,6 +3449,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DescribeBotVersion
@@ -3443,6 +3533,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -3530,6 +3623,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -3628,6 +3724,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -3786,6 +3885,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DescribeIntent
@@ -3857,6 +3959,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -3998,6 +4103,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::DescribeSlot
@@ -4104,6 +4212,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -4283,6 +4394,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException]),
         data_parser: Parsers::ListAggregatedUtterances
@@ -4375,6 +4489,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -4495,6 +4612,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::ListBotLocales
@@ -4597,6 +4717,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -4704,6 +4827,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -4818,6 +4944,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::ListBots
@@ -4922,6 +5051,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::ListBuiltInIntents
@@ -5022,6 +5154,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -5165,6 +5300,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException]),
         data_parser: Parsers::ListExports
@@ -5297,6 +5435,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException]),
@@ -5436,6 +5577,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::ListIntents
@@ -5542,6 +5686,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -5671,6 +5818,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -5826,6 +5976,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::ListSlots
@@ -5896,6 +6049,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -6021,6 +6177,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -6159,6 +6318,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -6301,6 +6463,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::StartImport
@@ -6379,6 +6544,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
         data_parser: Parsers::TagResource
@@ -6453,6 +6621,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException]),
@@ -6563,6 +6734,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -6732,6 +6906,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::UpdateBotAlias
@@ -6844,6 +7021,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -6965,6 +7145,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::UpdateBotRecommendation
@@ -7057,6 +7240,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -7351,6 +7537,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::UpdateIntent
@@ -7441,6 +7630,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
@@ -7675,6 +7867,9 @@ module AWS::SDK::LexModelsV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),
         data_parser: Parsers::UpdateSlot
@@ -7833,6 +8028,9 @@ module AWS::SDK::LexModelsV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ConflictException, Errors::PreconditionFailedException, Errors::ValidationException, Errors::InternalServerException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException]),

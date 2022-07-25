@@ -195,6 +195,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HandshakeNotFoundException, Errors::AccessDeniedForDependencyException, Errors::HandshakeConstraintViolationException, Errors::HandshakeAlreadyInStateException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidHandshakeTransitionException]),
         data_parser: Parsers::AcceptHandshake
@@ -317,6 +320,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicatePolicyAttachmentException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::ConcurrentModificationException, Errors::PolicyTypeNotEnabledException, Errors::TargetNotFoundException, Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::PolicyChangesInProgressException, Errors::AccessDeniedException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AttachPolicy
@@ -408,6 +414,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HandshakeNotFoundException, Errors::HandshakeAlreadyInStateException, Errors::InvalidInputException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidHandshakeTransitionException]),
@@ -523,6 +532,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccountAlreadyClosedException, Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ConflictException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -771,6 +783,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::FinalizingOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -1077,6 +1092,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::FinalizingOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateGovCloudAccount
@@ -1187,6 +1205,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedForDependencyException, Errors::InvalidInputException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::AlreadyInOrganizationException]),
@@ -1306,6 +1327,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::DuplicateOrganizationalUnitException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::ParentNotFoundException]),
@@ -1445,6 +1469,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyTypeNotAvailableForOrganizationException, Errors::UnsupportedAPIEndpointException, Errors::DuplicatePolicyException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::MalformedPolicyDocumentException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreatePolicy
@@ -1538,6 +1565,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HandshakeNotFoundException, Errors::HandshakeAlreadyInStateException, Errors::InvalidInputException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::InvalidHandshakeTransitionException]),
         data_parser: Parsers::DeclineHandshake
@@ -1601,6 +1631,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::OrganizationNotEmptyException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -1677,6 +1710,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OrganizationalUnitNotEmptyException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::OrganizationalUnitNotFoundException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteOrganizationalUnit
@@ -1751,6 +1787,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::PolicyInUseException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -1843,6 +1882,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::AccountNotRegisteredException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeregisterDelegatedAdministrator
@@ -1923,6 +1965,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2006,6 +2051,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::CreateAccountStatusNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2113,6 +2161,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::EffectivePolicyNotFoundException, Errors::ServiceException, Errors::TargetNotFoundException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeEffectivePolicy
@@ -2207,6 +2258,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HandshakeNotFoundException, Errors::InvalidInputException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeHandshake
@@ -2288,6 +2342,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeOrganization
@@ -2367,6 +2424,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::OrganizationalUnitNotFoundException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2450,6 +2510,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2561,6 +2624,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyNotAttachedException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::ConcurrentModificationException, Errors::TargetNotFoundException, Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::PolicyChangesInProgressException, Errors::AccessDeniedException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2688,6 +2754,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DisableAWSServiceAccess
@@ -2804,6 +2873,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::PolicyChangesInProgressException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::PolicyTypeNotEnabledException, Errors::RootNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DisablePolicyType
@@ -2893,6 +2965,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2997,6 +3072,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::HandshakeConstraintViolationException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3113,6 +3191,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyTypeNotAvailableForOrganizationException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::ConcurrentModificationException, Errors::RootNotFoundException, Errors::PolicyTypeAlreadyEnabledException, Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::PolicyChangesInProgressException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3277,6 +3358,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateHandshakeException, Errors::HandshakeConstraintViolationException, Errors::AccountOwnerNotVerifiedException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::FinalizingOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::InviteAccountToOrganization
@@ -3404,6 +3488,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::MasterCannotLeaveOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::LeaveOrganization
@@ -3499,6 +3586,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3603,6 +3693,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3715,6 +3808,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::ParentNotFoundException]),
@@ -3840,6 +3936,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::ParentNotFoundException]),
         data_parser: Parsers::ListChildren
@@ -3952,6 +4051,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListCreateAccountStatus
@@ -4056,6 +4158,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListDelegatedAdministrators
@@ -4150,6 +4255,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::AccountNotRegisteredException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4278,6 +4386,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4410,6 +4521,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListHandshakesForOrganization
@@ -4527,6 +4641,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException, Errors::ParentNotFoundException]),
@@ -4650,6 +4767,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ChildNotFoundException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4779,6 +4899,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4935,6 +5058,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TargetNotFoundException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListPoliciesForTarget
@@ -5044,6 +5170,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5167,6 +5296,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::ServiceException, Errors::TargetNotFoundException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListTagsForResource
@@ -5273,6 +5405,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::AccessDeniedException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5386,6 +5521,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::SourceParentNotFoundException, Errors::DestinationParentNotFoundException, Errors::AccessDeniedException, Errors::DuplicateAccountException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::MoveAccount
@@ -5467,6 +5605,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedAPIEndpointException, Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccountAlreadyRegisteredException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5575,6 +5716,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AccountNotFoundException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::MasterCannotLeaveOrganizationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5699,6 +5843,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TargetNotFoundException, Errors::TooManyRequestsException]),
         data_parser: Parsers::TagResource
@@ -5813,6 +5960,9 @@ module AWS::SDK::Organizations
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TargetNotFoundException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UntagResource
@@ -5899,6 +6049,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::AWSOrganizationsNotInUseException, Errors::OrganizationalUnitNotFoundException, Errors::DuplicateOrganizationalUnitException, Errors::AccessDeniedException, Errors::ConcurrentModificationException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5999,6 +6152,9 @@ module AWS::SDK::Organizations
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AWSOrganizationsNotInUseException, Errors::ConstraintViolationException, Errors::ConcurrentModificationException, Errors::UnsupportedAPIEndpointException, Errors::DuplicatePolicyException, Errors::InvalidInputException, Errors::PolicyChangesInProgressException, Errors::AccessDeniedException, Errors::MalformedPolicyDocumentException, Errors::PolicyNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),

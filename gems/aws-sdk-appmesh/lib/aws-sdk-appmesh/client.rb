@@ -287,6 +287,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateGatewayRoute
@@ -404,6 +407,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -698,6 +704,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateRoute
@@ -973,6 +982,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -1352,6 +1364,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateVirtualNode
@@ -1484,6 +1499,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -1618,6 +1636,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -1773,6 +1794,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteGatewayRoute
@@ -1858,6 +1882,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -2029,6 +2056,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteRoute
@@ -2181,6 +2211,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -2373,6 +2406,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteVirtualNode
@@ -2470,6 +2506,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteVirtualRouter
@@ -2564,6 +2603,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ResourceInUseException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -2719,6 +2761,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeGatewayRoute
@@ -2807,6 +2852,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -2978,6 +3026,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeRoute
@@ -3129,6 +3180,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -3319,6 +3373,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeVirtualNode
@@ -3414,6 +3471,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeVirtualRouter
@@ -3508,6 +3568,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -3616,6 +3679,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListGatewayRoutes
@@ -3710,6 +3776,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -3817,6 +3886,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListRoutes
@@ -3908,6 +3980,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -4010,6 +4085,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListVirtualGateways
@@ -4110,6 +4188,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -4212,6 +4293,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListVirtualRouters
@@ -4313,6 +4397,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListVirtualServices
@@ -4397,6 +4484,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException, Errors::TooManyTagsException]),
         data_parser: Parsers::TagResource
@@ -4472,6 +4562,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -4720,6 +4813,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateGatewayRoute
@@ -4820,6 +4916,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -5097,6 +5196,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateRoute
@@ -5355,6 +5457,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -5698,6 +5803,9 @@ module AWS::SDK::AppMesh
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateVirtualNode
@@ -5811,6 +5919,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),
@@ -5927,6 +6038,9 @@ module AWS::SDK::AppMesh
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::ForbiddenException, Errors::InternalServerErrorException, Errors::LimitExceededException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::TooManyRequestsException]),

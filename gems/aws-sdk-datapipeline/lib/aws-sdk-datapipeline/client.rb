@@ -135,6 +135,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::ActivatePipeline
@@ -211,6 +214,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
@@ -338,6 +344,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException]),
         data_parser: Parsers::CreatePipeline
@@ -415,6 +424,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
@@ -514,6 +526,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineNotFoundException]),
@@ -668,6 +683,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::DescribeObjects
@@ -814,6 +832,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::DescribePipelines
@@ -920,6 +941,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException, Errors::TaskNotFoundException]),
@@ -1079,6 +1103,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::GetPipelineDefinition
@@ -1185,6 +1212,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException]),
@@ -1357,6 +1387,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::TaskNotFoundException]),
@@ -1634,6 +1667,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::PutPipelineDefinition
@@ -1777,6 +1813,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
         data_parser: Parsers::QueryObjects
@@ -1850,6 +1889,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
@@ -1967,6 +2009,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException, Errors::TaskNotFoundException]),
         data_parser: Parsers::ReportTaskProgress
@@ -2080,6 +2125,9 @@ module AWS::SDK::DataPipeline
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException]),
         data_parser: Parsers::ReportTaskRunnerHeartbeat
@@ -2190,6 +2238,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),
@@ -2307,6 +2358,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException, Errors::TaskNotFoundException]),
@@ -2575,6 +2629,9 @@ module AWS::SDK::DataPipeline
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceError, Errors::InvalidRequestException, Errors::PipelineDeletedException, Errors::PipelineNotFoundException]),

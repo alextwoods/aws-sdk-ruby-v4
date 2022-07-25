@@ -188,6 +188,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InstanceLimitExceededException, Errors::InstanceNameRequiredException, Errors::InstanceNotRegisteredException, Errors::InvalidInstanceNameException, Errors::InvalidTagException, Errors::TagLimitExceededException, Errors::TagRequiredException]),
         data_parser: Parsers::AddTagsToOnPremisesInstances
@@ -315,6 +318,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::BatchLimitExceededException, Errors::InvalidApplicationNameException, Errors::InvalidRevisionException, Errors::RevisionRequiredException]),
         data_parser: Parsers::BatchGetApplicationRevisions
@@ -394,6 +400,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::BatchLimitExceededException, Errors::InvalidApplicationNameException]),
@@ -567,6 +576,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::BatchLimitExceededException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidDeploymentGroupNameException]),
         data_parser: Parsers::BatchGetDeploymentGroups
@@ -670,6 +682,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchLimitExceededException, Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::InstanceIdRequiredException, Errors::InvalidComputePlatformException, Errors::InvalidDeploymentIdException, Errors::InvalidInstanceNameException]),
@@ -857,6 +872,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentNotStartedException, Errors::DeploymentTargetDoesNotExistException, Errors::DeploymentTargetIdRequiredException, Errors::DeploymentTargetListSizeExceededException, Errors::InstanceDoesNotExistException, Errors::InvalidDeploymentIdException, Errors::InvalidDeploymentTargetIdException]),
         data_parser: Parsers::BatchGetDeploymentTargets
@@ -1026,6 +1044,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchLimitExceededException, Errors::DeploymentIdRequiredException, Errors::InvalidDeploymentIdException]),
         data_parser: Parsers::BatchGetDeployments
@@ -1110,6 +1131,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchLimitExceededException, Errors::InstanceNameRequiredException, Errors::InvalidInstanceNameException]),
         data_parser: Parsers::BatchGetOnPremisesInstances
@@ -1189,6 +1213,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentAlreadyCompletedException, Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentIsNotInReadyStateException, Errors::InvalidDeploymentIdException, Errors::InvalidDeploymentStatusException, Errors::InvalidDeploymentWaitTypeException, Errors::UnsupportedActionForDeploymentTypeException]),
@@ -1275,6 +1302,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationAlreadyExistsException, Errors::ApplicationLimitExceededException, Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidComputePlatformException, Errors::InvalidTagsToAddException]),
@@ -1469,6 +1499,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupDoesNotExistException, Errors::DeploymentGroupNameRequiredException, Errors::DeploymentLimitExceededException, Errors::DescriptionTooLongException, Errors::InvalidApplicationNameException, Errors::InvalidAutoRollbackConfigException, Errors::InvalidAutoScalingGroupException, Errors::InvalidDeploymentConfigNameException, Errors::InvalidDeploymentGroupNameException, Errors::InvalidFileExistsBehaviorException, Errors::InvalidGitHubAccountTokenException, Errors::InvalidIgnoreApplicationStopFailuresValueException, Errors::InvalidLoadBalancerInfoException, Errors::InvalidRevisionException, Errors::InvalidRoleException, Errors::InvalidTargetInstancesException, Errors::InvalidTrafficRoutingConfigurationException, Errors::InvalidUpdateOutdatedInstancesOnlyValueException, Errors::RevisionDoesNotExistException, Errors::RevisionRequiredException, Errors::ThrottlingException]),
         data_parser: Parsers::CreateDeployment
@@ -1581,6 +1614,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentConfigAlreadyExistsException, Errors::DeploymentConfigLimitExceededException, Errors::DeploymentConfigNameRequiredException, Errors::InvalidComputePlatformException, Errors::InvalidDeploymentConfigNameException, Errors::InvalidMinimumHealthyHostValueException, Errors::InvalidTrafficRoutingConfigurationException]),
@@ -1838,6 +1874,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlarmsLimitExceededException, Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupAlreadyExistsException, Errors::DeploymentGroupLimitExceededException, Errors::DeploymentGroupNameRequiredException, Errors::ECSServiceMappingLimitExceededException, Errors::InvalidAlarmConfigException, Errors::InvalidApplicationNameException, Errors::InvalidAutoRollbackConfigException, Errors::InvalidAutoScalingGroupException, Errors::InvalidBlueGreenDeploymentConfigurationException, Errors::InvalidDeploymentConfigNameException, Errors::InvalidDeploymentGroupNameException, Errors::InvalidDeploymentStyleException, Errors::InvalidEC2TagCombinationException, Errors::InvalidEC2TagException, Errors::InvalidECSServiceException, Errors::InvalidInputException, Errors::InvalidLoadBalancerInfoException, Errors::InvalidOnPremisesTagCombinationException, Errors::InvalidRoleException, Errors::InvalidTagException, Errors::InvalidTagsToAddException, Errors::InvalidTargetGroupPairException, Errors::InvalidTrafficRoutingConfigurationException, Errors::InvalidTriggerConfigException, Errors::LifecycleHookLimitExceededException, Errors::RoleRequiredException, Errors::TagSetListLimitExceededException, Errors::ThrottlingException, Errors::TriggerTargetsLimitExceededException]),
         data_parser: Parsers::CreateDeploymentGroup
@@ -1906,6 +1945,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidRoleException]),
@@ -1979,6 +2021,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentConfigInUseException, Errors::DeploymentConfigNameRequiredException, Errors::InvalidDeploymentConfigNameException, Errors::InvalidOperationException]),
@@ -2057,6 +2102,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationNameRequiredException, Errors::DeploymentGroupNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidDeploymentGroupNameException, Errors::InvalidRoleException]),
         data_parser: Parsers::DeleteDeploymentGroup
@@ -2125,6 +2173,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GitHubAccountTokenDoesNotExistException, Errors::GitHubAccountTokenNameRequiredException, Errors::InvalidGitHubAccountTokenNameException, Errors::OperationNotSupportedException, Errors::ResourceValidationException]),
@@ -2195,6 +2246,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteResourcesByExternalId
@@ -2262,6 +2316,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InstanceNameRequiredException, Errors::InvalidInstanceNameException]),
@@ -2338,6 +2395,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException]),
@@ -2456,6 +2516,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidRevisionException, Errors::RevisionDoesNotExistException, Errors::RevisionRequiredException]),
@@ -2627,6 +2690,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::InvalidDeploymentIdException]),
         data_parser: Parsers::GetDeployment
@@ -2711,6 +2777,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentConfigNameRequiredException, Errors::InvalidComputePlatformException, Errors::InvalidDeploymentConfigNameException]),
@@ -2880,6 +2949,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupDoesNotExistException, Errors::DeploymentGroupNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidDeploymentGroupNameException]),
         data_parser: Parsers::GetDeploymentGroup
@@ -2971,6 +3043,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::InstanceDoesNotExistException, Errors::InstanceIdRequiredException, Errors::InvalidComputePlatformException, Errors::InvalidDeploymentIdException, Errors::InvalidInstanceNameException]),
@@ -3103,6 +3178,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentNotStartedException, Errors::DeploymentTargetDoesNotExistException, Errors::DeploymentTargetIdRequiredException, Errors::InvalidDeploymentIdException, Errors::InvalidDeploymentTargetIdException, Errors::InvalidInstanceNameException]),
         data_parser: Parsers::GetDeploymentTarget
@@ -3181,6 +3259,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InstanceNameRequiredException, Errors::InstanceNotRegisteredException, Errors::InvalidInstanceNameException]),
@@ -3345,6 +3426,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::BucketNameFilterRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidBucketNameFilterException, Errors::InvalidDeployedStateFilterException, Errors::InvalidKeyPrefixFilterException, Errors::InvalidNextTokenException, Errors::InvalidSortByException, Errors::InvalidSortOrderException]),
         data_parser: Parsers::ListApplicationRevisions
@@ -3417,6 +3501,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException]),
         data_parser: Parsers::ListApplications
@@ -3488,6 +3575,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException]),
@@ -3567,6 +3657,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidNextTokenException]),
@@ -3696,6 +3789,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentNotStartedException, Errors::InvalidComputePlatformException, Errors::InvalidDeploymentIdException, Errors::InvalidDeploymentInstanceTypeException, Errors::InvalidInstanceStatusException, Errors::InvalidInstanceTypeException, Errors::InvalidNextTokenException, Errors::InvalidTargetFilterNameException]),
         data_parser: Parsers::ListDeploymentInstances
@@ -3793,6 +3889,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentNotStartedException, Errors::InvalidDeploymentIdException, Errors::InvalidDeploymentInstanceTypeException, Errors::InvalidInstanceStatusException, Errors::InvalidInstanceTypeException, Errors::InvalidNextTokenException]),
@@ -3934,6 +4033,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DeploymentGroupDoesNotExistException, Errors::DeploymentGroupNameRequiredException, Errors::InvalidApplicationNameException, Errors::InvalidDeploymentGroupNameException, Errors::InvalidDeploymentStatusException, Errors::InvalidExternalIdException, Errors::InvalidInputException, Errors::InvalidNextTokenException, Errors::InvalidTimeRangeException]),
         data_parser: Parsers::ListDeployments
@@ -4005,6 +4107,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::OperationNotSupportedException, Errors::ResourceValidationException]),
@@ -4108,6 +4213,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidRegistrationStatusException, Errors::InvalidTagFilterException]),
         data_parser: Parsers::ListOnPremisesInstances
@@ -4188,6 +4296,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ArnNotSupportedException, Errors::InvalidArnException, Errors::ResourceArnRequiredException]),
@@ -4277,6 +4388,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::InvalidDeploymentIdException, Errors::InvalidLifecycleEventHookExecutionIdException, Errors::InvalidLifecycleEventHookExecutionStatusException, Errors::LifecycleEventAlreadyCompletedException, Errors::UnsupportedActionForDeploymentTypeException]),
@@ -4377,6 +4491,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DescriptionTooLongException, Errors::InvalidApplicationNameException, Errors::InvalidRevisionException, Errors::RevisionRequiredException]),
         data_parser: Parsers::RegisterApplicationRevision
@@ -4457,6 +4574,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IamArnRequiredException, Errors::IamSessionArnAlreadyRegisteredException, Errors::IamUserArnAlreadyRegisteredException, Errors::IamUserArnRequiredException, Errors::InstanceNameAlreadyRegisteredException, Errors::InstanceNameRequiredException, Errors::InvalidIamSessionArnException, Errors::InvalidIamUserArnException, Errors::InvalidInstanceNameException, Errors::MultipleIamArnsProvidedException]),
         data_parser: Parsers::RegisterOnPremisesInstance
@@ -4536,6 +4656,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InstanceLimitExceededException, Errors::InstanceNameRequiredException, Errors::InstanceNotRegisteredException, Errors::InvalidInstanceNameException, Errors::InvalidTagException, Errors::TagLimitExceededException, Errors::TagRequiredException]),
         data_parser: Parsers::RemoveTagsFromOnPremisesInstances
@@ -4608,6 +4731,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentAlreadyCompletedException, Errors::DeploymentDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::DeploymentNotStartedException, Errors::InvalidDeploymentIdException, Errors::UnsupportedActionForDeploymentTypeException]),
@@ -4683,6 +4809,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DeploymentAlreadyCompletedException, Errors::DeploymentDoesNotExistException, Errors::DeploymentGroupDoesNotExistException, Errors::DeploymentIdRequiredException, Errors::InvalidDeploymentIdException, Errors::UnsupportedActionForDeploymentTypeException]),
@@ -4763,6 +4892,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ArnNotSupportedException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupDoesNotExistException, Errors::InvalidArnException, Errors::InvalidTagsToAddException, Errors::ResourceArnRequiredException, Errors::TagRequiredException]),
         data_parser: Parsers::TagResource
@@ -4842,6 +4974,9 @@ module AWS::SDK::CodeDeploy
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationDoesNotExistException, Errors::ArnNotSupportedException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupDoesNotExistException, Errors::InvalidArnException, Errors::InvalidTagsToAddException, Errors::ResourceArnRequiredException, Errors::TagRequiredException]),
         data_parser: Parsers::UntagResource
@@ -4913,6 +5048,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApplicationAlreadyExistsException, Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::InvalidApplicationNameException]),
@@ -5154,6 +5292,9 @@ module AWS::SDK::CodeDeploy
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlarmsLimitExceededException, Errors::ApplicationDoesNotExistException, Errors::ApplicationNameRequiredException, Errors::DeploymentConfigDoesNotExistException, Errors::DeploymentGroupAlreadyExistsException, Errors::DeploymentGroupDoesNotExistException, Errors::DeploymentGroupNameRequiredException, Errors::ECSServiceMappingLimitExceededException, Errors::InvalidAlarmConfigException, Errors::InvalidApplicationNameException, Errors::InvalidAutoRollbackConfigException, Errors::InvalidAutoScalingGroupException, Errors::InvalidBlueGreenDeploymentConfigurationException, Errors::InvalidDeploymentConfigNameException, Errors::InvalidDeploymentGroupNameException, Errors::InvalidDeploymentStyleException, Errors::InvalidEC2TagCombinationException, Errors::InvalidEC2TagException, Errors::InvalidECSServiceException, Errors::InvalidInputException, Errors::InvalidLoadBalancerInfoException, Errors::InvalidOnPremisesTagCombinationException, Errors::InvalidRoleException, Errors::InvalidTagException, Errors::InvalidTargetGroupPairException, Errors::InvalidTrafficRoutingConfigurationException, Errors::InvalidTriggerConfigException, Errors::LifecycleHookLimitExceededException, Errors::TagSetListLimitExceededException, Errors::ThrottlingException, Errors::TriggerTargetsLimitExceededException]),

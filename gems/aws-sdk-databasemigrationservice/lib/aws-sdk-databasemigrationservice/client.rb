@@ -101,6 +101,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::AddTagsToResource
@@ -208,6 +211,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::ApplyPendingMaintenanceAction
@@ -293,6 +299,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault]),
@@ -1183,6 +1192,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::ResourceAlreadyExistsFault, Errors::S3AccessDeniedFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceQuotaExceededFault]),
         data_parser: Parsers::CreateEndpoint
@@ -1327,6 +1339,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SNSInvalidTopicFault, Errors::ResourceNotFoundFault, Errors::KMSAccessDeniedFault, Errors::ResourceAlreadyExistsFault, Errors::KMSDisabledFault, Errors::KMSInvalidStateFault, Errors::KMSNotFoundFault, Errors::SNSNoAuthorizationFault, Errors::KMSThrottlingFault, Errors::ResourceQuotaExceededFault]),
         data_parser: Parsers::CreateEventSubscription
@@ -1411,6 +1426,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::S3AccessDeniedFault, Errors::S3ResourceNotFoundFault, Errors::AccessDeniedFault, Errors::ResourceQuotaExceededFault]),
@@ -1653,6 +1671,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ReplicationSubnetGroupDoesNotCoverEnoughAZs, Errors::ResourceNotFoundFault, Errors::InsufficientResourceCapacityFault, Errors::ResourceAlreadyExistsFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault, Errors::InvalidSubnet, Errors::ResourceQuotaExceededFault, Errors::StorageQuotaExceededFault]),
         data_parser: Parsers::CreateReplicationInstance
@@ -1758,6 +1779,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReplicationSubnetGroupDoesNotCoverEnoughAZs, Errors::ResourceNotFoundFault, Errors::ResourceAlreadyExistsFault, Errors::AccessDeniedFault, Errors::InvalidSubnet, Errors::ResourceQuotaExceededFault]),
@@ -1961,6 +1985,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::ResourceAlreadyExistsFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceQuotaExceededFault]),
         data_parser: Parsers::CreateReplicationTask
@@ -2040,6 +2067,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DeleteCertificate
@@ -2118,6 +2148,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault]),
@@ -2488,6 +2521,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DeleteEndpoint
@@ -2568,6 +2604,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DeleteEventSubscription
@@ -2635,6 +2674,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::CollectorNotFoundFault]),
@@ -2707,6 +2749,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault, Errors::InvalidOperationFault]),
@@ -2824,6 +2869,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DeleteReplicationInstance
@@ -2891,6 +2939,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -2991,6 +3042,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DeleteReplicationTask
@@ -3077,6 +3131,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault]),
         data_parser: Parsers::DeleteReplicationTaskAssessmentRun
@@ -3151,6 +3208,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3267,6 +3327,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault]),
         data_parser: Parsers::DescribeApplicableIndividualAssessments
@@ -3369,6 +3432,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeCertificates
@@ -3469,6 +3535,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeConnections
@@ -3561,6 +3630,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3659,6 +3731,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4048,6 +4123,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeEndpoints
@@ -4136,6 +4214,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4249,6 +4330,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -4379,6 +4463,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEvents
@@ -4502,6 +4589,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault]),
@@ -4644,6 +4734,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault]),
         data_parser: Parsers::DescribeFleetAdvisorDatabases
@@ -4724,6 +4817,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault]),
@@ -4830,6 +4926,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault]),
@@ -4985,6 +5084,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault]),
         data_parser: Parsers::DescribeFleetAdvisorSchemas
@@ -5076,6 +5178,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5182,6 +5287,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribePendingMaintenanceActions
@@ -5255,6 +5363,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -5344,6 +5455,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -5482,6 +5596,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeReplicationInstances
@@ -5585,6 +5702,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeReplicationSubnetGroups
@@ -5684,6 +5804,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -5800,6 +5923,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeReplicationTaskAssessmentRuns
@@ -5900,6 +6026,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -6032,6 +6161,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeReplicationTasks
@@ -6118,6 +6250,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -6242,6 +6377,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::DescribeTableStatistics
@@ -6344,6 +6482,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidCertificateFault, Errors::ResourceAlreadyExistsFault, Errors::ResourceQuotaExceededFault]),
         data_parser: Parsers::ImportCertificate
@@ -6431,6 +6572,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
@@ -7313,6 +7457,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::ResourceAlreadyExistsFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault]),
         data_parser: Parsers::ModifyEndpoint
@@ -7414,6 +7561,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SNSInvalidTopicFault, Errors::ResourceNotFoundFault, Errors::KMSAccessDeniedFault, Errors::KMSDisabledFault, Errors::KMSInvalidStateFault, Errors::KMSNotFoundFault, Errors::SNSNoAuthorizationFault, Errors::KMSThrottlingFault, Errors::ResourceQuotaExceededFault]),
@@ -7612,6 +7762,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::InsufficientResourceCapacityFault, Errors::ResourceAlreadyExistsFault, Errors::AccessDeniedFault, Errors::StorageQuotaExceededFault, Errors::UpgradeDependencyFailureFault]),
         data_parser: Parsers::ModifyReplicationInstance
@@ -7700,6 +7853,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReplicationSubnetGroupDoesNotCoverEnoughAZs, Errors::ResourceNotFoundFault, Errors::SubnetAlreadyInUse, Errors::AccessDeniedFault, Errors::InvalidSubnet, Errors::ResourceQuotaExceededFault]),
@@ -7875,6 +8031,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::ResourceAlreadyExistsFault, Errors::KMSKeyNotAccessibleFault]),
         data_parser: Parsers::ModifyReplicationTask
@@ -7980,6 +8139,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceQuotaExceededFault]),
@@ -8106,6 +8268,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::RebootReplicationInstance
@@ -8185,6 +8350,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceQuotaExceededFault]),
@@ -8274,6 +8442,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::ReloadTables
@@ -8353,6 +8524,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundFault]),
         data_parser: Parsers::RemoveTagsFromResource
@@ -8417,6 +8591,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -8562,6 +8739,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault]),
         data_parser: Parsers::StartReplicationTask
@@ -8674,6 +8854,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
@@ -8841,6 +9024,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::KMSAccessDeniedFault, Errors::KMSNotFoundFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceAlreadyExistsFault, Errors::KMSDisabledFault, Errors::KMSInvalidStateFault, Errors::S3AccessDeniedFault, Errors::S3ResourceNotFoundFault, Errors::AccessDeniedFault, Errors::KMSFault]),
         data_parser: Parsers::StartReplicationTaskAssessmentRun
@@ -8940,6 +9126,9 @@ module AWS::SDK::DatabaseMigrationService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault]),
         data_parser: Parsers::StopReplicationTask
@@ -9018,6 +9207,9 @@ module AWS::SDK::DatabaseMigrationService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceStateFault, Errors::ResourceNotFoundFault, Errors::AccessDeniedFault, Errors::KMSKeyNotAccessibleFault, Errors::ResourceQuotaExceededFault]),

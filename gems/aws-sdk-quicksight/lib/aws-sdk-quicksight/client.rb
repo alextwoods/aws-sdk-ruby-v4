@@ -91,6 +91,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CancelIngestion
@@ -216,6 +219,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
@@ -383,6 +389,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -612,6 +621,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -894,6 +906,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateDataSet
@@ -1127,6 +1142,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateDataSource
@@ -1238,6 +1256,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateFolder
@@ -1321,6 +1342,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -1414,6 +1438,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::CreateGroup
@@ -1498,6 +1525,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -1621,6 +1651,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConcurrentUpdatingException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateIAMPolicyAssignment
@@ -1712,6 +1745,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -1812,6 +1848,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -1956,6 +1995,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateTemplate
@@ -2043,6 +2085,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InternalFailureException]),
@@ -2210,6 +2255,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateTheme
@@ -2298,6 +2346,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::CreateThemeAlias
@@ -2372,6 +2423,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
@@ -2472,6 +2526,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteAnalysis
@@ -2553,6 +2610,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteDashboard
@@ -2627,6 +2687,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -2704,6 +2767,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteDataSource
@@ -2778,6 +2844,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -2861,6 +2930,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteFolderMembership
@@ -2938,6 +3010,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -3021,6 +3096,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::DeleteGroupMembership
@@ -3099,6 +3177,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConcurrentUpdatingException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteIAMPolicyAssignment
@@ -3173,6 +3254,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -3254,6 +3338,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -3339,6 +3426,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteTemplateAlias
@@ -3420,6 +3510,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -3503,6 +3596,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DeleteThemeAlias
@@ -3583,6 +3679,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::DeleteUser
@@ -3660,6 +3759,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -3806,6 +3908,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeAccountCustomization
@@ -3881,6 +3986,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
@@ -3975,6 +4083,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeAnalysis
@@ -4056,6 +4167,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -4165,6 +4279,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeDashboard
@@ -4247,6 +4364,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -4439,6 +4559,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeDataSet
@@ -4519,6 +4642,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -4683,6 +4809,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeDataSource
@@ -4762,6 +4891,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -4845,6 +4977,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeFolder
@@ -4925,6 +5060,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeFolderPermissions
@@ -5004,6 +5142,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -5087,6 +5228,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -5175,6 +5319,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::DescribeGroupMembership
@@ -5260,6 +5407,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -5357,6 +5507,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeIngestion
@@ -5429,6 +5582,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -5511,6 +5667,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
@@ -5633,6 +5792,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeTemplate
@@ -5718,6 +5880,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeTemplateAlias
@@ -5797,6 +5962,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -5933,6 +6101,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeTheme
@@ -6015,6 +6186,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::DescribeThemeAlias
@@ -6094,6 +6268,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -6184,6 +6361,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -6308,6 +6488,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::SessionLifetimeInMinutesInvalidException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException, Errors::UnsupportedPricingPlanException]),
         data_parser: Parsers::GenerateEmbedUrlForAnonymousUser
@@ -6419,6 +6602,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::QuickSightUserNotFoundException, Errors::SessionLifetimeInMinutesInvalidException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException, Errors::UnsupportedPricingPlanException]),
@@ -6581,6 +6767,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdentityTypeNotSupportedException, Errors::UnsupportedUserEditionException, Errors::QuickSightUserNotFoundException, Errors::DomainNotWhitelistedException, Errors::ResourceExistsException, Errors::SessionLifetimeInMinutesInvalidException, Errors::ThrottlingException, Errors::InternalFailureException, Errors::UnsupportedPricingPlanException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetDashboardEmbedUrl
@@ -6738,6 +6927,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::QuickSightUserNotFoundException, Errors::ResourceExistsException, Errors::SessionLifetimeInMinutesInvalidException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::GetSessionEmbedUrl
@@ -6823,6 +7015,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InternalFailureException]),
@@ -6915,6 +7110,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListDashboardVersions
@@ -7002,6 +7200,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InternalFailureException]),
@@ -7097,6 +7298,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -7267,6 +7471,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListDataSources
@@ -7353,6 +7560,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListFolderMembers
@@ -7438,6 +7648,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -7530,6 +7743,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::ListGroupMemberships
@@ -7618,6 +7834,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -7710,6 +7929,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListIAMPolicyAssignments
@@ -7801,6 +8023,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConcurrentUpdatingException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -7904,6 +8129,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListIngestions
@@ -7992,6 +8220,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::ListNamespaces
@@ -8064,6 +8295,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -8151,6 +8385,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InternalFailureException]),
@@ -8241,6 +8478,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListTemplateVersions
@@ -8326,6 +8566,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -8413,6 +8656,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -8502,6 +8748,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -8607,6 +8856,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::ListThemes
@@ -8699,6 +8951,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -8795,6 +9050,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -9011,6 +9269,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
         data_parser: Parsers::RegisterUser
@@ -9085,6 +9346,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -9186,6 +9450,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -9292,6 +9559,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::SearchDashboards
@@ -9388,6 +9658,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -9488,6 +9761,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -9590,6 +9866,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::TagResource
@@ -9664,6 +9943,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -9758,6 +10040,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateAccountCustomization
@@ -9840,6 +10125,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException]),
@@ -9983,6 +10271,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateAnalysis
@@ -10081,6 +10372,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -10285,6 +10579,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateDashboard
@@ -10389,6 +10686,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateDashboardPermissions
@@ -10468,6 +10768,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -10731,6 +11034,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateDataSet
@@ -10822,6 +11128,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -11031,6 +11340,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateDataSource
@@ -11121,6 +11433,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateDataSourcePermissions
@@ -11200,6 +11515,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -11296,6 +11614,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateFolderPermissions
@@ -11383,6 +11704,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),
@@ -11505,6 +11829,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConcurrentUpdatingException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateIAMPolicyAssignment
@@ -11586,6 +11913,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateIpRestriction
@@ -11661,6 +11991,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException, Errors::UnsupportedPricingPlanException]),
@@ -11777,6 +12110,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateTemplate
@@ -11865,6 +12201,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InternalFailureException]),
@@ -11960,6 +12299,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -12098,6 +12440,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateTheme
@@ -12183,6 +12528,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::ConflictException, Errors::ResourceExistsException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
@@ -12372,6 +12720,9 @@ module AWS::SDK::QuickSight
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::UnsupportedUserEditionException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::InternalFailureException]),
         data_parser: Parsers::UpdateThemePermissions
@@ -12556,6 +12907,9 @@ module AWS::SDK::QuickSight
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ThrottlingException, Errors::InvalidParameterValueException, Errors::ResourceUnavailableException, Errors::InternalFailureException, Errors::PreconditionNotMetException]),

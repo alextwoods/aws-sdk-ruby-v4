@@ -95,6 +95,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::AddAttributesToFindings
@@ -177,6 +180,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidCrossAccountRoleException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
@@ -281,6 +287,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::CreateAssessmentTemplate
@@ -352,6 +361,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException, Errors::PreviewGenerationInProgressException]),
@@ -432,6 +444,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::CreateResourceGroup
@@ -500,6 +515,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::AssessmentRunInProgressException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
@@ -570,6 +588,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::AssessmentRunInProgressException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::DeleteAssessmentTarget
@@ -638,6 +659,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::AssessmentRunInProgressException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
@@ -746,6 +770,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
         data_parser: Parsers::DescribeAssessmentRuns
@@ -827,6 +854,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
@@ -915,6 +945,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
         data_parser: Parsers::DescribeAssessmentTemplates
@@ -981,6 +1014,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException]),
@@ -1074,6 +1110,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
@@ -1210,6 +1249,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
         data_parser: Parsers::DescribeFindings
@@ -1292,6 +1334,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
@@ -1379,6 +1424,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidInputException]),
         data_parser: Parsers::DescribeRulesPackages
@@ -1461,6 +1509,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::AssessmentRunInProgressException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException, Errors::UnsupportedFeatureException]),
@@ -1569,6 +1620,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::GetExclusionsPreview
@@ -1643,6 +1697,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
@@ -1754,6 +1811,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
@@ -1867,6 +1927,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::ListAssessmentRuns
@@ -1958,6 +2021,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException]),
@@ -2064,6 +2130,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::ListAssessmentTemplates
@@ -2156,6 +2225,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::ListEventSubscriptions
@@ -2239,6 +2311,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
@@ -2362,6 +2437,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::ListFindings
@@ -2442,6 +2520,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException]),
         data_parser: Parsers::ListRulesPackages
@@ -2513,6 +2594,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
@@ -2607,6 +2691,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidCrossAccountRoleException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException]),
         data_parser: Parsers::PreviewAgents
@@ -2676,6 +2763,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidCrossAccountRoleException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::ServiceTemporarilyUnavailableException]),
@@ -2759,6 +2849,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::RemoveAttributesFromFindings
@@ -2838,6 +2931,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::SetTagsForResource
@@ -2915,6 +3011,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::InvalidCrossAccountRoleException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::AgentsAlreadyRunningAssessmentException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::StartAssessmentRun
@@ -2990,6 +3089,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
@@ -3069,6 +3171,9 @@ module AWS::SDK::Inspector
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
         data_parser: Parsers::SubscribeToEvent
@@ -3146,6 +3251,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),
@@ -3226,6 +3334,9 @@ module AWS::SDK::Inspector
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalException, Errors::AccessDeniedException, Errors::InvalidInputException, Errors::NoSuchEntityException, Errors::ServiceTemporarilyUnavailableException]),

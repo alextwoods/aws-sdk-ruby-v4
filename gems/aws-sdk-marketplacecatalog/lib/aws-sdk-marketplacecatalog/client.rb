@@ -92,6 +92,9 @@ module AWS::SDK::MarketplaceCatalog
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ResourceInUseException]),
         data_parser: Parsers::CancelChangeSet
@@ -186,6 +189,9 @@ module AWS::SDK::MarketplaceCatalog
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::DescribeChangeSet
@@ -263,6 +269,9 @@ module AWS::SDK::MarketplaceCatalog
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotSupportedException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
@@ -381,6 +390,9 @@ module AWS::SDK::MarketplaceCatalog
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListChangeSets
@@ -492,6 +504,9 @@ module AWS::SDK::MarketplaceCatalog
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::ResourceNotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::ListEntities
@@ -597,6 +612,9 @@ module AWS::SDK::MarketplaceCatalog
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServiceException, Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ResourceInUseException]),

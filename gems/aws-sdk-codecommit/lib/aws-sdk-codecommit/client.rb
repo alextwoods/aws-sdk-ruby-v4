@@ -482,6 +482,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleTemplateNameException, Errors::InvalidRepositoryNameException, Errors::MaximumRuleTemplatesAssociatedWithRepositoryException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::AssociateApprovalRuleTemplateWithRepository
@@ -565,6 +568,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleTemplateNameException, Errors::MaximumRepositoryNamesExceededException, Errors::RepositoryNamesRequiredException]),
@@ -725,6 +731,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxConflictFilesException, Errors::InvalidMaxMergeHunksException, Errors::InvalidMergeOptionException, Errors::InvalidRepositoryNameException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MergeOptionRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::BatchDescribeMergeConflicts
@@ -809,6 +818,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleTemplateNameException, Errors::MaximumRepositoryNamesExceededException, Errors::RepositoryNamesRequiredException]),
@@ -906,6 +918,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitIdsLimitExceededException, Errors::CommitIdsListRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::BatchGetCommits
@@ -999,6 +1014,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::MaximumRepositoryNamesExceededException, Errors::RepositoryNamesRequiredException]),
@@ -1136,6 +1154,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateContentRequiredException, Errors::ApprovalRuleTemplateNameAlreadyExistsException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateContentException, Errors::InvalidApprovalRuleTemplateDescriptionException, Errors::InvalidApprovalRuleTemplateNameException, Errors::NumberOfRuleTemplatesExceededException]),
         data_parser: Parsers::CreateApprovalRuleTemplate
@@ -1214,6 +1235,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchNameExistsException, Errors::BranchNameRequiredException, Errors::CommitDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidBranchNameException, Errors::InvalidCommitIdException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -1352,6 +1376,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitMessageLengthExceededException, Errors::DirectoryNameConflictsWithFileNameException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentAndSourceFileSpecifiedException, Errors::FileContentSizeLimitExceededException, Errors::FileDoesNotExistException, Errors::FileEntryRequiredException, Errors::FileModeRequiredException, Errors::FileNameConflictsWithDirectoryNameException, Errors::FilePathConflictsWithSubmodulePathException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidBranchNameException, Errors::InvalidDeletionParameterException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidParentCommitIdException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::MaximumFileEntriesExceededException, Errors::NameLengthExceededException, Errors::NoChangeException, Errors::ParentCommitDoesNotExistException, Errors::ParentCommitIdOutdatedException, Errors::ParentCommitIdRequiredException, Errors::PathRequiredException, Errors::PutFileEntryConflictException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RestrictedSourceFileException, Errors::SamePathRequestException, Errors::SourceFileOrContentRequiredException]),
         data_parser: Parsers::CreateCommit
@@ -1483,6 +1510,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientRequestTokenRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::IdempotencyParameterMismatchException, Errors::InvalidClientRequestTokenException, Errors::InvalidDescriptionException, Errors::InvalidReferenceNameException, Errors::InvalidRepositoryNameException, Errors::InvalidTargetException, Errors::InvalidTargetsException, Errors::InvalidTitleException, Errors::MaximumOpenPullRequestsExceededException, Errors::MultipleRepositoriesInPullRequestException, Errors::ReferenceDoesNotExistException, Errors::ReferenceNameRequiredException, Errors::ReferenceTypeNotSupportedException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::SourceAndDestinationAreSameException, Errors::TargetRequiredException, Errors::TargetsRequiredException, Errors::TitleRequiredException]),
         data_parser: Parsers::CreatePullRequest
@@ -1612,6 +1642,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleContentRequiredException, Errors::ApprovalRuleNameAlreadyExistsException, Errors::ApprovalRuleNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleContentException, Errors::InvalidApprovalRuleNameException, Errors::InvalidPullRequestIdException, Errors::NumberOfRulesExceededException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
         data_parser: Parsers::CreatePullRequestApprovalRule
@@ -1714,6 +1747,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryDescriptionException, Errors::InvalidRepositoryNameException, Errors::InvalidSystemTagUsageException, Errors::InvalidTagsMapException, Errors::RepositoryLimitExceededException, Errors::RepositoryNameExistsException, Errors::RepositoryNameRequiredException, Errors::TagPolicyException, Errors::TooManyTagsException]),
@@ -1863,6 +1899,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitMessageLengthExceededException, Errors::CommitRequiredException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentSizeLimitExceededException, Errors::FileModeRequiredException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidMergeOptionException, Errors::InvalidPathException, Errors::InvalidReplacementContentException, Errors::InvalidReplacementTypeException, Errors::InvalidRepositoryNameException, Errors::ManualMergeRequiredException, Errors::MaximumConflictResolutionEntriesExceededException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MergeOptionRequiredException, Errors::MultipleConflictResolutionEntriesException, Errors::NameLengthExceededException, Errors::PathRequiredException, Errors::ReplacementContentRequiredException, Errors::ReplacementTypeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::CreateUnreferencedMergeCommit
@@ -1931,6 +1970,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateInUseException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateNameException]),
@@ -2006,6 +2048,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchNameRequiredException, Errors::DefaultBranchCannotBeDeletedException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidBranchNameException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -2088,6 +2133,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommentDeletedException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::InvalidCommentIdException]),
@@ -2202,6 +2250,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitMessageLengthExceededException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileDoesNotExistException, Errors::InvalidBranchNameException, Errors::InvalidEmailException, Errors::InvalidParentCommitIdException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::NameLengthExceededException, Errors::ParentCommitDoesNotExistException, Errors::ParentCommitIdOutdatedException, Errors::ParentCommitIdRequiredException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::DeleteFile
@@ -2277,6 +2328,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleNameRequiredException, Errors::CannotDeleteApprovalRuleFromTemplateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleNameException, Errors::InvalidPullRequestIdException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
         data_parser: Parsers::DeletePullRequestApprovalRule
@@ -2350,6 +2404,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::RepositoryNameRequiredException]),
@@ -2499,6 +2556,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileDoesNotExistException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxMergeHunksException, Errors::InvalidMergeOptionException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MergeOptionRequiredException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::DescribeMergeConflicts
@@ -2624,6 +2684,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ActorDoesNotExistException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidActorArnException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidPullRequestEventTypeException, Errors::InvalidPullRequestIdException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
         data_parser: Parsers::DescribePullRequestEvents
@@ -2698,6 +2761,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleTemplateNameException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -2780,6 +2846,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidPullRequestIdException, Errors::InvalidRevisionIdException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RevisionIdRequiredException, Errors::RevisionNotCurrentException]),
         data_parser: Parsers::EvaluatePullRequestApprovalRules
@@ -2857,6 +2926,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateNameException]),
         data_parser: Parsers::GetApprovalRuleTemplate
@@ -2929,6 +3001,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BlobIdDoesNotExistException, Errors::BlobIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileTooLargeException, Errors::InvalidBlobIdException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -3004,6 +3079,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidBranchNameException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -3090,6 +3168,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommentDeletedException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommentIdException]),
@@ -3180,6 +3261,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommentDeletedException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::InvalidCommentIdException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidReactionUserArnException]),
@@ -3297,6 +3381,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitIdException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -3419,6 +3506,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitIdException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidPullRequestIdException, Errors::InvalidRepositoryNameException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryNotAssociatedWithPullRequestException]),
         data_parser: Parsers::GetCommentsForPullRequest
@@ -3502,6 +3592,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitIdDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitIdException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -3616,6 +3709,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitException, Errors::InvalidCommitIdException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::PathDoesNotExistException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::GetDifferences
@@ -3701,6 +3797,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileDoesNotExistException, Errors::FileTooLargeException, Errors::InvalidCommitException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -3808,6 +3907,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FolderDoesNotExistException, Errors::InvalidCommitException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::GetFolder
@@ -3902,6 +4004,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -4038,6 +4143,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidContinuationTokenException, Errors::InvalidDestinationCommitSpecifierException, Errors::InvalidMaxConflictFilesException, Errors::InvalidMergeOptionException, Errors::InvalidRepositoryNameException, Errors::InvalidSourceCommitSpecifierException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MergeOptionRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::GetMergeConflicts
@@ -4135,6 +4243,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidRepositoryNameException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
@@ -4239,6 +4350,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidPullRequestIdException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
         data_parser: Parsers::GetPullRequest
@@ -4316,6 +4430,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidPullRequestIdException, Errors::InvalidRevisionIdException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RevisionIdRequiredException]),
         data_parser: Parsers::GetPullRequestApprovalStates
@@ -4392,6 +4509,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidPullRequestIdException, Errors::InvalidRevisionIdException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RevisionIdRequiredException]),
@@ -4480,6 +4600,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::GetRepository
@@ -4558,6 +4681,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::GetRepositoryTriggers
@@ -4634,6 +4760,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException]),
@@ -4715,6 +4844,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::ListAssociatedApprovalRuleTemplatesForRepository
@@ -4789,6 +4921,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidContinuationTokenException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -4880,6 +5015,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AuthorDoesNotExistException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidAuthorArnException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException, Errors::InvalidPullRequestStatusException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::ListPullRequests
@@ -4963,6 +5101,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidContinuationTokenException, Errors::InvalidOrderException, Errors::InvalidSortByException]),
         data_parser: Parsers::ListRepositories
@@ -5043,6 +5184,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleTemplateNameException, Errors::InvalidContinuationTokenException, Errors::InvalidMaxResultsException]),
         data_parser: Parsers::ListRepositoriesForApprovalRuleTemplate
@@ -5121,6 +5265,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRepositoryNameException, Errors::InvalidResourceArnException, Errors::RepositoryDoesNotExistException, Errors::ResourceArnRequiredException]),
@@ -5205,6 +5352,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitDoesNotExistException, Errors::CommitRequiredException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidBranchNameException, Errors::InvalidCommitException, Errors::InvalidRepositoryNameException, Errors::InvalidTargetBranchException, Errors::ManualMergeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
@@ -5348,6 +5498,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitDoesNotExistException, Errors::CommitMessageLengthExceededException, Errors::CommitRequiredException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentSizeLimitExceededException, Errors::FileModeRequiredException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidBranchNameException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidPathException, Errors::InvalidReplacementContentException, Errors::InvalidReplacementTypeException, Errors::InvalidRepositoryNameException, Errors::InvalidTargetBranchException, Errors::ManualMergeRequiredException, Errors::MaximumConflictResolutionEntriesExceededException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MultipleConflictResolutionEntriesException, Errors::NameLengthExceededException, Errors::PathRequiredException, Errors::ReplacementContentRequiredException, Errors::ReplacementTypeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::MergeBranchesBySquash
@@ -5490,6 +5643,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitDoesNotExistException, Errors::CommitMessageLengthExceededException, Errors::CommitRequiredException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentSizeLimitExceededException, Errors::FileModeRequiredException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidBranchNameException, Errors::InvalidCommitException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidPathException, Errors::InvalidReplacementContentException, Errors::InvalidReplacementTypeException, Errors::InvalidRepositoryNameException, Errors::InvalidTargetBranchException, Errors::ManualMergeRequiredException, Errors::MaximumConflictResolutionEntriesExceededException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MultipleConflictResolutionEntriesException, Errors::NameLengthExceededException, Errors::PathRequiredException, Errors::ReplacementContentRequiredException, Errors::ReplacementTypeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::MergeBranchesByThreeWay
@@ -5602,6 +5758,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidCommitIdException, Errors::InvalidPullRequestIdException, Errors::InvalidRepositoryNameException, Errors::ManualMergeRequiredException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestApprovalRulesNotSatisfiedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::ReferenceDoesNotExistException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryNotAssociatedWithPullRequestException, Errors::TipOfSourceReferenceIsDifferentException]),
@@ -5774,6 +5933,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitMessageLengthExceededException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentSizeLimitExceededException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidCommitIdException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidPathException, Errors::InvalidPullRequestIdException, Errors::InvalidReplacementContentException, Errors::InvalidReplacementTypeException, Errors::InvalidRepositoryNameException, Errors::ManualMergeRequiredException, Errors::MaximumConflictResolutionEntriesExceededException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MultipleConflictResolutionEntriesException, Errors::NameLengthExceededException, Errors::PathRequiredException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestApprovalRulesNotSatisfiedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::ReplacementContentRequiredException, Errors::ReplacementTypeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryNotAssociatedWithPullRequestException, Errors::TipOfSourceReferenceIsDifferentException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::MergePullRequestBySquash
@@ -5945,6 +6107,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommitMessageLengthExceededException, Errors::ConcurrentReferenceUpdateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentSizeLimitExceededException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidCommitIdException, Errors::InvalidConflictDetailLevelException, Errors::InvalidConflictResolutionException, Errors::InvalidConflictResolutionStrategyException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidPathException, Errors::InvalidPullRequestIdException, Errors::InvalidReplacementContentException, Errors::InvalidReplacementTypeException, Errors::InvalidRepositoryNameException, Errors::ManualMergeRequiredException, Errors::MaximumConflictResolutionEntriesExceededException, Errors::MaximumFileContentToLoadExceededException, Errors::MaximumItemsToCompareExceededException, Errors::MultipleConflictResolutionEntriesException, Errors::NameLengthExceededException, Errors::PathRequiredException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestApprovalRulesNotSatisfiedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::ReplacementContentRequiredException, Errors::ReplacementTypeRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryNotAssociatedWithPullRequestException, Errors::TipOfSourceReferenceIsDifferentException, Errors::TipsDivergenceExceededException]),
         data_parser: Parsers::MergePullRequestByThreeWay
@@ -6024,6 +6189,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidOverrideStatusException, Errors::InvalidPullRequestIdException, Errors::InvalidRevisionIdException, Errors::OverrideAlreadySetException, Errors::OverrideStatusRequiredException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RevisionIdRequiredException, Errors::RevisionNotCurrentException]),
@@ -6144,6 +6312,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BeforeCommitIdAndAfterCommitIdAreSameException, Errors::ClientRequestTokenRequiredException, Errors::CommentContentRequiredException, Errors::CommentContentSizeLimitExceededException, Errors::CommitDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::IdempotencyParameterMismatchException, Errors::InvalidClientRequestTokenException, Errors::InvalidCommitIdException, Errors::InvalidFileLocationException, Errors::InvalidFilePositionException, Errors::InvalidPathException, Errors::InvalidRelativeFileVersionEnumException, Errors::InvalidRepositoryNameException, Errors::PathDoesNotExistException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -6269,6 +6440,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BeforeCommitIdAndAfterCommitIdAreSameException, Errors::ClientRequestTokenRequiredException, Errors::CommentContentRequiredException, Errors::CommentContentSizeLimitExceededException, Errors::CommitDoesNotExistException, Errors::CommitIdRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::IdempotencyParameterMismatchException, Errors::InvalidClientRequestTokenException, Errors::InvalidCommitIdException, Errors::InvalidFileLocationException, Errors::InvalidFilePositionException, Errors::InvalidPathException, Errors::InvalidPullRequestIdException, Errors::InvalidRelativeFileVersionEnumException, Errors::InvalidRepositoryNameException, Errors::PathDoesNotExistException, Errors::PathRequiredException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryNotAssociatedWithPullRequestException]),
         data_parser: Parsers::PostCommentForPullRequest
@@ -6362,6 +6536,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ClientRequestTokenRequiredException, Errors::CommentContentRequiredException, Errors::CommentContentSizeLimitExceededException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::IdempotencyParameterMismatchException, Errors::InvalidClientRequestTokenException, Errors::InvalidCommentIdException]),
         data_parser: Parsers::PostCommentReply
@@ -6435,6 +6612,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommentDeletedException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::InvalidCommentIdException, Errors::InvalidReactionValueException, Errors::ReactionLimitExceededException, Errors::ReactionValueRequiredException]),
@@ -6550,6 +6730,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameIsTagNameException, Errors::BranchNameRequiredException, Errors::CommitMessageLengthExceededException, Errors::DirectoryNameConflictsWithFileNameException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::FileContentRequiredException, Errors::FileContentSizeLimitExceededException, Errors::FileNameConflictsWithDirectoryNameException, Errors::FilePathConflictsWithSubmodulePathException, Errors::FolderContentSizeLimitExceededException, Errors::InvalidBranchNameException, Errors::InvalidDeletionParameterException, Errors::InvalidEmailException, Errors::InvalidFileModeException, Errors::InvalidParentCommitIdException, Errors::InvalidPathException, Errors::InvalidRepositoryNameException, Errors::NameLengthExceededException, Errors::ParentCommitDoesNotExistException, Errors::ParentCommitIdOutdatedException, Errors::ParentCommitIdRequiredException, Errors::PathRequiredException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::SameFileContentException]),
         data_parser: Parsers::PutFile
@@ -6635,6 +6818,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::InvalidRepositoryTriggerBranchNameException, Errors::InvalidRepositoryTriggerCustomDataException, Errors::InvalidRepositoryTriggerDestinationArnException, Errors::InvalidRepositoryTriggerEventsException, Errors::InvalidRepositoryTriggerNameException, Errors::InvalidRepositoryTriggerRegionException, Errors::MaximumBranchesExceededException, Errors::MaximumRepositoryTriggersExceededException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryTriggerBranchNameListRequiredException, Errors::RepositoryTriggerDestinationArnRequiredException, Errors::RepositoryTriggerEventsListRequiredException, Errors::RepositoryTriggerNameRequiredException, Errors::RepositoryTriggersListRequiredException]),
         data_parser: Parsers::PutRepositoryTriggers
@@ -6710,6 +6896,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRepositoryNameException, Errors::InvalidResourceArnException, Errors::InvalidSystemTagUsageException, Errors::InvalidTagsMapException, Errors::RepositoryDoesNotExistException, Errors::ResourceArnRequiredException, Errors::TagPolicyException, Errors::TagsMapRequiredException, Errors::TooManyTagsException]),
@@ -6803,6 +6992,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryNameException, Errors::InvalidRepositoryTriggerBranchNameException, Errors::InvalidRepositoryTriggerCustomDataException, Errors::InvalidRepositoryTriggerDestinationArnException, Errors::InvalidRepositoryTriggerEventsException, Errors::InvalidRepositoryTriggerNameException, Errors::InvalidRepositoryTriggerRegionException, Errors::MaximumBranchesExceededException, Errors::MaximumRepositoryTriggersExceededException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException, Errors::RepositoryTriggerBranchNameListRequiredException, Errors::RepositoryTriggerDestinationArnRequiredException, Errors::RepositoryTriggerEventsListRequiredException, Errors::RepositoryTriggerNameRequiredException, Errors::RepositoryTriggersListRequiredException]),
         data_parser: Parsers::TestRepositoryTriggers
@@ -6878,6 +7070,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRepositoryNameException, Errors::InvalidResourceArnException, Errors::InvalidSystemTagUsageException, Errors::InvalidTagKeysListException, Errors::RepositoryDoesNotExistException, Errors::ResourceArnRequiredException, Errors::TagKeysListRequiredException, Errors::TagPolicyException, Errors::TooManyTagsException]),
@@ -6969,6 +7164,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateContentRequiredException, Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateContentException, Errors::InvalidApprovalRuleTemplateNameException, Errors::InvalidRuleContentSha256Exception]),
         data_parser: Parsers::UpdateApprovalRuleTemplateContent
@@ -7050,6 +7248,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateDescriptionException, Errors::InvalidApprovalRuleTemplateNameException]),
         data_parser: Parsers::UpdateApprovalRuleTemplateDescription
@@ -7130,6 +7331,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleTemplateDoesNotExistException, Errors::ApprovalRuleTemplateNameAlreadyExistsException, Errors::ApprovalRuleTemplateNameRequiredException, Errors::InvalidApprovalRuleTemplateNameException]),
@@ -7217,6 +7421,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CommentContentRequiredException, Errors::CommentContentSizeLimitExceededException, Errors::CommentDeletedException, Errors::CommentDoesNotExistException, Errors::CommentIdRequiredException, Errors::CommentNotCreatedByCallerException, Errors::InvalidCommentIdException]),
         data_parser: Parsers::UpdateComment
@@ -7291,6 +7498,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BranchDoesNotExistException, Errors::BranchNameRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidBranchNameException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
@@ -7426,6 +7636,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalRuleContentRequiredException, Errors::ApprovalRuleDoesNotExistException, Errors::ApprovalRuleNameRequiredException, Errors::CannotModifyApprovalRuleFromTemplateException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalRuleContentException, Errors::InvalidApprovalRuleNameException, Errors::InvalidPullRequestIdException, Errors::InvalidRuleContentSha256Exception, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
         data_parser: Parsers::UpdatePullRequestApprovalRuleContent
@@ -7501,6 +7714,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ApprovalStateRequiredException, Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidApprovalStateException, Errors::InvalidPullRequestIdException, Errors::InvalidRevisionIdException, Errors::MaximumNumberOfApprovalsExceededException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestCannotBeApprovedByAuthorException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::RevisionIdRequiredException, Errors::RevisionNotCurrentException]),
@@ -7609,6 +7825,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDescriptionException, Errors::InvalidPullRequestIdException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException]),
@@ -7719,6 +7938,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidPullRequestIdException, Errors::InvalidPullRequestStatusException, Errors::InvalidPullRequestStatusUpdateException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::PullRequestStatusRequiredException]),
         data_parser: Parsers::UpdatePullRequestStatus
@@ -7826,6 +8048,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPullRequestIdException, Errors::InvalidTitleException, Errors::PullRequestAlreadyClosedException, Errors::PullRequestDoesNotExistException, Errors::PullRequestIdRequiredException, Errors::TitleRequiredException]),
         data_parser: Parsers::UpdatePullRequestTitle
@@ -7905,6 +8130,9 @@ module AWS::SDK::CodeCommit
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EncryptionIntegrityChecksFailedException, Errors::EncryptionKeyAccessDeniedException, Errors::EncryptionKeyDisabledException, Errors::EncryptionKeyNotFoundException, Errors::EncryptionKeyUnavailableException, Errors::InvalidRepositoryDescriptionException, Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameRequiredException]),
         data_parser: Parsers::UpdateRepositoryDescription
@@ -7980,6 +8208,9 @@ module AWS::SDK::CodeCommit
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRepositoryNameException, Errors::RepositoryDoesNotExistException, Errors::RepositoryNameExistsException, Errors::RepositoryNameRequiredException]),

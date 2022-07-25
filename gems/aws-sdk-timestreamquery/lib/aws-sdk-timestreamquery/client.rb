@@ -85,6 +85,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CancelQuery
@@ -266,6 +269,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::InvalidEndpointException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateScheduledQuery
@@ -333,6 +339,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -420,6 +429,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InternalServerException, Errors::ValidationException]),
@@ -549,6 +561,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DescribeScheduledQuery
@@ -624,6 +639,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -719,6 +737,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListScheduledQueries
@@ -800,6 +821,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::ValidationException]),
@@ -896,6 +920,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1116,6 +1143,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ConflictException, Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException, Errors::QueryExecutionException]),
         data_parser: Parsers::Query
@@ -1196,6 +1226,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::ValidationException]),
         data_parser: Parsers::TagResource
@@ -1272,6 +1305,9 @@ module AWS::SDK::TimestreamQuery
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::ValidationException]),
         data_parser: Parsers::UntagResource
@@ -1343,6 +1379,9 @@ module AWS::SDK::TimestreamQuery
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),

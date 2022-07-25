@@ -39,7 +39,8 @@ module AWS::SDK::Core
       @retries = options[:retries] || 3
       @endpoint = options[:endpoint] || 'http://169.254.170.2'
       @credential_path = options[:credential_path] ||
-                         ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
+                         ENV.fetch('AWS_CONTAINER_CREDENTIALS_RELATIVE_URI',
+                                   nil)
       unless @credential_path
         raise ArgumentError, 'Missing required credential path.'
       end
@@ -58,7 +59,7 @@ module AWS::SDK::Core
         open_connection do |conn|
           c = JSON.parse(http_get(conn))
           expiration = Time.iso8601(c['Expiration']) if c['Expiration']
-          @credentials = Credentials.new(
+          @credentials = AWS::SigV4::Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],

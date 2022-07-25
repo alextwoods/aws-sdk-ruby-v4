@@ -95,6 +95,9 @@ module AWS::SDK::EC2InstanceConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EC2InstanceNotFoundException, Errors::ServiceException, Errors::EC2InstanceStateInvalidException, Errors::AuthException, Errors::InvalidArgsException, Errors::ThrottlingException]),
         data_parser: Parsers::SendSSHPublicKey
@@ -178,6 +181,9 @@ module AWS::SDK::EC2InstanceConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EC2InstanceNotFoundException, Errors::ServiceException, Errors::EC2InstanceStateInvalidException, Errors::SerialConsoleSessionUnavailableException, Errors::AuthException, Errors::InvalidArgsException, Errors::EC2InstanceTypeInvalidException, Errors::SerialConsoleAccessDisabledException, Errors::ThrottlingException, Errors::SerialConsoleSessionLimitExceededException]),

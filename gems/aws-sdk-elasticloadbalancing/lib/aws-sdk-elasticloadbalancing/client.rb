@@ -113,6 +113,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException, Errors::DuplicateTagKeysException, Errors::TooManyTagsException]),
         data_parser: Parsers::AddTags
@@ -190,6 +193,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException, Errors::InvalidSecurityGroupException]),
@@ -269,6 +275,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException, Errors::SubnetNotFoundException, Errors::InvalidSubnetException]),
@@ -356,6 +365,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException]),
         data_parser: Parsers::ConfigureHealthCheck
@@ -440,6 +452,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::TooManyPoliciesException, Errors::AccessPointNotFoundException, Errors::DuplicatePolicyNameException]),
         data_parser: Parsers::CreateAppCookieStickinessPolicy
@@ -521,6 +536,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::TooManyPoliciesException, Errors::AccessPointNotFoundException, Errors::DuplicatePolicyNameException]),
@@ -660,6 +678,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidSchemeException, Errors::SubnetNotFoundException, Errors::TooManyAccessPointsException, Errors::InvalidSecurityGroupException, Errors::OperationNotPermittedException, Errors::TooManyTagsException, Errors::InvalidSubnetException, Errors::InvalidConfigurationRequestException, Errors::CertificateNotFoundException, Errors::UnsupportedProtocolException, Errors::DuplicateTagKeysException, Errors::DuplicateAccessPointNameException]),
         data_parser: Parsers::CreateLoadBalancer
@@ -741,6 +762,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::CertificateNotFoundException, Errors::UnsupportedProtocolException, Errors::AccessPointNotFoundException, Errors::DuplicateListenerException]),
@@ -829,6 +853,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::TooManyPoliciesException, Errors::AccessPointNotFoundException, Errors::DuplicatePolicyNameException, Errors::PolicyTypeNotFoundException]),
         data_parser: Parsers::CreateLoadBalancerPolicy
@@ -899,6 +926,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -974,6 +1004,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException]),
         data_parser: Parsers::DeleteLoadBalancerListeners
@@ -1045,6 +1078,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException]),
@@ -1130,6 +1166,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidEndPointException, Errors::AccessPointNotFoundException]),
         data_parser: Parsers::DeregisterInstancesFromLoadBalancer
@@ -1208,6 +1247,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1290,6 +1332,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidEndPointException, Errors::AccessPointNotFoundException]),
@@ -1376,6 +1421,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException, Errors::LoadBalancerAttributeNotFoundException]),
         data_parser: Parsers::DescribeLoadBalancerAttributes
@@ -1461,6 +1509,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyNotFoundException, Errors::AccessPointNotFoundException]),
@@ -1549,6 +1600,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyTypeNotFoundException]),
@@ -1680,6 +1734,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException, Errors::DependencyThrottleException]),
         data_parser: Parsers::DescribeLoadBalancers
@@ -1756,6 +1813,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException]),
@@ -1835,6 +1895,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException]),
@@ -1920,6 +1983,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException]),
         data_parser: Parsers::DisableAvailabilityZonesForLoadBalancer
@@ -2000,6 +2066,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException]),
@@ -2140,6 +2209,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::AccessPointNotFoundException, Errors::LoadBalancerAttributeNotFoundException]),
         data_parser: Parsers::ModifyLoadBalancerAttributes
@@ -2237,6 +2309,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidEndPointException, Errors::AccessPointNotFoundException]),
         data_parser: Parsers::RegisterInstancesWithLoadBalancer
@@ -2314,6 +2389,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessPointNotFoundException]),
@@ -2394,6 +2472,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::CertificateNotFoundException, Errors::UnsupportedProtocolException, Errors::AccessPointNotFoundException, Errors::ListenerNotFoundException]),
@@ -2483,6 +2564,9 @@ module AWS::SDK::ElasticLoadBalancing
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::PolicyNotFoundException, Errors::AccessPointNotFoundException]),
         data_parser: Parsers::SetLoadBalancerPoliciesForBackendServer
@@ -2566,6 +2650,9 @@ module AWS::SDK::ElasticLoadBalancing
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidConfigurationRequestException, Errors::PolicyNotFoundException, Errors::AccessPointNotFoundException, Errors::ListenerNotFoundException]),

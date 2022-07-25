@@ -101,6 +101,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserImportInProgressException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddCustomAttributes
@@ -177,6 +180,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -289,6 +295,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UnexpectedLambdaException, Errors::TooManyFailedAttemptsException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidLambdaResponseException, Errors::TooManyRequestsException]),
@@ -540,6 +549,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnexpectedLambdaException, Errors::CodeDeliveryFailureException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidLambdaResponseException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException, Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::PreconditionNotMetException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::InvalidPasswordException, Errors::ResourceNotFoundException, Errors::UsernameExistsException, Errors::UnsupportedUserStateException]),
         data_parser: Parsers::AdminCreateUser
@@ -612,6 +624,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -694,6 +709,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -798,6 +816,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AliasExistsException, Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminDisableProviderForUser
@@ -871,6 +892,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminDisableUser
@@ -943,6 +967,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -1020,6 +1047,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
@@ -1106,6 +1136,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
@@ -1197,6 +1230,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -1486,6 +1522,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnexpectedLambdaException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidLambdaResponseException, Errors::InvalidUserPoolConfigurationException, Errors::MFAMethodNotFoundException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException, Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AdminInitiateAuth
@@ -1618,6 +1657,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AliasExistsException, Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminLinkProviderForUser
@@ -1710,6 +1752,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminListDevices
@@ -1801,6 +1846,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -1908,6 +1956,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserPoolAddOnNotEnabledException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminListUserAuthEvents
@@ -1984,6 +2035,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -2123,6 +2177,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnexpectedLambdaException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidEmailRoleAccessPolicyException, Errors::InvalidLambdaResponseException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException, Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::ResourceNotFoundException]),
@@ -2392,6 +2449,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnexpectedLambdaException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidLambdaResponseException, Errors::InvalidUserPoolConfigurationException, Errors::MFAMethodNotFoundException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException, Errors::AliasExistsException, Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::ExpiredCodeException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::InvalidPasswordException, Errors::ResourceNotFoundException, Errors::CodeMismatchException, Errors::SoftwareTokenMFANotFoundException]),
         data_parser: Parsers::AdminRespondToAuthChallenge
@@ -2481,6 +2541,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
@@ -2573,6 +2636,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::InvalidPasswordException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminSetUserPassword
@@ -2658,6 +2724,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
         data_parser: Parsers::AdminSetUserSettings
@@ -2740,6 +2809,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserPoolAddOnNotEnabledException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AdminUpdateAuthEventFeedback
@@ -2820,6 +2892,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
@@ -2979,6 +3054,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnexpectedLambdaException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidEmailRoleAccessPolicyException, Errors::InvalidLambdaResponseException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException, Errors::AliasExistsException, Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::UserNotFoundException, Errors::UserLambdaValidationException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::AdminUpdateUserAttributes
@@ -3056,6 +3134,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -3148,6 +3229,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ConcurrentModificationException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::SoftwareTokenMFANotFoundException]),
@@ -3311,6 +3395,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidLambdaResponseException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException, Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::InvalidPasswordException, Errors::ResourceNotFoundException, Errors::UsernameExistsException]),
@@ -3704,6 +3791,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException, Errors::GroupExistsException]),
         data_parser: Parsers::CreateGroup
@@ -3923,6 +4013,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::DuplicateProviderException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateIdentityProvider
@@ -4019,6 +4112,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateResourceServer
@@ -4108,6 +4204,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PreconditionNotMetException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -4514,6 +4613,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidEmailRoleAccessPolicyException, Errors::TooManyRequestsException, Errors::UserPoolTaggingException, Errors::InvalidSmsRoleTrustRelationshipException]),
         data_parser: Parsers::CreateUserPool
@@ -4894,6 +4996,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::ScopeDoesNotExistException, Errors::TooManyRequestsException, Errors::InvalidOAuthFlowException]),
         data_parser: Parsers::CreateUserPoolClient
@@ -4980,6 +5085,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
         data_parser: Parsers::CreateUserPoolDomain
@@ -5053,6 +5161,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteGroup
@@ -5125,6 +5236,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException, Errors::UnsupportedIdentityProviderException]),
         data_parser: Parsers::DeleteIdentityProvider
@@ -5196,6 +5310,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -5411,6 +5528,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserImportInProgressException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteUserPool
@@ -5482,6 +5602,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -5556,6 +5679,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
@@ -5641,6 +5767,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeIdentityProvider
@@ -5720,6 +5849,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -5824,6 +5956,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::UserPoolAddOnNotEnabledException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeRiskConfiguration
@@ -5909,6 +6044,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -6081,6 +6219,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException, Errors::UserPoolTaggingException]),
         data_parser: Parsers::DescribeUserPool
@@ -6194,6 +6335,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeUserPoolClient
@@ -6274,6 +6418,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
         data_parser: Parsers::DescribeUserPoolDomain
@@ -6346,6 +6493,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
@@ -6582,6 +6732,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetCSVHeader
@@ -6664,6 +6817,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetDevice
@@ -6744,6 +6900,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -6829,6 +6988,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetIdentityProviderByIdentifier
@@ -6897,6 +7059,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException]),
@@ -6981,6 +7146,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -7275,6 +7443,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetUserPoolMfaConfig
@@ -7346,6 +7517,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -7701,6 +7875,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListDevices
@@ -7789,6 +7966,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListGroups
@@ -7871,6 +8051,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -7958,6 +8141,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListResourceServers
@@ -8030,6 +8216,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -8125,6 +8314,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListUserImportJobs
@@ -8208,6 +8400,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -8308,6 +8503,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -8503,6 +8701,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListUsers
@@ -8600,6 +8801,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -9076,6 +9280,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UnsupportedTokenTypeException, Errors::UnauthorizedException, Errors::InternalErrorException, Errors::TooManyRequestsException, Errors::UnsupportedOperationException]),
         data_parser: Parsers::RevokeToken
@@ -9231,6 +9438,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::CodeDeliveryFailureException, Errors::ResourceNotFoundException, Errors::UserPoolAddOnNotEnabledException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidEmailRoleAccessPolicyException, Errors::TooManyRequestsException]),
         data_parser: Parsers::SetRiskConfiguration
@@ -9331,6 +9541,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::SetUICustomization
@@ -9421,6 +9634,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException]),
@@ -9554,6 +9770,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException, Errors::InvalidSmsRoleTrustRelationshipException]),
@@ -9898,6 +10117,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PreconditionNotMetException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::StartUserImportJob
@@ -9983,6 +10205,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PreconditionNotMetException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -10071,6 +10296,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::TagResource
@@ -10145,6 +10373,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -10232,6 +10463,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserPoolAddOnNotEnabledException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateAuthEventFeedback
@@ -10308,6 +10542,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException]),
@@ -10404,6 +10641,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -10508,6 +10748,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException, Errors::UnsupportedIdentityProviderException]),
         data_parser: Parsers::UpdateIdentityProvider
@@ -10604,6 +10847,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
@@ -11018,6 +11264,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidSmsRoleAccessPolicyException, Errors::ConcurrentModificationException, Errors::UserImportInProgressException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidEmailRoleAccessPolicyException, Errors::TooManyRequestsException, Errors::UserPoolTaggingException, Errors::InvalidSmsRoleTrustRelationshipException]),
         data_parser: Parsers::UpdateUserPool
@@ -11388,6 +11637,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ConcurrentModificationException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::ScopeDoesNotExistException, Errors::TooManyRequestsException, Errors::InvalidOAuthFlowException]),
         data_parser: Parsers::UpdateUserPoolClient
@@ -11491,6 +11743,9 @@ module AWS::SDK::CognitoIdentityProvider
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceNotFoundException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateUserPoolDomain
@@ -11576,6 +11831,9 @@ module AWS::SDK::CognitoIdentityProvider
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UserNotConfirmedException, Errors::InternalErrorException, Errors::NotAuthorizedException, Errors::InvalidUserPoolConfigurationException, Errors::TooManyRequestsException, Errors::InvalidParameterException, Errors::PasswordResetRequiredException, Errors::UserNotFoundException, Errors::ResourceNotFoundException, Errors::CodeMismatchException, Errors::EnableSoftwareTokenMFAException, Errors::SoftwareTokenMFANotFoundException]),

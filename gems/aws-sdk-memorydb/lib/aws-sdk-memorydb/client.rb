@@ -144,6 +144,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceUpdateNotFoundFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::BatchUpdateCluster
@@ -267,6 +270,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::SnapshotNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::SnapshotQuotaExceededFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SnapshotAlreadyExistsFault, Errors::InvalidSnapshotStateFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CopySnapshot
@@ -361,6 +367,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ACLQuotaExceededFault, Errors::DuplicateUserNameFault, Errors::TagQuotaPerResourceExceeded, Errors::DefaultUserRequired, Errors::UserNotFoundFault, Errors::ACLAlreadyExistsFault, Errors::InvalidParameterValueException]),
@@ -575,6 +584,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterQuotaForCustomerExceededFault, Errors::TagQuotaPerResourceExceeded, Errors::ACLNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::NodeQuotaForClusterExceededFault, Errors::SubnetGroupNotFoundFault, Errors::InvalidCredentialsException, Errors::ClusterAlreadyExistsFault, Errors::ShardsPerClusterQuotaExceededFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidVPCNetworkStateFault, Errors::NodeQuotaForCustomerExceededFault, Errors::InsufficientClusterCapacityFault, Errors::InvalidACLStateFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CreateCluster
@@ -667,6 +679,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::TagQuotaPerResourceExceeded, Errors::ServiceLinkedRoleNotFoundFault, Errors::ParameterGroupAlreadyExistsFault, Errors::InvalidParameterGroupStateFault, Errors::ParameterGroupQuotaExceededFault, Errors::InvalidParameterValueException]),
@@ -781,6 +796,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::SnapshotQuotaExceededFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidClusterStateFault, Errors::SnapshotAlreadyExistsFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CreateSnapshot
@@ -880,6 +898,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubnetNotAllowedFault, Errors::TagQuotaPerResourceExceeded, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupQuotaExceededFault, Errors::InvalidSubnet, Errors::SubnetQuotaExceededFault, Errors::SubnetGroupAlreadyExistsFault]),
@@ -982,6 +1003,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateUserNameFault, Errors::InvalidParameterCombinationException, Errors::TagQuotaPerResourceExceeded, Errors::UserQuotaExceededFault, Errors::UserAlreadyExistsFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CreateUser
@@ -1061,6 +1085,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ACLNotFoundFault, Errors::InvalidACLStateFault, Errors::InvalidParameterValueException]),
@@ -1186,6 +1213,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidClusterStateFault, Errors::SnapshotAlreadyExistsFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteCluster
@@ -1259,6 +1289,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidParameterValueException]),
@@ -1356,6 +1389,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::SnapshotNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidSnapshotStateFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteSnapshot
@@ -1433,6 +1469,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault, Errors::SubnetGroupInUseFault]),
@@ -1512,6 +1551,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UserNotFoundFault, Errors::InvalidUserStateFault, Errors::InvalidParameterValueException]),
@@ -1602,6 +1644,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ACLNotFoundFault]),
@@ -1737,6 +1782,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DescribeClusters
@@ -1826,6 +1874,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterValueException]),
@@ -1932,6 +1983,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DescribeEvents
@@ -2014,6 +2068,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidParameterValueException]),
@@ -2099,6 +2156,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidParameterValueException]),
@@ -2198,6 +2258,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
@@ -2318,6 +2381,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::SnapshotNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DescribeSnapshots
@@ -2405,6 +2471,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault]),
@@ -2505,6 +2574,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::UserNotFoundFault]),
@@ -2630,6 +2702,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterNotFoundFault, Errors::InvalidKMSKeyFault, Errors::APICallRateForCustomerExceededFault, Errors::ShardNotFoundFault, Errors::InvalidClusterStateFault, Errors::TestFailoverNotAvailableFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::FailoverShard
@@ -2703,6 +2778,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterValueException]),
@@ -2779,6 +2857,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotNotFoundFault, Errors::ClusterNotFoundFault, Errors::ACLNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault, Errors::UserNotFoundFault, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::ParameterGroupNotFoundFault]),
@@ -2862,6 +2943,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidParameterValueException]),
@@ -2954,6 +3038,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotNotFoundFault, Errors::ClusterNotFoundFault, Errors::TagQuotaPerResourceExceeded, Errors::ACLNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault, Errors::UserNotFoundFault, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::ParameterGroupNotFoundFault]),
         data_parser: Parsers::TagResource
@@ -3031,6 +3118,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SnapshotNotFoundFault, Errors::ClusterNotFoundFault, Errors::TagNotFoundFault, Errors::ACLNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault, Errors::UserNotFoundFault, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::ParameterGroupNotFoundFault]),
@@ -3120,6 +3210,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateUserNameFault, Errors::InvalidParameterCombinationException, Errors::ACLNotFoundFault, Errors::DefaultUserRequired, Errors::UserNotFoundFault, Errors::InvalidACLStateFault, Errors::InvalidParameterValueException]),
@@ -3299,6 +3392,9 @@ module AWS::SDK::MemoryDB
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ClusterQuotaForCustomerExceededFault, Errors::InvalidNodeStateFault, Errors::ACLNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::NodeQuotaForClusterExceededFault, Errors::InvalidClusterStateFault, Errors::ShardsPerClusterQuotaExceededFault, Errors::ParameterGroupNotFoundFault, Errors::ClusterNotFoundFault, Errors::InvalidKMSKeyFault, Errors::InvalidVPCNetworkStateFault, Errors::NodeQuotaForCustomerExceededFault, Errors::NoOperationFault, Errors::InvalidACLStateFault, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateCluster
@@ -3380,6 +3476,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::ParameterGroupNotFoundFault, Errors::InvalidParameterValueException]),
@@ -3469,6 +3568,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubnetNotAllowedFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetInUse, Errors::SubnetGroupNotFoundFault, Errors::InvalidSubnet, Errors::SubnetQuotaExceededFault]),
@@ -3561,6 +3663,9 @@ module AWS::SDK::MemoryDB
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::UserNotFoundFault, Errors::InvalidUserStateFault, Errors::InvalidParameterValueException]),

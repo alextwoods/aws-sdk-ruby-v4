@@ -110,6 +110,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException, Errors::RegistryNotFoundException]),
         data_parser: Parsers::BatchCheckLayerAvailability
@@ -208,6 +211,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::BatchDeleteImage
@@ -303,6 +309,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LayerAlreadyExistsException, Errors::RepositoryNotFoundException, Errors::UnsupportedCommandException, Errors::EmptyUploadException, Errors::InvalidLayerException, Errors::ServerException, Errors::InvalidParameterException, Errors::LayerPartTooSmallException, Errors::RegistryNotFoundException, Errors::UploadNotFoundException]),
@@ -419,6 +428,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidTagParameterException, Errors::ServerException, Errors::TooManyTagsException, Errors::InvalidParameterException, Errors::RepositoryAlreadyExistsException]),
         data_parser: Parsers::CreateRepository
@@ -504,6 +516,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::RepositoryNotEmptyException, Errors::InvalidParameterException]),
         data_parser: Parsers::DeleteRepository
@@ -580,6 +595,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::RepositoryPolicyNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -685,6 +703,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -807,6 +828,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::ImageNotFoundException, Errors::InvalidParameterException]),
         data_parser: Parsers::DescribeImages
@@ -905,6 +929,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedCommandException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -1015,6 +1042,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::DescribeRepositories
@@ -1085,6 +1115,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::GetAuthorizationToken
@@ -1149,6 +1182,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedCommandException, Errors::ServerException]),
@@ -1234,6 +1270,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::GetRepositoryCatalogData
@@ -1309,6 +1348,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::RepositoryPolicyNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -1391,6 +1433,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::UnsupportedCommandException, Errors::ServerException, Errors::InvalidParameterException, Errors::RegistryNotFoundException]),
         data_parser: Parsers::InitiateLayerUpload
@@ -1463,6 +1508,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -1571,6 +1619,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ImageDigestDoesNotMatchException, Errors::LimitExceededException, Errors::RepositoryNotFoundException, Errors::UnsupportedCommandException, Errors::ImageTagAlreadyExistsException, Errors::ReferencedImagesNotFoundException, Errors::ServerException, Errors::LayersNotFoundException, Errors::ImageAlreadyExistsException, Errors::InvalidParameterException, Errors::RegistryNotFoundException]),
         data_parser: Parsers::PutImage
@@ -1645,6 +1696,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedCommandException, Errors::ServerException, Errors::InvalidParameterException]),
@@ -1745,6 +1799,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::PutRepositoryCatalogData
@@ -1835,6 +1892,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::ServerException, Errors::InvalidParameterException]),
         data_parser: Parsers::SetRepositoryPolicy
@@ -1917,6 +1977,9 @@ module AWS::SDK::ECRPUBLIC
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::InvalidTagParameterException, Errors::ServerException, Errors::TooManyTagsException, Errors::InvalidParameterException]),
         data_parser: Parsers::TagResource
@@ -1991,6 +2054,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RepositoryNotFoundException, Errors::InvalidTagParameterException, Errors::ServerException, Errors::TooManyTagsException, Errors::InvalidParameterException]),
@@ -2091,6 +2157,9 @@ module AWS::SDK::ECRPUBLIC
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::RepositoryNotFoundException, Errors::UnsupportedCommandException, Errors::ServerException, Errors::InvalidParameterException, Errors::RegistryNotFoundException, Errors::UploadNotFoundException, Errors::InvalidLayerPartException]),

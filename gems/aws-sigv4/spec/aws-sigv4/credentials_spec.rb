@@ -2,7 +2,7 @@
 
 require_relative '../spec_helper'
 
-module AWS::SDK::Core
+module AWS::SigV4
   describe Credentials do
     subject do
       Credentials.new(
@@ -40,6 +40,32 @@ module AWS::SDK::Core
 
         it 'defaults expiration to nil' do
           expect(subject.expiration).to be_nil
+        end
+      end
+    end
+
+    describe '#set?' do
+      context 'access_key_id and secret_access_key are non-empty' do
+        it 'returns true' do
+          expect(subject.set?).to be true
+        end
+      end
+
+      context 'access_key_id and secret_access_key are nil' do
+        let(:access_key_id) { nil }
+        let(:secret_access_key) { nil }
+
+        it 'returns false' do
+          expect(subject.set?).to be false
+        end
+      end
+
+      context 'access_key_id and secret_access_key are empty' do
+        let(:access_key_id) { '' }
+        let(:secret_access_key) { '' }
+
+        it 'returns false' do
+          expect(subject.set?).to be false
         end
       end
     end

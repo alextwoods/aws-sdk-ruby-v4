@@ -37,8 +37,8 @@ module AWS::SDK::Core
 
     # @api private
     SSO_LOGIN_GUIDANCE =
-      'The SSO session associated with this profile has '\
-      'expired or is otherwise invalid. To refresh this SSO session run '\
+      'The SSO session associated with this profile has ' \
+      'expired or is otherwise invalid. To refresh this SSO session run ' \
       '`aws sso login` with the corresponding profile.'
 
     # Initializes an instance of SSOCredentialProvider using
@@ -106,7 +106,7 @@ module AWS::SDK::Core
         access_token: cached_token['accessToken']
       ).data.role_credentials
 
-      @credentials = Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

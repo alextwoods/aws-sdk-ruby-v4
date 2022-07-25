@@ -279,6 +279,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::NodeQuotaForCustomerExceededFault, Errors::ClusterAlreadyExistsFault, Errors::InsufficientClusterCapacityFault, Errors::InvalidVPCNetworkStateFault, Errors::ServiceQuotaExceededException, Errors::ClusterQuotaForCustomerExceededFault, Errors::InvalidClusterStateFault, Errors::NodeQuotaForClusterExceededFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::SubnetGroupNotFoundFault, Errors::TagQuotaPerResourceExceeded]),
         data_parser: Parsers::CreateCluster
@@ -355,6 +358,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::ParameterGroupQuotaExceededFault, Errors::InvalidParameterGroupStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::ParameterGroupAlreadyExistsFault]),
@@ -441,6 +447,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupQuotaExceededFault, Errors::SubnetGroupAlreadyExistsFault, Errors::InvalidSubnet, Errors::SubnetQuotaExceededFault]),
@@ -568,6 +577,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::NodeNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DecreaseReplicationFactor
@@ -679,6 +691,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DeleteCluster
@@ -748,6 +763,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
@@ -821,6 +839,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::SubnetGroupInUseFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault]),
@@ -959,6 +980,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::DescribeClusters
@@ -1053,6 +1077,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
@@ -1167,6 +1194,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DescribeEvents
@@ -1256,6 +1286,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
@@ -1360,6 +1393,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DescribeParameters
@@ -1454,6 +1490,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetGroupNotFoundFault]),
@@ -1574,6 +1613,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NodeQuotaForClusterExceededFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::NodeQuotaForCustomerExceededFault, Errors::InsufficientClusterCapacityFault, Errors::InvalidVPCNetworkStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::IncreaseReplicationFactor
@@ -1653,6 +1695,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::ClusterNotFoundFault]),
@@ -1771,6 +1816,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::NodeNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::RebootNode
@@ -1853,6 +1901,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::TagQuotaPerResourceExceeded, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::TagResource
@@ -1931,6 +1982,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::InvalidARNFault, Errors::ClusterNotFoundFault, Errors::TagNotFoundFault]),
@@ -2072,6 +2126,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InvalidClusterStateFault, Errors::ClusterNotFoundFault]),
         data_parser: Parsers::UpdateCluster
@@ -2159,6 +2216,9 @@ module AWS::SDK::DAX
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ParameterGroupNotFoundFault, Errors::ServiceLinkedRoleNotFoundFault, Errors::InvalidParameterGroupStateFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateParameterGroup
@@ -2244,6 +2304,9 @@ module AWS::SDK::DAX
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceLinkedRoleNotFoundFault, Errors::SubnetInUse, Errors::SubnetGroupNotFoundFault, Errors::InvalidSubnet, Errors::SubnetQuotaExceededFault]),

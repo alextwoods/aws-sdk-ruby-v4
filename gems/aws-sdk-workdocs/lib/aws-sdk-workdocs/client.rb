@@ -118,6 +118,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::AbortDocumentVersionUpload
@@ -209,6 +212,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -308,6 +314,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -437,6 +446,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidCommentOperationException, Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::DocumentLockedForCommentsException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateComment
@@ -520,6 +532,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::CustomMetadataLimitExceededException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -610,6 +625,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::FailedDependencyException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::EntityAlreadyExistsException, Errors::UnauthorizedOperationException, Errors::LimitExceededException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateFolder
@@ -688,6 +706,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::TooManyLabelsException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -778,6 +799,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException, Errors::TooManySubscriptionsException]),
@@ -903,6 +927,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::FailedDependencyException, Errors::EntityAlreadyExistsException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::CreateUser
@@ -974,6 +1001,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1053,6 +1083,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::DocumentLockedForCommentsException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1141,6 +1174,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteCustomMetadata
@@ -1211,6 +1247,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::ConcurrentModificationException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1283,6 +1322,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::ConcurrentModificationException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteFolder
@@ -1353,6 +1395,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1435,6 +1480,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteLabels
@@ -1505,6 +1553,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ProhibitedStateException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1577,6 +1628,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -1743,6 +1797,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeActivities
@@ -1858,6 +1915,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeComments
@@ -1966,6 +2026,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -2109,6 +2172,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::InvalidArgumentException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeFolderContents
@@ -2199,6 +2265,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeGroups
@@ -2280,6 +2349,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -2373,6 +2445,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -2472,6 +2547,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -2605,6 +2683,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RequestedEntityTooLargeException, Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DescribeUsers
@@ -2697,6 +2778,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -2800,6 +2884,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPasswordException, Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::GetDocument
@@ -2893,6 +2980,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -2996,6 +3086,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPasswordException, Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::GetDocumentVersion
@@ -3085,6 +3178,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ProhibitedStateException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -3179,6 +3275,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -3304,6 +3403,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -3435,6 +3537,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceAlreadyCheckedOutException, Errors::FailedDependencyException, Errors::DraftUploadOutOfSyncException, Errors::ProhibitedStateException, Errors::EntityAlreadyExistsException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::StorageLimitExceededException, Errors::StorageLimitWillExceedException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::InitiateDocumentVersionUpload
@@ -3505,6 +3610,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -3585,6 +3693,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FailedDependencyException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::ServiceUnavailableException]),
@@ -3672,6 +3783,9 @@ module AWS::SDK::WorkDocs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ConcurrentModificationException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::EntityAlreadyExistsException, Errors::UnauthorizedOperationException, Errors::LimitExceededException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::UpdateDocument
@@ -3754,6 +3868,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::InvalidOperationException, Errors::ConcurrentModificationException, Errors::ProhibitedStateException, Errors::UnauthorizedOperationException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -3840,6 +3957,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FailedDependencyException, Errors::ConcurrentModificationException, Errors::ConflictingOperationException, Errors::ProhibitedStateException, Errors::EntityAlreadyExistsException, Errors::UnauthorizedOperationException, Errors::LimitExceededException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),
@@ -3964,6 +4084,9 @@ module AWS::SDK::WorkDocs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IllegalUserStateException, Errors::FailedDependencyException, Errors::InvalidArgumentException, Errors::UnauthorizedOperationException, Errors::DeactivatingLastSystemUserException, Errors::UnauthorizedResourceAccessException, Errors::EntityNotExistsException, Errors::ServiceUnavailableException]),

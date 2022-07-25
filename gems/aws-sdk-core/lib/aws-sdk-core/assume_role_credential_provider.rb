@@ -58,8 +58,8 @@ module AWS::SDK::Core
 
       if source_profile && credential_source
         raise CredentialSourceConflictError,
-              "Profile #{cfg[:profile]} has a source_profile and "\
-              'a credential_source. For assume role credentials, must '\
+              "Profile #{cfg[:profile]} has a source_profile and " \
+              'a credential_source. For assume role credentials, must ' \
               'provide only source_profile or credential_source, not both.'
       end
 
@@ -83,7 +83,7 @@ module AWS::SDK::Core
     # @see AWS::SDK::STS::Client#assume_role
     def initialize(options)
       unless AWS::SDK::Core.sts_loaded?
-        raise 'aws-sdk-sts is required to create an '\
+        raise 'aws-sdk-sts is required to create an ' \
               'AssumeRoleCredentialProvider.'
       end
       @client = options.delete(:client) || AWS::SDK::STS::Client.new
@@ -105,8 +105,7 @@ module AWS::SDK::Core
       c = @client.assume_role(
         @assume_role_params.merge(token_code: token_code)
       ).data.credentials
-
-      @credentials = Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,
@@ -134,14 +133,14 @@ module AWS::SDK::Core
 
         # no provider found
         raise NoSourceCredentialsError,
-              "Profile #{cfg[:profile]} has a role_arn and source_profile "\
+              "Profile #{cfg[:profile]} has a role_arn and source_profile " \
               'but the source_profile does not have credentials.'
       end
 
       def visit_source_profile(visited_profiles, cfg, profile)
         if visited_profiles&.include?(profile)
           raise SourceProfileCircularReferenceError,
-                'Circular reference in assume role profiles'\
+                'Circular reference in assume role profiles' \
                 ", have already visited: #{profile}"
         end
 
@@ -160,13 +159,13 @@ module AWS::SDK::Core
           source_provider = resolve_credentials_source(credential_source, cfg)
           unless source_provider
             raise NoSourceCredentialsError,
-                  "Profile #{cfg[:profile]} could not get source credentials "\
+                  "Profile #{cfg[:profile]} could not get source credentials " \
                   "from provider #{credential_source}"
           end
           source_provider
         else
           raise NoSourceProfileError,
-                "Profile #{cfg[:profile]} has a role_arn "\
+                "Profile #{cfg[:profile]} has a role_arn " \
                 'but no source_profile or credential_source'
         end
       end
@@ -175,12 +174,7 @@ module AWS::SDK::Core
         case credentials_source
         when 'Ec2InstanceMetadata'
           profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-          client = EC2Metadata.new(
-            endpoint: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
-                      profile_config['ec2_metadata_service_endpoint'],
-            endpoint_mode: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
-                           profile_config['ec2_metadata_service_endpoint_mode']
-          )
+          client = build_ec2_metadata_client(profile_config)
           EC2CredentialProvider.new(client: client)
         when 'EcsContainer'
           ECSCredentialProvider.new
@@ -190,6 +184,17 @@ module AWS::SDK::Core
           raise InvalidCredentialSourceError,
                 "Unsupported credential_source: #{credentials_source}"
         end
+      end
+
+      def build_ec2_metadata_client(profile_config)
+        EC2Metadata.new(
+          endpoint: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT') do
+                      profile_config['ec2_metadata_service_endpoint']
+                    end,
+          endpoint_mode: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE') do
+                           profile_config['ec2_metadata_service_endpoint_mode']
+                         end
+        )
       end
 
       def build_profile_provider(cfg, profile_config, source_provider)

@@ -97,6 +97,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::ResourceAlreadyExistsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::AssociateDomain
@@ -178,6 +181,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::ResourceAlreadyExistsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::AssociateWebsiteAuthorizationProvider
@@ -258,6 +264,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::ResourceAlreadyExistsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -347,6 +356,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::ResourceAlreadyExistsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::CreateFleet
@@ -417,6 +429,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -489,6 +504,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -566,6 +584,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -651,6 +672,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::DescribeDevice
@@ -722,6 +746,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -802,6 +829,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -884,6 +914,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::DescribeFleetMetadata
@@ -957,6 +990,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1036,6 +1072,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::DescribeWebsiteCertificateAuthority
@@ -1110,6 +1149,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1188,6 +1230,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::ResourceAlreadyExistsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::DisassociateWebsiteAuthorizationProvider
@@ -1262,6 +1307,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1347,6 +1395,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1434,6 +1485,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1523,6 +1577,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListFleets
@@ -1594,6 +1651,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException]),
@@ -1680,6 +1740,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1768,6 +1831,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListWebsiteCertificateAuthorities
@@ -1842,6 +1908,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -1918,6 +1987,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::RevokeDomainAccess
@@ -1993,6 +2065,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -2071,6 +2146,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException]),
         data_parser: Parsers::TagResource
@@ -2147,6 +2225,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException]),
         data_parser: Parsers::UntagResource
@@ -2221,6 +2302,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -2309,6 +2393,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::UpdateCompanyNetworkConfiguration
@@ -2383,6 +2470,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -2462,6 +2552,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
@@ -2543,6 +2636,9 @@ module AWS::SDK::WorkLink
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),
         data_parser: Parsers::UpdateFleetMetadata
@@ -2622,6 +2718,9 @@ module AWS::SDK::WorkLink
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ResourceNotFoundException, Errors::InternalServerErrorException, Errors::InvalidRequestException, Errors::UnauthorizedException]),

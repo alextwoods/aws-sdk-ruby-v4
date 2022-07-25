@@ -156,6 +156,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::AccessPointAlreadyExists, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessPointLimitExceeded]),
         data_parser: Parsers::CreateAccessPoint
@@ -408,6 +411,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InsufficientThroughputCapacity, Errors::BadRequest, Errors::FileSystemAlreadyExists, Errors::FileSystemLimitExceeded, Errors::InternalServerError, Errors::ThroughputLimitExceeded, Errors::UnsupportedAvailabilityZone]),
         data_parser: Parsers::CreateFileSystem
@@ -643,6 +649,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequest, Errors::AvailabilityZonesMismatch, Errors::NoFreeAddressesInSubnet, Errors::FileSystemNotFound, Errors::IpAddressInUse, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError, Errors::SecurityGroupLimitExceeded, Errors::MountTargetConflict, Errors::NetworkInterfaceLimitExceeded, Errors::SecurityGroupNotFound, Errors::SubnetNotFound, Errors::UnsupportedAvailabilityZone]),
         data_parser: Parsers::CreateMountTarget
@@ -817,6 +826,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::InsufficientThroughputCapacity, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::FileSystemLimitExceeded, Errors::InternalServerError, Errors::ValidationException, Errors::ThroughputLimitExceeded, Errors::ReplicationNotFound, Errors::UnsupportedAvailabilityZone]),
         data_parser: Parsers::CreateReplicationConfiguration
@@ -908,6 +920,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError]),
         data_parser: Parsers::CreateTags
@@ -977,6 +992,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
@@ -1066,6 +1084,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::FileSystemInUse, Errors::InternalServerError]),
         data_parser: Parsers::DeleteFileSystem
@@ -1135,6 +1156,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError]),
@@ -1236,6 +1260,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::MountTargetNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::DependencyTimeout]),
         data_parser: Parsers::DeleteMountTarget
@@ -1307,6 +1334,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::ReplicationNotFound]),
@@ -1394,6 +1424,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError]),
@@ -1506,6 +1539,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
         data_parser: Parsers::DescribeAccessPoints
@@ -1587,6 +1623,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribeAccountPreferences
@@ -1655,6 +1694,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::ValidationException, Errors::PolicyNotFound]),
@@ -1725,6 +1767,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::PolicyNotFound]),
@@ -1861,6 +1906,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError]),
         data_parser: Parsers::DescribeFileSystems
@@ -1940,6 +1988,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError]),
@@ -2024,6 +2075,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IncorrectMountTargetState, Errors::MountTargetNotFound, Errors::BadRequest, Errors::InternalServerError]),
@@ -2136,6 +2190,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::MountTargetNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
         data_parser: Parsers::DescribeMountTargets
@@ -2231,6 +2288,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::ValidationException, Errors::ReplicationNotFound]),
@@ -2329,6 +2389,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError]),
         data_parser: Parsers::DescribeTags
@@ -2409,6 +2472,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
@@ -2503,6 +2569,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::IncorrectMountTargetState, Errors::MountTargetNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::SecurityGroupLimitExceeded, Errors::SecurityGroupNotFound]),
         data_parser: Parsers::ModifyMountTargetSecurityGroups
@@ -2592,6 +2661,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequest, Errors::InternalServerError]),
         data_parser: Parsers::PutAccountPreferences
@@ -2667,6 +2739,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError, Errors::ValidationException]),
@@ -2765,6 +2840,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError, Errors::InvalidPolicyException]),
@@ -2911,6 +2989,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError]),
         data_parser: Parsers::PutLifecycleConfiguration
@@ -2990,6 +3071,9 @@ module AWS::SDK::EFS
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
         data_parser: Parsers::TagResource
@@ -3064,6 +3148,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FileSystemNotFound, Errors::BadRequest, Errors::InternalServerError, Errors::AccessPointNotFound]),
@@ -3171,6 +3258,9 @@ module AWS::SDK::EFS
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::FileSystemNotFound, Errors::InsufficientThroughputCapacity, Errors::BadRequest, Errors::IncorrectFileSystemLifeCycleState, Errors::InternalServerError, Errors::TooManyRequests, Errors::ThroughputLimitExceeded]),

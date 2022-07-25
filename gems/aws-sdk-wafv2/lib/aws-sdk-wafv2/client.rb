@@ -164,6 +164,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFUnavailableEntityException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::AssociateWebACL
@@ -429,6 +432,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFExpiredManagedRuleGroupVersionException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInvalidResourceException, Errors::WAFSubscriptionNotFoundException, Errors::WAFInternalErrorException, Errors::WAFUnavailableEntityException, Errors::WAFLimitsExceededException]),
         data_parser: Parsers::CheckCapacity
@@ -577,6 +583,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
         data_parser: Parsers::CreateIPSet
@@ -685,6 +694,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
@@ -996,6 +1008,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFSubscriptionNotFoundException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFUnavailableEntityException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
         data_parser: Parsers::CreateRuleGroup
@@ -1299,6 +1314,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFSubscriptionNotFoundException, Errors::WAFUnavailableEntityException, Errors::WAFTagOperationInternalErrorException, Errors::WAFLimitsExceededException, Errors::WAFDuplicateItemException, Errors::WAFNonexistentItemException, Errors::WAFInvalidResourceException, Errors::WAFTagOperationException, Errors::WAFConfigurationWarningException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::CreateWebACL
@@ -1373,6 +1391,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -1463,6 +1484,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFAssociatedItemException, Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::DeleteIPSet
@@ -1531,6 +1555,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -1602,6 +1629,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException]),
@@ -1692,6 +1722,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFAssociatedItemException, Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::DeleteRegexPatternSet
@@ -1780,6 +1813,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFAssociatedItemException, Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -1901,6 +1937,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFAssociatedItemException, Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::DeleteWebACL
@@ -2020,6 +2059,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFExpiredManagedRuleGroupVersionException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInvalidResourceException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::DescribeManagedRuleGroup
@@ -2111,6 +2153,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::DisassociateWebACL
@@ -2185,6 +2230,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -2279,6 +2327,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -2402,6 +2453,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetLoggingConfiguration
@@ -2508,6 +2562,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetManagedRuleSet
@@ -2590,6 +2647,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetMobileSdkRelease
@@ -2660,6 +2720,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException]),
@@ -2762,6 +2825,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetRateBasedStatementManagedKeys
@@ -2855,6 +2921,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -3102,6 +3171,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetRuleGroup
@@ -3245,6 +3317,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException]),
@@ -3500,6 +3575,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetWebACL
@@ -3735,6 +3813,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFUnavailableEntityException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::GetWebACLForResource
@@ -3838,6 +3919,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListAvailableManagedRuleGroupVersions
@@ -3936,6 +4020,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListAvailableManagedRuleGroups
@@ -4033,6 +4120,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -4178,6 +4268,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListLoggingConfigurations
@@ -4280,6 +4373,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListManagedRuleSets
@@ -4366,6 +4462,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -4465,6 +4564,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListRegexPatternSets
@@ -4541,6 +4643,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -4640,6 +4745,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::ListRuleGroups
@@ -4733,6 +4841,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -4831,6 +4942,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -5052,6 +5166,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException, Errors::WAFLogDestinationPermissionIssueException, Errors::WAFServiceLinkedRoleErrorException]),
         data_parser: Parsers::PutLoggingConfiguration
@@ -5169,6 +5286,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::PutManagedRuleSetVersions
@@ -5282,6 +5402,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInvalidPermissionPolicyException, Errors::WAFInternalErrorException]),
         data_parser: Parsers::PutPermissionPolicy
@@ -5366,6 +5489,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
         data_parser: Parsers::TagResource
@@ -5442,6 +5568,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFTagOperationException, Errors::WAFInternalErrorException, Errors::WAFTagOperationInternalErrorException, Errors::WAFInvalidOperationException]),
@@ -5583,6 +5712,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
         data_parser: Parsers::UpdateIPSet
@@ -5692,6 +5824,9 @@ module AWS::SDK::WAFV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),
         data_parser: Parsers::UpdateManagedRuleSetVersionExpiryDate
@@ -5798,6 +5933,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
@@ -6092,6 +6230,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFDuplicateItemException, Errors::WAFInvalidParameterException, Errors::WAFNonexistentItemException, Errors::WAFSubscriptionNotFoundException, Errors::WAFConfigurationWarningException, Errors::WAFInternalErrorException, Errors::WAFUnavailableEntityException, Errors::WAFInvalidOperationException, Errors::WAFLimitsExceededException]),
@@ -6394,6 +6535,9 @@ module AWS::SDK::WAFV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::WAFOptimisticLockException, Errors::WAFInvalidParameterException, Errors::WAFSubscriptionNotFoundException, Errors::WAFUnavailableEntityException, Errors::WAFLimitsExceededException, Errors::WAFDuplicateItemException, Errors::WAFExpiredManagedRuleGroupVersionException, Errors::WAFNonexistentItemException, Errors::WAFInvalidResourceException, Errors::WAFConfigurationWarningException, Errors::WAFInternalErrorException, Errors::WAFInvalidOperationException]),

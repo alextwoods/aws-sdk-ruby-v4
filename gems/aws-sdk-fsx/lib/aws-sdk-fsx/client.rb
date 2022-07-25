@@ -123,6 +123,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::FileSystemNotFound]),
         data_parser: Parsers::AssociateFileSystemAliases
@@ -204,6 +207,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::DataRepositoryTaskNotFound, Errors::BadRequest, Errors::DataRepositoryTaskEnded, Errors::UnsupportedOperation]),
@@ -543,6 +549,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidSourceKmsKey, Errors::IncompatibleParameterError, Errors::SourceBackupUnavailable, Errors::InvalidRegion, Errors::IncompatibleRegionForMultiAZ, Errors::BadRequest, Errors::BackupNotFound, Errors::UnsupportedOperation, Errors::InvalidDestinationKmsKey, Errors::ServiceLimitExceeded]),
@@ -885,6 +894,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BackupInProgress, Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::VolumeNotFound, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateBackup
@@ -1059,6 +1071,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateDataRepositoryAssociation
@@ -1203,6 +1218,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::DataRepositoryTaskExecuting, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::ServiceLimitExceeded]),
@@ -1800,6 +1818,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidPerUnitStorageThroughput, Errors::IncompatibleParameterError, Errors::InvalidNetworkSettings, Errors::InvalidExportPath, Errors::MissingFileSystemConfiguration, Errors::InvalidImportPath, Errors::ActiveDirectoryError, Errors::BadRequest, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateFileSystem
@@ -2297,6 +2318,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidPerUnitStorageThroughput, Errors::IncompatibleParameterError, Errors::InvalidNetworkSettings, Errors::MissingFileSystemConfiguration, Errors::ActiveDirectoryError, Errors::BadRequest, Errors::BackupNotFound, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateFileSystemFromBackup
@@ -2584,6 +2608,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::VolumeNotFound, Errors::BadRequest, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateSnapshot
@@ -2750,6 +2777,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::ActiveDirectoryError, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::ServiceLimitExceeded]),
@@ -3061,6 +3091,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::StorageVirtualMachineNotFound, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::MissingVolumeConfiguration, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateVolume
@@ -3336,6 +3369,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::StorageVirtualMachineNotFound, Errors::BadRequest, Errors::FileSystemNotFound, Errors::BackupNotFound, Errors::MissingVolumeConfiguration, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::CreateVolumeFromBackup
@@ -3420,6 +3456,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BackupInProgress, Errors::BackupRestoring, Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BackupBeingCopied, Errors::BadRequest, Errors::BackupNotFound]),
@@ -3508,6 +3547,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BadRequest, Errors::DataRepositoryAssociationNotFound, Errors::ServiceLimitExceeded]),
@@ -3651,6 +3693,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BadRequest, Errors::FileSystemNotFound, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::DeleteFileSystem
@@ -3731,6 +3776,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::SnapshotNotFound]),
         data_parser: Parsers::DeleteSnapshot
@@ -3807,6 +3855,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::StorageVirtualMachineNotFound, Errors::BadRequest]),
@@ -3913,6 +3964,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::VolumeNotFound, Errors::BadRequest]),
@@ -4234,6 +4288,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::VolumeNotFound, Errors::BadRequest, Errors::FileSystemNotFound, Errors::BackupNotFound]),
         data_parser: Parsers::DescribeBackups
@@ -4369,6 +4426,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::FileSystemNotFound, Errors::DataRepositoryAssociationNotFound, Errors::InvalidDataRepositoryType]),
         data_parser: Parsers::DescribeDataRepositoryAssociations
@@ -4502,6 +4562,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::DataRepositoryTaskNotFound, Errors::BadRequest, Errors::FileSystemNotFound]),
         data_parser: Parsers::DescribeDataRepositoryTasks
@@ -4596,6 +4659,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::FileSystemNotFound]),
@@ -4886,6 +4952,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::FileSystemNotFound]),
@@ -5182,6 +5251,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::SnapshotNotFound]),
         data_parser: Parsers::DescribeSnapshots
@@ -5308,6 +5380,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::StorageVirtualMachineNotFound, Errors::BadRequest]),
@@ -5578,6 +5653,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::VolumeNotFound, Errors::BadRequest]),
         data_parser: Parsers::DescribeVolumes
@@ -5669,6 +5747,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::FileSystemNotFound]),
@@ -5783,6 +5864,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::NotServiceResourceError, Errors::ResourceDoesNotSupportTagging, Errors::ResourceNotFound, Errors::BadRequest]),
@@ -6032,6 +6116,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BadRequest, Errors::FileSystemNotFound, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::ReleaseFileSystemNfsV3Locks
@@ -6134,6 +6221,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::VolumeNotFound, Errors::BadRequest]),
         data_parser: Parsers::RestoreVolumeFromSnapshot
@@ -6213,6 +6303,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::NotServiceResourceError, Errors::ResourceDoesNotSupportTagging, Errors::ResourceNotFound, Errors::BadRequest]),
         data_parser: Parsers::TagResource
@@ -6287,6 +6380,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::NotServiceResourceError, Errors::ResourceDoesNotSupportTagging, Errors::ResourceNotFound, Errors::BadRequest]),
@@ -6412,6 +6508,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::BadRequest, Errors::DataRepositoryAssociationNotFound, Errors::ServiceLimitExceeded]),
@@ -6917,6 +7016,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::MissingFileSystemConfiguration, Errors::BadRequest, Errors::FileSystemNotFound, Errors::UnsupportedOperation, Errors::ServiceLimitExceeded]),
         data_parser: Parsers::UpdateFileSystem
@@ -7169,6 +7271,9 @@ module AWS::SDK::FSx
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::BadRequest, Errors::SnapshotNotFound]),
         data_parser: Parsers::UpdateSnapshot
@@ -7291,6 +7396,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::StorageVirtualMachineNotFound, Errors::BadRequest, Errors::UnsupportedOperation]),
@@ -7587,6 +7695,9 @@ module AWS::SDK::FSx
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::IncompatibleParameterError, Errors::VolumeNotFound, Errors::BadRequest, Errors::MissingVolumeConfiguration]),

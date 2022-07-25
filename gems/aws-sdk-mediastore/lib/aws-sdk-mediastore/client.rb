@@ -99,6 +99,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::InternalServerError, Errors::LimitExceededException]),
         data_parser: Parsers::CreateContainer
@@ -169,6 +172,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteContainer
@@ -236,6 +242,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
@@ -309,6 +318,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::CorsPolicyNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteCorsPolicy
@@ -377,6 +389,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
         data_parser: Parsers::DeleteLifecyclePolicy
@@ -444,6 +459,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
@@ -526,6 +544,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeContainer
@@ -596,6 +617,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
@@ -680,6 +704,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::CorsPolicyNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::GetCorsPolicy
@@ -748,6 +775,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
@@ -822,6 +852,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError, Errors::PolicyNotFoundException]),
@@ -915,6 +948,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::ListContainers
@@ -986,6 +1022,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
@@ -1073,6 +1112,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
@@ -1172,6 +1214,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::PutCorsPolicy
@@ -1244,6 +1289,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
@@ -1333,6 +1381,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::PutMetricPolicy
@@ -1401,6 +1452,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::StartAccessLogging
@@ -1468,6 +1522,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
@@ -1551,6 +1608,9 @@ module AWS::SDK::MediaStore
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::TagResource
@@ -1626,6 +1686,9 @@ module AWS::SDK::MediaStore
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ContainerInUseException, Errors::ContainerNotFoundException, Errors::InternalServerError]),

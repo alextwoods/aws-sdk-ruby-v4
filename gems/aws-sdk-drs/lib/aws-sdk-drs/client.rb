@@ -150,6 +150,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::CreateExtendedSourceServer
@@ -305,6 +308,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::CreateReplicationConfigurationTemplate
@@ -372,6 +378,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
@@ -441,6 +450,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::DeleteRecoveryInstance
@@ -509,6 +521,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::DeleteReplicationConfigurationTemplate
@@ -576,6 +591,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
@@ -671,6 +689,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -770,6 +791,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -922,6 +946,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::InternalServerException]),
         data_parser: Parsers::DescribeRecoveryInstances
@@ -1017,6 +1044,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -1122,6 +1152,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -1277,6 +1310,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::DescribeSourceServers
@@ -1344,6 +1380,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
@@ -1480,6 +1519,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::DisconnectSourceServer
@@ -1551,6 +1593,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException]),
@@ -1628,6 +1673,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException]),
@@ -1727,6 +1775,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException]),
         data_parser: Parsers::GetReplicationConfiguration
@@ -1788,6 +1839,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDeniedException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -1875,6 +1929,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::ListExtensibleSourceServers
@@ -1950,6 +2007,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::ListStagingAccounts
@@ -2018,6 +2078,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -2154,6 +2217,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
         data_parser: Parsers::RetryDataReplication
@@ -2244,6 +2310,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::ValidationException, Errors::InternalServerException, Errors::ConflictException]),
@@ -2343,6 +2412,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::StartRecovery
@@ -2410,6 +2482,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException]),
@@ -2484,6 +2559,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -2570,6 +2648,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ThrottlingException, Errors::ServiceQuotaExceededException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::TerminateRecoveryInstances
@@ -2642,6 +2723,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),
@@ -2722,6 +2806,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException]),
@@ -2825,6 +2912,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::ConflictException]),
@@ -3004,6 +3094,9 @@ module AWS::SDK::Drs
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException, Errors::ConflictException]),
         data_parser: Parsers::UpdateReplicationConfiguration
@@ -3163,6 +3256,9 @@ module AWS::SDK::Drs
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::UninitializedAccountException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ValidationException, Errors::InternalServerException]),

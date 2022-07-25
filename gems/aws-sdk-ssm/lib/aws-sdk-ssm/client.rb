@@ -210,6 +210,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InvalidResourceId, Errors::InternalServerError, Errors::TooManyTagsError, Errors::InvalidResourceType]),
         data_parser: Parsers::AddTagsToResource
@@ -300,6 +303,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemNotFoundException, Errors::OpsItemRelatedItemAlreadyExistsException, Errors::OpsItemLimitExceededException, Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::AssociateOpsItemRelatedItem
@@ -376,6 +382,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidCommandId, Errors::DuplicateInstanceId, Errors::InternalServerError]),
         data_parser: Parsers::CancelCommand
@@ -446,6 +455,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -598,6 +610,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameters, Errors::InternalServerError]),
@@ -921,6 +936,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTarget, Errors::UnsupportedPlatformType, Errors::InternalServerError, Errors::AssociationLimitExceeded, Errors::InvalidSchedule, Errors::InvalidDocumentVersion, Errors::InvalidTargetMaps, Errors::InvalidInstanceId, Errors::InvalidDocument, Errors::InvalidParameters, Errors::AssociationAlreadyExists, Errors::InvalidOutputLocation]),
         data_parser: Parsers::CreateAssociation
@@ -1133,6 +1151,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTarget, Errors::UnsupportedPlatformType, Errors::DuplicateInstanceId, Errors::InternalServerError, Errors::AssociationLimitExceeded, Errors::InvalidSchedule, Errors::InvalidDocumentVersion, Errors::InvalidTargetMaps, Errors::InvalidInstanceId, Errors::InvalidDocument, Errors::InvalidParameters, Errors::InvalidOutputLocation]),
@@ -1390,6 +1411,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DocumentLimitExceeded, Errors::InvalidDocumentContent, Errors::MaxDocumentSizeExceeded, Errors::InternalServerError, Errors::InvalidDocumentSchemaVersion, Errors::DocumentAlreadyExists]),
         data_parser: Parsers::CreateDocument
@@ -1560,6 +1584,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatch, Errors::ResourceLimitExceededException, Errors::InternalServerError]),
@@ -1749,6 +1776,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemAlreadyExistsException, Errors::OpsItemLimitExceededException, Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::CreateOpsItem
@@ -1851,6 +1881,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsMetadataAlreadyExistsException, Errors::OpsMetadataInvalidArgumentException, Errors::OpsMetadataLimitExceededException, Errors::InternalServerError, Errors::OpsMetadataTooManyUpdatesException]),
@@ -2058,6 +2091,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatch, Errors::ResourceLimitExceededException, Errors::InternalServerError]),
         data_parser: Parsers::CreatePatchBaseline
@@ -2189,6 +2225,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceDataSyncInvalidConfigurationException, Errors::ResourceDataSyncAlreadyExistsException, Errors::ResourceDataSyncCountExceededException, Errors::InternalServerError]),
         data_parser: Parsers::CreateResourceDataSync
@@ -2258,6 +2297,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidActivationId, Errors::TooManyUpdates, Errors::InvalidActivation, Errors::InternalServerError]),
@@ -2352,6 +2394,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InvalidInstanceId, Errors::AssociationDoesNotExist, Errors::InvalidDocument, Errors::InternalServerError]),
         data_parser: Parsers::DeleteAssociation
@@ -2438,6 +2483,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AssociatedInstances, Errors::InvalidDocumentOperation, Errors::InvalidDocument, Errors::InternalServerError]),
@@ -2541,6 +2589,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInventoryRequestException, Errors::InvalidOptionException, Errors::InvalidDeleteInventoryParametersException, Errors::InvalidTypeNameException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteInventory
@@ -2610,6 +2661,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DeleteMaintenanceWindow
@@ -2677,6 +2731,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsMetadataInvalidArgumentException, Errors::OpsMetadataNotFoundException, Errors::InternalServerError]),
@@ -2746,6 +2803,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ParameterNotFound]),
@@ -2822,6 +2882,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DeleteParameters
@@ -2890,6 +2953,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceInUseException, Errors::InternalServerError]),
@@ -2965,6 +3031,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceDataSyncInvalidConfigurationException, Errors::ResourceDataSyncNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteResourceDataSync
@@ -3035,6 +3104,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InternalServerError]),
@@ -3109,6 +3181,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceId, Errors::InternalServerError]),
@@ -3190,6 +3265,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TargetInUseException, Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::DeregisterTargetFromMaintenanceWindow
@@ -3263,6 +3341,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -3366,6 +3447,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -3509,6 +3593,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAssociationVersion, Errors::InvalidInstanceId, Errors::AssociationDoesNotExist, Errors::InvalidDocument, Errors::InternalServerError]),
         data_parser: Parsers::DescribeAssociation
@@ -3616,6 +3703,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AssociationDoesNotExist, Errors::AssociationExecutionDoesNotExist, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeAssociationExecutionTargets
@@ -3716,6 +3806,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AssociationDoesNotExist, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -3863,6 +3956,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InternalServerError, Errors::InvalidNextToken, Errors::InvalidFilterValue]),
         data_parser: Parsers::DescribeAutomationExecutions
@@ -4000,6 +4096,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InternalServerError, Errors::InvalidNextToken, Errors::AutomationExecutionNotFoundException, Errors::InvalidFilterValue]),
@@ -4296,6 +4395,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribeAvailablePatches
@@ -4426,6 +4528,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentVersion, Errors::InvalidDocument, Errors::InternalServerError]),
         data_parser: Parsers::DescribeDocument
@@ -4518,6 +4623,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentOperation, Errors::InvalidDocument, Errors::InternalServerError, Errors::InvalidNextToken, Errors::InvalidPermissionType]),
         data_parser: Parsers::DescribeDocumentPermission
@@ -4602,6 +4710,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -4715,6 +4826,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperatingSystem, Errors::InvalidResourceId, Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeEffectivePatchesForPatchBaseline
@@ -4809,6 +4923,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -4948,6 +5065,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidInstanceInformationFilterValue, Errors::InvalidFilterKey, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeInstanceInformation
@@ -5051,6 +5171,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -5178,6 +5301,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -5318,6 +5444,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeInstancePatches
@@ -5412,6 +5541,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDeletionIdException, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -5525,6 +5657,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeMaintenanceWindowExecutionTaskInvocations
@@ -5627,6 +5762,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -5738,6 +5876,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -5851,6 +5992,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeMaintenanceWindowSchedule
@@ -5955,6 +6099,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -6080,6 +6227,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeMaintenanceWindowTasks
@@ -6182,6 +6332,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribeMaintenanceWindows
@@ -6277,6 +6430,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -6450,6 +6606,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribeOpsItems
@@ -6577,6 +6736,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InvalidFilterOption, Errors::InternalServerError, Errors::InvalidNextToken, Errors::InvalidFilterValue]),
         data_parser: Parsers::DescribeParameters
@@ -6699,6 +6861,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribePatchBaselines
@@ -6778,6 +6943,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -6892,6 +7060,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -7047,6 +7218,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
         data_parser: Parsers::DescribePatchProperties
@@ -7151,6 +7325,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeSessions
@@ -7226,6 +7403,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemRelatedItemAssociationNotFoundException, Errors::OpsItemNotFoundException, Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
@@ -7391,6 +7571,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::AutomationExecutionNotFoundException]),
         data_parser: Parsers::GetAutomationExecution
@@ -7477,6 +7660,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentType, Errors::InvalidDocument, Errors::InternalServerError, Errors::UnsupportedCalendarException]),
@@ -7588,6 +7774,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidPluginName, Errors::InvalidCommandId, Errors::InvocationDoesNotExist, Errors::InternalServerError]),
         data_parser: Parsers::GetCommandInvocation
@@ -7658,6 +7847,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -7731,6 +7923,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -7858,6 +8053,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperatingSystem, Errors::UnsupportedFeatureRequiredException, Errors::InternalServerError]),
         data_parser: Parsers::GetDeployablePatchSnapshotForInstance
@@ -7962,6 +8160,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentVersion, Errors::InvalidDocument, Errors::InternalServerError]),
@@ -8087,6 +8288,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResultAttributeException, Errors::InvalidFilter, Errors::InvalidInventoryGroupException, Errors::InvalidTypeNameException, Errors::InternalServerError, Errors::InvalidAggregatorException, Errors::InvalidNextToken]),
         data_parser: Parsers::GetInventory
@@ -8187,6 +8391,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidTypeNameException, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::GetInventorySchema
@@ -8270,6 +8477,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::GetMaintenanceWindow
@@ -8344,6 +8554,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -8436,6 +8649,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::GetMaintenanceWindowExecutionTask
@@ -8523,6 +8739,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -8660,6 +8879,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::GetMaintenanceWindowTask
@@ -8763,6 +8985,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemNotFoundException, Errors::InternalServerError]),
         data_parser: Parsers::GetOpsItem
@@ -8844,6 +9069,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsMetadataInvalidArgumentException, Errors::OpsMetadataNotFoundException, Errors::InternalServerError]),
@@ -8968,6 +9196,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilter, Errors::ResourceDataSyncNotFoundException, Errors::InvalidTypeNameException, Errors::InternalServerError, Errors::InvalidAggregatorException, Errors::InvalidNextToken]),
         data_parser: Parsers::GetOpsSummary
@@ -9055,6 +9286,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidKeyId, Errors::ParameterVersionNotFound, Errors::InternalServerError, Errors::ParameterNotFound]),
@@ -9166,6 +9400,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidKeyId, Errors::InternalServerError, Errors::InvalidNextToken, Errors::ParameterNotFound]),
         data_parser: Parsers::GetParameterHistory
@@ -9259,6 +9496,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidKeyId, Errors::InternalServerError]),
@@ -9394,6 +9634,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InvalidKeyId, Errors::InvalidFilterOption, Errors::InternalServerError, Errors::InvalidNextToken, Errors::InvalidFilterValue]),
         data_parser: Parsers::GetParametersByPath
@@ -9503,6 +9746,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceId, Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::GetPatchBaseline
@@ -9578,6 +9824,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -9699,6 +9948,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ServiceSettingNotFound]),
         data_parser: Parsers::GetServiceSetting
@@ -9816,6 +10068,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::ParameterVersionNotFound, Errors::InternalServerError, Errors::ParameterNotFound, Errors::ParameterVersionLabelLimitExceeded]),
@@ -9938,6 +10193,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AssociationDoesNotExist, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListAssociationVersions
@@ -10054,6 +10312,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -10194,6 +10455,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidFilterKey, Errors::InvalidCommandId, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListCommandInvocations
@@ -10331,6 +10595,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidFilterKey, Errors::InvalidCommandId, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListCommands
@@ -10449,6 +10716,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceId, Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken, Errors::InvalidResourceType]),
         data_parser: Parsers::ListComplianceItems
@@ -10554,6 +10824,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListComplianceSummaries
@@ -10656,6 +10929,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentVersion, Errors::InvalidDocument, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListDocumentMetadataHistory
@@ -10746,6 +11022,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocument, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -10877,6 +11156,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilterKey, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListDocuments
@@ -10979,6 +11261,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InvalidFilter, Errors::InvalidTypeNameException, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListInventoryEntries
@@ -11075,6 +11360,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemNotFoundException, Errors::OpsItemLimitExceededException, Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
@@ -11180,6 +11468,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::ListOpsItemRelatedItems
@@ -11272,6 +11563,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsMetadataInvalidArgumentException, Errors::InternalServerError]),
@@ -11383,6 +11677,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFilter, Errors::InternalServerError, Errors::InvalidNextToken]),
@@ -11502,6 +11799,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceDataSyncInvalidConfigurationException, Errors::InternalServerError, Errors::InvalidNextToken]),
         data_parser: Parsers::ListResourceDataSync
@@ -11578,6 +11878,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceId, Errors::InternalServerError, Errors::InvalidResourceType]),
@@ -11672,6 +11975,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DocumentLimitExceeded, Errors::InvalidDocument, Errors::DocumentPermissionLimit, Errors::InternalServerError, Errors::InvalidPermissionType]),
@@ -11851,6 +12157,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ItemSizeLimitExceededException, Errors::ComplianceTypeCountLimitExceededException, Errors::InvalidItemContentException, Errors::InvalidResourceId, Errors::TotalSizeLimitExceededException, Errors::InternalServerError, Errors::InvalidResourceType]),
         data_parser: Parsers::PutComplianceItems
@@ -11940,6 +12249,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ItemSizeLimitExceededException, Errors::InvalidItemContentException, Errors::ItemContentMismatchException, Errors::CustomSchemaCountLimitExceededException, Errors::UnsupportedInventorySchemaVersionException, Errors::UnsupportedInventoryItemContextException, Errors::TotalSizeLimitExceededException, Errors::InternalServerError, Errors::InvalidInventoryItemContextException, Errors::InvalidInstanceId, Errors::SubTypeCountLimitExceededException, Errors::InvalidTypeNameException]),
@@ -12253,6 +12565,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::PoliciesLimitExceededException, Errors::InvalidKeyId, Errors::HierarchyTypeMismatchException, Errors::ParameterAlreadyExists, Errors::InternalServerError, Errors::HierarchyLevelLimitExceededException, Errors::InvalidPolicyTypeException, Errors::InvalidAllowedPatternException, Errors::IncompatiblePolicyException, Errors::ParameterLimitExceeded, Errors::ParameterPatternMismatchException, Errors::UnsupportedParameterType, Errors::ParameterMaxVersionLimitExceeded, Errors::InvalidPolicyAttributeException]),
         data_parser: Parsers::PutParameter
@@ -12325,6 +12640,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidResourceId, Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -12399,6 +12717,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::InvalidResourceId, Errors::DoesNotExistException, Errors::ResourceLimitExceededException, Errors::InternalServerError]),
@@ -12547,6 +12868,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatch, Errors::DoesNotExistException, Errors::ResourceLimitExceededException, Errors::InternalServerError]),
@@ -12827,6 +13151,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::FeatureNotAvailableException, Errors::IdempotentParameterMismatch, Errors::DoesNotExistException, Errors::ResourceLimitExceededException, Errors::InternalServerError]),
         data_parser: Parsers::RegisterTaskWithMaintenanceWindow
@@ -12929,6 +13256,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InvalidResourceId, Errors::InternalServerError, Errors::InvalidResourceType]),
@@ -13052,6 +13382,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InternalServerError, Errors::ServiceSettingNotFound]),
         data_parser: Parsers::ResetServiceSetting
@@ -13127,6 +13460,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -13225,6 +13561,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAutomationSignalException, Errors::AutomationStepNotFoundException, Errors::InternalServerError, Errors::AutomationExecutionNotFoundException]),
@@ -13465,6 +13804,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentVersion, Errors::InvalidRole, Errors::InvalidInstanceId, Errors::InvalidNotificationConfig, Errors::InvalidDocument, Errors::InvalidParameters, Errors::InvalidOutputFolder, Errors::MaxDocumentSizeExceeded, Errors::UnsupportedPlatformType, Errors::DuplicateInstanceId, Errors::InternalServerError]),
         data_parser: Parsers::SendCommand
@@ -13535,6 +13877,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAssociation, Errors::AssociationDoesNotExist]),
@@ -13724,6 +14069,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IdempotentParameterMismatch, Errors::AutomationDefinitionNotFoundException, Errors::InvalidTarget, Errors::AutomationDefinitionVersionNotFoundException, Errors::AutomationExecutionLimitExceededException, Errors::InternalServerError, Errors::InvalidAutomationExecutionParametersException]),
@@ -13920,6 +14268,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AutomationDefinitionNotApprovedException, Errors::IdempotentParameterMismatch, Errors::AutomationDefinitionNotFoundException, Errors::AutomationDefinitionVersionNotFoundException, Errors::AutomationExecutionLimitExceededException, Errors::InternalServerError, Errors::InvalidAutomationExecutionParametersException]),
         data_parser: Parsers::StartChangeRequestExecution
@@ -14020,6 +14371,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TargetNotConnected, Errors::InvalidDocument, Errors::InternalServerError]),
         data_parser: Parsers::StartSession
@@ -14093,6 +14447,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAutomationStatusUpdateException, Errors::InternalServerError, Errors::AutomationExecutionNotFoundException]),
         data_parser: Parsers::StopAutomationExecution
@@ -14162,6 +14519,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError]),
@@ -14244,6 +14604,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::ParameterVersionNotFound, Errors::InternalServerError, Errors::ParameterNotFound]),
@@ -14582,6 +14945,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAssociationVersion, Errors::TooManyUpdates, Errors::InvalidTarget, Errors::InternalServerError, Errors::InvalidSchedule, Errors::InvalidDocumentVersion, Errors::InvalidTargetMaps, Errors::AssociationDoesNotExist, Errors::AssociationVersionLimitExceeded, Errors::InvalidDocument, Errors::InvalidParameters, Errors::InvalidUpdate, Errors::InvalidOutputLocation]),
         data_parser: Parsers::UpdateAssociation
@@ -14724,6 +15090,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InvalidInstanceId, Errors::AssociationDoesNotExist, Errors::InvalidDocument, Errors::InternalServerError, Errors::StatusUnchanged]),
@@ -14892,6 +15261,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DuplicateDocumentContent, Errors::InvalidDocumentOperation, Errors::InvalidDocumentVersion, Errors::InvalidDocumentContent, Errors::InvalidDocument, Errors::MaxDocumentSizeExceeded, Errors::DocumentVersionLimitExceeded, Errors::InternalServerError, Errors::InvalidDocumentSchemaVersion, Errors::DuplicateDocumentVersionName]),
         data_parser: Parsers::UpdateDocument
@@ -14972,6 +15344,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentVersion, Errors::InvalidDocument, Errors::InternalServerError, Errors::InvalidDocumentSchemaVersion]),
@@ -15057,6 +15432,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidDocumentOperation, Errors::InvalidDocumentVersion, Errors::InvalidDocument, Errors::InternalServerError]),
@@ -15212,6 +15590,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::UpdateMaintenanceWindow
@@ -15348,6 +15729,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
@@ -15746,6 +16130,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::UpdateMaintenanceWindowTask
@@ -15819,6 +16206,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInstanceId, Errors::InternalServerError]),
@@ -15992,6 +16382,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsItemAlreadyExistsException, Errors::OpsItemNotFoundException, Errors::OpsItemLimitExceededException, Errors::OpsItemInvalidParameterException, Errors::InternalServerError]),
         data_parser: Parsers::UpdateOpsItem
@@ -16074,6 +16467,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OpsMetadataKeyLimitExceededException, Errors::OpsMetadataInvalidArgumentException, Errors::OpsMetadataNotFoundException, Errors::InternalServerError, Errors::OpsMetadataTooManyUpdatesException]),
@@ -16284,6 +16680,9 @@ module AWS::SDK::SSM
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DoesNotExistException, Errors::InternalServerError]),
         data_parser: Parsers::UpdatePatchBaseline
@@ -16384,6 +16783,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceDataSyncInvalidConfigurationException, Errors::ResourceDataSyncNotFoundException, Errors::InternalServerError, Errors::ResourceDataSyncConflictException]),
@@ -16545,6 +16947,9 @@ module AWS::SDK::SSM
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyUpdates, Errors::InternalServerError, Errors::ServiceSettingNotFound]),

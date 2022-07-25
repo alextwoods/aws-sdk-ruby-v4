@@ -117,6 +117,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::AssociateCreatedArtifact
@@ -204,6 +207,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::PolicyErrorException, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::AssociateDiscoveredResource
@@ -282,6 +288,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -388,6 +397,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DeleteProgressUpdateStream
@@ -458,6 +470,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyErrorException, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -544,6 +559,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -645,6 +663,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DisassociateCreatedArtifact
@@ -730,6 +751,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::DisassociateDiscoveredResource
@@ -811,6 +835,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -900,6 +927,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -1004,6 +1034,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListCreatedArtifacts
@@ -1092,6 +1125,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -1193,6 +1229,9 @@ module AWS::SDK::MigrationHub
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PolicyErrorException, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
         data_parser: Parsers::ListMigrationTasks
@@ -1270,6 +1309,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -1355,6 +1397,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::PolicyErrorException, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -1469,6 +1514,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),
@@ -1609,6 +1657,9 @@ module AWS::SDK::MigrationHub
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnauthorizedOperation, Errors::InternalServerError, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::HomeRegionNotSetException, Errors::DryRunOperation, Errors::ResourceNotFoundException, Errors::InvalidInputException, Errors::ServiceUnavailableException]),

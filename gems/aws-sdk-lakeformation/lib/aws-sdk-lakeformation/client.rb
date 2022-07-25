@@ -148,6 +148,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
         data_parser: Parsers::AddLFTagsToResource
@@ -328,6 +331,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InvalidInputException]),
@@ -510,6 +516,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InvalidInputException]),
         data_parser: Parsers::BatchRevokePermissions
@@ -577,6 +586,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::TransactionCommitInProgressException, Errors::InternalServiceException, Errors::TransactionCommittedException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
@@ -646,6 +658,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::TransactionCanceledException, Errors::EntityNotFoundException]),
@@ -729,6 +744,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::AlreadyExistsException, Errors::EntityNotFoundException]),
         data_parser: Parsers::CreateDataCellsFilter
@@ -806,6 +824,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -887,6 +908,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::DeleteDataCellsFilter
@@ -958,6 +982,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -1055,6 +1082,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::TransactionCommittedException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::TransactionCanceledException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException]),
         data_parser: Parsers::DeleteObjectsOnCancel
@@ -1124,6 +1154,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -1196,6 +1229,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -1270,6 +1306,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::DescribeTransaction
@@ -1339,6 +1378,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::TransactionCommitInProgressException, Errors::InternalServiceException, Errors::TransactionCommittedException, Errors::InvalidInputException, Errors::TransactionCanceledException, Errors::EntityNotFoundException]),
@@ -1423,6 +1465,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -1554,6 +1599,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetEffectivePermissionsForPath
@@ -1630,6 +1678,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetLFTag
@@ -1703,6 +1754,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException]),
@@ -1785,6 +1839,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredException, Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::StatisticsNotReadyYetException, Errors::ThrottledException]),
@@ -1921,6 +1978,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::GlueEncryptionException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetResourceLFTags
@@ -2038,6 +2098,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::TransactionCommittedException, Errors::InvalidInputException, Errors::TransactionCanceledException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetTableObjects
@@ -2140,6 +2203,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::PermissionTypeMismatchException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetTemporaryGluePartitionCredentials
@@ -2234,6 +2300,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::PermissionTypeMismatchException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GetTemporaryGlueTableCredentials
@@ -2314,6 +2383,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredException, Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::ThrottledException]),
@@ -2401,6 +2473,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredException, Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::WorkUnitsNotReadyYetException]),
@@ -2539,6 +2614,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
         data_parser: Parsers::GrantPermissions
@@ -2634,6 +2712,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException]),
         data_parser: Parsers::ListDataCellsFilter
@@ -2720,6 +2801,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -2915,6 +2999,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException]),
         data_parser: Parsers::ListPermissions
@@ -3004,6 +3091,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException]),
@@ -3102,6 +3192,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::ListTableStorageOptimizers
@@ -3189,6 +3282,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException]),
@@ -3284,6 +3380,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceException, Errors::InvalidInputException]),
         data_parser: Parsers::PutDataLakeSettings
@@ -3376,6 +3475,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNumberLimitExceededException, Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::AlreadyExistsException, Errors::EntityNotFoundException]),
@@ -3516,6 +3618,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::GlueEncryptionException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
         data_parser: Parsers::RemoveLFTagsFromResource
@@ -3652,6 +3757,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
         data_parser: Parsers::RevokePermissions
@@ -3750,6 +3858,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::GlueEncryptionException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -3857,6 +3968,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::GlueEncryptionException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
         data_parser: Parsers::SearchTablesByLFTags
@@ -3944,6 +4058,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::ThrottledException]),
         data_parser: Parsers::StartQueryPlanning
@@ -4012,6 +4129,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException]),
@@ -4094,6 +4214,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::EntityNotFoundException]),
         data_parser: Parsers::UpdateLFTag
@@ -4165,6 +4288,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),
@@ -4265,6 +4391,9 @@ module AWS::SDK::LakeFormation
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OperationTimeoutException, Errors::TransactionCommitInProgressException, Errors::InternalServiceException, Errors::TransactionCommittedException, Errors::InvalidInputException, Errors::ConcurrentModificationException, Errors::TransactionCanceledException, Errors::ResourceNotReadyException, Errors::EntityNotFoundException]),
         data_parser: Parsers::UpdateTableObjects
@@ -4349,6 +4478,9 @@ module AWS::SDK::LakeFormation
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDeniedException, Errors::InternalServiceException, Errors::InvalidInputException, Errors::EntityNotFoundException]),

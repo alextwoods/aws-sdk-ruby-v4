@@ -100,6 +100,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::DirectoryAlreadySharedException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::AcceptSharedDirectory
@@ -257,6 +260,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::IpRouteLimitExceededException, Errors::EntityAlreadyExistsException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::AddIpRoutes
@@ -339,6 +345,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::RegionLimitExceededException, Errors::InvalidParameterException, Errors::ClientException, Errors::DirectoryAlreadyInRegionException]),
         data_parser: Parsers::AddRegion
@@ -418,6 +427,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::TagLimitExceededException, Errors::ClientException]),
         data_parser: Parsers::AddTagsToResource
@@ -493,6 +505,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::ClientException]),
@@ -607,6 +622,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::DirectoryLimitExceededException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ConnectDirectory
@@ -687,6 +705,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::EntityAlreadyExistsException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -785,6 +806,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::EntityAlreadyExistsException, Errors::AuthenticationFailedException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::CreateComputer
@@ -866,6 +890,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::EntityAlreadyExistsException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1004,6 +1031,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::DirectoryLimitExceededException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::CreateDirectory
@@ -1078,6 +1108,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::EntityAlreadyExistsException, Errors::InsufficientPermissionsException, Errors::ClientException]),
@@ -1192,6 +1225,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryLimitExceededException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::CreateMicrosoftAD
@@ -1267,6 +1303,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::SnapshotLimitExceededException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1372,6 +1411,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::EntityAlreadyExistsException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::CreateTrust
@@ -1446,6 +1488,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DeleteConditionalForwarder
@@ -1519,6 +1564,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::ClientException]),
         data_parser: Parsers::DeleteDirectory
@@ -1586,6 +1634,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::ClientException]),
@@ -1655,6 +1706,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1730,6 +1784,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DeleteTrust
@@ -1801,6 +1858,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::CertificateInUseException, Errors::DirectoryUnavailableException, Errors::DirectoryDoesNotExistException, Errors::CertificateDoesNotExistException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1875,6 +1935,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -1957,6 +2020,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryDoesNotExistException, Errors::CertificateDoesNotExistException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2045,6 +2111,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeClientAuthenticationSettings
@@ -2129,6 +2198,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2281,6 +2353,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeDirectories
@@ -2380,6 +2455,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeDomainControllers
@@ -2468,6 +2546,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeEventTopics
@@ -2554,6 +2635,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::DirectoryDoesNotExistException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2646,6 +2730,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2741,6 +2828,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2841,6 +2931,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -2945,6 +3038,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::DescribeTrusts
@@ -3016,6 +3112,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::InvalidClientAuthStatusException, Errors::ClientException]),
@@ -3090,6 +3189,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::DirectoryDoesNotExistException, Errors::InvalidParameterException, Errors::ClientException, Errors::InvalidLDAPSStatusException]),
         data_parser: Parsers::DisableLDAPS
@@ -3158,6 +3260,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::ClientException]),
@@ -3244,6 +3349,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::AuthenticationFailedException, Errors::InsufficientPermissionsException, Errors::ClientException]),
         data_parser: Parsers::DisableSso
@@ -3319,6 +3427,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::InvalidClientAuthStatusException, Errors::NoAvailableCertificateException, Errors::ClientException]),
         data_parser: Parsers::EnableClientAuthentication
@@ -3391,6 +3502,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::DirectoryDoesNotExistException, Errors::InvalidParameterException, Errors::NoAvailableCertificateException, Errors::ClientException, Errors::InvalidLDAPSStatusException]),
@@ -3476,6 +3590,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::EntityAlreadyExistsException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -3564,6 +3681,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::AuthenticationFailedException, Errors::InsufficientPermissionsException, Errors::ClientException]),
         data_parser: Parsers::EnableSso
@@ -3637,6 +3757,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::ClientException]),
         data_parser: Parsers::GetDirectoryLimits
@@ -3708,6 +3831,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::ClientException]),
@@ -3796,6 +3922,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidNextTokenException, Errors::DirectoryDoesNotExistException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListCertificates
@@ -3883,6 +4012,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ListIpRoutes
@@ -3967,6 +4099,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::ClientException]),
@@ -4056,6 +4191,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::ClientException]),
         data_parser: Parsers::ListSchemaExtensions
@@ -4136,6 +4274,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidNextTokenException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4220,6 +4361,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CertificateAlreadyExistsException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::CertificateLimitExceededException, Errors::DirectoryDoesNotExistException, Errors::InvalidCertificateException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::RegisterCertificate
@@ -4297,6 +4441,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::RegisterEventTopic
@@ -4366,6 +4513,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::DirectoryAlreadySharedException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4442,6 +4592,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::RemoveIpRoutes
@@ -4511,6 +4664,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::DirectoryDoesNotExistException, Errors::AccessDeniedException, Errors::ClientException]),
@@ -4585,6 +4741,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4680,6 +4839,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::UserDoesNotExistException, Errors::DirectoryUnavailableException, Errors::InvalidPasswordException, Errors::ClientException]),
         data_parser: Parsers::ResetUserPassword
@@ -4752,6 +4914,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -4854,6 +5019,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::OrganizationsException, Errors::UnsupportedOperationException, Errors::ShareLimitExceededException, Errors::AccessDeniedException, Errors::InvalidTargetException, Errors::DirectoryAlreadySharedException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::ShareDirectory
@@ -4939,6 +5107,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::SnapshotLimitExceededException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::StartSchemaExtension
@@ -5016,6 +5187,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DirectoryNotSharedException, Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidTargetException, Errors::ClientException]),
@@ -5099,6 +5273,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::UpdateConditionalForwarder
@@ -5175,6 +5352,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::DomainControllerLimitExceededException, Errors::UnsupportedOperationException, Errors::DirectoryUnavailableException, Errors::InvalidParameterException, Errors::ClientException]),
@@ -5262,6 +5442,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::UpdateRadius
@@ -5337,6 +5520,9 @@ module AWS::SDK::DirectoryService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::InvalidParameterException, Errors::ClientException]),
         data_parser: Parsers::UpdateTrust
@@ -5408,6 +5594,9 @@ module AWS::SDK::DirectoryService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EntityDoesNotExistException, Errors::ServiceException, Errors::UnsupportedOperationException, Errors::InvalidParameterException, Errors::ClientException]),

@@ -1,6 +1,6 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.0
 
 Gemspec/RequireMFA:
   Exclude:
@@ -11,12 +11,14 @@ Layout/LineLength:
 
 Metrics:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
+    # Signer is incredibly complex
+    - 'gems/aws-sigv4/lib/aws-sigv4/signer.rb'
 
 # For some reason, Metrics disable doesn't cover this
 Metrics/BlockLength:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'
 
 Metrics/ClassLength:
   Max: 150
@@ -29,12 +31,13 @@ Metrics/ParameterLists:
 
 Naming/FileName:
   Exclude:
-    - 'lib/aws-sdk-core.rb'
-    - 'spec/aws-sdk-core/aws-sdk-core_spec.rb'
+    - 'gems/aws-sdk-core/lib/aws-sdk-core.rb'
+    - 'gems/aws-sigv4/lib/aws-sigv4.rb'
+    - 'gems/aws-sdk-core/spec/aws-sdk-core/aws-sdk-core_spec.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false
 
 Style/Documentation:
   Exclude:
-    - 'spec/**/*.rb'
+    - '**/spec/**/*.rb'

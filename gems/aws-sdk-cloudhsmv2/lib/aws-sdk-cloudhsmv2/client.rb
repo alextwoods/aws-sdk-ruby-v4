@@ -95,6 +95,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::CopyBackupToRegion
@@ -237,6 +240,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::CreateCluster
@@ -326,6 +332,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::CreateHsm
@@ -410,6 +419,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
@@ -517,6 +529,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::DeleteCluster
@@ -602,6 +617,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
@@ -723,6 +741,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
@@ -855,6 +876,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::DescribeClusters
@@ -940,6 +964,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
@@ -1030,6 +1057,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::ListTags
@@ -1117,6 +1147,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
@@ -1230,6 +1263,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::ModifyCluster
@@ -1315,6 +1351,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::RestoreBackup
@@ -1393,6 +1432,9 @@ module AWS::SDK::CloudHSMV2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),
         data_parser: Parsers::TagResource
@@ -1468,6 +1510,9 @@ module AWS::SDK::CloudHSMV2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmAccessDeniedException, Errors::CloudHsmInvalidRequestException, Errors::CloudHsmResourceNotFoundException, Errors::CloudHsmTagException, Errors::CloudHsmInternalFailureException, Errors::CloudHsmServiceException]),

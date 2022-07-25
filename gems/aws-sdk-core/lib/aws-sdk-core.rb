@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'aws-sigv4'
+
 # Namespace for AWS Ruby products
 module AWS
   # Namespace for AWS SDK gems
@@ -10,7 +12,6 @@ module AWS
 end
 
 # Credential Providers
-require_relative 'aws-sdk-core/credentials'
 require_relative 'aws-sdk-core/credential_provider'
 require_relative 'aws-sdk-core/refreshing_credential_provider'
 
@@ -29,6 +30,9 @@ require_relative 'aws-sdk-core/shared_config_provider'
 
 # Utilities
 require_relative 'aws-sdk-core/ec2_metadata'
+
+# Middleware
+require_relative 'aws-sdk-core/middleware'
 
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core

@@ -124,7 +124,7 @@ module AWS::SDK::Core
       when 'ipv6' then 'http://[fd00:ec2::254]'
       else
         raise ArgumentError,
-              ':endpoint_mode is not valid, expected IPv4 or IPv6, '\
+              ':endpoint_mode is not valid, expected IPv4 or IPv6, ' \
               "got: #{endpoint_mode}"
       end
     end

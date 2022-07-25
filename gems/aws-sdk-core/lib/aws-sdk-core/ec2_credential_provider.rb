@@ -22,10 +22,12 @@ module AWS::SDK::Core
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       unless ENV['AWS_EC2_METADATA_DISABLED']
         client = EC2Metadata.new(
-          endpoint: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
-                    profile_config['ec2_metadata_service_endpoint'],
-          endpoint_mode: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
-                         profile_config['ec2_metadata_service_endpoint_mode']
+          endpoint: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT') do
+                      profile_config['ec2_metadata_service_endpoint']
+                    end,
+          endpoint_mode: ENV.fetch('AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE') do
+                           profile_config['ec2_metadata_service_endpoint_mode']
+                         end
         )
         new(client: client)
       end
@@ -70,8 +72,7 @@ module AWS::SDK::Core
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
-
-      @credentials = Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: new_creds['AccessKeyId'],
         secret_access_key: new_creds['SecretAccessKey'],
         session_token: new_creds['Token'],
@@ -94,8 +95,8 @@ module AWS::SDK::Core
     end
 
     def warn_expired_credentials
-      warn('Attempting credential expiration extension due to a credential '\
-           'service availability issue. A refresh of these credentials '\
+      warn('Attempting credential expiration extension due to a credential ' \
+           'service availability issue. A refresh of these credentials ' \
            'will be attempted again in 5 minutes.')
     end
 

@@ -120,7 +120,7 @@ module AWS::SDK::Core
         let(:credentials_from_b) { double }
         let(:client) { double }
 
-        it 'Assumes RoleA using static credentials from Profile B with all '\
+        it 'Assumes RoleA using static credentials from Profile B with all ' \
            'assume role parameters' do
           # verify credentials from B
           expect(AWS::SDK::Core::StaticCredentialProvider)
@@ -276,8 +276,8 @@ module AWS::SDK::Core
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
             AssumeRoleCredentialProvider::NoSourceProfileError,
-            'Profile A has a role_arn but no source_profile'\
-            ' or credential_source'
+            'Profile A has a role_arn but no source_profile ' \
+            'or credential_source'
           )
         end
       end
@@ -569,15 +569,16 @@ module AWS::SDK::Core
     end
 
     describe '#credentials' do
-      it 'calls assume_role with the provided parameters and sets the '\
+      it 'calls assume_role with the provided parameters and sets the ' \
          'credentials' do
         expect(client).to receive(:assume_role)
           .with(assume_role_params)
           .and_return(resp)
 
         credentials = subject.credentials
-        expect(credentials).to be_an_instance_of(Credentials)
         expect(credentials.access_key_id).to eq(credential_hash[:access_key_id])
+        expect(credentials.secret_access_key)
+          .to eq(credential_hash[:secret_access_key])
         expect(credentials.session_token).to eq(credential_hash[:session_token])
         expect(credentials.expiration).to eq(credential_hash[:expiration])
       end

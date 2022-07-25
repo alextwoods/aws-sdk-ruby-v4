@@ -525,6 +525,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::CompareFaces
@@ -615,6 +618,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceAlreadyExistsException, Errors::ServiceQuotaExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -736,6 +742,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ResourceAlreadyExistsException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::CreateDataset
@@ -806,6 +815,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -989,6 +1001,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1183,6 +1198,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ServiceQuotaExceededException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::CreateStreamProcessor
@@ -1255,6 +1273,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1335,6 +1356,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteDataset
@@ -1414,6 +1438,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteFaces
@@ -1489,6 +1516,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1566,6 +1596,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::DeleteProjectVersion
@@ -1634,6 +1667,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1711,6 +1747,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1796,6 +1835,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -1927,6 +1969,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::DescribeProjectVersions
@@ -2024,6 +2069,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -2133,6 +2181,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -2315,6 +2366,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotReadyException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::DetectCustomLabels
@@ -2480,6 +2534,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
@@ -2662,6 +2719,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::DetectLabels
@@ -2785,6 +2845,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException, Errors::HumanLoopQuotaExceededException]),
@@ -2937,6 +3000,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::DetectProtectiveEquipment
@@ -3081,6 +3147,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::DetectText
@@ -3166,6 +3235,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotReadyException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::DistributeDatasetEntries
@@ -3246,6 +3318,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -3444,6 +3519,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::GetCelebrityRecognition
@@ -3580,6 +3658,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -3735,6 +3816,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -3927,6 +4011,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::GetFaceSearch
@@ -4063,6 +4150,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -4247,6 +4337,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::GetPersonTracking
@@ -4387,6 +4480,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::GetSegmentDetection
@@ -4513,6 +4609,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -4812,6 +4911,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::IndexFaces
@@ -4893,6 +4995,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -5020,6 +5125,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotReadyException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::ListDatasetEntries
@@ -5113,6 +5221,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotReadyException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -5213,6 +5324,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::ListFaces
@@ -5291,6 +5405,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::InvalidPaginationTokenException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::ListStreamProcessors
@@ -5366,6 +5483,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -5513,6 +5633,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::RecognizeCelebrities
@@ -5632,6 +5755,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -5807,6 +5933,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ImageTooLargeException, Errors::InternalServerError, Errors::InvalidImageFormatException]),
         data_parser: Parsers::SearchFacesByImage
@@ -5912,6 +6041,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
@@ -6026,6 +6158,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
@@ -6142,6 +6277,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
         data_parser: Parsers::StartFaceDetection
@@ -6253,6 +6391,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
@@ -6372,6 +6513,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
         data_parser: Parsers::StartLabelDetection
@@ -6475,6 +6619,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
         data_parser: Parsers::StartPersonTracking
@@ -6560,6 +6707,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -6692,6 +6842,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
         data_parser: Parsers::StartSegmentDetection
@@ -6787,6 +6940,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -6917,6 +7073,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::InvalidS3ObjectException, Errors::ProvisionedThroughputExceededException, Errors::VideoTooLargeException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::IdempotentParameterMismatchException, Errors::InternalServerError]),
         data_parser: Parsers::StartTextDetection
@@ -6988,6 +7147,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::StopProjectVersion
@@ -7055,6 +7217,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -7138,6 +7303,9 @@ module AWS::SDK::Rekognition
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ServiceQuotaExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
         data_parser: Parsers::TagResource
@@ -7219,6 +7387,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -7324,6 +7495,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ResourceInUseException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),
@@ -7447,6 +7621,9 @@ module AWS::SDK::Rekognition
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterException, Errors::ProvisionedThroughputExceededException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerError]),

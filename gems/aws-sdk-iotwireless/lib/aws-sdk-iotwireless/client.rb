@@ -106,6 +106,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::AssociateAwsAccountWithPartnerAccount
@@ -177,6 +180,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -250,6 +256,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::AssociateWirelessDeviceWithFuotaTask
@@ -322,6 +331,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::AssociateWirelessDeviceWithMulticastGroup
@@ -393,6 +405,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -467,6 +482,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::AssociateWirelessGatewayWithCertificate
@@ -539,6 +557,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::AssociateWirelessGatewayWithThing
@@ -605,6 +626,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -704,6 +728,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -814,6 +841,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateDeviceProfile
@@ -915,6 +945,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateFuotaTask
@@ -1010,6 +1043,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1117,6 +1153,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateNetworkAnalyzerConfiguration
@@ -1205,6 +1244,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1342,6 +1384,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateWirelessDevice
@@ -1447,6 +1492,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateWirelessGateway
@@ -1520,6 +1568,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1624,6 +1675,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::CreateWirelessGatewayTaskDefinition
@@ -1690,6 +1744,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1758,6 +1815,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DeleteDeviceProfile
@@ -1824,6 +1884,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -1892,6 +1955,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DeleteMulticastGroup
@@ -1958,6 +2024,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2036,6 +2105,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DeleteQueuedMessages
@@ -2102,6 +2174,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2170,6 +2245,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DeleteWirelessDevice
@@ -2236,6 +2314,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2304,6 +2385,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DeleteWirelessGatewayTask
@@ -2370,6 +2454,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2442,6 +2529,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DisassociateAwsAccountFromPartnerAccount
@@ -2512,6 +2602,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2584,6 +2677,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DisassociateWirelessDeviceFromFuotaTask
@@ -2655,6 +2751,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DisassociateWirelessDeviceFromMulticastGroup
@@ -2721,6 +2820,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2789,6 +2891,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::DisassociateWirelessGatewayFromCertificate
@@ -2855,6 +2960,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -2928,6 +3036,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3020,6 +3131,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetDeviceProfile
@@ -3092,6 +3206,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException]),
@@ -3170,6 +3287,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3251,6 +3371,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetLogLevelsByResourceTypes
@@ -3329,6 +3452,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetMulticastGroup
@@ -3400,6 +3526,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3478,6 +3607,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetNetworkAnalyzerConfiguration
@@ -3553,6 +3685,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3644,6 +3779,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetResourceEventConfiguration
@@ -3718,6 +3856,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetResourceLogLevel
@@ -3789,6 +3930,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3879,6 +4023,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -3997,6 +4144,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetWirelessDevice
@@ -4081,6 +4231,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -4169,6 +4322,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetWirelessGateway
@@ -4237,6 +4393,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -4310,6 +4469,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetWirelessGatewayFirmwareInformation
@@ -4379,6 +4541,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -4451,6 +4616,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -4533,6 +4701,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::GetWirelessGatewayTaskDefinition
@@ -4613,6 +4784,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListDestinations
@@ -4689,6 +4863,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -4788,6 +4965,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListEventConfigurations
@@ -4865,6 +5045,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListFuotaTasks
@@ -4941,6 +5124,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5021,6 +5207,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListMulticastGroupsByFuotaTask
@@ -5096,6 +5285,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5173,6 +5365,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5262,6 +5457,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListQueuedMessages
@@ -5339,6 +5537,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListServiceProfiles
@@ -5409,6 +5610,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5527,6 +5731,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListWirelessDevices
@@ -5612,6 +5819,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5702,6 +5912,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::ListWirelessGateways
@@ -5781,6 +5994,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::PutResourceLogLevel
@@ -5842,6 +6058,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5915,6 +6134,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -5996,6 +6218,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6086,6 +6311,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::SendDataToWirelessDevice
@@ -6166,6 +6394,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6248,6 +6479,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::StartBulkDisassociateWirelessDeviceFromMulticastGroup
@@ -6321,6 +6555,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6399,6 +6636,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::StartMulticastGroupSession
@@ -6476,6 +6716,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::ConflictException, Errors::InternalServerException, Errors::TooManyTagsException, Errors::ValidationException]),
         data_parser: Parsers::TagResource
@@ -6543,6 +6786,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6616,6 +6862,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6700,6 +6949,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6795,6 +7047,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::UpdateEventConfigurationByResourceTypes
@@ -6884,6 +7139,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -6985,6 +7243,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::UpdateLogLevelsByResourceTypes
@@ -7067,6 +7328,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
@@ -7169,6 +7433,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::UpdateNetworkAnalyzerConfiguration
@@ -7246,6 +7513,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::InternalServerException, Errors::ValidationException]),
@@ -7356,6 +7626,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::UpdateResourceEventConfiguration
@@ -7449,6 +7722,9 @@ module AWS::SDK::IoTWireless
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),
         data_parser: Parsers::UpdateWirelessDevice
@@ -7538,6 +7814,9 @@ module AWS::SDK::IoTWireless
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ThrottlingException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalServerException, Errors::ValidationException]),

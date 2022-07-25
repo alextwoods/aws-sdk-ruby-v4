@@ -31,7 +31,7 @@ module AWS::SDK::Core
     # shared config profile.
     # @api private
     PROFILE = proc do |cfg|
-      return unless AWS::SDK::Core.sts_loaded?
+      next unless AWS::SDK::Core.sts_loaded?
 
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if profile_config['web_identity_token_file'] && profile_config['role_arn']
@@ -49,13 +49,13 @@ module AWS::SDK::Core
     end
 
     ENVIRONMENT = proc do |_cfg|
-      return unless AWS::SDK::Core.sts_loaded?
+      next unless AWS::SDK::Core.sts_loaded?
 
       if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
         new(
           web_identity_token_file: ENV['AWS_WEB_IDENTITY_TOKEN_FILE'],
           role_arn: ENV['AWS_ROLE_ARN'],
-          role_session_name: ENV['AWS_ROLE_SESSION_NAME']
+          role_session_name: ENV.fetch('AWS_ROLE_SESSION_NAME', nil)
         )
       end
     end
@@ -73,7 +73,7 @@ module AWS::SDK::Core
     # @see AWS::SDK::STS::Client#assume_role_with_web_identity
     def initialize(options = {})
       unless AWS::SDK::Core.sts_loaded?
-        raise 'aws-sdk-sts is required to create an '\
+        raise 'aws-sdk-sts is required to create an ' \
               'AssumeRoleWebIdentityCredentialProvider.'
       end
 
@@ -98,7 +98,7 @@ module AWS::SDK::Core
       c = @client.assume_role_with_web_identity(
         @assume_role_with_web_identity_params
       ).data.credentials
-      @credentials = Credentials.new(
+      @credentials = AWS::SigV4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,
@@ -109,7 +109,7 @@ module AWS::SDK::Core
     def token_from_file
       unless File.exist?(@web_identity_token_file)
         raise MissingWebIdentityTokenFile,
-              "Web identity token file #{@web_identity_token_file} "\
+              "Web identity token file #{@web_identity_token_file} " \
               'does not exist.'
       end
 

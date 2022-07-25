@@ -1,15 +1,36 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
+import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.KnowledgeIndex;
+import software.amazon.smithy.model.knowledge.ServiceIndex;
+import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.traits.OptionalAuthTrait;
+import software.amazon.smithy.ruby.codegen.ClientFragment;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
 import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
+import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.middleware.Middleware;
 
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareBuilder;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
 
-public class Signers implements RubyIntegration {
+public class Sigv4Auth implements RubyIntegration {
+
+    private static final Logger LOGGER =
+            Logger.getLogger(Sigv4Auth.class.getName());
+
+    @Override
+    public boolean includeFor(ServiceShape service, Model model) {
+        return new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
+    }
 
     @Override
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
@@ -57,33 +78,46 @@ public class Signers implements RubyIntegration {
                 .defaultValue("*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
-        String regionDocumentation = """
-                The AWS region to connect to. The configured `:region` is
-                used to determine the service `:endpoint`. When not passed,
-                a default `:region` is searched for in the following locations:
-                                
-                * `ENV['AWS_REGION']`
-                * `~/.aws/credentials` and `~/.aws/config`
-                """;
+        SigV4Trait sigV4Trait = (SigV4Trait) new ServiceIndex(context.model())
+                .getAuthSchemes(context.service()).get(SigV4Trait.ID);
 
-        ClientConfig region = (new ClientConfig.Builder())
-                .name("region")
-                .type("String")
-                .documentation(regionDocumentation)
+        ClientFragment initializeSigner = new ClientFragment.Builder()
+                .addConfig(credentialProvider)
+                .addConfig(AWSConfig.REGION)
+                .addConfig(AWSConfig.PROFILE)
+                .render( (f, c) -> {
+                    return "proc { |cfg| AWS::SigV4::Signer.new("
+                            + "service: '" + sigV4Trait.getName() + "', "
+                            + "region: cfg[:region], "
+                            + "credential_provider: cfg[:credential_provider]" + ") }";
+                }).build();
+
+        ClientConfig signer = (new ClientConfig.Builder()
+                .name("signer")
+                .type("AWS::SigV4::Signer")
+                .documentation("An instance of SigV4 signer used to sign requests.")
                 .defaults(new ConfigProviderChain.Builder()
-                        .envProvider("AWS_REGION", "String")
-                        .sharedConfigProvider("region", "String")
-                        .staticProvider("nil")
-                        .build())
-                .defaultValue("nil")
+                        .dynamicProvider(initializeSigner)
+                        .build()))
                 .build();
 
-        Middleware signer = (new Middleware.Builder())
-                .klass("Middleware::Signer")
+        Middleware signatureV4 = (new Middleware.Builder())
+                // Do not render if operation has optional auth
+                .operationPredicate((model, service, operation) -> !operation.hasTrait(OptionalAuthTrait.class))
+                .addConfig(signer)
+                // If has unsigned body, then pass true
+                .operationParams((ctx, operation) -> {
+                    Map<String, String> params = new HashMap<>();
+                    if (operation.hasTrait(UnsignedPayloadTrait.class)) {
+                        params.put("unsigned_body", "true");
+                    }
+                    return params;
+                })
+                .klass("AWS::SDK::Core::Middleware::SignatureV4")
                 .step(MiddlewareStackStep.FINALIZE)
-                // .addConfig(credentialProvider)
-                .addConfig(region)
+                .addConfig(signer)
                 .build();
-        // middlewareBuilder.register(signer);
+
+        middlewareBuilder.register(signatureV4);
     }
 }

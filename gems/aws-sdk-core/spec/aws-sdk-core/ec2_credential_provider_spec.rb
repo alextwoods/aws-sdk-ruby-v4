@@ -69,7 +69,7 @@ module AWS::SDK::Core
 
     let(:client) { double('EC2Metadata', get: nil) }
     let(:metadata_resp) { 'ec2-metadata-profile' }
-    let(:expiration) { Time.parse('2022-07-04').utc }
+    let(:expiration) { Time.at(Time.now.to_i + 60).utc }
     let(:credential_json) do
       {
         'AccessKeyId' => 'ACCESS_KEY_1',
@@ -108,8 +108,8 @@ module AWS::SDK::Core
       end
 
       describe 'static stability' do
-        let(:expired) { Time.now.utc - 3600 }
-        let(:near_expiration) { Time.now.utc + 10 }
+        let(:expired) { Time.at(Time.now.to_i - 3600).utc }
+        let(:near_expiration) { Time.at(Time.now.to_i + 10).utc }
 
         let(:expired_resp) { <<-JSON.strip }
         {
@@ -118,8 +118,8 @@ module AWS::SDK::Core
           "Type" : "AWS-HMAC",
           "AccessKeyId" : "akid",
           "SecretAccessKey" : "secret",
-          "Token" : "session-token",
-          "Expiration" : "#{expired.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+          "Token" : "token",
+          "Expiration" : "#{expired.iso8601}"
         }
         JSON
 
@@ -130,8 +130,8 @@ module AWS::SDK::Core
           "Type" : "AWS-HMAC",
           "AccessKeyId" : "akid-2",
           "SecretAccessKey" : "secret-2",
-          "Token" : "session-token-2",
-          "Expiration" : "#{near_expiration.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+          "Token" : "token-2",
+          "Expiration" : "#{near_expiration.iso8601}"
         }
         JSON
 
@@ -152,6 +152,9 @@ module AWS::SDK::Core
 
           creds = subject.credentials
           expect(creds.access_key_id).to eq('akid')
+          expect(creds.secret_access_key).to eq('secret')
+          expect(creds.session_token).to eq('token')
+          expect(creds.expiration).to eq(expired)
 
           # successive requests/credential gets don't result in more calls
           subject.credentials
@@ -171,8 +174,12 @@ module AWS::SDK::Core
             .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
             .and_raise(Timeout::Error)
           expect(subject).to receive(:warn)
+
           creds = subject.credentials
           expect(creds.access_key_id).to eq('akid-2')
+          expect(creds.secret_access_key).to eq('secret-2')
+          expect(creds.session_token).to eq('token-2')
+          expect(creds.expiration).to eq(near_expiration)
         end
 
         it 'uses expired credentials during a refresh and warns' do
@@ -190,6 +197,9 @@ module AWS::SDK::Core
 
           creds = subject.credentials
           expect(creds.access_key_id).to eq('akid')
+          expect(creds.secret_access_key).to eq('secret')
+          expect(creds.session_token).to eq('token')
+          expect(creds.expiration).to eq(expired)
         end
       end
     end

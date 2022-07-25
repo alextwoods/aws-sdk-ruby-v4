@@ -99,6 +99,9 @@ module AWS::SDK::LexRuntimeService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ConflictException, Errors::InternalFailureException, Errors::LimitExceededException, Errors::NotFoundException]),
         data_parser: Parsers::DeleteSession
@@ -211,6 +214,9 @@ module AWS::SDK::LexRuntimeService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::InternalFailureException, Errors::LimitExceededException, Errors::NotFoundException]),
@@ -537,6 +543,10 @@ module AWS::SDK::LexRuntimeService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        unsigned_body: true,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedMediaTypeException, Errors::BadRequestException, Errors::DependencyFailedException, Errors::ConflictException, Errors::LoopDetectedException, Errors::InternalFailureException, Errors::RequestTimeoutException, Errors::LimitExceededException, Errors::NotAcceptableException, Errors::BadGatewayException, Errors::NotFoundException]),
         data_parser: Parsers::PostContent
@@ -797,6 +807,10 @@ module AWS::SDK::LexRuntimeService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        unsigned_body: true,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::DependencyFailedException, Errors::ConflictException, Errors::LoopDetectedException, Errors::InternalFailureException, Errors::LimitExceededException, Errors::BadGatewayException, Errors::NotFoundException]),
         data_parser: Parsers::PostText
@@ -1020,6 +1034,10 @@ module AWS::SDK::LexRuntimeService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        unsigned_body: true,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::DependencyFailedException, Errors::ConflictException, Errors::InternalFailureException, Errors::LimitExceededException, Errors::NotAcceptableException, Errors::BadGatewayException, Errors::NotFoundException]),

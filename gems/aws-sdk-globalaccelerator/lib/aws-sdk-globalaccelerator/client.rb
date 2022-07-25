@@ -245,6 +245,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::EndpointGroupNotFoundException, Errors::EndpointAlreadyExistsException, Errors::AccessDeniedException, Errors::ConflictException]),
         data_parser: Parsers::AddCustomRoutingEndpoints
@@ -326,6 +329,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ByoipCidrNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException, Errors::IncorrectCidrStateException]),
@@ -430,6 +436,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -558,6 +567,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException]),
@@ -691,6 +703,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::AccessDeniedException]),
         data_parser: Parsers::CreateCustomRoutingAccelerator
@@ -796,6 +811,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPortRangeException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::EndpointGroupAlreadyExistsException, Errors::AccessDeniedException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::CreateCustomRoutingEndpointGroup
@@ -886,6 +904,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPortRangeException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException]),
@@ -1043,6 +1064,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::EndpointGroupAlreadyExistsException, Errors::AccessDeniedException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::CreateEndpointGroup
@@ -1153,6 +1177,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPortRangeException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException]),
         data_parser: Parsers::CreateListener
@@ -1233,6 +1260,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotDisabledException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::AssociatedListenerFoundException, Errors::InternalServiceErrorException]),
@@ -1315,6 +1345,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotDisabledException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::AssociatedListenerFoundException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::DeleteCustomRoutingAccelerator
@@ -1382,6 +1415,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException]),
@@ -1451,6 +1487,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::AssociatedEndpointGroupFoundException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::DeleteCustomRoutingListener
@@ -1519,6 +1558,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException]),
         data_parser: Parsers::DeleteEndpointGroup
@@ -1586,6 +1628,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::AssociatedEndpointGroupFoundException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
@@ -1690,6 +1735,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::DenyCustomRoutingTraffic
@@ -1771,6 +1819,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ByoipCidrNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException, Errors::IncorrectCidrStateException]),
@@ -1854,6 +1905,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::DescribeAccelerator
@@ -1926,6 +1980,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -2009,6 +2066,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::DescribeCustomRoutingAccelerator
@@ -2080,6 +2140,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -2161,6 +2224,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException]),
         data_parser: Parsers::DescribeCustomRoutingEndpointGroup
@@ -2234,6 +2300,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
@@ -2323,6 +2392,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException]),
         data_parser: Parsers::DescribeEndpointGroup
@@ -2398,6 +2470,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
@@ -2487,6 +2562,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::ListAccelerators
@@ -2569,6 +2647,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException]),
@@ -2657,6 +2738,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -2748,6 +2832,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::ListCustomRoutingEndpointGroups
@@ -2831,6 +2918,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -2932,6 +3022,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException]),
         data_parser: Parsers::ListCustomRoutingPortMappings
@@ -3029,6 +3122,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointNotFoundException]),
@@ -3128,6 +3224,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::ListEndpointGroups
@@ -3214,6 +3313,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextTokenException, Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::ListListeners
@@ -3287,6 +3389,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -3379,6 +3484,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::AccessDeniedException, Errors::IncorrectCidrStateException]),
         data_parser: Parsers::ProvisionByoipCidr
@@ -3453,6 +3561,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::EndpointGroupNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::EndpointNotFoundException]),
@@ -3533,6 +3644,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::TagResource
@@ -3609,6 +3723,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
@@ -3711,6 +3828,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::UpdateAccelerator
@@ -3803,6 +3923,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException]),
@@ -3900,6 +4023,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException]),
         data_parser: Parsers::UpdateCustomRoutingAccelerator
@@ -3993,6 +4119,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AcceleratorNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateCustomRoutingAcceleratorAttributes
@@ -4078,6 +4207,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPortRangeException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::ListenerNotFoundException]),
@@ -4224,6 +4356,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::EndpointGroupNotFoundException, Errors::AccessDeniedException]),
         data_parser: Parsers::UpdateEndpointGroup
@@ -4328,6 +4463,9 @@ module AWS::SDK::GlobalAccelerator
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPortRangeException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::LimitExceededException, Errors::ListenerNotFoundException]),
         data_parser: Parsers::UpdateListener
@@ -4408,6 +4546,9 @@ module AWS::SDK::GlobalAccelerator
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ByoipCidrNotFoundException, Errors::InvalidArgumentException, Errors::InternalServiceErrorException, Errors::AccessDeniedException, Errors::IncorrectCidrStateException]),

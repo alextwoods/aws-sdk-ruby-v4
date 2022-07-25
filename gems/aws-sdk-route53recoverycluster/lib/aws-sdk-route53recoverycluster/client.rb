@@ -148,6 +148,9 @@ module AWS::SDK::Route53RecoveryCluster
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::AccessDeniedException, Errors::EndpointTemporarilyUnavailableException]),
         data_parser: Parsers::GetRoutingControlState
@@ -262,6 +265,9 @@ module AWS::SDK::Route53RecoveryCluster
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::AccessDeniedException, Errors::EndpointTemporarilyUnavailableException]),
@@ -378,6 +384,9 @@ module AWS::SDK::Route53RecoveryCluster
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::InternalServerException, Errors::AccessDeniedException, Errors::EndpointTemporarilyUnavailableException]),
         data_parser: Parsers::UpdateRoutingControlState
@@ -493,6 +502,9 @@ module AWS::SDK::Route53RecoveryCluster
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ValidationException, Errors::ConflictException, Errors::ResourceNotFoundException, Errors::ThrottlingException, Errors::ServiceLimitExceededException, Errors::InternalServerException, Errors::AccessDeniedException, Errors::EndpointTemporarilyUnavailableException]),

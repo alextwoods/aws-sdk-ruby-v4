@@ -121,6 +121,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddFlowMediaStreams
@@ -294,6 +297,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::AddFlowOutputs420Exception, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddFlowOutputs
@@ -455,6 +461,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddFlowSources
@@ -546,6 +555,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -896,6 +908,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::CreateFlow420Exception, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateFlow
@@ -964,6 +979,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -1162,6 +1180,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DescribeFlow
@@ -1239,6 +1260,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
@@ -1322,6 +1346,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
@@ -1436,6 +1463,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::GrantFlowEntitlements420Exception, Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GrantFlowEntitlements
@@ -1512,6 +1542,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
@@ -1598,6 +1631,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListFlows
@@ -1681,6 +1717,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
@@ -1771,6 +1810,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListReservations
@@ -1839,6 +1881,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::InternalServerErrorException]),
@@ -1932,6 +1977,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::PurchaseOffering
@@ -2004,6 +2052,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -2078,6 +2129,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::RemoveFlowOutput
@@ -2150,6 +2204,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -2226,6 +2283,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::RemoveFlowVpcInterface
@@ -2299,6 +2359,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::RevokeFlowEntitlement
@@ -2368,6 +2431,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::StartFlow
@@ -2436,6 +2502,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -2511,6 +2580,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::InternalServerErrorException]),
         data_parser: Parsers::TagResource
@@ -2583,6 +2655,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::InternalServerErrorException]),
@@ -2799,6 +2874,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateFlow
@@ -2917,6 +2995,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -3039,6 +3120,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
@@ -3254,6 +3338,9 @@ module AWS::SDK::MediaConnect
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateFlowOutput
@@ -3454,6 +3541,9 @@ module AWS::SDK::MediaConnect
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::BadRequestException, Errors::NotFoundException, Errors::ServiceUnavailableException, Errors::InternalServerErrorException, Errors::ForbiddenException, Errors::TooManyRequestsException]),

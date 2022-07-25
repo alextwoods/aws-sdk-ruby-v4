@@ -91,6 +91,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::DisabledOperationException]),
         data_parser: Parsers::AcceptInboundCrossClusterSearchConnection
@@ -168,6 +171,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::BaseException, Errors::InternalException, Errors::ValidationException]),
@@ -252,6 +258,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::AssociatePackage
@@ -328,6 +337,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -638,6 +650,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAlreadyExistsException, Errors::LimitExceededException, Errors::BaseException, Errors::InvalidTypeException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::CreateElasticsearchDomain
@@ -726,6 +741,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAlreadyExistsException, Errors::LimitExceededException, Errors::DisabledOperationException, Errors::InternalException]),
@@ -821,6 +839,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAlreadyExistsException, Errors::LimitExceededException, Errors::BaseException, Errors::InvalidTypeException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
@@ -979,6 +1000,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DeleteElasticsearchDomain
@@ -1040,6 +1064,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::InternalException, Errors::ValidationException]),
@@ -1117,6 +1144,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::DisabledOperationException]),
@@ -1196,6 +1226,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::DisabledOperationException]),
         data_parser: Parsers::DeleteOutboundCrossClusterSearchConnection
@@ -1274,6 +1307,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalException, Errors::ValidationException]),
@@ -1360,6 +1396,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -1448,6 +1487,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -1605,6 +1647,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -1790,6 +1835,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DescribeElasticsearchDomainConfig
@@ -1951,6 +1999,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DescribeElasticsearchDomains
@@ -2072,6 +2123,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::BaseException, Errors::InvalidTypeException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DescribeElasticsearchInstanceTypeLimits
@@ -2176,6 +2230,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPaginationTokenException, Errors::DisabledOperationException]),
@@ -2283,6 +2340,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidPaginationTokenException, Errors::DisabledOperationException]),
         data_parser: Parsers::DescribeOutboundCrossClusterSearchConnections
@@ -2380,6 +2440,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DescribePackages
@@ -2469,6 +2532,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
@@ -2565,6 +2631,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DescribeReservedElasticsearchInstances
@@ -2648,6 +2717,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::ConflictException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::DissociatePackage
@@ -2726,6 +2798,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
@@ -2808,6 +2883,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
@@ -2902,6 +2980,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::GetUpgradeHistory
@@ -2971,6 +3052,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
@@ -3042,6 +3126,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ValidationException]),
@@ -3131,6 +3218,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
@@ -3223,6 +3313,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::ListElasticsearchInstanceTypes
@@ -3302,6 +3395,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -3392,6 +3488,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::ListPackagesForDomain
@@ -3462,6 +3561,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -3541,6 +3643,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAlreadyExistsException, Errors::LimitExceededException, Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::PurchaseReservedElasticsearchInstanceOffering
@@ -3618,6 +3723,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::DisabledOperationException]),
         data_parser: Parsers::RejectInboundCrossClusterSearchConnection
@@ -3691,6 +3799,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::InternalException, Errors::ValidationException]),
@@ -3768,6 +3879,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BaseException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
@@ -4102,6 +4216,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::BaseException, Errors::InvalidTypeException, Errors::ResourceNotFoundException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::UpdateElasticsearchDomainConfig
@@ -4197,6 +4314,9 @@ module AWS::SDK::ElasticsearchService
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::BaseException, Errors::ResourceNotFoundException, Errors::AccessDeniedException, Errors::InternalException, Errors::ValidationException]),
         data_parser: Parsers::UpdatePackage
@@ -4281,6 +4401,9 @@ module AWS::SDK::ElasticsearchService
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceAlreadyExistsException, Errors::BaseException, Errors::ResourceNotFoundException, Errors::DisabledOperationException, Errors::InternalException, Errors::ValidationException]),
