@@ -1001,27 +1001,6 @@ module AWS::SigV4
 
       # SigV4 suite doesn't cover these
       context 'gap cases' do
-        it 'leaves whitespace in quoted values in-tact' do
-          signature = subject.sign_request(
-            request: {
-              http_method: 'PUT',
-              url: 'https://domain.com/',
-              headers: {
-                'Abc' => '"a  b  c"', # quoted header values preserve spaces
-                'X-Amz-Date' => '20160101T112233Z'
-              }
-            }
-          )
-          # CRT doesn't populate canonical request
-          if Signer.use_crt?
-            expect(signature.metadata[:signature])
-              .to eq('9431fd28d9e22fcff8b28ab6c2f117a47382927efc063a8f5b382e9897b83bbe') # rubocop:disable Layout/LineLength
-          else
-            expect(signature.metadata[:canonical_request])
-              .to include('abc:"a  b  c"')
-          end
-        end
-
         it 'sorts query params by name and value' do
           signature = subject.sign_request(
             request: {
