@@ -42,30 +42,31 @@ describe AWS::SDK::Core do
     end
   end
 
-    
-  FEATURE_CHECKS = [
+  feature_checks = [
     [:sts_loaded?, :@use_sts, 'aws-sdk-sts'],
     [:sso_loaded?, :@use_sso, 'aws-sdk-sso'],
-    [:crt_loaded?, :@use_crt, 'aws-crt'],
-  ]
+    [:crt_loaded?, :@use_crt, 'aws-crt']
+  ].freeze
 
-  FEATURE_CHECKS.each do |feature_check|
+  feature_checks.each do |feature_check|
     describe feature_check[0] do
       before { AWS::SDK::Core.instance_variable_set(feature_check[1], nil) }
 
       it "is true when #{feature_check[2]} is available" do
-        expect(AWS::SDK::Core).to receive(:require).with(feature_check[2]).and_return(true)
+        expect(AWS::SDK::Core).to receive(:require)
+          .with(feature_check[2]).and_return(true)
         expect(AWS::SDK::Core.send(feature_check[0])).to be_truthy
       end
 
       it "is false when  #{feature_check[2]} is not available" do
-        expect(AWS::SDK::Core).to receive(:require).with(feature_check[2]).and_raise(LoadError)
+        expect(AWS::SDK::Core).to receive(:require)
+          .with(feature_check[2]).and_raise(LoadError)
         expect(AWS::SDK::Core.send(feature_check[0])).to be_falsey
       end
 
       it 'memoizes its status' do
         expect(AWS::SDK::Core).to receive(:require).once.with(feature_check[2])
-                                           .and_raise(LoadError)
+                                                   .and_raise(LoadError)
         AWS::SDK::Core.send(feature_check[0])
         # second call should not call require again
         AWS::SDK::Core.send(feature_check[0])

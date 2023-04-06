@@ -12,8 +12,6 @@ module AWS::SDK::Core
         super(CRC32C.digest_method)
       end
 
-      private
-
       def self.digest_method
         Aws::Crt::Checksums.method(:crc32c)
       end

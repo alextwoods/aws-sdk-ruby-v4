@@ -5,7 +5,6 @@ require_relative '../spec_helper'
 module AWS::SDK::Core
   describe Checksums do
     describe '.algorithm_for' do
-
       before do
         allow(AWS::SDK::Core).to receive(:crt_loaded?).and_return(true)
         allow(Checksums::CRC32C).to receive(:digest_method).and_return(double)

@@ -29,11 +29,12 @@ module AWS::SDK::Core
 
         let(:crc32c) { double }
 
-        it 'initializes Digest32 with the crt method' do
-          # expect(Aws::Crt::Checksums)
-          #   .to receive(:method).with(:crc32c).and_return(crc32c)
-          # expect_any_instance_of(Digest32).to receive(:initialize).with(crc32c)
-          # CRC32C.new
+        it 'uses the crt digest method when computing checksums' do
+          expect(Aws::Crt::Checksums)
+            .to receive(:method).with(:crc32c).and_return(crc32c)
+          digest = CRC32C.new
+          expect(crc32c).to receive(:call).with('test', 0)
+          digest.update('test')
         end
       end
     end
