@@ -85,7 +85,7 @@ module AWS::SDK::Core
       private
 
       def compute_streaming_checksum(context, digest, field_name)
-        headers = context.http_request.headers
+        headers = context.request.headers
         headers['Content-Encoding'] = 'aws-chunked'
         headers['X-Amz-Trailer'] = field_name
         if @signed_streaming
@@ -99,11 +99,11 @@ module AWS::SDK::Core
         # some operations require the decoded content length set
         # this requires that the original body has size
         if @require_decoded_content_length
-          unless context.http_request.body.respond_to?(:size)
+          unless context.request.body.respond_to?(:size)
             raise ArgumentError, 'Could not determine length of the body'
           end
           headers['X-Amz-Decoded-Content-Length'] =
-            context.http_request.body.size
+            context.request.body.size
           context.request.body = AwsChunkedTrailerDigestSizeIO.new(
             context.request.body, digest, field_name, @signed_streaming
           )

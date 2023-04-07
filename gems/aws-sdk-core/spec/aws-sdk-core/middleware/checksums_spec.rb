@@ -37,7 +37,7 @@ module AWS::SDK::Core
       describe '#call' do
         let(:input) { Input.new }
         let(:output) { double('output') }
-        let(:request_body) { StringIO.new('request') }
+        let(:request_body) { StringIO.new('Hello World') }
         let(:response_body) { StringIO.new }
 
         let(:request) do
@@ -77,7 +77,7 @@ module AWS::SDK::Core
             subject.call(input, context)
 
             expect(request.headers['X-Amz-Checksum-Sha256'])
-              .to eq('H1i5FFsk0QjXrDiIcziz6jIpgzucHkGCUDQ/kHv9EEc=')
+              .to eq('pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=')
           end
         end
 
@@ -124,6 +124,47 @@ module AWS::SDK::Core
           end
 
 
+        end
+
+        context 'unsigned streaming request with checksum' do
+          let(:input) { Input.new(request_algorithm: 'sha256') }
+          let(:streaming) { true }
+          let(:signed_streaming) { false }
+          let(:require_decoded_content_length) { false }
+          let(:sent_data) { StringIO.new }
+
+          let(:app) do
+            proc do |input, context|
+              # IO.copy_stream is the same method used by Net::Http to
+              # write our body to the socket
+              IO.copy_stream(context.request.body, sent_data)
+            end
+          end
+
+          it 'computes the checksum' do
+            subject.call(input, context)
+
+            headers = context.request.headers
+            expect(headers['x-amz-content-sha256'])
+              .to eq('STREAMING-UNSIGNED-PAYLOAD-TRAILER')
+            expect(headers['x-amz-trailer']).to eq('x-amz-checksum-sha256')
+            expect(headers['content-encoding']).to eq('aws-chunked')
+
+            sent_data.rewind
+            expect(sent_data.read).to eq "b\r\nHello World\r\n0\r\nx-amz-checksum-sha256:pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\r\n\r\n"
+          end
+
+          context 'require_decoded_content_length: true' do
+            let(:require_decoded_content_length) { true }
+
+            it 'adds the decoded content length header' do
+              subject.call(input, context)
+
+              headers = context.request.headers
+              expect(headers['X-Amz-Decoded-Content-Length']).to eq("11")
+              expect(headers['transfer-encoding']).to be_nil
+            end
+          end
         end
       end
     end
