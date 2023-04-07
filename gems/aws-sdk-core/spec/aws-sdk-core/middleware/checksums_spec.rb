@@ -5,8 +5,8 @@ require_relative '../../spec_helper'
 module AWS::SDK::Core
   module Middleware
     Input = ::Struct.new(
-    :request_algorithm,
-    :request_validation
+      :request_algorithm,
+      :request_validation
     ) do
       include Hearth::Structure
     end
@@ -31,7 +31,8 @@ module AWS::SDK::Core
           signed_streaming: signed_streaming,
           require_decoded_content_length: require_decoded_content_length,
           request_validation_mode_member: request_validation_mode_member,
-          response_algorithms: response_algorithms)
+          response_algorithms: response_algorithms
+        )
       end
 
       describe '#call' do
@@ -65,7 +66,7 @@ module AWS::SDK::Core
           it 'does not compute a checksum' do
             subject.call(input, context)
             expect(request.headers.to_h.keys
-                          .none? { |h| h.include?('x-amz-checksum')})
+                          .none? { |h| h.include?('x-amz-checksum') })
               .to be_truthy
           end
         end
@@ -87,8 +88,8 @@ module AWS::SDK::Core
 
           # behave like send, set response headers and write body
           let(:app) do
-            proc do |input, context|
-              response_headers.each do |k,v|
+            proc do |_input, _context|
+              response_headers.each do |k, v|
                 response.headers[k] = v
               end
               response.body.write(response_data)
@@ -105,7 +106,8 @@ module AWS::SDK::Core
 
             it 'sets the validated metadata' do
               subject.call(input, context)
-              expect(context.metadata[:http_checksum][:validated]).to eq('SHA256')
+              expect(context.metadata[:http_checksum][:validated])
+                .to eq('SHA256')
             end
           end
 
@@ -122,8 +124,6 @@ module AWS::SDK::Core
               end.to raise_error(Checksum::ChecksumError)
             end
           end
-
-
         end
 
         context 'unsigned streaming request with checksum' do
@@ -134,7 +134,7 @@ module AWS::SDK::Core
           let(:sent_data) { StringIO.new }
 
           let(:app) do
-            proc do |input, context|
+            proc do |_input, context|
               # IO.copy_stream is the same method used by Net::Http to
               # write our body to the socket
               IO.copy_stream(context.request.body, sent_data)
@@ -151,7 +151,9 @@ module AWS::SDK::Core
             expect(headers['content-encoding']).to eq('aws-chunked')
 
             sent_data.rewind
-            expect(sent_data.read).to eq "b\r\nHello World\r\n0\r\nx-amz-checksum-sha256:pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\r\n\r\n"
+            expect(sent_data.read).to eq(
+              "b\r\nHello World\r\n0\r\nx-amz-checksum-sha256:pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\r\n\r\n"
+            )
           end
 
           context 'require_decoded_content_length: true' do
@@ -161,7 +163,7 @@ module AWS::SDK::Core
               subject.call(input, context)
 
               headers = context.request.headers
-              expect(headers['X-Amz-Decoded-Content-Length']).to eq("11")
+              expect(headers['X-Amz-Decoded-Content-Length']).to eq('11')
               expect(headers['transfer-encoding']).to be_nil
             end
           end

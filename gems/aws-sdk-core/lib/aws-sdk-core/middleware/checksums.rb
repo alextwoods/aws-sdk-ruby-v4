@@ -8,16 +8,16 @@ module AWS::SDK::Core
     class Checksum
       # This error indicates a checksum failed.
       class ChecksumError < RuntimeError; end
-      
+
       CHUNK_SIZE = 1 * 1024 * 1024 # one MB
 
       # determine the set of supported client side checksum algorithms
       # CRC32c requires aws-crt (optional sdk dependency) for support
       CLIENT_ALGORITHMS = begin
-                            supported = %w[SHA256 SHA1 CRC32]
-                            supported << 'CRC32C' if AWS::SDK::Core.crt_loaded?
-                            supported
-                          end.freeze
+        supported = %w[SHA256 SHA1 CRC32]
+        supported << 'CRC32C' if AWS::SDK::Core.crt_loaded?
+        supported
+      end.freeze
 
       # priority order of checksum algorithms to validate responses against
       # Remove any algorithms not supported by client
@@ -65,8 +65,8 @@ module AWS::SDK::Core
         # Handle response checksum
         if @request_validation_mode_member &&
            input[@request_validation_mode_member] == 'ENABLED'
-          # Compute an ordered list as the union between priority supported and the
-          # operation's modeled response algorithms.
+          # Compute an ordered list as the union between priority supported and
+          # the operation's modeled response algorithms.
           validation_list = CHECKSUM_ALGORITHM_PRIORITIES & @response_algorithms
 
           @response_validation_body = context.response.body =
@@ -102,6 +102,7 @@ module AWS::SDK::Core
           unless context.request.body.respond_to?(:size)
             raise ArgumentError, 'Could not determine length of the body'
           end
+
           headers['X-Amz-Decoded-Content-Length'] =
             context.request.body.size
           context.request.body = AwsChunkedTrailerDigestSizeIO.new(
@@ -142,7 +143,6 @@ module AWS::SDK::Core
       # Wrapper class for a response body
       # Computes checksum incrementally as chunks are written
       class ChecksumValidationIO
-
         def initialize(io, validation_list, context)
           @io = io
           @validation_list = validation_list
@@ -157,41 +157,41 @@ module AWS::SDK::Core
             # Assume that by the time the first chunk is written to the body
             # that the headers will have been read and set on the response
             @header_name, @algorithm = response_header_to_verify(
-              @context.response.headers, @validation_list)
-            if @header_name
-              unless @context.metadata[:http_checksum][:skip_on_suffix] && 
-                     /-\d+$/.match(expected)
-                @expected = @context.response.headers[@header_name]
-                @digest = AWS::SDK::Core::Checksums.algorithm_for(@algorithm)
-              end
+              @context.response.headers, @validation_list
+            )
+            if @header_name &&
+               !(@context.metadata[:http_checksum][:skip_on_suffix] &&
+                      /-\d+$/.match(expected))
+              @expected = @context.response.headers[@header_name]
+              @digest = AWS::SDK::Core::Checksums.algorithm_for(@algorithm)
             end
             @first_chunk = false
           end
-          
+
           @digest&.update(chunk)
-          
+
           @io.write(chunk)
         end
-        
+
         def rewind
           @io.rewind
         end
-        
+
         def size
           @io.size
         end
 
         def validate!
-          if @digest && @expected
-            computed = @digest.base64digest
-            if computed != @expected
-              raise ChecksumError,
-                    "Checksum validation failed on #{@digest} "\
-                    "computed: #{computed}, expected: #{@expected}"
-            end
+          return unless @digest && @expected
 
-            @context.metadata[:http_checksum][:validated] = @algorithm
+          computed = @digest.base64digest
+          if computed != @expected
+            raise ChecksumError,
+                  "Checksum validation failed on #{@digest} " \
+                  "computed: #{computed}, expected: #{@expected}"
           end
+
+          @context.metadata[:http_checksum][:validated] = @algorithm
         end
 
         # returns nil if no headers to verify
@@ -217,10 +217,10 @@ module AWS::SDK::Core
           @trailer_io = nil
 
           # TODO: Implement
-          if @signed
-            raise NotImplementedError,
-                  'Signed streaming is not currently supported'
-          end
+          return unless @signed
+
+          raise NotImplementedError,
+                'Signed streaming is not currently supported'
         end
 
         def rewind
@@ -230,9 +230,7 @@ module AWS::SDK::Core
         def read(length, buf)
           # account for possible leftover bytes at the end,
           # if we have trailer bytes, send them
-          if @trailer_io
-            return @trailer_io.read(length, buf)
-          end
+          return @trailer_io.read(length, buf) if @trailer_io
 
           chunk = @io.read(length)
           if chunk
@@ -243,13 +241,13 @@ module AWS::SDK::Core
           else
             trailers = {}
             trailers[@field_name] = @digest.base64digest
-            trailers = trailers.map { |k,v| "#{k}:#{v}"}.join("\r\n")
+            trailers = trailers.map { |k, v| "#{k}:#{v}" }.join("\r\n")
             @trailer_io = StringIO.new("0\r\n#{trailers}\r\n\r\n")
             chunk = @trailer_io.read(length, buf)
           end
           chunk
         end
-        
+
         # The trailer size (in bytes) is the overhead + the trailer name +
         # the length of the base64 encoded checksum
         def trailer_length
@@ -259,7 +257,6 @@ module AWS::SDK::Core
 
       # ChunkedIO that supports size
       class AwsChunkedTrailerDigestSizeIO < AwsChunkedTrailerDigestIO
-
         # the size of the application layer aws-chunked + trailer body
         def size
           # compute the number of chunks
@@ -269,15 +266,14 @@ module AWS::SDK::Core
           n_full_chunks = orig_body_size / CHUNK_SIZE
           partial_bytes = orig_body_size % CHUNK_SIZE
           chunked_body_size = n_full_chunks * (CHUNK_SIZE + 8)
-          unless  partial_bytes.zero?
+          unless partial_bytes.zero?
             chunked_body_size += partial_bytes.to_s(16).size +
-              partial_bytes + 4
+                                 partial_bytes + 4
           end
           trailer_size = Checksum.trailer_length(@digest, @field_name)
           chunked_body_size + trailer_size
         end
       end
-
     end
   end
 end
