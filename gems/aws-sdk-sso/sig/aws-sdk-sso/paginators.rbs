@@ -14,12 +14,14 @@ module AWS::SDK::SSO
       def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
 
       def pages: () -> untyped
+      def items: () -> untyped
     end
 
     class ListAccounts
       def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
 
       def pages: () -> untyped
+      def items: () -> untyped
     end
 
   end

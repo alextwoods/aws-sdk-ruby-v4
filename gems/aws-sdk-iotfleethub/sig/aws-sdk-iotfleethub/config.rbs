@@ -1,3 +1,0 @@
-module AWS::SDK::IoTFleetHub
-  Config: untyped
-end

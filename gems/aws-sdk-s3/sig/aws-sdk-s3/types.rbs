@@ -99,6 +99,8 @@ module AWS::SDK::S3
 
       ap_southeast_2: ::String
 
+      ap_southeast_3: ::String
+
       ca_central_1: ::String
 
       cn_north_1: ::String
@@ -313,6 +315,62 @@ module AWS::SDK::S3
     Error: untyped
 
     ErrorDocument: untyped
+
+    module Event
+      s3_ReducedRedundancyLostObject: ::String
+
+      s3_ObjectCreated_: ::String
+
+      s3_ObjectCreated_Put: ::String
+
+      s3_ObjectCreated_Post: ::String
+
+      s3_ObjectCreated_Copy: ::String
+
+      s3_ObjectCreated_CompleteMultipartUpload: ::String
+
+      s3_ObjectRemoved_: ::String
+
+      s3_ObjectRemoved_Delete: ::String
+
+      s3_ObjectRemoved_DeleteMarkerCreated: ::String
+
+      s3_ObjectRestore_: ::String
+
+      s3_ObjectRestore_Post: ::String
+
+      s3_ObjectRestore_Completed: ::String
+
+      s3_Replication_: ::String
+
+      s3_Replication_OperationFailedReplication: ::String
+
+      s3_Replication_OperationNotTracked: ::String
+
+      s3_Replication_OperationMissedThreshold: ::String
+
+      s3_Replication_OperationReplicatedAfterThreshold: ::String
+
+      s3_ObjectRestore_Delete: ::String
+
+      s3_LifecycleTransition: ::String
+
+      s3_IntelligentTiering: ::String
+
+      s3_ObjectAcl_Put: ::String
+
+      s3_LifecycleExpiration_: ::String
+
+      s3_LifecycleExpiration_Delete: ::String
+
+      s3_LifecycleExpiration_DeleteMarkerCreated: ::String
+
+      s3_ObjectTagging_: ::String
+
+      s3_ObjectTagging_Put: ::String
+
+      s3_ObjectTagging_Delete: ::String
+    end
 
     EventBridgeConfiguration: untyped
 

@@ -1,3 +1,0 @@
-module AWS::SDK::WAFRegional
-  Config: untyped
-end

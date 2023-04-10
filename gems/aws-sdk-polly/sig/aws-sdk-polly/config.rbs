@@ -1,3 +1,0 @@
-module AWS::SDK::Polly
-  Config: untyped
-end

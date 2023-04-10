@@ -375,5 +375,82 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Waits for the published version's State to be Active. This waiter uses GetFunctionConfiguration API. This should be used after new version is published.
+    #
+    class PublishedVersionActive
+      # @param [Client] client
+      #
+      # @param [Hash] options
+      #
+      # @option options [required, Integer] :max_wait_time
+      #   The maximum time in seconds to wait before the waiter gives up.
+      #
+      # @option options [Integer] :min_delay (5)
+      #   The minimum time in seconds to delay polling attempts.
+      #
+      # @option options [Integer] :max_delay (120)
+      #   The maximum time in seconds to delay polling attempts.
+      #
+      def initialize(client, options = {})
+        @client = client
+        @waiter = Hearth::Waiters::Waiter.new({
+          max_wait_time: options[:max_wait_time],
+          min_delay: 5 || options[:min_delay],
+          max_delay: 120 || options[:max_delay],
+          poller: Hearth::Waiters::Poller.new(
+            operation_name: :get_function_configuration,
+            acceptors: [
+              {
+                state: 'success',
+                matcher: {
+                  output: {
+                    path: "\"state\"",
+                    comparator: "stringEquals",
+                    expected: 'Active'
+                  }
+                }
+              },
+              {
+                state: 'failure',
+                matcher: {
+                  output: {
+                    path: "\"state\"",
+                    comparator: "stringEquals",
+                    expected: 'Failed'
+                  }
+                }
+              },
+              {
+                state: 'retry',
+                matcher: {
+                  output: {
+                    path: "\"state\"",
+                    comparator: "stringEquals",
+                    expected: 'Pending'
+                  }
+                }
+              }
+            ]
+          )
+        }.merge(options))
+        @tags = []
+      end
+
+      attr_reader :tags
+
+      # @param [Hash] params
+      #   (see Client#get_function_configuration)
+      #
+      # @param [Hash] options
+      #   (see Client#get_function_configuration)
+      #
+      # @return [Types::GetFunctionConfiguration]
+      #   (see Client#get_function_configuration)
+      #
+      def wait(params = {}, options = {})
+        @waiter.wait(@client, params, options)
+      end
+    end
+
   end
 end

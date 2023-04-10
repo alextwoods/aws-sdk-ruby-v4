@@ -1,3 +1,0 @@
-module AWS::SDK::HealthLake
-  Config: untyped
-end

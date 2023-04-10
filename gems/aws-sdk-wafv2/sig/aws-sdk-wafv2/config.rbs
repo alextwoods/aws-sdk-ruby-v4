@@ -1,3 +1,0 @@
-module AWS::SDK::WAFV2
-  Config: untyped
-end

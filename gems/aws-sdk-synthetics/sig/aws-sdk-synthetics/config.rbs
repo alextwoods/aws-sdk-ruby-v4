@@ -1,3 +1,0 @@
-module AWS::SDK::Synthetics
-  Config: untyped
-end

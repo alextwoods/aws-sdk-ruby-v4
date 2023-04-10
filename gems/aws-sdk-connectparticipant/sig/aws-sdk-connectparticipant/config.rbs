@@ -1,3 +1,0 @@
-module AWS::SDK::ConnectParticipant
-  Config: untyped
-end

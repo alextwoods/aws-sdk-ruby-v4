@@ -1,3 +1,0 @@
-module AWS::SDK::Forecastquery
-  Config: untyped
-end

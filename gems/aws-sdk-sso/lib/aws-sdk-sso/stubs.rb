@@ -10,7 +10,50 @@
 require 'stringio'
 
 module AWS::SDK::SSO
+  # @api private
   module Stubs
+
+    # Structure Stubber for AccountInfo
+    class AccountInfo
+      def self.default(visited=[])
+        return nil if visited.include?('AccountInfo')
+        visited = visited + ['AccountInfo']
+        {
+          account_id: 'account_id',
+          account_name: 'account_name',
+          email_address: 'email_address',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::AccountInfo.new
+        data = {}
+        data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
+        data['accountName'] = stub[:account_name] unless stub[:account_name].nil?
+        data['emailAddress'] = stub[:email_address] unless stub[:email_address].nil?
+        data
+      end
+    end
+
+    # List Stubber for AccountListType
+    class AccountListType
+      def self.default(visited=[])
+        return nil if visited.include?('AccountListType')
+        visited = visited + ['AccountListType']
+        [
+          AccountInfo.default(visited)
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << Types::AccountInfo.stub(element) unless element.nil?
+        end
+        data
+      end
+    end
 
     # Operation Stubber for GetRoleCredentials
     class GetRoleCredentials
@@ -24,8 +67,59 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleCredentials'] = RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
+        data['roleCredentials'] = Types::RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Operation Stubber for ListAccountRoles
+    class ListAccountRoles
+      def self.default(visited=[])
+        {
+          next_token: 'next_token',
+          role_list: RoleListType.default(visited),
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['roleList'] = Types::RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Operation Stubber for ListAccounts
+    class ListAccounts
+      def self.default(visited=[])
+        {
+          next_token: 'next_token',
+          account_list: AccountListType.default(visited),
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
+        data['accountList'] = Types::AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Operation Stubber for Logout
+    class Logout
+      def self.default(visited=[])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
       end
     end
 
@@ -53,45 +147,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for ListAccountRoles
-    class ListAccountRoles
-      def self.default(visited=[])
-        {
-          next_token: 'next_token',
-          role_list: RoleListType.default(visited),
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.status = 200
-        http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['roleList'] = RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
-        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
-      end
-    end
-
-    # List Stubber for RoleListType
-    class RoleListType
-      def self.default(visited=[])
-        return nil if visited.include?('RoleListType')
-        visited = visited + ['RoleListType']
-        [
-          RoleInfo.default(visited)
-        ]
-      end
-
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << RoleInfo.stub(element) unless element.nil?
-        end
-        data
-      end
-    end
-
     # Structure Stubber for RoleInfo
     class RoleInfo
       def self.default(visited=[])
@@ -112,32 +167,13 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for ListAccounts
-    class ListAccounts
+    # List Stubber for RoleListType
+    class RoleListType
       def self.default(visited=[])
-        {
-          next_token: 'next_token',
-          account_list: AccountListType.default(visited),
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.status = 200
-        http_resp.headers['Content-Type'] = 'application/json'
-        data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['accountList'] = AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
-        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
-      end
-    end
-
-    # List Stubber for AccountListType
-    class AccountListType
-      def self.default(visited=[])
-        return nil if visited.include?('AccountListType')
-        visited = visited + ['AccountListType']
+        return nil if visited.include?('RoleListType')
+        visited = visited + ['RoleListType']
         [
-          AccountInfo.default(visited)
+          RoleInfo.default(visited)
         ]
       end
 
@@ -145,44 +181,9 @@ module AWS::SDK::SSO
         stub ||= []
         data = []
         stub.each do |element|
-          data << AccountInfo.stub(element) unless element.nil?
+          data << Types::RoleInfo.stub(element) unless element.nil?
         end
         data
-      end
-    end
-
-    # Structure Stubber for AccountInfo
-    class AccountInfo
-      def self.default(visited=[])
-        return nil if visited.include?('AccountInfo')
-        visited = visited + ['AccountInfo']
-        {
-          account_id: 'account_id',
-          account_name: 'account_name',
-          email_address: 'email_address',
-        }
-      end
-
-      def self.stub(stub)
-        stub ||= Types::AccountInfo.new
-        data = {}
-        data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['accountName'] = stub[:account_name] unless stub[:account_name].nil?
-        data['emailAddress'] = stub[:email_address] unless stub[:email_address].nil?
-        data
-      end
-    end
-
-    # Operation Stubber for Logout
-    class Logout
-      def self.default(visited=[])
-        {
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.status = 200
       end
     end
   end

@@ -1,3 +1,0 @@
-module AWS::SDK::RUM
-  Config: untyped
-end

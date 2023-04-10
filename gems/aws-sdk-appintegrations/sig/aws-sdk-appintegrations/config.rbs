@@ -1,3 +1,0 @@
-module AWS::SDK::AppIntegrations
-  Config: untyped
-end

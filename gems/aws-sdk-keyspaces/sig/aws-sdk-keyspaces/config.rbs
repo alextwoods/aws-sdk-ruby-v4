@@ -1,3 +1,0 @@
-module AWS::SDK::Keyspaces
-  Config: untyped
-end

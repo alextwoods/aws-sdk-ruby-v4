@@ -1,3 +1,0 @@
-module AWS::SDK::QLDB
-  Config: untyped
-end

@@ -1,3 +1,0 @@
-module AWS::SDK::VoiceID
-  Config: untyped
-end

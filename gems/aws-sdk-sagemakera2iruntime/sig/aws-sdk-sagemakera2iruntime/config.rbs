@@ -1,3 +1,0 @@
-module AWS::SDK::SageMakerA2IRuntime
-  Config: untyped
-end

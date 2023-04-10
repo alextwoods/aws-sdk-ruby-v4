@@ -1,3 +1,0 @@
-module AWS::SDK::EKS
-  Config: untyped
-end

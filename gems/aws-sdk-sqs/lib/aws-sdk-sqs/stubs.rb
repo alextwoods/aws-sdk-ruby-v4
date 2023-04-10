@@ -11,6 +11,7 @@ require 'base64'
 require 'stringio'
 
 module AWS::SDK::SQS
+  # @api private
   module Stubs
 
     # Operation Stubber for AddPermission
@@ -28,6 +29,68 @@ module AWS::SDK::SQS
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
+      end
+    end
+
+    # Structure Stubber for BatchResultErrorEntry
+    class BatchResultErrorEntry
+      def self.default(visited=[])
+        return nil if visited.include?('BatchResultErrorEntry')
+        visited = visited + ['BatchResultErrorEntry']
+        {
+          id: 'id',
+          sender_fault: false,
+          code: 'code',
+          message: 'message',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::BatchResultErrorEntry.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('SenderFault', stub[:sender_fault].to_s) unless stub[:sender_fault].nil?
+        xml << Hearth::XML::Node.new('Code', stub[:code].to_s) unless stub[:code].nil?
+        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
+        xml
+      end
+    end
+
+    # List Stubber for BatchResultErrorEntryList
+    class BatchResultErrorEntryList
+      def self.default(visited=[])
+        return nil if visited.include?('BatchResultErrorEntryList')
+        visited = visited + ['BatchResultErrorEntryList']
+        [
+          BatchResultErrorEntry.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Types::BatchResultErrorEntry.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # List Stubber for BinaryList
+    class BinaryList
+      def self.default(visited=[])
+        return nil if visited.include?('BinaryList')
+        visited = visited + ['BinaryList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, ::Base64::encode64(element).strip) unless element.nil?
+        end
+        xml
       end
     end
 
@@ -63,73 +126,11 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ChangeMessageVisibilityBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ChangeMessageVisibilityBatchResult')
-        xml << ChangeMessageVisibilityBatchResultEntryList.stub('ChangeMessageVisibilityBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << Types::ChangeMessageVisibilityBatchResultEntryList.stub('ChangeMessageVisibilityBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << Types::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # List Stubber for BatchResultErrorEntryList
-    class BatchResultErrorEntryList
-      def self.default(visited=[])
-        return nil if visited.include?('BatchResultErrorEntryList')
-        visited = visited + ['BatchResultErrorEntryList']
-        [
-          BatchResultErrorEntry.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << BatchResultErrorEntry.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for BatchResultErrorEntry
-    class BatchResultErrorEntry
-      def self.default(visited=[])
-        return nil if visited.include?('BatchResultErrorEntry')
-        visited = visited + ['BatchResultErrorEntry']
-        {
-          id: 'id',
-          sender_fault: false,
-          code: 'code',
-          message: 'message',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::BatchResultErrorEntry.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('SenderFault', stub[:sender_fault].to_s) unless stub[:sender_fault].nil?
-        xml << Hearth::XML::Node.new('Code', stub[:code].to_s) unless stub[:code].nil?
-        xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ChangeMessageVisibilityBatchResultEntryList
-    class ChangeMessageVisibilityBatchResultEntryList
-      def self.default(visited=[])
-        return nil if visited.include?('ChangeMessageVisibilityBatchResultEntryList')
-        visited = visited + ['ChangeMessageVisibilityBatchResultEntryList']
-        [
-          ChangeMessageVisibilityBatchResultEntry.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << ChangeMessageVisibilityBatchResultEntry.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -147,6 +148,25 @@ module AWS::SDK::SQS
         stub ||= Types::ChangeMessageVisibilityBatchResultEntry.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml
+      end
+    end
+
+    # List Stubber for ChangeMessageVisibilityBatchResultEntryList
+    class ChangeMessageVisibilityBatchResultEntryList
+      def self.default(visited=[])
+        return nil if visited.include?('ChangeMessageVisibilityBatchResultEntryList')
+        visited = visited + ['ChangeMessageVisibilityBatchResultEntryList']
+        [
+          ChangeMessageVisibilityBatchResultEntry.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Types::ChangeMessageVisibilityBatchResultEntry.stub(node_name, element) unless element.nil?
+        end
         xml
       end
     end
@@ -203,30 +223,11 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('DeleteMessageBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('DeleteMessageBatchResult')
-        xml << DeleteMessageBatchResultEntryList.stub('DeleteMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << Types::DeleteMessageBatchResultEntryList.stub('DeleteMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << Types::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # List Stubber for DeleteMessageBatchResultEntryList
-    class DeleteMessageBatchResultEntryList
-      def self.default(visited=[])
-        return nil if visited.include?('DeleteMessageBatchResultEntryList')
-        visited = visited + ['DeleteMessageBatchResultEntryList']
-        [
-          DeleteMessageBatchResultEntry.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << DeleteMessageBatchResultEntry.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -244,6 +245,25 @@ module AWS::SDK::SQS
         stub ||= Types::DeleteMessageBatchResultEntry.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml
+      end
+    end
+
+    # List Stubber for DeleteMessageBatchResultEntryList
+    class DeleteMessageBatchResultEntryList
+      def self.default(visited=[])
+        return nil if visited.include?('DeleteMessageBatchResultEntryList')
+        visited = visited + ['DeleteMessageBatchResultEntryList']
+        [
+          DeleteMessageBatchResultEntry.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Types::DeleteMessageBatchResultEntry.stub(node_name, element) unless element.nil?
+        end
         xml
       end
     end
@@ -279,32 +299,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('GetQueueAttributesResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('GetQueueAttributesResult')
-        xml << QueueAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
+        xml << Types::QueueAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # Map Stubber for QueueAttributeMap
-    class QueueAttributeMap
-      def self.default(visited=[])
-        return nil if visited.include?('QueueAttributeMap')
-        visited = visited + ['QueueAttributeMap']
-        {
-          test_key: 'value'
-        }
-      end
-
-      def self.stub(node_name, stub)
-        nodes = []
-        stub.each do |key, value|
-          xml = Hearth::XML::Node.new(node_name)
-          xml << Hearth::XML::Node.new('Name', key.to_s) unless key.nil?
-          xml << Hearth::XML::Node.new('Value', value.to_s) unless value.nil?
-          nodes << xml
-        end
-        nodes
       end
     end
 
@@ -342,30 +340,11 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ListDeadLetterSourceQueuesResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListDeadLetterSourceQueuesResult')
-        xml << QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
+        xml << Types::QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # List Stubber for QueueUrlList
-    class QueueUrlList
-      def self.default(visited=[])
-        return nil if visited.include?('QueueUrlList')
-        visited = visited + ['QueueUrlList']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -382,32 +361,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ListQueueTagsResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListQueueTagsResult')
-        xml << TagMap.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml << Types::TagMap.stub('Tag', stub[:tags]) unless stub[:tags].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # Map Stubber for TagMap
-    class TagMap
-      def self.default(visited=[])
-        return nil if visited.include?('TagMap')
-        visited = visited + ['TagMap']
-        {
-          test_key: 'value'
-        }
-      end
-
-      def self.stub(node_name, stub)
-        nodes = []
-        stub.each do |key, value|
-          xml = Hearth::XML::Node.new(node_name)
-          xml << Hearth::XML::Node.new('Key', key.to_s) unless key.nil?
-          xml << Hearth::XML::Node.new('Value', value.to_s) unless value.nil?
-          nodes << xml
-        end
-        nodes
       end
     end
 
@@ -426,67 +383,10 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListQueuesResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
+        xml << Types::QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # Operation Stubber for PurgeQueue
-    class PurgeQueue
-      def self.default(visited=[])
-        {
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('PurgeQueueResponse')
-        response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
-        xml = Hearth::XML::Node.new('PurgeQueueResult')
-        response << xml
-        http_resp.body = ::StringIO.new(response.to_str)
-        http_resp.status = 200
-      end
-    end
-
-    # Operation Stubber for ReceiveMessage
-    class ReceiveMessage
-      def self.default(visited=[])
-        {
-          messages: MessageList.default(visited),
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ReceiveMessageResponse')
-        response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
-        xml = Hearth::XML::Node.new('ReceiveMessageResult')
-        xml << MessageList.stub('Message', stub[:messages]) unless stub[:messages].nil?
-        response << xml
-        http_resp.body = ::StringIO.new(response.to_str)
-        http_resp.status = 200
-      end
-    end
-
-    # List Stubber for MessageList
-    class MessageList
-      def self.default(visited=[])
-        return nil if visited.include?('MessageList')
-        visited = visited + ['MessageList']
-        [
-          Message.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << Message.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -513,32 +413,10 @@ module AWS::SDK::SQS
         xml << Hearth::XML::Node.new('ReceiptHandle', stub[:receipt_handle].to_s) unless stub[:receipt_handle].nil?
         xml << Hearth::XML::Node.new('MD5OfBody', stub[:md5_of_body].to_s) unless stub[:md5_of_body].nil?
         xml << Hearth::XML::Node.new('Body', stub[:body].to_s) unless stub[:body].nil?
-        xml << MessageSystemAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
+        xml << Types::MessageSystemAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
         xml << Hearth::XML::Node.new('MD5OfMessageAttributes', stub[:md5_of_message_attributes].to_s) unless stub[:md5_of_message_attributes].nil?
-        xml << MessageBodyAttributeMap.stub('MessageAttribute', stub[:message_attributes]) unless stub[:message_attributes].nil?
+        xml << Types::MessageBodyAttributeMap.stub('MessageAttribute', stub[:message_attributes]) unless stub[:message_attributes].nil?
         xml
-      end
-    end
-
-    # Map Stubber for MessageBodyAttributeMap
-    class MessageBodyAttributeMap
-      def self.default(visited=[])
-        return nil if visited.include?('MessageBodyAttributeMap')
-        visited = visited + ['MessageBodyAttributeMap']
-        {
-          test_key: MessageAttributeValue.default(visited)
-        }
-      end
-
-      def self.stub(node_name, stub)
-        nodes = []
-        stub.each do |key, value|
-          xml = Hearth::XML::Node.new(node_name)
-          xml << Hearth::XML::Node.new('Name', key.to_s) unless key.nil?
-          xml << MessageAttributeValue.stub('Value', value) unless value.nil?
-          nodes << xml
-        end
-        nodes
       end
     end
 
@@ -561,46 +439,49 @@ module AWS::SDK::SQS
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StringValue', stub[:string_value].to_s) unless stub[:string_value].nil?
         xml << Hearth::XML::Node.new('BinaryValue', ::Base64::encode64(stub[:binary_value]).strip) unless stub[:binary_value].nil?
-        xml << StringList.stub('StringListValue', stub[:string_list_values]) unless stub[:string_list_values].nil?
-        xml << BinaryList.stub('BinaryListValue', stub[:binary_list_values]) unless stub[:binary_list_values].nil?
+        xml << Types::StringList.stub('StringListValue', stub[:string_list_values]) unless stub[:string_list_values].nil?
+        xml << Types::BinaryList.stub('BinaryListValue', stub[:binary_list_values]) unless stub[:binary_list_values].nil?
         xml << Hearth::XML::Node.new('DataType', stub[:data_type].to_s) unless stub[:data_type].nil?
         xml
       end
     end
 
-    # List Stubber for BinaryList
-    class BinaryList
+    # Map Stubber for MessageBodyAttributeMap
+    class MessageBodyAttributeMap
       def self.default(visited=[])
-        return nil if visited.include?('BinaryList')
-        visited = visited + ['BinaryList']
-        [
-          'member'
-        ]
+        return nil if visited.include?('MessageBodyAttributeMap')
+        visited = visited + ['MessageBodyAttributeMap']
+        {
+          test_key: MessageAttributeValue.default(visited)
+        }
       end
 
       def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, ::Base64::encode64(element).strip) unless element.nil?
+        nodes = []
+        stub.each do |key, value|
+          xml = Hearth::XML::Node.new(node_name)
+          xml << Hearth::XML::Node.new('Name', key.to_s) unless key.nil?
+          xml << Types::MessageAttributeValue.stub('Value', value) unless value.nil?
+          nodes << xml
         end
-        xml
+        nodes
       end
     end
 
-    # List Stubber for StringList
-    class StringList
+    # List Stubber for MessageList
+    class MessageList
       def self.default(visited=[])
-        return nil if visited.include?('StringList')
-        visited = visited + ['StringList']
+        return nil if visited.include?('MessageList')
+        visited = visited + ['MessageList']
         [
-          'member'
+          Message.default(visited)
         ]
       end
 
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Types::Message.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -625,6 +506,85 @@ module AWS::SDK::SQS
           nodes << xml
         end
         nodes
+      end
+    end
+
+    # Operation Stubber for PurgeQueue
+    class PurgeQueue
+      def self.default(visited=[])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        http_resp.headers['Content-Type'] = 'application/xml'
+        response = Hearth::XML::Node.new('PurgeQueueResponse')
+        response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
+        xml = Hearth::XML::Node.new('PurgeQueueResult')
+        response << xml
+        http_resp.body = ::StringIO.new(response.to_str)
+        http_resp.status = 200
+      end
+    end
+
+    # Map Stubber for QueueAttributeMap
+    class QueueAttributeMap
+      def self.default(visited=[])
+        return nil if visited.include?('QueueAttributeMap')
+        visited = visited + ['QueueAttributeMap']
+        {
+          test_key: 'value'
+        }
+      end
+
+      def self.stub(node_name, stub)
+        nodes = []
+        stub.each do |key, value|
+          xml = Hearth::XML::Node.new(node_name)
+          xml << Hearth::XML::Node.new('Name', key.to_s) unless key.nil?
+          xml << Hearth::XML::Node.new('Value', value.to_s) unless value.nil?
+          nodes << xml
+        end
+        nodes
+      end
+    end
+
+    # List Stubber for QueueUrlList
+    class QueueUrlList
+      def self.default(visited=[])
+        return nil if visited.include?('QueueUrlList')
+        visited = visited + ['QueueUrlList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Operation Stubber for ReceiveMessage
+    class ReceiveMessage
+      def self.default(visited=[])
+        {
+          messages: MessageList.default(visited),
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        http_resp.headers['Content-Type'] = 'application/xml'
+        response = Hearth::XML::Node.new('ReceiveMessageResponse')
+        response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
+        xml = Hearth::XML::Node.new('ReceiveMessageResult')
+        xml << Types::MessageList.stub('Message', stub[:messages]) unless stub[:messages].nil?
+        response << xml
+        http_resp.body = ::StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -688,30 +648,11 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('SendMessageBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('SendMessageBatchResult')
-        xml << SendMessageBatchResultEntryList.stub('SendMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << Types::SendMessageBatchResultEntryList.stub('SendMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << Types::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # List Stubber for SendMessageBatchResultEntryList
-    class SendMessageBatchResultEntryList
-      def self.default(visited=[])
-        return nil if visited.include?('SendMessageBatchResultEntryList')
-        visited = visited + ['SendMessageBatchResultEntryList']
-        [
-          SendMessageBatchResultEntry.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        xml = []
-        stub.each do |element|
-          xml << SendMessageBatchResultEntry.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -743,6 +684,25 @@ module AWS::SDK::SQS
       end
     end
 
+    # List Stubber for SendMessageBatchResultEntryList
+    class SendMessageBatchResultEntryList
+      def self.default(visited=[])
+        return nil if visited.include?('SendMessageBatchResultEntryList')
+        visited = visited + ['SendMessageBatchResultEntryList']
+        [
+          SendMessageBatchResultEntry.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Types::SendMessageBatchResultEntry.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
     # Operation Stubber for SetQueueAttributes
     class SetQueueAttributes
       def self.default(visited=[])
@@ -758,6 +718,47 @@ module AWS::SDK::SQS
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
+      end
+    end
+
+    # List Stubber for StringList
+    class StringList
+      def self.default(visited=[])
+        return nil if visited.include?('StringList')
+        visited = visited + ['StringList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Map Stubber for TagMap
+    class TagMap
+      def self.default(visited=[])
+        return nil if visited.include?('TagMap')
+        visited = visited + ['TagMap']
+        {
+          test_key: 'value'
+        }
+      end
+
+      def self.stub(node_name, stub)
+        nodes = []
+        stub.each do |key, value|
+          xml = Hearth::XML::Node.new(node_name)
+          xml << Hearth::XML::Node.new('Key', key.to_s) unless key.nil?
+          xml << Hearth::XML::Node.new('Value', value.to_s) unless value.nil?
+          nodes << xml
+        end
+        nodes
       end
     end
 

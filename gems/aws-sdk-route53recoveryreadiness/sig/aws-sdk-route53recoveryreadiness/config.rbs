@@ -1,3 +1,0 @@
-module AWS::SDK::Route53RecoveryReadiness
-  Config: untyped
-end

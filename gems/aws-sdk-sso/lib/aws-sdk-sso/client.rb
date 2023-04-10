@@ -14,20 +14,23 @@ require_relative 'middleware/request_id'
 module AWS::SDK::SSO
   # An API client for SWBPortalService
   # See {#initialize} for a full list of supported configuration options
-  # <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
-  #       access to AWS SSO resources such as the user portal. Users can get AWS account applications
-  #       and roles assigned to them and get federated into the application.</p>
+  # <p>AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web service that makes it easy for you to assign user access to
+  #       IAM Identity Center resources such as the AWS access portal. Users can get AWS account applications and roles
+  #       assigned to them and get federated into the application.</p>
   #
-  #          <p>For general information about AWS SSO, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">What is AWS
-  #         Single Sign-On?</a> in the <i>AWS SSO User Guide</i>.</p>
+  #          <note>
+  #             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
+  #           <code>identitystore</code> API namespaces will continue to retain their original name for
+  #         backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+  #          </note>
   #
-  #          <p>This API reference guide describes the AWS SSO Portal operations that you can call
+  #          <p>This reference guide describes the IAM Identity Center Portal operations that you can call
   #       programatically and includes detailed information on data types and errors.</p>
   #
   #          <note>
   #             <p>AWS provides SDKs that consist of libraries and sample code for various programming
   #         languages and platforms, such as Java, Ruby, .Net, iOS, or Android. The SDKs provide a
-  #         convenient way to create programmatic access to AWS SSO and other AWS services. For more
+  #         convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
   #         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
   #          </note>
   #
@@ -65,7 +68,7 @@ module AWS::SDK::SSO
     #
     # @option params [String] :access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     # @return [Types::GetRoleCredentialsOutput]
     #
@@ -106,7 +109,7 @@ module AWS::SDK::SSO
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::GetRoleCredentials
       )
       stack.use(Middleware::RequestId)
@@ -146,7 +149,7 @@ module AWS::SDK::SSO
     #
     # @option params [String] :access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     # @option params [String] :account_id
     #   <p>The identifier for the AWS account that is assigned to the user.</p>
@@ -191,7 +194,7 @@ module AWS::SDK::SSO
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListAccountRoles
       )
       stack.use(Middleware::RequestId)
@@ -219,21 +222,22 @@ module AWS::SDK::SSO
     end
 
     # <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
-    #       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>AWS SSO User Guide</i>. This operation
+    #       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
     #       returns a paginated response.</p>
     #
     # @param [Hash] params
     #   See {Types::ListAccountsInput}.
     #
     # @option params [String] :next_token
-    #   <p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>
+    #   <p>(Optional) When requesting subsequent pages, this is the page token from the previous
+    #         response output.</p>
     #
     # @option params [Integer] :max_results
     #   <p>This is the number of items clients can request per page.</p>
     #
     # @option params [String] :access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     # @return [Types::ListAccountsOutput]
     #
@@ -275,7 +279,7 @@ module AWS::SDK::SSO
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::ListAccounts
       )
       stack.use(Middleware::RequestId)
@@ -302,14 +306,29 @@ module AWS::SDK::SSO
       resp
     end
 
-    # <p>Removes the client- and server-side session that is associated with the user.</p>
+    # <p>Removes the locally stored SSO tokens from the client-side cache and sends an API call to
+    #       the IAM Identity Center service to invalidate the corresponding server-side IAM Identity Center sign in
+    #       session.</p>
+    #
+    #          <note>
+    #             <p>If a user uses IAM Identity Center to access the AWS CLI, the user’s IAM Identity Center sign in session is
+    #         used to obtain an IAM session, as specified in the corresponding IAM Identity Center permission set.
+    #         More specifically, IAM Identity Center assumes an IAM role in the target account on behalf of the user,
+    #         and the corresponding temporary AWS credentials are returned to the client.</p>
+    #
+    #             <p>After user logout, any existing IAM role sessions that were created by using IAM Identity Center
+    #         permission sets continue based on the duration configured in the permission set.
+    #         For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/authconcept.html">User
+    #           authentications</a> in the <i>IAM Identity Center User
+    #         Guide</i>.</p>
+    #          </note>
     #
     # @param [Hash] params
     #   See {Types::LogoutInput}.
     #
     # @option params [String] :access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     # @return [Types::LogoutOutput]
     #
@@ -343,7 +362,7 @@ module AWS::SDK::SSO
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]),
         data_parser: Parsers::Logout
       )
       stack.use(Middleware::RequestId)

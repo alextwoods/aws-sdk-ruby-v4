@@ -8,14 +8,86 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::SSO
+  # @api private
   module Parsers
+
+    class AccountInfo
+      def self.parse(map)
+        data = Types::AccountInfo.new
+        data.account_id = map['accountId']
+        data.account_name = map['accountName']
+        data.email_address = map['emailAddress']
+        return data
+      end
+    end
+
+    class AccountListType
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << Types::AccountInfo.parse(value) unless value.nil?
+        end
+        data
+      end
+    end
 
     # Operation Parser for GetRoleCredentials
     class GetRoleCredentials
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.role_credentials = (RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
+        data.role_credentials = (Types::RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
+        data
+      end
+    end
+
+    # Error Parser for InvalidRequestException
+    class InvalidRequestException
+      def self.parse(http_resp)
+        data = Types::InvalidRequestException.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.message = map['message'] || map['Message']
+        data
+      end
+    end
+
+    # Operation Parser for ListAccountRoles
+    class ListAccountRoles
+      def self.parse(http_resp)
+        data = Types::ListAccountRolesOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.next_token = map['nextToken']
+        data.role_list = (Types::RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
+        data
+      end
+    end
+
+    # Operation Parser for ListAccounts
+    class ListAccounts
+      def self.parse(http_resp)
+        data = Types::ListAccountsOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.next_token = map['nextToken']
+        data.account_list = (Types::AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
+        data
+      end
+    end
+
+    # Operation Parser for Logout
+    class Logout
+      def self.parse(http_resp)
+        data = Types::LogoutOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data
+      end
+    end
+
+    # Error Parser for ResourceNotFoundException
+    class ResourceNotFoundException
+      def self.parse(http_resp)
+        data = Types::ResourceNotFoundException.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -31,32 +103,21 @@ module AWS::SDK::SSO
       end
     end
 
-    # Error Parser for ResourceNotFoundException
-    class ResourceNotFoundException
-      def self.parse(http_resp)
-        data = Types::ResourceNotFoundException.new
-        map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message'] || map['Message']
-        data
+    class RoleInfo
+      def self.parse(map)
+        data = Types::RoleInfo.new
+        data.role_name = map['roleName']
+        data.account_id = map['accountId']
+        return data
       end
     end
 
-    # Error Parser for InvalidRequestException
-    class InvalidRequestException
-      def self.parse(http_resp)
-        data = Types::InvalidRequestException.new
-        map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message'] || map['Message']
-        data
-      end
-    end
-
-    # Error Parser for UnauthorizedException
-    class UnauthorizedException
-      def self.parse(http_resp)
-        data = Types::UnauthorizedException.new
-        map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message'] || map['Message']
+    class RoleListType
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << Types::RoleInfo.parse(value) unless value.nil?
+        end
         data
       end
     end
@@ -71,72 +132,12 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Parser for ListAccountRoles
-    class ListAccountRoles
+    # Error Parser for UnauthorizedException
+    class UnauthorizedException
       def self.parse(http_resp)
-        data = Types::ListAccountRolesOutput.new
+        data = Types::UnauthorizedException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.next_token = map['nextToken']
-        data.role_list = (RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
-        data
-      end
-    end
-
-    class RoleListType
-      def self.parse(list)
-        data = []
-        list.map do |value|
-          data << RoleInfo.parse(value) unless value.nil?
-        end
-        data
-      end
-    end
-
-    class RoleInfo
-      def self.parse(map)
-        data = Types::RoleInfo.new
-        data.role_name = map['roleName']
-        data.account_id = map['accountId']
-        return data
-      end
-    end
-
-    # Operation Parser for ListAccounts
-    class ListAccounts
-      def self.parse(http_resp)
-        data = Types::ListAccountsOutput.new
-        map = Hearth::JSON.load(http_resp.body)
-        data.next_token = map['nextToken']
-        data.account_list = (AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
-        data
-      end
-    end
-
-    class AccountListType
-      def self.parse(list)
-        data = []
-        list.map do |value|
-          data << AccountInfo.parse(value) unless value.nil?
-        end
-        data
-      end
-    end
-
-    class AccountInfo
-      def self.parse(map)
-        data = Types::AccountInfo.new
-        data.account_id = map['accountId']
-        data.account_name = map['accountName']
-        data.email_address = map['emailAddress']
-        return data
-      end
-    end
-
-    # Operation Parser for Logout
-    class Logout
-      def self.parse(http_resp)
-        data = Types::LogoutOutput.new
-        map = Hearth::JSON.load(http_resp.body)
+        data.message = map['message'] || map['Message']
         data
       end
     end

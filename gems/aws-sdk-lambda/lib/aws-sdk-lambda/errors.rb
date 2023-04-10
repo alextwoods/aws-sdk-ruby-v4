@@ -447,6 +447,45 @@ module AWS::SDK::Lambda
       attr_reader :data
     end
 
+    class SnapStartException < ApiClientError
+      def initialize(http_resp:, **kwargs)
+        @data = Parsers::SnapStartException.parse(http_resp)
+        kwargs[:message] = @data.message if @data.respond_to?(:message)
+
+        super(http_resp: http_resp, **kwargs)
+      end
+
+      # @return [Types::SnapStartException]
+      #
+      attr_reader :data
+    end
+
+    class SnapStartNotReadyException < ApiClientError
+      def initialize(http_resp:, **kwargs)
+        @data = Parsers::SnapStartNotReadyException.parse(http_resp)
+        kwargs[:message] = @data.message if @data.respond_to?(:message)
+
+        super(http_resp: http_resp, **kwargs)
+      end
+
+      # @return [Types::SnapStartNotReadyException]
+      #
+      attr_reader :data
+    end
+
+    class SnapStartTimeoutException < ApiClientError
+      def initialize(http_resp:, **kwargs)
+        @data = Parsers::SnapStartTimeoutException.parse(http_resp)
+        kwargs[:message] = @data.message if @data.respond_to?(:message)
+
+        super(http_resp: http_resp, **kwargs)
+      end
+
+      # @return [Types::SnapStartTimeoutException]
+      #
+      attr_reader :data
+    end
+
     class SubnetIPAddressLimitReachedException < ApiServerError
       def initialize(http_resp:, **kwargs)
         @data = Parsers::SubnetIPAddressLimitReachedException.parse(http_resp)

@@ -1,3 +1,0 @@
-module AWS::SDK::Honeycode
-  Config: untyped
-end

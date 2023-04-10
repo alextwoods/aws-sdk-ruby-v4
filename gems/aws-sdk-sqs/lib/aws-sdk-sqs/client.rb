@@ -430,7 +430,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EmptyBatchRequest, Errors::TooManyEntriesInBatchRequest, Errors::InvalidBatchEntryId, Errors::BatchEntryIdsNotDistinct]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
         data_parser: Parsers::ChangeMessageVisibilityBatch
       )
       stack.use(Middleware::RequestId)
@@ -766,7 +766,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueNameExists, Errors::QueueDeletedRecently]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDeletedRecently, Errors::QueueNameExists]),
         data_parser: Parsers::CreateQueue
       )
       stack.use(Middleware::RequestId)
@@ -861,7 +861,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ReceiptHandleIsInvalid, Errors::InvalidIdFormat]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidIdFormat, Errors::ReceiptHandleIsInvalid]),
         data_parser: Parsers::DeleteMessage
       )
       stack.use(Middleware::RequestId)
@@ -962,7 +962,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EmptyBatchRequest, Errors::TooManyEntriesInBatchRequest, Errors::InvalidBatchEntryId, Errors::BatchEntryIdsNotDistinct]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
         data_parser: Parsers::DeleteMessageBatch
       )
       stack.use(Middleware::RequestId)
@@ -2339,7 +2339,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidMessageContents]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMessageContents, Errors::UnsupportedOperation]),
         data_parser: Parsers::SendMessage
       )
       stack.use(Middleware::RequestId)
@@ -2477,7 +2477,7 @@ module AWS::SDK::SQS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchRequestTooLong, Errors::UnsupportedOperation, Errors::EmptyBatchRequest, Errors::TooManyEntriesInBatchRequest, Errors::InvalidBatchEntryId, Errors::BatchEntryIdsNotDistinct]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::BatchRequestTooLong, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest, Errors::UnsupportedOperation]),
         data_parser: Parsers::SendMessageBatch
       )
       stack.use(Middleware::RequestId)

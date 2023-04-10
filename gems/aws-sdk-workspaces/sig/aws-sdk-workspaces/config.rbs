@@ -1,3 +1,0 @@
-module AWS::SDK::WorkSpaces
-  Config: untyped
-end

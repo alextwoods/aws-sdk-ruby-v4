@@ -1,3 +1,0 @@
-module AWS::SDK::ElastiCache
-  Config: untyped
-end

@@ -8,11 +8,12 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::STS
+  # @api private
   module Params
 
     module AssumeRoleInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleInput, context: context)
         type = Types::AssumeRoleInput.new
         type.role_arn = params[:role_arn]
         type.role_session_name = params[:role_session_name]
@@ -31,7 +32,7 @@ module AWS::SDK::STS
 
     module AssumeRoleOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleOutput, context: context)
         type = Types::AssumeRoleOutput.new
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.assumed_role_user = AssumedRoleUser.build(params[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless params[:assumed_role_user].nil?
@@ -43,7 +44,7 @@ module AWS::SDK::STS
 
     module AssumeRoleWithSAMLInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithSAMLInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithSAMLInput, context: context)
         type = Types::AssumeRoleWithSAMLInput.new
         type.role_arn = params[:role_arn]
         type.principal_arn = params[:principal_arn]
@@ -57,7 +58,7 @@ module AWS::SDK::STS
 
     module AssumeRoleWithSAMLOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithSAMLOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithSAMLOutput, context: context)
         type = Types::AssumeRoleWithSAMLOutput.new
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.assumed_role_user = AssumedRoleUser.build(params[:assumed_role_user], context: "#{context}[:assumed_role_user]") unless params[:assumed_role_user].nil?
@@ -74,7 +75,7 @@ module AWS::SDK::STS
 
     module AssumeRoleWithWebIdentityInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithWebIdentityInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithWebIdentityInput, context: context)
         type = Types::AssumeRoleWithWebIdentityInput.new
         type.role_arn = params[:role_arn]
         type.role_session_name = params[:role_session_name]
@@ -89,7 +90,7 @@ module AWS::SDK::STS
 
     module AssumeRoleWithWebIdentityOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithWebIdentityOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumeRoleWithWebIdentityOutput, context: context)
         type = Types::AssumeRoleWithWebIdentityOutput.new
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.subject_from_web_identity_token = params[:subject_from_web_identity_token]
@@ -104,7 +105,7 @@ module AWS::SDK::STS
 
     module AssumedRoleUser
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AssumedRoleUser, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssumedRoleUser, context: context)
         type = Types::AssumedRoleUser.new
         type.assumed_role_id = params[:assumed_role_id]
         type.arn = params[:arn]
@@ -114,7 +115,7 @@ module AWS::SDK::STS
 
     module Credentials
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Credentials, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Credentials, context: context)
         type = Types::Credentials.new
         type.access_key_id = params[:access_key_id]
         type.secret_access_key = params[:secret_access_key]
@@ -126,7 +127,7 @@ module AWS::SDK::STS
 
     module DecodeAuthorizationMessageInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DecodeAuthorizationMessageInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DecodeAuthorizationMessageInput, context: context)
         type = Types::DecodeAuthorizationMessageInput.new
         type.encoded_message = params[:encoded_message]
         type
@@ -135,7 +136,7 @@ module AWS::SDK::STS
 
     module DecodeAuthorizationMessageOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DecodeAuthorizationMessageOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DecodeAuthorizationMessageOutput, context: context)
         type = Types::DecodeAuthorizationMessageOutput.new
         type.decoded_message = params[:decoded_message]
         type
@@ -144,7 +145,7 @@ module AWS::SDK::STS
 
     module ExpiredTokenException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ExpiredTokenException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ExpiredTokenException, context: context)
         type = Types::ExpiredTokenException.new
         type.message = params[:message]
         type
@@ -153,7 +154,7 @@ module AWS::SDK::STS
 
     module FederatedUser
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FederatedUser, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FederatedUser, context: context)
         type = Types::FederatedUser.new
         type.federated_user_id = params[:federated_user_id]
         type.arn = params[:arn]
@@ -163,7 +164,7 @@ module AWS::SDK::STS
 
     module GetAccessKeyInfoInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAccessKeyInfoInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccessKeyInfoInput, context: context)
         type = Types::GetAccessKeyInfoInput.new
         type.access_key_id = params[:access_key_id]
         type
@@ -172,7 +173,7 @@ module AWS::SDK::STS
 
     module GetAccessKeyInfoOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAccessKeyInfoOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccessKeyInfoOutput, context: context)
         type = Types::GetAccessKeyInfoOutput.new
         type.account = params[:account]
         type
@@ -181,7 +182,7 @@ module AWS::SDK::STS
 
     module GetCallerIdentityInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetCallerIdentityInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetCallerIdentityInput, context: context)
         type = Types::GetCallerIdentityInput.new
         type
       end
@@ -189,7 +190,7 @@ module AWS::SDK::STS
 
     module GetCallerIdentityOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetCallerIdentityOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetCallerIdentityOutput, context: context)
         type = Types::GetCallerIdentityOutput.new
         type.user_id = params[:user_id]
         type.account = params[:account]
@@ -200,7 +201,7 @@ module AWS::SDK::STS
 
     module GetFederationTokenInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFederationTokenInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFederationTokenInput, context: context)
         type = Types::GetFederationTokenInput.new
         type.name = params[:name]
         type.policy = params[:policy]
@@ -213,7 +214,7 @@ module AWS::SDK::STS
 
     module GetFederationTokenOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFederationTokenOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFederationTokenOutput, context: context)
         type = Types::GetFederationTokenOutput.new
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type.federated_user = FederatedUser.build(params[:federated_user], context: "#{context}[:federated_user]") unless params[:federated_user].nil?
@@ -224,7 +225,7 @@ module AWS::SDK::STS
 
     module GetSessionTokenInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetSessionTokenInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSessionTokenInput, context: context)
         type = Types::GetSessionTokenInput.new
         type.duration_seconds = params[:duration_seconds]
         type.serial_number = params[:serial_number]
@@ -235,7 +236,7 @@ module AWS::SDK::STS
 
     module GetSessionTokenOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetSessionTokenOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSessionTokenOutput, context: context)
         type = Types::GetSessionTokenOutput.new
         type.credentials = Credentials.build(params[:credentials], context: "#{context}[:credentials]") unless params[:credentials].nil?
         type
@@ -244,7 +245,7 @@ module AWS::SDK::STS
 
     module IDPCommunicationErrorException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::IDPCommunicationErrorException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IDPCommunicationErrorException, context: context)
         type = Types::IDPCommunicationErrorException.new
         type.message = params[:message]
         type
@@ -253,7 +254,7 @@ module AWS::SDK::STS
 
     module IDPRejectedClaimException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::IDPRejectedClaimException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IDPRejectedClaimException, context: context)
         type = Types::IDPRejectedClaimException.new
         type.message = params[:message]
         type
@@ -262,7 +263,7 @@ module AWS::SDK::STS
 
     module InvalidAuthorizationMessageException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidAuthorizationMessageException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidAuthorizationMessageException, context: context)
         type = Types::InvalidAuthorizationMessageException.new
         type.message = params[:message]
         type
@@ -271,7 +272,7 @@ module AWS::SDK::STS
 
     module InvalidIdentityTokenException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidIdentityTokenException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidIdentityTokenException, context: context)
         type = Types::InvalidIdentityTokenException.new
         type.message = params[:message]
         type
@@ -280,7 +281,7 @@ module AWS::SDK::STS
 
     module MalformedPolicyDocumentException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::MalformedPolicyDocumentException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::MalformedPolicyDocumentException, context: context)
         type = Types::MalformedPolicyDocumentException.new
         type.message = params[:message]
         type
@@ -289,7 +290,7 @@ module AWS::SDK::STS
 
     module PackedPolicyTooLargeException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PackedPolicyTooLargeException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PackedPolicyTooLargeException, context: context)
         type = Types::PackedPolicyTooLargeException.new
         type.message = params[:message]
         type
@@ -298,7 +299,7 @@ module AWS::SDK::STS
 
     module PolicyDescriptorType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PolicyDescriptorType, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PolicyDescriptorType, context: context)
         type = Types::PolicyDescriptorType.new
         type.arn = params[:arn]
         type
@@ -307,7 +308,7 @@ module AWS::SDK::STS
 
     module RegionDisabledException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RegionDisabledException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RegionDisabledException, context: context)
         type = Types::RegionDisabledException.new
         type.message = params[:message]
         type
@@ -316,7 +317,7 @@ module AWS::SDK::STS
 
     module Tag
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Tag, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         type.key = params[:key]
         type.value = params[:value]
@@ -326,7 +327,7 @@ module AWS::SDK::STS
 
     module PolicyDescriptorListType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << PolicyDescriptorType.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -337,7 +338,7 @@ module AWS::SDK::STS
 
     module TagKeyListType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -348,7 +349,7 @@ module AWS::SDK::STS
 
     module TagListType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Tag.build(element, context: "#{context}[#{index}]") unless element.nil?

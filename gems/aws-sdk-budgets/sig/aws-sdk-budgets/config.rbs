@@ -1,3 +1,0 @@
-module AWS::SDK::Budgets
-  Config: untyped
-end

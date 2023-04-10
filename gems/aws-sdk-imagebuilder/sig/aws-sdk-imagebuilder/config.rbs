@@ -1,3 +1,0 @@
-module AWS::SDK::Imagebuilder
-  Config: untyped
-end

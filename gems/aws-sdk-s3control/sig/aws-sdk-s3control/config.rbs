@@ -1,3 +1,0 @@
-module AWS::SDK::S3Control
-  Config: untyped
-end

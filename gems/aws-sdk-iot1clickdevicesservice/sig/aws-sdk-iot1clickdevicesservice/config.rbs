@@ -1,3 +1,0 @@
-module AWS::SDK::IoT1ClickDevicesService
-  Config: untyped
-end

@@ -11,7 +11,26 @@ require 'base64'
 require 'stringio'
 
 module AWS::SDK::S3
+  # @api private
   module Stubs
+
+    # Structure Stubber for AbortIncompleteMultipartUpload
+    class AbortIncompleteMultipartUpload
+      def self.default(visited=[])
+        return nil if visited.include?('AbortIncompleteMultipartUpload')
+        visited = visited + ['AbortIncompleteMultipartUpload']
+        {
+          days_after_initiation: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AbortIncompleteMultipartUpload.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('DaysAfterInitiation', stub[:days_after_initiation].to_s) unless stub[:days_after_initiation].nil?
+        xml
+      end
+    end
 
     # Operation Stubber for AbortMultipartUpload
     class AbortMultipartUpload
@@ -25,6 +44,386 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 204
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
+      end
+    end
+
+    # Structure Stubber for AccessControlTranslation
+    class AccessControlTranslation
+      def self.default(visited=[])
+        return nil if visited.include?('AccessControlTranslation')
+        visited = visited + ['AccessControlTranslation']
+        {
+          owner: 'owner',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AccessControlTranslation.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Owner', stub[:owner].to_s) unless stub[:owner].nil?
+        xml
+      end
+    end
+
+    # List Stubber for AllowedHeaders
+    class AllowedHeaders
+      def self.default(visited=[])
+        return nil if visited.include?('AllowedHeaders')
+        visited = visited + ['AllowedHeaders']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # List Stubber for AllowedMethods
+    class AllowedMethods
+      def self.default(visited=[])
+        return nil if visited.include?('AllowedMethods')
+        visited = visited + ['AllowedMethods']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # List Stubber for AllowedOrigins
+    class AllowedOrigins
+      def self.default(visited=[])
+        return nil if visited.include?('AllowedOrigins')
+        visited = visited + ['AllowedOrigins']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for AnalyticsAndOperator
+    class AnalyticsAndOperator
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsAndOperator')
+        visited = visited + ['AnalyticsAndOperator']
+        {
+          prefix: 'prefix',
+          tags: TagSet.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AnalyticsAndOperator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for AnalyticsConfiguration
+    class AnalyticsConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsConfiguration')
+        visited = visited + ['AnalyticsConfiguration']
+        {
+          id: 'id',
+          filter: AnalyticsFilter.default(visited),
+          storage_class_analysis: StorageClassAnalysis.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AnalyticsConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Stubs::AnalyticsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Stubs::StorageClassAnalysis.stub('StorageClassAnalysis', stub[:storage_class_analysis]) unless stub[:storage_class_analysis].nil?
+        xml
+      end
+    end
+
+    # List Stubber for AnalyticsConfigurationList
+    class AnalyticsConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsConfigurationList')
+        visited = visited + ['AnalyticsConfigurationList']
+        [
+          AnalyticsConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::AnalyticsConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for AnalyticsExportDestination
+    class AnalyticsExportDestination
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsExportDestination')
+        visited = visited + ['AnalyticsExportDestination']
+        {
+          s3_bucket_destination: AnalyticsS3BucketDestination.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AnalyticsExportDestination.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::AnalyticsS3BucketDestination.stub('S3BucketDestination', stub[:s3_bucket_destination]) unless stub[:s3_bucket_destination].nil?
+        xml
+      end
+    end
+
+    # Union Stubber for AnalyticsFilter
+    class AnalyticsFilter
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsFilter')
+        visited = visited + ['AnalyticsFilter']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        xml = Hearth::XML::Node.new(node_name)
+        case stub
+        when Types::AnalyticsFilter::Prefix
+          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::AnalyticsFilter::Tag
+          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
+        when Types::AnalyticsFilter::And
+          xml << Stubs::AnalyticsAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
+        else
+          raise ArgumentError,
+          "Expected input to be one of the subclasses of Types::AnalyticsFilter"
+        end
+
+        xml
+      end
+    end
+
+    # Structure Stubber for AnalyticsS3BucketDestination
+    class AnalyticsS3BucketDestination
+      def self.default(visited=[])
+        return nil if visited.include?('AnalyticsS3BucketDestination')
+        visited = visited + ['AnalyticsS3BucketDestination']
+        {
+          format: 'format',
+          bucket_account_id: 'bucket_account_id',
+          bucket: 'bucket',
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::AnalyticsS3BucketDestination.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Format', stub[:format].to_s) unless stub[:format].nil?
+        xml << Hearth::XML::Node.new('BucketAccountId', stub[:bucket_account_id].to_s) unless stub[:bucket_account_id].nil?
+        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Bucket
+    class Bucket
+      def self.default(visited=[])
+        return nil if visited.include?('Bucket')
+        visited = visited + ['Bucket']
+        {
+          name: 'name',
+          creation_date: Time.now,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Bucket.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
+        xml << Hearth::XML::Node.new('CreationDate', Hearth::TimeHelper.to_date_time(stub[:creation_date])) unless stub[:creation_date].nil?
+        xml
+      end
+    end
+
+    # List Stubber for Buckets
+    class Buckets
+      def self.default(visited=[])
+        return nil if visited.include?('Buckets')
+        visited = visited + ['Buckets']
+        [
+          Bucket.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Bucket.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for CORSRule
+    class CORSRule
+      def self.default(visited=[])
+        return nil if visited.include?('CORSRule')
+        visited = visited + ['CORSRule']
+        {
+          id: 'id',
+          allowed_headers: AllowedHeaders.default(visited),
+          allowed_methods: AllowedMethods.default(visited),
+          allowed_origins: AllowedOrigins.default(visited),
+          expose_headers: ExposeHeaders.default(visited),
+          max_age_seconds: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::CORSRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml << Stubs::AllowedHeaders.stub('AllowedHeader', stub[:allowed_headers]) unless stub[:allowed_headers].nil?
+        xml << Stubs::AllowedMethods.stub('AllowedMethod', stub[:allowed_methods]) unless stub[:allowed_methods].nil?
+        xml << Stubs::AllowedOrigins.stub('AllowedOrigin', stub[:allowed_origins]) unless stub[:allowed_origins].nil?
+        xml << Stubs::ExposeHeaders.stub('ExposeHeader', stub[:expose_headers]) unless stub[:expose_headers].nil?
+        xml << Hearth::XML::Node.new('MaxAgeSeconds', stub[:max_age_seconds].to_s) unless stub[:max_age_seconds].nil?
+        xml
+      end
+    end
+
+    # List Stubber for CORSRules
+    class CORSRules
+      def self.default(visited=[])
+        return nil if visited.include?('CORSRules')
+        visited = visited + ['CORSRules']
+        [
+          CORSRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::CORSRule.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for Checksum
+    class Checksum
+      def self.default(visited=[])
+        return nil if visited.include?('Checksum')
+        visited = visited + ['Checksum']
+        {
+          checksum_crc32: 'checksum_crc32',
+          checksum_crc32_c: 'checksum_crc32_c',
+          checksum_sha1: 'checksum_sha1',
+          checksum_sha256: 'checksum_sha256',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Checksum.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
+        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
+        xml
+      end
+    end
+
+    # List Stubber for ChecksumAlgorithmList
+    class ChecksumAlgorithmList
+      def self.default(visited=[])
+        return nil if visited.include?('ChecksumAlgorithmList')
+        visited = visited + ['ChecksumAlgorithmList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for CommonPrefix
+    class CommonPrefix
+      def self.default(visited=[])
+        return nil if visited.include?('CommonPrefix')
+        visited = visited + ['CommonPrefix']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::CommonPrefix.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml
+      end
+    end
+
+    # List Stubber for CommonPrefixList
+    class CommonPrefixList
+      def self.default(visited=[])
+        return nil if visited.include?('CommonPrefixList')
+        visited = visited + ['CommonPrefixList']
+        [
+          CommonPrefix.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::CommonPrefix.stub(node_name, element) unless element.nil?
+        end
+        xml
       end
     end
 
@@ -71,6 +470,42 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
+      end
+    end
+
+    # Structure Stubber for Condition
+    class Condition
+      def self.default(visited=[])
+        return nil if visited.include?('Condition')
+        visited = visited + ['Condition']
+        {
+          http_error_code_returned_equals: 'http_error_code_returned_equals',
+          key_prefix_equals: 'key_prefix_equals',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Condition.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('HttpErrorCodeReturnedEquals', stub[:http_error_code_returned_equals].to_s) unless stub[:http_error_code_returned_equals].nil?
+        xml << Hearth::XML::Node.new('KeyPrefixEquals', stub[:key_prefix_equals].to_s) unless stub[:key_prefix_equals].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ContinuationEvent
+    class ContinuationEvent
+      def self.default(visited=[])
+        return nil if visited.include?('ContinuationEvent')
+        visited = visited + ['ContinuationEvent']
+        {
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ContinuationEvent.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml
       end
     end
 
@@ -139,6 +574,34 @@ module AWS::SDK::S3
       end
     end
 
+    # Structure Stubber for CopyPartResult
+    class CopyPartResult
+      def self.default(visited=[])
+        return nil if visited.include?('CopyPartResult')
+        visited = visited + ['CopyPartResult']
+        {
+          e_tag: 'e_tag',
+          last_modified: Time.now,
+          checksum_crc32: 'checksum_crc32',
+          checksum_crc32_c: 'checksum_crc32_c',
+          checksum_sha1: 'checksum_sha1',
+          checksum_sha256: 'checksum_sha256',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::CopyPartResult.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
+        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
+        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
+        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
+        xml
+      end
+    end
+
     # Operation Stubber for CreateBucket
     class CreateBucket
       def self.default(visited=[])
@@ -195,6 +658,28 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
         xml << Hearth::XML::Node.new('UploadId', stub[:upload_id].to_s) unless stub[:upload_id].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
+      end
+    end
+
+    # Structure Stubber for DefaultRetention
+    class DefaultRetention
+      def self.default(visited=[])
+        return nil if visited.include?('DefaultRetention')
+        visited = visited + ['DefaultRetention']
+        {
+          mode: 'mode',
+          days: 1,
+          years: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::DefaultRetention.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Mode', stub[:mode].to_s) unless stub[:mode].nil?
+        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
+        xml << Hearth::XML::Node.new('Years', stub[:years].to_s) unless stub[:years].nil?
+        xml
       end
     end
 
@@ -367,6 +852,70 @@ module AWS::SDK::S3
       end
     end
 
+    # Structure Stubber for DeleteMarkerEntry
+    class DeleteMarkerEntry
+      def self.default(visited=[])
+        return nil if visited.include?('DeleteMarkerEntry')
+        visited = visited + ['DeleteMarkerEntry']
+        {
+          owner: Owner.default(visited),
+          key: 'key',
+          version_id: 'version_id',
+          is_latest: false,
+          last_modified: Time.now,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::DeleteMarkerEntry.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
+        xml << Hearth::XML::Node.new('IsLatest', stub[:is_latest].to_s) unless stub[:is_latest].nil?
+        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for DeleteMarkerReplication
+    class DeleteMarkerReplication
+      def self.default(visited=[])
+        return nil if visited.include?('DeleteMarkerReplication')
+        visited = visited + ['DeleteMarkerReplication']
+        {
+          status: 'status',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::DeleteMarkerReplication.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml
+      end
+    end
+
+    # List Stubber for DeleteMarkers
+    class DeleteMarkers
+      def self.default(visited=[])
+        return nil if visited.include?('DeleteMarkers')
+        visited = visited + ['DeleteMarkers']
+        [
+          DeleteMarkerEntry.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::DeleteMarkerEntry.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
     # Operation Stubber for DeleteObject
     class DeleteObject
       def self.default(visited=[])
@@ -425,13 +974,50 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Errors
-    class Errors
+    # Operation Stubber for DeletePublicAccessBlock
+    class DeletePublicAccessBlock
       def self.default(visited=[])
-        return nil if visited.include?('Errors')
-        visited = visited + ['Errors']
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 204
+      end
+    end
+
+    # Structure Stubber for DeletedObject
+    class DeletedObject
+      def self.default(visited=[])
+        return nil if visited.include?('DeletedObject')
+        visited = visited + ['DeletedObject']
+        {
+          key: 'key',
+          version_id: 'version_id',
+          delete_marker: false,
+          delete_marker_version_id: 'delete_marker_version_id',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::DeletedObject.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
+        xml << Hearth::XML::Node.new('DeleteMarker', stub[:delete_marker].to_s) unless stub[:delete_marker].nil?
+        xml << Hearth::XML::Node.new('DeleteMarkerVersionId', stub[:delete_marker_version_id].to_s) unless stub[:delete_marker_version_id].nil?
+        xml
+      end
+    end
+
+    # List Stubber for DeletedObjects
+    class DeletedObjects
+      def self.default(visited=[])
+        return nil if visited.include?('DeletedObjects')
+        visited = visited + ['DeletedObjects']
         [
-          Error.default(visited)
+          DeletedObject.default(visited)
         ]
       end
 
@@ -439,8 +1025,72 @@ module AWS::SDK::S3
         stub ||= []
         xml = []
         stub.each do |element|
-          xml << Stubs::Error.stub(node_name, element) unless element.nil?
+          xml << Stubs::DeletedObject.stub(node_name, element) unless element.nil?
         end
+        xml
+      end
+    end
+
+    # Structure Stubber for Destination
+    class Destination
+      def self.default(visited=[])
+        return nil if visited.include?('Destination')
+        visited = visited + ['Destination']
+        {
+          bucket: 'bucket',
+          account: 'account',
+          storage_class: 'storage_class',
+          access_control_translation: AccessControlTranslation.default(visited),
+          encryption_configuration: EncryptionConfiguration.default(visited),
+          replication_time: ReplicationTime.default(visited),
+          metrics: Metrics.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Destination.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
+        xml << Hearth::XML::Node.new('Account', stub[:account].to_s) unless stub[:account].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Stubs::AccessControlTranslation.stub('AccessControlTranslation', stub[:access_control_translation]) unless stub[:access_control_translation].nil?
+        xml << Stubs::EncryptionConfiguration.stub('EncryptionConfiguration', stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        xml << Stubs::ReplicationTime.stub('ReplicationTime', stub[:replication_time]) unless stub[:replication_time].nil?
+        xml << Stubs::Metrics.stub('Metrics', stub[:metrics]) unless stub[:metrics].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for EncryptionConfiguration
+    class EncryptionConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('EncryptionConfiguration')
+        visited = visited + ['EncryptionConfiguration']
+        {
+          replica_kms_key_id: 'replica_kms_key_id',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::EncryptionConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ReplicaKmsKeyID', stub[:replica_kms_key_id].to_s) unless stub[:replica_kms_key_id].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for EndEvent
+    class EndEvent
+      def self.default(visited=[])
+        return nil if visited.include?('EndEvent')
+        visited = visited + ['EndEvent']
+        {
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::EndEvent.new
+        xml = Hearth::XML::Node.new(node_name)
         xml
       end
     end
@@ -469,13 +1119,31 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for DeletedObjects
-    class DeletedObjects
+    # Structure Stubber for ErrorDocument
+    class ErrorDocument
       def self.default(visited=[])
-        return nil if visited.include?('DeletedObjects')
-        visited = visited + ['DeletedObjects']
+        return nil if visited.include?('ErrorDocument')
+        visited = visited + ['ErrorDocument']
+        {
+          key: 'key',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ErrorDocument.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml
+      end
+    end
+
+    # List Stubber for Errors
+    class Errors
+      def self.default(visited=[])
+        return nil if visited.include?('Errors')
+        visited = visited + ['Errors']
         [
-          DeletedObject.default(visited)
+          Error.default(visited)
         ]
       end
 
@@ -483,46 +1151,123 @@ module AWS::SDK::S3
         stub ||= []
         xml = []
         stub.each do |element|
-          xml << Stubs::DeletedObject.stub(node_name, element) unless element.nil?
+          xml << Stubs::Error.stub(node_name, element) unless element.nil?
         end
         xml
       end
     end
 
-    # Structure Stubber for DeletedObject
-    class DeletedObject
+    # Structure Stubber for EventBridgeConfiguration
+    class EventBridgeConfiguration
       def self.default(visited=[])
-        return nil if visited.include?('DeletedObject')
-        visited = visited + ['DeletedObject']
+        return nil if visited.include?('EventBridgeConfiguration')
+        visited = visited + ['EventBridgeConfiguration']
         {
-          key: 'key',
-          version_id: 'version_id',
-          delete_marker: false,
-          delete_marker_version_id: 'delete_marker_version_id',
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::DeletedObject.new
+        stub ||= Types::EventBridgeConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
-        xml << Hearth::XML::Node.new('DeleteMarker', stub[:delete_marker].to_s) unless stub[:delete_marker].nil?
-        xml << Hearth::XML::Node.new('DeleteMarkerVersionId', stub[:delete_marker_version_id].to_s) unless stub[:delete_marker_version_id].nil?
         xml
       end
     end
 
-    # Operation Stubber for DeletePublicAccessBlock
-    class DeletePublicAccessBlock
+    # List Stubber for EventList
+    class EventList
       def self.default(visited=[])
+        return nil if visited.include?('EventList')
+        visited = visited + ['EventList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for ExistingObjectReplication
+    class ExistingObjectReplication
+      def self.default(visited=[])
+        return nil if visited.include?('ExistingObjectReplication')
+        visited = visited + ['ExistingObjectReplication']
         {
+          status: 'status',
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.status = 204
+      def self.stub(node_name, stub)
+        stub ||= Types::ExistingObjectReplication.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml
+      end
+    end
+
+    # List Stubber for ExposeHeaders
+    class ExposeHeaders
+      def self.default(visited=[])
+        return nil if visited.include?('ExposeHeaders')
+        visited = visited + ['ExposeHeaders']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for FilterRule
+    class FilterRule
+      def self.default(visited=[])
+        return nil if visited.include?('FilterRule')
+        visited = visited + ['FilterRule']
+        {
+          name: 'name',
+          value: 'value',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::FilterRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
+        xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
+        xml
+      end
+    end
+
+    # List Stubber for FilterRuleList
+    class FilterRuleList
+      def self.default(visited=[])
+        return nil if visited.include?('FilterRuleList')
+        visited = visited + ['FilterRuleList']
+        [
+          FilterRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::FilterRule.stub(node_name, element) unless element.nil?
+        end
+        xml
       end
     end
 
@@ -568,96 +1313,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Grants
-    class Grants
-      def self.default(visited=[])
-        return nil if visited.include?('Grants')
-        visited = visited + ['Grants']
-        [
-          Grant.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Grant.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Grant
-    class Grant
-      def self.default(visited=[])
-        return nil if visited.include?('Grant')
-        visited = visited + ['Grant']
-        {
-          grantee: Grantee.default(visited),
-          permission: 'permission',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Grant.new
-        xml = Hearth::XML::Node.new(node_name)
-        unless stub[:grantee].nil?
-          nodes = Stubs::Grantee.stub('Grantee', stub[:grantee])
-          nodes.each { |n| n.attributes['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance' }
-          xml << nodes
-        end
-        xml << Hearth::XML::Node.new('Permission', stub[:permission].to_s) unless stub[:permission].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Grantee
-    class Grantee
-      def self.default(visited=[])
-        return nil if visited.include?('Grantee')
-        visited = visited + ['Grantee']
-        {
-          display_name: 'display_name',
-          email_address: 'email_address',
-          id: 'id',
-          uri: 'uri',
-          type: 'type',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Grantee.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
-        xml << Hearth::XML::Node.new('EmailAddress', stub[:email_address].to_s) unless stub[:email_address].nil?
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('URI', stub[:uri].to_s) unless stub[:uri].nil?
-        xml.attributes['xsi:type'] = stub[:type] unless stub[:type].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Owner
-    class Owner
-      def self.default(visited=[])
-        return nil if visited.include?('Owner')
-        visited = visited + ['Owner']
-        {
-          display_name: 'display_name',
-          id: 'id',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Owner.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketAnalyticsConfiguration
     class GetBucketAnalyticsConfiguration
       def self.default(visited=[])
@@ -672,196 +1327,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', stub[:analytics_configuration]) unless stub[:analytics_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for AnalyticsConfiguration
-    class AnalyticsConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsConfiguration')
-        visited = visited + ['AnalyticsConfiguration']
-        {
-          id: 'id',
-          filter: AnalyticsFilter.default(visited),
-          storage_class_analysis: StorageClassAnalysis.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AnalyticsConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::AnalyticsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml << Stubs::StorageClassAnalysis.stub('StorageClassAnalysis', stub[:storage_class_analysis]) unless stub[:storage_class_analysis].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for StorageClassAnalysis
-    class StorageClassAnalysis
-      def self.default(visited=[])
-        return nil if visited.include?('StorageClassAnalysis')
-        visited = visited + ['StorageClassAnalysis']
-        {
-          data_export: StorageClassAnalysisDataExport.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::StorageClassAnalysis.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::StorageClassAnalysisDataExport.stub('DataExport', stub[:data_export]) unless stub[:data_export].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for StorageClassAnalysisDataExport
-    class StorageClassAnalysisDataExport
-      def self.default(visited=[])
-        return nil if visited.include?('StorageClassAnalysisDataExport')
-        visited = visited + ['StorageClassAnalysisDataExport']
-        {
-          output_schema_version: 'output_schema_version',
-          destination: AnalyticsExportDestination.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::StorageClassAnalysisDataExport.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('OutputSchemaVersion', stub[:output_schema_version].to_s) unless stub[:output_schema_version].nil?
-        xml << Stubs::AnalyticsExportDestination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for AnalyticsExportDestination
-    class AnalyticsExportDestination
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsExportDestination')
-        visited = visited + ['AnalyticsExportDestination']
-        {
-          s3_bucket_destination: AnalyticsS3BucketDestination.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AnalyticsExportDestination.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::AnalyticsS3BucketDestination.stub('S3BucketDestination', stub[:s3_bucket_destination]) unless stub[:s3_bucket_destination].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for AnalyticsS3BucketDestination
-    class AnalyticsS3BucketDestination
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsS3BucketDestination')
-        visited = visited + ['AnalyticsS3BucketDestination']
-        {
-          format: 'format',
-          bucket_account_id: 'bucket_account_id',
-          bucket: 'bucket',
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AnalyticsS3BucketDestination.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Format', stub[:format].to_s) unless stub[:format].nil?
-        xml << Hearth::XML::Node.new('BucketAccountId', stub[:bucket_account_id].to_s) unless stub[:bucket_account_id].nil?
-        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml
-      end
-    end
-
-    # Union Stubber for AnalyticsFilter
-    class AnalyticsFilter
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsFilter')
-        visited = visited + ['AnalyticsFilter']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        xml = Hearth::XML::Node.new(node_name)
-        case stub
-        when Types::AnalyticsFilter::Prefix
-          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::AnalyticsFilter::Tag
-          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
-        when Types::AnalyticsFilter::And
-          xml << Stubs::AnalyticsAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::AnalyticsFilter"
-        end
-
-        xml
-      end
-    end
-
-    # Structure Stubber for AnalyticsAndOperator
-    class AnalyticsAndOperator
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsAndOperator')
-        visited = visited + ['AnalyticsAndOperator']
-        {
-          prefix: 'prefix',
-          tags: TagSet.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AnalyticsAndOperator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
-        xml
-      end
-    end
-
-    # List Stubber for TagSet
-    class TagSet
-      def self.default(visited=[])
-        return nil if visited.include?('TagSet')
-        visited = visited + ['TagSet']
-        [
-          Tag.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Tag
-    class Tag
-      def self.default(visited=[])
-        return nil if visited.include?('Tag')
-        visited = visited + ['Tag']
-        {
-          key: 'key',
-          value: 'value',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Tag.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
-        xml
       end
     end
 
@@ -885,134 +1350,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for CORSRules
-    class CORSRules
-      def self.default(visited=[])
-        return nil if visited.include?('CORSRules')
-        visited = visited + ['CORSRules']
-        [
-          CORSRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::CORSRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for CORSRule
-    class CORSRule
-      def self.default(visited=[])
-        return nil if visited.include?('CORSRule')
-        visited = visited + ['CORSRule']
-        {
-          id: 'id',
-          allowed_headers: AllowedHeaders.default(visited),
-          allowed_methods: AllowedMethods.default(visited),
-          allowed_origins: AllowedOrigins.default(visited),
-          expose_headers: ExposeHeaders.default(visited),
-          max_age_seconds: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::CORSRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::AllowedHeaders.stub('AllowedHeader', stub[:allowed_headers]) unless stub[:allowed_headers].nil?
-        xml << Stubs::AllowedMethods.stub('AllowedMethod', stub[:allowed_methods]) unless stub[:allowed_methods].nil?
-        xml << Stubs::AllowedOrigins.stub('AllowedOrigin', stub[:allowed_origins]) unless stub[:allowed_origins].nil?
-        xml << Stubs::ExposeHeaders.stub('ExposeHeader', stub[:expose_headers]) unless stub[:expose_headers].nil?
-        xml << Hearth::XML::Node.new('MaxAgeSeconds', stub[:max_age_seconds].to_s) unless stub[:max_age_seconds].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ExposeHeaders
-    class ExposeHeaders
-      def self.default(visited=[])
-        return nil if visited.include?('ExposeHeaders')
-        visited = visited + ['ExposeHeaders']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # List Stubber for AllowedOrigins
-    class AllowedOrigins
-      def self.default(visited=[])
-        return nil if visited.include?('AllowedOrigins')
-        visited = visited + ['AllowedOrigins']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # List Stubber for AllowedMethods
-    class AllowedMethods
-      def self.default(visited=[])
-        return nil if visited.include?('AllowedMethods')
-        visited = visited + ['AllowedMethods']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # List Stubber for AllowedHeaders
-    class AllowedHeaders
-      def self.default(visited=[])
-        return nil if visited.include?('AllowedHeaders')
-        visited = visited + ['AllowedHeaders']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketEncryption
     class GetBucketEncryption
       def self.default(visited=[])
@@ -1027,84 +1364,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for ServerSideEncryptionConfiguration
-    class ServerSideEncryptionConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('ServerSideEncryptionConfiguration')
-        visited = visited + ['ServerSideEncryptionConfiguration']
-        {
-          rules: ServerSideEncryptionRules.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ServerSideEncryptionConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ServerSideEncryptionRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ServerSideEncryptionRules
-    class ServerSideEncryptionRules
-      def self.default(visited=[])
-        return nil if visited.include?('ServerSideEncryptionRules')
-        visited = visited + ['ServerSideEncryptionRules']
-        [
-          ServerSideEncryptionRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::ServerSideEncryptionRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for ServerSideEncryptionRule
-    class ServerSideEncryptionRule
-      def self.default(visited=[])
-        return nil if visited.include?('ServerSideEncryptionRule')
-        visited = visited + ['ServerSideEncryptionRule']
-        {
-          apply_server_side_encryption_by_default: ServerSideEncryptionByDefault.default(visited),
-          bucket_key_enabled: false,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ServerSideEncryptionRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ServerSideEncryptionByDefault.stub('ApplyServerSideEncryptionByDefault', stub[:apply_server_side_encryption_by_default]) unless stub[:apply_server_side_encryption_by_default].nil?
-        xml << Hearth::XML::Node.new('BucketKeyEnabled', stub[:bucket_key_enabled].to_s) unless stub[:bucket_key_enabled].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ServerSideEncryptionByDefault
-    class ServerSideEncryptionByDefault
-      def self.default(visited=[])
-        return nil if visited.include?('ServerSideEncryptionByDefault')
-        visited = visited + ['ServerSideEncryptionByDefault']
-        {
-          sse_algorithm: 'sse_algorithm',
-          kms_master_key_id: 'kms_master_key_id',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ServerSideEncryptionByDefault.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('SSEAlgorithm', stub[:sse_algorithm].to_s) unless stub[:sse_algorithm].nil?
-        xml << Hearth::XML::Node.new('KMSMasterKeyID', stub[:kms_master_key_id].to_s) unless stub[:kms_master_key_id].nil?
-        xml
       end
     end
 
@@ -1125,112 +1384,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for IntelligentTieringConfiguration
-    class IntelligentTieringConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('IntelligentTieringConfiguration')
-        visited = visited + ['IntelligentTieringConfiguration']
-        {
-          id: 'id',
-          filter: IntelligentTieringFilter.default(visited),
-          status: 'status',
-          tierings: TieringList.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::IntelligentTieringConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::IntelligentTieringFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::TieringList.stub('Tiering', stub[:tierings]) unless stub[:tierings].nil?
-        xml
-      end
-    end
-
-    # List Stubber for TieringList
-    class TieringList
-      def self.default(visited=[])
-        return nil if visited.include?('TieringList')
-        visited = visited + ['TieringList']
-        [
-          Tiering.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Tiering.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Tiering
-    class Tiering
-      def self.default(visited=[])
-        return nil if visited.include?('Tiering')
-        visited = visited + ['Tiering']
-        {
-          days: 1,
-          access_tier: 'access_tier',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Tiering.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
-        xml << Hearth::XML::Node.new('AccessTier', stub[:access_tier].to_s) unless stub[:access_tier].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for IntelligentTieringFilter
-    class IntelligentTieringFilter
-      def self.default(visited=[])
-        return nil if visited.include?('IntelligentTieringFilter')
-        visited = visited + ['IntelligentTieringFilter']
-        {
-          prefix: 'prefix',
-          tag: Tag.default(visited),
-          and: IntelligentTieringAndOperator.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::IntelligentTieringFilter.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::Tag.stub('Tag', stub[:tag]) unless stub[:tag].nil?
-        xml << Stubs::IntelligentTieringAndOperator.stub('And', stub[:and]) unless stub[:and].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for IntelligentTieringAndOperator
-    class IntelligentTieringAndOperator
-      def self.default(visited=[])
-        return nil if visited.include?('IntelligentTieringAndOperator')
-        visited = visited + ['IntelligentTieringAndOperator']
-        {
-          prefix: 'prefix',
-          tags: TagSet.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::IntelligentTieringAndOperator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketInventoryConfiguration
     class GetBucketInventoryConfiguration
       def self.default(visited=[])
@@ -1245,190 +1398,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::InventoryConfiguration.build('InventoryConfiguration', stub[:inventory_configuration]) unless stub[:inventory_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for InventoryConfiguration
-    class InventoryConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryConfiguration')
-        visited = visited + ['InventoryConfiguration']
-        {
-          destination: InventoryDestination.default(visited),
-          is_enabled: false,
-          filter: InventoryFilter.default(visited),
-          id: 'id',
-          included_object_versions: 'included_object_versions',
-          optional_fields: InventoryOptionalFields.default(visited),
-          schedule: InventorySchedule.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventoryConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InventoryDestination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
-        xml << Hearth::XML::Node.new('IsEnabled', stub[:is_enabled].to_s) unless stub[:is_enabled].nil?
-        xml << Stubs::InventoryFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('IncludedObjectVersions', stub[:included_object_versions].to_s) unless stub[:included_object_versions].nil?
-        xml << Hearth::XML::Node.new('OptionalFields', Stubs::InventoryOptionalFields.stub('Field', stub[:optional_fields])) unless stub[:optional_fields].nil?
-        xml << Stubs::InventorySchedule.stub('Schedule', stub[:schedule]) unless stub[:schedule].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for InventorySchedule
-    class InventorySchedule
-      def self.default(visited=[])
-        return nil if visited.include?('InventorySchedule')
-        visited = visited + ['InventorySchedule']
-        {
-          frequency: 'frequency',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventorySchedule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Frequency', stub[:frequency].to_s) unless stub[:frequency].nil?
-        xml
-      end
-    end
-
-    # List Stubber for InventoryOptionalFields
-    class InventoryOptionalFields
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryOptionalFields')
-        visited = visited + ['InventoryOptionalFields']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for InventoryFilter
-    class InventoryFilter
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryFilter')
-        visited = visited + ['InventoryFilter']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventoryFilter.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for InventoryDestination
-    class InventoryDestination
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryDestination')
-        visited = visited + ['InventoryDestination']
-        {
-          s3_bucket_destination: InventoryS3BucketDestination.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventoryDestination.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InventoryS3BucketDestination.stub('S3BucketDestination', stub[:s3_bucket_destination]) unless stub[:s3_bucket_destination].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for InventoryS3BucketDestination
-    class InventoryS3BucketDestination
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryS3BucketDestination')
-        visited = visited + ['InventoryS3BucketDestination']
-        {
-          account_id: 'account_id',
-          bucket: 'bucket',
-          format: 'format',
-          prefix: 'prefix',
-          encryption: InventoryEncryption.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventoryS3BucketDestination.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('AccountId', stub[:account_id].to_s) unless stub[:account_id].nil?
-        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
-        xml << Hearth::XML::Node.new('Format', stub[:format].to_s) unless stub[:format].nil?
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::InventoryEncryption.stub('Encryption', stub[:encryption]) unless stub[:encryption].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for InventoryEncryption
-    class InventoryEncryption
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryEncryption')
-        visited = visited + ['InventoryEncryption']
-        {
-          sses3: SSES3.default(visited),
-          ssekms: SSEKMS.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::InventoryEncryption.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::SSES3.stub('SSE-S3', stub[:sses3]) unless stub[:sses3].nil?
-        xml << Stubs::SSEKMS.stub('SSE-KMS', stub[:ssekms]) unless stub[:ssekms].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for SSEKMS
-    class SSEKMS
-      def self.default(visited=[])
-        return nil if visited.include?('SSEKMS')
-        visited = visited + ['SSEKMS']
-        {
-          key_id: 'key_id',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::SSEKMS.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('KeyId', stub[:key_id].to_s) unless stub[:key_id].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for SSES3
-    class SSES3
-      def self.default(visited=[])
-        return nil if visited.include?('SSES3')
-        visited = visited + ['SSES3']
-        {
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::SSES3.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml
       end
     end
 
@@ -1449,260 +1418,6 @@ module AWS::SDK::S3
         xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
         xml << Stubs::LifecycleRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for LifecycleRules
-    class LifecycleRules
-      def self.default(visited=[])
-        return nil if visited.include?('LifecycleRules')
-        visited = visited + ['LifecycleRules']
-        [
-          LifecycleRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::LifecycleRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for LifecycleRule
-    class LifecycleRule
-      def self.default(visited=[])
-        return nil if visited.include?('LifecycleRule')
-        visited = visited + ['LifecycleRule']
-        {
-          expiration: LifecycleExpiration.default(visited),
-          id: 'id',
-          prefix: 'prefix',
-          filter: LifecycleRuleFilter.default(visited),
-          status: 'status',
-          transitions: TransitionList.default(visited),
-          noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
-          noncurrent_version_expiration: NoncurrentVersionExpiration.default(visited),
-          abort_incomplete_multipart_upload: AbortIncompleteMultipartUpload.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::LifecycleRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LifecycleExpiration.stub('Expiration', stub[:expiration]) unless stub[:expiration].nil?
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::LifecycleRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::TransitionList.stub('Transition', stub[:transitions]) unless stub[:transitions].nil?
-        xml << Stubs::NoncurrentVersionTransitionList.stub('NoncurrentVersionTransition', stub[:noncurrent_version_transitions]) unless stub[:noncurrent_version_transitions].nil?
-        xml << Stubs::NoncurrentVersionExpiration.stub('NoncurrentVersionExpiration', stub[:noncurrent_version_expiration]) unless stub[:noncurrent_version_expiration].nil?
-        xml << Stubs::AbortIncompleteMultipartUpload.stub('AbortIncompleteMultipartUpload', stub[:abort_incomplete_multipart_upload]) unless stub[:abort_incomplete_multipart_upload].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for AbortIncompleteMultipartUpload
-    class AbortIncompleteMultipartUpload
-      def self.default(visited=[])
-        return nil if visited.include?('AbortIncompleteMultipartUpload')
-        visited = visited + ['AbortIncompleteMultipartUpload']
-        {
-          days_after_initiation: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AbortIncompleteMultipartUpload.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('DaysAfterInitiation', stub[:days_after_initiation].to_s) unless stub[:days_after_initiation].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for NoncurrentVersionExpiration
-    class NoncurrentVersionExpiration
-      def self.default(visited=[])
-        return nil if visited.include?('NoncurrentVersionExpiration')
-        visited = visited + ['NoncurrentVersionExpiration']
-        {
-          noncurrent_days: 1,
-          newer_noncurrent_versions: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::NoncurrentVersionExpiration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('NoncurrentDays', stub[:noncurrent_days].to_s) unless stub[:noncurrent_days].nil?
-        xml << Hearth::XML::Node.new('NewerNoncurrentVersions', stub[:newer_noncurrent_versions].to_s) unless stub[:newer_noncurrent_versions].nil?
-        xml
-      end
-    end
-
-    # List Stubber for NoncurrentVersionTransitionList
-    class NoncurrentVersionTransitionList
-      def self.default(visited=[])
-        return nil if visited.include?('NoncurrentVersionTransitionList')
-        visited = visited + ['NoncurrentVersionTransitionList']
-        [
-          NoncurrentVersionTransition.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::NoncurrentVersionTransition.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for NoncurrentVersionTransition
-    class NoncurrentVersionTransition
-      def self.default(visited=[])
-        return nil if visited.include?('NoncurrentVersionTransition')
-        visited = visited + ['NoncurrentVersionTransition']
-        {
-          noncurrent_days: 1,
-          storage_class: 'storage_class',
-          newer_noncurrent_versions: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::NoncurrentVersionTransition.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('NoncurrentDays', stub[:noncurrent_days].to_s) unless stub[:noncurrent_days].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml << Hearth::XML::Node.new('NewerNoncurrentVersions', stub[:newer_noncurrent_versions].to_s) unless stub[:newer_noncurrent_versions].nil?
-        xml
-      end
-    end
-
-    # List Stubber for TransitionList
-    class TransitionList
-      def self.default(visited=[])
-        return nil if visited.include?('TransitionList')
-        visited = visited + ['TransitionList']
-        [
-          Transition.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Transition.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Transition
-    class Transition
-      def self.default(visited=[])
-        return nil if visited.include?('Transition')
-        visited = visited + ['Transition']
-        {
-          date: Time.now,
-          days: 1,
-          storage_class: 'storage_class',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Transition.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
-        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml
-      end
-    end
-
-    # Union Stubber for LifecycleRuleFilter
-    class LifecycleRuleFilter
-      def self.default(visited=[])
-        return nil if visited.include?('LifecycleRuleFilter')
-        visited = visited + ['LifecycleRuleFilter']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        xml = Hearth::XML::Node.new(node_name)
-        case stub
-        when Types::LifecycleRuleFilter::Prefix
-          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::LifecycleRuleFilter::Tag
-          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
-        when Types::LifecycleRuleFilter::ObjectSizeGreaterThan
-          xml << Hearth::XML::Node.new('ObjectSizeGreaterThan', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::LifecycleRuleFilter::ObjectSizeLessThan
-          xml << Hearth::XML::Node.new('ObjectSizeLessThan', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::LifecycleRuleFilter::And
-          xml << Stubs::LifecycleRuleAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::LifecycleRuleFilter"
-        end
-
-        xml
-      end
-    end
-
-    # Structure Stubber for LifecycleRuleAndOperator
-    class LifecycleRuleAndOperator
-      def self.default(visited=[])
-        return nil if visited.include?('LifecycleRuleAndOperator')
-        visited = visited + ['LifecycleRuleAndOperator']
-        {
-          prefix: 'prefix',
-          tags: TagSet.default(visited),
-          object_size_greater_than: 1,
-          object_size_less_than: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::LifecycleRuleAndOperator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('ObjectSizeGreaterThan', stub[:object_size_greater_than].to_s) unless stub[:object_size_greater_than].nil?
-        xml << Hearth::XML::Node.new('ObjectSizeLessThan', stub[:object_size_less_than].to_s) unless stub[:object_size_less_than].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for LifecycleExpiration
-    class LifecycleExpiration
-      def self.default(visited=[])
-        return nil if visited.include?('LifecycleExpiration')
-        visited = visited + ['LifecycleExpiration']
-        {
-          date: Time.now,
-          days: 1,
-          expired_object_delete_marker: false,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::LifecycleExpiration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
-        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
-        xml << Hearth::XML::Node.new('ExpiredObjectDeleteMarker', stub[:expired_object_delete_marker].to_s) unless stub[:expired_object_delete_marker].nil?
-        xml
       end
     end
 
@@ -1746,72 +1461,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LoggingEnabled
-    class LoggingEnabled
-      def self.default(visited=[])
-        return nil if visited.include?('LoggingEnabled')
-        visited = visited + ['LoggingEnabled']
-        {
-          target_bucket: 'target_bucket',
-          target_grants: TargetGrants.default(visited),
-          target_prefix: 'target_prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::LoggingEnabled.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('TargetBucket', stub[:target_bucket].to_s) unless stub[:target_bucket].nil?
-        xml << Hearth::XML::Node.new('TargetGrants', Stubs::TargetGrants.stub('Grant', stub[:target_grants])) unless stub[:target_grants].nil?
-        xml << Hearth::XML::Node.new('TargetPrefix', stub[:target_prefix].to_s) unless stub[:target_prefix].nil?
-        xml
-      end
-    end
-
-    # List Stubber for TargetGrants
-    class TargetGrants
-      def self.default(visited=[])
-        return nil if visited.include?('TargetGrants')
-        visited = visited + ['TargetGrants']
-        [
-          TargetGrant.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::TargetGrant.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for TargetGrant
-    class TargetGrant
-      def self.default(visited=[])
-        return nil if visited.include?('TargetGrant')
-        visited = visited + ['TargetGrant']
-        {
-          grantee: Grantee.default(visited),
-          permission: 'permission',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::TargetGrant.new
-        xml = Hearth::XML::Node.new(node_name)
-        unless stub[:grantee].nil?
-          nodes = Stubs::Grantee.stub('Grantee', stub[:grantee])
-          nodes.each { |n| n.attributes['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance' }
-          xml << nodes
-        end
-        xml << Hearth::XML::Node.new('Permission', stub[:permission].to_s) unless stub[:permission].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketMetricsConfiguration
     class GetBucketMetricsConfiguration
       def self.default(visited=[])
@@ -1826,78 +1475,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::MetricsConfiguration.build('MetricsConfiguration', stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for MetricsConfiguration
-    class MetricsConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('MetricsConfiguration')
-        visited = visited + ['MetricsConfiguration']
-        {
-          id: 'id',
-          filter: MetricsFilter.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::MetricsConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::MetricsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml
-      end
-    end
-
-    # Union Stubber for MetricsFilter
-    class MetricsFilter
-      def self.default(visited=[])
-        return nil if visited.include?('MetricsFilter')
-        visited = visited + ['MetricsFilter']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        xml = Hearth::XML::Node.new(node_name)
-        case stub
-        when Types::MetricsFilter::Prefix
-          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::MetricsFilter::Tag
-          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
-        when Types::MetricsFilter::AccessPointArn
-          xml << Hearth::XML::Node.new('AccessPointArn', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::MetricsFilter::And
-          xml << Stubs::MetricsAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::MetricsFilter"
-        end
-
-        xml
-      end
-    end
-
-    # Structure Stubber for MetricsAndOperator
-    class MetricsAndOperator
-      def self.default(visited=[])
-        return nil if visited.include?('MetricsAndOperator')
-        visited = visited + ['MetricsAndOperator']
-        {
-          prefix: 'prefix',
-          tags: TagSet.default(visited),
-          access_point_arn: 'access_point_arn',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::MetricsAndOperator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('AccessPointArn', stub[:access_point_arn].to_s) unless stub[:access_point_arn].nil?
-        xml
       end
     end
 
@@ -1927,250 +1504,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for EventBridgeConfiguration
-    class EventBridgeConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('EventBridgeConfiguration')
-        visited = visited + ['EventBridgeConfiguration']
-        {
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::EventBridgeConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml
-      end
-    end
-
-    # List Stubber for LambdaFunctionConfigurationList
-    class LambdaFunctionConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('LambdaFunctionConfigurationList')
-        visited = visited + ['LambdaFunctionConfigurationList']
-        [
-          LambdaFunctionConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::LambdaFunctionConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for LambdaFunctionConfiguration
-    class LambdaFunctionConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('LambdaFunctionConfiguration')
-        visited = visited + ['LambdaFunctionConfiguration']
-        {
-          id: 'id',
-          lambda_function_arn: 'lambda_function_arn',
-          events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::LambdaFunctionConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('CloudFunction', stub[:lambda_function_arn].to_s) unless stub[:lambda_function_arn].nil?
-        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for NotificationConfigurationFilter
-    class NotificationConfigurationFilter
-      def self.default(visited=[])
-        return nil if visited.include?('NotificationConfigurationFilter')
-        visited = visited + ['NotificationConfigurationFilter']
-        {
-          key: S3KeyFilter.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::NotificationConfigurationFilter.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::S3KeyFilter.stub('S3Key', stub[:key]) unless stub[:key].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for S3KeyFilter
-    class S3KeyFilter
-      def self.default(visited=[])
-        return nil if visited.include?('S3KeyFilter')
-        visited = visited + ['S3KeyFilter']
-        {
-          filter_rules: FilterRuleList.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::S3KeyFilter.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::FilterRuleList.stub('FilterRule', stub[:filter_rules]) unless stub[:filter_rules].nil?
-        xml
-      end
-    end
-
-    # List Stubber for FilterRuleList
-    class FilterRuleList
-      def self.default(visited=[])
-        return nil if visited.include?('FilterRuleList')
-        visited = visited + ['FilterRuleList']
-        [
-          FilterRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::FilterRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for FilterRule
-    class FilterRule
-      def self.default(visited=[])
-        return nil if visited.include?('FilterRule')
-        visited = visited + ['FilterRule']
-        {
-          name: 'name',
-          value: 'value',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::FilterRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
-        xml
-      end
-    end
-
-    # List Stubber for EventList
-    class EventList
-      def self.default(visited=[])
-        return nil if visited.include?('EventList')
-        visited = visited + ['EventList']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # List Stubber for QueueConfigurationList
-    class QueueConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('QueueConfigurationList')
-        visited = visited + ['QueueConfigurationList']
-        [
-          QueueConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::QueueConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for QueueConfiguration
-    class QueueConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('QueueConfiguration')
-        visited = visited + ['QueueConfiguration']
-        {
-          id: 'id',
-          queue_arn: 'queue_arn',
-          events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::QueueConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('Queue', stub[:queue_arn].to_s) unless stub[:queue_arn].nil?
-        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml
-      end
-    end
-
-    # List Stubber for TopicConfigurationList
-    class TopicConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('TopicConfigurationList')
-        visited = visited + ['TopicConfigurationList']
-        [
-          TopicConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::TopicConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for TopicConfiguration
-    class TopicConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('TopicConfiguration')
-        visited = visited + ['TopicConfiguration']
-        {
-          id: 'id',
-          topic_arn: 'topic_arn',
-          events: EventList.default(visited),
-          filter: NotificationConfigurationFilter.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::TopicConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('Topic', stub[:topic_arn].to_s) unless stub[:topic_arn].nil?
-        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
-        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketOwnershipControls
     class GetBucketOwnershipControls
       def self.default(visited=[])
@@ -2185,62 +1518,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OwnershipControls.build('OwnershipControls', stub[:ownership_controls]) unless stub[:ownership_controls].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for OwnershipControls
-    class OwnershipControls
-      def self.default(visited=[])
-        return nil if visited.include?('OwnershipControls')
-        visited = visited + ['OwnershipControls']
-        {
-          rules: OwnershipControlsRules.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::OwnershipControls.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::OwnershipControlsRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
-        xml
-      end
-    end
-
-    # List Stubber for OwnershipControlsRules
-    class OwnershipControlsRules
-      def self.default(visited=[])
-        return nil if visited.include?('OwnershipControlsRules')
-        visited = visited + ['OwnershipControlsRules']
-        [
-          OwnershipControlsRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::OwnershipControlsRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for OwnershipControlsRule
-    class OwnershipControlsRule
-      def self.default(visited=[])
-        return nil if visited.include?('OwnershipControlsRule')
-        visited = visited + ['OwnershipControlsRule']
-        {
-          object_ownership: 'object_ownership',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::OwnershipControlsRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ObjectOwnership', stub[:object_ownership].to_s) unless stub[:object_ownership].nil?
-        xml
       end
     end
 
@@ -2277,24 +1554,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for PolicyStatus
-    class PolicyStatus
-      def self.default(visited=[])
-        return nil if visited.include?('PolicyStatus')
-        visited = visited + ['PolicyStatus']
-        {
-          is_public: false,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::PolicyStatus.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('IsPublic', stub[:is_public].to_s) unless stub[:is_public].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetBucketReplication
     class GetBucketReplication
       def self.default(visited=[])
@@ -2309,344 +1568,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', stub[:replication_configuration]) unless stub[:replication_configuration].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for ReplicationConfiguration
-    class ReplicationConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationConfiguration')
-        visited = visited + ['ReplicationConfiguration']
-        {
-          role: 'role',
-          rules: ReplicationRules.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicationConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Role', stub[:role].to_s) unless stub[:role].nil?
-        xml << Stubs::ReplicationRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ReplicationRules
-    class ReplicationRules
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationRules')
-        visited = visited + ['ReplicationRules']
-        [
-          ReplicationRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::ReplicationRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for ReplicationRule
-    class ReplicationRule
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationRule')
-        visited = visited + ['ReplicationRule']
-        {
-          id: 'id',
-          priority: 1,
-          prefix: 'prefix',
-          filter: ReplicationRuleFilter.default(visited),
-          status: 'status',
-          source_selection_criteria: SourceSelectionCriteria.default(visited),
-          existing_object_replication: ExistingObjectReplication.default(visited),
-          destination: Destination.default(visited),
-          delete_marker_replication: DeleteMarkerReplication.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicationRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('Priority', stub[:priority].to_s) unless stub[:priority].nil?
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::ReplicationRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::SourceSelectionCriteria.stub('SourceSelectionCriteria', stub[:source_selection_criteria]) unless stub[:source_selection_criteria].nil?
-        xml << Stubs::ExistingObjectReplication.stub('ExistingObjectReplication', stub[:existing_object_replication]) unless stub[:existing_object_replication].nil?
-        xml << Stubs::Destination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
-        xml << Stubs::DeleteMarkerReplication.stub('DeleteMarkerReplication', stub[:delete_marker_replication]) unless stub[:delete_marker_replication].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for DeleteMarkerReplication
-    class DeleteMarkerReplication
-      def self.default(visited=[])
-        return nil if visited.include?('DeleteMarkerReplication')
-        visited = visited + ['DeleteMarkerReplication']
-        {
-          status: 'status',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::DeleteMarkerReplication.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Destination
-    class Destination
-      def self.default(visited=[])
-        return nil if visited.include?('Destination')
-        visited = visited + ['Destination']
-        {
-          bucket: 'bucket',
-          account: 'account',
-          storage_class: 'storage_class',
-          access_control_translation: AccessControlTranslation.default(visited),
-          encryption_configuration: EncryptionConfiguration.default(visited),
-          replication_time: ReplicationTime.default(visited),
-          metrics: Metrics.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Destination.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
-        xml << Hearth::XML::Node.new('Account', stub[:account].to_s) unless stub[:account].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml << Stubs::AccessControlTranslation.stub('AccessControlTranslation', stub[:access_control_translation]) unless stub[:access_control_translation].nil?
-        xml << Stubs::EncryptionConfiguration.stub('EncryptionConfiguration', stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        xml << Stubs::ReplicationTime.stub('ReplicationTime', stub[:replication_time]) unless stub[:replication_time].nil?
-        xml << Stubs::Metrics.stub('Metrics', stub[:metrics]) unless stub[:metrics].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Metrics
-    class Metrics
-      def self.default(visited=[])
-        return nil if visited.include?('Metrics')
-        visited = visited + ['Metrics']
-        {
-          status: 'status',
-          event_threshold: ReplicationTimeValue.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Metrics.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::ReplicationTimeValue.stub('EventThreshold', stub[:event_threshold]) unless stub[:event_threshold].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ReplicationTimeValue
-    class ReplicationTimeValue
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationTimeValue')
-        visited = visited + ['ReplicationTimeValue']
-        {
-          minutes: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicationTimeValue.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Minutes', stub[:minutes].to_s) unless stub[:minutes].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ReplicationTime
-    class ReplicationTime
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationTime')
-        visited = visited + ['ReplicationTime']
-        {
-          status: 'status',
-          time: ReplicationTimeValue.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicationTime.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::ReplicationTimeValue.stub('Time', stub[:time]) unless stub[:time].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for EncryptionConfiguration
-    class EncryptionConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('EncryptionConfiguration')
-        visited = visited + ['EncryptionConfiguration']
-        {
-          replica_kms_key_id: 'replica_kms_key_id',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::EncryptionConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ReplicaKmsKeyID', stub[:replica_kms_key_id].to_s) unless stub[:replica_kms_key_id].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for AccessControlTranslation
-    class AccessControlTranslation
-      def self.default(visited=[])
-        return nil if visited.include?('AccessControlTranslation')
-        visited = visited + ['AccessControlTranslation']
-        {
-          owner: 'owner',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::AccessControlTranslation.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Owner', stub[:owner].to_s) unless stub[:owner].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ExistingObjectReplication
-    class ExistingObjectReplication
-      def self.default(visited=[])
-        return nil if visited.include?('ExistingObjectReplication')
-        visited = visited + ['ExistingObjectReplication']
-        {
-          status: 'status',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ExistingObjectReplication.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for SourceSelectionCriteria
-    class SourceSelectionCriteria
-      def self.default(visited=[])
-        return nil if visited.include?('SourceSelectionCriteria')
-        visited = visited + ['SourceSelectionCriteria']
-        {
-          sse_kms_encrypted_objects: SseKmsEncryptedObjects.default(visited),
-          replica_modifications: ReplicaModifications.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::SourceSelectionCriteria.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::SseKmsEncryptedObjects.stub('SseKmsEncryptedObjects', stub[:sse_kms_encrypted_objects]) unless stub[:sse_kms_encrypted_objects].nil?
-        xml << Stubs::ReplicaModifications.stub('ReplicaModifications', stub[:replica_modifications]) unless stub[:replica_modifications].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ReplicaModifications
-    class ReplicaModifications
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicaModifications')
-        visited = visited + ['ReplicaModifications']
-        {
-          status: 'status',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicaModifications.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for SseKmsEncryptedObjects
-    class SseKmsEncryptedObjects
-      def self.default(visited=[])
-        return nil if visited.include?('SseKmsEncryptedObjects')
-        visited = visited + ['SseKmsEncryptedObjects']
-        {
-          status: 'status',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::SseKmsEncryptedObjects.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml
-      end
-    end
-
-    # Union Stubber for ReplicationRuleFilter
-    class ReplicationRuleFilter
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationRuleFilter')
-        visited = visited + ['ReplicationRuleFilter']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        xml = Hearth::XML::Node.new(node_name)
-        case stub
-        when Types::ReplicationRuleFilter::Prefix
-          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
-        when Types::ReplicationRuleFilter::Tag
-          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
-        when Types::ReplicationRuleFilter::And
-          xml << Stubs::ReplicationRuleAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::ReplicationRuleFilter"
-        end
-
-        xml
-      end
-    end
-
-    # Structure Stubber for ReplicationRuleAndOperator
-    class ReplicationRuleAndOperator
-      def self.default(visited=[])
-        return nil if visited.include?('ReplicationRuleAndOperator')
-        visited = visited + ['ReplicationRuleAndOperator']
-        {
-          prefix: 'prefix',
-          tags: TagSet.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ReplicationRuleAndOperator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
-        xml
       end
     end
 
@@ -2738,148 +1659,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for RoutingRules
-    class RoutingRules
-      def self.default(visited=[])
-        return nil if visited.include?('RoutingRules')
-        visited = visited + ['RoutingRules']
-        [
-          RoutingRule.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::RoutingRule.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for RoutingRule
-    class RoutingRule
-      def self.default(visited=[])
-        return nil if visited.include?('RoutingRule')
-        visited = visited + ['RoutingRule']
-        {
-          condition: Condition.default(visited),
-          redirect: Redirect.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::RoutingRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Condition.stub('Condition', stub[:condition]) unless stub[:condition].nil?
-        xml << Stubs::Redirect.stub('Redirect', stub[:redirect]) unless stub[:redirect].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Redirect
-    class Redirect
-      def self.default(visited=[])
-        return nil if visited.include?('Redirect')
-        visited = visited + ['Redirect']
-        {
-          host_name: 'host_name',
-          http_redirect_code: 'http_redirect_code',
-          protocol: 'protocol',
-          replace_key_prefix_with: 'replace_key_prefix_with',
-          replace_key_with: 'replace_key_with',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Redirect.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('HostName', stub[:host_name].to_s) unless stub[:host_name].nil?
-        xml << Hearth::XML::Node.new('HttpRedirectCode', stub[:http_redirect_code].to_s) unless stub[:http_redirect_code].nil?
-        xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml << Hearth::XML::Node.new('ReplaceKeyPrefixWith', stub[:replace_key_prefix_with].to_s) unless stub[:replace_key_prefix_with].nil?
-        xml << Hearth::XML::Node.new('ReplaceKeyWith', stub[:replace_key_with].to_s) unless stub[:replace_key_with].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Condition
-    class Condition
-      def self.default(visited=[])
-        return nil if visited.include?('Condition')
-        visited = visited + ['Condition']
-        {
-          http_error_code_returned_equals: 'http_error_code_returned_equals',
-          key_prefix_equals: 'key_prefix_equals',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Condition.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('HttpErrorCodeReturnedEquals', stub[:http_error_code_returned_equals].to_s) unless stub[:http_error_code_returned_equals].nil?
-        xml << Hearth::XML::Node.new('KeyPrefixEquals', stub[:key_prefix_equals].to_s) unless stub[:key_prefix_equals].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ErrorDocument
-    class ErrorDocument
-      def self.default(visited=[])
-        return nil if visited.include?('ErrorDocument')
-        visited = visited + ['ErrorDocument']
-        {
-          key: 'key',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ErrorDocument.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for IndexDocument
-    class IndexDocument
-      def self.default(visited=[])
-        return nil if visited.include?('IndexDocument')
-        visited = visited + ['IndexDocument']
-        {
-          suffix: 'suffix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::IndexDocument.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Suffix', stub[:suffix].to_s) unless stub[:suffix].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for RedirectAllRequestsTo
-    class RedirectAllRequestsTo
-      def self.default(visited=[])
-        return nil if visited.include?('RedirectAllRequestsTo')
-        visited = visited + ['RedirectAllRequestsTo']
-        {
-          host_name: 'host_name',
-          protocol: 'protocol',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::RedirectAllRequestsTo.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('HostName', stub[:host_name].to_s) unless stub[:host_name].nil?
-        xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetObject
     class GetObject
       def self.default(visited=[])
@@ -2964,29 +1743,6 @@ module AWS::SDK::S3
           http_resp.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
         IO.copy_stream(stub[:body], http_resp.body)
-      end
-    end
-
-    # Map Stubber for Metadata
-    class Metadata
-      def self.default(visited=[])
-        return nil if visited.include?('Metadata')
-        visited = visited + ['Metadata']
-        {
-          test_key: 'value'
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= {}
-        nodes = []
-        stub.each do |key, value|
-          xml = Hearth::XML::Node.new(node_name)
-          xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
-          xml << Hearth::XML::Node.new('value', value.to_s) unless value.nil?
-          nodes << xml
-        end
-        nodes
       end
     end
 
@@ -3078,78 +1834,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for PartsList
-    class PartsList
-      def self.default(visited=[])
-        return nil if visited.include?('PartsList')
-        visited = visited + ['PartsList']
-        [
-          ObjectPart.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::ObjectPart.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for ObjectPart
-    class ObjectPart
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectPart')
-        visited = visited + ['ObjectPart']
-        {
-          part_number: 1,
-          size: 1,
-          checksum_crc32: 'checksum_crc32',
-          checksum_crc32_c: 'checksum_crc32_c',
-          checksum_sha1: 'checksum_sha1',
-          checksum_sha256: 'checksum_sha256',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectPart.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('PartNumber', stub[:part_number].to_s) unless stub[:part_number].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
-        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
-        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Checksum
-    class Checksum
-      def self.default(visited=[])
-        return nil if visited.include?('Checksum')
-        visited = visited + ['Checksum']
-        {
-          checksum_crc32: 'checksum_crc32',
-          checksum_crc32_c: 'checksum_crc32_c',
-          checksum_sha1: 'checksum_sha1',
-          checksum_sha256: 'checksum_sha256',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Checksum.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
-        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetObjectLegalHold
     class GetObjectLegalHold
       def self.default(visited=[])
@@ -3164,24 +1848,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockLegalHold.build('ObjectLockLegalHold', stub[:legal_hold]) unless stub[:legal_hold].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for ObjectLockLegalHold
-    class ObjectLockLegalHold
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectLockLegalHold')
-        visited = visited + ['ObjectLockLegalHold']
-        {
-          status: 'status',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectLockLegalHold.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml
       end
     end
 
@@ -3202,66 +1868,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectLockConfiguration
-    class ObjectLockConfiguration
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectLockConfiguration')
-        visited = visited + ['ObjectLockConfiguration']
-        {
-          object_lock_enabled: 'object_lock_enabled',
-          rule: ObjectLockRule.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectLockConfiguration.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ObjectLockEnabled', stub[:object_lock_enabled].to_s) unless stub[:object_lock_enabled].nil?
-        xml << Stubs::ObjectLockRule.stub('Rule', stub[:rule]) unless stub[:rule].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for ObjectLockRule
-    class ObjectLockRule
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectLockRule')
-        visited = visited + ['ObjectLockRule']
-        {
-          default_retention: DefaultRetention.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectLockRule.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::DefaultRetention.stub('DefaultRetention', stub[:default_retention]) unless stub[:default_retention].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for DefaultRetention
-    class DefaultRetention
-      def self.default(visited=[])
-        return nil if visited.include?('DefaultRetention')
-        visited = visited + ['DefaultRetention']
-        {
-          mode: 'mode',
-          days: 1,
-          years: 1,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::DefaultRetention.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Mode', stub[:mode].to_s) unless stub[:mode].nil?
-        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
-        xml << Hearth::XML::Node.new('Years', stub[:years].to_s) unless stub[:years].nil?
-        xml
-      end
-    end
-
     # Operation Stubber for GetObjectRetention
     class GetObjectRetention
       def self.default(visited=[])
@@ -3276,26 +1882,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockRetention.build('ObjectLockRetention', stub[:retention]) unless stub[:retention].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for ObjectLockRetention
-    class ObjectLockRetention
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectLockRetention')
-        visited = visited + ['ObjectLockRetention']
-        {
-          mode: 'mode',
-          retain_until_date: Time.now,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectLockRetention.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Mode', stub[:mode].to_s) unless stub[:mode].nil?
-        xml << Hearth::XML::Node.new('RetainUntilDate', Hearth::TimeHelper.to_date_time(stub[:retain_until_date])) unless stub[:retain_until_date].nil?
-        xml
       end
     end
 
@@ -3355,26 +1941,72 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for PublicAccessBlockConfiguration
-    class PublicAccessBlockConfiguration
+    # Structure Stubber for Grant
+    class Grant
       def self.default(visited=[])
-        return nil if visited.include?('PublicAccessBlockConfiguration')
-        visited = visited + ['PublicAccessBlockConfiguration']
+        return nil if visited.include?('Grant')
+        visited = visited + ['Grant']
         {
-          block_public_acls: false,
-          ignore_public_acls: false,
-          block_public_policy: false,
-          restrict_public_buckets: false,
+          grantee: Grantee.default(visited),
+          permission: 'permission',
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::PublicAccessBlockConfiguration.new
+        stub ||= Types::Grant.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('BlockPublicAcls', stub[:block_public_acls].to_s) unless stub[:block_public_acls].nil?
-        xml << Hearth::XML::Node.new('IgnorePublicAcls', stub[:ignore_public_acls].to_s) unless stub[:ignore_public_acls].nil?
-        xml << Hearth::XML::Node.new('BlockPublicPolicy', stub[:block_public_policy].to_s) unless stub[:block_public_policy].nil?
-        xml << Hearth::XML::Node.new('RestrictPublicBuckets', stub[:restrict_public_buckets].to_s) unless stub[:restrict_public_buckets].nil?
+        unless stub[:grantee].nil?
+          nodes = Stubs::Grantee.stub('Grantee', stub[:grantee])
+          nodes.each { |n| n.attributes['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance' }
+          xml << nodes
+        end
+        xml << Hearth::XML::Node.new('Permission', stub[:permission].to_s) unless stub[:permission].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Grantee
+    class Grantee
+      def self.default(visited=[])
+        return nil if visited.include?('Grantee')
+        visited = visited + ['Grantee']
+        {
+          display_name: 'display_name',
+          email_address: 'email_address',
+          id: 'id',
+          uri: 'uri',
+          type: 'type',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Grantee.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
+        xml << Hearth::XML::Node.new('EmailAddress', stub[:email_address].to_s) unless stub[:email_address].nil?
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('URI', stub[:uri].to_s) unless stub[:uri].nil?
+        xml.attributes['xsi:type'] = stub[:type] unless stub[:type].nil?
+        xml
+      end
+    end
+
+    # List Stubber for Grants
+    class Grants
+      def self.default(visited=[])
+        return nil if visited.include?('Grants')
+        visited = visited + ['Grants']
+        [
+          Grant.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Grant.stub(node_name, element) unless element.nil?
+        end
         xml
       end
     end
@@ -3475,6 +2107,476 @@ module AWS::SDK::S3
       end
     end
 
+    # Structure Stubber for IndexDocument
+    class IndexDocument
+      def self.default(visited=[])
+        return nil if visited.include?('IndexDocument')
+        visited = visited + ['IndexDocument']
+        {
+          suffix: 'suffix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::IndexDocument.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Suffix', stub[:suffix].to_s) unless stub[:suffix].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Initiator
+    class Initiator
+      def self.default(visited=[])
+        return nil if visited.include?('Initiator')
+        visited = visited + ['Initiator']
+        {
+          id: 'id',
+          display_name: 'display_name',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Initiator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for IntelligentTieringAndOperator
+    class IntelligentTieringAndOperator
+      def self.default(visited=[])
+        return nil if visited.include?('IntelligentTieringAndOperator')
+        visited = visited + ['IntelligentTieringAndOperator']
+        {
+          prefix: 'prefix',
+          tags: TagSet.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::IntelligentTieringAndOperator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for IntelligentTieringConfiguration
+    class IntelligentTieringConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('IntelligentTieringConfiguration')
+        visited = visited + ['IntelligentTieringConfiguration']
+        {
+          id: 'id',
+          filter: IntelligentTieringFilter.default(visited),
+          status: 'status',
+          tierings: TieringList.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::IntelligentTieringConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Stubs::IntelligentTieringFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml << Stubs::TieringList.stub('Tiering', stub[:tierings]) unless stub[:tierings].nil?
+        xml
+      end
+    end
+
+    # List Stubber for IntelligentTieringConfigurationList
+    class IntelligentTieringConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('IntelligentTieringConfigurationList')
+        visited = visited + ['IntelligentTieringConfigurationList']
+        [
+          IntelligentTieringConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::IntelligentTieringConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for IntelligentTieringFilter
+    class IntelligentTieringFilter
+      def self.default(visited=[])
+        return nil if visited.include?('IntelligentTieringFilter')
+        visited = visited + ['IntelligentTieringFilter']
+        {
+          prefix: 'prefix',
+          tag: Tag.default(visited),
+          and: IntelligentTieringAndOperator.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::IntelligentTieringFilter.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::Tag.stub('Tag', stub[:tag]) unless stub[:tag].nil?
+        xml << Stubs::IntelligentTieringAndOperator.stub('And', stub[:and]) unless stub[:and].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for InventoryConfiguration
+    class InventoryConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryConfiguration')
+        visited = visited + ['InventoryConfiguration']
+        {
+          destination: InventoryDestination.default(visited),
+          is_enabled: false,
+          filter: InventoryFilter.default(visited),
+          id: 'id',
+          included_object_versions: 'included_object_versions',
+          optional_fields: InventoryOptionalFields.default(visited),
+          schedule: InventorySchedule.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventoryConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::InventoryDestination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
+        xml << Hearth::XML::Node.new('IsEnabled', stub[:is_enabled].to_s) unless stub[:is_enabled].nil?
+        xml << Stubs::InventoryFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('IncludedObjectVersions', stub[:included_object_versions].to_s) unless stub[:included_object_versions].nil?
+        xml << Hearth::XML::Node.new('OptionalFields', Stubs::InventoryOptionalFields.stub('Field', stub[:optional_fields])) unless stub[:optional_fields].nil?
+        xml << Stubs::InventorySchedule.stub('Schedule', stub[:schedule]) unless stub[:schedule].nil?
+        xml
+      end
+    end
+
+    # List Stubber for InventoryConfigurationList
+    class InventoryConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryConfigurationList')
+        visited = visited + ['InventoryConfigurationList']
+        [
+          InventoryConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::InventoryConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for InventoryDestination
+    class InventoryDestination
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryDestination')
+        visited = visited + ['InventoryDestination']
+        {
+          s3_bucket_destination: InventoryS3BucketDestination.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventoryDestination.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::InventoryS3BucketDestination.stub('S3BucketDestination', stub[:s3_bucket_destination]) unless stub[:s3_bucket_destination].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for InventoryEncryption
+    class InventoryEncryption
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryEncryption')
+        visited = visited + ['InventoryEncryption']
+        {
+          sses3: SSES3.default(visited),
+          ssekms: SSEKMS.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventoryEncryption.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::SSES3.stub('SSE-S3', stub[:sses3]) unless stub[:sses3].nil?
+        xml << Stubs::SSEKMS.stub('SSE-KMS', stub[:ssekms]) unless stub[:ssekms].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for InventoryFilter
+    class InventoryFilter
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryFilter')
+        visited = visited + ['InventoryFilter']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventoryFilter.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml
+      end
+    end
+
+    # List Stubber for InventoryOptionalFields
+    class InventoryOptionalFields
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryOptionalFields')
+        visited = visited + ['InventoryOptionalFields']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for InventoryS3BucketDestination
+    class InventoryS3BucketDestination
+      def self.default(visited=[])
+        return nil if visited.include?('InventoryS3BucketDestination')
+        visited = visited + ['InventoryS3BucketDestination']
+        {
+          account_id: 'account_id',
+          bucket: 'bucket',
+          format: 'format',
+          prefix: 'prefix',
+          encryption: InventoryEncryption.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventoryS3BucketDestination.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('AccountId', stub[:account_id].to_s) unless stub[:account_id].nil?
+        xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
+        xml << Hearth::XML::Node.new('Format', stub[:format].to_s) unless stub[:format].nil?
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::InventoryEncryption.stub('Encryption', stub[:encryption]) unless stub[:encryption].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for InventorySchedule
+    class InventorySchedule
+      def self.default(visited=[])
+        return nil if visited.include?('InventorySchedule')
+        visited = visited + ['InventorySchedule']
+        {
+          frequency: 'frequency',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::InventorySchedule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Frequency', stub[:frequency].to_s) unless stub[:frequency].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for LambdaFunctionConfiguration
+    class LambdaFunctionConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('LambdaFunctionConfiguration')
+        visited = visited + ['LambdaFunctionConfiguration']
+        {
+          id: 'id',
+          lambda_function_arn: 'lambda_function_arn',
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::LambdaFunctionConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('CloudFunction', stub[:lambda_function_arn].to_s) unless stub[:lambda_function_arn].nil?
+        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml
+      end
+    end
+
+    # List Stubber for LambdaFunctionConfigurationList
+    class LambdaFunctionConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('LambdaFunctionConfigurationList')
+        visited = visited + ['LambdaFunctionConfigurationList']
+        [
+          LambdaFunctionConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::LambdaFunctionConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for LifecycleExpiration
+    class LifecycleExpiration
+      def self.default(visited=[])
+        return nil if visited.include?('LifecycleExpiration')
+        visited = visited + ['LifecycleExpiration']
+        {
+          date: Time.now,
+          days: 1,
+          expired_object_delete_marker: false,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::LifecycleExpiration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
+        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
+        xml << Hearth::XML::Node.new('ExpiredObjectDeleteMarker', stub[:expired_object_delete_marker].to_s) unless stub[:expired_object_delete_marker].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for LifecycleRule
+    class LifecycleRule
+      def self.default(visited=[])
+        return nil if visited.include?('LifecycleRule')
+        visited = visited + ['LifecycleRule']
+        {
+          expiration: LifecycleExpiration.default(visited),
+          id: 'id',
+          prefix: 'prefix',
+          filter: LifecycleRuleFilter.default(visited),
+          status: 'status',
+          transitions: TransitionList.default(visited),
+          noncurrent_version_transitions: NoncurrentVersionTransitionList.default(visited),
+          noncurrent_version_expiration: NoncurrentVersionExpiration.default(visited),
+          abort_incomplete_multipart_upload: AbortIncompleteMultipartUpload.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::LifecycleRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::LifecycleExpiration.stub('Expiration', stub[:expiration]) unless stub[:expiration].nil?
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::LifecycleRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml << Stubs::TransitionList.stub('Transition', stub[:transitions]) unless stub[:transitions].nil?
+        xml << Stubs::NoncurrentVersionTransitionList.stub('NoncurrentVersionTransition', stub[:noncurrent_version_transitions]) unless stub[:noncurrent_version_transitions].nil?
+        xml << Stubs::NoncurrentVersionExpiration.stub('NoncurrentVersionExpiration', stub[:noncurrent_version_expiration]) unless stub[:noncurrent_version_expiration].nil?
+        xml << Stubs::AbortIncompleteMultipartUpload.stub('AbortIncompleteMultipartUpload', stub[:abort_incomplete_multipart_upload]) unless stub[:abort_incomplete_multipart_upload].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for LifecycleRuleAndOperator
+    class LifecycleRuleAndOperator
+      def self.default(visited=[])
+        return nil if visited.include?('LifecycleRuleAndOperator')
+        visited = visited + ['LifecycleRuleAndOperator']
+        {
+          prefix: 'prefix',
+          tags: TagSet.default(visited),
+          object_size_greater_than: 1,
+          object_size_less_than: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::LifecycleRuleAndOperator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('ObjectSizeGreaterThan', stub[:object_size_greater_than].to_s) unless stub[:object_size_greater_than].nil?
+        xml << Hearth::XML::Node.new('ObjectSizeLessThan', stub[:object_size_less_than].to_s) unless stub[:object_size_less_than].nil?
+        xml
+      end
+    end
+
+    # Union Stubber for LifecycleRuleFilter
+    class LifecycleRuleFilter
+      def self.default(visited=[])
+        return nil if visited.include?('LifecycleRuleFilter')
+        visited = visited + ['LifecycleRuleFilter']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        xml = Hearth::XML::Node.new(node_name)
+        case stub
+        when Types::LifecycleRuleFilter::Prefix
+          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::LifecycleRuleFilter::Tag
+          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
+        when Types::LifecycleRuleFilter::ObjectSizeGreaterThan
+          xml << Hearth::XML::Node.new('ObjectSizeGreaterThan', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::LifecycleRuleFilter::ObjectSizeLessThan
+          xml << Hearth::XML::Node.new('ObjectSizeLessThan', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::LifecycleRuleFilter::And
+          xml << Stubs::LifecycleRuleAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
+        else
+          raise ArgumentError,
+          "Expected input to be one of the subclasses of Types::LifecycleRuleFilter"
+        end
+
+        xml
+      end
+    end
+
+    # List Stubber for LifecycleRules
+    class LifecycleRules
+      def self.default(visited=[])
+        return nil if visited.include?('LifecycleRules')
+        visited = visited + ['LifecycleRules']
+        [
+          LifecycleRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::LifecycleRule.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
     # Operation Stubber for ListBucketAnalyticsConfigurations
     class ListBucketAnalyticsConfigurations
       def self.default(visited=[])
@@ -3498,26 +2600,6 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         xml << Stubs::AnalyticsConfigurationList.stub('AnalyticsConfiguration', stub[:analytics_configuration_list]) unless stub[:analytics_configuration_list].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for AnalyticsConfigurationList
-    class AnalyticsConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('AnalyticsConfigurationList')
-        visited = visited + ['AnalyticsConfigurationList']
-        [
-          AnalyticsConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::AnalyticsConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -3547,26 +2629,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for IntelligentTieringConfigurationList
-    class IntelligentTieringConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('IntelligentTieringConfigurationList')
-        visited = visited + ['IntelligentTieringConfigurationList']
-        [
-          IntelligentTieringConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::IntelligentTieringConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
     # Operation Stubber for ListBucketInventoryConfigurations
     class ListBucketInventoryConfigurations
       def self.default(visited=[])
@@ -3590,26 +2652,6 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('NextContinuationToken', stub[:next_continuation_token].to_s) unless stub[:next_continuation_token].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for InventoryConfigurationList
-    class InventoryConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('InventoryConfigurationList')
-        visited = visited + ['InventoryConfigurationList']
-        [
-          InventoryConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::InventoryConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
       end
     end
 
@@ -3639,26 +2681,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for MetricsConfigurationList
-    class MetricsConfigurationList
-      def self.default(visited=[])
-        return nil if visited.include?('MetricsConfigurationList')
-        visited = visited + ['MetricsConfigurationList']
-        [
-          MetricsConfiguration.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::MetricsConfiguration.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
     # Operation Stubber for ListBuckets
     class ListBuckets
       def self.default(visited=[])
@@ -3678,46 +2700,6 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Buckets', Stubs::Buckets.stub('Bucket', stub[:buckets])) unless stub[:buckets].nil?
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for Buckets
-    class Buckets
-      def self.default(visited=[])
-        return nil if visited.include?('Buckets')
-        visited = visited + ['Buckets']
-        [
-          Bucket.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Bucket.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Bucket
-    class Bucket
-      def self.default(visited=[])
-        return nil if visited.include?('Bucket')
-        visited = visited + ['Bucket']
-        {
-          name: 'name',
-          creation_date: Time.now,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Bucket.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Hearth::XML::Node.new('CreationDate', Hearth::TimeHelper.to_date_time(stub[:creation_date])) unless stub[:creation_date].nil?
-        xml
       end
     end
 
@@ -3760,114 +2742,6 @@ module AWS::SDK::S3
         xml << Stubs::CommonPrefixList.stub('CommonPrefixes', stub[:common_prefixes]) unless stub[:common_prefixes].nil?
         xml << Hearth::XML::Node.new('EncodingType', stub[:encoding_type].to_s) unless stub[:encoding_type].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for CommonPrefixList
-    class CommonPrefixList
-      def self.default(visited=[])
-        return nil if visited.include?('CommonPrefixList')
-        visited = visited + ['CommonPrefixList']
-        [
-          CommonPrefix.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::CommonPrefix.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for CommonPrefix
-    class CommonPrefix
-      def self.default(visited=[])
-        return nil if visited.include?('CommonPrefix')
-        visited = visited + ['CommonPrefix']
-        {
-          prefix: 'prefix',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::CommonPrefix.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml
-      end
-    end
-
-    # List Stubber for MultipartUploadList
-    class MultipartUploadList
-      def self.default(visited=[])
-        return nil if visited.include?('MultipartUploadList')
-        visited = visited + ['MultipartUploadList']
-        [
-          MultipartUpload.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::MultipartUpload.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for MultipartUpload
-    class MultipartUpload
-      def self.default(visited=[])
-        return nil if visited.include?('MultipartUpload')
-        visited = visited + ['MultipartUpload']
-        {
-          upload_id: 'upload_id',
-          key: 'key',
-          initiated: Time.now,
-          storage_class: 'storage_class',
-          owner: Owner.default(visited),
-          initiator: Initiator.default(visited),
-          checksum_algorithm: 'checksum_algorithm',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::MultipartUpload.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('UploadId', stub[:upload_id].to_s) unless stub[:upload_id].nil?
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('Initiated', Hearth::TimeHelper.to_date_time(stub[:initiated])) unless stub[:initiated].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
-        xml << Stubs::Initiator.stub('Initiator', stub[:initiator]) unless stub[:initiator].nil?
-        xml << Hearth::XML::Node.new('ChecksumAlgorithm', stub[:checksum_algorithm].to_s) unless stub[:checksum_algorithm].nil?
-        xml
-      end
-    end
-
-    # Structure Stubber for Initiator
-    class Initiator
-      def self.default(visited=[])
-        return nil if visited.include?('Initiator')
-        visited = visited + ['Initiator']
-        {
-          id: 'id',
-          display_name: 'display_name',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Initiator.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
-        xml
       end
     end
 
@@ -3915,126 +2789,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for DeleteMarkers
-    class DeleteMarkers
-      def self.default(visited=[])
-        return nil if visited.include?('DeleteMarkers')
-        visited = visited + ['DeleteMarkers']
-        [
-          DeleteMarkerEntry.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::DeleteMarkerEntry.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for DeleteMarkerEntry
-    class DeleteMarkerEntry
-      def self.default(visited=[])
-        return nil if visited.include?('DeleteMarkerEntry')
-        visited = visited + ['DeleteMarkerEntry']
-        {
-          owner: Owner.default(visited),
-          key: 'key',
-          version_id: 'version_id',
-          is_latest: false,
-          last_modified: Time.now,
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::DeleteMarkerEntry.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
-        xml << Hearth::XML::Node.new('IsLatest', stub[:is_latest].to_s) unless stub[:is_latest].nil?
-        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ObjectVersionList
-    class ObjectVersionList
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectVersionList')
-        visited = visited + ['ObjectVersionList']
-        [
-          ObjectVersion.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::ObjectVersion.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for ObjectVersion
-    class ObjectVersion
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectVersion')
-        visited = visited + ['ObjectVersion']
-        {
-          e_tag: 'e_tag',
-          checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          size: 1,
-          storage_class: 'storage_class',
-          key: 'key',
-          version_id: 'version_id',
-          is_latest: false,
-          last_modified: Time.now,
-          owner: Owner.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::ObjectVersion.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
-        xml << Hearth::XML::Node.new('IsLatest', stub[:is_latest].to_s) unless stub[:is_latest].nil?
-        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
-        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
-        xml
-      end
-    end
-
-    # List Stubber for ChecksumAlgorithmList
-    class ChecksumAlgorithmList
-      def self.default(visited=[])
-        return nil if visited.include?('ChecksumAlgorithmList')
-        visited = visited + ['ChecksumAlgorithmList']
-        [
-          'member'
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
-        end
-        xml
-      end
-    end
-
     # Operation Stubber for ListObjects
     class ListObjects
       def self.default(visited=[])
@@ -4070,56 +2824,6 @@ module AWS::SDK::S3
         xml << Stubs::CommonPrefixList.stub('CommonPrefixes', stub[:common_prefixes]) unless stub[:common_prefixes].nil?
         xml << Hearth::XML::Node.new('EncodingType', stub[:encoding_type].to_s) unless stub[:encoding_type].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # List Stubber for ObjectList
-    class ObjectList
-      def self.default(visited=[])
-        return nil if visited.include?('ObjectList')
-        visited = visited + ['ObjectList']
-        [
-          Object.default(visited)
-        ]
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= []
-        xml = []
-        stub.each do |element|
-          xml << Stubs::Object.stub(node_name, element) unless element.nil?
-        end
-        xml
-      end
-    end
-
-    # Structure Stubber for Object
-    class Object
-      def self.default(visited=[])
-        return nil if visited.include?('Object')
-        visited = visited + ['Object']
-        {
-          key: 'key',
-          last_modified: Time.now,
-          e_tag: 'e_tag',
-          checksum_algorithm: ChecksumAlgorithmList.default(visited),
-          size: 1,
-          storage_class: 'storage_class',
-          owner: Owner.default(visited),
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::Object.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
-        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
-        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
-        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
-        xml
       end
     end
 
@@ -4213,13 +2917,120 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Parts
-    class Parts
+    # Structure Stubber for LoggingEnabled
+    class LoggingEnabled
       def self.default(visited=[])
-        return nil if visited.include?('Parts')
-        visited = visited + ['Parts']
+        return nil if visited.include?('LoggingEnabled')
+        visited = visited + ['LoggingEnabled']
+        {
+          target_bucket: 'target_bucket',
+          target_grants: TargetGrants.default(visited),
+          target_prefix: 'target_prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::LoggingEnabled.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('TargetBucket', stub[:target_bucket].to_s) unless stub[:target_bucket].nil?
+        xml << Hearth::XML::Node.new('TargetGrants', Stubs::TargetGrants.stub('Grant', stub[:target_grants])) unless stub[:target_grants].nil?
+        xml << Hearth::XML::Node.new('TargetPrefix', stub[:target_prefix].to_s) unless stub[:target_prefix].nil?
+        xml
+      end
+    end
+
+    # Map Stubber for Metadata
+    class Metadata
+      def self.default(visited=[])
+        return nil if visited.include?('Metadata')
+        visited = visited + ['Metadata']
+        {
+          test_key: 'value'
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= {}
+        nodes = []
+        stub.each do |key, value|
+          xml = Hearth::XML::Node.new(node_name)
+          xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
+          xml << Hearth::XML::Node.new('value', value.to_s) unless value.nil?
+          nodes << xml
+        end
+        nodes
+      end
+    end
+
+    # Structure Stubber for Metrics
+    class Metrics
+      def self.default(visited=[])
+        return nil if visited.include?('Metrics')
+        visited = visited + ['Metrics']
+        {
+          status: 'status',
+          event_threshold: ReplicationTimeValue.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Metrics.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml << Stubs::ReplicationTimeValue.stub('EventThreshold', stub[:event_threshold]) unless stub[:event_threshold].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for MetricsAndOperator
+    class MetricsAndOperator
+      def self.default(visited=[])
+        return nil if visited.include?('MetricsAndOperator')
+        visited = visited + ['MetricsAndOperator']
+        {
+          prefix: 'prefix',
+          tags: TagSet.default(visited),
+          access_point_arn: 'access_point_arn',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::MetricsAndOperator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('AccessPointArn', stub[:access_point_arn].to_s) unless stub[:access_point_arn].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for MetricsConfiguration
+    class MetricsConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('MetricsConfiguration')
+        visited = visited + ['MetricsConfiguration']
+        {
+          id: 'id',
+          filter: MetricsFilter.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::MetricsConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Stubs::MetricsFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml
+      end
+    end
+
+    # List Stubber for MetricsConfigurationList
+    class MetricsConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('MetricsConfigurationList')
+        visited = visited + ['MetricsConfigurationList']
         [
-          Part.default(visited)
+          MetricsConfiguration.default(visited)
         ]
       end
 
@@ -4227,7 +3038,451 @@ module AWS::SDK::S3
         stub ||= []
         xml = []
         stub.each do |element|
-          xml << Stubs::Part.stub(node_name, element) unless element.nil?
+          xml << Stubs::MetricsConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Union Stubber for MetricsFilter
+    class MetricsFilter
+      def self.default(visited=[])
+        return nil if visited.include?('MetricsFilter')
+        visited = visited + ['MetricsFilter']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        xml = Hearth::XML::Node.new(node_name)
+        case stub
+        when Types::MetricsFilter::Prefix
+          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::MetricsFilter::Tag
+          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
+        when Types::MetricsFilter::AccessPointArn
+          xml << Hearth::XML::Node.new('AccessPointArn', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::MetricsFilter::And
+          xml << Stubs::MetricsAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
+        else
+          raise ArgumentError,
+          "Expected input to be one of the subclasses of Types::MetricsFilter"
+        end
+
+        xml
+      end
+    end
+
+    # Structure Stubber for MultipartUpload
+    class MultipartUpload
+      def self.default(visited=[])
+        return nil if visited.include?('MultipartUpload')
+        visited = visited + ['MultipartUpload']
+        {
+          upload_id: 'upload_id',
+          key: 'key',
+          initiated: Time.now,
+          storage_class: 'storage_class',
+          owner: Owner.default(visited),
+          initiator: Initiator.default(visited),
+          checksum_algorithm: 'checksum_algorithm',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::MultipartUpload.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('UploadId', stub[:upload_id].to_s) unless stub[:upload_id].nil?
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('Initiated', Hearth::TimeHelper.to_date_time(stub[:initiated])) unless stub[:initiated].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml << Stubs::Initiator.stub('Initiator', stub[:initiator]) unless stub[:initiator].nil?
+        xml << Hearth::XML::Node.new('ChecksumAlgorithm', stub[:checksum_algorithm].to_s) unless stub[:checksum_algorithm].nil?
+        xml
+      end
+    end
+
+    # List Stubber for MultipartUploadList
+    class MultipartUploadList
+      def self.default(visited=[])
+        return nil if visited.include?('MultipartUploadList')
+        visited = visited + ['MultipartUploadList']
+        [
+          MultipartUpload.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::MultipartUpload.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for NoncurrentVersionExpiration
+    class NoncurrentVersionExpiration
+      def self.default(visited=[])
+        return nil if visited.include?('NoncurrentVersionExpiration')
+        visited = visited + ['NoncurrentVersionExpiration']
+        {
+          noncurrent_days: 1,
+          newer_noncurrent_versions: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::NoncurrentVersionExpiration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('NoncurrentDays', stub[:noncurrent_days].to_s) unless stub[:noncurrent_days].nil?
+        xml << Hearth::XML::Node.new('NewerNoncurrentVersions', stub[:newer_noncurrent_versions].to_s) unless stub[:newer_noncurrent_versions].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for NoncurrentVersionTransition
+    class NoncurrentVersionTransition
+      def self.default(visited=[])
+        return nil if visited.include?('NoncurrentVersionTransition')
+        visited = visited + ['NoncurrentVersionTransition']
+        {
+          noncurrent_days: 1,
+          storage_class: 'storage_class',
+          newer_noncurrent_versions: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::NoncurrentVersionTransition.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('NoncurrentDays', stub[:noncurrent_days].to_s) unless stub[:noncurrent_days].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Hearth::XML::Node.new('NewerNoncurrentVersions', stub[:newer_noncurrent_versions].to_s) unless stub[:newer_noncurrent_versions].nil?
+        xml
+      end
+    end
+
+    # List Stubber for NoncurrentVersionTransitionList
+    class NoncurrentVersionTransitionList
+      def self.default(visited=[])
+        return nil if visited.include?('NoncurrentVersionTransitionList')
+        visited = visited + ['NoncurrentVersionTransitionList']
+        [
+          NoncurrentVersionTransition.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::NoncurrentVersionTransition.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for NotificationConfigurationFilter
+    class NotificationConfigurationFilter
+      def self.default(visited=[])
+        return nil if visited.include?('NotificationConfigurationFilter')
+        visited = visited + ['NotificationConfigurationFilter']
+        {
+          key: S3KeyFilter.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::NotificationConfigurationFilter.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::S3KeyFilter.stub('S3Key', stub[:key]) unless stub[:key].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Object
+    class Object
+      def self.default(visited=[])
+        return nil if visited.include?('Object')
+        visited = visited + ['Object']
+        {
+          key: 'key',
+          last_modified: Time.now,
+          e_tag: 'e_tag',
+          checksum_algorithm: ChecksumAlgorithmList.default(visited),
+          size: 1,
+          storage_class: 'storage_class',
+          owner: Owner.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Object.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
+        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
+        xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml
+      end
+    end
+
+    # List Stubber for ObjectList
+    class ObjectList
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectList')
+        visited = visited + ['ObjectList']
+        [
+          Object.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Object.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectLockConfiguration
+    class ObjectLockConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectLockConfiguration')
+        visited = visited + ['ObjectLockConfiguration']
+        {
+          object_lock_enabled: 'object_lock_enabled',
+          rule: ObjectLockRule.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectLockConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ObjectLockEnabled', stub[:object_lock_enabled].to_s) unless stub[:object_lock_enabled].nil?
+        xml << Stubs::ObjectLockRule.stub('Rule', stub[:rule]) unless stub[:rule].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectLockLegalHold
+    class ObjectLockLegalHold
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectLockLegalHold')
+        visited = visited + ['ObjectLockLegalHold']
+        {
+          status: 'status',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectLockLegalHold.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectLockRetention
+    class ObjectLockRetention
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectLockRetention')
+        visited = visited + ['ObjectLockRetention']
+        {
+          mode: 'mode',
+          retain_until_date: Time.now,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectLockRetention.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Mode', stub[:mode].to_s) unless stub[:mode].nil?
+        xml << Hearth::XML::Node.new('RetainUntilDate', Hearth::TimeHelper.to_date_time(stub[:retain_until_date])) unless stub[:retain_until_date].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectLockRule
+    class ObjectLockRule
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectLockRule')
+        visited = visited + ['ObjectLockRule']
+        {
+          default_retention: DefaultRetention.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectLockRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::DefaultRetention.stub('DefaultRetention', stub[:default_retention]) unless stub[:default_retention].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectPart
+    class ObjectPart
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectPart')
+        visited = visited + ['ObjectPart']
+        {
+          part_number: 1,
+          size: 1,
+          checksum_crc32: 'checksum_crc32',
+          checksum_crc32_c: 'checksum_crc32_c',
+          checksum_sha1: 'checksum_sha1',
+          checksum_sha256: 'checksum_sha256',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectPart.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('PartNumber', stub[:part_number].to_s) unless stub[:part_number].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
+        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
+        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ObjectVersion
+    class ObjectVersion
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectVersion')
+        visited = visited + ['ObjectVersion']
+        {
+          e_tag: 'e_tag',
+          checksum_algorithm: ChecksumAlgorithmList.default(visited),
+          size: 1,
+          storage_class: 'storage_class',
+          key: 'key',
+          version_id: 'version_id',
+          is_latest: false,
+          last_modified: Time.now,
+          owner: Owner.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ObjectVersion.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
+        xml << Stubs::ChecksumAlgorithmList.stub('ChecksumAlgorithm', stub[:checksum_algorithm]) unless stub[:checksum_algorithm].nil?
+        xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('VersionId', stub[:version_id].to_s) unless stub[:version_id].nil?
+        xml << Hearth::XML::Node.new('IsLatest', stub[:is_latest].to_s) unless stub[:is_latest].nil?
+        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
+        xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml
+      end
+    end
+
+    # List Stubber for ObjectVersionList
+    class ObjectVersionList
+      def self.default(visited=[])
+        return nil if visited.include?('ObjectVersionList')
+        visited = visited + ['ObjectVersionList']
+        [
+          ObjectVersion.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::ObjectVersion.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for Owner
+    class Owner
+      def self.default(visited=[])
+        return nil if visited.include?('Owner')
+        visited = visited + ['Owner']
+        {
+          display_name: 'display_name',
+          id: 'id',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Owner.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('DisplayName', stub[:display_name].to_s) unless stub[:display_name].nil?
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for OwnershipControls
+    class OwnershipControls
+      def self.default(visited=[])
+        return nil if visited.include?('OwnershipControls')
+        visited = visited + ['OwnershipControls']
+        {
+          rules: OwnershipControlsRules.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::OwnershipControls.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::OwnershipControlsRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for OwnershipControlsRule
+    class OwnershipControlsRule
+      def self.default(visited=[])
+        return nil if visited.include?('OwnershipControlsRule')
+        visited = visited + ['OwnershipControlsRule']
+        {
+          object_ownership: 'object_ownership',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::OwnershipControlsRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ObjectOwnership', stub[:object_ownership].to_s) unless stub[:object_ownership].nil?
+        xml
+      end
+    end
+
+    # List Stubber for OwnershipControlsRules
+    class OwnershipControlsRules
+      def self.default(visited=[])
+        return nil if visited.include?('OwnershipControlsRules')
+        visited = visited + ['OwnershipControlsRules']
+        [
+          OwnershipControlsRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::OwnershipControlsRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4261,6 +3516,128 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
+        xml
+      end
+    end
+
+    # List Stubber for Parts
+    class Parts
+      def self.default(visited=[])
+        return nil if visited.include?('Parts')
+        visited = visited + ['Parts']
+        [
+          Part.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Part.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # List Stubber for PartsList
+    class PartsList
+      def self.default(visited=[])
+        return nil if visited.include?('PartsList')
+        visited = visited + ['PartsList']
+        [
+          ObjectPart.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::ObjectPart.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for PolicyStatus
+    class PolicyStatus
+      def self.default(visited=[])
+        return nil if visited.include?('PolicyStatus')
+        visited = visited + ['PolicyStatus']
+        {
+          is_public: false,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::PolicyStatus.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('IsPublic', stub[:is_public].to_s) unless stub[:is_public].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Progress
+    class Progress
+      def self.default(visited=[])
+        return nil if visited.include?('Progress')
+        visited = visited + ['Progress']
+        {
+          bytes_scanned: 1,
+          bytes_processed: 1,
+          bytes_returned: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Progress.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('BytesScanned', stub[:bytes_scanned].to_s) unless stub[:bytes_scanned].nil?
+        xml << Hearth::XML::Node.new('BytesProcessed', stub[:bytes_processed].to_s) unless stub[:bytes_processed].nil?
+        xml << Hearth::XML::Node.new('BytesReturned', stub[:bytes_returned].to_s) unless stub[:bytes_returned].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ProgressEvent
+    class ProgressEvent
+      def self.default(visited=[])
+        return nil if visited.include?('ProgressEvent')
+        visited = visited + ['ProgressEvent']
+        {
+          details: Progress.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ProgressEvent.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::Progress.stub('Details', stub[:details]) unless stub[:details].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for PublicAccessBlockConfiguration
+    class PublicAccessBlockConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('PublicAccessBlockConfiguration')
+        visited = visited + ['PublicAccessBlockConfiguration']
+        {
+          block_public_acls: false,
+          ignore_public_acls: false,
+          block_public_policy: false,
+          restrict_public_buckets: false,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::PublicAccessBlockConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('BlockPublicAcls', stub[:block_public_acls].to_s) unless stub[:block_public_acls].nil?
+        xml << Hearth::XML::Node.new('IgnorePublicAcls', stub[:ignore_public_acls].to_s) unless stub[:ignore_public_acls].nil?
+        xml << Hearth::XML::Node.new('BlockPublicPolicy', stub[:block_public_policy].to_s) unless stub[:block_public_policy].nil?
+        xml << Hearth::XML::Node.new('RestrictPublicBuckets', stub[:restrict_public_buckets].to_s) unless stub[:restrict_public_buckets].nil?
         xml
       end
     end
@@ -4628,6 +4005,292 @@ module AWS::SDK::S3
       end
     end
 
+    # Structure Stubber for QueueConfiguration
+    class QueueConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('QueueConfiguration')
+        visited = visited + ['QueueConfiguration']
+        {
+          id: 'id',
+          queue_arn: 'queue_arn',
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::QueueConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('Queue', stub[:queue_arn].to_s) unless stub[:queue_arn].nil?
+        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml
+      end
+    end
+
+    # List Stubber for QueueConfigurationList
+    class QueueConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('QueueConfigurationList')
+        visited = visited + ['QueueConfigurationList']
+        [
+          QueueConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::QueueConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for RecordsEvent
+    class RecordsEvent
+      def self.default(visited=[])
+        return nil if visited.include?('RecordsEvent')
+        visited = visited + ['RecordsEvent']
+        {
+          payload: 'payload',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::RecordsEvent.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Payload', ::Base64::encode64(stub[:payload]).strip) unless stub[:payload].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Redirect
+    class Redirect
+      def self.default(visited=[])
+        return nil if visited.include?('Redirect')
+        visited = visited + ['Redirect']
+        {
+          host_name: 'host_name',
+          http_redirect_code: 'http_redirect_code',
+          protocol: 'protocol',
+          replace_key_prefix_with: 'replace_key_prefix_with',
+          replace_key_with: 'replace_key_with',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Redirect.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('HostName', stub[:host_name].to_s) unless stub[:host_name].nil?
+        xml << Hearth::XML::Node.new('HttpRedirectCode', stub[:http_redirect_code].to_s) unless stub[:http_redirect_code].nil?
+        xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
+        xml << Hearth::XML::Node.new('ReplaceKeyPrefixWith', stub[:replace_key_prefix_with].to_s) unless stub[:replace_key_prefix_with].nil?
+        xml << Hearth::XML::Node.new('ReplaceKeyWith', stub[:replace_key_with].to_s) unless stub[:replace_key_with].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for RedirectAllRequestsTo
+    class RedirectAllRequestsTo
+      def self.default(visited=[])
+        return nil if visited.include?('RedirectAllRequestsTo')
+        visited = visited + ['RedirectAllRequestsTo']
+        {
+          host_name: 'host_name',
+          protocol: 'protocol',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::RedirectAllRequestsTo.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('HostName', stub[:host_name].to_s) unless stub[:host_name].nil?
+        xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicaModifications
+    class ReplicaModifications
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicaModifications')
+        visited = visited + ['ReplicaModifications']
+        {
+          status: 'status',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicaModifications.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicationConfiguration
+    class ReplicationConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationConfiguration')
+        visited = visited + ['ReplicationConfiguration']
+        {
+          role: 'role',
+          rules: ReplicationRules.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicationConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Role', stub[:role].to_s) unless stub[:role].nil?
+        xml << Stubs::ReplicationRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicationRule
+    class ReplicationRule
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationRule')
+        visited = visited + ['ReplicationRule']
+        {
+          id: 'id',
+          priority: 1,
+          prefix: 'prefix',
+          filter: ReplicationRuleFilter.default(visited),
+          status: 'status',
+          source_selection_criteria: SourceSelectionCriteria.default(visited),
+          existing_object_replication: ExistingObjectReplication.default(visited),
+          destination: Destination.default(visited),
+          delete_marker_replication: DeleteMarkerReplication.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicationRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('ID', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('Priority', stub[:priority].to_s) unless stub[:priority].nil?
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::ReplicationRuleFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml << Stubs::SourceSelectionCriteria.stub('SourceSelectionCriteria', stub[:source_selection_criteria]) unless stub[:source_selection_criteria].nil?
+        xml << Stubs::ExistingObjectReplication.stub('ExistingObjectReplication', stub[:existing_object_replication]) unless stub[:existing_object_replication].nil?
+        xml << Stubs::Destination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
+        xml << Stubs::DeleteMarkerReplication.stub('DeleteMarkerReplication', stub[:delete_marker_replication]) unless stub[:delete_marker_replication].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicationRuleAndOperator
+    class ReplicationRuleAndOperator
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationRuleAndOperator')
+        visited = visited + ['ReplicationRuleAndOperator']
+        {
+          prefix: 'prefix',
+          tags: TagSet.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicationRuleAndOperator.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
+        xml << Stubs::TagSet.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml
+      end
+    end
+
+    # Union Stubber for ReplicationRuleFilter
+    class ReplicationRuleFilter
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationRuleFilter')
+        visited = visited + ['ReplicationRuleFilter']
+        {
+          prefix: 'prefix',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        xml = Hearth::XML::Node.new(node_name)
+        case stub
+        when Types::ReplicationRuleFilter::Prefix
+          xml << Hearth::XML::Node.new('Prefix', stub.__getobj__.to_s) unless stub.__getobj__.nil?
+        when Types::ReplicationRuleFilter::Tag
+          xml << Stubs::Tag.stub('Tag', stub.__getobj__) unless stub.__getobj__.nil?
+        when Types::ReplicationRuleFilter::And
+          xml << Stubs::ReplicationRuleAndOperator.stub('And', stub.__getobj__) unless stub.__getobj__.nil?
+        else
+          raise ArgumentError,
+          "Expected input to be one of the subclasses of Types::ReplicationRuleFilter"
+        end
+
+        xml
+      end
+    end
+
+    # List Stubber for ReplicationRules
+    class ReplicationRules
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationRules')
+        visited = visited + ['ReplicationRules']
+        [
+          ReplicationRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::ReplicationRule.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicationTime
+    class ReplicationTime
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationTime')
+        visited = visited + ['ReplicationTime']
+        {
+          status: 'status',
+          time: ReplicationTimeValue.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicationTime.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
+        xml << Stubs::ReplicationTimeValue.stub('Time', stub[:time]) unless stub[:time].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ReplicationTimeValue
+    class ReplicationTimeValue
+      def self.default(visited=[])
+        return nil if visited.include?('ReplicationTimeValue')
+        visited = visited + ['ReplicationTimeValue']
+        {
+          minutes: 1,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ReplicationTimeValue.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Minutes', stub[:minutes].to_s) unless stub[:minutes].nil?
+        xml
+      end
+    end
+
     # Operation Stubber for RestoreObject
     class RestoreObject
       def self.default(visited=[])
@@ -4642,6 +4305,98 @@ module AWS::SDK::S3
         http_resp.status = 200
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
         http_resp.headers['x-amz-restore-output-path'] = stub[:restore_output_path] unless stub[:restore_output_path].nil? || stub[:restore_output_path].empty?
+      end
+    end
+
+    # Structure Stubber for RoutingRule
+    class RoutingRule
+      def self.default(visited=[])
+        return nil if visited.include?('RoutingRule')
+        visited = visited + ['RoutingRule']
+        {
+          condition: Condition.default(visited),
+          redirect: Redirect.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::RoutingRule.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::Condition.stub('Condition', stub[:condition]) unless stub[:condition].nil?
+        xml << Stubs::Redirect.stub('Redirect', stub[:redirect]) unless stub[:redirect].nil?
+        xml
+      end
+    end
+
+    # List Stubber for RoutingRules
+    class RoutingRules
+      def self.default(visited=[])
+        return nil if visited.include?('RoutingRules')
+        visited = visited + ['RoutingRules']
+        [
+          RoutingRule.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::RoutingRule.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for S3KeyFilter
+    class S3KeyFilter
+      def self.default(visited=[])
+        return nil if visited.include?('S3KeyFilter')
+        visited = visited + ['S3KeyFilter']
+        {
+          filter_rules: FilterRuleList.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::S3KeyFilter.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::FilterRuleList.stub('FilterRule', stub[:filter_rules]) unless stub[:filter_rules].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for SSEKMS
+    class SSEKMS
+      def self.default(visited=[])
+        return nil if visited.include?('SSEKMS')
+        visited = visited + ['SSEKMS']
+        {
+          key_id: 'key_id',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::SSEKMS.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('KeyId', stub[:key_id].to_s) unless stub[:key_id].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for SSES3
+    class SSES3
+      def self.default(visited=[])
+        return nil if visited.include?('SSES3')
+        visited = visited + ['SSES3']
+        {
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::SSES3.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml
       end
     end
 
@@ -4692,92 +4447,118 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for EndEvent
-    class EndEvent
+    # Structure Stubber for ServerSideEncryptionByDefault
+    class ServerSideEncryptionByDefault
       def self.default(visited=[])
-        return nil if visited.include?('EndEvent')
-        visited = visited + ['EndEvent']
+        return nil if visited.include?('ServerSideEncryptionByDefault')
+        visited = visited + ['ServerSideEncryptionByDefault']
         {
+          sse_algorithm: 'sse_algorithm',
+          kms_master_key_id: 'kms_master_key_id',
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::EndEvent.new
+        stub ||= Types::ServerSideEncryptionByDefault.new
         xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('SSEAlgorithm', stub[:sse_algorithm].to_s) unless stub[:sse_algorithm].nil?
+        xml << Hearth::XML::Node.new('KMSMasterKeyID', stub[:kms_master_key_id].to_s) unless stub[:kms_master_key_id].nil?
         xml
       end
     end
 
-    # Structure Stubber for ContinuationEvent
-    class ContinuationEvent
+    # Structure Stubber for ServerSideEncryptionConfiguration
+    class ServerSideEncryptionConfiguration
       def self.default(visited=[])
-        return nil if visited.include?('ContinuationEvent')
-        visited = visited + ['ContinuationEvent']
+        return nil if visited.include?('ServerSideEncryptionConfiguration')
+        visited = visited + ['ServerSideEncryptionConfiguration']
         {
+          rules: ServerSideEncryptionRules.default(visited),
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::ContinuationEvent.new
+        stub ||= Types::ServerSideEncryptionConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::ServerSideEncryptionRules.stub('Rule', stub[:rules]) unless stub[:rules].nil?
         xml
       end
     end
 
-    # Structure Stubber for ProgressEvent
-    class ProgressEvent
+    # Structure Stubber for ServerSideEncryptionRule
+    class ServerSideEncryptionRule
       def self.default(visited=[])
-        return nil if visited.include?('ProgressEvent')
-        visited = visited + ['ProgressEvent']
+        return nil if visited.include?('ServerSideEncryptionRule')
+        visited = visited + ['ServerSideEncryptionRule']
         {
-          details: Progress.default(visited),
+          apply_server_side_encryption_by_default: ServerSideEncryptionByDefault.default(visited),
+          bucket_key_enabled: false,
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::ProgressEvent.new
+        stub ||= Types::ServerSideEncryptionRule.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Progress.stub('Details', stub[:details]) unless stub[:details].nil?
+        xml << Stubs::ServerSideEncryptionByDefault.stub('ApplyServerSideEncryptionByDefault', stub[:apply_server_side_encryption_by_default]) unless stub[:apply_server_side_encryption_by_default].nil?
+        xml << Hearth::XML::Node.new('BucketKeyEnabled', stub[:bucket_key_enabled].to_s) unless stub[:bucket_key_enabled].nil?
         xml
       end
     end
 
-    # Structure Stubber for Progress
-    class Progress
+    # List Stubber for ServerSideEncryptionRules
+    class ServerSideEncryptionRules
       def self.default(visited=[])
-        return nil if visited.include?('Progress')
-        visited = visited + ['Progress']
-        {
-          bytes_scanned: 1,
-          bytes_processed: 1,
-          bytes_returned: 1,
-        }
+        return nil if visited.include?('ServerSideEncryptionRules')
+        visited = visited + ['ServerSideEncryptionRules']
+        [
+          ServerSideEncryptionRule.default(visited)
+        ]
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::Progress.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('BytesScanned', stub[:bytes_scanned].to_s) unless stub[:bytes_scanned].nil?
-        xml << Hearth::XML::Node.new('BytesProcessed', stub[:bytes_processed].to_s) unless stub[:bytes_processed].nil?
-        xml << Hearth::XML::Node.new('BytesReturned', stub[:bytes_returned].to_s) unless stub[:bytes_returned].nil?
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::ServerSideEncryptionRule.stub(node_name, element) unless element.nil?
+        end
         xml
       end
     end
 
-    # Structure Stubber for StatsEvent
-    class StatsEvent
+    # Structure Stubber for SourceSelectionCriteria
+    class SourceSelectionCriteria
       def self.default(visited=[])
-        return nil if visited.include?('StatsEvent')
-        visited = visited + ['StatsEvent']
+        return nil if visited.include?('SourceSelectionCriteria')
+        visited = visited + ['SourceSelectionCriteria']
         {
-          details: Stats.default(visited),
+          sse_kms_encrypted_objects: SseKmsEncryptedObjects.default(visited),
+          replica_modifications: ReplicaModifications.default(visited),
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::StatsEvent.new
+        stub ||= Types::SourceSelectionCriteria.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Stats.stub('Details', stub[:details]) unless stub[:details].nil?
+        xml << Stubs::SseKmsEncryptedObjects.stub('SseKmsEncryptedObjects', stub[:sse_kms_encrypted_objects]) unless stub[:sse_kms_encrypted_objects].nil?
+        xml << Stubs::ReplicaModifications.stub('ReplicaModifications', stub[:replica_modifications]) unless stub[:replica_modifications].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for SseKmsEncryptedObjects
+    class SseKmsEncryptedObjects
+      def self.default(visited=[])
+        return nil if visited.include?('SseKmsEncryptedObjects')
+        visited = visited + ['SseKmsEncryptedObjects']
+        {
+          status: 'status',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::SseKmsEncryptedObjects.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml
       end
     end
@@ -4804,20 +4585,268 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for RecordsEvent
-    class RecordsEvent
+    # Structure Stubber for StatsEvent
+    class StatsEvent
       def self.default(visited=[])
-        return nil if visited.include?('RecordsEvent')
-        visited = visited + ['RecordsEvent']
+        return nil if visited.include?('StatsEvent')
+        visited = visited + ['StatsEvent']
         {
-          payload: 'payload',
+          details: Stats.default(visited),
         }
       end
 
       def self.stub(node_name, stub)
-        stub ||= Types::RecordsEvent.new
+        stub ||= Types::StatsEvent.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Payload', ::Base64::encode64(stub[:payload]).strip) unless stub[:payload].nil?
+        xml << Stubs::Stats.stub('Details', stub[:details]) unless stub[:details].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for StorageClassAnalysis
+    class StorageClassAnalysis
+      def self.default(visited=[])
+        return nil if visited.include?('StorageClassAnalysis')
+        visited = visited + ['StorageClassAnalysis']
+        {
+          data_export: StorageClassAnalysisDataExport.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::StorageClassAnalysis.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::StorageClassAnalysisDataExport.stub('DataExport', stub[:data_export]) unless stub[:data_export].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for StorageClassAnalysisDataExport
+    class StorageClassAnalysisDataExport
+      def self.default(visited=[])
+        return nil if visited.include?('StorageClassAnalysisDataExport')
+        visited = visited + ['StorageClassAnalysisDataExport']
+        {
+          output_schema_version: 'output_schema_version',
+          destination: AnalyticsExportDestination.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::StorageClassAnalysisDataExport.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('OutputSchemaVersion', stub[:output_schema_version].to_s) unless stub[:output_schema_version].nil?
+        xml << Stubs::AnalyticsExportDestination.stub('Destination', stub[:destination]) unless stub[:destination].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for Tag
+    class Tag
+      def self.default(visited=[])
+        return nil if visited.include?('Tag')
+        visited = visited + ['Tag']
+        {
+          key: 'key',
+          value: 'value',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Tag.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
+        xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
+        xml
+      end
+    end
+
+    # List Stubber for TagSet
+    class TagSet
+      def self.default(visited=[])
+        return nil if visited.include?('TagSet')
+        visited = visited + ['TagSet']
+        [
+          Tag.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for TargetGrant
+    class TargetGrant
+      def self.default(visited=[])
+        return nil if visited.include?('TargetGrant')
+        visited = visited + ['TargetGrant']
+        {
+          grantee: Grantee.default(visited),
+          permission: 'permission',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::TargetGrant.new
+        xml = Hearth::XML::Node.new(node_name)
+        unless stub[:grantee].nil?
+          nodes = Stubs::Grantee.stub('Grantee', stub[:grantee])
+          nodes.each { |n| n.attributes['xmlns:xsi'] = 'http://www.w3.org/2001/XMLSchema-instance' }
+          xml << nodes
+        end
+        xml << Hearth::XML::Node.new('Permission', stub[:permission].to_s) unless stub[:permission].nil?
+        xml
+      end
+    end
+
+    # List Stubber for TargetGrants
+    class TargetGrants
+      def self.default(visited=[])
+        return nil if visited.include?('TargetGrants')
+        visited = visited + ['TargetGrants']
+        [
+          TargetGrant.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::TargetGrant.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for Tiering
+    class Tiering
+      def self.default(visited=[])
+        return nil if visited.include?('Tiering')
+        visited = visited + ['Tiering']
+        {
+          days: 1,
+          access_tier: 'access_tier',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Tiering.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
+        xml << Hearth::XML::Node.new('AccessTier', stub[:access_tier].to_s) unless stub[:access_tier].nil?
+        xml
+      end
+    end
+
+    # List Stubber for TieringList
+    class TieringList
+      def self.default(visited=[])
+        return nil if visited.include?('TieringList')
+        visited = visited + ['TieringList']
+        [
+          Tiering.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Tiering.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for TopicConfiguration
+    class TopicConfiguration
+      def self.default(visited=[])
+        return nil if visited.include?('TopicConfiguration')
+        visited = visited + ['TopicConfiguration']
+        {
+          id: 'id',
+          topic_arn: 'topic_arn',
+          events: EventList.default(visited),
+          filter: NotificationConfigurationFilter.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::TopicConfiguration.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
+        xml << Hearth::XML::Node.new('Topic', stub[:topic_arn].to_s) unless stub[:topic_arn].nil?
+        xml << Stubs::EventList.stub('Event', stub[:events]) unless stub[:events].nil?
+        xml << Stubs::NotificationConfigurationFilter.stub('Filter', stub[:filter]) unless stub[:filter].nil?
+        xml
+      end
+    end
+
+    # List Stubber for TopicConfigurationList
+    class TopicConfigurationList
+      def self.default(visited=[])
+        return nil if visited.include?('TopicConfigurationList')
+        visited = visited + ['TopicConfigurationList']
+        [
+          TopicConfiguration.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::TopicConfiguration.stub(node_name, element) unless element.nil?
+        end
+        xml
+      end
+    end
+
+    # Structure Stubber for Transition
+    class Transition
+      def self.default(visited=[])
+        return nil if visited.include?('Transition')
+        visited = visited + ['Transition']
+        {
+          date: Time.now,
+          days: 1,
+          storage_class: 'storage_class',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::Transition.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
+        xml << Hearth::XML::Node.new('Days', stub[:days].to_s) unless stub[:days].nil?
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml
+      end
+    end
+
+    # List Stubber for TransitionList
+    class TransitionList
+      def self.default(visited=[])
+        return nil if visited.include?('TransitionList')
+        visited = visited + ['TransitionList']
+        [
+          Transition.default(visited)
+        ]
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= []
+        xml = []
+        stub.each do |element|
+          xml << Stubs::Transition.stub(node_name, element) unless element.nil?
+        end
         xml
       end
     end
@@ -4885,34 +4914,6 @@ module AWS::SDK::S3
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CopyPartResult.build('CopyPartResult', stub[:copy_part_result]) unless stub[:copy_part_result].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
-      end
-    end
-
-    # Structure Stubber for CopyPartResult
-    class CopyPartResult
-      def self.default(visited=[])
-        return nil if visited.include?('CopyPartResult')
-        visited = visited + ['CopyPartResult']
-        {
-          e_tag: 'e_tag',
-          last_modified: Time.now,
-          checksum_crc32: 'checksum_crc32',
-          checksum_crc32_c: 'checksum_crc32_c',
-          checksum_sha1: 'checksum_sha1',
-          checksum_sha256: 'checksum_sha256',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::CopyPartResult.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
-        xml << Hearth::XML::Node.new('ChecksumCRC32', stub[:checksum_crc32].to_s) unless stub[:checksum_crc32].nil?
-        xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
-        xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
-        xml
       end
     end
 
