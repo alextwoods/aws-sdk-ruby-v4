@@ -80,6 +80,17 @@ module AWS::SDK::Core
             expect(request.headers['X-Amz-Checksum-Sha256'])
               .to eq('pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=')
           end
+
+          context 'the request body is not readable' do
+            let(:request_body) { 'Hello World' }
+
+            it 'computes the checksum' do
+              subject.call(input, context)
+
+              expect(request.headers['X-Amz-Checksum-Sha256'])
+                .to eq('pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=')
+            end
+          end
         end
 
         context 'validation enabled' do
@@ -93,6 +104,7 @@ module AWS::SDK::Core
                 response.headers[k] = v
               end
               response.body.write(response_data)
+              response.body.rewind
             end
           end
 
@@ -108,6 +120,15 @@ module AWS::SDK::Core
               subject.call(input, context)
               expect(context.metadata[:http_checksum][:validated])
                 .to eq('SHA256')
+            end
+
+            it 'wraps the body in an IO like interface' do
+              subject.call(input, context)
+              resp_body = context.response.body
+              first_read = resp_body.read
+              resp_body.rewind
+              expect(resp_body.read).to eq(first_read)
+              expect(resp_body.size).to eq(first_read.size)
             end
           end
 
@@ -152,12 +173,31 @@ module AWS::SDK::Core
 
             sent_data.rewind
             expect(sent_data.read).to eq(
-              "b\r\nHello World\r\n0\r\nx-amz-checksum-sha256:pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\r\n\r\n"
+              "b\r\nHello World\r\n0\r\nx-amz-checksum-sha256:" \
+              "pZGm1Av0IEBKARczz7exkNYsZb8LzaMrV7J32a2fFG4=\r\n\r\n"
             )
+          end
+
+          it 'wraps the body in an IO like interface' do
+            subject.call(input, context)
+            req_body = context.request.body
+            first_read = req_body.read
+            req_body.rewind
+            expect(req_body.read).to eq(first_read)
           end
 
           context 'require_decoded_content_length: true' do
             let(:require_decoded_content_length) { true }
+
+            context 'request body does not have size' do
+              let(:request_body) { double }
+
+              it 'raises an error' do
+                expect do
+                  subject.call(input, context)
+                end.to raise_error(ArgumentError)
+              end
+            end
 
             it 'adds the decoded content length header' do
               subject.call(input, context)
@@ -165,6 +205,11 @@ module AWS::SDK::Core
               headers = context.request.headers
               expect(headers['X-Amz-Decoded-Content-Length']).to eq('11')
               expect(headers['transfer-encoding']).to be_nil
+            end
+
+            it 'is able to compute the entire size' do
+              subject.call(input, context)
+              expect(context.request.body.size).to eq(69)
             end
           end
         end

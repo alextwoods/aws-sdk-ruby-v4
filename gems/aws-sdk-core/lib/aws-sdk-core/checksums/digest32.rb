@@ -4,9 +4,9 @@ require 'base64'
 
 module AWS::SDK::Core
   module Checksums
-    # Utility class for computing digests on IO like objects
+    # Utility class for computing digests on IO like objects.
     # Applies only to digest functions that produce 32 bit integer checksums
-    # (eg CRC32)
+    # (eg CRC32).
     # @api private
     class Digest32
       # @param [Object] digest_fn

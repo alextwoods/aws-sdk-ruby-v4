@@ -46,35 +46,13 @@ module AWS::SDK::Core
 
       def call(input, context)
         context.metadata[:http_checksum] ||= {}
-        # Handle request checksum
-        checksum_algorithm = input[@request_algorithm_member]
 
-        if checksum_algorithm
-          field_name = checksum_field_name(checksum_algorithm)
-          digest = AWS::SDK::Core::Checksums.algorithm_for(checksum_algorithm)
-
-          if @streaming
-            compute_streaming_checksum(context, digest, field_name)
-
-          else
-            context.request.headers[field_name] =
-              compute_checksum(digest, context.request.body)
-          end
-        end
+        request_checksum(input, context)
 
         # Handle response checksum
         if @request_validation_mode_member &&
            input[@request_validation_mode_member] == 'ENABLED'
-          # Compute an ordered list as the union between priority supported and
-          # the operation's modeled response algorithms.
-          validation_list = CHECKSUM_ALGORITHM_PRIORITIES & @response_algorithms
-
-          @response_validation_body = context.response.body =
-            ChecksumValidationIO.new(
-              context.response.body,
-              validation_list,
-              context
-            )
+          response_checksum(context)
         end
 
         output = @app.call(input, context)
@@ -84,30 +62,45 @@ module AWS::SDK::Core
 
       private
 
+      def request_checksum(input, context)
+        checksum_algorithm = input[@request_algorithm_member]
+
+        return unless checksum_algorithm
+
+        field_name = checksum_field_name(checksum_algorithm)
+        digest = AWS::SDK::Core::Checksums.algorithm_for(checksum_algorithm)
+
+        if @streaming
+          compute_streaming_checksum(context, digest, field_name)
+
+        else
+          context.request.headers[field_name] =
+            compute_checksum(digest, context.request.body)
+        end
+      end
+
+      def response_checksum(context)
+        # Compute an ordered list as the union between priority supported and
+        # the operation's modeled response algorithms.
+        validation_list = CHECKSUM_ALGORITHM_PRIORITIES & @response_algorithms
+
+        @response_validation_body = context.response.body =
+          ChecksumValidationIO.new(
+            context.response.body,
+            validation_list,
+            context
+          )
+      end
+
       def compute_streaming_checksum(context, digest, field_name)
         headers = context.request.headers
-        headers['Content-Encoding'] = 'aws-chunked'
-        headers['X-Amz-Trailer'] = field_name
-        if @signed_streaming
-          headers['x-amz-content-sha256'] =
-            'STREAMING-AWS4-HMAC-SHA256-PAYLOAD-TRAILER'
-        else
-          headers['x-amz-content-sha256'] =
-            'STREAMING-UNSIGNED-PAYLOAD-TRAILER'
-        end
+
+        streaming_content_headers(headers, field_name)
 
         # some operations require the decoded content length set
         # this requires that the original body has size
         if @require_decoded_content_length
-          unless context.request.body.respond_to?(:size)
-            raise ArgumentError, 'Could not determine length of the body'
-          end
-
-          headers['X-Amz-Decoded-Content-Length'] =
-            context.request.body.size
-          context.request.body = AwsChunkedTrailerDigestSizeIO.new(
-            context.request.body, digest, field_name, @signed_streaming
-          )
+          compute_streaming_checksum_with_size(context, digest, field_name)
         else
           # skip setting Content-Length
           headers['transfer-encoding'] = 'chunked'
@@ -115,6 +108,32 @@ module AWS::SDK::Core
             context.request.body, digest, field_name, @signed_streaming
           )
         end
+      end
+
+      def streaming_content_headers(headers, field_name)
+        headers['Content-Encoding'] = 'aws-chunked'
+        headers['X-Amz-Trailer'] = field_name
+
+        if @signed_streaming
+          headers['x-amz-content-sha256'] =
+            'STREAMING-AWS4-HMAC-SHA256-PAYLOAD-TRAILER'
+        else
+          headers['x-amz-content-sha256'] =
+            'STREAMING-UNSIGNED-PAYLOAD-TRAILER'
+        end
+      end
+
+      def compute_streaming_checksum_with_size(context, digest, field_name)
+        unless context.request.body.respond_to?(:size)
+          raise ArgumentError, 'Could not determine length of the body'
+        end
+
+        request = context.request
+
+        request.headers['X-Amz-Decoded-Content-Length'] = request.body.size
+        request.body = AwsChunkedTrailerDigestSizeIO.new(
+          request.body, digest, field_name, @signed_streaming
+        )
       end
 
       def checksum_field_name(checksum_algorithm)
@@ -173,6 +192,10 @@ module AWS::SDK::Core
           @io.write(chunk)
         end
 
+        def read(*args)
+          @io.read(*args)
+        end
+
         def rewind
           @io.rewind
         end
@@ -227,7 +250,7 @@ module AWS::SDK::Core
           @io.rewind
         end
 
-        def read(length, buf)
+        def read(length = CHUNK_SIZE, buf = nil)
           # account for possible leftover bytes at the end,
           # if we have trailer bytes, send them
           return @trailer_io.read(length, buf) if @trailer_io
@@ -239,19 +262,17 @@ module AWS::SDK::Core
             return StringIO.new(application_chunked)
                            .read(application_chunked.size, buf)
           else
-            trailers = {}
-            trailers[@field_name] = @digest.base64digest
-            trailers = trailers.map { |k, v| "#{k}:#{v}" }.join("\r\n")
-            @trailer_io = StringIO.new("0\r\n#{trailers}\r\n\r\n")
-            chunk = @trailer_io.read(length, buf)
+            chunk = write_trailers(length, buf)
           end
           chunk
         end
 
-        # The trailer size (in bytes) is the overhead + the trailer name +
-        # the length of the base64 encoded checksum
-        def trailer_length
-          @digest.digest_length + @field_name.size
+        def write_trailers(length, buf)
+          trailers = {}
+          trailers[@field_name] = @digest.base64digest
+          trailers = trailers.map { |k, v| "#{k}:#{v}" }.join("\r\n")
+          @trailer_io = StringIO.new("0\r\n#{trailers}\r\n\r\n")
+          @trailer_io.read(length, buf)
         end
       end
 
@@ -270,8 +291,14 @@ module AWS::SDK::Core
             chunked_body_size += partial_bytes.to_s(16).size +
                                  partial_bytes + 4
           end
-          trailer_size = Checksum.trailer_length(@digest, @field_name)
+          trailer_size = trailer_length
           chunked_body_size + trailer_size
+        end
+
+        # The trailer size (in bytes) is the overhead + the trailer name +
+        # the length of the base64 encoded checksum
+        def trailer_length
+          @digest.digest_length + @field_name.size
         end
       end
     end
