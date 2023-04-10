@@ -338,8 +338,8 @@ public class ParserGenerator extends ParserGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexDeserializer(Shape shape) {
-            writer.write("$L$T.parse(node)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$L$L.parse(node)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 
         @Override
@@ -352,8 +352,8 @@ public class ParserGenerator extends ParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('$L')", xmlName);
             }
-            writer.write("$L$T.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$L$L.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
             return null;
         }
 
@@ -362,8 +362,8 @@ public class ParserGenerator extends ParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('entry')");
             }
-            writer.write("$L$T.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$L$L.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
             return null;
         }
 
