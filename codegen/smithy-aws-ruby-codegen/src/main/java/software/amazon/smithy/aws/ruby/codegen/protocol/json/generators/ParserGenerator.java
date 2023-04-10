@@ -240,12 +240,12 @@ public class ParserGenerator extends ParserGeneratorBase {
          */
         private void defaultComplexDeserializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.parse($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L$2L.parse($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         jsonGetter);
             } else {
-                writer.write("$1L($2T.parse($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L($2L.parse($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         jsonGetter);
             }
         }

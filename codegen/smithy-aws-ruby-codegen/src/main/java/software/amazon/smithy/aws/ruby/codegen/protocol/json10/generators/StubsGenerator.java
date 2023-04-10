@@ -47,7 +47,6 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(stub)")
                 .write("data = {}")
@@ -221,11 +220,11 @@ public class StubsGenerator extends StubsGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.stub($3L) unless $3L.nil?", dataSetter,
-                        symbolProvider.toSymbol(shape), inputGetter);
+                writer.write("$1L$2L.stub($3L) unless $3L.nil?", dataSetter,
+                        symbolProvider.toSymbol(shape).getName(), inputGetter);
             } else {
-                writer.write("$1L($2T.stub($3L) unless $3L.nil?)", dataSetter,
-                        symbolProvider.toSymbol(shape), inputGetter);
+                writer.write("$1L($2L.stub($3L) unless $3L.nil?)", dataSetter,
+                        symbolProvider.toSymbol(shape).getName(), inputGetter);
             }
         }
 
