@@ -164,7 +164,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(node_name, stub)")
                 .write("xml = $T.new(node_name)", Hearth.XML_NODE)

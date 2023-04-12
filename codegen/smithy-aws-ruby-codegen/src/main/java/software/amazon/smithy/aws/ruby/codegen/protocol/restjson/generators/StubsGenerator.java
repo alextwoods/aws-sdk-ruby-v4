@@ -106,7 +106,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(stub)")
                 .write("data = {}")
@@ -241,11 +240,11 @@ public class StubsGenerator extends RestStubsGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.stub($3L) unless $3L.nil?", dataSetter,
-                        symbolProvider.toSymbol(shape), inputGetter);
+                writer.write("$1L$2L.stub($3L) unless $3L.nil?", dataSetter,
+                        symbolProvider.toSymbol(shape).getName(), inputGetter);
             } else {
-                writer.write("$1L($2T.stub($3L) unless $3L.nil?)", dataSetter,
-                        symbolProvider.toSymbol(shape), inputGetter);
+                writer.write("$1L($2L.stub($3L) unless $3L.nil?)", dataSetter,
+                        symbolProvider.toSymbol(shape).getName(), inputGetter);
             }
         }
 
@@ -347,7 +346,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         private void defaultComplexSerializer(Shape shape) {
             writer
                     .write("http_resp.headers['Content-Type'] = 'application/json'")
-                    .write("data = $1T.stub($2L) unless $2L.nil?", symbolProvider.toSymbol(shape),
+                    .write("data = $1L.stub($2L) unless $2L.nil?", symbolProvider.toSymbol(shape).getName(),
                             inputGetter)
                     .write("http_resp.body = $T.new($T.dump(data))",
                             RubyImportContainer.STRING_IO, Hearth.JSON);

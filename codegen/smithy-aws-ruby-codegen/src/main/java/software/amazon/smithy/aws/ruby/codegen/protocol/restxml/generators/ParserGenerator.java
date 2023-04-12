@@ -367,8 +367,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexDeserializer(Shape shape) {
-            writer.write("$1L$2T.parse(node)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$1L$2L.parse(node)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 
         @Override
@@ -381,8 +381,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('$L')", xmlName);
             }
-            writer.write("$1L$2T.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$1L$2L.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
             return null;
         }
 
@@ -391,8 +391,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("children = node.children('entry')");
             }
-            writer.write("$1L$2T.parse(children)",
-                    dataSetter, symbolProvider.toSymbol(shape));
+            writer.write("$1L$2L.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
             return null;
         }
 
@@ -469,7 +469,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
                     .write("body = http_resp.body.read")
                     .write("return data if body.empty?")
                     .write("xml = $T.parse(body)", Hearth.XML)
-                    .write("$L$T.parse(xml)", dataSetter, symbolProvider.toSymbol(shape));
+                    .write("$L$L.parse(xml)", dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 
     }

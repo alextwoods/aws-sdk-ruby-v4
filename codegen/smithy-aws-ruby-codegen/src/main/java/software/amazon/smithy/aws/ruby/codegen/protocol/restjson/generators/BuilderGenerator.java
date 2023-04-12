@@ -227,12 +227,12 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.build($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L$2L.build($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         inputGetter);
             } else {
-                writer.write("$1L($2T.build($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L($2L.build($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         inputGetter);
             }
         }
@@ -336,7 +336,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             writer
                     .write("http_req.headers['Content-Type'] = 'application/json'")
                     .write("data = {}")
-                    .write("data = $1T.build($2L) unless $2L.nil?", symbolProvider.toSymbol(shape),
+                    .write("data = $1L.build($2L) unless $2L.nil?", symbolProvider.toSymbol(shape).getName(),
                             inputGetter)
                     .write("http_req.body = $T.new($T.dump(data))", RubyImportContainer.STRING_IO, Hearth.JSON);
         }
