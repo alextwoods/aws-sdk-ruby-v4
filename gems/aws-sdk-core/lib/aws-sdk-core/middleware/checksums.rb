@@ -57,13 +57,20 @@ module AWS::SDK::Core
 
         output = @app.call(input, context)
         @response_validation_body&.validate!
+        if context.metadata[:http_checksum][:validated]
+          output.metadata[:http_checksum] = {
+            validated: context.metadata[:http_checksum][:validated]
+          }
+        end
         output
       end
 
       private
 
       def request_checksum(input, context)
-        checksum_algorithm = input[@request_algorithm_member]
+        if @request_algorithm_member
+          checksum_algorithm = input[@request_algorithm_member]
+        end
 
         return unless checksum_algorithm
 
@@ -220,7 +227,7 @@ module AWS::SDK::Core
         # returns nil if no headers to verify
         def response_header_to_verify(headers, validation_list)
           validation_list.each do |algorithm|
-            header_name = "x-amz-checksum-#{algorithm}"
+            header_name = "x-amz-checksum-#{algorithm.downcase}"
             return [header_name, algorithm] if headers[header_name]
           end
           nil

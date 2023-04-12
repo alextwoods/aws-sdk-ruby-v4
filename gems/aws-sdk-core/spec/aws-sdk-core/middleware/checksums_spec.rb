@@ -12,7 +12,7 @@ module AWS::SDK::Core
     end
 
     describe Checksum do
-      let(:output) { double('output') }
+      let(:output) { Hearth::Output.new }
       let(:app) { double('app', call: output) }
 
       let(:request_algorithm_member) { :request_algorithm }
@@ -37,7 +37,6 @@ module AWS::SDK::Core
 
       describe '#call' do
         let(:input) { Input.new }
-        let(:output) { double('output') }
         let(:request_body) { StringIO.new('Hello World') }
         let(:response_body) { StringIO.new }
 
@@ -105,6 +104,7 @@ module AWS::SDK::Core
               end
               response.body.write(response_data)
               response.body.rewind
+              output
             end
           end
 
@@ -117,8 +117,8 @@ module AWS::SDK::Core
             end
 
             it 'sets the validated metadata' do
-              subject.call(input, context)
-              expect(context.metadata[:http_checksum][:validated])
+              resp = subject.call(input, context)
+              expect(resp.metadata[:http_checksum][:validated])
                 .to eq('SHA256')
             end
 

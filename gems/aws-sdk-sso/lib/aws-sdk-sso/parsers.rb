@@ -25,7 +25,7 @@ module AWS::SDK::SSO
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::AccountInfo.parse(value) unless value.nil?
+          data << AccountInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -36,7 +36,7 @@ module AWS::SDK::SSO
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.role_credentials = (Types::RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
+        data.role_credentials = (RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
         data
       end
     end
@@ -57,7 +57,7 @@ module AWS::SDK::SSO
         data = Types::ListAccountRolesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.role_list = (Types::RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
+        data.role_list = (RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
         data
       end
     end
@@ -68,7 +68,7 @@ module AWS::SDK::SSO
         data = Types::ListAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.account_list = (Types::AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
+        data.account_list = (AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
         data
       end
     end
@@ -116,7 +116,7 @@ module AWS::SDK::SSO
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::RoleInfo.parse(value) unless value.nil?
+          data << RoleInfo.parse(value) unless value.nil?
         end
         data
       end

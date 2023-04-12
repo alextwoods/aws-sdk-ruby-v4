@@ -138,7 +138,7 @@ module AWS::SDK::Lambda
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RoutingConfig'] = Types::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
+        data['RoutingConfig'] = AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data
       end
@@ -158,7 +158,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::AliasConfiguration.stub(element) unless element.nil?
+          data << AliasConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -177,7 +177,7 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::AliasRoutingConfiguration.new
         data = {}
-        data['AdditionalVersionWeights'] = Types::AdditionalVersionWeights.stub(stub[:additional_version_weights]) unless stub[:additional_version_weights].nil?
+        data['AdditionalVersionWeights'] = AdditionalVersionWeights.stub(stub[:additional_version_weights]) unless stub[:additional_version_weights].nil?
         data
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::AllowedPublishers.new
         data = {}
-        data['SigningProfileVersionArns'] = Types::SigningProfileVersionArns.stub(stub[:signing_profile_version_arns]) unless stub[:signing_profile_version_arns].nil?
+        data['SigningProfileVersionArns'] = SigningProfileVersionArns.stub(stub[:signing_profile_version_arns]) unless stub[:signing_profile_version_arns].nil?
         data
       end
     end
@@ -299,8 +299,8 @@ module AWS::SDK::Lambda
         data['CodeSigningConfigId'] = stub[:code_signing_config_id] unless stub[:code_signing_config_id].nil?
         data['CodeSigningConfigArn'] = stub[:code_signing_config_arn] unless stub[:code_signing_config_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['AllowedPublishers'] = Types::AllowedPublishers.stub(stub[:allowed_publishers]) unless stub[:allowed_publishers].nil?
-        data['CodeSigningPolicies'] = Types::CodeSigningPolicies.stub(stub[:code_signing_policies]) unless stub[:code_signing_policies].nil?
+        data['AllowedPublishers'] = AllowedPublishers.stub(stub[:allowed_publishers]) unless stub[:allowed_publishers].nil?
+        data['CodeSigningPolicies'] = CodeSigningPolicies.stub(stub[:code_signing_policies]) unless stub[:code_signing_policies].nil?
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data
       end
@@ -320,7 +320,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::CodeSigningConfig.stub(element) unless element.nil?
+          data << CodeSigningConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -421,10 +421,10 @@ module AWS::SDK::Lambda
         stub ||= Types::Cors.new
         data = {}
         data['AllowCredentials'] = stub[:allow_credentials] unless stub[:allow_credentials].nil?
-        data['AllowHeaders'] = Types::HeadersList.stub(stub[:allow_headers]) unless stub[:allow_headers].nil?
-        data['AllowMethods'] = Types::AllowMethodsList.stub(stub[:allow_methods]) unless stub[:allow_methods].nil?
-        data['AllowOrigins'] = Types::AllowOriginsList.stub(stub[:allow_origins]) unless stub[:allow_origins].nil?
-        data['ExposeHeaders'] = Types::HeadersList.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
+        data['AllowHeaders'] = HeadersList.stub(stub[:allow_headers]) unless stub[:allow_headers].nil?
+        data['AllowMethods'] = AllowMethodsList.stub(stub[:allow_methods]) unless stub[:allow_methods].nil?
+        data['AllowOrigins'] = AllowOriginsList.stub(stub[:allow_origins]) unless stub[:allow_origins].nil?
+        data['ExposeHeaders'] = HeadersList.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
         data['MaxAge'] = stub[:max_age] unless stub[:max_age].nil?
         data
       end
@@ -451,7 +451,7 @@ module AWS::SDK::Lambda
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RoutingConfig'] = Types::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
+        data['RoutingConfig'] = AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -469,7 +469,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeSigningConfig'] = Types::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
+        data['CodeSigningConfig'] = CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -519,26 +519,26 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['FilterCriteria'] = Types::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['Topics'] = Types::Topics.stub(stub[:topics]) unless stub[:topics].nil?
-        data['Queues'] = Types::Queues.stub(stub[:queues]) unless stub[:queues].nil?
-        data['SourceAccessConfigurations'] = Types::SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Types::SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['Topics'] = Topics.stub(stub[:topics]) unless stub[:topics].nil?
+        data['Queues'] = Queues.stub(stub[:queues]) unless stub[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
         data['MaximumRecordAgeInSeconds'] = stub[:maximum_record_age_in_seconds] unless stub[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = stub[:bisect_batch_on_function_error] unless stub[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Types::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        data['AmazonManagedKafkaEventSourceConfig'] = Types::AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
-        data['SelfManagedKafkaEventSourceConfig'] = Types::SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
-        data['ScalingConfig'] = Types::ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['DocumentDBEventSourceConfig'] = Types::DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
+        data['AmazonManagedKafkaEventSourceConfig'] = AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
+        data['SelfManagedKafkaEventSourceConfig'] = SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
+        data['ScalingConfig'] = ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['DocumentDBEventSourceConfig'] = DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -601,29 +601,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::Lambda
         data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
-        data['Cors'] = Types::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['Cors'] = Cors.stub(stub[:cors]) unless stub[:cors].nil?
         data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['InvokeMode'] = stub[:invoke_mode] unless stub[:invoke_mode].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
@@ -744,26 +744,26 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['FilterCriteria'] = Types::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['Topics'] = Types::Topics.stub(stub[:topics]) unless stub[:topics].nil?
-        data['Queues'] = Types::Queues.stub(stub[:queues]) unless stub[:queues].nil?
-        data['SourceAccessConfigurations'] = Types::SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Types::SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['Topics'] = Topics.stub(stub[:topics]) unless stub[:topics].nil?
+        data['Queues'] = Queues.stub(stub[:queues]) unless stub[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
         data['MaximumRecordAgeInSeconds'] = stub[:maximum_record_age_in_seconds] unless stub[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = stub[:bisect_batch_on_function_error] unless stub[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Types::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        data['AmazonManagedKafkaEventSourceConfig'] = Types::AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
-        data['SelfManagedKafkaEventSourceConfig'] = Types::SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
-        data['ScalingConfig'] = Types::ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['DocumentDBEventSourceConfig'] = Types::DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
+        data['AmazonManagedKafkaEventSourceConfig'] = AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
+        data['SelfManagedKafkaEventSourceConfig'] = SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
+        data['ScalingConfig'] = ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['DocumentDBEventSourceConfig'] = DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -873,8 +873,8 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::DestinationConfig.new
         data = {}
-        data['OnSuccess'] = Types::OnSuccess.stub(stub[:on_success]) unless stub[:on_success].nil?
-        data['OnFailure'] = Types::OnFailure.stub(stub[:on_failure]) unless stub[:on_failure].nil?
+        data['OnSuccess'] = OnSuccess.stub(stub[:on_success]) unless stub[:on_success].nil?
+        data['OnFailure'] = OnFailure.stub(stub[:on_failure]) unless stub[:on_failure].nil?
         data
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::Lambda
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Types::EndpointLists.stub(value) unless value.nil?
+          data[key] = EndpointLists.stub(value) unless value.nil?
         end
         data
       end
@@ -975,8 +975,8 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::EnvironmentResponse.new
         data = {}
-        data['Variables'] = Types::EnvironmentVariables.stub(stub[:variables]) unless stub[:variables].nil?
-        data['Error'] = Types::EnvironmentError.stub(stub[:error]) unless stub[:error].nil?
+        data['Variables'] = EnvironmentVariables.stub(stub[:variables]) unless stub[:variables].nil?
+        data['Error'] = EnvironmentError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -1065,26 +1065,26 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['FilterCriteria'] = Types::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['Topics'] = Types::Topics.stub(stub[:topics]) unless stub[:topics].nil?
-        data['Queues'] = Types::Queues.stub(stub[:queues]) unless stub[:queues].nil?
-        data['SourceAccessConfigurations'] = Types::SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Types::SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['Topics'] = Topics.stub(stub[:topics]) unless stub[:topics].nil?
+        data['Queues'] = Queues.stub(stub[:queues]) unless stub[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
         data['MaximumRecordAgeInSeconds'] = stub[:maximum_record_age_in_seconds] unless stub[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = stub[:bisect_batch_on_function_error] unless stub[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Types::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        data['AmazonManagedKafkaEventSourceConfig'] = Types::AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
-        data['SelfManagedKafkaEventSourceConfig'] = Types::SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
-        data['ScalingConfig'] = Types::ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['DocumentDBEventSourceConfig'] = Types::DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
+        data['AmazonManagedKafkaEventSourceConfig'] = AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
+        data['SelfManagedKafkaEventSourceConfig'] = SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
+        data['ScalingConfig'] = ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['DocumentDBEventSourceConfig'] = DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
         data
       end
     end
@@ -1103,7 +1103,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::EventSourceMappingConfiguration.stub(element) unless element.nil?
+          data << EventSourceMappingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1143,7 +1143,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::FileSystemConfig.stub(element) unless element.nil?
+          data << FileSystemConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::FilterCriteria.new
         data = {}
-        data['Filters'] = Types::FilterList.stub(stub[:filters]) unless stub[:filters].nil?
+        data['Filters'] = FilterList.stub(stub[:filters]) unless stub[:filters].nil?
         data
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::Filter.stub(element) unless element.nil?
+          data << Filter.stub(element) unless element.nil?
         end
         data
       end
@@ -1308,29 +1308,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         data
       end
     end
@@ -1356,7 +1356,7 @@ module AWS::SDK::Lambda
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         data
       end
     end
@@ -1375,7 +1375,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::FunctionEventInvokeConfig.stub(element) unless element.nil?
+          data << FunctionEventInvokeConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1395,7 +1395,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::FunctionConfiguration.stub(element) unless element.nil?
+          data << FunctionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1444,7 +1444,7 @@ module AWS::SDK::Lambda
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        data['Cors'] = Types::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['Cors'] = Cors.stub(stub[:cors]) unless stub[:cors].nil?
         data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data['InvokeMode'] = stub[:invoke_mode] unless stub[:invoke_mode].nil?
         data
@@ -1465,7 +1465,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::FunctionUrlConfig.stub(element) unless element.nil?
+          data << FunctionUrlConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1484,8 +1484,8 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccountLimit'] = Types::AccountLimit.stub(stub[:account_limit]) unless stub[:account_limit].nil?
-        data['AccountUsage'] = Types::AccountUsage.stub(stub[:account_usage]) unless stub[:account_usage].nil?
+        data['AccountLimit'] = AccountLimit.stub(stub[:account_limit]) unless stub[:account_limit].nil?
+        data['AccountUsage'] = AccountUsage.stub(stub[:account_usage]) unless stub[:account_usage].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1511,7 +1511,7 @@ module AWS::SDK::Lambda
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RoutingConfig'] = Types::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
+        data['RoutingConfig'] = AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -1529,7 +1529,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeSigningConfig'] = Types::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
+        data['CodeSigningConfig'] = CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1579,26 +1579,26 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['FilterCriteria'] = Types::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['Topics'] = Types::Topics.stub(stub[:topics]) unless stub[:topics].nil?
-        data['Queues'] = Types::Queues.stub(stub[:queues]) unless stub[:queues].nil?
-        data['SourceAccessConfigurations'] = Types::SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Types::SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['Topics'] = Topics.stub(stub[:topics]) unless stub[:topics].nil?
+        data['Queues'] = Queues.stub(stub[:queues]) unless stub[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
         data['MaximumRecordAgeInSeconds'] = stub[:maximum_record_age_in_seconds] unless stub[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = stub[:bisect_batch_on_function_error] unless stub[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Types::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        data['AmazonManagedKafkaEventSourceConfig'] = Types::AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
-        data['SelfManagedKafkaEventSourceConfig'] = Types::SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
-        data['ScalingConfig'] = Types::ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['DocumentDBEventSourceConfig'] = Types::DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
+        data['AmazonManagedKafkaEventSourceConfig'] = AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
+        data['SelfManagedKafkaEventSourceConfig'] = SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
+        data['ScalingConfig'] = ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['DocumentDBEventSourceConfig'] = DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1618,10 +1618,10 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Configuration'] = Types::FunctionConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['Code'] = Types::FunctionCodeLocation.stub(stub[:code]) unless stub[:code].nil?
-        data['Tags'] = Types::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Concurrency'] = Types::Concurrency.stub(stub[:concurrency]) unless stub[:concurrency].nil?
+        data['Configuration'] = FunctionConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Code'] = FunctionCodeLocation.stub(stub[:code]) unless stub[:code].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Concurrency'] = Concurrency.stub(stub[:concurrency]) unless stub[:concurrency].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1720,29 +1720,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1767,7 +1767,7 @@ module AWS::SDK::Lambda
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1793,7 +1793,7 @@ module AWS::SDK::Lambda
         data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
-        data['Cors'] = Types::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['Cors'] = Cors.stub(stub[:cors]) unless stub[:cors].nil?
         data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['InvokeMode'] = stub[:invoke_mode] unless stub[:invoke_mode].nil?
@@ -1821,15 +1821,15 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Content'] = Types::LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
         data['LayerArn'] = stub[:layer_arn] unless stub[:layer_arn].nil?
         data['LayerVersionArn'] = stub[:layer_version_arn] unless stub[:layer_version_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['CompatibleRuntimes'] = Types::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        data['CompatibleArchitectures'] = Types::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
+        data['CompatibleArchitectures'] = CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1854,15 +1854,15 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Content'] = Types::LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
         data['LayerArn'] = stub[:layer_arn] unless stub[:layer_arn].nil?
         data['LayerVersionArn'] = stub[:layer_version_arn] unless stub[:layer_version_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['CompatibleRuntimes'] = Types::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        data['CompatibleArchitectures'] = Types::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
+        data['CompatibleArchitectures'] = CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1988,8 +1988,8 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::ImageConfig.new
         data = {}
-        data['EntryPoint'] = Types::StringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
-        data['Command'] = Types::StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['EntryPoint'] = StringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
+        data['Command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
         data['WorkingDirectory'] = stub[:working_directory] unless stub[:working_directory].nil?
         data
       end
@@ -2029,8 +2029,8 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::ImageConfigResponse.new
         data = {}
-        data['ImageConfig'] = Types::ImageConfig.stub(stub[:image_config]) unless stub[:image_config].nil?
-        data['Error'] = Types::ImageConfigError.stub(stub[:error]) unless stub[:error].nil?
+        data['ImageConfig'] = ImageConfig.stub(stub[:image_config]) unless stub[:image_config].nil?
+        data['Error'] = ImageConfigError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -2149,9 +2149,9 @@ module AWS::SDK::Lambda
         data = {}
         case stub
         when Types::InvokeWithResponseStreamResponseEvent::PayloadChunk
-          data['PayloadChunk'] = (Types::InvokeResponseStreamUpdate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['PayloadChunk'] = (InvokeResponseStreamUpdate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::InvokeWithResponseStreamResponseEvent::InvokeComplete
-          data['InvokeComplete'] = (Types::InvokeWithResponseStreamCompleteEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['InvokeComplete'] = (InvokeWithResponseStreamCompleteEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::InvokeWithResponseStreamResponseEvent"
@@ -2225,7 +2225,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::LayerVersionsListItem.stub(element) unless element.nil?
+          data << LayerVersionsListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2254,9 +2254,9 @@ module AWS::SDK::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
-        data['CompatibleRuntimes'] = Types::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        data['CompatibleArchitectures'] = Types::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
+        data['CompatibleArchitectures'] = CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         data
       end
     end
@@ -2275,7 +2275,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::LayersListItem.stub(element) unless element.nil?
+          data << LayersListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2298,7 +2298,7 @@ module AWS::SDK::Lambda
         data = {}
         data['LayerName'] = stub[:layer_name] unless stub[:layer_name].nil?
         data['LayerArn'] = stub[:layer_arn] unless stub[:layer_arn].nil?
-        data['LatestMatchingVersion'] = Types::LayerVersionsListItem.stub(stub[:latest_matching_version]) unless stub[:latest_matching_version].nil?
+        data['LatestMatchingVersion'] = LayerVersionsListItem.stub(stub[:latest_matching_version]) unless stub[:latest_matching_version].nil?
         data
       end
     end
@@ -2317,7 +2317,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::Layer.stub(element) unless element.nil?
+          data << Layer.stub(element) unless element.nil?
         end
         data
       end
@@ -2337,7 +2337,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Aliases'] = Types::AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['Aliases'] = AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2356,7 +2356,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['CodeSigningConfigs'] = Types::CodeSigningConfigList.stub(stub[:code_signing_configs]) unless stub[:code_signing_configs].nil?
+        data['CodeSigningConfigs'] = CodeSigningConfigList.stub(stub[:code_signing_configs]) unless stub[:code_signing_configs].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2375,7 +2375,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['EventSourceMappings'] = Types::EventSourceMappingsList.stub(stub[:event_source_mappings]) unless stub[:event_source_mappings].nil?
+        data['EventSourceMappings'] = EventSourceMappingsList.stub(stub[:event_source_mappings]) unless stub[:event_source_mappings].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2393,7 +2393,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FunctionEventInvokeConfigs'] = Types::FunctionEventInvokeConfigList.stub(stub[:function_event_invoke_configs]) unless stub[:function_event_invoke_configs].nil?
+        data['FunctionEventInvokeConfigs'] = FunctionEventInvokeConfigList.stub(stub[:function_event_invoke_configs]) unless stub[:function_event_invoke_configs].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -2412,7 +2412,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FunctionUrlConfigs'] = Types::FunctionUrlConfigList.stub(stub[:function_url_configs]) unless stub[:function_url_configs].nil?
+        data['FunctionUrlConfigs'] = FunctionUrlConfigList.stub(stub[:function_url_configs]) unless stub[:function_url_configs].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -2432,7 +2432,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Functions'] = Types::FunctionList.stub(stub[:functions]) unless stub[:functions].nil?
+        data['Functions'] = FunctionList.stub(stub[:functions]) unless stub[:functions].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2451,7 +2451,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['FunctionArns'] = Types::FunctionArnList.stub(stub[:function_arns]) unless stub[:function_arns].nil?
+        data['FunctionArns'] = FunctionArnList.stub(stub[:function_arns]) unless stub[:function_arns].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2470,7 +2470,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['LayerVersions'] = Types::LayerVersionsList.stub(stub[:layer_versions]) unless stub[:layer_versions].nil?
+        data['LayerVersions'] = LayerVersionsList.stub(stub[:layer_versions]) unless stub[:layer_versions].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2489,7 +2489,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Layers'] = Types::LayersList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersList.stub(stub[:layers]) unless stub[:layers].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2507,7 +2507,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProvisionedConcurrencyConfigs'] = Types::ProvisionedConcurrencyConfigList.stub(stub[:provisioned_concurrency_configs]) unless stub[:provisioned_concurrency_configs].nil?
+        data['ProvisionedConcurrencyConfigs'] = ProvisionedConcurrencyConfigList.stub(stub[:provisioned_concurrency_configs]) unless stub[:provisioned_concurrency_configs].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -2525,7 +2525,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Types::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2544,7 +2544,7 @@ module AWS::SDK::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Versions'] = Types::FunctionList.stub(stub[:versions]) unless stub[:versions].nil?
+        data['Versions'] = FunctionList.stub(stub[:versions]) unless stub[:versions].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2599,7 +2599,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::ProvisionedConcurrencyConfigListItem.stub(element) unless element.nil?
+          data << ProvisionedConcurrencyConfigListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2655,15 +2655,15 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Content'] = Types::LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = LayerVersionContentOutput.stub(stub[:content]) unless stub[:content].nil?
         data['LayerArn'] = stub[:layer_arn] unless stub[:layer_arn].nil?
         data['LayerVersionArn'] = stub[:layer_version_arn] unless stub[:layer_version_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['CompatibleRuntimes'] = Types::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        data['CompatibleArchitectures'] = Types::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
+        data['CompatibleArchitectures'] = CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2726,29 +2726,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2809,7 +2809,7 @@ module AWS::SDK::Lambda
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2923,7 +2923,7 @@ module AWS::SDK::Lambda
         stub ||= Types::RuntimeVersionConfig.new
         data = {}
         data['RuntimeVersionArn'] = stub[:runtime_version_arn] unless stub[:runtime_version_arn].nil?
-        data['Error'] = Types::RuntimeVersionError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = RuntimeVersionError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -2999,7 +2999,7 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::SelfManagedEventSource.new
         data = {}
-        data['Endpoints'] = Types::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data
       end
     end
@@ -3096,7 +3096,7 @@ module AWS::SDK::Lambda
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::SourceAccessConfiguration.stub(element) unless element.nil?
+          data << SourceAccessConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3247,7 +3247,7 @@ module AWS::SDK::Lambda
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RoutingConfig'] = Types::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
+        data['RoutingConfig'] = AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
@@ -3265,7 +3265,7 @@ module AWS::SDK::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeSigningConfig'] = Types::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
+        data['CodeSigningConfig'] = CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -3315,26 +3315,26 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['FilterCriteria'] = Types::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['Topics'] = Types::Topics.stub(stub[:topics]) unless stub[:topics].nil?
-        data['Queues'] = Types::Queues.stub(stub[:queues]) unless stub[:queues].nil?
-        data['SourceAccessConfigurations'] = Types::SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Types::SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['Topics'] = Topics.stub(stub[:topics]) unless stub[:topics].nil?
+        data['Queues'] = Queues.stub(stub[:queues]) unless stub[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.stub(stub[:source_access_configurations]) unless stub[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.stub(stub[:self_managed_event_source]) unless stub[:self_managed_event_source].nil?
         data['MaximumRecordAgeInSeconds'] = stub[:maximum_record_age_in_seconds] unless stub[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = stub[:bisect_batch_on_function_error] unless stub[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Types::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        data['AmazonManagedKafkaEventSourceConfig'] = Types::AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
-        data['SelfManagedKafkaEventSourceConfig'] = Types::SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
-        data['ScalingConfig'] = Types::ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['DocumentDBEventSourceConfig'] = Types::DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
+        data['AmazonManagedKafkaEventSourceConfig'] = AmazonManagedKafkaEventSourceConfig.stub(stub[:amazon_managed_kafka_event_source_config]) unless stub[:amazon_managed_kafka_event_source_config].nil?
+        data['SelfManagedKafkaEventSourceConfig'] = SelfManagedKafkaEventSourceConfig.stub(stub[:self_managed_kafka_event_source_config]) unless stub[:self_managed_kafka_event_source_config].nil?
+        data['ScalingConfig'] = ScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['DocumentDBEventSourceConfig'] = DocumentDBEventSourceConfig.stub(stub[:document_db_event_source_config]) unless stub[:document_db_event_source_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -3397,29 +3397,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -3482,29 +3482,29 @@ module AWS::SDK::Lambda
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['VpcConfig'] = Types::VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['DeadLetterConfig'] = Types::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Types::EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
+        data['VpcConfig'] = VpcConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = EnvironmentResponse.stub(stub[:environment]) unless stub[:environment].nil?
         data['KMSKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['TracingConfig'] = Types::TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfigResponse.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['Layers'] = Types::LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = LayersReferenceList.stub(stub[:layers]) unless stub[:layers].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['StateReasonCode'] = stub[:state_reason_code] unless stub[:state_reason_code].nil?
         data['LastUpdateStatus'] = stub[:last_update_status] unless stub[:last_update_status].nil?
         data['LastUpdateStatusReason'] = stub[:last_update_status_reason] unless stub[:last_update_status_reason].nil?
         data['LastUpdateStatusReasonCode'] = stub[:last_update_status_reason_code] unless stub[:last_update_status_reason_code].nil?
-        data['FileSystemConfigs'] = Types::FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.stub(stub[:file_system_configs]) unless stub[:file_system_configs].nil?
         data['PackageType'] = stub[:package_type] unless stub[:package_type].nil?
-        data['ImageConfigResponse'] = Types::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
+        data['ImageConfigResponse'] = ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        data['Architectures'] = Types::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['EphemeralStorage'] = Types::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
-        data['SnapStart'] = Types::SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
-        data['RuntimeVersionConfig'] = Types::RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
+        data['Architectures'] = ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['SnapStart'] = SnapStartResponse.stub(stub[:snap_start]) unless stub[:snap_start].nil?
+        data['RuntimeVersionConfig'] = RuntimeVersionConfig.stub(stub[:runtime_version_config]) unless stub[:runtime_version_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -3529,7 +3529,7 @@ module AWS::SDK::Lambda
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Types::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -3555,7 +3555,7 @@ module AWS::SDK::Lambda
         data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
-        data['Cors'] = Types::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['Cors'] = Cors.stub(stub[:cors]) unless stub[:cors].nil?
         data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['InvokeMode'] = stub[:invoke_mode] unless stub[:invoke_mode].nil?
@@ -3578,8 +3578,8 @@ module AWS::SDK::Lambda
       def self.stub(stub)
         stub ||= Types::VpcConfigResponse.new
         data = {}
-        data['SubnetIds'] = Types::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Types::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end

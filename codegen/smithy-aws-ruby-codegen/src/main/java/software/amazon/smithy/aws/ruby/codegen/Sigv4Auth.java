@@ -115,7 +115,6 @@ public class Sigv4Auth implements RubyIntegration {
                 })
                 .klass("AWS::SDK::Core::Middleware::SignatureV4")
                 .step(MiddlewareStackStep.FINALIZE)
-                .addConfig(signer)
                 .build();
 
         middlewareBuilder.register(signatureV4);

@@ -70,7 +70,7 @@ module AWS::SDK::Lambda
         data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = (Types::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.routing_config = (AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         return data
       end
@@ -80,7 +80,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::AliasConfiguration.parse(value) unless value.nil?
+          data << AliasConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -89,7 +89,7 @@ module AWS::SDK::Lambda
     class AliasRoutingConfiguration
       def self.parse(map)
         data = Types::AliasRoutingConfiguration.new
-        data.additional_version_weights = (Types::AdditionalVersionWeights.parse(map['AdditionalVersionWeights']) unless map['AdditionalVersionWeights'].nil?)
+        data.additional_version_weights = (AdditionalVersionWeights.parse(map['AdditionalVersionWeights']) unless map['AdditionalVersionWeights'].nil?)
         return data
       end
     end
@@ -117,7 +117,7 @@ module AWS::SDK::Lambda
     class AllowedPublishers
       def self.parse(map)
         data = Types::AllowedPublishers.new
-        data.signing_profile_version_arns = (Types::SigningProfileVersionArns.parse(map['SigningProfileVersionArns']) unless map['SigningProfileVersionArns'].nil?)
+        data.signing_profile_version_arns = (SigningProfileVersionArns.parse(map['SigningProfileVersionArns']) unless map['SigningProfileVersionArns'].nil?)
         return data
       end
     end
@@ -146,8 +146,8 @@ module AWS::SDK::Lambda
         data.code_signing_config_id = map['CodeSigningConfigId']
         data.code_signing_config_arn = map['CodeSigningConfigArn']
         data.description = map['Description']
-        data.allowed_publishers = (Types::AllowedPublishers.parse(map['AllowedPublishers']) unless map['AllowedPublishers'].nil?)
-        data.code_signing_policies = (Types::CodeSigningPolicies.parse(map['CodeSigningPolicies']) unless map['CodeSigningPolicies'].nil?)
+        data.allowed_publishers = (AllowedPublishers.parse(map['AllowedPublishers']) unless map['AllowedPublishers'].nil?)
+        data.code_signing_policies = (CodeSigningPolicies.parse(map['CodeSigningPolicies']) unless map['CodeSigningPolicies'].nil?)
         data.last_modified = map['LastModified']
         return data
       end
@@ -157,7 +157,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::CodeSigningConfig.parse(value) unless value.nil?
+          data << CodeSigningConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -236,10 +236,10 @@ module AWS::SDK::Lambda
       def self.parse(map)
         data = Types::Cors.new
         data.allow_credentials = map['AllowCredentials']
-        data.allow_headers = (Types::HeadersList.parse(map['AllowHeaders']) unless map['AllowHeaders'].nil?)
-        data.allow_methods = (Types::AllowMethodsList.parse(map['AllowMethods']) unless map['AllowMethods'].nil?)
-        data.allow_origins = (Types::AllowOriginsList.parse(map['AllowOrigins']) unless map['AllowOrigins'].nil?)
-        data.expose_headers = (Types::HeadersList.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
+        data.allow_headers = (HeadersList.parse(map['AllowHeaders']) unless map['AllowHeaders'].nil?)
+        data.allow_methods = (AllowMethodsList.parse(map['AllowMethods']) unless map['AllowMethods'].nil?)
+        data.allow_origins = (AllowOriginsList.parse(map['AllowOrigins']) unless map['AllowOrigins'].nil?)
+        data.expose_headers = (HeadersList.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
         data.max_age = map['MaxAge']
         return data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::Lambda
         data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = (Types::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.routing_config = (AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -265,7 +265,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::CreateCodeSigningConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_signing_config = (Types::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
+        data.code_signing_config = (CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -282,26 +282,26 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
-        data.filter_criteria = (Types::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
+        data.filter_criteria = (FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
-        data.topics = (Types::Topics.parse(map['Topics']) unless map['Topics'].nil?)
-        data.queues = (Types::Queues.parse(map['Queues']) unless map['Queues'].nil?)
-        data.source_access_configurations = (Types::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
-        data.self_managed_event_source = (Types::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = (Types::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
-        data.amazon_managed_kafka_event_source_config = (Types::AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
-        data.self_managed_kafka_event_source_config = (Types::SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
-        data.scaling_config = (Types::ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
-        data.document_db_event_source_config = (Types::DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
+        data.function_response_types = (FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
+        data.amazon_managed_kafka_event_source_config = (AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
+        data.self_managed_kafka_event_source_config = (SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
+        data.scaling_config = (ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
+        data.document_db_event_source_config = (DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
         data
       end
     end
@@ -323,29 +323,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         data
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::Lambda
         data.function_url = map['FunctionUrl']
         data.function_arn = map['FunctionArn']
         data.auth_type = map['AuthType']
-        data.cors = (Types::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.cors = (Cors.parse(map['Cors']) unless map['Cors'].nil?)
         data.creation_time = map['CreationTime']
         data.invoke_mode = map['InvokeMode']
         data
@@ -403,26 +403,26 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
-        data.filter_criteria = (Types::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
+        data.filter_criteria = (FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
-        data.topics = (Types::Topics.parse(map['Topics']) unless map['Topics'].nil?)
-        data.queues = (Types::Queues.parse(map['Queues']) unless map['Queues'].nil?)
-        data.source_access_configurations = (Types::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
-        data.self_managed_event_source = (Types::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = (Types::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
-        data.amazon_managed_kafka_event_source_config = (Types::AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
-        data.self_managed_kafka_event_source_config = (Types::SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
-        data.scaling_config = (Types::ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
-        data.document_db_event_source_config = (Types::DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
+        data.function_response_types = (FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
+        data.amazon_managed_kafka_event_source_config = (AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
+        data.self_managed_kafka_event_source_config = (SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
+        data.scaling_config = (ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
+        data.document_db_event_source_config = (DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
         data
       end
     end
@@ -493,8 +493,8 @@ module AWS::SDK::Lambda
     class DestinationConfig
       def self.parse(map)
         data = Types::DestinationConfig.new
-        data.on_success = (Types::OnSuccess.parse(map['OnSuccess']) unless map['OnSuccess'].nil?)
-        data.on_failure = (Types::OnFailure.parse(map['OnFailure']) unless map['OnFailure'].nil?)
+        data.on_success = (OnSuccess.parse(map['OnSuccess']) unless map['OnSuccess'].nil?)
+        data.on_failure = (OnFailure.parse(map['OnFailure']) unless map['OnFailure'].nil?)
         return data
       end
     end
@@ -612,7 +612,7 @@ module AWS::SDK::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Types::EndpointLists.parse(value) unless value.nil?
+          data[key] = EndpointLists.parse(value) unless value.nil?
         end
         data
       end
@@ -630,8 +630,8 @@ module AWS::SDK::Lambda
     class EnvironmentResponse
       def self.parse(map)
         data = Types::EnvironmentResponse.new
-        data.variables = (Types::EnvironmentVariables.parse(map['Variables']) unless map['Variables'].nil?)
-        data.error = (Types::EnvironmentError.parse(map['Error']) unless map['Error'].nil?)
+        data.variables = (EnvironmentVariables.parse(map['Variables']) unless map['Variables'].nil?)
+        data.error = (EnvironmentError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -664,26 +664,26 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
-        data.filter_criteria = (Types::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
+        data.filter_criteria = (FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
-        data.topics = (Types::Topics.parse(map['Topics']) unless map['Topics'].nil?)
-        data.queues = (Types::Queues.parse(map['Queues']) unless map['Queues'].nil?)
-        data.source_access_configurations = (Types::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
-        data.self_managed_event_source = (Types::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = (Types::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
-        data.amazon_managed_kafka_event_source_config = (Types::AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
-        data.self_managed_kafka_event_source_config = (Types::SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
-        data.scaling_config = (Types::ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
-        data.document_db_event_source_config = (Types::DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
+        data.function_response_types = (FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
+        data.amazon_managed_kafka_event_source_config = (AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
+        data.self_managed_kafka_event_source_config = (SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
+        data.scaling_config = (ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
+        data.document_db_event_source_config = (DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
         return data
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::EventSourceMappingConfiguration.parse(value) unless value.nil?
+          data << EventSourceMappingConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::FileSystemConfig.parse(value) unless value.nil?
+          data << FileSystemConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -728,7 +728,7 @@ module AWS::SDK::Lambda
     class FilterCriteria
       def self.parse(map)
         data = Types::FilterCriteria.new
-        data.filters = (Types::FilterList.parse(map['Filters']) unless map['Filters'].nil?)
+        data.filters = (FilterList.parse(map['Filters']) unless map['Filters'].nil?)
         return data
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::Filter.parse(value) unless value.nil?
+          data << Filter.parse(value) unless value.nil?
         end
         data
       end
@@ -779,29 +779,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         return data
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::Lambda
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         return data
       end
     end
@@ -822,7 +822,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::FunctionEventInvokeConfig.parse(value) unless value.nil?
+          data << FunctionEventInvokeConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -832,7 +832,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::FunctionConfiguration.parse(value) unless value.nil?
+          data << FunctionConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -855,7 +855,7 @@ module AWS::SDK::Lambda
         data.function_arn = map['FunctionArn']
         data.creation_time = map['CreationTime']
         data.last_modified_time = map['LastModifiedTime']
-        data.cors = (Types::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.cors = (Cors.parse(map['Cors']) unless map['Cors'].nil?)
         data.auth_type = map['AuthType']
         data.invoke_mode = map['InvokeMode']
         return data
@@ -866,7 +866,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::FunctionUrlConfig.parse(value) unless value.nil?
+          data << FunctionUrlConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -877,8 +877,8 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::GetAccountSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account_limit = (Types::AccountLimit.parse(map['AccountLimit']) unless map['AccountLimit'].nil?)
-        data.account_usage = (Types::AccountUsage.parse(map['AccountUsage']) unless map['AccountUsage'].nil?)
+        data.account_limit = (AccountLimit.parse(map['AccountLimit']) unless map['AccountLimit'].nil?)
+        data.account_usage = (AccountUsage.parse(map['AccountUsage']) unless map['AccountUsage'].nil?)
         data
       end
     end
@@ -892,7 +892,7 @@ module AWS::SDK::Lambda
         data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = (Types::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.routing_config = (AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -903,7 +903,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::GetCodeSigningConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_signing_config = (Types::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
+        data.code_signing_config = (CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -920,26 +920,26 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
-        data.filter_criteria = (Types::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
+        data.filter_criteria = (FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
-        data.topics = (Types::Topics.parse(map['Topics']) unless map['Topics'].nil?)
-        data.queues = (Types::Queues.parse(map['Queues']) unless map['Queues'].nil?)
-        data.source_access_configurations = (Types::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
-        data.self_managed_event_source = (Types::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = (Types::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
-        data.amazon_managed_kafka_event_source_config = (Types::AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
-        data.self_managed_kafka_event_source_config = (Types::SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
-        data.scaling_config = (Types::ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
-        data.document_db_event_source_config = (Types::DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
+        data.function_response_types = (FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
+        data.amazon_managed_kafka_event_source_config = (AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
+        data.self_managed_kafka_event_source_config = (SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
+        data.scaling_config = (ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
+        data.document_db_event_source_config = (DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
         data
       end
     end
@@ -949,10 +949,10 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configuration = (Types::FunctionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
-        data.code = (Types::FunctionCodeLocation.parse(map['Code']) unless map['Code'].nil?)
-        data.tags = (Types::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.concurrency = (Types::Concurrency.parse(map['Concurrency']) unless map['Concurrency'].nil?)
+        data.configuration = (FunctionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.code = (FunctionCodeLocation.parse(map['Code']) unless map['Code'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.concurrency = (Concurrency.parse(map['Concurrency']) unless map['Concurrency'].nil?)
         data
       end
     end
@@ -995,29 +995,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         data
       end
     end
@@ -1031,7 +1031,7 @@ module AWS::SDK::Lambda
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::Lambda
         data.function_url = map['FunctionUrl']
         data.function_arn = map['FunctionArn']
         data.auth_type = map['AuthType']
-        data.cors = (Types::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.cors = (Cors.parse(map['Cors']) unless map['Cors'].nil?)
         data.creation_time = map['CreationTime']
         data.last_modified_time = map['LastModifiedTime']
         data.invoke_mode = map['InvokeMode']
@@ -1057,15 +1057,15 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::GetLayerVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Types::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = (Types::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
+        data.compatible_runtimes = (CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
-        data.compatible_architectures = (Types::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
+        data.compatible_architectures = (CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         data
       end
     end
@@ -1075,15 +1075,15 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::GetLayerVersionByArnOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Types::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = (Types::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
+        data.compatible_runtimes = (CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
-        data.compatible_architectures = (Types::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
+        data.compatible_architectures = (CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         data
       end
     end
@@ -1150,8 +1150,8 @@ module AWS::SDK::Lambda
     class ImageConfig
       def self.parse(map)
         data = Types::ImageConfig.new
-        data.entry_point = (Types::StringList.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
-        data.command = (Types::StringList.parse(map['Command']) unless map['Command'].nil?)
+        data.entry_point = (StringList.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
+        data.command = (StringList.parse(map['Command']) unless map['Command'].nil?)
         data.working_directory = map['WorkingDirectory']
         return data
       end
@@ -1169,8 +1169,8 @@ module AWS::SDK::Lambda
     class ImageConfigResponse
       def self.parse(map)
         data = Types::ImageConfigResponse.new
-        data.image_config = (Types::ImageConfig.parse(map['ImageConfig']) unless map['ImageConfig'].nil?)
-        data.error = (Types::ImageConfigError.parse(map['Error']) unless map['Error'].nil?)
+        data.image_config = (ImageConfig.parse(map['ImageConfig']) unless map['ImageConfig'].nil?)
+        data.error = (ImageConfigError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -1347,7 +1347,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::LayerVersionsListItem.parse(value) unless value.nil?
+          data << LayerVersionsListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1360,9 +1360,9 @@ module AWS::SDK::Lambda
         data.version = map['Version']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
-        data.compatible_runtimes = (Types::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
+        data.compatible_runtimes = (CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
-        data.compatible_architectures = (Types::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
+        data.compatible_architectures = (CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         return data
       end
     end
@@ -1371,7 +1371,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::LayersListItem.parse(value) unless value.nil?
+          data << LayersListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::Lambda
         data = Types::LayersListItem.new
         data.layer_name = map['LayerName']
         data.layer_arn = map['LayerArn']
-        data.latest_matching_version = (Types::LayerVersionsListItem.parse(map['LatestMatchingVersion']) unless map['LatestMatchingVersion'].nil?)
+        data.latest_matching_version = (LayerVersionsListItem.parse(map['LatestMatchingVersion']) unless map['LatestMatchingVersion'].nil?)
         return data
       end
     end
@@ -1391,7 +1391,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::Layer.parse(value) unless value.nil?
+          data << Layer.parse(value) unless value.nil?
         end
         data
       end
@@ -1403,7 +1403,7 @@ module AWS::SDK::Lambda
         data = Types::ListAliasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.aliases = (Types::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data
       end
     end
@@ -1414,7 +1414,7 @@ module AWS::SDK::Lambda
         data = Types::ListCodeSigningConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.code_signing_configs = (Types::CodeSigningConfigList.parse(map['CodeSigningConfigs']) unless map['CodeSigningConfigs'].nil?)
+        data.code_signing_configs = (CodeSigningConfigList.parse(map['CodeSigningConfigs']) unless map['CodeSigningConfigs'].nil?)
         data
       end
     end
@@ -1425,7 +1425,7 @@ module AWS::SDK::Lambda
         data = Types::ListEventSourceMappingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.event_source_mappings = (Types::EventSourceMappingsList.parse(map['EventSourceMappings']) unless map['EventSourceMappings'].nil?)
+        data.event_source_mappings = (EventSourceMappingsList.parse(map['EventSourceMappings']) unless map['EventSourceMappings'].nil?)
         data
       end
     end
@@ -1435,7 +1435,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::ListFunctionEventInvokeConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.function_event_invoke_configs = (Types::FunctionEventInvokeConfigList.parse(map['FunctionEventInvokeConfigs']) unless map['FunctionEventInvokeConfigs'].nil?)
+        data.function_event_invoke_configs = (FunctionEventInvokeConfigList.parse(map['FunctionEventInvokeConfigs']) unless map['FunctionEventInvokeConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1446,7 +1446,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::ListFunctionUrlConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.function_url_configs = (Types::FunctionUrlConfigList.parse(map['FunctionUrlConfigs']) unless map['FunctionUrlConfigs'].nil?)
+        data.function_url_configs = (FunctionUrlConfigList.parse(map['FunctionUrlConfigs']) unless map['FunctionUrlConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1458,7 +1458,7 @@ module AWS::SDK::Lambda
         data = Types::ListFunctionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.functions = (Types::FunctionList.parse(map['Functions']) unless map['Functions'].nil?)
+        data.functions = (FunctionList.parse(map['Functions']) unless map['Functions'].nil?)
         data
       end
     end
@@ -1469,7 +1469,7 @@ module AWS::SDK::Lambda
         data = Types::ListFunctionsByCodeSigningConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.function_arns = (Types::FunctionArnList.parse(map['FunctionArns']) unless map['FunctionArns'].nil?)
+        data.function_arns = (FunctionArnList.parse(map['FunctionArns']) unless map['FunctionArns'].nil?)
         data
       end
     end
@@ -1480,7 +1480,7 @@ module AWS::SDK::Lambda
         data = Types::ListLayerVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.layer_versions = (Types::LayerVersionsList.parse(map['LayerVersions']) unless map['LayerVersions'].nil?)
+        data.layer_versions = (LayerVersionsList.parse(map['LayerVersions']) unless map['LayerVersions'].nil?)
         data
       end
     end
@@ -1491,7 +1491,7 @@ module AWS::SDK::Lambda
         data = Types::ListLayersOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.layers = (Types::LayersList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersList.parse(map['Layers']) unless map['Layers'].nil?)
         data
       end
     end
@@ -1501,7 +1501,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::ListProvisionedConcurrencyConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.provisioned_concurrency_configs = (Types::ProvisionedConcurrencyConfigList.parse(map['ProvisionedConcurrencyConfigs']) unless map['ProvisionedConcurrencyConfigs'].nil?)
+        data.provisioned_concurrency_configs = (ProvisionedConcurrencyConfigList.parse(map['ProvisionedConcurrencyConfigs']) unless map['ProvisionedConcurrencyConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1512,7 +1512,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::ListTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Types::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1523,7 +1523,7 @@ module AWS::SDK::Lambda
         data = Types::ListVersionsByFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.versions = (Types::FunctionList.parse(map['Versions']) unless map['Versions'].nil?)
+        data.versions = (FunctionList.parse(map['Versions']) unless map['Versions'].nil?)
         data
       end
     end
@@ -1570,7 +1570,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::ProvisionedConcurrencyConfigListItem.parse(value) unless value.nil?
+          data << ProvisionedConcurrencyConfigListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1606,15 +1606,15 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::PublishLayerVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Types::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = (Types::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
+        data.compatible_runtimes = (CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
-        data.compatible_architectures = (Types::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
+        data.compatible_architectures = (CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         data
       end
     end
@@ -1636,29 +1636,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         data
       end
     end
@@ -1693,7 +1693,7 @@ module AWS::SDK::Lambda
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end
@@ -1812,7 +1812,7 @@ module AWS::SDK::Lambda
       def self.parse(map)
         data = Types::RuntimeVersionConfig.new
         data.runtime_version_arn = map['RuntimeVersionArn']
-        data.error = (Types::RuntimeVersionError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (RuntimeVersionError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -1847,7 +1847,7 @@ module AWS::SDK::Lambda
     class SelfManagedEventSource
       def self.parse(map)
         data = Types::SelfManagedEventSource.new
-        data.endpoints = (Types::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         return data
       end
     end
@@ -1936,7 +1936,7 @@ module AWS::SDK::Lambda
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Types::SourceAccessConfiguration.parse(value) unless value.nil?
+          data << SourceAccessConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -2052,7 +2052,7 @@ module AWS::SDK::Lambda
         data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = (Types::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.routing_config = (AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -2063,7 +2063,7 @@ module AWS::SDK::Lambda
       def self.parse(http_resp)
         data = Types::UpdateCodeSigningConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_signing_config = (Types::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
+        data.code_signing_config = (CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -2080,26 +2080,26 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
-        data.filter_criteria = (Types::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
+        data.filter_criteria = (FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
-        data.topics = (Types::Topics.parse(map['Topics']) unless map['Topics'].nil?)
-        data.queues = (Types::Queues.parse(map['Queues']) unless map['Queues'].nil?)
-        data.source_access_configurations = (Types::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
-        data.self_managed_event_source = (Types::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = (Types::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
-        data.amazon_managed_kafka_event_source_config = (Types::AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
-        data.self_managed_kafka_event_source_config = (Types::SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
-        data.scaling_config = (Types::ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
-        data.document_db_event_source_config = (Types::DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
+        data.function_response_types = (FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
+        data.amazon_managed_kafka_event_source_config = (AmazonManagedKafkaEventSourceConfig.parse(map['AmazonManagedKafkaEventSourceConfig']) unless map['AmazonManagedKafkaEventSourceConfig'].nil?)
+        data.self_managed_kafka_event_source_config = (SelfManagedKafkaEventSourceConfig.parse(map['SelfManagedKafkaEventSourceConfig']) unless map['SelfManagedKafkaEventSourceConfig'].nil?)
+        data.scaling_config = (ScalingConfig.parse(map['ScalingConfig']) unless map['ScalingConfig'].nil?)
+        data.document_db_event_source_config = (DocumentDBEventSourceConfig.parse(map['DocumentDBEventSourceConfig']) unless map['DocumentDBEventSourceConfig'].nil?)
         data
       end
     end
@@ -2121,29 +2121,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         data
       end
     end
@@ -2165,29 +2165,29 @@ module AWS::SDK::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = (Types::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.dead_letter_config = (Types::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Types::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
+        data.vpc_config = (VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = (Types::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.tracing_config = (TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = (Types::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = (Types::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
+        data.file_system_configs = (FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = (Types::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
+        data.image_config_response = (ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
-        data.architectures = (Types::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
-        data.ephemeral_storage = (Types::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
-        data.snap_start = (Types::SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
-        data.runtime_version_config = (Types::RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
+        data.architectures = (ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data.snap_start = (SnapStartResponse.parse(map['SnapStart']) unless map['SnapStart'].nil?)
+        data.runtime_version_config = (RuntimeVersionConfig.parse(map['RuntimeVersionConfig']) unless map['RuntimeVersionConfig'].nil?)
         data
       end
     end
@@ -2201,7 +2201,7 @@ module AWS::SDK::Lambda
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = (Types::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end
@@ -2214,7 +2214,7 @@ module AWS::SDK::Lambda
         data.function_url = map['FunctionUrl']
         data.function_arn = map['FunctionArn']
         data.auth_type = map['AuthType']
-        data.cors = (Types::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.cors = (Cors.parse(map['Cors']) unless map['Cors'].nil?)
         data.creation_time = map['CreationTime']
         data.last_modified_time = map['LastModifiedTime']
         data.invoke_mode = map['InvokeMode']
@@ -2225,8 +2225,8 @@ module AWS::SDK::Lambda
     class VpcConfigResponse
       def self.parse(map)
         data = Types::VpcConfigResponse.new
-        data.subnet_ids = (Types::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Types::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
