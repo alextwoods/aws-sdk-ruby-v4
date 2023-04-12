@@ -19,10 +19,10 @@ module AWS::SDK::STS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AssumeRoleResult')
         xml.at('Credentials') do |node|
-          data.credentials = Types::Credentials.parse(node)
+          data.credentials = Credentials.parse(node)
         end
         xml.at('AssumedRoleUser') do |node|
-          data.assumed_role_user = Types::AssumedRoleUser.parse(node)
+          data.assumed_role_user = AssumedRoleUser.parse(node)
         end
         xml.at('PackedPolicySize') do |node|
           data.packed_policy_size = node.text&.to_i
@@ -42,10 +42,10 @@ module AWS::SDK::STS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AssumeRoleWithSAMLResult')
         xml.at('Credentials') do |node|
-          data.credentials = Types::Credentials.parse(node)
+          data.credentials = Credentials.parse(node)
         end
         xml.at('AssumedRoleUser') do |node|
-          data.assumed_role_user = Types::AssumedRoleUser.parse(node)
+          data.assumed_role_user = AssumedRoleUser.parse(node)
         end
         xml.at('PackedPolicySize') do |node|
           data.packed_policy_size = node.text&.to_i
@@ -80,13 +80,13 @@ module AWS::SDK::STS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AssumeRoleWithWebIdentityResult')
         xml.at('Credentials') do |node|
-          data.credentials = Types::Credentials.parse(node)
+          data.credentials = Credentials.parse(node)
         end
         xml.at('SubjectFromWebIdentityToken') do |node|
           data.subject_from_web_identity_token = (node.text || '')
         end
         xml.at('AssumedRoleUser') do |node|
-          data.assumed_role_user = Types::AssumedRoleUser.parse(node)
+          data.assumed_role_user = AssumedRoleUser.parse(node)
         end
         xml.at('PackedPolicySize') do |node|
           data.packed_policy_size = node.text&.to_i
@@ -219,10 +219,10 @@ module AWS::SDK::STS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetFederationTokenResult')
         xml.at('Credentials') do |node|
-          data.credentials = Types::Credentials.parse(node)
+          data.credentials = Credentials.parse(node)
         end
         xml.at('FederatedUser') do |node|
-          data.federated_user = Types::FederatedUser.parse(node)
+          data.federated_user = FederatedUser.parse(node)
         end
         xml.at('PackedPolicySize') do |node|
           data.packed_policy_size = node.text&.to_i
@@ -239,7 +239,7 @@ module AWS::SDK::STS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetSessionTokenResult')
         xml.at('Credentials') do |node|
-          data.credentials = Types::Credentials.parse(node)
+          data.credentials = Credentials.parse(node)
         end
         data
       end

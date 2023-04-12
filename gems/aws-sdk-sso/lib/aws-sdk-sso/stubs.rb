@@ -49,7 +49,7 @@ module AWS::SDK::SSO
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::AccountInfo.stub(element) unless element.nil?
+          data << AccountInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -67,7 +67,7 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleCredentials'] = Types::RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
+        data['roleCredentials'] = RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -86,7 +86,7 @@ module AWS::SDK::SSO
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['roleList'] = Types::RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
+        data['roleList'] = RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -105,7 +105,7 @@ module AWS::SDK::SSO
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['accountList'] = Types::AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
+        data['accountList'] = AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::SSO
         stub ||= []
         data = []
         stub.each do |element|
-          data << Types::RoleInfo.stub(element) unless element.nil?
+          data << RoleInfo.stub(element) unless element.nil?
         end
         data
       end

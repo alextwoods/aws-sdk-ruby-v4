@@ -131,11 +131,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -420,11 +420,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -948,11 +948,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1224,11 +1224,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1757,11 +1757,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1848,11 +1848,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1954,11 +1954,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2049,11 +2049,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2149,11 +2149,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2245,11 +2245,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2349,11 +2349,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2446,11 +2446,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2559,11 +2559,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2652,11 +2652,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2756,11 +2756,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2855,11 +2855,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2946,11 +2946,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3044,11 +3044,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3177,11 +3177,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3283,11 +3283,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3465,13 +3465,16 @@ module AWS::SDK::S3
         builder: Builders::DeleteObjects
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3570,11 +3573,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3672,11 +3675,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3782,11 +3785,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3909,11 +3912,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4016,11 +4019,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4120,11 +4123,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4231,11 +4234,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4356,11 +4359,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4520,11 +4523,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4617,11 +4620,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4718,11 +4721,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4842,11 +4845,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4960,11 +4963,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5058,11 +5061,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5157,11 +5160,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5262,11 +5265,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5406,11 +5409,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5492,11 +5495,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5600,11 +5603,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5699,11 +5702,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5811,11 +5814,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6184,13 +6187,17 @@ module AWS::SDK::S3
         builder: Builders::GetObject
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
+        request_validation_mode_member: :checksum_mode
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6331,11 +6338,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6627,11 +6634,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6730,11 +6737,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6823,11 +6830,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6927,11 +6934,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7053,11 +7060,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7157,11 +7164,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7274,11 +7281,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7368,11 +7375,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7663,11 +7670,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7801,11 +7808,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7917,11 +7924,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8056,11 +8063,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8189,11 +8196,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8265,11 +8272,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8462,11 +8469,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8646,11 +8653,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8814,11 +8821,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8992,11 +8999,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -9191,11 +9198,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -9318,13 +9325,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketAccelerateConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -9651,13 +9661,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketAcl
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -9866,11 +9879,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10039,13 +10052,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketCors
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10184,13 +10200,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketEncryption
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10364,11 +10383,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10584,11 +10603,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10807,13 +10826,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketLifecycleConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -10997,13 +11019,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketLogging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11144,11 +11169,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11316,11 +11341,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11423,13 +11448,14 @@ module AWS::SDK::S3
         builder: Builders::PutBucketOwnershipControls
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11549,13 +11575,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11767,13 +11796,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketReplication
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -11882,13 +11914,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketRequestPayment
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -12059,13 +12094,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -12206,13 +12244,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketVersioning
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -12449,13 +12490,16 @@ module AWS::SDK::S3
         builder: Builders::PutBucketWebsite
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -12851,13 +12895,19 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObject
       )
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm,
+        streaming: true,
+        signed_streaming: true,
+        require_decoded_content_length: true
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13200,13 +13250,16 @@ module AWS::SDK::S3
         builder: Builders::PutObjectAcl
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13317,13 +13370,16 @@ module AWS::SDK::S3
         builder: Builders::PutObjectLegalHold
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13451,13 +13507,16 @@ module AWS::SDK::S3
         builder: Builders::PutObjectLockConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13576,13 +13635,16 @@ module AWS::SDK::S3
         builder: Builders::PutObjectRetention
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13788,13 +13850,16 @@ module AWS::SDK::S3
         builder: Builders::PutObjectTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -13928,13 +13993,16 @@ module AWS::SDK::S3
         builder: Builders::PutPublicAccessBlock
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -14380,13 +14448,16 @@ module AWS::SDK::S3
         builder: Builders::RestoreObject
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -14688,13 +14759,19 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UploadPart
       )
+      stack.use(AWS::SDK::Core::Middleware::Checksum,
+        request_algorithm_member: :checksum_algorithm,
+        streaming: true,
+        signed_streaming: true,
+        require_decoded_content_length: true
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -15059,11 +15136,11 @@ module AWS::SDK::S3
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -15464,11 +15541,11 @@ module AWS::SDK::S3
       )
       stack.use(Hearth::Middleware::Retry,
         retry_mode: @config.retry_mode,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
         error_inspector_class: Hearth::Retry::ErrorInspector,
         retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+        max_attempts: @config.max_attempts
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         unsigned_body: true,

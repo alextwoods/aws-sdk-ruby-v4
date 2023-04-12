@@ -69,7 +69,7 @@ module AWS::SDK::SQS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Types::BatchResultErrorEntry.parse(node)
+          data << BatchResultErrorEntry.parse(node)
         end
         data
       end
@@ -104,10 +104,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ChangeMessageVisibilityBatchResult')
         xml.children('ChangeMessageVisibilityBatchResultEntry') do |children|
-          data.successful = Types::ChangeMessageVisibilityBatchResultEntryList.parse(children)
+          data.successful = ChangeMessageVisibilityBatchResultEntryList.parse(children)
         end
         xml.children('BatchResultErrorEntry') do |children|
-          data.failed = Types::BatchResultErrorEntryList.parse(children)
+          data.failed = BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -127,7 +127,7 @@ module AWS::SDK::SQS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Types::ChangeMessageVisibilityBatchResultEntry.parse(node)
+          data << ChangeMessageVisibilityBatchResultEntry.parse(node)
         end
         data
       end
@@ -166,10 +166,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteMessageBatchResult')
         xml.children('DeleteMessageBatchResultEntry') do |children|
-          data.successful = Types::DeleteMessageBatchResultEntryList.parse(children)
+          data.successful = DeleteMessageBatchResultEntryList.parse(children)
         end
         xml.children('BatchResultErrorEntry') do |children|
-          data.failed = Types::BatchResultErrorEntryList.parse(children)
+          data.failed = BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -189,7 +189,7 @@ module AWS::SDK::SQS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Types::DeleteMessageBatchResultEntry.parse(node)
+          data << DeleteMessageBatchResultEntry.parse(node)
         end
         data
       end
@@ -225,7 +225,7 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetQueueAttributesResult')
         xml.children('Attribute') do |children|
-          data.attributes = Types::QueueAttributeMap.parse(children)
+          data.attributes = QueueAttributeMap.parse(children)
         end
         data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ListDeadLetterSourceQueuesResult')
         xml.children('QueueUrl') do |children|
-          data.queue_urls = Types::QueueUrlList.parse(children)
+          data.queue_urls = QueueUrlList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -314,7 +314,7 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ListQueueTagsResult')
         xml.children('Tag') do |children|
-          data.tags = Types::TagMap.parse(children)
+          data.tags = TagMap.parse(children)
         end
         data
       end
@@ -331,7 +331,7 @@ module AWS::SDK::SQS
           data.next_token = (node.text || '')
         end
         xml.children('QueueUrl') do |children|
-          data.queue_urls = Types::QueueUrlList.parse(children)
+          data.queue_urls = QueueUrlList.parse(children)
         end
         data
       end
@@ -353,13 +353,13 @@ module AWS::SDK::SQS
           data.body = (node.text || '')
         end
         xml.children('Attribute') do |children|
-          data.attributes = Types::MessageSystemAttributeMap.parse(children)
+          data.attributes = MessageSystemAttributeMap.parse(children)
         end
         xml.at('MD5OfMessageAttributes') do |node|
           data.md5_of_message_attributes = (node.text || '')
         end
         xml.children('MessageAttribute') do |children|
-          data.message_attributes = Types::MessageBodyAttributeMap.parse(children)
+          data.message_attributes = MessageBodyAttributeMap.parse(children)
         end
         return data
       end
@@ -375,10 +375,10 @@ module AWS::SDK::SQS
           data.binary_value = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         xml.children('StringListValue') do |children|
-          data.string_list_values = Types::StringList.parse(children)
+          data.string_list_values = StringList.parse(children)
         end
         xml.children('BinaryListValue') do |children|
-          data.binary_list_values = Types::BinaryList.parse(children)
+          data.binary_list_values = BinaryList.parse(children)
         end
         xml.at('DataType') do |node|
           data.data_type = (node.text || '')
@@ -393,7 +393,7 @@ module AWS::SDK::SQS
         xml.each do |entry_node|
           key = entry_node.at('Name').text
           node = entry_node.at('Value')
-          data[key] = Types::MessageAttributeValue.parse(node)
+          data[key] = MessageAttributeValue.parse(node)
         end
         data
       end
@@ -403,7 +403,7 @@ module AWS::SDK::SQS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Types::Message.parse(node)
+          data << Message.parse(node)
         end
         data
       end
@@ -539,7 +539,7 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ReceiveMessageResult')
         xml.children('Message') do |children|
-          data.messages = Types::MessageList.parse(children)
+          data.messages = MessageList.parse(children)
         end
         data
       end
@@ -590,10 +590,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('SendMessageBatchResult')
         xml.children('SendMessageBatchResultEntry') do |children|
-          data.successful = Types::SendMessageBatchResultEntryList.parse(children)
+          data.successful = SendMessageBatchResultEntryList.parse(children)
         end
         xml.children('BatchResultErrorEntry') do |children|
-          data.failed = Types::BatchResultErrorEntryList.parse(children)
+          data.failed = BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -628,7 +628,7 @@ module AWS::SDK::SQS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Types::SendMessageBatchResultEntry.parse(node)
+          data << SendMessageBatchResultEntry.parse(node)
         end
         data
       end
