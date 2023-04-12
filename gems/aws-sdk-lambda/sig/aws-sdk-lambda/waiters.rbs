@@ -50,5 +50,13 @@ module AWS::SDK::Lambda
       def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
     end
 
+    class PublishedVersionActive
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
   end
 end

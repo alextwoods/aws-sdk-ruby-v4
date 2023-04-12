@@ -10,6 +10,7 @@
 require 'stringio'
 
 module AWS::SDK::STS
+  # @api private
   module Stubs
 
     # Operation Stubber for AssumeRole
@@ -28,9 +29,77 @@ module AWS::SDK::STS
         response = Hearth::XML::Node.new('AssumeRoleResponse')
         response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
         xml = Hearth::XML::Node.new('AssumeRoleResult')
-        xml << Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
-        xml << AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
+        xml << Types::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
+        xml << Types::AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
         xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
+        xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
+        response << xml
+        http_resp.body = ::StringIO.new(response.to_str)
+        http_resp.status = 200
+      end
+    end
+
+    # Operation Stubber for AssumeRoleWithSAML
+    class AssumeRoleWithSAML
+      def self.default(visited=[])
+        {
+          credentials: Credentials.default(visited),
+          assumed_role_user: AssumedRoleUser.default(visited),
+          packed_policy_size: 1,
+          subject: 'subject',
+          subject_type: 'subject_type',
+          issuer: 'issuer',
+          audience: 'audience',
+          name_qualifier: 'name_qualifier',
+          source_identity: 'source_identity',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        http_resp.headers['Content-Type'] = 'application/xml'
+        response = Hearth::XML::Node.new('AssumeRoleWithSAMLResponse')
+        response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
+        xml = Hearth::XML::Node.new('AssumeRoleWithSAMLResult')
+        xml << Types::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
+        xml << Types::AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
+        xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
+        xml << Hearth::XML::Node.new('Subject', stub[:subject].to_s) unless stub[:subject].nil?
+        xml << Hearth::XML::Node.new('SubjectType', stub[:subject_type].to_s) unless stub[:subject_type].nil?
+        xml << Hearth::XML::Node.new('Issuer', stub[:issuer].to_s) unless stub[:issuer].nil?
+        xml << Hearth::XML::Node.new('Audience', stub[:audience].to_s) unless stub[:audience].nil?
+        xml << Hearth::XML::Node.new('NameQualifier', stub[:name_qualifier].to_s) unless stub[:name_qualifier].nil?
+        xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
+        response << xml
+        http_resp.body = ::StringIO.new(response.to_str)
+        http_resp.status = 200
+      end
+    end
+
+    # Operation Stubber for AssumeRoleWithWebIdentity
+    class AssumeRoleWithWebIdentity
+      def self.default(visited=[])
+        {
+          credentials: Credentials.default(visited),
+          subject_from_web_identity_token: 'subject_from_web_identity_token',
+          assumed_role_user: AssumedRoleUser.default(visited),
+          packed_policy_size: 1,
+          provider: 'provider',
+          audience: 'audience',
+          source_identity: 'source_identity',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        http_resp.headers['Content-Type'] = 'application/xml'
+        response = Hearth::XML::Node.new('AssumeRoleWithWebIdentityResponse')
+        response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
+        xml = Hearth::XML::Node.new('AssumeRoleWithWebIdentityResult')
+        xml << Types::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
+        xml << Hearth::XML::Node.new('SubjectFromWebIdentityToken', stub[:subject_from_web_identity_token].to_s) unless stub[:subject_from_web_identity_token].nil?
+        xml << Types::AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
+        xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
+        xml << Hearth::XML::Node.new('Provider', stub[:provider].to_s) unless stub[:provider].nil?
+        xml << Hearth::XML::Node.new('Audience', stub[:audience].to_s) unless stub[:audience].nil?
         xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
@@ -82,74 +151,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for AssumeRoleWithSAML
-    class AssumeRoleWithSAML
-      def self.default(visited=[])
-        {
-          credentials: Credentials.default(visited),
-          assumed_role_user: AssumedRoleUser.default(visited),
-          packed_policy_size: 1,
-          subject: 'subject',
-          subject_type: 'subject_type',
-          issuer: 'issuer',
-          audience: 'audience',
-          name_qualifier: 'name_qualifier',
-          source_identity: 'source_identity',
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('AssumeRoleWithSAMLResponse')
-        response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
-        xml = Hearth::XML::Node.new('AssumeRoleWithSAMLResult')
-        xml << Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
-        xml << AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
-        xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
-        xml << Hearth::XML::Node.new('Subject', stub[:subject].to_s) unless stub[:subject].nil?
-        xml << Hearth::XML::Node.new('SubjectType', stub[:subject_type].to_s) unless stub[:subject_type].nil?
-        xml << Hearth::XML::Node.new('Issuer', stub[:issuer].to_s) unless stub[:issuer].nil?
-        xml << Hearth::XML::Node.new('Audience', stub[:audience].to_s) unless stub[:audience].nil?
-        xml << Hearth::XML::Node.new('NameQualifier', stub[:name_qualifier].to_s) unless stub[:name_qualifier].nil?
-        xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
-        response << xml
-        http_resp.body = ::StringIO.new(response.to_str)
-        http_resp.status = 200
-      end
-    end
-
-    # Operation Stubber for AssumeRoleWithWebIdentity
-    class AssumeRoleWithWebIdentity
-      def self.default(visited=[])
-        {
-          credentials: Credentials.default(visited),
-          subject_from_web_identity_token: 'subject_from_web_identity_token',
-          assumed_role_user: AssumedRoleUser.default(visited),
-          packed_policy_size: 1,
-          provider: 'provider',
-          audience: 'audience',
-          source_identity: 'source_identity',
-        }
-      end
-
-      def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('AssumeRoleWithWebIdentityResponse')
-        response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
-        xml = Hearth::XML::Node.new('AssumeRoleWithWebIdentityResult')
-        xml << Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
-        xml << Hearth::XML::Node.new('SubjectFromWebIdentityToken', stub[:subject_from_web_identity_token].to_s) unless stub[:subject_from_web_identity_token].nil?
-        xml << AssumedRoleUser.stub('AssumedRoleUser', stub[:assumed_role_user]) unless stub[:assumed_role_user].nil?
-        xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
-        xml << Hearth::XML::Node.new('Provider', stub[:provider].to_s) unless stub[:provider].nil?
-        xml << Hearth::XML::Node.new('Audience', stub[:audience].to_s) unless stub[:audience].nil?
-        xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
-        response << xml
-        http_resp.body = ::StringIO.new(response.to_str)
-        http_resp.status = 200
-      end
-    end
-
     # Operation Stubber for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
       def self.default(visited=[])
@@ -167,6 +168,26 @@ module AWS::SDK::STS
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
+      end
+    end
+
+    # Structure Stubber for FederatedUser
+    class FederatedUser
+      def self.default(visited=[])
+        return nil if visited.include?('FederatedUser')
+        visited = visited + ['FederatedUser']
+        {
+          federated_user_id: 'federated_user_id',
+          arn: 'arn',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::FederatedUser.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('FederatedUserId', stub[:federated_user_id].to_s) unless stub[:federated_user_id].nil?
+        xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
+        xml
       end
     end
 
@@ -229,32 +250,12 @@ module AWS::SDK::STS
         response = Hearth::XML::Node.new('GetFederationTokenResponse')
         response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
         xml = Hearth::XML::Node.new('GetFederationTokenResult')
-        xml << Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
-        xml << FederatedUser.stub('FederatedUser', stub[:federated_user]) unless stub[:federated_user].nil?
+        xml << Types::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
+        xml << Types::FederatedUser.stub('FederatedUser', stub[:federated_user]) unless stub[:federated_user].nil?
         xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
-      end
-    end
-
-    # Structure Stubber for FederatedUser
-    class FederatedUser
-      def self.default(visited=[])
-        return nil if visited.include?('FederatedUser')
-        visited = visited + ['FederatedUser']
-        {
-          federated_user_id: 'federated_user_id',
-          arn: 'arn',
-        }
-      end
-
-      def self.stub(node_name, stub)
-        stub ||= Types::FederatedUser.new
-        xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('FederatedUserId', stub[:federated_user_id].to_s) unless stub[:federated_user_id].nil?
-        xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
-        xml
       end
     end
 
@@ -271,7 +272,7 @@ module AWS::SDK::STS
         response = Hearth::XML::Node.new('GetSessionTokenResponse')
         response.attributes['xmlns'] = 'https://sts.amazonaws.com/doc/2011-06-15/'
         xml = Hearth::XML::Node.new('GetSessionTokenResult')
-        xml << Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
+        xml << Types::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
         response << xml
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200

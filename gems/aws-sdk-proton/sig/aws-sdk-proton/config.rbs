@@ -1,3 +1,0 @@
-module AWS::SDK::Proton
-  Config: untyped
-end

@@ -1,3 +1,0 @@
-module AWS::SDK::LexRuntimeV2
-  Config: untyped
-end

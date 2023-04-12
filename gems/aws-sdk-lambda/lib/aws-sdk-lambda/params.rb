@@ -8,11 +8,12 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::Lambda
+  # @api private
   module Params
 
     module AccountLimit
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AccountLimit, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AccountLimit, context: context)
         type = Types::AccountLimit.new
         type.total_code_size = params[:total_code_size]
         type.code_size_unzipped = params[:code_size_unzipped]
@@ -25,7 +26,7 @@ module AWS::SDK::Lambda
 
     module AccountUsage
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AccountUsage, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AccountUsage, context: context)
         type = Types::AccountUsage.new
         type.total_code_size = params[:total_code_size]
         type.function_count = params[:function_count]
@@ -35,10 +36,10 @@ module AWS::SDK::Lambda
 
     module AddLayerVersionPermissionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AddLayerVersionPermissionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AddLayerVersionPermissionInput, context: context)
         type = Types::AddLayerVersionPermissionInput.new
         type.layer_name = params[:layer_name]
-        type.version_number = params[:version_number]
+        type.version_number = params.fetch(:version_number, 0)
         type.statement_id = params[:statement_id]
         type.action = params[:action]
         type.principal = params[:principal]
@@ -50,7 +51,7 @@ module AWS::SDK::Lambda
 
     module AddLayerVersionPermissionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AddLayerVersionPermissionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AddLayerVersionPermissionOutput, context: context)
         type = Types::AddLayerVersionPermissionOutput.new
         type.statement = params[:statement]
         type.revision_id = params[:revision_id]
@@ -60,7 +61,7 @@ module AWS::SDK::Lambda
 
     module AddPermissionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AddPermissionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AddPermissionInput, context: context)
         type = Types::AddPermissionInput.new
         type.function_name = params[:function_name]
         type.statement_id = params[:statement_id]
@@ -79,7 +80,7 @@ module AWS::SDK::Lambda
 
     module AddPermissionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AddPermissionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AddPermissionOutput, context: context)
         type = Types::AddPermissionOutput.new
         type.statement = params[:statement]
         type
@@ -88,7 +89,7 @@ module AWS::SDK::Lambda
 
     module AdditionalVersionWeights
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = value
@@ -99,7 +100,7 @@ module AWS::SDK::Lambda
 
     module AliasConfiguration
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AliasConfiguration, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AliasConfiguration, context: context)
         type = Types::AliasConfiguration.new
         type.alias_arn = params[:alias_arn]
         type.name = params[:name]
@@ -113,7 +114,7 @@ module AWS::SDK::Lambda
 
     module AliasList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AliasConfiguration.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -124,7 +125,7 @@ module AWS::SDK::Lambda
 
     module AliasRoutingConfiguration
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AliasRoutingConfiguration, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AliasRoutingConfiguration, context: context)
         type = Types::AliasRoutingConfiguration.new
         type.additional_version_weights = AdditionalVersionWeights.build(params[:additional_version_weights], context: "#{context}[:additional_version_weights]") unless params[:additional_version_weights].nil?
         type
@@ -133,7 +134,7 @@ module AWS::SDK::Lambda
 
     module AllowMethodsList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -144,7 +145,7 @@ module AWS::SDK::Lambda
 
     module AllowOriginsList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -155,16 +156,25 @@ module AWS::SDK::Lambda
 
     module AllowedPublishers
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AllowedPublishers, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AllowedPublishers, context: context)
         type = Types::AllowedPublishers.new
         type.signing_profile_version_arns = SigningProfileVersionArns.build(params[:signing_profile_version_arns], context: "#{context}[:signing_profile_version_arns]") unless params[:signing_profile_version_arns].nil?
         type
       end
     end
 
+    module AmazonManagedKafkaEventSourceConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AmazonManagedKafkaEventSourceConfig, context: context)
+        type = Types::AmazonManagedKafkaEventSourceConfig.new
+        type.consumer_group_id = params[:consumer_group_id]
+        type
+      end
+    end
+
     module ArchitecturesList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -175,7 +185,7 @@ module AWS::SDK::Lambda
 
     module CodeSigningConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CodeSigningConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CodeSigningConfig, context: context)
         type = Types::CodeSigningConfig.new
         type.code_signing_config_id = params[:code_signing_config_id]
         type.code_signing_config_arn = params[:code_signing_config_arn]
@@ -189,7 +199,7 @@ module AWS::SDK::Lambda
 
     module CodeSigningConfigList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << CodeSigningConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -200,7 +210,7 @@ module AWS::SDK::Lambda
 
     module CodeSigningConfigNotFoundException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CodeSigningConfigNotFoundException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CodeSigningConfigNotFoundException, context: context)
         type = Types::CodeSigningConfigNotFoundException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -210,7 +220,7 @@ module AWS::SDK::Lambda
 
     module CodeSigningPolicies
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CodeSigningPolicies, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CodeSigningPolicies, context: context)
         type = Types::CodeSigningPolicies.new
         type.untrusted_artifact_on_deployment = params[:untrusted_artifact_on_deployment]
         type
@@ -219,7 +229,7 @@ module AWS::SDK::Lambda
 
     module CodeStorageExceededException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CodeStorageExceededException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CodeStorageExceededException, context: context)
         type = Types::CodeStorageExceededException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -229,7 +239,7 @@ module AWS::SDK::Lambda
 
     module CodeVerificationFailedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CodeVerificationFailedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CodeVerificationFailedException, context: context)
         type = Types::CodeVerificationFailedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -239,7 +249,7 @@ module AWS::SDK::Lambda
 
     module CompatibleArchitectures
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -250,7 +260,7 @@ module AWS::SDK::Lambda
 
     module CompatibleRuntimes
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -261,7 +271,7 @@ module AWS::SDK::Lambda
 
     module Concurrency
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Concurrency, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Concurrency, context: context)
         type = Types::Concurrency.new
         type.reserved_concurrent_executions = params[:reserved_concurrent_executions]
         type
@@ -270,7 +280,7 @@ module AWS::SDK::Lambda
 
     module Cors
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Cors, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Cors, context: context)
         type = Types::Cors.new
         type.allow_credentials = params[:allow_credentials]
         type.allow_headers = HeadersList.build(params[:allow_headers], context: "#{context}[:allow_headers]") unless params[:allow_headers].nil?
@@ -284,7 +294,7 @@ module AWS::SDK::Lambda
 
     module CreateAliasInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateAliasInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAliasInput, context: context)
         type = Types::CreateAliasInput.new
         type.function_name = params[:function_name]
         type.name = params[:name]
@@ -297,7 +307,7 @@ module AWS::SDK::Lambda
 
     module CreateAliasOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateAliasOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateAliasOutput, context: context)
         type = Types::CreateAliasOutput.new
         type.alias_arn = params[:alias_arn]
         type.name = params[:name]
@@ -311,7 +321,7 @@ module AWS::SDK::Lambda
 
     module CreateCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCodeSigningConfigInput, context: context)
         type = Types::CreateCodeSigningConfigInput.new
         type.description = params[:description]
         type.allowed_publishers = AllowedPublishers.build(params[:allowed_publishers], context: "#{context}[:allowed_publishers]") unless params[:allowed_publishers].nil?
@@ -322,7 +332,7 @@ module AWS::SDK::Lambda
 
     module CreateCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateCodeSigningConfigOutput, context: context)
         type = Types::CreateCodeSigningConfigOutput.new
         type.code_signing_config = CodeSigningConfig.build(params[:code_signing_config], context: "#{context}[:code_signing_config]") unless params[:code_signing_config].nil?
         type
@@ -331,7 +341,7 @@ module AWS::SDK::Lambda
 
     module CreateEventSourceMappingInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateEventSourceMappingInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateEventSourceMappingInput, context: context)
         type = Types::CreateEventSourceMappingInput.new
         type.event_source_arn = params[:event_source_arn]
         type.function_name = params[:function_name]
@@ -352,13 +362,17 @@ module AWS::SDK::Lambda
         type.source_access_configurations = SourceAccessConfigurations.build(params[:source_access_configurations], context: "#{context}[:source_access_configurations]") unless params[:source_access_configurations].nil?
         type.self_managed_event_source = SelfManagedEventSource.build(params[:self_managed_event_source], context: "#{context}[:self_managed_event_source]") unless params[:self_managed_event_source].nil?
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module CreateEventSourceMappingOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateEventSourceMappingOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateEventSourceMappingOutput, context: context)
         type = Types::CreateEventSourceMappingOutput.new
         type.uuid = params[:uuid]
         type.starting_position = params[:starting_position]
@@ -383,13 +397,17 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module CreateFunctionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFunctionInput, context: context)
         type = Types::CreateFunctionInput.new
         type.function_name = params[:function_name]
         type.runtime = params[:runtime]
@@ -413,13 +431,14 @@ module AWS::SDK::Lambda
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStart.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
         type
       end
     end
 
     module CreateFunctionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFunctionOutput, context: context)
         type = Types::CreateFunctionOutput.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -454,38 +473,42 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module CreateFunctionUrlConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFunctionUrlConfigInput, context: context)
         type = Types::CreateFunctionUrlConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
         type.auth_type = params[:auth_type]
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module CreateFunctionUrlConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CreateFunctionUrlConfigOutput, context: context)
         type = Types::CreateFunctionUrlConfigOutput.new
         type.function_url = params[:function_url]
         type.function_arn = params[:function_arn]
         type.auth_type = params[:auth_type]
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
         type.creation_time = params[:creation_time]
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module DeadLetterConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeadLetterConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeadLetterConfig, context: context)
         type = Types::DeadLetterConfig.new
         type.target_arn = params[:target_arn]
         type
@@ -494,7 +517,7 @@ module AWS::SDK::Lambda
 
     module DeleteAliasInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteAliasInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAliasInput, context: context)
         type = Types::DeleteAliasInput.new
         type.function_name = params[:function_name]
         type.name = params[:name]
@@ -504,7 +527,7 @@ module AWS::SDK::Lambda
 
     module DeleteAliasOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteAliasOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAliasOutput, context: context)
         type = Types::DeleteAliasOutput.new
         type
       end
@@ -512,7 +535,7 @@ module AWS::SDK::Lambda
 
     module DeleteCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCodeSigningConfigInput, context: context)
         type = Types::DeleteCodeSigningConfigInput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type
@@ -521,7 +544,7 @@ module AWS::SDK::Lambda
 
     module DeleteCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteCodeSigningConfigOutput, context: context)
         type = Types::DeleteCodeSigningConfigOutput.new
         type
       end
@@ -529,7 +552,7 @@ module AWS::SDK::Lambda
 
     module DeleteEventSourceMappingInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteEventSourceMappingInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteEventSourceMappingInput, context: context)
         type = Types::DeleteEventSourceMappingInput.new
         type.uuid = params[:uuid]
         type
@@ -538,7 +561,7 @@ module AWS::SDK::Lambda
 
     module DeleteEventSourceMappingOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteEventSourceMappingOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteEventSourceMappingOutput, context: context)
         type = Types::DeleteEventSourceMappingOutput.new
         type.uuid = params[:uuid]
         type.starting_position = params[:starting_position]
@@ -563,13 +586,17 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module DeleteFunctionCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionCodeSigningConfigInput, context: context)
         type = Types::DeleteFunctionCodeSigningConfigInput.new
         type.function_name = params[:function_name]
         type
@@ -578,7 +605,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionCodeSigningConfigOutput, context: context)
         type = Types::DeleteFunctionCodeSigningConfigOutput.new
         type
       end
@@ -586,7 +613,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionConcurrencyInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionConcurrencyInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionConcurrencyInput, context: context)
         type = Types::DeleteFunctionConcurrencyInput.new
         type.function_name = params[:function_name]
         type
@@ -595,7 +622,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionConcurrencyOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionConcurrencyOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionConcurrencyOutput, context: context)
         type = Types::DeleteFunctionConcurrencyOutput.new
         type
       end
@@ -603,7 +630,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionEventInvokeConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionEventInvokeConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionEventInvokeConfigInput, context: context)
         type = Types::DeleteFunctionEventInvokeConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -613,7 +640,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionEventInvokeConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionEventInvokeConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionEventInvokeConfigOutput, context: context)
         type = Types::DeleteFunctionEventInvokeConfigOutput.new
         type
       end
@@ -621,7 +648,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionInput, context: context)
         type = Types::DeleteFunctionInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -631,7 +658,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionOutput, context: context)
         type = Types::DeleteFunctionOutput.new
         type
       end
@@ -639,7 +666,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionUrlConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionUrlConfigInput, context: context)
         type = Types::DeleteFunctionUrlConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -649,7 +676,7 @@ module AWS::SDK::Lambda
 
     module DeleteFunctionUrlConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteFunctionUrlConfigOutput, context: context)
         type = Types::DeleteFunctionUrlConfigOutput.new
         type
       end
@@ -657,17 +684,17 @@ module AWS::SDK::Lambda
 
     module DeleteLayerVersionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteLayerVersionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLayerVersionInput, context: context)
         type = Types::DeleteLayerVersionInput.new
         type.layer_name = params[:layer_name]
-        type.version_number = params[:version_number]
+        type.version_number = params.fetch(:version_number, 0)
         type
       end
     end
 
     module DeleteLayerVersionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteLayerVersionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteLayerVersionOutput, context: context)
         type = Types::DeleteLayerVersionOutput.new
         type
       end
@@ -675,7 +702,7 @@ module AWS::SDK::Lambda
 
     module DeleteProvisionedConcurrencyConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteProvisionedConcurrencyConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteProvisionedConcurrencyConfigInput, context: context)
         type = Types::DeleteProvisionedConcurrencyConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -685,7 +712,7 @@ module AWS::SDK::Lambda
 
     module DeleteProvisionedConcurrencyConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DeleteProvisionedConcurrencyConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteProvisionedConcurrencyConfigOutput, context: context)
         type = Types::DeleteProvisionedConcurrencyConfigOutput.new
         type
       end
@@ -693,7 +720,7 @@ module AWS::SDK::Lambda
 
     module DestinationConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::DestinationConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DestinationConfig, context: context)
         type = Types::DestinationConfig.new
         type.on_success = OnSuccess.build(params[:on_success], context: "#{context}[:on_success]") unless params[:on_success].nil?
         type.on_failure = OnFailure.build(params[:on_failure], context: "#{context}[:on_failure]") unless params[:on_failure].nil?
@@ -701,9 +728,20 @@ module AWS::SDK::Lambda
       end
     end
 
+    module DocumentDBEventSourceConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DocumentDBEventSourceConfig, context: context)
+        type = Types::DocumentDBEventSourceConfig.new
+        type.database_name = params[:database_name]
+        type.collection_name = params[:collection_name]
+        type.full_document = params[:full_document]
+        type
+      end
+    end
+
     module EC2AccessDeniedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EC2AccessDeniedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EC2AccessDeniedException, context: context)
         type = Types::EC2AccessDeniedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -713,7 +751,7 @@ module AWS::SDK::Lambda
 
     module EC2ThrottledException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EC2ThrottledException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EC2ThrottledException, context: context)
         type = Types::EC2ThrottledException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -723,7 +761,7 @@ module AWS::SDK::Lambda
 
     module EC2UnexpectedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EC2UnexpectedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EC2UnexpectedException, context: context)
         type = Types::EC2UnexpectedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -734,7 +772,7 @@ module AWS::SDK::Lambda
 
     module EFSIOException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EFSIOException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EFSIOException, context: context)
         type = Types::EFSIOException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -744,7 +782,7 @@ module AWS::SDK::Lambda
 
     module EFSMountConnectivityException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EFSMountConnectivityException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EFSMountConnectivityException, context: context)
         type = Types::EFSMountConnectivityException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -754,7 +792,7 @@ module AWS::SDK::Lambda
 
     module EFSMountFailureException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EFSMountFailureException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EFSMountFailureException, context: context)
         type = Types::EFSMountFailureException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -764,7 +802,7 @@ module AWS::SDK::Lambda
 
     module EFSMountTimeoutException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EFSMountTimeoutException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EFSMountTimeoutException, context: context)
         type = Types::EFSMountTimeoutException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -774,7 +812,7 @@ module AWS::SDK::Lambda
 
     module ENILimitReachedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ENILimitReachedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ENILimitReachedException, context: context)
         type = Types::ENILimitReachedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -784,7 +822,7 @@ module AWS::SDK::Lambda
 
     module EndpointLists
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -795,7 +833,7 @@ module AWS::SDK::Lambda
 
     module Endpoints
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = EndpointLists.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -806,7 +844,7 @@ module AWS::SDK::Lambda
 
     module Environment
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Environment, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Environment, context: context)
         type = Types::Environment.new
         type.variables = EnvironmentVariables.build(params[:variables], context: "#{context}[:variables]") unless params[:variables].nil?
         type
@@ -815,7 +853,7 @@ module AWS::SDK::Lambda
 
     module EnvironmentError
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EnvironmentError, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnvironmentError, context: context)
         type = Types::EnvironmentError.new
         type.error_code = params[:error_code]
         type.message = params[:message]
@@ -825,7 +863,7 @@ module AWS::SDK::Lambda
 
     module EnvironmentResponse
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EnvironmentResponse, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnvironmentResponse, context: context)
         type = Types::EnvironmentResponse.new
         type.variables = EnvironmentVariables.build(params[:variables], context: "#{context}[:variables]") unless params[:variables].nil?
         type.error = EnvironmentError.build(params[:error], context: "#{context}[:error]") unless params[:error].nil?
@@ -835,7 +873,7 @@ module AWS::SDK::Lambda
 
     module EnvironmentVariables
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = value
@@ -846,7 +884,7 @@ module AWS::SDK::Lambda
 
     module EphemeralStorage
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EphemeralStorage, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EphemeralStorage, context: context)
         type = Types::EphemeralStorage.new
         type.size = params[:size]
         type
@@ -855,7 +893,7 @@ module AWS::SDK::Lambda
 
     module EventSourceMappingConfiguration
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::EventSourceMappingConfiguration, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EventSourceMappingConfiguration, context: context)
         type = Types::EventSourceMappingConfiguration.new
         type.uuid = params[:uuid]
         type.starting_position = params[:starting_position]
@@ -880,13 +918,17 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module EventSourceMappingsList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << EventSourceMappingConfiguration.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -897,7 +939,7 @@ module AWS::SDK::Lambda
 
     module FileSystemConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FileSystemConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FileSystemConfig, context: context)
         type = Types::FileSystemConfig.new
         type.arn = params[:arn]
         type.local_mount_path = params[:local_mount_path]
@@ -907,7 +949,7 @@ module AWS::SDK::Lambda
 
     module FileSystemConfigList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << FileSystemConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -918,7 +960,7 @@ module AWS::SDK::Lambda
 
     module Filter
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Filter, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Filter, context: context)
         type = Types::Filter.new
         type.pattern = params[:pattern]
         type
@@ -927,7 +969,7 @@ module AWS::SDK::Lambda
 
     module FilterCriteria
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FilterCriteria, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FilterCriteria, context: context)
         type = Types::FilterCriteria.new
         type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
         type
@@ -936,7 +978,7 @@ module AWS::SDK::Lambda
 
     module FilterList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Filter.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -947,7 +989,7 @@ module AWS::SDK::Lambda
 
     module FunctionArnList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -958,7 +1000,7 @@ module AWS::SDK::Lambda
 
     module FunctionCode
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FunctionCode, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FunctionCode, context: context)
         type = Types::FunctionCode.new
         type.zip_file = params[:zip_file]
         type.s3_bucket = params[:s3_bucket]
@@ -971,7 +1013,7 @@ module AWS::SDK::Lambda
 
     module FunctionCodeLocation
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FunctionCodeLocation, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FunctionCodeLocation, context: context)
         type = Types::FunctionCodeLocation.new
         type.repository_type = params[:repository_type]
         type.location = params[:location]
@@ -983,7 +1025,7 @@ module AWS::SDK::Lambda
 
     module FunctionConfiguration
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FunctionConfiguration, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FunctionConfiguration, context: context)
         type = Types::FunctionConfiguration.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -1018,13 +1060,15 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module FunctionEventInvokeConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FunctionEventInvokeConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FunctionEventInvokeConfig, context: context)
         type = Types::FunctionEventInvokeConfig.new
         type.last_modified = params[:last_modified]
         type.function_arn = params[:function_arn]
@@ -1037,7 +1081,7 @@ module AWS::SDK::Lambda
 
     module FunctionEventInvokeConfigList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << FunctionEventInvokeConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1048,7 +1092,7 @@ module AWS::SDK::Lambda
 
     module FunctionList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << FunctionConfiguration.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1059,7 +1103,7 @@ module AWS::SDK::Lambda
 
     module FunctionResponseTypeList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -1070,7 +1114,7 @@ module AWS::SDK::Lambda
 
     module FunctionUrlConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::FunctionUrlConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::FunctionUrlConfig, context: context)
         type = Types::FunctionUrlConfig.new
         type.function_url = params[:function_url]
         type.function_arn = params[:function_arn]
@@ -1078,13 +1122,14 @@ module AWS::SDK::Lambda
         type.last_modified_time = params[:last_modified_time]
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
         type.auth_type = params[:auth_type]
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module FunctionUrlConfigList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << FunctionUrlConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1095,7 +1140,7 @@ module AWS::SDK::Lambda
 
     module GetAccountSettingsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAccountSettingsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccountSettingsInput, context: context)
         type = Types::GetAccountSettingsInput.new
         type
       end
@@ -1103,7 +1148,7 @@ module AWS::SDK::Lambda
 
     module GetAccountSettingsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAccountSettingsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAccountSettingsOutput, context: context)
         type = Types::GetAccountSettingsOutput.new
         type.account_limit = AccountLimit.build(params[:account_limit], context: "#{context}[:account_limit]") unless params[:account_limit].nil?
         type.account_usage = AccountUsage.build(params[:account_usage], context: "#{context}[:account_usage]") unless params[:account_usage].nil?
@@ -1113,7 +1158,7 @@ module AWS::SDK::Lambda
 
     module GetAliasInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAliasInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAliasInput, context: context)
         type = Types::GetAliasInput.new
         type.function_name = params[:function_name]
         type.name = params[:name]
@@ -1123,7 +1168,7 @@ module AWS::SDK::Lambda
 
     module GetAliasOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetAliasOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetAliasOutput, context: context)
         type = Types::GetAliasOutput.new
         type.alias_arn = params[:alias_arn]
         type.name = params[:name]
@@ -1137,7 +1182,7 @@ module AWS::SDK::Lambda
 
     module GetCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetCodeSigningConfigInput, context: context)
         type = Types::GetCodeSigningConfigInput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type
@@ -1146,7 +1191,7 @@ module AWS::SDK::Lambda
 
     module GetCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetCodeSigningConfigOutput, context: context)
         type = Types::GetCodeSigningConfigOutput.new
         type.code_signing_config = CodeSigningConfig.build(params[:code_signing_config], context: "#{context}[:code_signing_config]") unless params[:code_signing_config].nil?
         type
@@ -1155,7 +1200,7 @@ module AWS::SDK::Lambda
 
     module GetEventSourceMappingInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetEventSourceMappingInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetEventSourceMappingInput, context: context)
         type = Types::GetEventSourceMappingInput.new
         type.uuid = params[:uuid]
         type
@@ -1164,7 +1209,7 @@ module AWS::SDK::Lambda
 
     module GetEventSourceMappingOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetEventSourceMappingOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetEventSourceMappingOutput, context: context)
         type = Types::GetEventSourceMappingOutput.new
         type.uuid = params[:uuid]
         type.starting_position = params[:starting_position]
@@ -1189,13 +1234,17 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module GetFunctionCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionCodeSigningConfigInput, context: context)
         type = Types::GetFunctionCodeSigningConfigInput.new
         type.function_name = params[:function_name]
         type
@@ -1204,7 +1253,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionCodeSigningConfigOutput, context: context)
         type = Types::GetFunctionCodeSigningConfigOutput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.function_name = params[:function_name]
@@ -1214,7 +1263,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionConcurrencyInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionConcurrencyInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionConcurrencyInput, context: context)
         type = Types::GetFunctionConcurrencyInput.new
         type.function_name = params[:function_name]
         type
@@ -1223,7 +1272,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionConcurrencyOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionConcurrencyOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionConcurrencyOutput, context: context)
         type = Types::GetFunctionConcurrencyOutput.new
         type.reserved_concurrent_executions = params[:reserved_concurrent_executions]
         type
@@ -1232,7 +1281,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionConfigurationInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionConfigurationInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionConfigurationInput, context: context)
         type = Types::GetFunctionConfigurationInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1242,7 +1291,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionConfigurationOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionConfigurationOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionConfigurationOutput, context: context)
         type = Types::GetFunctionConfigurationOutput.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -1277,13 +1326,15 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module GetFunctionEventInvokeConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionEventInvokeConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionEventInvokeConfigInput, context: context)
         type = Types::GetFunctionEventInvokeConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1293,7 +1344,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionEventInvokeConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionEventInvokeConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionEventInvokeConfigOutput, context: context)
         type = Types::GetFunctionEventInvokeConfigOutput.new
         type.last_modified = params[:last_modified]
         type.function_arn = params[:function_arn]
@@ -1306,7 +1357,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionInput, context: context)
         type = Types::GetFunctionInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1316,7 +1367,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionOutput, context: context)
         type = Types::GetFunctionOutput.new
         type.configuration = FunctionConfiguration.build(params[:configuration], context: "#{context}[:configuration]") unless params[:configuration].nil?
         type.code = FunctionCodeLocation.build(params[:code], context: "#{context}[:code]") unless params[:code].nil?
@@ -1328,7 +1379,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionUrlConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionUrlConfigInput, context: context)
         type = Types::GetFunctionUrlConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1338,7 +1389,7 @@ module AWS::SDK::Lambda
 
     module GetFunctionUrlConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetFunctionUrlConfigOutput, context: context)
         type = Types::GetFunctionUrlConfigOutput.new
         type.function_url = params[:function_url]
         type.function_arn = params[:function_arn]
@@ -1346,13 +1397,14 @@ module AWS::SDK::Lambda
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
         type.creation_time = params[:creation_time]
         type.last_modified_time = params[:last_modified_time]
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module GetLayerVersionByArnInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionByArnInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionByArnInput, context: context)
         type = Types::GetLayerVersionByArnInput.new
         type.arn = params[:arn]
         type
@@ -1361,7 +1413,7 @@ module AWS::SDK::Lambda
 
     module GetLayerVersionByArnOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionByArnOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionByArnOutput, context: context)
         type = Types::GetLayerVersionByArnOutput.new
         type.content = LayerVersionContentOutput.build(params[:content], context: "#{context}[:content]") unless params[:content].nil?
         type.layer_arn = params[:layer_arn]
@@ -1378,17 +1430,17 @@ module AWS::SDK::Lambda
 
     module GetLayerVersionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionInput, context: context)
         type = Types::GetLayerVersionInput.new
         type.layer_name = params[:layer_name]
-        type.version_number = params[:version_number]
+        type.version_number = params.fetch(:version_number, 0)
         type
       end
     end
 
     module GetLayerVersionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionOutput, context: context)
         type = Types::GetLayerVersionOutput.new
         type.content = LayerVersionContentOutput.build(params[:content], context: "#{context}[:content]") unless params[:content].nil?
         type.layer_arn = params[:layer_arn]
@@ -1405,17 +1457,17 @@ module AWS::SDK::Lambda
 
     module GetLayerVersionPolicyInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionPolicyInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionPolicyInput, context: context)
         type = Types::GetLayerVersionPolicyInput.new
         type.layer_name = params[:layer_name]
-        type.version_number = params[:version_number]
+        type.version_number = params.fetch(:version_number, 0)
         type
       end
     end
 
     module GetLayerVersionPolicyOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionPolicyOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetLayerVersionPolicyOutput, context: context)
         type = Types::GetLayerVersionPolicyOutput.new
         type.policy = params[:policy]
         type.revision_id = params[:revision_id]
@@ -1425,7 +1477,7 @@ module AWS::SDK::Lambda
 
     module GetPolicyInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetPolicyInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetPolicyInput, context: context)
         type = Types::GetPolicyInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1435,7 +1487,7 @@ module AWS::SDK::Lambda
 
     module GetPolicyOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetPolicyOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetPolicyOutput, context: context)
         type = Types::GetPolicyOutput.new
         type.policy = params[:policy]
         type.revision_id = params[:revision_id]
@@ -1445,7 +1497,7 @@ module AWS::SDK::Lambda
 
     module GetProvisionedConcurrencyConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetProvisionedConcurrencyConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetProvisionedConcurrencyConfigInput, context: context)
         type = Types::GetProvisionedConcurrencyConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -1455,7 +1507,7 @@ module AWS::SDK::Lambda
 
     module GetProvisionedConcurrencyConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetProvisionedConcurrencyConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetProvisionedConcurrencyConfigOutput, context: context)
         type = Types::GetProvisionedConcurrencyConfigOutput.new
         type.requested_provisioned_concurrent_executions = params[:requested_provisioned_concurrent_executions]
         type.available_provisioned_concurrent_executions = params[:available_provisioned_concurrent_executions]
@@ -1467,9 +1519,30 @@ module AWS::SDK::Lambda
       end
     end
 
+    module GetRuntimeManagementConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetRuntimeManagementConfigInput, context: context)
+        type = Types::GetRuntimeManagementConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type
+      end
+    end
+
+    module GetRuntimeManagementConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetRuntimeManagementConfigOutput, context: context)
+        type = Types::GetRuntimeManagementConfigOutput.new
+        type.update_runtime_on = params[:update_runtime_on]
+        type.runtime_version_arn = params[:runtime_version_arn]
+        type.function_arn = params[:function_arn]
+        type
+      end
+    end
+
     module HeadersList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -1480,7 +1553,7 @@ module AWS::SDK::Lambda
 
     module ImageConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ImageConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ImageConfig, context: context)
         type = Types::ImageConfig.new
         type.entry_point = StringList.build(params[:entry_point], context: "#{context}[:entry_point]") unless params[:entry_point].nil?
         type.command = StringList.build(params[:command], context: "#{context}[:command]") unless params[:command].nil?
@@ -1491,7 +1564,7 @@ module AWS::SDK::Lambda
 
     module ImageConfigError
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ImageConfigError, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ImageConfigError, context: context)
         type = Types::ImageConfigError.new
         type.error_code = params[:error_code]
         type.message = params[:message]
@@ -1501,7 +1574,7 @@ module AWS::SDK::Lambda
 
     module ImageConfigResponse
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ImageConfigResponse, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ImageConfigResponse, context: context)
         type = Types::ImageConfigResponse.new
         type.image_config = ImageConfig.build(params[:image_config], context: "#{context}[:image_config]") unless params[:image_config].nil?
         type.error = ImageConfigError.build(params[:error], context: "#{context}[:error]") unless params[:error].nil?
@@ -1511,7 +1584,7 @@ module AWS::SDK::Lambda
 
     module InvalidCodeSignatureException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidCodeSignatureException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidCodeSignatureException, context: context)
         type = Types::InvalidCodeSignatureException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1521,7 +1594,7 @@ module AWS::SDK::Lambda
 
     module InvalidParameterValueException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidParameterValueException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidParameterValueException, context: context)
         type = Types::InvalidParameterValueException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1531,7 +1604,7 @@ module AWS::SDK::Lambda
 
     module InvalidRequestContentException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidRequestContentException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRequestContentException, context: context)
         type = Types::InvalidRequestContentException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1541,7 +1614,7 @@ module AWS::SDK::Lambda
 
     module InvalidRuntimeException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidRuntimeException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRuntimeException, context: context)
         type = Types::InvalidRuntimeException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1551,7 +1624,7 @@ module AWS::SDK::Lambda
 
     module InvalidSecurityGroupIDException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidSecurityGroupIDException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidSecurityGroupIDException, context: context)
         type = Types::InvalidSecurityGroupIDException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1561,7 +1634,7 @@ module AWS::SDK::Lambda
 
     module InvalidSubnetIDException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidSubnetIDException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidSubnetIDException, context: context)
         type = Types::InvalidSubnetIDException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1571,7 +1644,7 @@ module AWS::SDK::Lambda
 
     module InvalidZipFileException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidZipFileException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidZipFileException, context: context)
         type = Types::InvalidZipFileException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1581,7 +1654,7 @@ module AWS::SDK::Lambda
 
     module InvokeAsyncInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvokeAsyncInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeAsyncInput, context: context)
         type = Types::InvokeAsyncInput.new
         type.function_name = params[:function_name]
         io = params[:invoke_args] || StringIO.new
@@ -1595,7 +1668,7 @@ module AWS::SDK::Lambda
 
     module InvokeAsyncOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvokeAsyncOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeAsyncOutput, context: context)
         type = Types::InvokeAsyncOutput.new
         type.status = params[:status]
         type
@@ -1604,7 +1677,7 @@ module AWS::SDK::Lambda
 
     module InvokeInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvokeInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeInput, context: context)
         type = Types::InvokeInput.new
         type.function_name = params[:function_name]
         type.invocation_type = params[:invocation_type]
@@ -1618,7 +1691,7 @@ module AWS::SDK::Lambda
 
     module InvokeOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvokeOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeOutput, context: context)
         type = Types::InvokeOutput.new
         type.status_code = params[:status_code]
         type.function_error = params[:function_error]
@@ -1629,9 +1702,80 @@ module AWS::SDK::Lambda
       end
     end
 
+    module InvokeResponseStreamUpdate
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeResponseStreamUpdate, context: context)
+        type = Types::InvokeResponseStreamUpdate.new
+        type.payload = params[:payload]
+        type
+      end
+    end
+
+    module InvokeWithResponseStreamCompleteEvent
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeWithResponseStreamCompleteEvent, context: context)
+        type = Types::InvokeWithResponseStreamCompleteEvent.new
+        type.error_code = params[:error_code]
+        type.error_details = params[:error_details]
+        type.log_result = params[:log_result]
+        type
+      end
+    end
+
+    module InvokeWithResponseStreamInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeWithResponseStreamInput, context: context)
+        type = Types::InvokeWithResponseStreamInput.new
+        type.function_name = params[:function_name]
+        type.invocation_type = params[:invocation_type]
+        type.log_type = params[:log_type]
+        type.client_context = params[:client_context]
+        type.qualifier = params[:qualifier]
+        type.payload = params[:payload]
+        type
+      end
+    end
+
+    module InvokeWithResponseStreamOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeWithResponseStreamOutput, context: context)
+        type = Types::InvokeWithResponseStreamOutput.new
+        type.status_code = params[:status_code]
+        type.executed_version = params[:executed_version]
+        type.event_stream = InvokeWithResponseStreamResponseEvent.build(params[:event_stream], context: "#{context}[:event_stream]") unless params[:event_stream].nil?
+        type.response_stream_content_type = params[:response_stream_content_type]
+        type
+      end
+    end
+
+    module InvokeWithResponseStreamResponseEvent
+      def self.build(params, context: '')
+        return params if params.is_a?(Types::InvokeWithResponseStreamResponseEvent)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvokeWithResponseStreamResponseEvent, context: context)
+        unless params.size == 1
+          raise ArgumentError,
+                "Expected #{context} to have exactly one member, got: #{params}"
+        end
+        key, value = params.flatten
+        case key
+        when :payload_chunk
+          Types::InvokeWithResponseStreamResponseEvent::PayloadChunk.new(
+            (InvokeResponseStreamUpdate.build(params[:payload_chunk], context: "#{context}[:payload_chunk]") unless params[:payload_chunk].nil?)
+          )
+        when :invoke_complete
+          Types::InvokeWithResponseStreamResponseEvent::InvokeComplete.new(
+            (InvokeWithResponseStreamCompleteEvent.build(params[:invoke_complete], context: "#{context}[:invoke_complete]") unless params[:invoke_complete].nil?)
+          )
+        else
+          raise ArgumentError,
+                "Expected #{context} to have one of :payload_chunk, :invoke_complete set"
+        end
+      end
+    end
+
     module KMSAccessDeniedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::KMSAccessDeniedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::KMSAccessDeniedException, context: context)
         type = Types::KMSAccessDeniedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1641,7 +1785,7 @@ module AWS::SDK::Lambda
 
     module KMSDisabledException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::KMSDisabledException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::KMSDisabledException, context: context)
         type = Types::KMSDisabledException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1651,7 +1795,7 @@ module AWS::SDK::Lambda
 
     module KMSInvalidStateException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::KMSInvalidStateException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::KMSInvalidStateException, context: context)
         type = Types::KMSInvalidStateException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1661,7 +1805,7 @@ module AWS::SDK::Lambda
 
     module KMSNotFoundException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::KMSNotFoundException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::KMSNotFoundException, context: context)
         type = Types::KMSNotFoundException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -1671,7 +1815,7 @@ module AWS::SDK::Lambda
 
     module Layer
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::Layer, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Layer, context: context)
         type = Types::Layer.new
         type.arn = params[:arn]
         type.code_size = params[:code_size]
@@ -1683,7 +1827,7 @@ module AWS::SDK::Lambda
 
     module LayerList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -1694,7 +1838,7 @@ module AWS::SDK::Lambda
 
     module LayerVersionContentInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LayerVersionContentInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LayerVersionContentInput, context: context)
         type = Types::LayerVersionContentInput.new
         type.s3_bucket = params[:s3_bucket]
         type.s3_key = params[:s3_key]
@@ -1706,7 +1850,7 @@ module AWS::SDK::Lambda
 
     module LayerVersionContentOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LayerVersionContentOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LayerVersionContentOutput, context: context)
         type = Types::LayerVersionContentOutput.new
         type.location = params[:location]
         type.code_sha256 = params[:code_sha256]
@@ -1719,7 +1863,7 @@ module AWS::SDK::Lambda
 
     module LayerVersionsList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << LayerVersionsListItem.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1730,7 +1874,7 @@ module AWS::SDK::Lambda
 
     module LayerVersionsListItem
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LayerVersionsListItem, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LayerVersionsListItem, context: context)
         type = Types::LayerVersionsListItem.new
         type.layer_version_arn = params[:layer_version_arn]
         type.version = params[:version]
@@ -1745,7 +1889,7 @@ module AWS::SDK::Lambda
 
     module LayersList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << LayersListItem.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1756,7 +1900,7 @@ module AWS::SDK::Lambda
 
     module LayersListItem
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LayersListItem, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LayersListItem, context: context)
         type = Types::LayersListItem.new
         type.layer_name = params[:layer_name]
         type.layer_arn = params[:layer_arn]
@@ -1767,7 +1911,7 @@ module AWS::SDK::Lambda
 
     module LayersReferenceList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Layer.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1778,7 +1922,7 @@ module AWS::SDK::Lambda
 
     module ListAliasesInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAliasesInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAliasesInput, context: context)
         type = Types::ListAliasesInput.new
         type.function_name = params[:function_name]
         type.function_version = params[:function_version]
@@ -1790,7 +1934,7 @@ module AWS::SDK::Lambda
 
     module ListAliasesOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAliasesOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAliasesOutput, context: context)
         type = Types::ListAliasesOutput.new
         type.next_marker = params[:next_marker]
         type.aliases = AliasList.build(params[:aliases], context: "#{context}[:aliases]") unless params[:aliases].nil?
@@ -1800,7 +1944,7 @@ module AWS::SDK::Lambda
 
     module ListCodeSigningConfigsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListCodeSigningConfigsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListCodeSigningConfigsInput, context: context)
         type = Types::ListCodeSigningConfigsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1810,7 +1954,7 @@ module AWS::SDK::Lambda
 
     module ListCodeSigningConfigsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListCodeSigningConfigsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListCodeSigningConfigsOutput, context: context)
         type = Types::ListCodeSigningConfigsOutput.new
         type.next_marker = params[:next_marker]
         type.code_signing_configs = CodeSigningConfigList.build(params[:code_signing_configs], context: "#{context}[:code_signing_configs]") unless params[:code_signing_configs].nil?
@@ -1820,7 +1964,7 @@ module AWS::SDK::Lambda
 
     module ListEventSourceMappingsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListEventSourceMappingsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListEventSourceMappingsInput, context: context)
         type = Types::ListEventSourceMappingsInput.new
         type.event_source_arn = params[:event_source_arn]
         type.function_name = params[:function_name]
@@ -1832,7 +1976,7 @@ module AWS::SDK::Lambda
 
     module ListEventSourceMappingsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListEventSourceMappingsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListEventSourceMappingsOutput, context: context)
         type = Types::ListEventSourceMappingsOutput.new
         type.next_marker = params[:next_marker]
         type.event_source_mappings = EventSourceMappingsList.build(params[:event_source_mappings], context: "#{context}[:event_source_mappings]") unless params[:event_source_mappings].nil?
@@ -1842,7 +1986,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionEventInvokeConfigsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionEventInvokeConfigsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionEventInvokeConfigsInput, context: context)
         type = Types::ListFunctionEventInvokeConfigsInput.new
         type.function_name = params[:function_name]
         type.marker = params[:marker]
@@ -1853,7 +1997,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionEventInvokeConfigsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionEventInvokeConfigsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionEventInvokeConfigsOutput, context: context)
         type = Types::ListFunctionEventInvokeConfigsOutput.new
         type.function_event_invoke_configs = FunctionEventInvokeConfigList.build(params[:function_event_invoke_configs], context: "#{context}[:function_event_invoke_configs]") unless params[:function_event_invoke_configs].nil?
         type.next_marker = params[:next_marker]
@@ -1863,7 +2007,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionUrlConfigsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionUrlConfigsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionUrlConfigsInput, context: context)
         type = Types::ListFunctionUrlConfigsInput.new
         type.function_name = params[:function_name]
         type.marker = params[:marker]
@@ -1874,7 +2018,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionUrlConfigsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionUrlConfigsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionUrlConfigsOutput, context: context)
         type = Types::ListFunctionUrlConfigsOutput.new
         type.function_url_configs = FunctionUrlConfigList.build(params[:function_url_configs], context: "#{context}[:function_url_configs]") unless params[:function_url_configs].nil?
         type.next_marker = params[:next_marker]
@@ -1884,7 +2028,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionsByCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsByCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionsByCodeSigningConfigInput, context: context)
         type = Types::ListFunctionsByCodeSigningConfigInput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.marker = params[:marker]
@@ -1895,7 +2039,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionsByCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsByCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionsByCodeSigningConfigOutput, context: context)
         type = Types::ListFunctionsByCodeSigningConfigOutput.new
         type.next_marker = params[:next_marker]
         type.function_arns = FunctionArnList.build(params[:function_arns], context: "#{context}[:function_arns]") unless params[:function_arns].nil?
@@ -1905,7 +2049,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionsInput, context: context)
         type = Types::ListFunctionsInput.new
         type.master_region = params[:master_region]
         type.function_version = params[:function_version]
@@ -1917,7 +2061,7 @@ module AWS::SDK::Lambda
 
     module ListFunctionsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListFunctionsOutput, context: context)
         type = Types::ListFunctionsOutput.new
         type.next_marker = params[:next_marker]
         type.functions = FunctionList.build(params[:functions], context: "#{context}[:functions]") unless params[:functions].nil?
@@ -1927,7 +2071,7 @@ module AWS::SDK::Lambda
 
     module ListLayerVersionsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListLayerVersionsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListLayerVersionsInput, context: context)
         type = Types::ListLayerVersionsInput.new
         type.compatible_runtime = params[:compatible_runtime]
         type.layer_name = params[:layer_name]
@@ -1940,7 +2084,7 @@ module AWS::SDK::Lambda
 
     module ListLayerVersionsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListLayerVersionsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListLayerVersionsOutput, context: context)
         type = Types::ListLayerVersionsOutput.new
         type.next_marker = params[:next_marker]
         type.layer_versions = LayerVersionsList.build(params[:layer_versions], context: "#{context}[:layer_versions]") unless params[:layer_versions].nil?
@@ -1950,7 +2094,7 @@ module AWS::SDK::Lambda
 
     module ListLayersInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListLayersInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListLayersInput, context: context)
         type = Types::ListLayersInput.new
         type.compatible_runtime = params[:compatible_runtime]
         type.marker = params[:marker]
@@ -1962,7 +2106,7 @@ module AWS::SDK::Lambda
 
     module ListLayersOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListLayersOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListLayersOutput, context: context)
         type = Types::ListLayersOutput.new
         type.next_marker = params[:next_marker]
         type.layers = LayersList.build(params[:layers], context: "#{context}[:layers]") unless params[:layers].nil?
@@ -1972,7 +2116,7 @@ module AWS::SDK::Lambda
 
     module ListProvisionedConcurrencyConfigsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListProvisionedConcurrencyConfigsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListProvisionedConcurrencyConfigsInput, context: context)
         type = Types::ListProvisionedConcurrencyConfigsInput.new
         type.function_name = params[:function_name]
         type.marker = params[:marker]
@@ -1983,7 +2127,7 @@ module AWS::SDK::Lambda
 
     module ListProvisionedConcurrencyConfigsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListProvisionedConcurrencyConfigsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListProvisionedConcurrencyConfigsOutput, context: context)
         type = Types::ListProvisionedConcurrencyConfigsOutput.new
         type.provisioned_concurrency_configs = ProvisionedConcurrencyConfigList.build(params[:provisioned_concurrency_configs], context: "#{context}[:provisioned_concurrency_configs]") unless params[:provisioned_concurrency_configs].nil?
         type.next_marker = params[:next_marker]
@@ -1993,7 +2137,7 @@ module AWS::SDK::Lambda
 
     module ListTagsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListTagsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsInput, context: context)
         type = Types::ListTagsInput.new
         type.resource = params[:resource]
         type
@@ -2002,7 +2146,7 @@ module AWS::SDK::Lambda
 
     module ListTagsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListTagsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsOutput, context: context)
         type = Types::ListTagsOutput.new
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -2011,7 +2155,7 @@ module AWS::SDK::Lambda
 
     module ListVersionsByFunctionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListVersionsByFunctionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListVersionsByFunctionInput, context: context)
         type = Types::ListVersionsByFunctionInput.new
         type.function_name = params[:function_name]
         type.marker = params[:marker]
@@ -2022,7 +2166,7 @@ module AWS::SDK::Lambda
 
     module ListVersionsByFunctionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListVersionsByFunctionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListVersionsByFunctionOutput, context: context)
         type = Types::ListVersionsByFunctionOutput.new
         type.next_marker = params[:next_marker]
         type.versions = FunctionList.build(params[:versions], context: "#{context}[:versions]") unless params[:versions].nil?
@@ -2032,7 +2176,7 @@ module AWS::SDK::Lambda
 
     module OnFailure
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::OnFailure, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::OnFailure, context: context)
         type = Types::OnFailure.new
         type.destination = params[:destination]
         type
@@ -2041,7 +2185,7 @@ module AWS::SDK::Lambda
 
     module OnSuccess
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::OnSuccess, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::OnSuccess, context: context)
         type = Types::OnSuccess.new
         type.destination = params[:destination]
         type
@@ -2050,7 +2194,7 @@ module AWS::SDK::Lambda
 
     module PolicyLengthExceededException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PolicyLengthExceededException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PolicyLengthExceededException, context: context)
         type = Types::PolicyLengthExceededException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2060,7 +2204,7 @@ module AWS::SDK::Lambda
 
     module PreconditionFailedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PreconditionFailedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PreconditionFailedException, context: context)
         type = Types::PreconditionFailedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2070,7 +2214,7 @@ module AWS::SDK::Lambda
 
     module ProvisionedConcurrencyConfigList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ProvisionedConcurrencyConfigListItem.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -2081,7 +2225,7 @@ module AWS::SDK::Lambda
 
     module ProvisionedConcurrencyConfigListItem
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedConcurrencyConfigListItem, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedConcurrencyConfigListItem, context: context)
         type = Types::ProvisionedConcurrencyConfigListItem.new
         type.function_arn = params[:function_arn]
         type.requested_provisioned_concurrent_executions = params[:requested_provisioned_concurrent_executions]
@@ -2096,7 +2240,7 @@ module AWS::SDK::Lambda
 
     module ProvisionedConcurrencyConfigNotFoundException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedConcurrencyConfigNotFoundException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionedConcurrencyConfigNotFoundException, context: context)
         type = Types::ProvisionedConcurrencyConfigNotFoundException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2106,7 +2250,7 @@ module AWS::SDK::Lambda
 
     module PublishLayerVersionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PublishLayerVersionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PublishLayerVersionInput, context: context)
         type = Types::PublishLayerVersionInput.new
         type.layer_name = params[:layer_name]
         type.description = params[:description]
@@ -2120,7 +2264,7 @@ module AWS::SDK::Lambda
 
     module PublishLayerVersionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PublishLayerVersionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PublishLayerVersionOutput, context: context)
         type = Types::PublishLayerVersionOutput.new
         type.content = LayerVersionContentOutput.build(params[:content], context: "#{context}[:content]") unless params[:content].nil?
         type.layer_arn = params[:layer_arn]
@@ -2137,7 +2281,7 @@ module AWS::SDK::Lambda
 
     module PublishVersionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PublishVersionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PublishVersionInput, context: context)
         type = Types::PublishVersionInput.new
         type.function_name = params[:function_name]
         type.code_sha256 = params[:code_sha256]
@@ -2149,7 +2293,7 @@ module AWS::SDK::Lambda
 
     module PublishVersionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PublishVersionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PublishVersionOutput, context: context)
         type = Types::PublishVersionOutput.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -2184,13 +2328,15 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module PutFunctionCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionCodeSigningConfigInput, context: context)
         type = Types::PutFunctionCodeSigningConfigInput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.function_name = params[:function_name]
@@ -2200,7 +2346,7 @@ module AWS::SDK::Lambda
 
     module PutFunctionCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionCodeSigningConfigOutput, context: context)
         type = Types::PutFunctionCodeSigningConfigOutput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.function_name = params[:function_name]
@@ -2210,7 +2356,7 @@ module AWS::SDK::Lambda
 
     module PutFunctionConcurrencyInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionConcurrencyInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionConcurrencyInput, context: context)
         type = Types::PutFunctionConcurrencyInput.new
         type.function_name = params[:function_name]
         type.reserved_concurrent_executions = params[:reserved_concurrent_executions]
@@ -2220,7 +2366,7 @@ module AWS::SDK::Lambda
 
     module PutFunctionConcurrencyOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionConcurrencyOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionConcurrencyOutput, context: context)
         type = Types::PutFunctionConcurrencyOutput.new
         type.reserved_concurrent_executions = params[:reserved_concurrent_executions]
         type
@@ -2229,7 +2375,7 @@ module AWS::SDK::Lambda
 
     module PutFunctionEventInvokeConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionEventInvokeConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionEventInvokeConfigInput, context: context)
         type = Types::PutFunctionEventInvokeConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -2242,7 +2388,7 @@ module AWS::SDK::Lambda
 
     module PutFunctionEventInvokeConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutFunctionEventInvokeConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutFunctionEventInvokeConfigOutput, context: context)
         type = Types::PutFunctionEventInvokeConfigOutput.new
         type.last_modified = params[:last_modified]
         type.function_arn = params[:function_arn]
@@ -2255,7 +2401,7 @@ module AWS::SDK::Lambda
 
     module PutProvisionedConcurrencyConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutProvisionedConcurrencyConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutProvisionedConcurrencyConfigInput, context: context)
         type = Types::PutProvisionedConcurrencyConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -2266,7 +2412,7 @@ module AWS::SDK::Lambda
 
     module PutProvisionedConcurrencyConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::PutProvisionedConcurrencyConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutProvisionedConcurrencyConfigOutput, context: context)
         type = Types::PutProvisionedConcurrencyConfigOutput.new
         type.requested_provisioned_concurrent_executions = params[:requested_provisioned_concurrent_executions]
         type.available_provisioned_concurrent_executions = params[:available_provisioned_concurrent_executions]
@@ -2278,9 +2424,32 @@ module AWS::SDK::Lambda
       end
     end
 
+    module PutRuntimeManagementConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutRuntimeManagementConfigInput, context: context)
+        type = Types::PutRuntimeManagementConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type.update_runtime_on = params[:update_runtime_on]
+        type.runtime_version_arn = params[:runtime_version_arn]
+        type
+      end
+    end
+
+    module PutRuntimeManagementConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PutRuntimeManagementConfigOutput, context: context)
+        type = Types::PutRuntimeManagementConfigOutput.new
+        type.update_runtime_on = params[:update_runtime_on]
+        type.function_arn = params[:function_arn]
+        type.runtime_version_arn = params[:runtime_version_arn]
+        type
+      end
+    end
+
     module Queues
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2291,10 +2460,10 @@ module AWS::SDK::Lambda
 
     module RemoveLayerVersionPermissionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RemoveLayerVersionPermissionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RemoveLayerVersionPermissionInput, context: context)
         type = Types::RemoveLayerVersionPermissionInput.new
         type.layer_name = params[:layer_name]
-        type.version_number = params[:version_number]
+        type.version_number = params.fetch(:version_number, 0)
         type.statement_id = params[:statement_id]
         type.revision_id = params[:revision_id]
         type
@@ -2303,7 +2472,7 @@ module AWS::SDK::Lambda
 
     module RemoveLayerVersionPermissionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RemoveLayerVersionPermissionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RemoveLayerVersionPermissionOutput, context: context)
         type = Types::RemoveLayerVersionPermissionOutput.new
         type
       end
@@ -2311,7 +2480,7 @@ module AWS::SDK::Lambda
 
     module RemovePermissionInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RemovePermissionInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RemovePermissionInput, context: context)
         type = Types::RemovePermissionInput.new
         type.function_name = params[:function_name]
         type.statement_id = params[:statement_id]
@@ -2323,7 +2492,7 @@ module AWS::SDK::Lambda
 
     module RemovePermissionOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RemovePermissionOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RemovePermissionOutput, context: context)
         type = Types::RemovePermissionOutput.new
         type
       end
@@ -2331,7 +2500,7 @@ module AWS::SDK::Lambda
 
     module RequestTooLargeException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RequestTooLargeException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RequestTooLargeException, context: context)
         type = Types::RequestTooLargeException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2341,7 +2510,7 @@ module AWS::SDK::Lambda
 
     module ResourceConflictException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ResourceConflictException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceConflictException, context: context)
         type = Types::ResourceConflictException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2351,7 +2520,7 @@ module AWS::SDK::Lambda
 
     module ResourceInUseException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ResourceInUseException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceInUseException, context: context)
         type = Types::ResourceInUseException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2361,7 +2530,7 @@ module AWS::SDK::Lambda
 
     module ResourceNotFoundException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ResourceNotFoundException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2371,7 +2540,7 @@ module AWS::SDK::Lambda
 
     module ResourceNotReadyException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ResourceNotReadyException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotReadyException, context: context)
         type = Types::ResourceNotReadyException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2379,9 +2548,38 @@ module AWS::SDK::Lambda
       end
     end
 
+    module RuntimeVersionConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RuntimeVersionConfig, context: context)
+        type = Types::RuntimeVersionConfig.new
+        type.runtime_version_arn = params[:runtime_version_arn]
+        type.error = RuntimeVersionError.build(params[:error], context: "#{context}[:error]") unless params[:error].nil?
+        type
+      end
+    end
+
+    module RuntimeVersionError
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RuntimeVersionError, context: context)
+        type = Types::RuntimeVersionError.new
+        type.error_code = params[:error_code]
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ScalingConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ScalingConfig, context: context)
+        type = Types::ScalingConfig.new
+        type.maximum_concurrency = params[:maximum_concurrency]
+        type
+      end
+    end
+
     module SecurityGroupIds
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2392,16 +2590,25 @@ module AWS::SDK::Lambda
 
     module SelfManagedEventSource
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::SelfManagedEventSource, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SelfManagedEventSource, context: context)
         type = Types::SelfManagedEventSource.new
         type.endpoints = Endpoints.build(params[:endpoints], context: "#{context}[:endpoints]") unless params[:endpoints].nil?
         type
       end
     end
 
+    module SelfManagedKafkaEventSourceConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SelfManagedKafkaEventSourceConfig, context: context)
+        type = Types::SelfManagedKafkaEventSourceConfig.new
+        type.consumer_group_id = params[:consumer_group_id]
+        type
+      end
+    end
+
     module ServiceException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ServiceException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ServiceException, context: context)
         type = Types::ServiceException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2411,7 +2618,7 @@ module AWS::SDK::Lambda
 
     module SigningProfileVersionArns
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2420,9 +2627,58 @@ module AWS::SDK::Lambda
       end
     end
 
+    module SnapStart
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SnapStart, context: context)
+        type = Types::SnapStart.new
+        type.apply_on = params[:apply_on]
+        type
+      end
+    end
+
+    module SnapStartException
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SnapStartException, context: context)
+        type = Types::SnapStartException.new
+        type.type = params[:type]
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module SnapStartNotReadyException
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SnapStartNotReadyException, context: context)
+        type = Types::SnapStartNotReadyException.new
+        type.type = params[:type]
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module SnapStartResponse
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SnapStartResponse, context: context)
+        type = Types::SnapStartResponse.new
+        type.apply_on = params[:apply_on]
+        type.optimization_status = params[:optimization_status]
+        type
+      end
+    end
+
+    module SnapStartTimeoutException
+      def self.build(params, context: '')
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SnapStartTimeoutException, context: context)
+        type = Types::SnapStartTimeoutException.new
+        type.type = params[:type]
+        type.message = params[:message]
+        type
+      end
+    end
+
     module SourceAccessConfiguration
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::SourceAccessConfiguration, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SourceAccessConfiguration, context: context)
         type = Types::SourceAccessConfiguration.new
         type.type = params[:type]
         type.uri = params[:uri]
@@ -2432,7 +2688,7 @@ module AWS::SDK::Lambda
 
     module SourceAccessConfigurations
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << SourceAccessConfiguration.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -2443,7 +2699,7 @@ module AWS::SDK::Lambda
 
     module StringList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2454,7 +2710,7 @@ module AWS::SDK::Lambda
 
     module SubnetIPAddressLimitReachedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::SubnetIPAddressLimitReachedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetIPAddressLimitReachedException, context: context)
         type = Types::SubnetIPAddressLimitReachedException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2464,7 +2720,7 @@ module AWS::SDK::Lambda
 
     module SubnetIds
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2475,7 +2731,7 @@ module AWS::SDK::Lambda
 
     module TagKeyList
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2486,7 +2742,7 @@ module AWS::SDK::Lambda
 
     module TagResourceInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TagResourceInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
         type.resource = params[:resource]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2496,7 +2752,7 @@ module AWS::SDK::Lambda
 
     module TagResourceOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TagResourceOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceOutput, context: context)
         type = Types::TagResourceOutput.new
         type
       end
@@ -2504,7 +2760,7 @@ module AWS::SDK::Lambda
 
     module Tags
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = value
@@ -2515,7 +2771,7 @@ module AWS::SDK::Lambda
 
     module TooManyRequestsException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TooManyRequestsException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyRequestsException, context: context)
         type = Types::TooManyRequestsException.new
         type.retry_after_seconds = params[:retry_after_seconds]
         type.type = params[:type]
@@ -2527,7 +2783,7 @@ module AWS::SDK::Lambda
 
     module Topics
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
           data << element
@@ -2538,7 +2794,7 @@ module AWS::SDK::Lambda
 
     module TracingConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TracingConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TracingConfig, context: context)
         type = Types::TracingConfig.new
         type.mode = params[:mode]
         type
@@ -2547,7 +2803,7 @@ module AWS::SDK::Lambda
 
     module TracingConfigResponse
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TracingConfigResponse, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TracingConfigResponse, context: context)
         type = Types::TracingConfigResponse.new
         type.mode = params[:mode]
         type
@@ -2556,7 +2812,7 @@ module AWS::SDK::Lambda
 
     module UnsupportedMediaTypeException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UnsupportedMediaTypeException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UnsupportedMediaTypeException, context: context)
         type = Types::UnsupportedMediaTypeException.new
         type.type = params[:type]
         type.message = params[:message]
@@ -2566,7 +2822,7 @@ module AWS::SDK::Lambda
 
     module UntagResourceInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         type.resource = params[:resource]
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
@@ -2576,7 +2832,7 @@ module AWS::SDK::Lambda
 
     module UntagResourceOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceOutput, context: context)
         type = Types::UntagResourceOutput.new
         type
       end
@@ -2584,7 +2840,7 @@ module AWS::SDK::Lambda
 
     module UpdateAliasInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateAliasInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateAliasInput, context: context)
         type = Types::UpdateAliasInput.new
         type.function_name = params[:function_name]
         type.name = params[:name]
@@ -2598,7 +2854,7 @@ module AWS::SDK::Lambda
 
     module UpdateAliasOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateAliasOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateAliasOutput, context: context)
         type = Types::UpdateAliasOutput.new
         type.alias_arn = params[:alias_arn]
         type.name = params[:name]
@@ -2612,7 +2868,7 @@ module AWS::SDK::Lambda
 
     module UpdateCodeSigningConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateCodeSigningConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateCodeSigningConfigInput, context: context)
         type = Types::UpdateCodeSigningConfigInput.new
         type.code_signing_config_arn = params[:code_signing_config_arn]
         type.description = params[:description]
@@ -2624,7 +2880,7 @@ module AWS::SDK::Lambda
 
     module UpdateCodeSigningConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateCodeSigningConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateCodeSigningConfigOutput, context: context)
         type = Types::UpdateCodeSigningConfigOutput.new
         type.code_signing_config = CodeSigningConfig.build(params[:code_signing_config], context: "#{context}[:code_signing_config]") unless params[:code_signing_config].nil?
         type
@@ -2633,7 +2889,7 @@ module AWS::SDK::Lambda
 
     module UpdateEventSourceMappingInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateEventSourceMappingInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateEventSourceMappingInput, context: context)
         type = Types::UpdateEventSourceMappingInput.new
         type.uuid = params[:uuid]
         type.function_name = params[:function_name]
@@ -2649,13 +2905,15 @@ module AWS::SDK::Lambda
         type.source_access_configurations = SourceAccessConfigurations.build(params[:source_access_configurations], context: "#{context}[:source_access_configurations]") unless params[:source_access_configurations].nil?
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module UpdateEventSourceMappingOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateEventSourceMappingOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateEventSourceMappingOutput, context: context)
         type = Types::UpdateEventSourceMappingOutput.new
         type.uuid = params[:uuid]
         type.starting_position = params[:starting_position]
@@ -2680,13 +2938,17 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.tumbling_window_in_seconds = params[:tumbling_window_in_seconds]
         type.function_response_types = FunctionResponseTypeList.build(params[:function_response_types], context: "#{context}[:function_response_types]") unless params[:function_response_types].nil?
+        type.amazon_managed_kafka_event_source_config = AmazonManagedKafkaEventSourceConfig.build(params[:amazon_managed_kafka_event_source_config], context: "#{context}[:amazon_managed_kafka_event_source_config]") unless params[:amazon_managed_kafka_event_source_config].nil?
+        type.self_managed_kafka_event_source_config = SelfManagedKafkaEventSourceConfig.build(params[:self_managed_kafka_event_source_config], context: "#{context}[:self_managed_kafka_event_source_config]") unless params[:self_managed_kafka_event_source_config].nil?
+        type.scaling_config = ScalingConfig.build(params[:scaling_config], context: "#{context}[:scaling_config]") unless params[:scaling_config].nil?
+        type.document_db_event_source_config = DocumentDBEventSourceConfig.build(params[:document_db_event_source_config], context: "#{context}[:document_db_event_source_config]") unless params[:document_db_event_source_config].nil?
         type
       end
     end
 
     module UpdateFunctionCodeInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionCodeInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionCodeInput, context: context)
         type = Types::UpdateFunctionCodeInput.new
         type.function_name = params[:function_name]
         type.zip_file = params[:zip_file]
@@ -2704,7 +2966,7 @@ module AWS::SDK::Lambda
 
     module UpdateFunctionCodeOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionCodeOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionCodeOutput, context: context)
         type = Types::UpdateFunctionCodeOutput.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -2739,13 +3001,15 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module UpdateFunctionConfigurationInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionConfigurationInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionConfigurationInput, context: context)
         type = Types::UpdateFunctionConfigurationInput.new
         type.function_name = params[:function_name]
         type.role = params[:role]
@@ -2764,13 +3028,14 @@ module AWS::SDK::Lambda
         type.file_system_configs = FileSystemConfigList.build(params[:file_system_configs], context: "#{context}[:file_system_configs]") unless params[:file_system_configs].nil?
         type.image_config = ImageConfig.build(params[:image_config], context: "#{context}[:image_config]") unless params[:image_config].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStart.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
         type
       end
     end
 
     module UpdateFunctionConfigurationOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionConfigurationOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionConfigurationOutput, context: context)
         type = Types::UpdateFunctionConfigurationOutput.new
         type.function_name = params[:function_name]
         type.function_arn = params[:function_arn]
@@ -2805,13 +3070,15 @@ module AWS::SDK::Lambda
         type.signing_job_arn = params[:signing_job_arn]
         type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type.snap_start = SnapStartResponse.build(params[:snap_start], context: "#{context}[:snap_start]") unless params[:snap_start].nil?
+        type.runtime_version_config = RuntimeVersionConfig.build(params[:runtime_version_config], context: "#{context}[:runtime_version_config]") unless params[:runtime_version_config].nil?
         type
       end
     end
 
     module UpdateFunctionEventInvokeConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionEventInvokeConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionEventInvokeConfigInput, context: context)
         type = Types::UpdateFunctionEventInvokeConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
@@ -2824,7 +3091,7 @@ module AWS::SDK::Lambda
 
     module UpdateFunctionEventInvokeConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionEventInvokeConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionEventInvokeConfigOutput, context: context)
         type = Types::UpdateFunctionEventInvokeConfigOutput.new
         type.last_modified = params[:last_modified]
         type.function_arn = params[:function_arn]
@@ -2837,19 +3104,20 @@ module AWS::SDK::Lambda
 
     module UpdateFunctionUrlConfigInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionUrlConfigInput, context: context)
         type = Types::UpdateFunctionUrlConfigInput.new
         type.function_name = params[:function_name]
         type.qualifier = params[:qualifier]
         type.auth_type = params[:auth_type]
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module UpdateFunctionUrlConfigOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateFunctionUrlConfigOutput, context: context)
         type = Types::UpdateFunctionUrlConfigOutput.new
         type.function_url = params[:function_url]
         type.function_arn = params[:function_arn]
@@ -2857,13 +3125,14 @@ module AWS::SDK::Lambda
         type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
         type.creation_time = params[:creation_time]
         type.last_modified_time = params[:last_modified_time]
+        type.invoke_mode = params[:invoke_mode]
         type
       end
     end
 
     module VpcConfig
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::VpcConfig, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::VpcConfig, context: context)
         type = Types::VpcConfig.new
         type.subnet_ids = SubnetIds.build(params[:subnet_ids], context: "#{context}[:subnet_ids]") unless params[:subnet_ids].nil?
         type.security_group_ids = SecurityGroupIds.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?
@@ -2873,7 +3142,7 @@ module AWS::SDK::Lambda
 
     module VpcConfigResponse
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::VpcConfigResponse, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::VpcConfigResponse, context: context)
         type = Types::VpcConfigResponse.new
         type.subnet_ids = SubnetIds.build(params[:subnet_ids], context: "#{context}[:subnet_ids]") unless params[:subnet_ids].nil?
         type.security_group_ids = SecurityGroupIds.build(params[:security_group_ids], context: "#{context}[:security_group_ids]") unless params[:security_group_ids].nil?

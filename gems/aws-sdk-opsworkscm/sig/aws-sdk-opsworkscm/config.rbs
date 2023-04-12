@@ -1,3 +1,0 @@
-module AWS::SDK::OpsWorksCM
-  Config: untyped
-end

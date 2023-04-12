@@ -1,3 +1,0 @@
-module AWS::SDK::CloudDirectory
-  Config: untyped
-end

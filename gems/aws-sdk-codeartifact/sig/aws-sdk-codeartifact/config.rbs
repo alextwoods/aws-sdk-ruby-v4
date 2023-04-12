@@ -1,3 +1,0 @@
-module AWS::SDK::Codeartifact
-  Config: untyped
-end

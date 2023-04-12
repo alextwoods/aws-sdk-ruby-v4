@@ -1,3 +1,0 @@
-module AWS::SDK::CustomerProfiles
-  Config: untyped
-end

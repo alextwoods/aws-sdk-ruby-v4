@@ -231,12 +231,12 @@ public class ParserGenerator extends RestParserGeneratorBase {
          */
         private void defaultComplexDeserializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.parse($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L$2L.parse($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         jsonGetter);
             } else {
-                writer.write("$1L($2T.parse($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L($2L.parse($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         jsonGetter);
             }
         }
@@ -332,7 +332,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         private void defaultComplexDeserializer(Shape shape) {
             writer
                     .write("json = $T.load(http_resp.body)", Hearth.JSON)
-                    .write("$L$T.parse(json)", dataSetter, symbolProvider.toSymbol(shape));
+                    .write("$L$L.parse(json)", dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 
     }

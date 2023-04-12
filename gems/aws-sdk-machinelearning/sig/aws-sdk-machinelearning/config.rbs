@@ -1,3 +1,0 @@
-module AWS::SDK::MachineLearning
-  Config: untyped
-end

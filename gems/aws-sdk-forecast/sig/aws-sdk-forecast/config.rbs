@@ -1,3 +1,0 @@
-module AWS::SDK::Forecast
-  Config: untyped
-end

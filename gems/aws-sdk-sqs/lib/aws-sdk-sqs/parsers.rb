@@ -10,6 +10,7 @@
 require 'base64'
 
 module AWS::SDK::SQS
+  # @api private
   module Parsers
 
     # Operation Parser for AddPermission
@@ -23,10 +24,10 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for OverLimit
-    class OverLimit
+    # Error Parser for BatchEntryIdsNotDistinct
+    class BatchEntryIdsNotDistinct
       def self.parse(http_resp)
-        data = Types::OverLimit.new
+        data = Types::BatchEntryIdsNotDistinct.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('Error')
@@ -34,62 +35,13 @@ module AWS::SDK::SQS
       end
     end
 
-    # Operation Parser for ChangeMessageVisibility
-    class ChangeMessageVisibility
+    # Error Parser for BatchRequestTooLong
+    class BatchRequestTooLong
       def self.parse(http_resp)
-        data = Types::ChangeMessageVisibilityOutput.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ChangeMessageVisibilityResult')
-        data
-      end
-    end
-
-    # Error Parser for MessageNotInflight
-    class MessageNotInflight
-      def self.parse(http_resp)
-        data = Types::MessageNotInflight.new
+        data = Types::BatchRequestTooLong.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for ReceiptHandleIsInvalid
-    class ReceiptHandleIsInvalid
-      def self.parse(http_resp)
-        data = Types::ReceiptHandleIsInvalid.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Operation Parser for ChangeMessageVisibilityBatch
-    class ChangeMessageVisibilityBatch
-      def self.parse(http_resp)
-        data = Types::ChangeMessageVisibilityBatchOutput.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ChangeMessageVisibilityBatchResult')
-        xml.children('ChangeMessageVisibilityBatchResultEntry') do |children|
-          data.successful = ChangeMessageVisibilityBatchResultEntryList.parse(children)
-        end
-        xml.children('BatchResultErrorEntry') do |children|
-          data.failed = BatchResultErrorEntryList.parse(children)
-        end
-        data
-      end
-    end
-
-    class BatchResultErrorEntryList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << BatchResultErrorEntry.parse(node)
-        end
         data
       end
     end
@@ -113,11 +65,49 @@ module AWS::SDK::SQS
       end
     end
 
-    class ChangeMessageVisibilityBatchResultEntryList
+    class BatchResultErrorEntryList
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << ChangeMessageVisibilityBatchResultEntry.parse(node)
+          data << Types::BatchResultErrorEntry.parse(node)
+        end
+        data
+      end
+    end
+
+    class BinaryList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for ChangeMessageVisibility
+    class ChangeMessageVisibility
+      def self.parse(http_resp)
+        data = Types::ChangeMessageVisibilityOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('ChangeMessageVisibilityResult')
+        data
+      end
+    end
+
+    # Operation Parser for ChangeMessageVisibilityBatch
+    class ChangeMessageVisibilityBatch
+      def self.parse(http_resp)
+        data = Types::ChangeMessageVisibilityBatchOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('ChangeMessageVisibilityBatchResult')
+        xml.children('ChangeMessageVisibilityBatchResultEntry') do |children|
+          data.successful = Types::ChangeMessageVisibilityBatchResultEntryList.parse(children)
+        end
+        xml.children('BatchResultErrorEntry') do |children|
+          data.failed = Types::BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -133,46 +123,12 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for EmptyBatchRequest
-    class EmptyBatchRequest
-      def self.parse(http_resp)
-        data = Types::EmptyBatchRequest.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for TooManyEntriesInBatchRequest
-    class TooManyEntriesInBatchRequest
-      def self.parse(http_resp)
-        data = Types::TooManyEntriesInBatchRequest.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for InvalidBatchEntryId
-    class InvalidBatchEntryId
-      def self.parse(http_resp)
-        data = Types::InvalidBatchEntryId.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for BatchEntryIdsNotDistinct
-    class BatchEntryIdsNotDistinct
-      def self.parse(http_resp)
-        data = Types::BatchEntryIdsNotDistinct.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
+    class ChangeMessageVisibilityBatchResultEntryList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << Types::ChangeMessageVisibilityBatchResultEntry.parse(node)
+        end
         data
       end
     end
@@ -191,28 +147,6 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for QueueNameExists
-    class QueueNameExists
-      def self.parse(http_resp)
-        data = Types::QueueNameExists.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for QueueDeletedRecently
-    class QueueDeletedRecently
-      def self.parse(http_resp)
-        data = Types::QueueDeletedRecently.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
     # Operation Parser for DeleteMessage
     class DeleteMessage
       def self.parse(http_resp)
@@ -220,17 +154,6 @@ module AWS::SDK::SQS
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteMessageResult')
-        data
-      end
-    end
-
-    # Error Parser for InvalidIdFormat
-    class InvalidIdFormat
-      def self.parse(http_resp)
-        data = Types::InvalidIdFormat.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end
@@ -243,20 +166,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteMessageBatchResult')
         xml.children('DeleteMessageBatchResultEntry') do |children|
-          data.successful = DeleteMessageBatchResultEntryList.parse(children)
+          data.successful = Types::DeleteMessageBatchResultEntryList.parse(children)
         end
         xml.children('BatchResultErrorEntry') do |children|
-          data.failed = BatchResultErrorEntryList.parse(children)
-        end
-        data
-      end
-    end
-
-    class DeleteMessageBatchResultEntryList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << DeleteMessageBatchResultEntry.parse(node)
+          data.failed = Types::BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -272,6 +185,16 @@ module AWS::SDK::SQS
       end
     end
 
+    class DeleteMessageBatchResultEntryList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << Types::DeleteMessageBatchResultEntry.parse(node)
+        end
+        data
+      end
+    end
+
     # Operation Parser for DeleteQueue
     class DeleteQueue
       def self.parse(http_resp)
@@ -279,6 +202,17 @@ module AWS::SDK::SQS
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteQueueResult')
+        data
+      end
+    end
+
+    # Error Parser for EmptyBatchRequest
+    class EmptyBatchRequest
+      def self.parse(http_resp)
+        data = Types::EmptyBatchRequest.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end
@@ -291,31 +225,8 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetQueueAttributesResult')
         xml.children('Attribute') do |children|
-          data.attributes = QueueAttributeMap.parse(children)
+          data.attributes = Types::QueueAttributeMap.parse(children)
         end
-        data
-      end
-    end
-
-    class QueueAttributeMap
-      def self.parse(xml)
-        data = {}
-        xml.each do |entry_node|
-          key = entry_node.at('Name').text
-          node = entry_node.at('Value')
-          data[key] = (node.text || '')
-        end
-        data
-      end
-    end
-
-    # Error Parser for InvalidAttributeName
-    class InvalidAttributeName
-      def self.parse(http_resp)
-        data = Types::InvalidAttributeName.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end
@@ -334,10 +245,43 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for QueueDoesNotExist
-    class QueueDoesNotExist
+    # Error Parser for InvalidAttributeName
+    class InvalidAttributeName
       def self.parse(http_resp)
-        data = Types::QueueDoesNotExist.new
+        data = Types::InvalidAttributeName.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Error Parser for InvalidBatchEntryId
+    class InvalidBatchEntryId
+      def self.parse(http_resp)
+        data = Types::InvalidBatchEntryId.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Error Parser for InvalidIdFormat
+    class InvalidIdFormat
+      def self.parse(http_resp)
+        data = Types::InvalidIdFormat.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Error Parser for InvalidMessageContents
+    class InvalidMessageContents
+      def self.parse(http_resp)
+        data = Types::InvalidMessageContents.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('Error')
@@ -353,20 +297,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ListDeadLetterSourceQueuesResult')
         xml.children('QueueUrl') do |children|
-          data.queue_urls = QueueUrlList.parse(children)
+          data.queue_urls = Types::QueueUrlList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
-        end
-        data
-      end
-    end
-
-    class QueueUrlList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << (node.text || '')
         end
         data
       end
@@ -380,19 +314,7 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ListQueueTagsResult')
         xml.children('Tag') do |children|
-          data.tags = TagMap.parse(children)
-        end
-        data
-      end
-    end
-
-    class TagMap
-      def self.parse(xml)
-        data = {}
-        xml.each do |entry_node|
-          key = entry_node.at('Key').text
-          node = entry_node.at('Value')
-          data[key] = (node.text || '')
+          data.tags = Types::TagMap.parse(children)
         end
         data
       end
@@ -409,8 +331,114 @@ module AWS::SDK::SQS
           data.next_token = (node.text || '')
         end
         xml.children('QueueUrl') do |children|
-          data.queue_urls = QueueUrlList.parse(children)
+          data.queue_urls = Types::QueueUrlList.parse(children)
         end
+        data
+      end
+    end
+
+    class Message
+      def self.parse(xml)
+        data = Types::Message.new
+        xml.at('MessageId') do |node|
+          data.message_id = (node.text || '')
+        end
+        xml.at('ReceiptHandle') do |node|
+          data.receipt_handle = (node.text || '')
+        end
+        xml.at('MD5OfBody') do |node|
+          data.md5_of_body = (node.text || '')
+        end
+        xml.at('Body') do |node|
+          data.body = (node.text || '')
+        end
+        xml.children('Attribute') do |children|
+          data.attributes = Types::MessageSystemAttributeMap.parse(children)
+        end
+        xml.at('MD5OfMessageAttributes') do |node|
+          data.md5_of_message_attributes = (node.text || '')
+        end
+        xml.children('MessageAttribute') do |children|
+          data.message_attributes = Types::MessageBodyAttributeMap.parse(children)
+        end
+        return data
+      end
+    end
+
+    class MessageAttributeValue
+      def self.parse(xml)
+        data = Types::MessageAttributeValue.new
+        xml.at('StringValue') do |node|
+          data.string_value = (node.text || '')
+        end
+        xml.at('BinaryValue') do |node|
+          data.binary_value = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
+        end
+        xml.children('StringListValue') do |children|
+          data.string_list_values = Types::StringList.parse(children)
+        end
+        xml.children('BinaryListValue') do |children|
+          data.binary_list_values = Types::BinaryList.parse(children)
+        end
+        xml.at('DataType') do |node|
+          data.data_type = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class MessageBodyAttributeMap
+      def self.parse(xml)
+        data = {}
+        xml.each do |entry_node|
+          key = entry_node.at('Name').text
+          node = entry_node.at('Value')
+          data[key] = Types::MessageAttributeValue.parse(node)
+        end
+        data
+      end
+    end
+
+    class MessageList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << Types::Message.parse(node)
+        end
+        data
+      end
+    end
+
+    # Error Parser for MessageNotInflight
+    class MessageNotInflight
+      def self.parse(http_resp)
+        data = Types::MessageNotInflight.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    class MessageSystemAttributeMap
+      def self.parse(xml)
+        data = {}
+        xml.each do |entry_node|
+          key = entry_node.at('Name').text
+          node = entry_node.at('Value')
+          data[key] = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Error Parser for OverLimit
+    class OverLimit
+      def self.parse(http_resp)
+        data = Types::OverLimit.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end
@@ -437,103 +465,52 @@ module AWS::SDK::SQS
       end
     end
 
-    # Operation Parser for ReceiveMessage
-    class ReceiveMessage
-      def self.parse(http_resp)
-        data = Types::ReceiveMessageOutput.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('ReceiveMessageResult')
-        xml.children('Message') do |children|
-          data.messages = MessageList.parse(children)
-        end
-        data
-      end
-    end
-
-    class MessageList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << Message.parse(node)
-        end
-        data
-      end
-    end
-
-    class Message
-      def self.parse(xml)
-        data = Types::Message.new
-        xml.at('MessageId') do |node|
-          data.message_id = (node.text || '')
-        end
-        xml.at('ReceiptHandle') do |node|
-          data.receipt_handle = (node.text || '')
-        end
-        xml.at('MD5OfBody') do |node|
-          data.md5_of_body = (node.text || '')
-        end
-        xml.at('Body') do |node|
-          data.body = (node.text || '')
-        end
-        xml.children('Attribute') do |children|
-          data.attributes = MessageSystemAttributeMap.parse(children)
-        end
-        xml.at('MD5OfMessageAttributes') do |node|
-          data.md5_of_message_attributes = (node.text || '')
-        end
-        xml.children('MessageAttribute') do |children|
-          data.message_attributes = MessageBodyAttributeMap.parse(children)
-        end
-        return data
-      end
-    end
-
-    class MessageBodyAttributeMap
+    class QueueAttributeMap
       def self.parse(xml)
         data = {}
         xml.each do |entry_node|
           key = entry_node.at('Name').text
           node = entry_node.at('Value')
-          data[key] = MessageAttributeValue.parse(node)
+          data[key] = (node.text || '')
         end
         data
       end
     end
 
-    class MessageAttributeValue
-      def self.parse(xml)
-        data = Types::MessageAttributeValue.new
-        xml.at('StringValue') do |node|
-          data.string_value = (node.text || '')
-        end
-        xml.at('BinaryValue') do |node|
-          data.binary_value = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
-        end
-        xml.children('StringListValue') do |children|
-          data.string_list_values = StringList.parse(children)
-        end
-        xml.children('BinaryListValue') do |children|
-          data.binary_list_values = BinaryList.parse(children)
-        end
-        xml.at('DataType') do |node|
-          data.data_type = (node.text || '')
-        end
-        return data
-      end
-    end
-
-    class BinaryList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << ((::Base64::decode64(node.text) unless node.text.nil?) || '')
-        end
+    # Error Parser for QueueDeletedRecently
+    class QueueDeletedRecently
+      def self.parse(http_resp)
+        data = Types::QueueDeletedRecently.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end
 
-    class StringList
+    # Error Parser for QueueDoesNotExist
+    class QueueDoesNotExist
+      def self.parse(http_resp)
+        data = Types::QueueDoesNotExist.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Error Parser for QueueNameExists
+    class QueueNameExists
+      def self.parse(http_resp)
+        data = Types::QueueNameExists.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    class QueueUrlList
       def self.parse(xml)
         data = []
         xml.each do |node|
@@ -543,13 +520,26 @@ module AWS::SDK::SQS
       end
     end
 
-    class MessageSystemAttributeMap
-      def self.parse(xml)
-        data = {}
-        xml.each do |entry_node|
-          key = entry_node.at('Name').text
-          node = entry_node.at('Value')
-          data[key] = (node.text || '')
+    # Error Parser for ReceiptHandleIsInvalid
+    class ReceiptHandleIsInvalid
+      def self.parse(http_resp)
+        data = Types::ReceiptHandleIsInvalid.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Operation Parser for ReceiveMessage
+    class ReceiveMessage
+      def self.parse(http_resp)
+        data = Types::ReceiveMessageOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('ReceiveMessageResult')
+        xml.children('Message') do |children|
+          data.messages = Types::MessageList.parse(children)
         end
         data
       end
@@ -592,28 +582,6 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for UnsupportedOperation
-    class UnsupportedOperation
-      def self.parse(http_resp)
-        data = Types::UnsupportedOperation.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
-    # Error Parser for InvalidMessageContents
-    class InvalidMessageContents
-      def self.parse(http_resp)
-        data = Types::InvalidMessageContents.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
-        data
-      end
-    end
-
     # Operation Parser for SendMessageBatch
     class SendMessageBatch
       def self.parse(http_resp)
@@ -622,20 +590,10 @@ module AWS::SDK::SQS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('SendMessageBatchResult')
         xml.children('SendMessageBatchResultEntry') do |children|
-          data.successful = SendMessageBatchResultEntryList.parse(children)
+          data.successful = Types::SendMessageBatchResultEntryList.parse(children)
         end
         xml.children('BatchResultErrorEntry') do |children|
-          data.failed = BatchResultErrorEntryList.parse(children)
-        end
-        data
-      end
-    end
-
-    class SendMessageBatchResultEntryList
-      def self.parse(xml)
-        data = []
-        xml.each do |node|
-          data << SendMessageBatchResultEntry.parse(node)
+          data.failed = Types::BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -666,13 +624,12 @@ module AWS::SDK::SQS
       end
     end
 
-    # Error Parser for BatchRequestTooLong
-    class BatchRequestTooLong
-      def self.parse(http_resp)
-        data = Types::BatchRequestTooLong.new
-        body = http_resp.body.read
-        return data if body.empty?
-        xml = Hearth::XML.parse(body).at('Error')
+    class SendMessageBatchResultEntryList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << Types::SendMessageBatchResultEntry.parse(node)
+        end
         data
       end
     end
@@ -688,6 +645,28 @@ module AWS::SDK::SQS
       end
     end
 
+    class StringList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << (node.text || '')
+        end
+        data
+      end
+    end
+
+    class TagMap
+      def self.parse(xml)
+        data = {}
+        xml.each do |entry_node|
+          key = entry_node.at('Key').text
+          node = entry_node.at('Value')
+          data[key] = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for TagQueue
     class TagQueue
       def self.parse(http_resp)
@@ -695,6 +674,28 @@ module AWS::SDK::SQS
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('TagQueueResult')
+        data
+      end
+    end
+
+    # Error Parser for TooManyEntriesInBatchRequest
+    class TooManyEntriesInBatchRequest
+      def self.parse(http_resp)
+        data = Types::TooManyEntriesInBatchRequest.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
+        data
+      end
+    end
+
+    # Error Parser for UnsupportedOperation
+    class UnsupportedOperation
+      def self.parse(http_resp)
+        data = Types::UnsupportedOperation.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body).at('Error')
         data
       end
     end

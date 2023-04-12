@@ -37,6 +37,18 @@ module AWS::SDK::SSO
           end
         end
       end
+
+      # Iterate all items from pages in the list_account_roles operation.
+      # @return [Enumerator]
+      def items
+        Enumerator.new do |e|
+          pages.each do |page|
+            page.role_list.each do |item|
+              e.yield(item)
+            end
+          end
+        end
+      end
     end
 
     class ListAccounts
@@ -63,6 +75,18 @@ module AWS::SDK::SSO
             response = @client.list_accounts(params, @options)
             e.yield(response)
             output_token = response.next_token
+          end
+        end
+      end
+
+      # Iterate all items from pages in the list_accounts operation.
+      # @return [Enumerator]
+      def items
+        Enumerator.new do |e|
+          pages.each do |page|
+            page.account_list.each do |item|
+              e.yield(item)
+            end
           end
         end
       end

@@ -12,7 +12,7 @@ require 'aws-sdk-s3'
 module AWS::SDK::S3
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
-    let(:config) { Config.new(stub_responses: true, endpoint: endpoint) }
+    let(:config) { Config.new(stub_responses: true, validate_input: false, endpoint: endpoint) }
     let(:client) { Client.new(config) }
 
     describe '#abort_multipart_upload' do

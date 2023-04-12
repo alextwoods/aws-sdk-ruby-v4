@@ -1,3 +1,0 @@
-module AWS::SDK::Athena
-  Config: untyped
-end

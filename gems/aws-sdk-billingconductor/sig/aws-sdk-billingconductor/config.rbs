@@ -1,3 +1,0 @@
-module AWS::SDK::Billingconductor
-  Config: untyped
-end

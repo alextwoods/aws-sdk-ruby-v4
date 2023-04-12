@@ -1,3 +1,0 @@
-module AWS::SDK::Savingsplans
-  Config: untyped
-end

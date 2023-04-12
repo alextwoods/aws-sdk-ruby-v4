@@ -1,3 +1,0 @@
-module AWS::SDK::SWF
-  Config: untyped
-end

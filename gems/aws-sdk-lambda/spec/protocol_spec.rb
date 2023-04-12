@@ -12,7 +12,7 @@ require 'aws-sdk-lambda'
 module AWS::SDK::Lambda
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
-    let(:config) { Config.new(stub_responses: true, endpoint: endpoint) }
+    let(:config) { Config.new(stub_responses: true, validate_input: false, endpoint: endpoint) }
     let(:client) { Client.new(config) }
 
     describe '#add_layer_version_permission' do
@@ -143,11 +143,19 @@ module AWS::SDK::Lambda
 
     end
 
+    describe '#get_runtime_management_config' do
+
+    end
+
     describe '#invoke' do
 
     end
 
     describe '#invoke_async' do
+
+    end
+
+    describe '#invoke_with_response_stream' do
 
     end
 
@@ -220,6 +228,10 @@ module AWS::SDK::Lambda
     end
 
     describe '#put_provisioned_concurrency_config' do
+
+    end
+
+    describe '#put_runtime_management_config' do
 
     end
 

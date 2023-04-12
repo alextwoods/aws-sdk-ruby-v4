@@ -1,3 +1,0 @@
-module AWS::SDK::CodestarNotifications
-  Config: untyped
-end

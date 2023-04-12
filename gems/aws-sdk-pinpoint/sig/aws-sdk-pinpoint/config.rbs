@@ -1,3 +1,0 @@
-module AWS::SDK::Pinpoint
-  Config: untyped
-end

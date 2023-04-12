@@ -1,3 +1,0 @@
-module AWS::SDK::MigrationHubStrategy
-  Config: untyped
-end

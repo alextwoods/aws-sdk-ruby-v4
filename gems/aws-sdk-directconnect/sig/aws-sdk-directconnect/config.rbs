@@ -1,3 +1,0 @@
-module AWS::SDK::DirectConnect
-  Config: untyped
-end

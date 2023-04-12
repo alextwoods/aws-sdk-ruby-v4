@@ -28,6 +28,8 @@ module AWS::SDK::Lambda
 
     AllowedPublishers: untyped
 
+    AmazonManagedKafkaEventSourceConfig: untyped
+
     module Architecture
       x86_64: ::String
 
@@ -118,6 +120,8 @@ module AWS::SDK::Lambda
 
     DestinationConfig: untyped
 
+    DocumentDBEventSourceConfig: untyped
+
     EC2AccessDeniedException: untyped
 
     EC2ThrottledException: untyped
@@ -161,6 +165,12 @@ module AWS::SDK::Lambda
     Filter: untyped
 
     FilterCriteria: untyped
+
+    module FullDocument
+      UpdateLookup: ::String
+
+      Default: ::String
+    end
 
     FunctionCode: untyped
 
@@ -246,6 +256,10 @@ module AWS::SDK::Lambda
 
     GetProvisionedConcurrencyConfigOutput: untyped
 
+    GetRuntimeManagementConfigInput: untyped
+
+    GetRuntimeManagementConfigOutput: untyped
+
     ImageConfig: untyped
 
     ImageConfigError: untyped
@@ -280,7 +294,35 @@ module AWS::SDK::Lambda
 
     InvokeInput: untyped
 
+    module InvokeMode
+      BUFFERED: ::String
+
+      RESPONSE_STREAM: ::String
+    end
+
     InvokeOutput: untyped
+
+    InvokeResponseStreamUpdate: untyped
+
+    InvokeWithResponseStreamCompleteEvent: untyped
+
+    InvokeWithResponseStreamInput: untyped
+
+    InvokeWithResponseStreamOutput: untyped
+
+    class InvokeWithResponseStreamResponseEvent < Hearth::Union
+      class PayloadChunk < InvokeWithResponseStreamResponseEvent
+        def to_h: () -> { payload_chunk: Hash[Symbol,InvokeWithResponseStreamResponseEvent] }
+      end
+
+      class InvokeComplete < InvokeWithResponseStreamResponseEvent
+        def to_h: () -> { invoke_complete: Hash[Symbol,InvokeWithResponseStreamResponseEvent] }
+      end
+
+      class Unknown < InvokeWithResponseStreamResponseEvent
+        def to_h: () -> { unknown: Hash[Symbol,InvokeWithResponseStreamResponseEvent] }
+      end
+    end
 
     KMSAccessDeniedException: untyped
 
@@ -318,6 +360,28 @@ module AWS::SDK::Lambda
       ImageAccessDenied: ::String
 
       InvalidImage: ::String
+
+      KMSKeyAccessDenied: ::String
+
+      KMSKeyNotFound: ::String
+
+      InvalidStateKMSKey: ::String
+
+      DisabledKMSKey: ::String
+
+      EFSIOError: ::String
+
+      EFSMountConnectivityError: ::String
+
+      EFSMountFailure: ::String
+
+      EFSMountTimeout: ::String
+
+      InvalidRuntime: ::String
+
+      InvalidZipFileException: ::String
+
+      FunctionError: ::String
     end
 
     Layer: untyped
@@ -434,6 +498,10 @@ module AWS::SDK::Lambda
 
     PutProvisionedConcurrencyConfigOutput: untyped
 
+    PutRuntimeManagementConfigInput: untyped
+
+    PutRuntimeManagementConfigOutput: untyped
+
     RemoveLayerVersionPermissionInput: untyped
 
     RemoveLayerVersionPermissionOutput: untyped
@@ -451,6 +519,12 @@ module AWS::SDK::Lambda
     ResourceNotFoundException: untyped
 
     ResourceNotReadyException: untyped
+
+    module ResponseStreamingInvocationType
+      RequestResponse: ::String
+
+      DryRun: ::String
+    end
 
     module Runtime
       nodejs: ::String
@@ -506,11 +580,43 @@ module AWS::SDK::Lambda
       provided: ::String
 
       providedal2: ::String
+
+      nodejs18x: ::String
     end
+
+    RuntimeVersionConfig: untyped
+
+    RuntimeVersionError: untyped
+
+    ScalingConfig: untyped
 
     SelfManagedEventSource: untyped
 
+    SelfManagedKafkaEventSourceConfig: untyped
+
     ServiceException: untyped
+
+    SnapStart: untyped
+
+    module SnapStartApplyOn
+      PublishedVersions: ::String
+
+      None: ::String
+    end
+
+    SnapStartException: untyped
+
+    SnapStartNotReadyException: untyped
+
+    module SnapStartOptimizationStatus
+      On: ::String
+
+      Off: ::String
+    end
+
+    SnapStartResponse: untyped
+
+    SnapStartTimeoutException: untyped
 
     SourceAccessConfiguration: untyped
 
@@ -568,6 +674,28 @@ module AWS::SDK::Lambda
       ImageAccessDenied: ::String
 
       InvalidImage: ::String
+
+      KMSKeyAccessDenied: ::String
+
+      KMSKeyNotFound: ::String
+
+      InvalidStateKMSKey: ::String
+
+      DisabledKMSKey: ::String
+
+      EFSIOError: ::String
+
+      EFSMountConnectivityError: ::String
+
+      EFSMountFailure: ::String
+
+      EFSMountTimeout: ::String
+
+      InvalidRuntime: ::String
+
+      InvalidZipFileException: ::String
+
+      FunctionError: ::String
     end
 
     SubnetIPAddressLimitReachedException: untyped
@@ -586,6 +714,8 @@ module AWS::SDK::Lambda
       ReservedFunctionInvocationRateLimitExceeded: ::String
 
       CallerRateLimitExceeded: ::String
+
+      ConcurrentSnapshotCreateLimitExceeded: ::String
     end
 
     TooManyRequestsException: untyped
@@ -633,6 +763,14 @@ module AWS::SDK::Lambda
     UpdateFunctionUrlConfigInput: untyped
 
     UpdateFunctionUrlConfigOutput: untyped
+
+    module UpdateRuntimeOn
+      Auto: ::String
+
+      Manual: ::String
+
+      FunctionUpdate: ::String
+    end
 
     VpcConfig: untyped
 

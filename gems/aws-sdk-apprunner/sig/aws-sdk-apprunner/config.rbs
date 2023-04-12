@@ -1,3 +1,0 @@
-module AWS::SDK::AppRunner
-  Config: untyped
-end

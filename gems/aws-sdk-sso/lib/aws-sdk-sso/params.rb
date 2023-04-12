@@ -8,11 +8,12 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::SSO
+  # @api private
   module Params
 
     module AccountInfo
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::AccountInfo, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AccountInfo, context: context)
         type = Types::AccountInfo.new
         type.account_id = params[:account_id]
         type.account_name = params[:account_name]
@@ -23,7 +24,7 @@ module AWS::SDK::SSO
 
     module AccountListType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AccountInfo.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -34,7 +35,7 @@ module AWS::SDK::SSO
 
     module GetRoleCredentialsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
         type = Types::GetRoleCredentialsInput.new
         type.role_name = params[:role_name]
         type.account_id = params[:account_id]
@@ -45,7 +46,7 @@ module AWS::SDK::SSO
 
     module GetRoleCredentialsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::GetRoleCredentialsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsOutput, context: context)
         type = Types::GetRoleCredentialsOutput.new
         type.role_credentials = RoleCredentials.build(params[:role_credentials], context: "#{context}[:role_credentials]") unless params[:role_credentials].nil?
         type
@@ -54,7 +55,7 @@ module AWS::SDK::SSO
 
     module InvalidRequestException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::InvalidRequestException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRequestException, context: context)
         type = Types::InvalidRequestException.new
         type.message = params[:message]
         type
@@ -63,7 +64,7 @@ module AWS::SDK::SSO
 
     module ListAccountRolesInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountRolesInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesInput, context: context)
         type = Types::ListAccountRolesInput.new
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -75,7 +76,7 @@ module AWS::SDK::SSO
 
     module ListAccountRolesOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountRolesOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesOutput, context: context)
         type = Types::ListAccountRolesOutput.new
         type.next_token = params[:next_token]
         type.role_list = RoleListType.build(params[:role_list], context: "#{context}[:role_list]") unless params[:role_list].nil?
@@ -85,7 +86,7 @@ module AWS::SDK::SSO
 
     module ListAccountsInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountsInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsInput, context: context)
         type = Types::ListAccountsInput.new
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -96,7 +97,7 @@ module AWS::SDK::SSO
 
     module ListAccountsOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountsOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsOutput, context: context)
         type = Types::ListAccountsOutput.new
         type.next_token = params[:next_token]
         type.account_list = AccountListType.build(params[:account_list], context: "#{context}[:account_list]") unless params[:account_list].nil?
@@ -106,7 +107,7 @@ module AWS::SDK::SSO
 
     module LogoutInput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LogoutInput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutInput, context: context)
         type = Types::LogoutInput.new
         type.access_token = params[:access_token]
         type
@@ -115,7 +116,7 @@ module AWS::SDK::SSO
 
     module LogoutOutput
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::LogoutOutput, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutOutput, context: context)
         type = Types::LogoutOutput.new
         type
       end
@@ -123,7 +124,7 @@ module AWS::SDK::SSO
 
     module ResourceNotFoundException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::ResourceNotFoundException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         type.message = params[:message]
         type
@@ -132,7 +133,7 @@ module AWS::SDK::SSO
 
     module RoleCredentials
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RoleCredentials, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RoleCredentials, context: context)
         type = Types::RoleCredentials.new
         type.access_key_id = params[:access_key_id]
         type.secret_access_key = params[:secret_access_key]
@@ -144,7 +145,7 @@ module AWS::SDK::SSO
 
     module RoleInfo
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::RoleInfo, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::RoleInfo, context: context)
         type = Types::RoleInfo.new
         type.role_name = params[:role_name]
         type.account_id = params[:account_id]
@@ -154,7 +155,7 @@ module AWS::SDK::SSO
 
     module RoleListType
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << RoleInfo.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -165,7 +166,7 @@ module AWS::SDK::SSO
 
     module TooManyRequestsException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::TooManyRequestsException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyRequestsException, context: context)
         type = Types::TooManyRequestsException.new
         type.message = params[:message]
         type
@@ -174,7 +175,7 @@ module AWS::SDK::SSO
 
     module UnauthorizedException
       def self.build(params, context: '')
-        Hearth::Validator.validate!(params, ::Hash, Types::UnauthorizedException, context: context)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UnauthorizedException, context: context)
         type = Types::UnauthorizedException.new
         type.message = params[:message]
         type

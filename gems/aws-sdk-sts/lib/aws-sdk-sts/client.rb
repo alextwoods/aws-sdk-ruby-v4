@@ -41,11 +41,10 @@ module AWS::SDK::STS
     end
 
     # <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
-    #          resources that you might not normally have access to. These temporary credentials consist
-    #          of an access key ID, a secret access key, and a security token. Typically, you use
-    #             <code>AssumeRole</code> within your account or for cross-account access. For a
-    #          comparison of <code>AssumeRole</code> with other API operations that produce temporary
-    #          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
+    #          resources. These temporary credentials consist of an access key ID, a secret access key,
+    #          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
+    #          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
+    #          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
     #             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
     #             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
     #          <p>
@@ -57,9 +56,9 @@ module AWS::SDK::STS
     #          operations.</p>
     #          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
     #          this operation. You can pass a single JSON policy document to use as an inline session
-    #          policy. You can also specify up to 10 managed policies to use as managed session policies.
-    #          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-    #          characters. Passing policies to this operation returns new
+    #          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #          managed session policies. The plaintext that you use for both inline and managed session
+    #          policies can't exceed 2,048 characters. Passing policies to this operation returns new
     #          temporary credentials. The resulting session's permissions are the intersection of the
     #          role's identity-based policy and the session policies. You can use the role's temporary
     #          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -95,7 +94,6 @@ module AWS::SDK::STS
     #          additional identity-based policy is required. For more information about trust policies and
     #          resource-based policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html">IAM Policies</a> in the
     #             <i>IAM User Guide</i>.</p>
-    #
     #          <p>
     #             <b>Tags</b>
     #          </p>
@@ -156,16 +154,13 @@ module AWS::SDK::STS
     #            plaintext that you use for both inline and managed session policies can't exceed 2,048
     #            characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
     #               Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
-    #
     #            <p>Passing policies to this operation returns new
     #            temporary credentials. The resulting session's permissions are the intersection of the
     #            role's identity-based policy and the session policies. You can use the role's temporary
@@ -190,14 +185,12 @@ module AWS::SDK::STS
     #            character to the end of the valid character list (\u0020 through \u00FF). It can also
     #            include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
     #            characters.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
     #
     # @option params [Integer] :duration_seconds
@@ -235,16 +228,13 @@ module AWS::SDK::STS
     #            tag keys can’t exceed 128 characters, and the values can’t exceed 256 characters. For these
     #            and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
     #               and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
-    #
     #            <p>You can pass a session tag with the same key as a tag that is already attached to the
     #            role. When you do, session tags override a role tag with the same key. </p>
     #            <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -386,7 +376,7 @@ module AWS::SDK::STS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]),
         data_parser: Parsers::AssumeRole
       )
       stack.use(Middleware::RequestId)
@@ -460,9 +450,9 @@ module AWS::SDK::STS
     #          operations.</p>
     #          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
     #          this operation. You can pass a single JSON policy document to use as an inline session
-    #          policy. You can also specify up to 10 managed policies to use as managed session policies.
-    #          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-    #          characters. Passing policies to this operation returns new
+    #          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #          managed session policies. The plaintext that you use for both inline and managed session
+    #          policies can't exceed 2,048 characters. Passing policies to this operation returns new
     #          temporary credentials. The resulting session's permissions are the intersection of the
     #          role's identity-based policy and the session policies. You can use the role's temporary
     #          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -492,16 +482,13 @@ module AWS::SDK::STS
     #          characters and the values can’t exceed 256 characters. For these and additional limits, see
     #             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
     #             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    #
     #          <note>
-    #             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #             packed binary format that has a separate limit. Your request can fail for this limit
-    #             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #             response element indicates by percentage how close the policies and tags for your
-    #             request are to the upper size limit.
-    #             </p>
+    #             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #             and session tags into a packed binary format that has a separate limit. Your request can
+    #             fail for this limit even if your plaintext meets the other requirements. The
+    #                <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #             policies and tags for your request are to the upper size limit.</p>
     #          </note>
-    #
     #          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
     #          you do, session tags override the role's tags with the same key.</p>
     #          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -568,16 +555,13 @@ module AWS::SDK::STS
     #            plaintext that you use for both inline and managed session policies can't exceed 2,048
     #            characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
     #               Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
-    #
     #            <p>Passing policies to this operation returns new
     #            temporary credentials. The resulting session's permissions are the intersection of the
     #            role's identity-based policy and the session policies. You can use the role's temporary
@@ -602,14 +586,12 @@ module AWS::SDK::STS
     #            character to the end of the valid character list (\u0020 through \u00FF). It can also
     #            include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
     #            characters.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
     #
     # @option params [Integer] :duration_seconds
@@ -695,7 +677,7 @@ module AWS::SDK::STS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredTokenException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]),
         data_parser: Parsers::AssumeRoleWithSAML
       )
       stack.use(Middleware::RequestId)
@@ -772,9 +754,9 @@ module AWS::SDK::STS
     #          operations.</p>
     #          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
     #          this operation. You can pass a single JSON policy document to use as an inline session
-    #          policy. You can also specify up to 10 managed policies to use as managed session policies.
-    #          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-    #          characters. Passing policies to this operation returns new
+    #          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #          managed session policies. The plaintext that you use for both inline and managed session
+    #          policies can't exceed 2,048 characters. Passing policies to this operation returns new
     #          temporary credentials. The resulting session's permissions are the intersection of the
     #          role's identity-based policy and the session policies. You can use the role's temporary
     #          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -793,16 +775,13 @@ module AWS::SDK::STS
     #          characters and the values can’t exceed 256 characters. For these and additional limits, see
     #             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
     #             and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    #
     #          <note>
-    #             <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #             packed binary format that has a separate limit. Your request can fail for this limit
-    #             even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #             response element indicates by percentage how close the policies and tags for your
-    #             request are to the upper size limit.
-    #             </p>
+    #             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #             and session tags into a packed binary format that has a separate limit. Your request can
+    #             fail for this limit even if your plaintext meets the other requirements. The
+    #                <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #             policies and tags for your request are to the upper size limit.</p>
     #          </note>
-    #
     #          <p>You can pass a session tag with the same key as a tag that is attached to the role. When
     #          you do, the session tag overrides the role tag with the same key.</p>
     #          <p>An administrator must grant you the permissions necessary to pass session tags. The
@@ -896,16 +875,13 @@ module AWS::SDK::STS
     #            plaintext that you use for both inline and managed session policies can't exceed 2,048
     #            characters. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
     #               Service Namespaces</a> in the Amazon Web Services General Reference.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
-    #
     #            <p>Passing policies to this operation returns new
     #            temporary credentials. The resulting session's permissions are the intersection of the
     #            role's identity-based policy and the session policies. You can use the role's temporary
@@ -930,14 +906,12 @@ module AWS::SDK::STS
     #            character to the end of the valid character list (\u0020 through \u00FF). It can also
     #            include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
     #            characters.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
     #
     # @option params [Integer] :duration_seconds
@@ -1019,7 +993,7 @@ module AWS::SDK::STS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ExpiredTokenException, Errors::IDPCommunicationErrorException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]),
         data_parser: Parsers::AssumeRoleWithWebIdentity
       )
       stack.use(Middleware::RequestId)
@@ -1356,20 +1330,21 @@ module AWS::SDK::STS
     #             <b>Permissions</b>
     #          </p>
     #          <p>You can use the temporary credentials created by <code>GetFederationToken</code> in any
-    #          Amazon Web Services service except the following:</p>
+    #          Amazon Web Services service with the following exceptions:</p>
     #          <ul>
     #             <li>
-    #                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. </p>
+    #                <p>You cannot call any IAM operations using the CLI or the Amazon Web Services API. This limitation does not apply to console sessions.</p>
     #             </li>
     #             <li>
     #                <p>You cannot call any STS operations except <code>GetCallerIdentity</code>.</p>
     #             </li>
     #          </ul>
+    #          <p>You can use temporary credentials for single sign-on (SSO) to the console.</p>
     #          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
     #          this operation. You can pass a single JSON policy document to use as an inline session
-    #          policy. You can also specify up to 10 managed policies to use as managed session policies.
-    #          The plaintext that you use for both inline and managed session policies can't exceed 2,048
-    #          characters.</p>
+    #          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #          managed session policies. The plaintext that you use for both inline and managed session
+    #          policies can't exceed 2,048 characters.</p>
     #          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
     #          resulting federated user session has no permissions. When you pass session policies, the
     #          session permissions are the intersection of the IAM user policies and the session
@@ -1424,8 +1399,8 @@ module AWS::SDK::STS
     #   <p>An IAM policy in JSON format that you want to use as an inline session policy.</p>
     #            <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
     #            this operation. You can pass a single JSON policy document to use as an inline session
-    #            policy. You can also specify up to 10 managed policies to use as managed session
-    #            policies.</p>
+    #            policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #            managed session policies.</p>
     #            <p>This parameter is optional. However, if you do not pass any session policies, then the
     #            resulting federated user session has no permissions.</p>
     #            <p>When you pass session policies, the session permissions are the intersection of the
@@ -1444,14 +1419,12 @@ module AWS::SDK::STS
     #            character to the end of the valid character list (\u0020 through \u00FF). It can also
     #            include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
     #            characters.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
     #
     # @option params [Array<PolicyDescriptorType>] :policy_arns
@@ -1460,12 +1433,11 @@ module AWS::SDK::STS
     #            is requesting federated access.</p>
     #            <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
     #            this operation. You can pass a single JSON policy document to use as an inline session
-    #            policy. You can also specify up to 10 managed policies to use as managed session policies.
-    #            The plaintext that you use for both inline and managed session policies can't exceed 2,048
-    #            characters. You can provide up to 10 managed policy ARNs. For more information about ARNs,
-    #            see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-    #               Resource Names (ARNs) and Amazon Web Services Service Namespaces</a> in the
-    #            Amazon Web Services General Reference.</p>
+    #            policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+    #            managed session policies. The plaintext that you use for both inline and managed session
+    #            policies can't exceed 2,048 characters. You can provide up to 10 managed policy ARNs. For
+    #            more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and Amazon Web Services
+    #               Service Namespaces</a> in the Amazon Web Services General Reference.</p>
     #            <p>This parameter is optional. However, if you do not pass any session policies, then the
     #            resulting federated user session has no permissions.</p>
     #            <p>When you pass session policies, the session permissions are the intersection of the
@@ -1479,14 +1451,12 @@ module AWS::SDK::STS
     #               <code>Principal</code> element of the policy, the session has the permissions allowed by
     #            the policy. These permissions are granted in addition to the permissions that are granted
     #            by the session policies.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
     #
     # @option params [Integer] :duration_seconds
@@ -1505,16 +1475,13 @@ module AWS::SDK::STS
     #            tag keys can’t exceed 128 characters and the values can’t exceed 256 characters. For these
     #            and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM
     #               and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    #
     #            <note>
-    #               <p>An Amazon Web Services conversion compresses the passed session policies and session tags into a
-    #               packed binary format that has a separate limit. Your request can fail for this limit
-    #               even if your plaintext meets the other requirements. The <code>PackedPolicySize</code>
-    #               response element indicates by percentage how close the policies and tags for your
-    #               request are to the upper size limit.
-    #               </p>
+    #               <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
+    #               and session tags into a packed binary format that has a separate limit. Your request can
+    #               fail for this limit even if your plaintext meets the other requirements. The
+    #                  <code>PackedPolicySize</code> response element indicates by percentage how close the
+    #               policies and tags for your request are to the upper size limit.</p>
     #            </note>
-    #
     #            <p>You can pass a session tag with the same key as a tag that is already attached to the
     #            user you are federating. When you do, session tags override a user tag with the same key. </p>
     #            <p>Tag key–value pairs are not case sensitive, but case is preserved. This means that you
@@ -1582,7 +1549,7 @@ module AWS::SDK::STS
         signer: @config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]),
         data_parser: Parsers::GetFederationToken
       )
       stack.use(Middleware::RequestId)

@@ -1,3 +1,0 @@
-module AWS::SDK::MediaConvert
-  Config: untyped
-end

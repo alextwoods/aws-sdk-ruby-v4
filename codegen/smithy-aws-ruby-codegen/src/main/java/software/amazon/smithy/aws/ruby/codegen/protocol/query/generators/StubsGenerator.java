@@ -78,7 +78,6 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(node_name, stub)")
                 .write("xml = $T.new(node_name)", Hearth.XML_NODE)
@@ -288,8 +287,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
                 writer
                         .openBlock("unless $L.nil?", inputGetter)
-                        .write("nodes = $1T.stub($2L, $3L)",
-                                symbolProvider.toSymbol(shape),
+                        .write("nodes = $1L.stub($2L, $3L)",
+                                symbolProvider.toSymbol(shape).getName(),
                                 nodeName,
                                 inputGetter)
                         .write("nodes.each { |n| n.attributes['xmlns$1L'] = '$2L' }",
@@ -298,8 +297,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                         .write("xml << nodes")
                         .closeBlock("end");
             } else {
-                writer.write("xml << $1T.stub($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape), nodeName,
+                writer.write("xml << $1L.stub($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             }
         }
@@ -313,8 +312,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << $6T.new($2L, $1T.stub('$4L', $3L)$5L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape), nodeName,
+                writer.write("xml << $6T.new($2L, $1L.stub('$4L', $3L)$5L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter, memberName, xmlnsAttribute(), Hearth.XML_NODE);
             }
             return null;
@@ -325,8 +324,8 @@ public class StubsGenerator extends StubsGeneratorBase {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 defaultComplexSerializer(shape);
             } else {
-                writer.write("xml << $5T.new($2L, $1T.stub('entry', $3L)$4L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape), nodeName,
+                writer.write("xml << $5T.new($2L, $1L.stub('entry', $3L)$4L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter, xmlnsAttribute(), Hearth.XML_NODE);
             }
 

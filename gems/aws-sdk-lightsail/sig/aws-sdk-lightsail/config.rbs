@@ -1,3 +1,0 @@
-module AWS::SDK::Lightsail
-  Config: untyped
-end

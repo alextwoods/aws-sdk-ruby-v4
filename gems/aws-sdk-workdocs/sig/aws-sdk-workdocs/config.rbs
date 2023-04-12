@@ -1,3 +1,0 @@
-module AWS::SDK::WorkDocs
-  Config: untyped
-end

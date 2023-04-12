@@ -8,6 +8,7 @@
 # WARNING ABOUT GENERATED CODE
 
 module AWS::SDK::SSO
+  # @api private
   module Builders
 
     # Operation Builder for GetRoleCredentials

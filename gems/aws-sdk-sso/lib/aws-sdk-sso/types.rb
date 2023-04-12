@@ -48,7 +48,7 @@ module AWS::SDK::SSO
     #
     # @!attribute access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     #   @return [String]
     #
@@ -106,7 +106,7 @@ module AWS::SDK::SSO
     #
     # @!attribute access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     #   @return [String]
     #
@@ -139,7 +139,8 @@ module AWS::SDK::SSO
     #   @return [String]
     #
     # @!attribute role_list
-    #   <p>A paginated response with the list of roles and the next token if more results are available.</p>
+    #   <p>A paginated response with the list of roles and the next token if more results are
+    #         available.</p>
     #
     #   @return [Array<RoleInfo>]
     #
@@ -152,7 +153,8 @@ module AWS::SDK::SSO
     end
 
     # @!attribute next_token
-    #   <p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>
+    #   <p>(Optional) When requesting subsequent pages, this is the page token from the previous
+    #         response output.</p>
     #
     #   @return [String]
     #
@@ -163,7 +165,7 @@ module AWS::SDK::SSO
     #
     # @!attribute access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     #   @return [String]
     #
@@ -189,7 +191,8 @@ module AWS::SDK::SSO
     #   @return [String]
     #
     # @!attribute account_list
-    #   <p>A paginated response with the list of account information and the next token if more results are available.</p>
+    #   <p>A paginated response with the list of account information and the next token if more
+    #         results are available.</p>
     #
     #   @return [Array<AccountInfo>]
     #
@@ -203,7 +206,7 @@ module AWS::SDK::SSO
 
     # @!attribute access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
-    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>IAM Identity Center OIDC API Reference Guide</i>.</p>
     #
     #   @return [String]
     #
@@ -308,7 +311,8 @@ module AWS::SDK::SSO
       include Hearth::Structure
     end
 
-    # <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
+    # <p>Indicates that the request is being made too frequently and is more than what the server
+    #       can handle.</p>
     #
     # @!attribute message
     #
@@ -321,7 +325,8 @@ module AWS::SDK::SSO
       include Hearth::Structure
     end
 
-    # <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
+    # <p>Indicates that the request is not authorized. This can happen due to an invalid access
+    #       token in the request.</p>
     #
     # @!attribute message
     #

@@ -106,7 +106,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.build(input, params, context: nil)")
                 .write("case input");
@@ -205,8 +204,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            writer.write("$1T.build($2L, params, context: context + $3L + '.') unless $2L.nil?",
-                    symbolProvider.toSymbol(shape), inputGetter, dataName);
+            writer.write("$1L.build($2L, params, context: context + $3L + '.') unless $2L.nil?",
+                    symbolProvider.toSymbol(shape).getName(), inputGetter, dataName);
         }
 
         private void defaultCollectionSerializer(CollectionShape shape) {
@@ -215,8 +214,8 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 name = "'" + memberShape.getTrait(XmlNameTrait.class).get().getValue() + "'";
             }
             String context = "context + " + name;
-            writer.write("$1T.build($2L, params, context: $3L) unless $2L.nil?",
-                    symbolProvider.toSymbol(shape), inputGetter, context);
+            writer.write("$1L.build($2L, params, context: $3L) unless $2L.nil?",
+                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
         }
 
         @Override

@@ -12,7 +12,7 @@ require 'aws-sdk-sts'
 module AWS::SDK::STS
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
-    let(:config) { Config.new(stub_responses: true, endpoint: endpoint) }
+    let(:config) { Config.new(stub_responses: true, validate_input: false, endpoint: endpoint) }
     let(:client) { Client.new(config) }
 
     describe '#assume_role' do

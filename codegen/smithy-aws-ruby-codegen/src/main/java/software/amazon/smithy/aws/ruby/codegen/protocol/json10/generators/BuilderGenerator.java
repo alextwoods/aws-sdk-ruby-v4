@@ -94,7 +94,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
-        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.build(input)")
                 .write("data = {}")
@@ -209,12 +208,12 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          */
         private void defaultComplexSerializer(Shape shape) {
             if (checkRequired) {
-                writer.write("$1L$2T.build($3L) unless $3L.nil?",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L$2L.build($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         inputGetter);
             } else {
-                writer.write("$1L($2T.build($3L) unless $3L.nil?)",
-                        dataSetter, symbolProvider.toSymbol(shape),
+                writer.write("$1L($2L.build($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
                         inputGetter);
             }
         }
