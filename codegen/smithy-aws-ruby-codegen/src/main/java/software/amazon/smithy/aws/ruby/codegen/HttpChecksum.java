@@ -3,12 +3,8 @@ package software.amazon.smithy.aws.ruby.codegen;
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.StringShape;
-import software.amazon.smithy.model.shapes.StructureShape;
-import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.middleware.Middleware;
@@ -20,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class HttpChecksum implements RubyIntegration  {
+public class HttpChecksum implements RubyIntegration {
     @Override
     public boolean includeFor(ServiceShape service, Model model) {
         return model.isTraitApplied(HttpChecksumTrait.class);
@@ -36,9 +32,8 @@ public class HttpChecksum implements RubyIntegration  {
                     HttpChecksumTrait httpChecksum = operation.expectTrait(HttpChecksumTrait.class);
                     Shape inputShape = ctx.model().expectShape(operation.getInputShape());
                     if (httpChecksum.getRequestAlgorithmMember().isPresent()) {
-                        MemberShape requestMember = inputShape
-                                .getMember(httpChecksum.getRequestAlgorithmMember().get()).get();
-                        params.put("request_algorithm_member", ":" + ctx.symbolProvider().toMemberName(requestMember));
+                        params.put("request_algorithm_member",
+                                getMemberName(ctx, inputShape, httpChecksum.getRequestAlgorithmMember().get()));
                     }
 
                     if (Streaming.isStreaming(ctx.model(), inputShape)) {
@@ -52,12 +47,11 @@ public class HttpChecksum implements RubyIntegration  {
                     }
 
                     if (httpChecksum.getRequestValidationModeMember().isPresent()) {
-                        MemberShape validationMember = inputShape
-                                .getMember(httpChecksum.getRequestValidationModeMember().get()).get();
-                        params.put("request_validation_mode_member", ":" + ctx.symbolProvider().toMemberName(validationMember));
+                        params.put("request_validation_mode_member",
+                                getMemberName(ctx, inputShape, httpChecksum.getRequestValidationModeMember().get()));
                         params.put("response_algorithms", "[" +
                                 httpChecksum.getResponseAlgorithms().stream()
-                                        .map( (s) -> "'" + s + "'")
+                                        .map((s) -> "'" + s + "'")
                                         .collect(Collectors.joining(", ")) + "]");
                     }
 
@@ -69,5 +63,9 @@ public class HttpChecksum implements RubyIntegration  {
                 .build();
 
         middlewareBuilder.register(checksums);
+    }
+
+    private String getMemberName(GenerationContext ctx, Shape inputShape, String member) {
+        return ":" + ctx.symbolProvider().toMemberName(inputShape.getMember(member).get());
     }
 }
