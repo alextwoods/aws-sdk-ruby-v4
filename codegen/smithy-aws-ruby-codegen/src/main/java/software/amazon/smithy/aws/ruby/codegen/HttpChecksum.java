@@ -36,6 +36,9 @@ public class HttpChecksum implements RubyIntegration {
                                 getMemberName(ctx, inputShape, httpChecksum.getRequestAlgorithmMember().get()));
                     }
 
+                    params.put("request_checksum_required",
+                            httpChecksum.isRequestChecksumRequired() ? "true" : "false");
+
                     if (Streaming.isStreaming(ctx.model(), inputShape)) {
                         params.put("streaming", "true");
                         if (!operation.hasTrait(UnsignedPayloadTrait.class)) {
