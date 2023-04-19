@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../../spec_helper'
+require 'hearth'
 
 module AWS::SDK::Core
   module Middleware
@@ -16,7 +17,7 @@ module AWS::SDK::Core
       let(:app) { double('app', call: output) }
 
       let(:request_algorithm_member) { :request_algorithm }
-      let(:request_checksum_required) { true }
+      let(:request_checksum_required) { false }
       let(:streaming) { false }
       let(:signed_streaming) { false }
       let(:require_decoded_content_length) { false }
@@ -27,6 +28,7 @@ module AWS::SDK::Core
         Checksum.new(
           app,
           request_algorithm_member: request_algorithm_member,
+          request_checksum_required: request_checksum_required,
           streaming: streaming,
           signed_streaming: signed_streaming,
           require_decoded_content_length: require_decoded_content_length,
@@ -67,6 +69,18 @@ module AWS::SDK::Core
             expect(request.headers.to_h.keys
                           .none? { |h| h.include?('x-amz-checksum') })
               .to be_truthy
+          end
+
+          context 'request checksum required' do
+            let(:request_checksum_required) { true }
+
+            it 'computes the Content-MD5 checksum' do
+              subject.call(input, context)
+              puts request.headers.to_h
+
+              expect(request.headers['Content-MD5'])
+                .to eq('sQqNsWTgdUEFt6mb5y4/5Q==')
+            end
           end
         end
 
@@ -118,7 +132,7 @@ module AWS::SDK::Core
 
             it 'sets the validated metadata' do
               resp = subject.call(input, context)
-              expect(resp.metadata[:http_checksum][:validated])
+              expect(resp.metadata[:http_checksum_validated])
                 .to eq('SHA256')
             end
 
@@ -159,6 +173,7 @@ module AWS::SDK::Core
               # IO.copy_stream is the same method used by Net::Http to
               # write our body to the socket
               IO.copy_stream(context.request.body, sent_data)
+              output
             end
           end
 

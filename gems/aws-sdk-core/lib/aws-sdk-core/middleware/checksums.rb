@@ -57,32 +57,41 @@ module AWS::SDK::Core
 
         output = @app.call(input, context)
         @response_validation_body&.validate!
-        if context.metadata[:http_checksum][:validated]
-          output.metadata[:http_checksum] = {
-            validated: context.metadata[:http_checksum][:validated]
-          }
-        end
+        output.metadata[:http_checksum_validated] =
+          context.metadata[:http_checksum][:validated]
+
         output
       end
 
       private
 
       def request_checksum(input, context)
-        if @request_algorithm_member
-          checksum_algorithm = input[@request_algorithm_member]
-        end
+        field_name, digest = request_checksum_digest(input)
 
-        return unless checksum_algorithm
-
-        field_name = checksum_field_name(checksum_algorithm)
-        digest = AWS::SDK::Core::Checksums.algorithm_for(checksum_algorithm)
+        return unless digest
 
         if @streaming
           compute_streaming_checksum(context, digest, field_name)
 
         else
-          context.request.headers[field_name] =
+          context.request.headers[field_name] ||=
             compute_checksum(digest, context.request.body)
+        end
+      end
+
+      def request_checksum_digest(input)
+        if @request_algorithm_member
+          checksum_algorithm = input[@request_algorithm_member]
+        end
+
+        if checksum_algorithm
+          [
+            checksum_field_name(checksum_algorithm),
+            AWS::SDK::Core::Checksums.algorithm_for(checksum_algorithm)
+          ]
+        elsif @request_checksum_required
+          ['Content-MD5',
+           AWS::SDK::Core::Checksums.algorithm_for('MD5')]
         end
       end
 
