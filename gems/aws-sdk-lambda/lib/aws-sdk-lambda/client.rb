@@ -196,7 +196,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -350,7 +350,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -474,7 +474,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -571,7 +571,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1022,7 +1022,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1365,7 +1365,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1514,7 +1514,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1607,7 +1607,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1678,7 +1678,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1800,7 +1800,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1896,7 +1896,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -1985,7 +1985,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2074,7 +2074,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2168,7 +2168,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2262,7 +2262,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2338,7 +2338,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2431,7 +2431,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2505,7 +2505,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2606,7 +2606,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2686,7 +2686,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2806,7 +2806,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -2982,7 +2982,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3073,7 +3073,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3164,7 +3164,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3330,7 +3330,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3433,7 +3433,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3542,7 +3542,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3634,7 +3634,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3722,7 +3722,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3799,7 +3799,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3894,7 +3894,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -3993,7 +3993,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4092,7 +4092,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4252,7 +4252,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4352,7 +4352,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4465,7 +4465,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4553,7 +4553,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4738,7 +4738,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4848,7 +4848,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -4965,7 +4965,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5133,7 +5133,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5215,7 +5215,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5317,7 +5317,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5420,7 +5420,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5527,7 +5527,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5601,7 +5601,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5774,7 +5774,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -5908,7 +5908,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6090,7 +6090,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6187,7 +6187,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6290,7 +6290,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6443,7 +6443,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6547,7 +6547,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6676,7 +6676,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6761,7 +6761,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6864,7 +6864,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -6941,7 +6941,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -7017,7 +7017,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -7141,7 +7141,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -7241,7 +7241,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -7622,7 +7622,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -7843,7 +7843,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -8129,7 +8129,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -8273,7 +8273,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,
@@ -8422,7 +8422,7 @@ module AWS::SDK::Lambda
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @config.logger,

@@ -43,7 +43,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -273,7 +273,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CompletedMultipartUpload.build('CompleteMultipartUpload', input[:multipart_upload]) unless input[:multipart_upload].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -353,7 +353,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Cache-Control'] = input[:cache_control] unless input[:cache_control].nil? || input[:cache_control].empty?
         http_req.headers['x-amz-checksum-algorithm'] = input[:checksum_algorithm] unless input[:checksum_algorithm].nil? || input[:checksum_algorithm].empty?
@@ -411,7 +411,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CreateBucketConfiguration.build('CreateBucketConfiguration', input[:create_bucket_configuration]) unless input[:create_bucket_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -455,7 +455,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['Cache-Control'] = input[:cache_control] unless input[:cache_control].nil? || input[:cache_control].empty?
         http_req.headers['Content-Disposition'] = input[:content_disposition] unless input[:content_disposition].nil? || input[:content_disposition].empty?
@@ -523,7 +523,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -566,7 +566,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -587,7 +587,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -609,7 +609,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -630,7 +630,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -673,7 +673,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -694,7 +694,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -715,7 +715,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -757,7 +757,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-mfa'] = input[:mfa] unless input[:mfa].nil? || input[:mfa].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-bypass-governance-retention'] = input[:bypass_governance_retention].to_s unless input[:bypass_governance_retention].nil?
@@ -842,7 +842,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Delete.build('Delete', input[:delete]) unless input[:delete].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -891,7 +891,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1016,7 +1016,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1037,7 +1037,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1059,7 +1059,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1080,7 +1080,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1101,7 +1101,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1123,7 +1123,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1144,7 +1144,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1165,7 +1165,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1186,7 +1186,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1229,7 +1229,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1250,7 +1250,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1271,7 +1271,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1292,7 +1292,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1313,7 +1313,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1334,7 +1334,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1355,7 +1355,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1376,7 +1376,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1397,7 +1397,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1418,7 +1418,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1451,7 +1451,7 @@ module AWS::SDK::S3
         params['response-expires'] = Hearth::TimeHelper.to_http_date(input[:response_expires]) unless input[:response_expires].nil?
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
         params['partNumber'] = input[:part_number].to_s unless input[:part_number].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
         http_req.headers['If-Modified-Since'] = Hearth::TimeHelper.to_http_date(input[:if_modified_since]) unless input[:if_modified_since].nil?
         http_req.headers['If-None-Match'] = input[:if_none_match] unless input[:if_none_match].nil? || input[:if_none_match].empty?
@@ -1487,7 +1487,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -1514,7 +1514,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-max-parts'] = input[:max_parts].to_s unless input[:max_parts].nil?
         http_req.headers['x-amz-part-number-marker'] = input[:part_number_marker] unless input[:part_number_marker].nil? || input[:part_number_marker].empty?
         http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input[:sse_customer_algorithm] unless input[:sse_customer_algorithm].nil? || input[:sse_customer_algorithm].empty?
@@ -1522,7 +1522,12 @@ module AWS::SDK::S3
         http_req.headers['x-amz-server-side-encryption-customer-key-MD5'] = input[:sse_customer_key_md5] unless input[:sse_customer_key_md5].nil? || input[:sse_customer_key_md5].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
-        http_req.headers['x-amz-object-attributes'] = input[:object_attributes] unless input[:object_attributes].nil? || input[:object_attributes].empty?
+        unless input[:object_attributes].nil? || input[:object_attributes].empty?
+          http_req.headers['x-amz-object-attributes'] = input[:object_attributes]
+            .compact
+            .map { |s| (s.include?('"') || s.include?(",")) ? "\"#{s.gsub('"', '\"')}\"" : s }
+            .join(', ')
+        end
       end
     end
 
@@ -1547,7 +1552,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -1569,7 +1574,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1595,7 +1600,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -1622,7 +1627,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
       end
@@ -1648,7 +1653,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -1670,7 +1675,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1735,7 +1740,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -1759,7 +1764,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
         params['partNumber'] = input[:part_number].to_s unless input[:part_number].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
         http_req.headers['If-Modified-Since'] = Hearth::TimeHelper.to_http_date(input[:if_modified_since]) unless input[:if_modified_since].nil?
         http_req.headers['If-None-Match'] = input[:if_none_match] unless input[:if_none_match].nil? || input[:if_none_match].empty?
@@ -2037,7 +2042,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2059,7 +2064,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -2080,7 +2085,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2102,7 +2107,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2113,7 +2118,7 @@ module AWS::SDK::S3
         http_req.http_method = 'GET'
         http_req.append_path('/')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -2139,7 +2144,7 @@ module AWS::SDK::S3
         params['max-uploads'] = input[:max_uploads].to_s unless input[:max_uploads].nil?
         params['prefix'] = input[:prefix].to_s unless input[:prefix].nil?
         params['upload-id-marker'] = input[:upload_id_marker].to_s unless input[:upload_id_marker].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2166,7 +2171,7 @@ module AWS::SDK::S3
         params['max-keys'] = input[:max_keys].to_s unless input[:max_keys].nil?
         params['prefix'] = input[:prefix].to_s unless input[:prefix].nil?
         params['version-id-marker'] = input[:version_id_marker].to_s unless input[:version_id_marker].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
     end
@@ -2189,7 +2194,7 @@ module AWS::SDK::S3
         params['marker'] = input[:marker].to_s unless input[:marker].nil?
         params['max-keys'] = input[:max_keys].to_s unless input[:max_keys].nil?
         params['prefix'] = input[:prefix].to_s unless input[:prefix].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -2218,7 +2223,7 @@ module AWS::SDK::S3
         params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
         params['fetch-owner'] = input[:fetch_owner].to_s unless input[:fetch_owner].nil?
         params['start-after'] = input[:start_after].to_s unless input[:start_after].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
       end
@@ -2247,7 +2252,7 @@ module AWS::SDK::S3
         params['max-parts'] = input[:max_parts].to_s unless input[:max_parts].nil?
         params['part-number-marker'] = input[:part_number_marker].to_s unless input[:part_number_marker].nil?
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
         http_req.headers['x-amz-server-side-encryption-customer-algorithm'] = input[:sse_customer_algorithm] unless input[:sse_customer_algorithm].nil? || input[:sse_customer_algorithm].empty?
@@ -2561,7 +2566,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccelerateConfiguration.build('AccelerateConfiguration', input[:accelerate_configuration]) unless input[:accelerate_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2586,7 +2591,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2619,7 +2624,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AnalyticsConfiguration.build('AnalyticsConfiguration', input[:analytics_configuration]) unless input[:analytics_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2643,7 +2648,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CORSConfiguration.build('CORSConfiguration', input[:cors_configuration]) unless input[:cors_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2669,7 +2674,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ServerSideEncryptionConfiguration.build('ServerSideEncryptionConfiguration', input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2696,7 +2701,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::IntelligentTieringConfiguration.build('IntelligentTieringConfiguration', input[:intelligent_tiering_configuration]) unless input[:intelligent_tiering_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2720,7 +2725,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InventoryConfiguration.build('InventoryConfiguration', input[:inventory_configuration]) unless input[:inventory_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2744,7 +2749,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLifecycleConfiguration.build('LifecycleConfiguration', input[:lifecycle_configuration]) unless input[:lifecycle_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2769,7 +2774,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::BucketLoggingStatus.build('BucketLoggingStatus', input[:bucket_logging_status]) unless input[:bucket_logging_status].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2796,7 +2801,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['id'] = input[:id].to_s unless input[:id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MetricsConfiguration.build('MetricsConfiguration', input[:metrics_configuration]) unless input[:metrics_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2820,7 +2825,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::NotificationConfiguration.build('NotificationConfiguration', input[:notification_configuration]) unless input[:notification_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2845,7 +2850,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OwnershipControls.build('OwnershipControls', input[:ownership_controls]) unless input[:ownership_controls].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2870,7 +2875,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'text/plain'
         http_req.body = ::StringIO.new(input[:policy] || '')
         http_req.headers['Content-MD5'] = input[:content_md5] unless input[:content_md5].nil? || input[:content_md5].empty?
@@ -2896,7 +2901,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ReplicationConfiguration.build('ReplicationConfiguration', input[:replication_configuration]) unless input[:replication_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2923,7 +2928,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RequestPaymentConfiguration.build('RequestPaymentConfiguration', input[:request_payment_configuration]) unless input[:request_payment_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2949,7 +2954,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input[:tagging]) unless input[:tagging].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -2975,7 +2980,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::VersioningConfiguration.build('VersioningConfiguration', input[:versioning_configuration]) unless input[:versioning_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3002,7 +3007,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::WebsiteConfiguration.build('WebsiteConfiguration', input[:website_configuration]) unless input[:website_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3032,7 +3037,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.body = input[:body]
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
@@ -3096,7 +3101,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3134,7 +3139,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockLegalHold.build('LegalHold', input[:legal_hold]) unless input[:legal_hold].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3161,7 +3166,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockConfiguration.build('ObjectLockConfiguration', input[:object_lock_configuration]) unless input[:object_lock_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3194,7 +3199,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ObjectLockRetention.build('Retention', input[:retention]) unless input[:retention].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3227,7 +3232,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input[:tagging]) unless input[:tagging].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3254,7 +3259,7 @@ module AWS::SDK::S3
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3436,7 +3441,7 @@ module AWS::SDK::S3
         )
         params = Hearth::Query::ParamList.new
         params['versionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::RestoreRequest.build('RestoreRequest', input[:restore_request]) unless input[:restore_request].nil?
         http_req.body = ::StringIO.new(xml.to_str)
@@ -3757,7 +3762,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['partNumber'] = input[:part_number].to_s unless input[:part_number].nil?
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.body = input[:body]
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
@@ -3798,7 +3803,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         params['partNumber'] = input[:part_number].to_s unless input[:part_number].nil?
         params['uploadId'] = input[:upload_id].to_s unless input[:upload_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['x-amz-copy-source'] = input[:copy_source] unless input[:copy_source].nil? || input[:copy_source].empty?
         http_req.headers['x-amz-copy-source-if-match'] = input[:copy_source_if_match] unless input[:copy_source_if_match].nil? || input[:copy_source_if_match].empty?
         http_req.headers['x-amz-copy-source-if-modified-since'] = Hearth::TimeHelper.to_http_date(input[:copy_source_if_modified_since]) unless input[:copy_source_if_modified_since].nil?
@@ -3859,7 +3864,7 @@ module AWS::SDK::S3
         end
         http_req.append_path('/WriteGetObjectResponse')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.body = input[:body]
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'

@@ -32,7 +32,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -58,7 +58,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -204,7 +204,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -222,7 +222,7 @@ module AWS::SDK::Lambda
         http_req.http_method = 'POST'
         http_req.append_path('/2020-04-22/code-signing-configs')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -239,7 +239,7 @@ module AWS::SDK::Lambda
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/event-source-mappings')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -276,7 +276,7 @@ module AWS::SDK::Lambda
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/functions')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -321,7 +321,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -358,7 +358,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -375,7 +375,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -392,7 +392,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -410,7 +410,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -427,7 +427,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -444,7 +444,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -462,7 +462,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -480,7 +480,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -501,7 +501,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -519,7 +519,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -675,7 +675,7 @@ module AWS::SDK::Lambda
         http_req.http_method = 'GET'
         http_req.append_path('/2016-08-19/account-settings')
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -696,7 +696,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -713,7 +713,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -730,7 +730,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -748,7 +748,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -765,7 +765,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -782,7 +782,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -800,7 +800,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -818,7 +818,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -836,7 +836,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -857,7 +857,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -871,7 +871,7 @@ module AWS::SDK::Lambda
         http_req.append_path('/2018-10-31/layers')
         params = Hearth::Query::ParamList.new
         params['Arn'] = input[:arn].to_s unless input[:arn].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -892,7 +892,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -910,7 +910,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -928,7 +928,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -946,7 +946,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -986,7 +986,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.body = ::StringIO.new(input[:payload] || '')
         http_req.headers['X-Amz-Invocation-Type'] = input[:invocation_type] unless input[:invocation_type].nil? || input[:invocation_type].empty?
@@ -1008,7 +1008,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
         http_req.body = input[:invoke_args]
         http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
@@ -1054,7 +1054,7 @@ module AWS::SDK::Lambda
         params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1066,7 +1066,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1080,7 +1080,7 @@ module AWS::SDK::Lambda
         params['FunctionName'] = input[:function_name].to_s unless input[:function_name].nil?
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1099,7 +1099,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1118,7 +1118,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1132,7 +1132,7 @@ module AWS::SDK::Lambda
         params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1151,7 +1151,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1172,7 +1172,7 @@ module AWS::SDK::Lambda
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params['CompatibleArchitecture'] = input[:compatible_architecture].to_s unless input[:compatible_architecture].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1186,7 +1186,7 @@ module AWS::SDK::Lambda
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params['CompatibleArchitecture'] = input[:compatible_architecture].to_s unless input[:compatible_architecture].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1208,7 +1208,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1225,7 +1225,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1244,7 +1244,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1279,7 +1279,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1305,7 +1305,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1329,7 +1329,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1351,7 +1351,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1374,7 +1374,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1399,7 +1399,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1422,7 +1422,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1465,7 +1465,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1488,7 +1488,7 @@ module AWS::SDK::Lambda
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
         params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1617,7 +1617,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1675,7 +1675,7 @@ module AWS::SDK::Lambda
             value.to_s unless value.nil?
           end
         end
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
       end
     end
 
@@ -1696,7 +1696,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1721,7 +1721,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1745,7 +1745,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1781,7 +1781,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1811,7 +1811,7 @@ module AWS::SDK::Lambda
           )
         )
         params = Hearth::Query::ParamList.new
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1850,7 +1850,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1875,7 +1875,7 @@ module AWS::SDK::Lambda
         )
         params = Hearth::Query::ParamList.new
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_param_list(params)
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
