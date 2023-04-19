@@ -43,9 +43,7 @@ module AWS::SDK::Core
         let(:response_body) { StringIO.new }
 
         let(:request) do
-          Hearth::HTTP::Request.new(
-            body: request_body
-          )
+          Hearth::HTTP::Request.new(body: request_body)
         end
 
         let(:response) do
@@ -68,7 +66,7 @@ module AWS::SDK::Core
             subject.call(input, context)
             expect(request.headers.to_h.keys
                           .none? { |h| h.include?('x-amz-checksum') })
-              .to be_truthy
+              .to be true
           end
 
           context 'request checksum required' do
@@ -76,8 +74,6 @@ module AWS::SDK::Core
 
             it 'computes the Content-MD5 checksum' do
               subject.call(input, context)
-              puts request.headers.to_h
-
               expect(request.headers['Content-MD5'])
                 .to eq('sQqNsWTgdUEFt6mb5y4/5Q==')
             end
