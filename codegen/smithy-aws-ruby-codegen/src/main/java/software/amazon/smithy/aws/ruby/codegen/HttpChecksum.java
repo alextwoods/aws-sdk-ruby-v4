@@ -57,7 +57,7 @@ public class HttpChecksum implements RubyIntegration {
 
                     return params;
                 })
-                .klass("AWS::SDK::Core::Middleware::Checksum")
+                .klass("AWS::SDK::Core::Middleware::Checksum2")
                 .step(MiddlewareStackStep.BUILD)
                 .order((byte) 1) // after the Builders have run
                 .build();
