@@ -5,18 +5,19 @@ require_relative '../spec_helper'
 require 'tempfile'
 require 'base64'
 
-unless Kernel.const_defined?(:Aws) && ::Aws.const_defined?(:Crt)
+unless Kernel.const_defined?(:Aws) && ::Aws.const_defined?(:Crt) &&
+       ::Aws::Crt.const_defined?(:Auth)
   module Aws
     module Crt
       module Auth
         class Signer; end
         class SigningConfig; end
         class StaticCredentialsProvider; end
+        class Signable; end
       end
 
-      module HTTP
+      module Http
         class Message; end
-        class Signable; end
       end
     end
   end
