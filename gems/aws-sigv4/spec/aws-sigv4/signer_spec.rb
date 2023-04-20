@@ -5,6 +5,23 @@ require_relative '../spec_helper'
 require 'tempfile'
 require 'base64'
 
+unless Kernel.const_defined?(:Aws) && ::Aws.const_defined?(:Crt)
+  module Aws
+    module Crt
+      module Auth
+        class Signer; end
+        class SigningConfig; end
+        class StaticCredentialsProvider; end
+      end
+
+      module HTTP
+        class Message; end
+        class Signable; end
+      end
+    end
+  end
+end
+
 module AWS::SigV4
   class TestCredentialProvider
     def initialize(credentials)
