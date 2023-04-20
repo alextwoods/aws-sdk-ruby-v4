@@ -7,7 +7,49 @@ module AWS
   # Namespace for AWS SDK gems
   module SDK
     # Namespace for AWS::SDK Core components
-    module Core; end
+    module Core
+      # @return true if aws-sdk-sts is available
+      def self.sts_loaded?
+        if @use_sts.nil?
+          @use_sts =
+            begin
+              require 'aws-sdk-sts'
+              true
+            rescue LoadError
+              false
+            end
+        end
+        @use_sts
+      end
+
+      # @return true if aws-sdk-sso is available
+      def self.sso_loaded?
+        if @use_sso.nil?
+          @use_sso =
+            begin
+              require 'aws-sdk-sso'
+              true
+            rescue LoadError
+              false
+            end
+        end
+        @use_sso
+      end
+
+      # @return true if CRT is available
+      def self.crt_loaded?
+        if @use_crt.nil?
+          @use_crt =
+            begin
+              require 'aws-crt'
+              true
+            rescue LoadError
+              false
+            end
+        end
+        @use_crt
+      end
+    end
   end
 end
 
@@ -30,6 +72,9 @@ require_relative 'aws-sdk-core/shared_config_provider'
 
 # Utilities
 require_relative 'aws-sdk-core/ec2_metadata'
+
+# Checksums
+require_relative 'aws-sdk-core/checksums'
 
 # Middleware
 require_relative 'aws-sdk-core/middleware'
@@ -66,19 +111,5 @@ module AWS::SDK::Core
 
   def self.shared_config
     @shared_config ||= SharedConfig.load
-  end
-
-  def self.sts_loaded?
-    require 'aws-sdk-sts'
-    true
-  rescue LoadError
-    false
-  end
-
-  def self.sso_loaded?
-    require 'aws-sdk-sso'
-    true
-  rescue LoadError
-    false
   end
 end
