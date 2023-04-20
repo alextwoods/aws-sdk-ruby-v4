@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'hearth'
 require 'aws-sigv4'
 
 # Namespace for AWS Ruby products
