@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative '../../spec_helper'
-require 'hearth'
 
 module AWS::SDK::Core
   module Middleware
