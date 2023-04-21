@@ -2,9 +2,11 @@
 
 require_relative '../../spec_helper'
 
-module Aws
-  module Crt
-    module Checksums
+unless defined?(Aws::Crt::Checksums)
+  module Aws
+    module Crt
+      module Checksums
+      end
     end
   end
 end
