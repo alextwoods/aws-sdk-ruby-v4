@@ -9,9 +9,6 @@
 
 module AWS::SDK::STS
   # @!method initialize(*options)
-  #   @option args [Boolean] :adaptive_retry_wait_to_fill (true)
-  #     Used only in `adaptive` retry mode. When true, the request will sleep until there is sufficient client side capacity to retry the request. When false, the request will raise a `CapacityNotAvailableError` and will not retry instead of sleeping.
-  #
   #   @option args [AWS::SDK::Core::CredentialProvider] :credential_provider (*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN)
   #     A credential provider is a class that fetches your AWS credentials. This can be an instance
   #     of any one of the following classes:
@@ -55,17 +52,14 @@ module AWS::SDK::STS
   #   @option args [String] :endpoint
   #     Endpoint of the service
   #
-  #   @option args [Boolean] :http_wire_trace (false)
-  #     Enable debug wire trace on http requests.
+  #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
+  #     The HTTP Client to use for request transport.
   #
   #   @option args [Symbol] :log_level (:info)
-  #     Default log level to use
+  #     The default log level to use with the Logger.
   #
-  #   @option args [Logger] :logger ($stdout)
-  #     Logger to use for output
-  #
-  #   @option args [Integer] :max_attempts (3)
-  #     An integer representing the maximum number of attempts that will be made for a single request, including the initial attempt.
+  #   @option args [Logger] :logger (Logger.new($stdout, level: cfg.log_level))
+  #     The Logger instance to use for logging.
   #
   #   @option args [String] :profile (default)
   #     The AWS region to connect to. The configured `:region` is
@@ -83,10 +77,12 @@ module AWS::SDK::STS
   #     * `ENV['AWS_REGION']`
   #     * `~/.aws/credentials` and `~/.aws/config`
   #
-  #   @option args [String] :retry_mode ('standard')
-  #     Specifies which retry algorithm to use. Values are:
-  #      * `standard` - A standardized set of retry rules across the AWS SDKs. This includes support for retry quotas, which limit the number of unsuccessful retries a client can make.
-  #      * `adaptive` - An experimental retry mode that includes all the functionality of `standard` mode along with automatic client side throttling.  This is a provisional mode that may change behavior in the future.
+  #   @option args [Hearth::Retry::Strategy] :retry_strategy (Hearth::Retry::Standard.new)
+  #     Specifies which retry strategy class to use. Strategy classes
+  #      may have additional options, such as max_retries and backoff strategies.
+  #      Available options are:
+  #      * `Retry::Standard` - A standardized set of retry rules across the AWS SDKs. This includes support for retry quotas, which limit the number of unsuccessful retries a client can make.
+  #      * `Retry::Adaptive` - An experimental retry mode that includes all the functionality of `standard` mode along with automatic client side throttling.  This is a provisional mode that may change behavior in the future.
   #
   #   @option args [AWS::SigV4::Signer] :signer
   #     An instance of SigV4 signer used to sign requests.
@@ -97,9 +93,6 @@ module AWS::SDK::STS
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
   #
-  # @!attribute adaptive_retry_wait_to_fill
-  #   @return [Boolean]
-  #
   # @!attribute credential_provider
   #   @return [AWS::SDK::Core::CredentialProvider]
   #
@@ -109,8 +102,8 @@ module AWS::SDK::STS
   # @!attribute endpoint
   #   @return [String]
   #
-  # @!attribute http_wire_trace
-  #   @return [Boolean]
+  # @!attribute http_client
+  #   @return [Hearth::HTTP::Client]
   #
   # @!attribute log_level
   #   @return [Symbol]
@@ -118,17 +111,14 @@ module AWS::SDK::STS
   # @!attribute logger
   #   @return [Logger]
   #
-  # @!attribute max_attempts
-  #   @return [Integer]
-  #
   # @!attribute profile
   #   @return [String]
   #
   # @!attribute region
   #   @return [String]
   #
-  # @!attribute retry_mode
-  #   @return [String]
+  # @!attribute retry_strategy
+  #   @return [Hearth::Retry::Strategy]
   #
   # @!attribute signer
   #   @return [AWS::SigV4::Signer]
@@ -140,17 +130,15 @@ module AWS::SDK::STS
   #   @return [Boolean]
   #
   Config = ::Struct.new(
-    :adaptive_retry_wait_to_fill,
     :credential_provider,
     :disable_host_prefix,
     :endpoint,
-    :http_wire_trace,
+    :http_client,
     :log_level,
     :logger,
-    :max_attempts,
     :profile,
     :region,
-    :retry_mode,
+    :retry_strategy,
     :signer,
     :stub_responses,
     :validate_input,
@@ -161,17 +149,15 @@ module AWS::SDK::STS
     private
 
     def validate!
-      Hearth::Validator.validate_types!(adaptive_retry_wait_to_fill, TrueClass, FalseClass, context: 'options[:adaptive_retry_wait_to_fill]')
       Hearth::Validator.validate_types!(credential_provider, AWS::SDK::Core::CredentialProvider, context: 'options[:credential_provider]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'options[:disable_host_prefix]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'options[:endpoint]')
-      Hearth::Validator.validate_types!(http_wire_trace, TrueClass, FalseClass, context: 'options[:http_wire_trace]')
+      Hearth::Validator.validate_types!(http_client, Hearth::HTTP::Client, context: 'options[:http_client]')
       Hearth::Validator.validate_types!(log_level, Symbol, context: 'options[:log_level]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'options[:logger]')
-      Hearth::Validator.validate_types!(max_attempts, Integer, context: 'options[:max_attempts]')
       Hearth::Validator.validate_types!(profile, String, context: 'options[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'options[:region]')
-      Hearth::Validator.validate_types!(retry_mode, String, context: 'options[:retry_mode]')
+      Hearth::Validator.validate_types!(retry_strategy, Hearth::Retry::Strategy, context: 'options[:retry_strategy]')
       Hearth::Validator.validate_types!(signer, AWS::SigV4::Signer, context: 'options[:signer]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'options[:stub_responses]')
       Hearth::Validator.validate_types!(validate_input, TrueClass, FalseClass, context: 'options[:validate_input]')
@@ -179,17 +165,15 @@ module AWS::SDK::STS
 
     def self.defaults
       @defaults ||= {
-        adaptive_retry_wait_to_fill: [true],
         credential_provider: [*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN],
         disable_host_prefix: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil } ],
-        http_wire_trace: [false],
+        http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
         log_level: [:info],
         logger: [proc { |cfg| Logger.new($stdout, level: cfg[:log_level]) } ],
-        max_attempts: [3],
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
-        retry_mode: ['standard'],
+        retry_strategy: [Hearth::Retry::Standard.new],
         signer: [proc { |cfg| AWS::SigV4::Signer.new(service: 'sts', region: cfg[:region], credential_provider: cfg[:credential_provider]) }],
         stub_responses: [false],
         validate_input: [true]
