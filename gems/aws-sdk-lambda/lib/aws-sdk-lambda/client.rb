@@ -96,8 +96,6 @@ module AWS::SDK::Lambda
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new
-      @retry_quota = Hearth::Retry::RetryQuota.new
-      @client_rate_limiter = Hearth::Retry::ClientRateLimiter.new
     end
 
     # <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
@@ -169,12 +167,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -186,7 +180,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::AddLayerVersionPermission,
         stubs: @stubs,
         params_class: Params::AddLayerVersionPermissionOutput
@@ -323,12 +317,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -340,7 +330,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::AddPermission,
         stubs: @stubs,
         params_class: Params::AddPermissionOutput
@@ -447,12 +437,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -464,7 +450,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::CreateAlias,
         stubs: @stubs,
         params_class: Params::CreateAliasOutput
@@ -544,12 +530,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -561,7 +543,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::CreateCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::CreateCodeSigningConfigOutput
@@ -995,12 +977,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1012,7 +990,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::CreateEventSourceMapping,
         stubs: @stubs,
         params_class: Params::CreateEventSourceMappingOutput
@@ -1338,12 +1316,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1355,7 +1329,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::CreateFunction,
         stubs: @stubs,
         params_class: Params::CreateFunctionOutput
@@ -1487,12 +1461,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1504,7 +1474,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::CreateFunctionUrlConfig,
         stubs: @stubs,
         params_class: Params::CreateFunctionUrlConfigOutput
@@ -1580,12 +1550,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteAlias
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1597,7 +1563,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteAlias,
         stubs: @stubs,
         params_class: Params::DeleteAliasOutput
@@ -1651,12 +1617,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1668,7 +1630,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::DeleteCodeSigningConfigOutput
@@ -1773,12 +1735,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteEventSourceMapping
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1790,7 +1748,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteEventSourceMapping,
         stubs: @stubs,
         params_class: Params::DeleteEventSourceMappingOutput
@@ -1869,12 +1827,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteFunction
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1886,7 +1840,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteFunction,
         stubs: @stubs,
         params_class: Params::DeleteFunctionOutput
@@ -1958,12 +1912,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteFunctionCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -1975,7 +1925,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteFunctionCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::DeleteFunctionCodeSigningConfigOutput
@@ -2047,12 +1997,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteFunctionConcurrency
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2064,7 +2010,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteFunctionConcurrency,
         stubs: @stubs,
         params_class: Params::DeleteFunctionConcurrencyOutput
@@ -2141,12 +2087,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteFunctionEventInvokeConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2158,7 +2100,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteFunctionEventInvokeConfig,
         stubs: @stubs,
         params_class: Params::DeleteFunctionEventInvokeConfigOutput
@@ -2235,12 +2177,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteFunctionUrlConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2252,7 +2190,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteFunctionUrlConfig,
         stubs: @stubs,
         params_class: Params::DeleteFunctionUrlConfigOutput
@@ -2311,12 +2249,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteLayerVersion
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2328,7 +2262,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteLayerVersion,
         stubs: @stubs,
         params_class: Params::DeleteLayerVersionOutput
@@ -2404,12 +2338,8 @@ module AWS::SDK::Lambda
         builder: Builders::DeleteProvisionedConcurrencyConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2421,7 +2351,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::DeleteProvisionedConcurrencyConfig,
         stubs: @stubs,
         params_class: Params::DeleteProvisionedConcurrencyConfigOutput
@@ -2478,12 +2408,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetAccountSettings
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2495,7 +2421,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetAccountSettings,
         stubs: @stubs,
         params_class: Params::GetAccountSettingsOutput
@@ -2579,12 +2505,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetAlias
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2596,7 +2518,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetAlias,
         stubs: @stubs,
         params_class: Params::GetAliasOutput
@@ -2659,12 +2581,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2676,7 +2594,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::GetCodeSigningConfigOutput
@@ -2779,12 +2697,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetEventSourceMapping
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2796,7 +2710,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetEventSourceMapping,
         stubs: @stubs,
         params_class: Params::GetEventSourceMappingOutput
@@ -2955,12 +2869,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunction
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -2972,7 +2882,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunction,
         stubs: @stubs,
         params_class: Params::GetFunctionOutput
@@ -3046,12 +2956,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunctionCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3063,7 +2969,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunctionCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::GetFunctionCodeSigningConfigOutput
@@ -3137,12 +3043,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunctionConcurrency
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3154,7 +3056,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunctionConcurrency,
         stubs: @stubs,
         params_class: Params::GetFunctionConcurrencyOutput
@@ -3303,12 +3205,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunctionConfiguration
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3320,7 +3218,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunctionConfiguration,
         stubs: @stubs,
         params_class: Params::GetFunctionConfigurationOutput
@@ -3406,12 +3304,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunctionEventInvokeConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3423,7 +3317,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunctionEventInvokeConfig,
         stubs: @stubs,
         params_class: Params::GetFunctionEventInvokeConfigOutput
@@ -3515,12 +3409,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetFunctionUrlConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3532,7 +3422,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetFunctionUrlConfig,
         stubs: @stubs,
         params_class: Params::GetFunctionUrlConfigOutput
@@ -3607,12 +3497,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetLayerVersion
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3624,7 +3510,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetLayerVersion,
         stubs: @stubs,
         params_class: Params::GetLayerVersionOutput
@@ -3695,12 +3581,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetLayerVersionByArn
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3712,7 +3594,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetLayerVersionByArn,
         stubs: @stubs,
         params_class: Params::GetLayerVersionByArnOutput
@@ -3772,12 +3654,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetLayerVersionPolicy
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3789,7 +3667,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetLayerVersionPolicy,
         stubs: @stubs,
         params_class: Params::GetLayerVersionPolicyOutput
@@ -3867,12 +3745,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetPolicy
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3884,7 +3758,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetPolicy,
         stubs: @stubs,
         params_class: Params::GetPolicyOutput
@@ -3966,12 +3840,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetProvisionedConcurrencyConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -3983,7 +3853,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetProvisionedConcurrencyConfig,
         stubs: @stubs,
         params_class: Params::GetProvisionedConcurrencyConfigOutput
@@ -4065,12 +3935,8 @@ module AWS::SDK::Lambda
         builder: Builders::GetRuntimeManagementConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4082,7 +3948,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::GetRuntimeManagementConfig,
         stubs: @stubs,
         params_class: Params::GetRuntimeManagementConfigOutput
@@ -4225,12 +4091,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4242,7 +4104,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::Invoke,
         stubs: @stubs,
         params_class: Params::InvokeOutput
@@ -4325,12 +4187,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4342,7 +4200,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::InvokeAsync,
         stubs: @stubs,
         params_class: Params::InvokeAsyncOutput
@@ -4438,12 +4296,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListAliases
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4455,7 +4309,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListAliases,
         stubs: @stubs,
         params_class: Params::ListAliasesOutput
@@ -4526,12 +4380,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListCodeSigningConfigs
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4543,7 +4393,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListCodeSigningConfigs,
         stubs: @stubs,
         params_class: Params::ListCodeSigningConfigsOutput
@@ -4711,12 +4561,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListEventSourceMappings
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4728,7 +4574,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListEventSourceMappings,
         stubs: @stubs,
         params_class: Params::ListEventSourceMappingsOutput
@@ -4821,12 +4667,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListFunctionEventInvokeConfigs
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4838,7 +4680,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListFunctionEventInvokeConfigs,
         stubs: @stubs,
         params_class: Params::ListFunctionEventInvokeConfigsOutput
@@ -4938,12 +4780,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListFunctionUrlConfigs
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -4955,7 +4793,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListFunctionUrlConfigs,
         stubs: @stubs,
         params_class: Params::ListFunctionUrlConfigsOutput
@@ -5106,12 +4944,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListFunctions
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5123,7 +4957,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListFunctions,
         stubs: @stubs,
         params_class: Params::ListFunctionsOutput
@@ -5188,12 +5022,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListFunctionsByCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5205,7 +5035,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListFunctionsByCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::ListFunctionsByCodeSigningConfigOutput
@@ -5290,12 +5120,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListLayerVersions
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5307,7 +5133,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListLayerVersions,
         stubs: @stubs,
         params_class: Params::ListLayerVersionsOutput
@@ -5393,12 +5219,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListLayers
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5410,7 +5232,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListLayers,
         stubs: @stubs,
         params_class: Params::ListLayersOutput
@@ -5500,12 +5322,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListProvisionedConcurrencyConfigs
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5517,7 +5335,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListProvisionedConcurrencyConfigs,
         stubs: @stubs,
         params_class: Params::ListProvisionedConcurrencyConfigsOutput
@@ -5574,12 +5392,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListTags
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5591,7 +5405,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListTags,
         stubs: @stubs,
         params_class: Params::ListTagsOutput
@@ -5747,12 +5561,8 @@ module AWS::SDK::Lambda
         builder: Builders::ListVersionsByFunction
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5764,7 +5574,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::ListVersionsByFunction,
         stubs: @stubs,
         params_class: Params::ListVersionsByFunctionOutput
@@ -5881,12 +5691,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -5898,7 +5704,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PublishLayerVersion,
         stubs: @stubs,
         params_class: Params::PublishLayerVersionOutput
@@ -6063,12 +5869,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6080,7 +5882,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PublishVersion,
         stubs: @stubs,
         params_class: Params::PublishVersionOutput
@@ -6160,12 +5962,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6177,7 +5975,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PutFunctionCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::PutFunctionCodeSigningConfigOutput
@@ -6263,12 +6061,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6280,7 +6074,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PutFunctionConcurrency,
         stubs: @stubs,
         params_class: Params::PutFunctionConcurrencyOutput
@@ -6416,12 +6210,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6433,7 +6223,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PutFunctionEventInvokeConfig,
         stubs: @stubs,
         params_class: Params::PutFunctionEventInvokeConfigOutput
@@ -6520,12 +6310,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6537,7 +6323,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PutProvisionedConcurrencyConfig,
         stubs: @stubs,
         params_class: Params::PutProvisionedConcurrencyConfigOutput
@@ -6649,12 +6435,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6666,7 +6448,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::PutRuntimeManagementConfig,
         stubs: @stubs,
         params_class: Params::PutRuntimeManagementConfigOutput
@@ -6734,12 +6516,8 @@ module AWS::SDK::Lambda
         builder: Builders::RemoveLayerVersionPermission
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6751,7 +6529,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::RemoveLayerVersionPermission,
         stubs: @stubs,
         params_class: Params::RemoveLayerVersionPermissionOutput
@@ -6837,12 +6615,8 @@ module AWS::SDK::Lambda
         builder: Builders::RemovePermission
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6854,7 +6628,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::RemovePermission,
         stubs: @stubs,
         params_class: Params::RemovePermissionOutput
@@ -6914,12 +6688,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -6931,7 +6701,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::TagResource,
         stubs: @stubs,
         params_class: Params::TagResourceOutput
@@ -6990,12 +6760,8 @@ module AWS::SDK::Lambda
         builder: Builders::UntagResource
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7007,7 +6773,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UntagResource,
         stubs: @stubs,
         params_class: Params::UntagResourceOutput
@@ -7114,12 +6880,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7131,7 +6893,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateAlias,
         stubs: @stubs,
         params_class: Params::UpdateAliasOutput
@@ -7214,12 +6976,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7231,7 +6989,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateCodeSigningConfig,
         stubs: @stubs,
         params_class: Params::UpdateCodeSigningConfigOutput
@@ -7595,12 +7353,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7612,7 +7366,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateEventSourceMapping,
         stubs: @stubs,
         params_class: Params::UpdateEventSourceMappingOutput
@@ -7816,12 +7570,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -7833,7 +7583,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateFunctionCode,
         stubs: @stubs,
         params_class: Params::UpdateFunctionCodeOutput
@@ -8102,12 +7852,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8119,7 +7865,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateFunctionConfiguration,
         stubs: @stubs,
         params_class: Params::UpdateFunctionConfigurationOutput
@@ -8246,12 +7992,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8263,7 +8005,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateFunctionEventInvokeConfig,
         stubs: @stubs,
         params_class: Params::UpdateFunctionEventInvokeConfigOutput
@@ -8395,12 +8137,8 @@ module AWS::SDK::Lambda
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts
+        retry_strategy: @config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: @config.signer
@@ -8412,7 +8150,7 @@ module AWS::SDK::Lambda
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        client: options.fetch(:http_client, @config.http_client),
         stub_class: Stubs::UpdateFunctionUrlConfig,
         stubs: @stubs,
         params_class: Params::UpdateFunctionUrlConfigOutput

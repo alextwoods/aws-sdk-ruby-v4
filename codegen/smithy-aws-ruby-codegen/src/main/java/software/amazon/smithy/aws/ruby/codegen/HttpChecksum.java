@@ -62,7 +62,6 @@ public class HttpChecksum implements RubyIntegration {
                 })
                 .klass("AWS::SDK::Core::Middleware::Checksum")
                 .step(MiddlewareStackStep.BUILD)
-                .relative(new Middleware.Relative(Middleware.Relative.Type.AFTER, "Hearth::Middleware::Build"))
                 .build();
 
         middlewareBuilder.register(checksums);
