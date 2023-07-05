@@ -11,7 +11,7 @@ public class RequestId implements RubyIntegration {
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
         Middleware requestId = (new Middleware.Builder())
                 .klass("Middleware::RequestId")
-                .step(MiddlewareStackStep.DESERIALIZE)
+                .step(MiddlewareStackStep.PARSE)
                 .rubySource("smithy-aws-ruby-codegen/middleware/request_id.rb")
                 .build();
         middlewareBuilder.register(requestId);

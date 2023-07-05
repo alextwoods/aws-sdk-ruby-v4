@@ -88,7 +88,7 @@ public class RestJson1 implements ProtocolGenerator {
                     return !serializeMembers.collect(Collectors.toList()).isEmpty();
                 })
                 .klass("Hearth::HTTP::Middleware::ContentLength")
-                .step(MiddlewareStackStep.BUILD)
+                .step(MiddlewareStackStep.AFTER_BUILD)
                 .build();
         middlewareBuilder.register(contentLength);
     }
