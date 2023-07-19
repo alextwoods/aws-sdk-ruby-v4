@@ -2,13 +2,6 @@
 
 require_relative '../../spec_helper'
 
-module Aws
-  module Crt
-    module Checksums
-    end
-  end
-end
-
 module AWS::SDK::Core
   module Checksums
     describe CRC32C do

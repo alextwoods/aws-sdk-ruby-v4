@@ -33,6 +33,13 @@ module AWS::SDK::SSO
   Config = Struct.new(:region, keyword_init: true)
 end
 
+module Aws
+  module Crt
+    module Checksums
+    end
+  end
+end
+
 # Use in a context block to set the ENV for the duration of a test.
 # Preserves contents of ENV outside of the test.
 # and ensures that no other ENV variables are set for the duration.

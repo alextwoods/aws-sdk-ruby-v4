@@ -94,7 +94,7 @@ module AWS::SigV4
 end
 
 # For mocking aws-crt objects, define namespace and classes.
-unless defined?(Aws::Crt)
+unless defined?(Aws::Crt::Auth) && defined?(Aws::Crt::Http)
   module Aws
     module Crt
       module Auth

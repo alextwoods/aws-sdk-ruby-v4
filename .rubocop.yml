@@ -33,7 +33,7 @@ Naming/FileName:
   Exclude:
     - 'gems/aws-sdk-core/lib/aws-sdk-core.rb'
     - 'gems/aws-sigv4/lib/aws-sigv4.rb'
-    - 'gems/aws-sdk-core/spec/aws-sdk-core/aws-sdk-core_spec.rb'
+    - 'gems/aws-sdk-core/spec/aws-sdk-core_spec.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false
