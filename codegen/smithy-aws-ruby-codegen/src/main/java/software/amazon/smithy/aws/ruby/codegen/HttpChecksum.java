@@ -3,6 +3,8 @@ package software.amazon.smithy.aws.ruby.codegen;
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
 import software.amazon.smithy.model.Model;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -14,12 +16,15 @@ import software.amazon.smithy.ruby.codegen.util.Streaming;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class HttpChecksum implements RubyIntegration {
     @Override
     public boolean includeFor(ServiceShape service, Model model) {
-        return model.isTraitApplied(HttpChecksumTrait.class);
+        return TopDownIndex.of(model).getContainedOperations(service).stream()
+                .anyMatch( (o) -> o.hasTrait(HttpChecksumTrait.class));
     }
 
     @Override
