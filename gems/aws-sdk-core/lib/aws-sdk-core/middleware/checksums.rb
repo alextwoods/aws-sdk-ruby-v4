@@ -216,6 +216,10 @@ module AWS::SDK::Core
           @io.rewind
         end
 
+        def truncate(len)
+          @io.truncate(len) if @io.respond_to?(:truncate)
+        end
+
         def size
           @io.size
         end
@@ -264,6 +268,10 @@ module AWS::SDK::Core
 
         def rewind
           @io.rewind
+        end
+
+        def truncate(len)
+          @io.truncate(len) if @io.respond_to?(:truncate)
         end
 
         def read(length = CHUNK_SIZE, buf = nil)
