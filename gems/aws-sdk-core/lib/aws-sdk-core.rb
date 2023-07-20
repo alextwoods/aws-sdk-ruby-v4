@@ -15,7 +15,7 @@ module AWS
           @use_sts =
             begin
               require 'aws-sdk-sts'
-              AWS::SDK.const_defined?(:SQS)
+              true
             rescue LoadError, NameError
               false
             end
@@ -29,7 +29,7 @@ module AWS
           @use_sso =
             begin
               require 'aws-sdk-sso'
-              AWS::SDK.const_defined?(:SSO)
+              true
             rescue LoadError, NameError
               false
             end
