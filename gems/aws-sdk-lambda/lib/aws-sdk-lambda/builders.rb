@@ -19,10 +19,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         if input[:version_number].to_s.empty?
-          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+          raise ArgumentError, "HTTP label :version_number cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
@@ -49,7 +49,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
@@ -196,7 +196,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
@@ -312,7 +312,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-10-31/functions/%<FunctionName>s/url',
@@ -346,10 +346,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         if input[:name].to_s.empty?
-          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -367,7 +367,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:code_signing_config_arn].to_s.empty?
-          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be empty."
         end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
@@ -384,7 +384,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:uuid].to_s.empty?
-          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+          raise ArgumentError, "HTTP label :uuid cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
@@ -401,7 +401,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
@@ -419,7 +419,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
@@ -436,7 +436,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
@@ -453,7 +453,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
@@ -471,7 +471,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-10-31/functions/%<FunctionName>s/url',
@@ -489,10 +489,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         if input[:version_number].to_s.empty?
-          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+          raise ArgumentError, "HTTP label :version_number cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
@@ -510,7 +510,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
@@ -684,10 +684,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         if input[:name].to_s.empty?
-          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -705,7 +705,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:code_signing_config_arn].to_s.empty?
-          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be empty."
         end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
@@ -722,7 +722,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:uuid].to_s.empty?
-          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+          raise ArgumentError, "HTTP label :uuid cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
@@ -739,7 +739,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
@@ -757,7 +757,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
@@ -774,7 +774,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/concurrency',
@@ -791,7 +791,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
@@ -809,7 +809,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
@@ -827,7 +827,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-10-31/functions/%<FunctionName>s/url',
@@ -845,10 +845,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         if input[:version_number].to_s.empty?
-          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+          raise ArgumentError, "HTTP label :version_number cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
@@ -880,10 +880,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         if input[:version_number].to_s.empty?
-          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+          raise ArgumentError, "HTTP label :version_number cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
@@ -901,7 +901,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
@@ -919,7 +919,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
@@ -937,7 +937,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-07-20/functions/%<FunctionName>s/runtime-management-config',
@@ -977,7 +977,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/invocations',
@@ -1000,7 +1000,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2014-11-13/functions/%<FunctionName>s/invoke-async',
@@ -1043,7 +1043,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
@@ -1089,7 +1089,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config/list',
@@ -1108,7 +1108,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-10-31/functions/%<FunctionName>s/urls',
@@ -1141,7 +1141,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:code_signing_config_arn].to_s.empty?
-          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be empty."
         end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s/functions',
@@ -1160,7 +1160,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
@@ -1198,7 +1198,7 @@ module AWS::SDK::Lambda
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
@@ -1217,7 +1217,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:resource].to_s.empty?
-          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+          raise ArgumentError, "HTTP label :resource cannot be empty."
         end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
@@ -1234,7 +1234,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
@@ -1271,7 +1271,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
@@ -1297,7 +1297,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
@@ -1321,7 +1321,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
@@ -1343,7 +1343,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
@@ -1365,7 +1365,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
@@ -1390,7 +1390,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
@@ -1413,7 +1413,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-07-20/functions/%<FunctionName>s/runtime-management-config',
@@ -1448,13 +1448,13 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:layer_name].to_s.empty?
-          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :layer_name cannot be empty."
         end
         if input[:version_number].to_s.empty?
-          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+          raise ArgumentError, "HTTP label :version_number cannot be empty."
         end
         if input[:statement_id].to_s.empty?
-          raise ArgumentError, "HTTP label :statement_id cannot be nil or empty."
+          raise ArgumentError, "HTTP label :statement_id cannot be empty."
         end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy/%<StatementId>s',
@@ -1474,10 +1474,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         if input[:statement_id].to_s.empty?
-          raise ArgumentError, "HTTP label :statement_id cannot be nil or empty."
+          raise ArgumentError, "HTTP label :statement_id cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy/%<StatementId>s',
@@ -1609,7 +1609,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:resource].to_s.empty?
-          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+          raise ArgumentError, "HTTP label :resource cannot be empty."
         end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
@@ -1662,7 +1662,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:resource].to_s.empty?
-          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+          raise ArgumentError, "HTTP label :resource cannot be empty."
         end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
@@ -1684,10 +1684,10 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         if input[:name].to_s.empty?
-          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -1713,7 +1713,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:code_signing_config_arn].to_s.empty?
-          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be empty."
         end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
@@ -1737,7 +1737,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:uuid].to_s.empty?
-          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+          raise ArgumentError, "HTTP label :uuid cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
@@ -1773,7 +1773,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/code',
@@ -1803,7 +1803,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
@@ -1841,7 +1841,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
@@ -1866,7 +1866,7 @@ module AWS::SDK::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:function_name].to_s.empty?
-          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+          raise ArgumentError, "HTTP label :function_name cannot be empty."
         end
         http_req.append_path(format(
             '/2021-10-31/functions/%<FunctionName>s/url',

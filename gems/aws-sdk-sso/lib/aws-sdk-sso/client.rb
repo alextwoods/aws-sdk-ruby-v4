@@ -36,21 +36,22 @@ module AWS::SDK::SSO
   #
   class Client
     include Hearth::ClientStubs
+    @plugins = Hearth::PluginList.new
 
-    @middleware = Hearth::MiddlewareBuilder.new
-
-    def self.middleware
-      @middleware
+    def self.plugins
+      @plugins
     end
 
     # @param [Config] config
     #   An instance of {Config}
     #
     def initialize(config = AWS::SDK::SSO::Config.new, options = {})
-      @config = config
-      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
+      @config = initialize_config(config)
       @stubs = Hearth::Stubbing::Stubs.new
     end
+
+    # @return [Config] config
+    attr_reader :config
 
     # <p>Returns the STS short-term credentials for a given role name that is assigned to the
     #       user.</p>
@@ -88,18 +89,21 @@ module AWS::SDK::SSO
     #   resp.data.role_credentials.expiration #=> Integer
     #
     def get_role_credentials(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetRoleCredentialsInput.build(params)
+      input = Params::GetRoleCredentialsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoleCredentialsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetRoleCredentials
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Parse,
@@ -108,22 +112,21 @@ module AWS::SDK::SSO
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetRoleCredentials,
         stubs: @stubs,
         params_class: Params::GetRoleCredentialsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_role_credentials
+          logger: config.logger,
+          operation_name: :get_role_credentials,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -169,18 +172,21 @@ module AWS::SDK::SSO
     #   resp.data.role_list[0].account_id #=> String
     #
     def list_account_roles(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListAccountRolesInput.build(params)
+      input = Params::ListAccountRolesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountRolesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAccountRoles
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Parse,
@@ -189,22 +195,21 @@ module AWS::SDK::SSO
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListAccountRoles,
         stubs: @stubs,
         params_class: Params::ListAccountRolesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_account_roles
+          logger: config.logger,
+          operation_name: :list_account_roles,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -250,18 +255,21 @@ module AWS::SDK::SSO
     #   resp.data.account_list[0].email_address #=> String
     #
     def list_accounts(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListAccountsInput.build(params)
+      input = Params::ListAccountsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAccounts
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Parse,
@@ -270,22 +278,21 @@ module AWS::SDK::SSO
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListAccounts,
         stubs: @stubs,
         params_class: Params::ListAccountsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_accounts
+          logger: config.logger,
+          operation_name: :list_accounts,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -329,18 +336,21 @@ module AWS::SDK::SSO
     #   resp.data #=> Types::LogoutOutput
     #
     def logout(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::LogoutInput.build(params)
+      input = Params::LogoutInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::LogoutInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Logout
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Parse,
@@ -349,22 +359,21 @@ module AWS::SDK::SSO
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::Logout,
         stubs: @stubs,
         params_class: Params::LogoutOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :logout
+          logger: config.logger,
+          operation_name: :logout,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -373,10 +382,23 @@ module AWS::SDK::SSO
 
     private
 
-    def apply_middleware(middleware_stack, middleware)
-      Client.middleware.apply(middleware_stack)
-      @middleware.apply(middleware_stack)
-      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+    def initialize_config(config)
+      config = config.dup
+      client_interceptors = config.interceptors
+      config.interceptors = Hearth::InterceptorList.new
+      Client.plugins.apply(config)
+      Hearth::PluginList.new(config.plugins).apply(config)
+      config.interceptors << client_interceptors
+      config.freeze
+    end
+
+    def operation_config(options)
+      return @config unless options[:plugins] || options[:interceptors]
+
+      config = @config.dup
+      Hearth::PluginList.new(options[:plugins]).apply(config) if options[:plugins]
+      config.interceptors << options[:interceptors] if options[:interceptors]
+      config.freeze
     end
   end
 end
