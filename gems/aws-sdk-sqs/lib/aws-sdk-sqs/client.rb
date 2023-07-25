@@ -203,9 +203,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OverLimit]),
         data_parser: Parsers::AddPermission
@@ -315,9 +312,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MessageNotInflight, Errors::ReceiptHandleIsInvalid]),
         data_parser: Parsers::ChangeMessageVisibility
@@ -416,9 +410,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
@@ -750,9 +741,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDeletedRecently, Errors::QueueNameExists]),
         data_parser: Parsers::CreateQueue
@@ -841,9 +829,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidIdFormat, Errors::ReceiptHandleIsInvalid]),
@@ -940,9 +925,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
         data_parser: Parsers::DeleteMessageBatch
@@ -1022,9 +1004,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1272,9 +1251,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAttributeName]),
         data_parser: Parsers::GetQueueAttributes
@@ -1350,9 +1326,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDoesNotExist]),
@@ -1442,9 +1415,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDoesNotExist]),
         data_parser: Parsers::ListDeadLetterSourceQueues
@@ -1517,9 +1487,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1612,9 +1579,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListQueues
@@ -1693,9 +1657,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PurgeQueueInProgress, Errors::QueueDoesNotExist]),
@@ -1975,9 +1936,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OverLimit]),
         data_parser: Parsers::ReceiveMessage
@@ -2064,9 +2022,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2287,9 +2242,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMessageContents, Errors::UnsupportedOperation]),
         data_parser: Parsers::SendMessage
@@ -2421,9 +2373,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::BatchRequestTooLong, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest, Errors::UnsupportedOperation]),
@@ -2667,9 +2616,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAttributeName]),
         data_parser: Parsers::SetQueueAttributes
@@ -2766,9 +2712,6 @@ module AWS::SDK::SQS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::TagQueue
@@ -2845,9 +2788,6 @@ module AWS::SDK::SQS
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),

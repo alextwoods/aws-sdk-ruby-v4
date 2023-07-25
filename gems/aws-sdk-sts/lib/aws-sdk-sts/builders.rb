@@ -180,6 +180,10 @@ module AWS::SDK::STS
         input.each_with_index do |element, index|
           PolicyDescriptorType.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -189,6 +193,10 @@ module AWS::SDK::STS
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -197,6 +205,10 @@ module AWS::SDK::STS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end

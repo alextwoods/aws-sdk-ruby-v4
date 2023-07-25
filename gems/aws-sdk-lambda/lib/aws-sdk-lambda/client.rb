@@ -174,9 +174,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddLayerVersionPermission
@@ -326,9 +323,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::AddPermission
@@ -448,9 +442,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateAlias
@@ -542,9 +533,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidParameterValueException, Errors::ServiceException]),
@@ -992,9 +980,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateEventSourceMapping
@@ -1333,9 +1318,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::CodeVerificationFailedException, Errors::InvalidCodeSignatureException, Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateFunction
@@ -1480,9 +1462,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::CreateFunctionUrlConfig
@@ -1571,9 +1550,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteAlias
@@ -1639,9 +1615,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -1760,9 +1733,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::InvalidParameterValueException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteEventSourceMapping
@@ -1854,9 +1824,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteFunction
@@ -1941,9 +1908,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteFunctionCodeSigningConfig
@@ -2027,9 +1991,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2120,9 +2081,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteFunctionEventInvokeConfig
@@ -2212,9 +2170,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteFunctionUrlConfig
@@ -2285,9 +2240,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2377,9 +2329,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::DeleteProvisionedConcurrencyConfig
@@ -2448,9 +2397,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2548,9 +2494,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetAlias
@@ -2625,9 +2568,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -2743,9 +2683,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -2918,9 +2855,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetFunction
@@ -3007,9 +2941,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetFunctionCodeSigningConfig
@@ -3095,9 +3026,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3260,9 +3188,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetFunctionConfiguration
@@ -3360,9 +3285,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3468,9 +3390,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetFunctionUrlConfig
@@ -3558,9 +3477,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetLayerVersion
@@ -3644,9 +3560,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetLayerVersionByArn
@@ -3718,9 +3631,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3811,9 +3721,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -3909,9 +3816,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetProvisionedConcurrencyConfig
@@ -4005,9 +3909,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4164,9 +4065,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::EC2AccessDeniedException, Errors::EC2ThrottledException, Errors::EC2UnexpectedException, Errors::EFSIOException, Errors::EFSMountConnectivityException, Errors::EFSMountFailureException, Errors::EFSMountTimeoutException, Errors::ENILimitReachedException, Errors::InvalidParameterValueException, Errors::InvalidRequestContentException, Errors::InvalidRuntimeException, Errors::InvalidSecurityGroupIDException, Errors::InvalidSubnetIDException, Errors::InvalidZipFileException, Errors::KMSAccessDeniedException, Errors::KMSDisabledException, Errors::KMSInvalidStateException, Errors::KMSNotFoundException, Errors::RequestTooLargeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ResourceNotReadyException, Errors::ServiceException, Errors::SnapStartException, Errors::SnapStartNotReadyException, Errors::SnapStartTimeoutException, Errors::SubnetIPAddressLimitReachedException, Errors::TooManyRequestsException, Errors::UnsupportedMediaTypeException]),
         data_parser: Parsers::Invoke
@@ -4260,9 +4158,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::InvalidRequestContentException, Errors::InvalidRuntimeException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -4372,9 +4267,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAliases
@@ -4457,9 +4349,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ServiceException]),
@@ -4641,9 +4530,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListEventSourceMappings
@@ -4748,9 +4634,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -4863,9 +4746,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5030,9 +4910,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListFunctions
@@ -5109,9 +4986,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -5210,9 +5084,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListLayerVersions
@@ -5310,9 +5181,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5416,9 +5284,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListProvisionedConcurrencyConfigs
@@ -5487,9 +5352,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5659,9 +5521,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListVersionsByFunction
@@ -5790,9 +5649,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -5971,9 +5827,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::PublishVersion
@@ -6065,9 +5918,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -6166,9 +6016,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -6318,9 +6165,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::PutFunctionEventInvokeConfig
@@ -6419,9 +6263,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -6547,9 +6388,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::PutRuntimeManagementConfig
@@ -6629,9 +6467,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -6731,9 +6566,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::RemovePermission
@@ -6806,9 +6638,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::TagResource
@@ -6879,9 +6708,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -7002,9 +6828,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateAlias
@@ -7099,9 +6922,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceNotFoundException, Errors::ServiceException]),
@@ -7479,9 +7299,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceInUseException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateEventSourceMapping
@@ -7697,9 +7514,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::CodeVerificationFailedException, Errors::InvalidCodeSignatureException, Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -7982,9 +7796,6 @@ module AWS::SDK::Lambda
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CodeSigningConfigNotFoundException, Errors::CodeVerificationFailedException, Errors::InvalidCodeSignatureException, Errors::InvalidParameterValueException, Errors::PreconditionFailedException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
         data_parser: Parsers::UpdateFunctionConfiguration
@@ -8123,9 +7934,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),
@@ -8270,9 +8078,6 @@ module AWS::SDK::Lambda
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::ResourceConflictException, Errors::ResourceNotFoundException, Errors::ServiceException, Errors::TooManyRequestsException]),

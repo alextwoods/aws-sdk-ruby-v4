@@ -98,7 +98,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
-          data[key] = value
+          data[key] = value&.to_f
         end
         data
       end

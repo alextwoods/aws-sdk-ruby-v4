@@ -1,0 +1,418 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CloudWatch
+  module Types
+
+    module ActionsSuppressedBy
+      WaitPeriod: ::String
+
+      ExtensionPeriod: ::String
+
+      Alarm: ::String
+    end
+
+    AlarmHistoryItem: untyped
+
+    module AlarmType
+      CompositeAlarm: ::String
+
+      MetricAlarm: ::String
+    end
+
+    AnomalyDetector: untyped
+
+    AnomalyDetectorConfiguration: untyped
+
+    module AnomalyDetectorStateValue
+      PENDING_TRAINING: ::String
+
+      TRAINED_INSUFFICIENT_DATA: ::String
+
+      TRAINED: ::String
+    end
+
+    module AnomalyDetectorType
+      SINGLE_METRIC: ::String
+
+      METRIC_MATH: ::String
+    end
+
+    module ComparisonOperator
+      GreaterThanOrEqualToThreshold: ::String
+
+      GreaterThanThreshold: ::String
+
+      LessThanThreshold: ::String
+
+      LessThanOrEqualToThreshold: ::String
+
+      LessThanLowerOrGreaterThanUpperThreshold: ::String
+
+      LessThanLowerThreshold: ::String
+
+      GreaterThanUpperThreshold: ::String
+    end
+
+    CompositeAlarm: untyped
+
+    ConcurrentModificationException: untyped
+
+    DashboardEntry: untyped
+
+    DashboardInvalidInputError: untyped
+
+    DashboardNotFoundError: untyped
+
+    DashboardValidationMessage: untyped
+
+    Datapoint: untyped
+
+    DeleteAlarmsInput: untyped
+
+    DeleteAlarmsOutput: untyped
+
+    DeleteAnomalyDetectorInput: untyped
+
+    DeleteAnomalyDetectorOutput: untyped
+
+    DeleteDashboardsInput: untyped
+
+    DeleteDashboardsOutput: untyped
+
+    DeleteInsightRulesInput: untyped
+
+    DeleteInsightRulesOutput: untyped
+
+    DeleteMetricStreamInput: untyped
+
+    DeleteMetricStreamOutput: untyped
+
+    DescribeAlarmHistoryInput: untyped
+
+    DescribeAlarmHistoryOutput: untyped
+
+    DescribeAlarmsForMetricInput: untyped
+
+    DescribeAlarmsForMetricOutput: untyped
+
+    DescribeAlarmsInput: untyped
+
+    DescribeAlarmsOutput: untyped
+
+    DescribeAnomalyDetectorsInput: untyped
+
+    DescribeAnomalyDetectorsOutput: untyped
+
+    DescribeInsightRulesInput: untyped
+
+    DescribeInsightRulesOutput: untyped
+
+    Dimension: untyped
+
+    DimensionFilter: untyped
+
+    DisableAlarmActionsInput: untyped
+
+    DisableAlarmActionsOutput: untyped
+
+    DisableInsightRulesInput: untyped
+
+    DisableInsightRulesOutput: untyped
+
+    EnableAlarmActionsInput: untyped
+
+    EnableAlarmActionsOutput: untyped
+
+    EnableInsightRulesInput: untyped
+
+    EnableInsightRulesOutput: untyped
+
+    module EvaluationState
+      PARTIAL_DATA: ::String
+    end
+
+    GetDashboardInput: untyped
+
+    GetDashboardOutput: untyped
+
+    GetInsightRuleReportInput: untyped
+
+    GetInsightRuleReportOutput: untyped
+
+    GetMetricDataInput: untyped
+
+    GetMetricDataOutput: untyped
+
+    GetMetricStatisticsInput: untyped
+
+    GetMetricStatisticsOutput: untyped
+
+    GetMetricStreamInput: untyped
+
+    GetMetricStreamOutput: untyped
+
+    GetMetricWidgetImageInput: untyped
+
+    GetMetricWidgetImageOutput: untyped
+
+    module HistoryItemType
+      ConfigurationUpdate: ::String
+
+      StateUpdate: ::String
+
+      Action: ::String
+    end
+
+    InsightRule: untyped
+
+    InsightRuleContributor: untyped
+
+    InsightRuleContributorDatapoint: untyped
+
+    InsightRuleMetricDatapoint: untyped
+
+    InternalServiceFault: untyped
+
+    InvalidFormatFault: untyped
+
+    InvalidNextToken: untyped
+
+    InvalidParameterCombinationException: untyped
+
+    InvalidParameterValueException: untyped
+
+    LabelOptions: untyped
+
+    LimitExceededException: untyped
+
+    LimitExceededFault: untyped
+
+    ListDashboardsInput: untyped
+
+    ListDashboardsOutput: untyped
+
+    ListManagedInsightRulesInput: untyped
+
+    ListManagedInsightRulesOutput: untyped
+
+    ListMetricStreamsInput: untyped
+
+    ListMetricStreamsOutput: untyped
+
+    ListMetricsInput: untyped
+
+    ListMetricsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ManagedRule: untyped
+
+    ManagedRuleDescription: untyped
+
+    ManagedRuleState: untyped
+
+    MessageData: untyped
+
+    Metric: untyped
+
+    MetricAlarm: untyped
+
+    MetricDataQuery: untyped
+
+    MetricDataResult: untyped
+
+    MetricDatum: untyped
+
+    MetricMathAnomalyDetector: untyped
+
+    MetricStat: untyped
+
+    MetricStreamEntry: untyped
+
+    MetricStreamFilter: untyped
+
+    module MetricStreamOutputFormat
+      JSON: ::String
+
+      OPEN_TELEMETRY_0_7: ::String
+    end
+
+    MetricStreamStatisticsConfiguration: untyped
+
+    MetricStreamStatisticsMetric: untyped
+
+    MissingRequiredParameterException: untyped
+
+    PartialFailure: untyped
+
+    PutAnomalyDetectorInput: untyped
+
+    PutAnomalyDetectorOutput: untyped
+
+    PutCompositeAlarmInput: untyped
+
+    PutCompositeAlarmOutput: untyped
+
+    PutDashboardInput: untyped
+
+    PutDashboardOutput: untyped
+
+    PutInsightRuleInput: untyped
+
+    PutInsightRuleOutput: untyped
+
+    PutManagedInsightRulesInput: untyped
+
+    PutManagedInsightRulesOutput: untyped
+
+    PutMetricAlarmInput: untyped
+
+    PutMetricAlarmOutput: untyped
+
+    PutMetricDataInput: untyped
+
+    PutMetricDataOutput: untyped
+
+    PutMetricStreamInput: untyped
+
+    PutMetricStreamOutput: untyped
+
+    Range: untyped
+
+    module RecentlyActive
+      PT3H: ::String
+    end
+
+    ResourceNotFound: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ScanBy
+      TIMESTAMP_DESCENDING: ::String
+
+      TIMESTAMP_ASCENDING: ::String
+    end
+
+    SetAlarmStateInput: untyped
+
+    SetAlarmStateOutput: untyped
+
+    SingleMetricAnomalyDetector: untyped
+
+    module StandardUnit
+      Seconds: ::String
+
+      Microseconds: ::String
+
+      Milliseconds: ::String
+
+      Bytes: ::String
+
+      Kilobytes: ::String
+
+      Megabytes: ::String
+
+      Gigabytes: ::String
+
+      Terabytes: ::String
+
+      Bits: ::String
+
+      Kilobits: ::String
+
+      Megabits: ::String
+
+      Gigabits: ::String
+
+      Terabits: ::String
+
+      Percent: ::String
+
+      Count: ::String
+
+      Bytes_Second: ::String
+
+      Kilobytes_Second: ::String
+
+      Megabytes_Second: ::String
+
+      Gigabytes_Second: ::String
+
+      Terabytes_Second: ::String
+
+      Bits_Second: ::String
+
+      Kilobits_Second: ::String
+
+      Megabits_Second: ::String
+
+      Gigabits_Second: ::String
+
+      Terabits_Second: ::String
+
+      Count_Second: ::String
+
+      None: ::String
+    end
+
+    StartMetricStreamsInput: untyped
+
+    StartMetricStreamsOutput: untyped
+
+    module StateValue
+      OK: ::String
+
+      ALARM: ::String
+
+      INSUFFICIENT_DATA: ::String
+    end
+
+    module Statistic
+      SampleCount: ::String
+
+      Average: ::String
+
+      Sum: ::String
+
+      Minimum: ::String
+
+      Maximum: ::String
+    end
+
+    StatisticSet: untyped
+
+    module StatusCode
+      COMPLETE: ::String
+
+      INTERNAL_ERROR: ::String
+
+      PARTIAL_DATA: ::String
+
+      FORBIDDEN: ::String
+    end
+
+    StopMetricStreamsInput: untyped
+
+    StopMetricStreamsOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+  end
+end

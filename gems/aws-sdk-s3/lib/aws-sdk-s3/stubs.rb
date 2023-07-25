@@ -1739,7 +1739,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-object-lock-mode'] = stub[:object_lock_mode] unless stub[:object_lock_mode].nil? || stub[:object_lock_mode].empty?
         http_resp.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(stub[:object_lock_retain_until_date]) unless stub[:object_lock_retain_until_date].nil?
         http_resp.headers['x-amz-object-lock-legal-hold'] = stub[:object_lock_legal_hold_status] unless stub[:object_lock_legal_hold_status].nil? || stub[:object_lock_legal_hold_status].empty?
-        stub[:metadata].each do |key, value|
+        stub[:metadata]&.each do |key, value|
           http_resp.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
         IO.copy_stream(stub[:body], http_resp.body)
@@ -2101,7 +2101,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-object-lock-mode'] = stub[:object_lock_mode] unless stub[:object_lock_mode].nil? || stub[:object_lock_mode].empty?
         http_resp.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(stub[:object_lock_retain_until_date]) unless stub[:object_lock_retain_until_date].nil?
         http_resp.headers['x-amz-object-lock-legal-hold'] = stub[:object_lock_legal_hold_status] unless stub[:object_lock_legal_hold_status].nil? || stub[:object_lock_legal_hold_status].empty?
-        stub[:metadata].each do |key, value|
+        stub[:metadata]&.each do |key, value|
           http_resp.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
       end

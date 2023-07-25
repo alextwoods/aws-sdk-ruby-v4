@@ -1,0 +1,71 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CloudWatch
+  module Paginators
+
+    class DescribeAlarmHistory
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+      def items: () -> untyped
+    end
+
+    class DescribeAlarms
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class DescribeAnomalyDetectors
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+      def items: () -> untyped
+    end
+
+    class DescribeInsightRules
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class GetMetricData
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListDashboards
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+      def items: () -> untyped
+    end
+
+    class ListManagedInsightRules
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListMetrics
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListMetricStreams
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+  end
+end

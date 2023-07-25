@@ -20,6 +20,10 @@ module AWS::SDK::SQS
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -28,6 +32,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -56,6 +64,10 @@ module AWS::SDK::SQS
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -64,6 +76,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = ::Base64::encode64(element).strip unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -115,6 +131,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           ChangeMessageVisibilityBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -181,6 +201,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           DeleteMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -286,6 +310,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
@@ -450,6 +478,10 @@ module AWS::SDK::SQS
         input.each_with_index do |element, index|
           SendMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -475,6 +507,10 @@ module AWS::SDK::SQS
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
@@ -483,6 +519,10 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end
