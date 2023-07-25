@@ -30,10 +30,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -260,10 +260,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -341,10 +341,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -403,7 +403,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -443,10 +443,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -515,7 +515,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -536,7 +536,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -558,7 +558,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -579,7 +579,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -600,7 +600,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -621,7 +621,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -643,7 +643,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -664,7 +664,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -686,7 +686,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -707,7 +707,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -728,7 +728,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -749,7 +749,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -770,7 +770,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -800,10 +800,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -829,10 +829,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -855,7 +855,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -883,7 +883,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1008,7 +1008,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1029,7 +1029,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1050,7 +1050,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1072,7 +1072,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1093,7 +1093,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1114,7 +1114,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1135,7 +1135,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1157,7 +1157,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1178,7 +1178,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1199,7 +1199,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1220,7 +1220,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1242,7 +1242,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1263,7 +1263,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1284,7 +1284,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1305,7 +1305,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1326,7 +1326,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1347,7 +1347,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1368,7 +1368,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1389,7 +1389,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1410,7 +1410,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1431,10 +1431,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1474,10 +1474,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1501,10 +1501,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1534,10 +1534,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1561,7 +1561,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1582,10 +1582,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1609,10 +1609,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1636,10 +1636,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -1662,7 +1662,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1727,7 +1727,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'HEAD'
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -1745,10 +1745,10 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'HEAD'
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -2028,7 +2028,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2050,7 +2050,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2071,7 +2071,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2093,7 +2093,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2125,7 +2125,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2152,7 +2152,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2176,7 +2176,7 @@ module AWS::SDK::S3
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2203,7 +2203,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2232,10 +2232,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -2553,7 +2553,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2578,7 +2578,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2610,7 +2610,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2635,7 +2635,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2661,7 +2661,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2687,7 +2687,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2711,7 +2711,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2736,7 +2736,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2761,7 +2761,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2787,7 +2787,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2812,7 +2812,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2837,7 +2837,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2862,7 +2862,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2888,7 +2888,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2915,7 +2915,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2941,7 +2941,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2967,7 +2967,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -2994,7 +2994,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -3020,10 +3020,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3083,10 +3083,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3121,10 +3121,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3153,7 +3153,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -3181,10 +3181,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3214,10 +3214,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3246,7 +3246,7 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s',
@@ -3423,10 +3423,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3743,10 +3743,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',
@@ -3784,10 +3784,10 @@ module AWS::SDK::S3
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         if input[:bucket].to_s.empty?
-          raise ArgumentError, "HTTP label :bucket cannot be nil or empty."
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
         end
         if input[:key].to_s.empty?
-          raise ArgumentError, "HTTP label :key cannot be nil or empty."
+          raise ArgumentError, "HTTP label :key cannot be empty."
         end
         http_req.append_path(format(
             '/%<Bucket>s/%<Key>s',

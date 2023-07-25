@@ -18,21 +18,22 @@ module AWS::SDK::S3
   #
   class Client
     include Hearth::ClientStubs
+    @plugins = Hearth::PluginList.new
 
-    @middleware = Hearth::MiddlewareBuilder.new
-
-    def self.middleware
-      @middleware
+    def self.plugins
+      @plugins
     end
 
     # @param [Config] config
     #   An instance of {Config}
     #
     def initialize(config = AWS::SDK::S3::Config.new, options = {})
-      @config = config
-      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
+      @config = initialize_config(config)
       @stubs = Hearth::Stubbing::Stubs.new
     end
+
+    # @return [Config] config
+    attr_reader :config
 
     # <p>This action aborts a multipart upload. After a multipart upload is aborted, no
     #          additional parts can be uploaded using that upload ID. The storage consumed by any
@@ -116,23 +117,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def abort_multipart_upload(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::AbortMultipartUploadInput.build(params)
+      input = Params::AbortMultipartUploadInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AbortMultipartUploadInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AbortMultipartUpload
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::NoSuchUpload]),
@@ -140,22 +143,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::AbortMultipartUpload,
         stubs: @stubs,
         params_class: Params::AbortMultipartUploadOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :abort_multipart_upload
+          logger: config.logger,
+          operation_name: :abort_multipart_upload,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -401,23 +403,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def complete_multipart_upload(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::CompleteMultipartUploadInput.build(params)
+      input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CompleteMultipartUploadInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CompleteMultipartUpload
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -425,22 +429,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::CompleteMultipartUpload,
         stubs: @stubs,
         params_class: Params::CompleteMultipartUploadOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :complete_multipart_upload
+          logger: config.logger,
+          operation_name: :complete_multipart_upload,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -925,23 +928,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def copy_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::CopyObjectInput.build(params)
+      input = Params::CopyObjectInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CopyObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CopyObject
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ObjectNotInActiveTierError]),
@@ -949,22 +954,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::CopyObject,
         stubs: @stubs,
         params_class: Params::CopyObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :copy_object
+          logger: config.logger,
+          operation_name: :copy_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1197,23 +1201,25 @@ module AWS::SDK::S3
     #   resp.data.location #=> String
     #
     def create_bucket(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::CreateBucketInput.build(params)
+      input = Params::CreateBucketInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBucketInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateBucket
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BucketAlreadyExists, Errors::BucketAlreadyOwnedByYou]),
@@ -1221,22 +1227,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::CreateBucket,
         stubs: @stubs,
         params_class: Params::CreateBucketOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :create_bucket
+          logger: config.logger,
+          operation_name: :create_bucket,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1726,23 +1731,25 @@ module AWS::SDK::S3
     #   resp.data.checksum_algorithm #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #
     def create_multipart_upload(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::CreateMultipartUploadInput.build(params)
+      input = Params::CreateMultipartUploadInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMultipartUploadInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateMultipartUpload
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1750,22 +1757,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::CreateMultipartUpload,
         stubs: @stubs,
         params_class: Params::CreateMultipartUploadOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :create_multipart_upload
+          logger: config.logger,
+          operation_name: :create_multipart_upload,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1813,23 +1819,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketOutput
     #
     def delete_bucket(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketInput.build(params)
+      input = Params::DeleteBucketInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucket
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -1837,22 +1845,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucket,
         stubs: @stubs,
         params_class: Params::DeleteBucketOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket
+          logger: config.logger,
+          operation_name: :delete_bucket,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1915,23 +1922,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketAnalyticsConfigurationOutput
     #
     def delete_bucket_analytics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketAnalyticsConfigurationInput.build(params)
+      input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketAnalyticsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketAnalyticsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -1939,22 +1948,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketAnalyticsConfiguration,
         stubs: @stubs,
         params_class: Params::DeleteBucketAnalyticsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_analytics_configuration
+          logger: config.logger,
+          operation_name: :delete_bucket_analytics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2006,23 +2014,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketCorsOutput
     #
     def delete_bucket_cors(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketCorsInput.build(params)
+      input = Params::DeleteBucketCorsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketCorsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketCors
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2030,22 +2040,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketCors,
         stubs: @stubs,
         params_class: Params::DeleteBucketCorsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_cors
+          logger: config.logger,
+          operation_name: :delete_bucket_cors,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2102,23 +2111,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketEncryptionOutput
     #
     def delete_bucket_encryption(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketEncryptionInput.build(params)
+      input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketEncryptionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketEncryption
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2126,22 +2137,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketEncryption,
         stubs: @stubs,
         params_class: Params::DeleteBucketEncryptionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_encryption
+          logger: config.logger,
+          operation_name: :delete_bucket_encryption,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2194,23 +2204,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketIntelligentTieringConfigurationOutput
     #
     def delete_bucket_intelligent_tiering_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params)
+      input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketIntelligentTieringConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketIntelligentTieringConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2218,22 +2230,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
         stubs: @stubs,
         params_class: Params::DeleteBucketIntelligentTieringConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_intelligent_tiering_configuration
+          logger: config.logger,
+          operation_name: :delete_bucket_intelligent_tiering_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2294,23 +2305,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketInventoryConfigurationOutput
     #
     def delete_bucket_inventory_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketInventoryConfigurationInput.build(params)
+      input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketInventoryConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketInventoryConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2318,22 +2331,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketInventoryConfiguration,
         stubs: @stubs,
         params_class: Params::DeleteBucketInventoryConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_inventory_configuration
+          logger: config.logger,
+          operation_name: :delete_bucket_inventory_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2387,23 +2399,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketLifecycleOutput
     #
     def delete_bucket_lifecycle(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketLifecycleInput.build(params)
+      input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketLifecycleInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketLifecycle
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2411,22 +2425,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketLifecycle,
         stubs: @stubs,
         params_class: Params::DeleteBucketLifecycleOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_lifecycle
+          logger: config.logger,
+          operation_name: :delete_bucket_lifecycle,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2496,23 +2509,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketMetricsConfigurationOutput
     #
     def delete_bucket_metrics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketMetricsConfigurationInput.build(params)
+      input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketMetricsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketMetricsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2520,22 +2535,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketMetricsConfiguration,
         stubs: @stubs,
         params_class: Params::DeleteBucketMetricsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_metrics_configuration
+          logger: config.logger,
+          operation_name: :delete_bucket_metrics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2585,23 +2599,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketOwnershipControlsOutput
     #
     def delete_bucket_ownership_controls(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketOwnershipControlsInput.build(params)
+      input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketOwnershipControlsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketOwnershipControls
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2609,22 +2625,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketOwnershipControls,
         stubs: @stubs,
         params_class: Params::DeleteBucketOwnershipControlsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_ownership_controls
+          logger: config.logger,
+          operation_name: :delete_bucket_ownership_controls,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2685,23 +2700,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketPolicyOutput
     #
     def delete_bucket_policy(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketPolicyInput.build(params)
+      input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketPolicyInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2709,22 +2726,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketPolicy,
         stubs: @stubs,
         params_class: Params::DeleteBucketPolicyOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_policy
+          logger: config.logger,
+          operation_name: :delete_bucket_policy,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2780,23 +2796,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketReplicationOutput
     #
     def delete_bucket_replication(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketReplicationInput.build(params)
+      input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketReplicationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketReplication
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2804,22 +2822,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketReplication,
         stubs: @stubs,
         params_class: Params::DeleteBucketReplicationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_replication
+          logger: config.logger,
+          operation_name: :delete_bucket_replication,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2867,23 +2884,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketTaggingOutput
     #
     def delete_bucket_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketTaggingInput.build(params)
+      input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2891,22 +2910,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketTagging,
         stubs: @stubs,
         params_class: Params::DeleteBucketTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_tagging
+          logger: config.logger,
+          operation_name: :delete_bucket_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2961,23 +2979,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeleteBucketWebsiteOutput
     #
     def delete_bucket_website(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteBucketWebsiteInput.build(params)
+      input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBucketWebsiteInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBucketWebsite
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -2985,22 +3005,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteBucketWebsite,
         stubs: @stubs,
         params_class: Params::DeleteBucketWebsiteOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_bucket_website
+          logger: config.logger,
+          operation_name: :delete_bucket_website,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3090,23 +3109,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def delete_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteObjectInput.build(params)
+      input = Params::DeleteObjectInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteObject
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -3114,22 +3135,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteObject,
         stubs: @stubs,
         params_class: Params::DeleteObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_object
+          logger: config.logger,
+          operation_name: :delete_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3192,23 +3212,25 @@ module AWS::SDK::S3
     #   resp.data.version_id #=> String
     #
     def delete_object_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteObjectTaggingInput.build(params)
+      input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteObjectTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -3216,22 +3238,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteObjectTagging,
         stubs: @stubs,
         params_class: Params::DeleteObjectTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_object_tagging
+          logger: config.logger,
+          operation_name: :delete_object_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3372,27 +3393,29 @@ module AWS::SDK::S3
     #   resp.data.errors[0].message #=> String
     #
     def delete_objects(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteObjectsInput.build(params)
+      input = Params::DeleteObjectsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteObjectsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteObjects
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3400,22 +3423,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteObjects,
         stubs: @stubs,
         params_class: Params::DeleteObjectsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_objects
+          logger: config.logger,
+          operation_name: :delete_objects,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3475,23 +3497,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::DeletePublicAccessBlockOutput
     #
     def delete_public_access_block(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeletePublicAccessBlockInput.build(params)
+      input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicAccessBlockInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeletePublicAccessBlock
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
@@ -3499,22 +3523,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeletePublicAccessBlock,
         stubs: @stubs,
         params_class: Params::DeletePublicAccessBlockOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_public_access_block
+          logger: config.logger,
+          operation_name: :delete_public_access_block,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3573,23 +3596,25 @@ module AWS::SDK::S3
     #   resp.data.status #=> String, one of ["Enabled", "Suspended"]
     #
     def get_bucket_accelerate_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketAccelerateConfigurationInput.build(params)
+      input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketAccelerateConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketAccelerateConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3597,22 +3622,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketAccelerateConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketAccelerateConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_accelerate_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_accelerate_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3679,23 +3703,25 @@ module AWS::SDK::S3
     #   resp.data.grants[0].permission #=> String, one of ["FULL_CONTROL", "WRITE", "WRITE_ACP", "READ", "READ_ACP"]
     #
     def get_bucket_acl(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketAclInput.build(params)
+      input = Params::GetBucketAclInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketAclInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketAcl
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3703,22 +3729,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketAcl,
         stubs: @stubs,
         params_class: Params::GetBucketAclOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_acl
+          logger: config.logger,
+          operation_name: :get_bucket_acl,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3802,23 +3827,25 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration.storage_class_analysis.data_export.destination.s3_bucket_destination.prefix #=> String
     #
     def get_bucket_analytics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketAnalyticsConfigurationInput.build(params)
+      input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketAnalyticsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketAnalyticsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3826,22 +3853,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketAnalyticsConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketAnalyticsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_analytics_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_analytics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -3905,23 +3931,25 @@ module AWS::SDK::S3
     #   resp.data.cors_rules[0].max_age_seconds #=> Integer
     #
     def get_bucket_cors(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketCorsInput.build(params)
+      input = Params::GetBucketCorsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketCorsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketCors
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3929,22 +3957,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketCors,
         stubs: @stubs,
         params_class: Params::GetBucketCorsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_cors
+          logger: config.logger,
+          operation_name: :get_bucket_cors,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4005,23 +4032,25 @@ module AWS::SDK::S3
     #   resp.data.server_side_encryption_configuration.rules[0].bucket_key_enabled #=> Boolean
     #
     def get_bucket_encryption(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketEncryptionInput.build(params)
+      input = Params::GetBucketEncryptionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketEncryptionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketEncryption
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4029,22 +4058,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketEncryption,
         stubs: @stubs,
         params_class: Params::GetBucketEncryptionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_encryption
+          logger: config.logger,
+          operation_name: :get_bucket_encryption,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4112,23 +4140,25 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration.tierings[0].access_tier #=> String, one of ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     #
     def get_bucket_intelligent_tiering_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketIntelligentTieringConfigurationInput.build(params)
+      input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketIntelligentTieringConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketIntelligentTieringConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4136,22 +4166,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketIntelligentTieringConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketIntelligentTieringConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_intelligent_tiering_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_intelligent_tiering_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4233,23 +4262,25 @@ module AWS::SDK::S3
     #   resp.data.inventory_configuration.schedule.frequency #=> String, one of ["Daily", "Weekly"]
     #
     def get_bucket_inventory_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketInventoryConfigurationInput.build(params)
+      input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketInventoryConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketInventoryConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4257,22 +4288,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketInventoryConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketInventoryConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_inventory_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_inventory_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4393,23 +4423,25 @@ module AWS::SDK::S3
     #   resp.data.rules[0].abort_incomplete_multipart_upload.days_after_initiation #=> Integer
     #
     def get_bucket_lifecycle_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketLifecycleConfigurationInput.build(params)
+      input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketLifecycleConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketLifecycleConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4417,22 +4449,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketLifecycleConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketLifecycleConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_lifecycle_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_lifecycle_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4486,23 +4517,25 @@ module AWS::SDK::S3
     #   resp.data.location_constraint #=> String, one of ["af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-northeast-3", "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1", "cn-north-1", "cn-northwest-1", "EU", "eu-central-1", "eu-north-1", "eu-south-1", "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1", "us-east-2", "us-gov-east-1", "us-gov-west-1", "us-west-1", "us-west-2"]
     #
     def get_bucket_location(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketLocationInput.build(params)
+      input = Params::GetBucketLocationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketLocationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketLocation
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4510,22 +4543,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketLocation,
         stubs: @stubs,
         params_class: Params::GetBucketLocationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_location
+          logger: config.logger,
+          operation_name: :get_bucket_location,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4583,23 +4615,25 @@ module AWS::SDK::S3
     #   resp.data.logging_enabled.target_prefix #=> String
     #
     def get_bucket_logging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketLoggingInput.build(params)
+      input = Params::GetBucketLoggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketLoggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketLogging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4607,22 +4641,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketLogging,
         stubs: @stubs,
         params_class: Params::GetBucketLoggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_logging
+          logger: config.logger,
+          operation_name: :get_bucket_logging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4703,23 +4736,25 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration.filter.and.access_point_arn #=> String
     #
     def get_bucket_metrics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketMetricsConfigurationInput.build(params)
+      input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketMetricsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketMetricsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4727,22 +4762,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketMetricsConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketMetricsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_metrics_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_metrics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4817,23 +4851,25 @@ module AWS::SDK::S3
     #   resp.data.event_bridge_configuration #=> Types::EventBridgeConfiguration
     #
     def get_bucket_notification_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketNotificationConfigurationInput.build(params)
+      input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketNotificationConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketNotificationConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4841,22 +4877,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketNotificationConfiguration,
         stubs: @stubs,
         params_class: Params::GetBucketNotificationConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_notification_configuration
+          logger: config.logger,
+          operation_name: :get_bucket_notification_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -4911,23 +4946,25 @@ module AWS::SDK::S3
     #   resp.data.ownership_controls.rules[0].object_ownership #=> String, one of ["BucketOwnerPreferred", "ObjectWriter", "BucketOwnerEnforced"]
     #
     def get_bucket_ownership_controls(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketOwnershipControlsInput.build(params)
+      input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketOwnershipControlsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketOwnershipControls
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4935,22 +4972,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketOwnershipControls,
         stubs: @stubs,
         params_class: Params::GetBucketOwnershipControlsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_ownership_controls
+          logger: config.logger,
+          operation_name: :get_bucket_ownership_controls,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5006,23 +5042,25 @@ module AWS::SDK::S3
     #   resp.data.policy #=> String
     #
     def get_bucket_policy(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketPolicyInput.build(params)
+      input = Params::GetBucketPolicyInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketPolicyInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5030,22 +5068,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketPolicy,
         stubs: @stubs,
         params_class: Params::GetBucketPolicyOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_policy
+          logger: config.logger,
+          operation_name: :get_bucket_policy,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5107,23 +5144,25 @@ module AWS::SDK::S3
     #   resp.data.policy_status.is_public #=> Boolean
     #
     def get_bucket_policy_status(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketPolicyStatusInput.build(params)
+      input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketPolicyStatusInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketPolicyStatus
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5131,22 +5170,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketPolicyStatus,
         stubs: @stubs,
         params_class: Params::GetBucketPolicyStatusOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_policy_status
+          logger: config.logger,
+          operation_name: :get_bucket_policy_status,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5247,23 +5285,25 @@ module AWS::SDK::S3
     #   resp.data.replication_configuration.rules[0].delete_marker_replication.status #=> String, one of ["Enabled", "Disabled"]
     #
     def get_bucket_replication(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketReplicationInput.build(params)
+      input = Params::GetBucketReplicationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketReplicationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketReplication
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5271,22 +5311,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketReplication,
         stubs: @stubs,
         params_class: Params::GetBucketReplicationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_replication
+          logger: config.logger,
+          operation_name: :get_bucket_replication,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5329,23 +5368,25 @@ module AWS::SDK::S3
     #   resp.data.payer #=> String, one of ["Requester", "BucketOwner"]
     #
     def get_bucket_request_payment(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketRequestPaymentInput.build(params)
+      input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketRequestPaymentInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketRequestPayment
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5353,22 +5394,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketRequestPayment,
         stubs: @stubs,
         params_class: Params::GetBucketRequestPaymentOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_request_payment
+          logger: config.logger,
+          operation_name: :get_bucket_request_payment,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5433,23 +5473,25 @@ module AWS::SDK::S3
     #   resp.data.tag_set[0].value #=> String
     #
     def get_bucket_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketTaggingInput.build(params)
+      input = Params::GetBucketTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5457,22 +5499,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketTagging,
         stubs: @stubs,
         params_class: Params::GetBucketTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_tagging
+          logger: config.logger,
+          operation_name: :get_bucket_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5528,23 +5569,25 @@ module AWS::SDK::S3
     #   resp.data.mfa_delete #=> String, one of ["Enabled", "Disabled"]
     #
     def get_bucket_versioning(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketVersioningInput.build(params)
+      input = Params::GetBucketVersioningInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketVersioningInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketVersioning
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5552,22 +5595,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketVersioning,
         stubs: @stubs,
         params_class: Params::GetBucketVersioningOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_versioning
+          logger: config.logger,
+          operation_name: :get_bucket_versioning,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -5636,23 +5678,25 @@ module AWS::SDK::S3
     #   resp.data.routing_rules[0].redirect.replace_key_with #=> String
     #
     def get_bucket_website(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetBucketWebsiteInput.build(params)
+      input = Params::GetBucketWebsiteInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetBucketWebsiteInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetBucketWebsite
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5660,22 +5704,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetBucketWebsite,
         stubs: @stubs,
         params_class: Params::GetBucketWebsiteOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_bucket_website
+          logger: config.logger,
+          operation_name: :get_bucket_website,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6007,28 +6050,30 @@ module AWS::SDK::S3
     #   resp.data.object_lock_legal_hold_status #=> String, one of ["ON", "OFF"]
     #
     def get_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectInput.build(params)
+      input = Params::GetObjectInput.build(params, context: 'params')
       response_body = output_stream(options, &block)
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObject
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
         request_validation_mode_member: :checksum_mode,
         request_checksum_required: false
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidObjectState, Errors::NoSuchKey]),
@@ -6036,22 +6081,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObject,
         stubs: @stubs,
         params_class: Params::GetObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object
+          logger: config.logger,
+          operation_name: :get_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6153,23 +6197,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def get_object_acl(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectAclInput.build(params)
+      input = Params::GetObjectAclInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectAclInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectAcl
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
@@ -6177,22 +6223,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectAcl,
         stubs: @stubs,
         params_class: Params::GetObjectAclOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_acl
+          logger: config.logger,
+          operation_name: :get_object_acl,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6445,23 +6490,25 @@ module AWS::SDK::S3
     #   resp.data.object_size #=> Integer
     #
     def get_object_attributes(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectAttributesInput.build(params)
+      input = Params::GetObjectAttributesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectAttributesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectAttributes
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
@@ -6469,22 +6516,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectAttributes,
         stubs: @stubs,
         params_class: Params::GetObjectAttributesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_attributes
+          logger: config.logger,
+          operation_name: :get_object_attributes,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6544,23 +6590,25 @@ module AWS::SDK::S3
     #   resp.data.legal_hold.status #=> String, one of ["ON", "OFF"]
     #
     def get_object_legal_hold(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectLegalHoldInput.build(params)
+      input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectLegalHoldInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectLegalHold
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6568,22 +6616,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectLegalHold,
         stubs: @stubs,
         params_class: Params::GetObjectLegalHoldOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_legal_hold
+          logger: config.logger,
+          operation_name: :get_object_legal_hold,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6633,23 +6680,25 @@ module AWS::SDK::S3
     #   resp.data.object_lock_configuration.rule.default_retention.years #=> Integer
     #
     def get_object_lock_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectLockConfigurationInput.build(params)
+      input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectLockConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectLockConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6657,22 +6706,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectLockConfiguration,
         stubs: @stubs,
         params_class: Params::GetObjectLockConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_lock_configuration
+          logger: config.logger,
+          operation_name: :get_object_lock_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6733,23 +6781,25 @@ module AWS::SDK::S3
     #   resp.data.retention.retain_until_date #=> Time
     #
     def get_object_retention(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectRetentionInput.build(params)
+      input = Params::GetObjectRetentionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectRetentionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectRetention
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6757,22 +6807,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectRetention,
         stubs: @stubs,
         params_class: Params::GetObjectRetentionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_retention
+          logger: config.logger,
+          operation_name: :get_object_retention,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6855,23 +6904,25 @@ module AWS::SDK::S3
     #   resp.data.tag_set[0].value #=> String
     #
     def get_object_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectTaggingInput.build(params)
+      input = Params::GetObjectTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectTagging
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6879,22 +6930,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectTagging,
         stubs: @stubs,
         params_class: Params::GetObjectTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_tagging
+          logger: config.logger,
+          operation_name: :get_object_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -6955,23 +7005,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def get_object_torrent(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetObjectTorrentInput.build(params)
+      input = Params::GetObjectTorrentInput.build(params, context: 'params')
       response_body = output_stream(options, &block)
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetObjectTorrentInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetObjectTorrent
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6979,22 +7031,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetObjectTorrent,
         stubs: @stubs,
         params_class: Params::GetObjectTorrentOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_object_torrent
+          logger: config.logger,
+          operation_name: :get_object_torrent,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7068,23 +7119,25 @@ module AWS::SDK::S3
     #   resp.data.public_access_block_configuration.restrict_public_buckets #=> Boolean
     #
     def get_public_access_block(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetPublicAccessBlockInput.build(params)
+      input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicAccessBlockInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPublicAccessBlock
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7092,22 +7145,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetPublicAccessBlock,
         stubs: @stubs,
         params_class: Params::GetPublicAccessBlockOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_public_access_block
+          logger: config.logger,
+          operation_name: :get_public_access_block,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7158,23 +7210,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::HeadBucketOutput
     #
     def head_bucket(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::HeadBucketInput.build(params)
+      input = Params::HeadBucketInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::HeadBucketInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::HeadBucket
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFound]),
@@ -7182,22 +7236,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::HeadBucket,
         stubs: @stubs,
         params_class: Params::HeadBucketOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :head_bucket
+          logger: config.logger,
+          operation_name: :head_bucket,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7449,23 +7502,25 @@ module AWS::SDK::S3
     #   resp.data.object_lock_legal_hold_status #=> String, one of ["ON", "OFF"]
     #
     def head_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::HeadObjectInput.build(params)
+      input = Params::HeadObjectInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::HeadObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::HeadObject
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFound]),
@@ -7473,22 +7528,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::HeadObject,
         stubs: @stubs,
         params_class: Params::HeadObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :head_object
+          logger: config.logger,
+          operation_name: :head_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7583,23 +7637,25 @@ module AWS::SDK::S3
     #   resp.data.analytics_configuration_list[0].storage_class_analysis.data_export.destination.s3_bucket_destination.prefix #=> String
     #
     def list_bucket_analytics_configurations(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListBucketAnalyticsConfigurationsInput.build(params)
+      input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBucketAnalyticsConfigurationsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBucketAnalyticsConfigurations
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7607,22 +7663,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListBucketAnalyticsConfigurations,
         stubs: @stubs,
         params_class: Params::ListBucketAnalyticsConfigurationsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_bucket_analytics_configurations
+          logger: config.logger,
+          operation_name: :list_bucket_analytics_configurations,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7695,23 +7750,25 @@ module AWS::SDK::S3
     #   resp.data.intelligent_tiering_configuration_list[0].tierings[0].access_tier #=> String, one of ["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]
     #
     def list_bucket_intelligent_tiering_configurations(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params)
+      input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBucketIntelligentTieringConfigurationsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBucketIntelligentTieringConfigurations
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7719,22 +7776,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListBucketIntelligentTieringConfigurations,
         stubs: @stubs,
         params_class: Params::ListBucketIntelligentTieringConfigurationsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_bucket_intelligent_tiering_configurations
+          logger: config.logger,
+          operation_name: :list_bucket_intelligent_tiering_configurations,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7830,23 +7886,25 @@ module AWS::SDK::S3
     #   resp.data.next_continuation_token #=> String
     #
     def list_bucket_inventory_configurations(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListBucketInventoryConfigurationsInput.build(params)
+      input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBucketInventoryConfigurationsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBucketInventoryConfigurations
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7854,22 +7912,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListBucketInventoryConfigurations,
         stubs: @stubs,
         params_class: Params::ListBucketInventoryConfigurationsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_bucket_inventory_configurations
+          logger: config.logger,
+          operation_name: :list_bucket_inventory_configurations,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -7959,23 +8016,25 @@ module AWS::SDK::S3
     #   resp.data.metrics_configuration_list[0].filter.and.access_point_arn #=> String
     #
     def list_bucket_metrics_configurations(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListBucketMetricsConfigurationsInput.build(params)
+      input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBucketMetricsConfigurationsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBucketMetricsConfigurations
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7983,22 +8042,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListBucketMetricsConfigurations,
         stubs: @stubs,
         params_class: Params::ListBucketMetricsConfigurationsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_bucket_metrics_configurations
+          logger: config.logger,
+          operation_name: :list_bucket_metrics_configurations,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8031,23 +8089,25 @@ module AWS::SDK::S3
     #   resp.data.owner.id #=> String
     #
     def list_buckets(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListBucketsInput.build(params)
+      input = Params::ListBucketsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBucketsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBuckets
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8055,22 +8115,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListBuckets,
         stubs: @stubs,
         params_class: Params::ListBucketsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_buckets
+          logger: config.logger,
+          operation_name: :list_buckets,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8224,23 +8283,25 @@ module AWS::SDK::S3
     #   resp.data.encoding_type #=> String, one of ["url"]
     #
     def list_multipart_uploads(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListMultipartUploadsInput.build(params)
+      input = Params::ListMultipartUploadsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListMultipartUploadsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListMultipartUploads
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8248,22 +8309,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListMultipartUploads,
         stubs: @stubs,
         params_class: Params::ListMultipartUploadsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_multipart_uploads
+          logger: config.logger,
+          operation_name: :list_multipart_uploads,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8404,23 +8464,25 @@ module AWS::SDK::S3
     #   resp.data.encoding_type #=> String, one of ["url"]
     #
     def list_object_versions(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListObjectVersionsInput.build(params)
+      input = Params::ListObjectVersionsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectVersionsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListObjectVersions
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8428,22 +8490,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListObjectVersions,
         stubs: @stubs,
         params_class: Params::ListObjectVersionsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_object_versions
+          logger: config.logger,
+          operation_name: :list_object_versions,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8568,23 +8629,25 @@ module AWS::SDK::S3
     #   resp.data.encoding_type #=> String, one of ["url"]
     #
     def list_objects(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListObjectsInput.build(params)
+      input = Params::ListObjectsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListObjects
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchBucket]),
@@ -8592,22 +8655,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListObjects,
         stubs: @stubs,
         params_class: Params::ListObjectsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_objects
+          logger: config.logger,
+          operation_name: :list_objects,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8742,23 +8804,25 @@ module AWS::SDK::S3
     #   resp.data.start_after #=> String
     #
     def list_objects_v2(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListObjectsV2Input.build(params)
+      input = Params::ListObjectsV2Input.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListObjectsV2Input,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListObjectsV2
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchBucket]),
@@ -8766,22 +8830,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListObjectsV2,
         stubs: @stubs,
         params_class: Params::ListObjectsV2Output
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_objects_v2
+          logger: config.logger,
+          operation_name: :list_objects_v2,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -8937,23 +9000,25 @@ module AWS::SDK::S3
     #   resp.data.checksum_algorithm #=> String, one of ["CRC32", "CRC32C", "SHA1", "SHA256"]
     #
     def list_parts(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListPartsInput.build(params)
+      input = Params::ListPartsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPartsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListParts
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8961,22 +9026,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListParts,
         stubs: @stubs,
         params_class: Params::ListPartsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_parts
+          logger: config.logger,
+          operation_name: :list_parts,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -9062,27 +9126,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketAccelerateConfigurationOutput
     #
     def put_bucket_accelerate_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketAccelerateConfigurationInput.build(params)
+      input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketAccelerateConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketAccelerateConfiguration
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: false
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9090,22 +9156,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketAccelerateConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketAccelerateConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_accelerate_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_accelerate_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -9395,27 +9460,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketAclOutput
     #
     def put_bucket_acl(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketAclInput.build(params)
+      input = Params::PutBucketAclInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketAclInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketAcl
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9423,22 +9490,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketAcl,
         stubs: @stubs,
         params_class: Params::PutBucketAclOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_acl
+          logger: config.logger,
+          operation_name: :put_bucket_acl,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -9608,23 +9674,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketAnalyticsConfigurationOutput
     #
     def put_bucket_analytics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketAnalyticsConfigurationInput.build(params)
+      input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketAnalyticsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketAnalyticsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9632,22 +9700,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketAnalyticsConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketAnalyticsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_analytics_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_analytics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -9779,27 +9846,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketCorsOutput
     #
     def put_bucket_cors(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketCorsInput.build(params)
+      input = Params::PutBucketCorsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketCorsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketCors
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9807,22 +9876,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketCors,
         stubs: @stubs,
         params_class: Params::PutBucketCorsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_cors
+          logger: config.logger,
+          operation_name: :put_bucket_cors,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -9924,27 +9992,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketEncryptionOutput
     #
     def put_bucket_encryption(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketEncryptionInput.build(params)
+      input = Params::PutBucketEncryptionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketEncryptionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketEncryption
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9952,22 +10022,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketEncryption,
         stubs: @stubs,
         params_class: Params::PutBucketEncryptionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_encryption
+          logger: config.logger,
+          operation_name: :put_bucket_encryption,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -10102,23 +10171,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketIntelligentTieringConfigurationOutput
     #
     def put_bucket_intelligent_tiering_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketIntelligentTieringConfigurationInput.build(params)
+      input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketIntelligentTieringConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketIntelligentTieringConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10126,22 +10197,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketIntelligentTieringConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketIntelligentTieringConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_intelligent_tiering_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_intelligent_tiering_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -10318,23 +10388,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketInventoryConfigurationOutput
     #
     def put_bucket_inventory_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketInventoryConfigurationInput.build(params)
+      input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketInventoryConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketInventoryConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10342,22 +10414,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketInventoryConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketInventoryConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_inventory_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_inventory_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -10539,27 +10610,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketLifecycleConfigurationOutput
     #
     def put_bucket_lifecycle_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketLifecycleConfigurationInput.build(params)
+      input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketLifecycleConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketLifecycleConfiguration
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10567,22 +10640,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketLifecycleConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketLifecycleConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_lifecycle_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_lifecycle_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -10729,27 +10801,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketLoggingOutput
     #
     def put_bucket_logging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketLoggingInput.build(params)
+      input = Params::PutBucketLoggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketLoggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketLogging
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10757,22 +10831,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketLogging,
         stubs: @stubs,
         params_class: Params::PutBucketLoggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_logging
+          logger: config.logger,
+          operation_name: :put_bucket_logging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -10874,23 +10947,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketMetricsConfigurationOutput
     #
     def put_bucket_metrics_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketMetricsConfigurationInput.build(params)
+      input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketMetricsConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketMetricsConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10898,22 +10973,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketMetricsConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketMetricsConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_metrics_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_metrics_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11042,23 +11116,25 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketNotificationConfigurationOutput
     #
     def put_bucket_notification_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketNotificationConfigurationInput.build(params)
+      input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketNotificationConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketNotificationConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11066,22 +11142,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketNotificationConfiguration,
         stubs: @stubs,
         params_class: Params::PutBucketNotificationConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_notification_configuration
+          logger: config.logger,
+          operation_name: :put_bucket_notification_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11147,26 +11222,28 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketOwnershipControlsOutput
     #
     def put_bucket_ownership_controls(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketOwnershipControlsInput.build(params)
+      input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketOwnershipControlsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketOwnershipControls
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11174,22 +11251,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketOwnershipControls,
         stubs: @stubs,
         params_class: Params::PutBucketOwnershipControlsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_ownership_controls
+          logger: config.logger,
+          operation_name: :put_bucket_ownership_controls,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11272,27 +11348,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketPolicyOutput
     #
     def put_bucket_policy(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketPolicyInput.build(params)
+      input = Params::PutBucketPolicyInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketPolicyInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketPolicy
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11300,22 +11378,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketPolicy,
         stubs: @stubs,
         params_class: Params::PutBucketPolicyOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_policy
+          logger: config.logger,
+          operation_name: :put_bucket_policy,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11490,27 +11567,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketReplicationOutput
     #
     def put_bucket_replication(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketReplicationInput.build(params)
+      input = Params::PutBucketReplicationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketReplicationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketReplication
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11518,22 +11597,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketReplication,
         stubs: @stubs,
         params_class: Params::PutBucketReplicationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_replication
+          logger: config.logger,
+          operation_name: :put_bucket_replication,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11605,27 +11683,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketRequestPaymentOutput
     #
     def put_bucket_request_payment(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketRequestPaymentInput.build(params)
+      input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketRequestPaymentInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketRequestPayment
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11633,22 +11713,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketRequestPayment,
         stubs: @stubs,
         params_class: Params::PutBucketRequestPaymentOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_request_payment
+          logger: config.logger,
+          operation_name: :put_bucket_request_payment,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11782,27 +11861,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketTaggingOutput
     #
     def put_bucket_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketTaggingInput.build(params)
+      input = Params::PutBucketTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketTagging
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11810,22 +11891,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketTagging,
         stubs: @stubs,
         params_class: Params::PutBucketTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_tagging
+          logger: config.logger,
+          operation_name: :put_bucket_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -11929,27 +12009,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketVersioningOutput
     #
     def put_bucket_versioning(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketVersioningInput.build(params)
+      input = Params::PutBucketVersioningInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketVersioningInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketVersioning
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11957,22 +12039,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketVersioning,
         stubs: @stubs,
         params_class: Params::PutBucketVersioningOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_versioning
+          logger: config.logger,
+          operation_name: :put_bucket_versioning,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -12172,27 +12253,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutBucketWebsiteOutput
     #
     def put_bucket_website(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutBucketWebsiteInput.build(params)
+      input = Params::PutBucketWebsiteInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutBucketWebsiteInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutBucketWebsite
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12200,22 +12283,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutBucketWebsite,
         stubs: @stubs,
         params_class: Params::PutBucketWebsiteOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_bucket_website
+          logger: config.logger,
+          operation_name: :put_bucket_website,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -12575,12 +12657,14 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def put_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectInput.build(params)
+      input = Params::PutObjectInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObject
@@ -12593,11 +12677,11 @@ module AWS::SDK::S3
         require_decoded_content_length: true
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12605,22 +12689,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObject,
         stubs: @stubs,
         params_class: Params::PutObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object
+          logger: config.logger,
+          operation_name: :put_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -12926,27 +13009,29 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def put_object_acl(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectAclInput.build(params)
+      input = Params::PutObjectAclInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectAclInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObjectAcl
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
@@ -12954,22 +13039,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObjectAcl,
         stubs: @stubs,
         params_class: Params::PutObjectAclOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object_acl
+          logger: config.logger,
+          operation_name: :put_object_acl,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -13043,27 +13127,29 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def put_object_legal_hold(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectLegalHoldInput.build(params)
+      input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectLegalHoldInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObjectLegalHold
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13071,22 +13157,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObjectLegalHold,
         stubs: @stubs,
         params_class: Params::PutObjectLegalHoldOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object_legal_hold
+          logger: config.logger,
+          operation_name: :put_object_legal_hold,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -13177,27 +13262,29 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def put_object_lock_configuration(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectLockConfigurationInput.build(params)
+      input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectLockConfigurationInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObjectLockConfiguration
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13205,22 +13292,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObjectLockConfiguration,
         stubs: @stubs,
         params_class: Params::PutObjectLockConfigurationOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object_lock_configuration
+          logger: config.logger,
+          operation_name: :put_object_lock_configuration,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -13302,27 +13388,29 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def put_object_retention(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectRetentionInput.build(params)
+      input = Params::PutObjectRetentionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectRetentionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObjectRetention
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13330,22 +13418,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObjectRetention,
         stubs: @stubs,
         params_class: Params::PutObjectRetentionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object_retention
+          logger: config.logger,
+          operation_name: :put_object_retention,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -13514,27 +13601,29 @@ module AWS::SDK::S3
     #   resp.data.version_id #=> String
     #
     def put_object_tagging(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutObjectTaggingInput.build(params)
+      input = Params::PutObjectTaggingInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutObjectTaggingInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutObjectTagging
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13542,22 +13631,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutObjectTagging,
         stubs: @stubs,
         params_class: Params::PutObjectTaggingOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_object_tagging
+          logger: config.logger,
+          operation_name: :put_object_tagging,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -13654,27 +13742,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::PutPublicAccessBlockOutput
     #
     def put_public_access_block(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PutPublicAccessBlockInput.build(params)
+      input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutPublicAccessBlockInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutPublicAccessBlock
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: true
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13682,22 +13772,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PutPublicAccessBlock,
         stubs: @stubs,
         params_class: Params::PutPublicAccessBlockOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :put_public_access_block
+          logger: config.logger,
+          operation_name: :put_public_access_block,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -14106,27 +14195,29 @@ module AWS::SDK::S3
     #   resp.data.restore_output_path #=> String
     #
     def restore_object(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::RestoreObjectInput.build(params)
+      input = Params::RestoreObjectInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreObjectInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreObject
       )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(AWS::SDK::Core::Middleware::Checksum,
         request_algorithm_member: :checksum_algorithm,
         request_checksum_required: false
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ObjectAlreadyInActiveTierError]),
@@ -14134,22 +14225,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::RestoreObject,
         stubs: @stubs,
         params_class: Params::RestoreObjectOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :restore_object
+          logger: config.logger,
+          operation_name: :restore_object,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -14415,12 +14505,14 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def upload_part(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::UploadPartInput.build(params)
+      input = Params::UploadPartInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadPartInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UploadPart
@@ -14433,11 +14525,11 @@ module AWS::SDK::S3
         require_decoded_content_length: true
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14445,22 +14537,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::UploadPart,
         stubs: @stubs,
         params_class: Params::UploadPartOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :upload_part
+          logger: config.logger,
+          operation_name: :upload_part,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -14786,23 +14877,25 @@ module AWS::SDK::S3
     #   resp.data.request_charged #=> String, one of ["requester"]
     #
     def upload_part_copy(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::UploadPartCopyInput.build(params)
+      input = Params::UploadPartCopyInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UploadPartCopyInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UploadPartCopy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14810,22 +14903,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::UploadPartCopy,
         stubs: @stubs,
         params_class: Params::UploadPartCopyOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :upload_part_copy
+          logger: config.logger,
+          operation_name: :upload_part_copy,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -15184,27 +15276,29 @@ module AWS::SDK::S3
     #   resp.data #=> Types::WriteGetObjectResponseOutput
     #
     def write_get_object_response(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::WriteGetObjectResponseInput.build(params)
+      input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::WriteGetObjectResponseInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::HostPrefix,
         host_prefix: "{request_route}.",
-        disable_host_prefix: @config.disable_host_prefix
+        disable_host_prefix: config.disable_host_prefix
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::WriteGetObjectResponse
       )
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         unsigned_body: true,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -15212,22 +15306,21 @@ module AWS::SDK::S3
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::WriteGetObjectResponse,
         stubs: @stubs,
         params_class: Params::WriteGetObjectResponseOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :write_get_object_response
+          logger: config.logger,
+          operation_name: :write_get_object_response,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -15236,10 +15329,23 @@ module AWS::SDK::S3
 
     private
 
-    def apply_middleware(middleware_stack, middleware)
-      Client.middleware.apply(middleware_stack)
-      @middleware.apply(middleware_stack)
-      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+    def initialize_config(config)
+      config = config.dup
+      client_interceptors = config.interceptors
+      config.interceptors = Hearth::InterceptorList.new
+      Client.plugins.apply(config)
+      Hearth::PluginList.new(config.plugins).apply(config)
+      config.interceptors << client_interceptors
+      config.freeze
+    end
+
+    def operation_config(options)
+      return @config unless options[:plugins] || options[:interceptors]
+
+      config = @config.dup
+      Hearth::PluginList.new(options[:plugins]).apply(config) if options[:plugins]
+      config.interceptors << options[:interceptors] if options[:interceptors]
+      config.freeze
     end
 
     def output_stream(options = {}, &block)

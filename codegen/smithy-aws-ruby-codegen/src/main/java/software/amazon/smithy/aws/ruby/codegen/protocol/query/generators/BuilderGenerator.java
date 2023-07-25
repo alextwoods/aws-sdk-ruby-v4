@@ -88,6 +88,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                                     dataName, "element", !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
+                .openBlock("\nif input.empty?")
+                .write("params[context[0...context.rindex('.')]] = ''")
+                .closeBlock("end")
                 .closeBlock("end");
 
     }

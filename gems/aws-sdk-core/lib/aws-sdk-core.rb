@@ -9,28 +9,28 @@ module AWS
   module SDK
     # Namespace for AWS::SDK Core components
     module Core
-      # @return true if aws-sdk-sts is available
+      # @return true if v4 aws-sdk-sts is available
       def self.sts_loaded?
         if @use_sts.nil?
           @use_sts =
             begin
               require 'aws-sdk-sts'
               true
-            rescue LoadError
+            rescue LoadError, NameError
               false
             end
         end
         @use_sts
       end
 
-      # @return true if aws-sdk-sso is available
+      # @return true if v4 aws-sdk-sso is available
       def self.sso_loaded?
         if @use_sso.nil?
           @use_sso =
             begin
               require 'aws-sdk-sso'
               true
-            rescue LoadError
+            rescue LoadError, NameError
               false
             end
         end

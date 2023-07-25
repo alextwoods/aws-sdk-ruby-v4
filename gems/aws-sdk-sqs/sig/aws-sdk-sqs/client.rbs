@@ -13,7 +13,11 @@ module AWS::SDK::SQS
 
     def self.middleware: () -> untyped
 
+    def self.plugins: () -> untyped
+
     def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
+    attr_reader config: untyped
+
     def add_permission: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def change_message_visibility: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def change_message_visibility_batch: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

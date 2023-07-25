@@ -37,6 +37,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddPermissionInput, context: context)
         type = Types::AddPermissionInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.label = params[:label]
         type.aws_account_ids = AWSAccountIdList.build(params[:aws_account_ids], context: "#{context}[:aws_account_ids]") unless params[:aws_account_ids].nil?
@@ -49,6 +50,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::AddPermissionOutput, context: context)
         type = Types::AddPermissionOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -68,6 +70,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchEntryIdsNotDistinct, context: context)
         type = Types::BatchEntryIdsNotDistinct.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -76,6 +79,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchRequestTooLong, context: context)
         type = Types::BatchRequestTooLong.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -84,6 +88,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::BatchResultErrorEntry, context: context)
         type = Types::BatchResultErrorEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type.sender_fault = params.fetch(:sender_fault, false)
         type.code = params[:code]
@@ -118,6 +123,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityBatchInput, context: context)
         type = Types::ChangeMessageVisibilityBatchInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.entries = ChangeMessageVisibilityBatchRequestEntryList.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type
@@ -128,6 +134,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityBatchOutput, context: context)
         type = Types::ChangeMessageVisibilityBatchOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.successful = ChangeMessageVisibilityBatchResultEntryList.build(params[:successful], context: "#{context}[:successful]") unless params[:successful].nil?
         type.failed = BatchResultErrorEntryList.build(params[:failed], context: "#{context}[:failed]") unless params[:failed].nil?
         type
@@ -138,6 +145,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityBatchRequestEntry, context: context)
         type = Types::ChangeMessageVisibilityBatchRequestEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type.receipt_handle = params[:receipt_handle]
         type.visibility_timeout = params[:visibility_timeout]
@@ -160,6 +168,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityBatchResultEntry, context: context)
         type = Types::ChangeMessageVisibilityBatchResultEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type
       end
@@ -180,6 +189,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityInput, context: context)
         type = Types::ChangeMessageVisibilityInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.receipt_handle = params[:receipt_handle]
         type.visibility_timeout = params.fetch(:visibility_timeout, 0)
@@ -191,6 +201,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ChangeMessageVisibilityOutput, context: context)
         type = Types::ChangeMessageVisibilityOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -199,6 +210,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateQueueInput, context: context)
         type = Types::CreateQueueInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_name = params[:queue_name]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.attributes = QueueAttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
@@ -210,6 +222,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateQueueOutput, context: context)
         type = Types::CreateQueueOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type
       end
@@ -219,6 +232,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageBatchInput, context: context)
         type = Types::DeleteMessageBatchInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.entries = DeleteMessageBatchRequestEntryList.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type
@@ -229,6 +243,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageBatchOutput, context: context)
         type = Types::DeleteMessageBatchOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.successful = DeleteMessageBatchResultEntryList.build(params[:successful], context: "#{context}[:successful]") unless params[:successful].nil?
         type.failed = BatchResultErrorEntryList.build(params[:failed], context: "#{context}[:failed]") unless params[:failed].nil?
         type
@@ -239,6 +254,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageBatchRequestEntry, context: context)
         type = Types::DeleteMessageBatchRequestEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type.receipt_handle = params[:receipt_handle]
         type
@@ -260,6 +276,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageBatchResultEntry, context: context)
         type = Types::DeleteMessageBatchResultEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type
       end
@@ -280,6 +297,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageInput, context: context)
         type = Types::DeleteMessageInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.receipt_handle = params[:receipt_handle]
         type
@@ -290,6 +308,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMessageOutput, context: context)
         type = Types::DeleteMessageOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -298,6 +317,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteQueueInput, context: context)
         type = Types::DeleteQueueInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type
       end
@@ -307,6 +327,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteQueueOutput, context: context)
         type = Types::DeleteQueueOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -315,6 +336,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::EmptyBatchRequest, context: context)
         type = Types::EmptyBatchRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -323,6 +345,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetQueueAttributesInput, context: context)
         type = Types::GetQueueAttributesInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.attribute_names = AttributeNameList.build(params[:attribute_names], context: "#{context}[:attribute_names]") unless params[:attribute_names].nil?
         type
@@ -333,6 +356,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetQueueAttributesOutput, context: context)
         type = Types::GetQueueAttributesOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.attributes = QueueAttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
         type
       end
@@ -342,6 +366,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetQueueUrlInput, context: context)
         type = Types::GetQueueUrlInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_name = params[:queue_name]
         type.queue_owner_aws_account_id = params[:queue_owner_aws_account_id]
         type
@@ -352,6 +377,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetQueueUrlOutput, context: context)
         type = Types::GetQueueUrlOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type
       end
@@ -361,6 +387,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidAttributeName, context: context)
         type = Types::InvalidAttributeName.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -369,6 +396,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidBatchEntryId, context: context)
         type = Types::InvalidBatchEntryId.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -377,6 +405,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidIdFormat, context: context)
         type = Types::InvalidIdFormat.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -385,6 +414,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidMessageContents, context: context)
         type = Types::InvalidMessageContents.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -393,6 +423,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDeadLetterSourceQueuesInput, context: context)
         type = Types::ListDeadLetterSourceQueuesInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -404,6 +435,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDeadLetterSourceQueuesOutput, context: context)
         type = Types::ListDeadLetterSourceQueuesOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_urls = QueueUrlList.build(params[:queue_urls], context: "#{context}[:queue_urls]") unless params[:queue_urls].nil?
         type.next_token = params[:next_token]
         type
@@ -414,6 +446,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListQueueTagsInput, context: context)
         type = Types::ListQueueTagsInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type
       end
@@ -423,6 +456,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListQueueTagsOutput, context: context)
         type = Types::ListQueueTagsOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
       end
@@ -432,6 +466,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListQueuesInput, context: context)
         type = Types::ListQueuesInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_name_prefix = params[:queue_name_prefix]
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -443,6 +478,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListQueuesOutput, context: context)
         type = Types::ListQueuesOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.next_token = params[:next_token]
         type.queue_urls = QueueUrlList.build(params[:queue_urls], context: "#{context}[:queue_urls]") unless params[:queue_urls].nil?
         type
@@ -453,6 +489,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::Message, context: context)
         type = Types::Message.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.message_id = params[:message_id]
         type.receipt_handle = params[:receipt_handle]
         type.md5_of_body = params[:md5_of_body]
@@ -479,6 +516,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::MessageAttributeValue, context: context)
         type = Types::MessageAttributeValue.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.string_value = params[:string_value]
         type.binary_value = params[:binary_value]
         type.string_list_values = StringList.build(params[:string_list_values], context: "#{context}[:string_list_values]") unless params[:string_list_values].nil?
@@ -525,6 +563,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::MessageNotInflight, context: context)
         type = Types::MessageNotInflight.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -544,6 +583,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::MessageSystemAttributeValue, context: context)
         type = Types::MessageSystemAttributeValue.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.string_value = params[:string_value]
         type.binary_value = params[:binary_value]
         type.string_list_values = StringList.build(params[:string_list_values], context: "#{context}[:string_list_values]") unless params[:string_list_values].nil?
@@ -557,6 +597,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::OverLimit, context: context)
         type = Types::OverLimit.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -565,6 +606,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurgeQueueInProgress, context: context)
         type = Types::PurgeQueueInProgress.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -573,6 +615,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurgeQueueInput, context: context)
         type = Types::PurgeQueueInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type
       end
@@ -582,6 +625,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurgeQueueOutput, context: context)
         type = Types::PurgeQueueOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -601,6 +645,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueueDeletedRecently, context: context)
         type = Types::QueueDeletedRecently.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -609,6 +654,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueueDoesNotExist, context: context)
         type = Types::QueueDoesNotExist.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -617,6 +663,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueueNameExists, context: context)
         type = Types::QueueNameExists.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -636,6 +683,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReceiptHandleIsInvalid, context: context)
         type = Types::ReceiptHandleIsInvalid.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -644,6 +692,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReceiveMessageInput, context: context)
         type = Types::ReceiveMessageInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.attribute_names = AttributeNameList.build(params[:attribute_names], context: "#{context}[:attribute_names]") unless params[:attribute_names].nil?
         type.message_attribute_names = MessageAttributeNameList.build(params[:message_attribute_names], context: "#{context}[:message_attribute_names]") unless params[:message_attribute_names].nil?
@@ -659,6 +708,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReceiveMessageOutput, context: context)
         type = Types::ReceiveMessageOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.messages = MessageList.build(params[:messages], context: "#{context}[:messages]") unless params[:messages].nil?
         type
       end
@@ -668,6 +718,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::RemovePermissionInput, context: context)
         type = Types::RemovePermissionInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.label = params[:label]
         type
@@ -678,6 +729,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::RemovePermissionOutput, context: context)
         type = Types::RemovePermissionOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -686,6 +738,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageBatchInput, context: context)
         type = Types::SendMessageBatchInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.entries = SendMessageBatchRequestEntryList.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
         type
@@ -696,6 +749,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageBatchOutput, context: context)
         type = Types::SendMessageBatchOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.successful = SendMessageBatchResultEntryList.build(params[:successful], context: "#{context}[:successful]") unless params[:successful].nil?
         type.failed = BatchResultErrorEntryList.build(params[:failed], context: "#{context}[:failed]") unless params[:failed].nil?
         type
@@ -706,6 +760,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageBatchRequestEntry, context: context)
         type = Types::SendMessageBatchRequestEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type.message_body = params[:message_body]
         type.delay_seconds = params[:delay_seconds]
@@ -732,6 +787,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageBatchResultEntry, context: context)
         type = Types::SendMessageBatchResultEntry.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.id = params[:id]
         type.message_id = params[:message_id]
         type.md5_of_message_body = params[:md5_of_message_body]
@@ -757,6 +813,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageInput, context: context)
         type = Types::SendMessageInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.message_body = params[:message_body]
         type.delay_seconds = params[:delay_seconds]
@@ -772,6 +829,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SendMessageOutput, context: context)
         type = Types::SendMessageOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.md5_of_message_body = params[:md5_of_message_body]
         type.md5_of_message_attributes = params[:md5_of_message_attributes]
         type.md5_of_message_system_attributes = params[:md5_of_message_system_attributes]
@@ -785,6 +843,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SetQueueAttributesInput, context: context)
         type = Types::SetQueueAttributesInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.attributes = QueueAttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
         type
@@ -795,6 +854,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::SetQueueAttributesOutput, context: context)
         type = Types::SetQueueAttributesOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -836,6 +896,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagQueueInput, context: context)
         type = Types::TagQueueInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.tags = TagMap.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type
@@ -846,6 +907,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagQueueOutput, context: context)
         type = Types::TagQueueOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -854,6 +916,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyEntriesInBatchRequest, context: context)
         type = Types::TooManyEntriesInBatchRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -862,6 +925,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnsupportedOperation, context: context)
         type = Types::UnsupportedOperation.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end
@@ -870,6 +934,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagQueueInput, context: context)
         type = Types::UntagQueueInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.queue_url = params[:queue_url]
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
         type
@@ -880,6 +945,7 @@ module AWS::SDK::SQS
       def self.build(params, context: '')
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagQueueOutput, context: context)
         type = Types::UntagQueueOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type
       end
     end

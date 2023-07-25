@@ -29,7 +29,7 @@ public class Sigv4Auth implements RubyIntegration {
 
     @Override
     public boolean includeFor(ServiceShape service, Model model) {
-        return new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
+        return false; //new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
     }
 
     @Override
@@ -75,7 +75,7 @@ public class Sigv4Auth implements RubyIntegration {
                 .name("credential_provider")
                 .type("AWS::SDK::Core::CredentialProvider")
                 .documentation(credentialProviderDocumentation)
-                .defaultValue("*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
+                .defaultPrimitiveValue("AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
         SigV4Trait sigV4Trait = (SigV4Trait) new ServiceIndex(context.model())

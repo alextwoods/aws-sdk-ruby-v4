@@ -86,21 +86,22 @@ module AWS::SDK::SQS
   #
   class Client
     include Hearth::ClientStubs
+    @plugins = Hearth::PluginList.new
 
-    @middleware = Hearth::MiddlewareBuilder.new
-
-    def self.middleware
-      @middleware
+    def self.plugins
+      @plugins
     end
 
     # @param [Config] config
     #   An instance of {Config}
     #
     def initialize(config = AWS::SDK::SQS::Config.new, options = {})
-      @config = config
-      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
+      @config = initialize_config(config)
       @stubs = Hearth::Stubbing::Stubs.new
     end
+
+    # @return [Config] config
+    attr_reader :config
 
     # <p>Adds a permission to a queue for a specific
     #       <a href="https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P">principal</a>.
@@ -185,23 +186,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::AddPermissionOutput
     #
     def add_permission(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::AddPermissionInput.build(params)
+      input = Params::AddPermissionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AddPermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OverLimit]),
@@ -209,22 +212,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::AddPermission,
         stubs: @stubs,
         params_class: Params::AddPermissionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :add_permission
+          logger: config.logger,
+          operation_name: :add_permission,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -296,23 +298,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::ChangeMessageVisibilityOutput
     #
     def change_message_visibility(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ChangeMessageVisibilityInput.build(params)
+      input = Params::ChangeMessageVisibilityInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeMessageVisibilityInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ChangeMessageVisibility
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MessageNotInflight, Errors::ReceiptHandleIsInvalid]),
@@ -320,22 +324,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ChangeMessageVisibility,
         stubs: @stubs,
         params_class: Params::ChangeMessageVisibilityOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :change_message_visibility
+          logger: config.logger,
+          operation_name: :change_message_visibility,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -397,23 +400,25 @@ module AWS::SDK::SQS
     #   resp.data.failed[0].message #=> String
     #
     def change_message_visibility_batch(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ChangeMessageVisibilityBatchInput.build(params)
+      input = Params::ChangeMessageVisibilityBatchInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ChangeMessageVisibilityBatchInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ChangeMessageVisibilityBatch
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
@@ -421,22 +426,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ChangeMessageVisibilityBatch,
         stubs: @stubs,
         params_class: Params::ChangeMessageVisibilityBatchOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :change_message_visibility_batch
+          logger: config.logger,
+          operation_name: :change_message_visibility_batch,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -729,23 +733,25 @@ module AWS::SDK::SQS
     #   resp.data.queue_url #=> String
     #
     def create_queue(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::CreateQueueInput.build(params)
+      input = Params::CreateQueueInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateQueueInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateQueue
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDeletedRecently, Errors::QueueNameExists]),
@@ -753,22 +759,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::CreateQueue,
         stubs: @stubs,
         params_class: Params::CreateQueueOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :create_queue
+          logger: config.logger,
+          operation_name: :create_queue,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -820,23 +825,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::DeleteMessageOutput
     #
     def delete_message(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteMessageInput.build(params)
+      input = Params::DeleteMessageInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMessageInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteMessage
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidIdFormat, Errors::ReceiptHandleIsInvalid]),
@@ -844,22 +851,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteMessage,
         stubs: @stubs,
         params_class: Params::DeleteMessageOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_message
+          logger: config.logger,
+          operation_name: :delete_message,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -917,23 +923,25 @@ module AWS::SDK::SQS
     #   resp.data.failed[0].message #=> String
     #
     def delete_message_batch(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteMessageBatchInput.build(params)
+      input = Params::DeleteMessageBatchInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMessageBatchInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteMessageBatch
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest]),
@@ -941,22 +949,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteMessageBatch,
         stubs: @stubs,
         params_class: Params::DeleteMessageBatchOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_message_batch
+          logger: config.logger,
+          operation_name: :delete_message_batch,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -999,23 +1006,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::DeleteQueueOutput
     #
     def delete_queue(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::DeleteQueueInput.build(params)
+      input = Params::DeleteQueueInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteQueueInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteQueue
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1023,22 +1032,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::DeleteQueue,
         stubs: @stubs,
         params_class: Params::DeleteQueueOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :delete_queue
+          logger: config.logger,
+          operation_name: :delete_queue,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1247,23 +1255,25 @@ module AWS::SDK::SQS
     #   resp.data.attributes['key'] #=> String
     #
     def get_queue_attributes(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetQueueAttributesInput.build(params)
+      input = Params::GetQueueAttributesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueueAttributesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetQueueAttributes
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAttributeName]),
@@ -1271,22 +1281,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetQueueAttributes,
         stubs: @stubs,
         params_class: Params::GetQueueAttributesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_queue_attributes
+          logger: config.logger,
+          operation_name: :get_queue_attributes,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1325,23 +1334,25 @@ module AWS::SDK::SQS
     #   resp.data.queue_url #=> String
     #
     def get_queue_url(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::GetQueueUrlInput.build(params)
+      input = Params::GetQueueUrlInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetQueueUrlInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetQueueUrl
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDoesNotExist]),
@@ -1349,22 +1360,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::GetQueueUrl,
         stubs: @stubs,
         params_class: Params::GetQueueUrlOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :get_queue_url
+          logger: config.logger,
+          operation_name: :get_queue_url,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1415,23 +1425,25 @@ module AWS::SDK::SQS
     #   resp.data.next_token #=> String
     #
     def list_dead_letter_source_queues(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListDeadLetterSourceQueuesInput.build(params)
+      input = Params::ListDeadLetterSourceQueuesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDeadLetterSourceQueuesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDeadLetterSourceQueues
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::QueueDoesNotExist]),
@@ -1439,22 +1451,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListDeadLetterSourceQueues,
         stubs: @stubs,
         params_class: Params::ListDeadLetterSourceQueuesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_dead_letter_source_queues
+          logger: config.logger,
+          operation_name: :list_dead_letter_source_queues,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1490,23 +1501,25 @@ module AWS::SDK::SQS
     #   resp.data.tags['key'] #=> String
     #
     def list_queue_tags(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListQueueTagsInput.build(params)
+      input = Params::ListQueueTagsInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueueTagsInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListQueueTags
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1514,22 +1527,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListQueueTags,
         stubs: @stubs,
         params_class: Params::ListQueueTagsOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_queue_tags
+          logger: config.logger,
+          operation_name: :list_queue_tags,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1583,23 +1595,25 @@ module AWS::SDK::SQS
     #   resp.data.queue_urls[0] #=> String
     #
     def list_queues(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ListQueuesInput.build(params)
+      input = Params::ListQueuesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListQueuesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListQueues
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1607,22 +1621,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ListQueues,
         stubs: @stubs,
         params_class: Params::ListQueuesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :list_queues
+          logger: config.logger,
+          operation_name: :list_queues,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1664,23 +1677,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::PurgeQueueOutput
     #
     def purge_queue(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::PurgeQueueInput.build(params)
+      input = Params::PurgeQueueInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PurgeQueueInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PurgeQueue
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PurgeQueueInProgress, Errors::QueueDoesNotExist]),
@@ -1688,22 +1703,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::PurgeQueue,
         stubs: @stubs,
         params_class: Params::PurgeQueueOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :purge_queue
+          logger: config.logger,
+          operation_name: :purge_queue,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -1944,23 +1958,25 @@ module AWS::SDK::SQS
     #   resp.data.messages[0].message_attributes['key'].data_type #=> String
     #
     def receive_message(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::ReceiveMessageInput.build(params)
+      input = Params::ReceiveMessageInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReceiveMessageInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ReceiveMessage
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::OverLimit]),
@@ -1968,22 +1984,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::ReceiveMessage,
         stubs: @stubs,
         params_class: Params::ReceiveMessageOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :receive_message
+          logger: config.logger,
+          operation_name: :receive_message,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2033,23 +2048,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::RemovePermissionOutput
     #
     def remove_permission(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::RemovePermissionInput.build(params)
+      input = Params::RemovePermissionInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RemovePermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2057,22 +2074,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::RemovePermission,
         stubs: @stubs,
         params_class: Params::RemovePermissionOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :remove_permission
+          logger: config.logger,
+          operation_name: :remove_permission,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2254,23 +2270,25 @@ module AWS::SDK::SQS
     #   resp.data.sequence_number #=> String
     #
     def send_message(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::SendMessageInput.build(params)
+      input = Params::SendMessageInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessageInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::SendMessage
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidMessageContents, Errors::UnsupportedOperation]),
@@ -2278,22 +2296,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::SendMessage,
         stubs: @stubs,
         params_class: Params::SendMessageOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :send_message
+          logger: config.logger,
+          operation_name: :send_message,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2388,23 +2405,25 @@ module AWS::SDK::SQS
     #   resp.data.failed[0].message #=> String
     #
     def send_message_batch(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::SendMessageBatchInput.build(params)
+      input = Params::SendMessageBatchInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SendMessageBatchInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::SendMessageBatch
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BatchEntryIdsNotDistinct, Errors::BatchRequestTooLong, Errors::EmptyBatchRequest, Errors::InvalidBatchEntryId, Errors::TooManyEntriesInBatchRequest, Errors::UnsupportedOperation]),
@@ -2412,22 +2431,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::SendMessageBatch,
         stubs: @stubs,
         params_class: Params::SendMessageBatchOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :send_message_batch
+          logger: config.logger,
+          operation_name: :send_message_batch,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2632,23 +2650,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::SetQueueAttributesOutput
     #
     def set_queue_attributes(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::SetQueueAttributesInput.build(params)
+      input = Params::SetQueueAttributesInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SetQueueAttributesInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::SetQueueAttributes
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAttributeName]),
@@ -2656,22 +2676,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::SetQueueAttributes,
         stubs: @stubs,
         params_class: Params::SetQueueAttributesOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :set_queue_attributes
+          logger: config.logger,
+          operation_name: :set_queue_attributes,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2730,23 +2749,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::TagQueueOutput
     #
     def tag_queue(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::TagQueueInput.build(params)
+      input = Params::TagQueueInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagQueueInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagQueue
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2754,22 +2775,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::TagQueue,
         stubs: @stubs,
         params_class: Params::TagQueueOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :tag_queue
+          logger: config.logger,
+          operation_name: :tag_queue,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2809,23 +2829,25 @@ module AWS::SDK::SQS
     #   resp.data #=> Types::UntagQueueOutput
     #
     def untag_queue(params = {}, options = {}, &block)
+      config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
-      input = Params::UntagQueueInput.build(params)
+      input = Params::UntagQueueInput.build(params, context: 'params')
       response_body = ::StringIO.new
+      stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagQueueInput,
-        validate_input: @config.validate_input
+        validate_input: config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagQueue
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Retry,
-        retry_strategy: @config.retry_strategy,
+        retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: @config.signer
+        signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2833,22 +2855,21 @@ module AWS::SDK::SQS
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: options.fetch(:http_client, @config.http_client),
+        stub_responses: config.stub_responses,
+        client: options.fetch(:http_client, config.http_client),
         stub_class: Stubs::UntagQueue,
         stubs: @stubs,
         params_class: Params::UntagQueueOutput
       )
-      apply_middleware(stack, options[:middleware])
-
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, @config.endpoint))),
+          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
-          operation_name: :untag_queue
+          logger: config.logger,
+          operation_name: :untag_queue,
+          interceptors: config.interceptors
         )
       )
       raise resp.error if resp.error
@@ -2857,10 +2878,23 @@ module AWS::SDK::SQS
 
     private
 
-    def apply_middleware(middleware_stack, middleware)
-      Client.middleware.apply(middleware_stack)
-      @middleware.apply(middleware_stack)
-      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+    def initialize_config(config)
+      config = config.dup
+      client_interceptors = config.interceptors
+      config.interceptors = Hearth::InterceptorList.new
+      Client.plugins.apply(config)
+      Hearth::PluginList.new(config.plugins).apply(config)
+      config.interceptors << client_interceptors
+      config.freeze
+    end
+
+    def operation_config(options)
+      return @config unless options[:plugins] || options[:interceptors]
+
+      config = @config.dup
+      Hearth::PluginList.new(options[:plugins]).apply(config) if options[:plugins]
+      config.interceptors << options[:interceptors] if options[:interceptors]
+      config.freeze
     end
   end
 end
