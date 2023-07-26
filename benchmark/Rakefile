@@ -9,13 +9,6 @@ Dir.glob("../gems/*/lib") do |gem_path|
   $LOAD_PATH.unshift(File.expand_path(gem_path)) unless gem_path.include? 'aws-sdk-core-old'
 end
 
-task 'test' do
-  puts "Require hearth: #{require 'hearth'}"
-  puts "Require core: #{require 'aws-sdk-core'}"
-  puts "Core is at: #{$LOADED_FEATURES.select { |f| f.include?('hearth.rb') }}"
-  puts "Core is at: #{$LOADED_FEATURES.select { |f| f.include?('aws-sdk-core.rb') }}"
-end
-
 desc 'Runs a performance benchmark on the SDK'
 task 'benchmark' do
   report_data = Benchmark.initialize_report_data
@@ -66,7 +59,7 @@ task 'archive' do
   puts "Uploading report to: #{key}"
   client = Aws::S3::Client.new
   client.put_object(
-    bucket: 'hearth-performance-benchmark-archive',
+    bucket: 'aws-sdk-ruby-v4-performance-benchmark-archive',
     key: key,
     body: File.read('benchmark_report.json')
   )

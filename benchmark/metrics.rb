@@ -24,12 +24,12 @@ module Benchmark
       case v
       when Numeric
         metric_data[:value] = v
-        client.put_metric_data(namespace: "hearth-performance", metric_data: [metric_data])
+        client.put_metric_data(namespace: "aws-sdk-ruby-v4", metric_data: [metric_data])
       when Array
         # cloudwatch has a limit of 150 values
         v.each_slice(150) do |values|
           metric_data[:values] = values
-          client.put_metric_data(namespace: "hearth-performance", metric_data: [metric_data])
+          client.put_metric_data(namespace: "aws-sdk-ruby-v4", metric_data: [metric_data])
         end
       else
         raise 'Unknown type for metric value'
