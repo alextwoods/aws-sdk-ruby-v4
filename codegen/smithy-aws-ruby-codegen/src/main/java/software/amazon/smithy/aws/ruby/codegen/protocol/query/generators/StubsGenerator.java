@@ -188,6 +188,11 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .closeBlock("end");
     }
 
+    @Override
+    protected void renderErrorStubMethod(Shape shape) {
+        // todo
+    }
+
     private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
         XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
         Optional<String> prefix = trait.getPrefix();

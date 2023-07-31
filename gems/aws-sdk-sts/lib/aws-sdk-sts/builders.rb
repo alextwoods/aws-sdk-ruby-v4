@@ -13,7 +13,6 @@ module AWS::SDK::STS
   # @api private
   module Builders
 
-    # Operation Builder for AssumeRole
     class AssumeRole
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -38,7 +37,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for AssumeRoleWithSAML
     class AssumeRoleWithSAML
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -58,7 +56,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -79,7 +76,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -94,7 +90,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for GetAccessKeyInfo
     class GetAccessKeyInfo
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -109,7 +104,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for GetCallerIdentity
     class GetCallerIdentity
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -123,7 +117,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for GetFederationToken
     class GetFederationToken
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -142,7 +135,6 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Builder for GetSessionToken
     class GetSessionToken
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -159,14 +151,12 @@ module AWS::SDK::STS
       end
     end
 
-    # Structure Builder for PolicyDescriptorType
     class PolicyDescriptorType
       def self.build(input, params, context: nil)
         params[context + 'arn'] = input[:arn].to_s unless input[:arn].nil?
       end
     end
 
-    # Structure Builder for Tag
     class Tag
       def self.build(input, params, context: nil)
         params[context + 'Key'] = input[:key].to_s unless input[:key].nil?
@@ -174,29 +164,38 @@ module AWS::SDK::STS
       end
     end
 
-    # List Builder for policyDescriptorListType
     class PolicyDescriptorListType
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           PolicyDescriptorType.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
-    # List Builder for tagKeyListType
     class TagKeyListType
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           params[context + ".#{index+1}"] = element.to_s unless element.nil?
         end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 
-    # List Builder for tagListType
     class TagListType
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
           Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
         end
       end
     end

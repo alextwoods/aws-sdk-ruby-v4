@@ -12,7 +12,7 @@ module AWS::SDK::SSO
   module Params
 
     module AccountInfo
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccountInfo, context: context)
         type = Types::AccountInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -24,7 +24,7 @@ module AWS::SDK::SSO
     end
 
     module AccountListType
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -35,7 +35,7 @@ module AWS::SDK::SSO
     end
 
     module GetRoleCredentialsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
         type = Types::GetRoleCredentialsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -47,7 +47,7 @@ module AWS::SDK::SSO
     end
 
     module GetRoleCredentialsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetRoleCredentialsOutput, context: context)
         type = Types::GetRoleCredentialsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -57,7 +57,7 @@ module AWS::SDK::SSO
     end
 
     module InvalidRequestException
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidRequestException, context: context)
         type = Types::InvalidRequestException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -67,7 +67,7 @@ module AWS::SDK::SSO
     end
 
     module ListAccountRolesInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesInput, context: context)
         type = Types::ListAccountRolesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -80,7 +80,7 @@ module AWS::SDK::SSO
     end
 
     module ListAccountRolesOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountRolesOutput, context: context)
         type = Types::ListAccountRolesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -91,7 +91,7 @@ module AWS::SDK::SSO
     end
 
     module ListAccountsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsInput, context: context)
         type = Types::ListAccountsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -103,7 +103,7 @@ module AWS::SDK::SSO
     end
 
     module ListAccountsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListAccountsOutput, context: context)
         type = Types::ListAccountsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -114,7 +114,7 @@ module AWS::SDK::SSO
     end
 
     module LogoutInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutInput, context: context)
         type = Types::LogoutInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -124,7 +124,7 @@ module AWS::SDK::SSO
     end
 
     module LogoutOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LogoutOutput, context: context)
         type = Types::LogoutOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -133,7 +133,7 @@ module AWS::SDK::SSO
     end
 
     module ResourceNotFoundException
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -143,7 +143,7 @@ module AWS::SDK::SSO
     end
 
     module RoleCredentials
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleCredentials, context: context)
         type = Types::RoleCredentials.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -156,7 +156,7 @@ module AWS::SDK::SSO
     end
 
     module RoleInfo
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoleInfo, context: context)
         type = Types::RoleInfo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -167,7 +167,7 @@ module AWS::SDK::SSO
     end
 
     module RoleListType
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -178,7 +178,7 @@ module AWS::SDK::SSO
     end
 
     module TooManyRequestsException
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TooManyRequestsException, context: context)
         type = Types::TooManyRequestsException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -188,7 +188,7 @@ module AWS::SDK::SSO
     end
 
     module UnauthorizedException
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UnauthorizedException, context: context)
         type = Types::UnauthorizedException.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)

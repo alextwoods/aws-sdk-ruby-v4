@@ -16,29 +16,22 @@ module AWS::SDK::Core
 
         reset_request(request)
         apply_authtype(request)
-
-        # compute the signature
         signature = compute_signature(request, context)
-
-        # apply signature headers
-        request.headers.update(signature.headers)
+        apply_signature(request, signature)
 
         output = @app.call(input, context)
         output.metadata[:sigv4_signature] = signature
-
         output
       end
 
       private
 
-      # TODO: retry middleware should have a deep copy of the request instead.
-      # This method can be deleted once refactored.
-      # Do this in case this request is being re-signed
       def reset_request(request)
         request.headers.delete('Authorization')
-        request.headers.delete('X-Amz-Security-Token')
         request.headers.delete('X-Amz-Date')
         request.headers.delete('x-Amz-Region-Set')
+        request.headers.delete('X-Amz-Security-Token')
+        request.headers.delete('X-Amz-Content-Sha256')
       end
 
       def apply_authtype(request)
@@ -51,12 +44,18 @@ module AWS::SDK::Core
         @signer.sign_request(
           request: {
             http_method: request.http_method,
-            url: request.url,
+            url: request.uri,
             headers: request.headers.to_h,
             body: request.body
           },
           **context.metadata.fetch(:signer_params, {})
         )
+      end
+
+      def apply_signature(request, signature)
+        signature.headers.each_pair do |key, value|
+          request.headers[key] = value
+        end
       end
     end
   end

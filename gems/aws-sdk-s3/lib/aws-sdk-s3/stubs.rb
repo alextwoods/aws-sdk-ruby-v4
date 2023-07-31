@@ -14,9 +14,8 @@ module AWS::SDK::S3
   # @api private
   module Stubs
 
-    # Structure Stubber for AbortIncompleteMultipartUpload
     class AbortIncompleteMultipartUpload
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AbortIncompleteMultipartUpload')
         visited = visited + ['AbortIncompleteMultipartUpload']
         {
@@ -32,9 +31,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for AbortMultipartUpload
     class AbortMultipartUpload
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::AbortMultipartUploadOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::AbortMultipartUploadOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
         }
@@ -47,9 +53,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for AccessControlTranslation
     class AccessControlTranslation
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AccessControlTranslation')
         visited = visited + ['AccessControlTranslation']
         {
@@ -65,9 +70,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for AllowedHeaders
     class AllowedHeaders
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AllowedHeaders')
         visited = visited + ['AllowedHeaders']
         [
@@ -85,9 +89,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for AllowedMethods
     class AllowedMethods
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AllowedMethods')
         visited = visited + ['AllowedMethods']
         [
@@ -105,9 +108,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for AllowedOrigins
     class AllowedOrigins
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AllowedOrigins')
         visited = visited + ['AllowedOrigins']
         [
@@ -125,9 +127,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for AnalyticsAndOperator
     class AnalyticsAndOperator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsAndOperator')
         visited = visited + ['AnalyticsAndOperator']
         {
@@ -145,9 +146,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for AnalyticsConfiguration
     class AnalyticsConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsConfiguration')
         visited = visited + ['AnalyticsConfiguration']
         {
@@ -167,9 +167,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for AnalyticsConfigurationList
     class AnalyticsConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsConfigurationList')
         visited = visited + ['AnalyticsConfigurationList']
         [
@@ -187,9 +186,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for AnalyticsExportDestination
     class AnalyticsExportDestination
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsExportDestination')
         visited = visited + ['AnalyticsExportDestination']
         {
@@ -205,9 +203,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Union Stubber for AnalyticsFilter
     class AnalyticsFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsFilter')
         visited = visited + ['AnalyticsFilter']
         {
@@ -233,9 +230,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for AnalyticsS3BucketDestination
     class AnalyticsS3BucketDestination
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnalyticsS3BucketDestination')
         visited = visited + ['AnalyticsS3BucketDestination']
         {
@@ -257,9 +253,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Bucket
     class Bucket
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Bucket')
         visited = visited + ['Bucket']
         {
@@ -277,9 +272,48 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Buckets
+    class BucketAlreadyExists
+      def self.build(params, context:)
+        Params::BucketAlreadyExists.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::BucketAlreadyExists.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
+    class BucketAlreadyOwnedByYou
+      def self.build(params, context:)
+        Params::BucketAlreadyOwnedByYou.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::BucketAlreadyOwnedByYou.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
     class Buckets
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Buckets')
         visited = visited + ['Buckets']
         [
@@ -297,9 +331,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for CORSRule
     class CORSRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CORSRule')
         visited = visited + ['CORSRule']
         {
@@ -325,9 +358,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for CORSRules
     class CORSRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CORSRules')
         visited = visited + ['CORSRules']
         [
@@ -345,9 +377,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Checksum
     class Checksum
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Checksum')
         visited = visited + ['Checksum']
         {
@@ -369,9 +400,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ChecksumAlgorithmList
     class ChecksumAlgorithmList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ChecksumAlgorithmList')
         visited = visited + ['ChecksumAlgorithmList']
         [
@@ -389,9 +419,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for CommonPrefix
     class CommonPrefix
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CommonPrefix')
         visited = visited + ['CommonPrefix']
         {
@@ -407,9 +436,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for CommonPrefixList
     class CommonPrefixList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CommonPrefixList')
         visited = visited + ['CommonPrefixList']
         [
@@ -427,9 +455,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for CompleteMultipartUpload
     class CompleteMultipartUpload
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::CompleteMultipartUploadOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::CompleteMultipartUploadOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           location: 'location',
           bucket: 'bucket',
@@ -473,9 +508,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Condition
     class Condition
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Condition')
         visited = visited + ['Condition']
         {
@@ -493,9 +527,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ContinuationEvent
     class ContinuationEvent
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ContinuationEvent')
         visited = visited + ['ContinuationEvent']
         {
@@ -509,9 +542,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for CopyObject
     class CopyObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::CopyObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::CopyObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           copy_object_result: CopyObjectResult.default(visited),
           expiration: 'expiration',
@@ -546,9 +586,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for CopyObjectResult
     class CopyObjectResult
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CopyObjectResult')
         visited = visited + ['CopyObjectResult']
         {
@@ -574,9 +613,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for CopyPartResult
     class CopyPartResult
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CopyPartResult')
         visited = visited + ['CopyPartResult']
         {
@@ -602,9 +640,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for CreateBucket
     class CreateBucket
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::CreateBucketOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::CreateBucketOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           location: 'location',
         }
@@ -617,9 +662,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for CreateMultipartUpload
     class CreateMultipartUpload
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::CreateMultipartUploadOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::CreateMultipartUploadOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           abort_date: Time.now,
           abort_rule_id: 'abort_rule_id',
@@ -661,9 +713,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for DefaultRetention
     class DefaultRetention
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DefaultRetention')
         visited = visited + ['DefaultRetention']
         {
@@ -683,9 +734,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucket
     class DeleteBucket
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -696,9 +754,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketAnalyticsConfiguration
     class DeleteBucketAnalyticsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketAnalyticsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketAnalyticsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -709,9 +774,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketCors
     class DeleteBucketCors
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketCorsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketCorsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -722,9 +794,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketEncryption
     class DeleteBucketEncryption
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketEncryptionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketEncryptionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -735,9 +814,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketIntelligentTieringConfiguration
     class DeleteBucketIntelligentTieringConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketIntelligentTieringConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketIntelligentTieringConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -748,9 +834,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketInventoryConfiguration
     class DeleteBucketInventoryConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketInventoryConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketInventoryConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -761,9 +854,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketLifecycle
     class DeleteBucketLifecycle
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketLifecycleOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketLifecycleOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -774,9 +874,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketMetricsConfiguration
     class DeleteBucketMetricsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketMetricsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketMetricsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -787,9 +894,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketOwnershipControls
     class DeleteBucketOwnershipControls
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketOwnershipControlsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketOwnershipControlsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -800,9 +914,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketPolicy
     class DeleteBucketPolicy
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketPolicyOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketPolicyOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -813,9 +934,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketReplication
     class DeleteBucketReplication
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketReplicationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketReplicationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -826,9 +954,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketTagging
     class DeleteBucketTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -839,9 +974,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteBucketWebsite
     class DeleteBucketWebsite
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteBucketWebsiteOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteBucketWebsiteOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -852,9 +994,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for DeleteMarkerEntry
     class DeleteMarkerEntry
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DeleteMarkerEntry')
         visited = visited + ['DeleteMarkerEntry']
         {
@@ -878,9 +1019,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for DeleteMarkerReplication
     class DeleteMarkerReplication
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DeleteMarkerReplication')
         visited = visited + ['DeleteMarkerReplication']
         {
@@ -896,9 +1036,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for DeleteMarkers
     class DeleteMarkers
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DeleteMarkers')
         visited = visited + ['DeleteMarkers']
         [
@@ -916,9 +1055,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteObject
     class DeleteObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           delete_marker: false,
           version_id: 'version_id',
@@ -935,9 +1081,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteObjectTagging
     class DeleteObjectTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteObjectTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteObjectTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           version_id: 'version_id',
         }
@@ -950,9 +1103,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeleteObjects
     class DeleteObjects
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteObjectsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteObjectsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           deleted: DeletedObjects.default(visited),
           request_charged: 'request_charged',
@@ -974,9 +1134,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for DeletePublicAccessBlock
     class DeletePublicAccessBlock
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeletePublicAccessBlockOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeletePublicAccessBlockOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -987,9 +1154,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for DeletedObject
     class DeletedObject
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DeletedObject')
         visited = visited + ['DeletedObject']
         {
@@ -1011,9 +1177,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for DeletedObjects
     class DeletedObjects
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DeletedObjects')
         visited = visited + ['DeletedObjects']
         [
@@ -1031,9 +1196,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Destination
     class Destination
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Destination')
         visited = visited + ['Destination']
         {
@@ -1061,9 +1225,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for EncryptionConfiguration
     class EncryptionConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('EncryptionConfiguration')
         visited = visited + ['EncryptionConfiguration']
         {
@@ -1079,9 +1242,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for EndEvent
     class EndEvent
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('EndEvent')
         visited = visited + ['EndEvent']
         {
@@ -1095,9 +1257,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Error
     class Error
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Error')
         visited = visited + ['Error']
         {
@@ -1119,9 +1280,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ErrorDocument
     class ErrorDocument
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ErrorDocument')
         visited = visited + ['ErrorDocument']
         {
@@ -1137,9 +1297,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Errors
     class Errors
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Errors')
         visited = visited + ['Errors']
         [
@@ -1157,9 +1316,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for EventBridgeConfiguration
     class EventBridgeConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('EventBridgeConfiguration')
         visited = visited + ['EventBridgeConfiguration']
         {
@@ -1173,9 +1331,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for EventList
     class EventList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('EventList')
         visited = visited + ['EventList']
         [
@@ -1193,9 +1350,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ExistingObjectReplication
     class ExistingObjectReplication
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ExistingObjectReplication')
         visited = visited + ['ExistingObjectReplication']
         {
@@ -1211,9 +1367,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ExposeHeaders
     class ExposeHeaders
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ExposeHeaders')
         visited = visited + ['ExposeHeaders']
         [
@@ -1231,9 +1386,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for FilterRule
     class FilterRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('FilterRule')
         visited = visited + ['FilterRule']
         {
@@ -1251,9 +1405,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for FilterRuleList
     class FilterRuleList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('FilterRuleList')
         visited = visited + ['FilterRuleList']
         [
@@ -1271,9 +1424,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketAccelerateConfiguration
     class GetBucketAccelerateConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketAccelerateConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketAccelerateConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           status: 'status',
         }
@@ -1291,9 +1451,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketAcl
     class GetBucketAcl
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketAclOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketAclOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           owner: Owner.default(visited),
           grants: Grants.default(visited),
@@ -1313,9 +1480,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketAnalyticsConfiguration
     class GetBucketAnalyticsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketAnalyticsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketAnalyticsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           analytics_configuration: AnalyticsConfiguration.default(visited),
         }
@@ -1330,9 +1504,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketCors
     class GetBucketCors
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketCorsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketCorsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           cors_rules: CORSRules.default(visited),
         }
@@ -1350,9 +1531,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketEncryption
     class GetBucketEncryption
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketEncryptionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketEncryptionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           server_side_encryption_configuration: ServerSideEncryptionConfiguration.default(visited),
         }
@@ -1367,9 +1555,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketIntelligentTieringConfiguration
     class GetBucketIntelligentTieringConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketIntelligentTieringConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketIntelligentTieringConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           intelligent_tiering_configuration: IntelligentTieringConfiguration.default(visited),
         }
@@ -1384,9 +1579,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketInventoryConfiguration
     class GetBucketInventoryConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketInventoryConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketInventoryConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           inventory_configuration: InventoryConfiguration.default(visited),
         }
@@ -1401,9 +1603,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketLifecycleConfiguration
     class GetBucketLifecycleConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketLifecycleConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketLifecycleConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           rules: LifecycleRules.default(visited),
         }
@@ -1421,9 +1630,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketLocation
     class GetBucketLocation
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketLocationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketLocationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           location_constraint: 'location_constraint',
         }
@@ -1441,9 +1657,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketLogging
     class GetBucketLogging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketLoggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketLoggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           logging_enabled: LoggingEnabled.default(visited),
         }
@@ -1461,9 +1684,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketMetricsConfiguration
     class GetBucketMetricsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketMetricsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketMetricsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           metrics_configuration: MetricsConfiguration.default(visited),
         }
@@ -1478,9 +1708,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketNotificationConfiguration
     class GetBucketNotificationConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketNotificationConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketNotificationConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           topic_configurations: TopicConfigurationList.default(visited),
           queue_configurations: QueueConfigurationList.default(visited),
@@ -1504,9 +1741,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketOwnershipControls
     class GetBucketOwnershipControls
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketOwnershipControlsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketOwnershipControlsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           ownership_controls: OwnershipControls.default(visited),
         }
@@ -1521,9 +1765,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketPolicy
     class GetBucketPolicy
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketPolicyOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketPolicyOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           policy: 'policy',
         }
@@ -1537,9 +1788,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketPolicyStatus
     class GetBucketPolicyStatus
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketPolicyStatusOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketPolicyStatusOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           policy_status: PolicyStatus.default(visited),
         }
@@ -1554,9 +1812,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketReplication
     class GetBucketReplication
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketReplicationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketReplicationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           replication_configuration: ReplicationConfiguration.default(visited),
         }
@@ -1571,9 +1836,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketRequestPayment
     class GetBucketRequestPayment
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketRequestPaymentOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketRequestPaymentOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           payer: 'payer',
         }
@@ -1591,9 +1863,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketTagging
     class GetBucketTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           tag_set: TagSet.default(visited),
         }
@@ -1611,9 +1890,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketVersioning
     class GetBucketVersioning
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketVersioningOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketVersioningOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           status: 'status',
           mfa_delete: 'mfa_delete',
@@ -1633,9 +1919,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetBucketWebsite
     class GetBucketWebsite
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetBucketWebsiteOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetBucketWebsiteOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           redirect_all_requests_to: RedirectAllRequestsTo.default(visited),
           index_document: IndexDocument.default(visited),
@@ -1659,9 +1952,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObject
     class GetObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           body: 'body',
           delete_marker: false,
@@ -1739,16 +2039,23 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-object-lock-mode'] = stub[:object_lock_mode] unless stub[:object_lock_mode].nil? || stub[:object_lock_mode].empty?
         http_resp.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(stub[:object_lock_retain_until_date]) unless stub[:object_lock_retain_until_date].nil?
         http_resp.headers['x-amz-object-lock-legal-hold'] = stub[:object_lock_legal_hold_status] unless stub[:object_lock_legal_hold_status].nil? || stub[:object_lock_legal_hold_status].empty?
-        stub[:metadata].each do |key, value|
+        stub[:metadata]&.each do |key, value|
           http_resp.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
         IO.copy_stream(stub[:body], http_resp.body)
       end
     end
 
-    # Operation Stubber for GetObjectAcl
     class GetObjectAcl
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectAclOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectAclOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           owner: Owner.default(visited),
           grants: Grants.default(visited),
@@ -1770,9 +2077,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectAttributes
     class GetObjectAttributes
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectAttributesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectAttributesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           delete_marker: false,
           last_modified: Time.now,
@@ -1806,9 +2120,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for GetObjectAttributesParts
     class GetObjectAttributesParts
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('GetObjectAttributesParts')
         visited = visited + ['GetObjectAttributesParts']
         {
@@ -1834,9 +2147,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectLegalHold
     class GetObjectLegalHold
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectLegalHoldOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectLegalHoldOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           legal_hold: ObjectLockLegalHold.default(visited),
         }
@@ -1851,9 +2171,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectLockConfiguration
     class GetObjectLockConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectLockConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectLockConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           object_lock_configuration: ObjectLockConfiguration.default(visited),
         }
@@ -1868,9 +2195,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectRetention
     class GetObjectRetention
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectRetentionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectRetentionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           retention: ObjectLockRetention.default(visited),
         }
@@ -1885,9 +2219,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectTagging
     class GetObjectTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           version_id: 'version_id',
           tag_set: TagSet.default(visited),
@@ -1907,9 +2248,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetObjectTorrent
     class GetObjectTorrent
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetObjectTorrentOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetObjectTorrentOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           body: 'body',
           request_charged: 'request_charged',
@@ -1924,9 +2272,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for GetPublicAccessBlock
     class GetPublicAccessBlock
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetPublicAccessBlockOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetPublicAccessBlockOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           public_access_block_configuration: PublicAccessBlockConfiguration.default(visited),
         }
@@ -1941,9 +2296,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Grant
     class Grant
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Grant')
         visited = visited + ['Grant']
         {
@@ -1965,9 +2319,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Grantee
     class Grantee
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Grantee')
         visited = visited + ['Grantee']
         {
@@ -1991,9 +2344,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Grants
     class Grants
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Grants')
         visited = visited + ['Grants']
         [
@@ -2011,9 +2363,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for HeadBucket
     class HeadBucket
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::HeadBucketOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::HeadBucketOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -2024,9 +2383,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for HeadObject
     class HeadObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::HeadObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::HeadObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           delete_marker: false,
           accept_ranges: 'accept_ranges',
@@ -2101,15 +2467,14 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-object-lock-mode'] = stub[:object_lock_mode] unless stub[:object_lock_mode].nil? || stub[:object_lock_mode].empty?
         http_resp.headers['x-amz-object-lock-retain-until-date'] = Hearth::TimeHelper.to_date_time(stub[:object_lock_retain_until_date]) unless stub[:object_lock_retain_until_date].nil?
         http_resp.headers['x-amz-object-lock-legal-hold'] = stub[:object_lock_legal_hold_status] unless stub[:object_lock_legal_hold_status].nil? || stub[:object_lock_legal_hold_status].empty?
-        stub[:metadata].each do |key, value|
+        stub[:metadata]&.each do |key, value|
           http_resp.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
       end
     end
 
-    # Structure Stubber for IndexDocument
     class IndexDocument
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('IndexDocument')
         visited = visited + ['IndexDocument']
         {
@@ -2125,9 +2490,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Initiator
     class Initiator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Initiator')
         visited = visited + ['Initiator']
         {
@@ -2145,9 +2509,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for IntelligentTieringAndOperator
     class IntelligentTieringAndOperator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('IntelligentTieringAndOperator')
         visited = visited + ['IntelligentTieringAndOperator']
         {
@@ -2165,9 +2528,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for IntelligentTieringConfiguration
     class IntelligentTieringConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('IntelligentTieringConfiguration')
         visited = visited + ['IntelligentTieringConfiguration']
         {
@@ -2189,9 +2551,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for IntelligentTieringConfigurationList
     class IntelligentTieringConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('IntelligentTieringConfigurationList')
         visited = visited + ['IntelligentTieringConfigurationList']
         [
@@ -2209,9 +2570,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for IntelligentTieringFilter
     class IntelligentTieringFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('IntelligentTieringFilter')
         visited = visited + ['IntelligentTieringFilter']
         {
@@ -2231,9 +2591,37 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventoryConfiguration
+    class InvalidObjectState
+      def self.build(params, context:)
+        Params::InvalidObjectState.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidObjectState.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          storage_class: 'storage_class',
+          access_tier: 'access_tier',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+
+        http_resp.headers['Content-Type'] = 'application/xml'
+        xml = Hearth::XML::Node.new('InvalidObjectState')
+        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
+        xml << Hearth::XML::Node.new('AccessTier', stub[:access_tier].to_s) unless stub[:access_tier].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
+      end
+    end
+
     class InventoryConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryConfiguration')
         visited = visited + ['InventoryConfiguration']
         {
@@ -2261,9 +2649,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for InventoryConfigurationList
     class InventoryConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryConfigurationList')
         visited = visited + ['InventoryConfigurationList']
         [
@@ -2281,9 +2668,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventoryDestination
     class InventoryDestination
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryDestination')
         visited = visited + ['InventoryDestination']
         {
@@ -2299,9 +2685,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventoryEncryption
     class InventoryEncryption
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryEncryption')
         visited = visited + ['InventoryEncryption']
         {
@@ -2319,9 +2704,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventoryFilter
     class InventoryFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryFilter')
         visited = visited + ['InventoryFilter']
         {
@@ -2337,9 +2721,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for InventoryOptionalFields
     class InventoryOptionalFields
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryOptionalFields')
         visited = visited + ['InventoryOptionalFields']
         [
@@ -2357,9 +2740,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventoryS3BucketDestination
     class InventoryS3BucketDestination
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventoryS3BucketDestination')
         visited = visited + ['InventoryS3BucketDestination']
         {
@@ -2383,9 +2765,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for InventorySchedule
     class InventorySchedule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InventorySchedule')
         visited = visited + ['InventorySchedule']
         {
@@ -2401,9 +2782,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LambdaFunctionConfiguration
     class LambdaFunctionConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LambdaFunctionConfiguration')
         visited = visited + ['LambdaFunctionConfiguration']
         {
@@ -2425,9 +2805,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for LambdaFunctionConfigurationList
     class LambdaFunctionConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LambdaFunctionConfigurationList')
         visited = visited + ['LambdaFunctionConfigurationList']
         [
@@ -2445,9 +2824,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LifecycleExpiration
     class LifecycleExpiration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LifecycleExpiration')
         visited = visited + ['LifecycleExpiration']
         {
@@ -2467,9 +2845,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LifecycleRule
     class LifecycleRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LifecycleRule')
         visited = visited + ['LifecycleRule']
         {
@@ -2501,9 +2878,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LifecycleRuleAndOperator
     class LifecycleRuleAndOperator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LifecycleRuleAndOperator')
         visited = visited + ['LifecycleRuleAndOperator']
         {
@@ -2525,9 +2901,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Union Stubber for LifecycleRuleFilter
     class LifecycleRuleFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LifecycleRuleFilter')
         visited = visited + ['LifecycleRuleFilter']
         {
@@ -2557,9 +2932,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for LifecycleRules
     class LifecycleRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LifecycleRules')
         visited = visited + ['LifecycleRules']
         [
@@ -2577,9 +2951,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListBucketAnalyticsConfigurations
     class ListBucketAnalyticsConfigurations
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListBucketAnalyticsConfigurationsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListBucketAnalyticsConfigurationsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           continuation_token: 'continuation_token',
@@ -2603,9 +2984,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListBucketIntelligentTieringConfigurations
     class ListBucketIntelligentTieringConfigurations
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListBucketIntelligentTieringConfigurationsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListBucketIntelligentTieringConfigurationsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           continuation_token: 'continuation_token',
@@ -2629,9 +3017,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListBucketInventoryConfigurations
     class ListBucketInventoryConfigurations
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListBucketInventoryConfigurationsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListBucketInventoryConfigurationsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           continuation_token: 'continuation_token',
           inventory_configuration_list: InventoryConfigurationList.default(visited),
@@ -2655,9 +3050,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListBucketMetricsConfigurations
     class ListBucketMetricsConfigurations
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListBucketMetricsConfigurationsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListBucketMetricsConfigurationsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           continuation_token: 'continuation_token',
@@ -2681,9 +3083,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListBuckets
     class ListBuckets
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListBucketsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListBucketsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           buckets: Buckets.default(visited),
           owner: Owner.default(visited),
@@ -2703,9 +3112,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListMultipartUploads
     class ListMultipartUploads
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListMultipartUploadsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListMultipartUploadsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           bucket: 'bucket',
           key_marker: 'key_marker',
@@ -2745,9 +3161,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListObjectVersions
     class ListObjectVersions
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListObjectVersionsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListObjectVersionsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           key_marker: 'key_marker',
@@ -2789,9 +3212,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListObjects
     class ListObjects
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListObjectsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListObjectsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           marker: 'marker',
@@ -2827,9 +3257,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListObjectsV2
     class ListObjectsV2
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListObjectsV2Output.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListObjectsV2Output.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           is_truncated: false,
           contents: ObjectList.default(visited),
@@ -2869,9 +3306,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for ListParts
     class ListParts
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListPartsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListPartsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           abort_date: Time.now,
           abort_rule_id: 'abort_rule_id',
@@ -2917,9 +3361,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for LoggingEnabled
     class LoggingEnabled
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('LoggingEnabled')
         visited = visited + ['LoggingEnabled']
         {
@@ -2939,13 +3382,12 @@ module AWS::SDK::S3
       end
     end
 
-    # Map Stubber for Metadata
     class Metadata
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Metadata')
         visited = visited + ['Metadata']
         {
-          test_key: 'value'
+          key: 'value'
         }
       end
 
@@ -2962,9 +3404,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Metrics
     class Metrics
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Metrics')
         visited = visited + ['Metrics']
         {
@@ -2982,9 +3423,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for MetricsAndOperator
     class MetricsAndOperator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricsAndOperator')
         visited = visited + ['MetricsAndOperator']
         {
@@ -3004,9 +3444,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for MetricsConfiguration
     class MetricsConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricsConfiguration')
         visited = visited + ['MetricsConfiguration']
         {
@@ -3024,9 +3463,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for MetricsConfigurationList
     class MetricsConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricsConfigurationList')
         visited = visited + ['MetricsConfigurationList']
         [
@@ -3044,9 +3482,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Union Stubber for MetricsFilter
     class MetricsFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricsFilter')
         visited = visited + ['MetricsFilter']
         {
@@ -3074,9 +3511,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for MultipartUpload
     class MultipartUpload
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MultipartUpload')
         visited = visited + ['MultipartUpload']
         {
@@ -3104,9 +3540,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for MultipartUploadList
     class MultipartUploadList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MultipartUploadList')
         visited = visited + ['MultipartUploadList']
         [
@@ -3124,9 +3559,68 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for NoncurrentVersionExpiration
+    class NoSuchBucket
+      def self.build(params, context:)
+        Params::NoSuchBucket.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::NoSuchBucket.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
+    class NoSuchKey
+      def self.build(params, context:)
+        Params::NoSuchKey.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::NoSuchKey.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
+    class NoSuchUpload
+      def self.build(params, context:)
+        Params::NoSuchUpload.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::NoSuchUpload.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
     class NoncurrentVersionExpiration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('NoncurrentVersionExpiration')
         visited = visited + ['NoncurrentVersionExpiration']
         {
@@ -3144,9 +3638,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for NoncurrentVersionTransition
     class NoncurrentVersionTransition
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('NoncurrentVersionTransition')
         visited = visited + ['NoncurrentVersionTransition']
         {
@@ -3166,9 +3659,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for NoncurrentVersionTransitionList
     class NoncurrentVersionTransitionList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('NoncurrentVersionTransitionList')
         visited = visited + ['NoncurrentVersionTransitionList']
         [
@@ -3186,9 +3678,28 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for NotificationConfigurationFilter
+    class NotFound
+      def self.build(params, context:)
+        Params::NotFound.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::NotFound.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
     class NotificationConfigurationFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('NotificationConfigurationFilter')
         visited = visited + ['NotificationConfigurationFilter']
         {
@@ -3204,9 +3715,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Object
     class Object
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Object')
         visited = visited + ['Object']
         {
@@ -3234,9 +3744,28 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ObjectList
+    class ObjectAlreadyInActiveTierError
+      def self.build(params, context:)
+        Params::ObjectAlreadyInActiveTierError.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ObjectAlreadyInActiveTierError.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
     class ObjectList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectList')
         visited = visited + ['ObjectList']
         [
@@ -3254,9 +3783,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectLockConfiguration
     class ObjectLockConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectLockConfiguration')
         visited = visited + ['ObjectLockConfiguration']
         {
@@ -3274,9 +3802,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectLockLegalHold
     class ObjectLockLegalHold
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectLockLegalHold')
         visited = visited + ['ObjectLockLegalHold']
         {
@@ -3292,9 +3819,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectLockRetention
     class ObjectLockRetention
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectLockRetention')
         visited = visited + ['ObjectLockRetention']
         {
@@ -3312,9 +3838,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectLockRule
     class ObjectLockRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectLockRule')
         visited = visited + ['ObjectLockRule']
         {
@@ -3330,9 +3855,28 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectPart
+    class ObjectNotInActiveTierError
+      def self.build(params, context:)
+        Params::ObjectNotInActiveTierError.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ObjectNotInActiveTierError.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+      end
+    end
+
     class ObjectPart
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectPart')
         visited = visited + ['ObjectPart']
         {
@@ -3358,9 +3902,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ObjectVersion
     class ObjectVersion
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectVersion')
         visited = visited + ['ObjectVersion']
         {
@@ -3392,9 +3935,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ObjectVersionList
     class ObjectVersionList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ObjectVersionList')
         visited = visited + ['ObjectVersionList']
         [
@@ -3412,9 +3954,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Owner
     class Owner
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Owner')
         visited = visited + ['Owner']
         {
@@ -3432,9 +3973,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for OwnershipControls
     class OwnershipControls
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('OwnershipControls')
         visited = visited + ['OwnershipControls']
         {
@@ -3450,9 +3990,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for OwnershipControlsRule
     class OwnershipControlsRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('OwnershipControlsRule')
         visited = visited + ['OwnershipControlsRule']
         {
@@ -3468,9 +4007,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for OwnershipControlsRules
     class OwnershipControlsRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('OwnershipControlsRules')
         visited = visited + ['OwnershipControlsRules']
         [
@@ -3488,9 +4026,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Part
     class Part
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Part')
         visited = visited + ['Part']
         {
@@ -3520,9 +4057,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for Parts
     class Parts
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Parts')
         visited = visited + ['Parts']
         [
@@ -3540,9 +4076,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for PartsList
     class PartsList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('PartsList')
         visited = visited + ['PartsList']
         [
@@ -3560,9 +4095,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for PolicyStatus
     class PolicyStatus
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('PolicyStatus')
         visited = visited + ['PolicyStatus']
         {
@@ -3578,9 +4112,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Progress
     class Progress
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Progress')
         visited = visited + ['Progress']
         {
@@ -3600,9 +4133,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ProgressEvent
     class ProgressEvent
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ProgressEvent')
         visited = visited + ['ProgressEvent']
         {
@@ -3618,9 +4150,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for PublicAccessBlockConfiguration
     class PublicAccessBlockConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('PublicAccessBlockConfiguration')
         visited = visited + ['PublicAccessBlockConfiguration']
         {
@@ -3642,9 +4173,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketAccelerateConfiguration
     class PutBucketAccelerateConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketAccelerateConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketAccelerateConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3655,9 +4193,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketAcl
     class PutBucketAcl
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketAclOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketAclOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3668,9 +4213,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketAnalyticsConfiguration
     class PutBucketAnalyticsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketAnalyticsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketAnalyticsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3681,9 +4233,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketCors
     class PutBucketCors
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketCorsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketCorsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3694,9 +4253,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketEncryption
     class PutBucketEncryption
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketEncryptionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketEncryptionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3707,9 +4273,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketIntelligentTieringConfiguration
     class PutBucketIntelligentTieringConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketIntelligentTieringConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketIntelligentTieringConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3720,9 +4293,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketInventoryConfiguration
     class PutBucketInventoryConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketInventoryConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketInventoryConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3733,9 +4313,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketLifecycleConfiguration
     class PutBucketLifecycleConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketLifecycleConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketLifecycleConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3746,9 +4333,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketLogging
     class PutBucketLogging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketLoggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketLoggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3759,9 +4353,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketMetricsConfiguration
     class PutBucketMetricsConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketMetricsConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketMetricsConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3772,9 +4373,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketNotificationConfiguration
     class PutBucketNotificationConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketNotificationConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketNotificationConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3785,9 +4393,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketOwnershipControls
     class PutBucketOwnershipControls
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketOwnershipControlsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketOwnershipControlsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3798,9 +4413,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketPolicy
     class PutBucketPolicy
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketPolicyOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketPolicyOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3811,9 +4433,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketReplication
     class PutBucketReplication
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketReplicationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketReplicationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3824,9 +4453,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketRequestPayment
     class PutBucketRequestPayment
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketRequestPaymentOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketRequestPaymentOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3837,9 +4473,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketTagging
     class PutBucketTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3850,9 +4493,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketVersioning
     class PutBucketVersioning
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketVersioningOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketVersioningOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3863,9 +4513,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutBucketWebsite
     class PutBucketWebsite
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutBucketWebsiteOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutBucketWebsiteOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -3876,9 +4533,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObject
     class PutObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           expiration: 'expiration',
           e_tag: 'e_tag',
@@ -3917,9 +4581,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObjectAcl
     class PutObjectAcl
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectAclOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectAclOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
         }
@@ -3932,9 +4603,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObjectLegalHold
     class PutObjectLegalHold
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectLegalHoldOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectLegalHoldOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
         }
@@ -3947,9 +4625,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObjectLockConfiguration
     class PutObjectLockConfiguration
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectLockConfigurationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectLockConfigurationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
         }
@@ -3962,9 +4647,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObjectRetention
     class PutObjectRetention
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectRetentionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectRetentionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
         }
@@ -3977,9 +4669,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutObjectTagging
     class PutObjectTagging
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutObjectTaggingOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutObjectTaggingOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           version_id: 'version_id',
         }
@@ -3992,9 +4691,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for PutPublicAccessBlock
     class PutPublicAccessBlock
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutPublicAccessBlockOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutPublicAccessBlockOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -4005,9 +4711,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for QueueConfiguration
     class QueueConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('QueueConfiguration')
         visited = visited + ['QueueConfiguration']
         {
@@ -4029,9 +4734,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for QueueConfigurationList
     class QueueConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('QueueConfigurationList')
         visited = visited + ['QueueConfigurationList']
         [
@@ -4049,9 +4753,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for RecordsEvent
     class RecordsEvent
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RecordsEvent')
         visited = visited + ['RecordsEvent']
         {
@@ -4067,9 +4770,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Redirect
     class Redirect
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Redirect')
         visited = visited + ['Redirect']
         {
@@ -4093,9 +4795,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for RedirectAllRequestsTo
     class RedirectAllRequestsTo
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RedirectAllRequestsTo')
         visited = visited + ['RedirectAllRequestsTo']
         {
@@ -4113,9 +4814,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicaModifications
     class ReplicaModifications
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicaModifications')
         visited = visited + ['ReplicaModifications']
         {
@@ -4131,9 +4831,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicationConfiguration
     class ReplicationConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationConfiguration')
         visited = visited + ['ReplicationConfiguration']
         {
@@ -4151,9 +4850,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicationRule
     class ReplicationRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationRule')
         visited = visited + ['ReplicationRule']
         {
@@ -4185,9 +4883,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicationRuleAndOperator
     class ReplicationRuleAndOperator
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationRuleAndOperator')
         visited = visited + ['ReplicationRuleAndOperator']
         {
@@ -4205,9 +4902,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Union Stubber for ReplicationRuleFilter
     class ReplicationRuleFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationRuleFilter')
         visited = visited + ['ReplicationRuleFilter']
         {
@@ -4233,9 +4929,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ReplicationRules
     class ReplicationRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationRules')
         visited = visited + ['ReplicationRules']
         [
@@ -4253,9 +4948,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicationTime
     class ReplicationTime
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationTime')
         visited = visited + ['ReplicationTime']
         {
@@ -4273,9 +4967,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ReplicationTimeValue
     class ReplicationTimeValue
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ReplicationTimeValue')
         visited = visited + ['ReplicationTimeValue']
         {
@@ -4291,9 +4984,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for RestoreObject
     class RestoreObject
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::RestoreObjectOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::RestoreObjectOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           request_charged: 'request_charged',
           restore_output_path: 'restore_output_path',
@@ -4308,9 +5008,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for RoutingRule
     class RoutingRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RoutingRule')
         visited = visited + ['RoutingRule']
         {
@@ -4328,9 +5027,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for RoutingRules
     class RoutingRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RoutingRules')
         visited = visited + ['RoutingRules']
         [
@@ -4348,9 +5046,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for S3KeyFilter
     class S3KeyFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('S3KeyFilter')
         visited = visited + ['S3KeyFilter']
         {
@@ -4366,9 +5063,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for SSEKMS
     class SSEKMS
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SSEKMS')
         visited = visited + ['SSEKMS']
         {
@@ -4384,9 +5080,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for SSES3
     class SSES3
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SSES3')
         visited = visited + ['SSES3']
         {
@@ -4400,9 +5095,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for SelectObjectContent
     class SelectObjectContent
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::SelectObjectContentOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::SelectObjectContentOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           payload: SelectObjectContentEventStream.default(visited),
         }
@@ -4415,9 +5117,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Union Stubber for SelectObjectContentEventStream
     class SelectObjectContentEventStream
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SelectObjectContentEventStream')
         visited = visited + ['SelectObjectContentEventStream']
         {
@@ -4447,9 +5148,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ServerSideEncryptionByDefault
     class ServerSideEncryptionByDefault
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ServerSideEncryptionByDefault')
         visited = visited + ['ServerSideEncryptionByDefault']
         {
@@ -4467,9 +5167,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ServerSideEncryptionConfiguration
     class ServerSideEncryptionConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ServerSideEncryptionConfiguration')
         visited = visited + ['ServerSideEncryptionConfiguration']
         {
@@ -4485,9 +5184,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for ServerSideEncryptionRule
     class ServerSideEncryptionRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ServerSideEncryptionRule')
         visited = visited + ['ServerSideEncryptionRule']
         {
@@ -4505,9 +5203,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for ServerSideEncryptionRules
     class ServerSideEncryptionRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ServerSideEncryptionRules')
         visited = visited + ['ServerSideEncryptionRules']
         [
@@ -4525,9 +5222,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for SourceSelectionCriteria
     class SourceSelectionCriteria
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SourceSelectionCriteria')
         visited = visited + ['SourceSelectionCriteria']
         {
@@ -4545,9 +5241,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for SseKmsEncryptedObjects
     class SseKmsEncryptedObjects
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SseKmsEncryptedObjects')
         visited = visited + ['SseKmsEncryptedObjects']
         {
@@ -4563,9 +5258,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Stats
     class Stats
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Stats')
         visited = visited + ['Stats']
         {
@@ -4585,9 +5279,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for StatsEvent
     class StatsEvent
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('StatsEvent')
         visited = visited + ['StatsEvent']
         {
@@ -4603,9 +5296,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for StorageClassAnalysis
     class StorageClassAnalysis
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('StorageClassAnalysis')
         visited = visited + ['StorageClassAnalysis']
         {
@@ -4621,9 +5313,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for StorageClassAnalysisDataExport
     class StorageClassAnalysisDataExport
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('StorageClassAnalysisDataExport')
         visited = visited + ['StorageClassAnalysisDataExport']
         {
@@ -4641,9 +5332,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Tag
     class Tag
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Tag')
         visited = visited + ['Tag']
         {
@@ -4661,9 +5351,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for TagSet
     class TagSet
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TagSet')
         visited = visited + ['TagSet']
         [
@@ -4681,9 +5370,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for TargetGrant
     class TargetGrant
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TargetGrant')
         visited = visited + ['TargetGrant']
         {
@@ -4705,9 +5393,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for TargetGrants
     class TargetGrants
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TargetGrants')
         visited = visited + ['TargetGrants']
         [
@@ -4725,9 +5412,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Tiering
     class Tiering
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Tiering')
         visited = visited + ['Tiering']
         {
@@ -4745,9 +5431,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for TieringList
     class TieringList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TieringList')
         visited = visited + ['TieringList']
         [
@@ -4765,9 +5450,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for TopicConfiguration
     class TopicConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TopicConfiguration')
         visited = visited + ['TopicConfiguration']
         {
@@ -4789,9 +5473,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for TopicConfigurationList
     class TopicConfigurationList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TopicConfigurationList')
         visited = visited + ['TopicConfigurationList']
         [
@@ -4809,9 +5492,8 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Stubber for Transition
     class Transition
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Transition')
         visited = visited + ['Transition']
         {
@@ -4831,9 +5513,8 @@ module AWS::SDK::S3
       end
     end
 
-    # List Stubber for TransitionList
     class TransitionList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TransitionList')
         visited = visited + ['TransitionList']
         [
@@ -4851,9 +5532,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for UploadPart
     class UploadPart
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::UploadPartOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::UploadPartOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           server_side_encryption: 'server_side_encryption',
           e_tag: 'e_tag',
@@ -4886,9 +5574,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for UploadPartCopy
     class UploadPartCopy
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::UploadPartCopyOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::UploadPartCopyOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           copy_source_version_id: 'copy_source_version_id',
           copy_part_result: CopyPartResult.default(visited),
@@ -4917,9 +5612,16 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Stubber for WriteGetObjectResponse
     class WriteGetObjectResponse
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::WriteGetObjectResponseOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::WriteGetObjectResponseOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end

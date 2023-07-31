@@ -133,6 +133,11 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .closeBlock("end");
     }
 
+    @Override
+    protected void renderErrorStubMethod(Shape shape) {
+        // todo
+    }
+
     private void renderMemberStubbers(Shape s) {
         //remove members w/ http traits or marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()

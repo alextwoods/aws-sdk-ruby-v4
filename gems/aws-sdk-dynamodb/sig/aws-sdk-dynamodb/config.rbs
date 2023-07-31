@@ -1,0 +1,3 @@
+module AWS::SDK::DynamoDB
+  Config: untyped
+end

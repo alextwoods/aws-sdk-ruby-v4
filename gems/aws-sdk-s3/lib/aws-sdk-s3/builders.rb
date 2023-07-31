@@ -13,7 +13,6 @@ module AWS::SDK::S3
   # @api private
   module Builders
 
-    # Structure Builder for AbortIncompleteMultipartUpload
     class AbortIncompleteMultipartUpload
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -22,7 +21,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for AbortMultipartUpload
     class AbortMultipartUpload
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -49,7 +47,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AccelerateConfiguration
     class AccelerateConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -58,7 +55,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AccessControlPolicy
     class AccessControlPolicy
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -68,7 +64,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AccessControlTranslation
     class AccessControlTranslation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -77,7 +72,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for AllowedHeaders
     class AllowedHeaders
       def self.build(node_name, input)
         xml = []
@@ -88,7 +82,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for AllowedMethods
     class AllowedMethods
       def self.build(node_name, input)
         xml = []
@@ -99,7 +92,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for AllowedOrigins
     class AllowedOrigins
       def self.build(node_name, input)
         xml = []
@@ -110,7 +102,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AnalyticsAndOperator
     class AnalyticsAndOperator
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -120,7 +111,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AnalyticsConfiguration
     class AnalyticsConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -131,7 +121,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AnalyticsExportDestination
     class AnalyticsExportDestination
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -140,7 +129,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AnalyticsFilter
     class AnalyticsFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -160,7 +148,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for AnalyticsS3BucketDestination
     class AnalyticsS3BucketDestination
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -172,7 +159,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for BucketLifecycleConfiguration
     class BucketLifecycleConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -181,7 +167,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for BucketLoggingStatus
     class BucketLoggingStatus
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -190,7 +175,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CORSConfiguration
     class CORSConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -199,7 +183,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CORSRule
     class CORSRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -213,7 +196,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for CORSRules
     class CORSRules
       def self.build(node_name, input)
         xml = []
@@ -224,7 +206,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CSVInput
     class CSVInput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -239,7 +220,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CSVOutput
     class CSVOutput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -252,7 +232,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for CompleteMultipartUpload
     class CompleteMultipartUpload
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -289,7 +268,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CompletedMultipartUpload
     class CompletedMultipartUpload
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -298,7 +276,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CompletedPart
     class CompletedPart
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -312,7 +289,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for CompletedPartList
     class CompletedPartList
       def self.build(node_name, input)
         xml = []
@@ -323,7 +299,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Condition
     class Condition
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -333,7 +308,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for CopyObject
     class CopyObject
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -398,7 +372,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for CreateBucket
     class CreateBucket
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -426,7 +399,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for CreateBucketConfiguration
     class CreateBucketConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -435,7 +407,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for CreateMultipartUpload
     class CreateMultipartUpload
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -489,7 +460,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for DefaultRetention
     class DefaultRetention
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -500,7 +470,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Delete
     class Delete
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -510,7 +479,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucket
     class DeleteBucket
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -528,7 +496,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketAnalyticsConfiguration
     class DeleteBucketAnalyticsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -550,7 +517,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketCors
     class DeleteBucketCors
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -571,7 +537,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketEncryption
     class DeleteBucketEncryption
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -592,7 +557,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketIntelligentTieringConfiguration
     class DeleteBucketIntelligentTieringConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -613,7 +577,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketInventoryConfiguration
     class DeleteBucketInventoryConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -635,7 +598,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketLifecycle
     class DeleteBucketLifecycle
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -656,7 +618,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketMetricsConfiguration
     class DeleteBucketMetricsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -678,7 +639,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketOwnershipControls
     class DeleteBucketOwnershipControls
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -699,7 +659,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketPolicy
     class DeleteBucketPolicy
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -720,7 +679,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketReplication
     class DeleteBucketReplication
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -741,7 +699,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketTagging
     class DeleteBucketTagging
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -762,7 +719,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteBucketWebsite
     class DeleteBucketWebsite
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -783,7 +739,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for DeleteMarkerReplication
     class DeleteMarkerReplication
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -792,7 +747,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteObject
     class DeleteObject
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -821,7 +775,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteObjectTagging
     class DeleteObjectTagging
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -847,7 +800,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeleteObjects
     class DeleteObjects
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -875,7 +827,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for DeletePublicAccessBlock
     class DeletePublicAccessBlock
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
@@ -896,7 +847,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Destination
     class Destination
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -911,7 +861,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Encryption
     class Encryption
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -922,7 +871,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for EncryptionConfiguration
     class EncryptionConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -931,7 +879,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ErrorDocument
     class ErrorDocument
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -940,7 +887,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for EventBridgeConfiguration
     class EventBridgeConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -948,7 +894,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for EventList
     class EventList
       def self.build(node_name, input)
         xml = []
@@ -959,7 +904,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ExistingObjectReplication
     class ExistingObjectReplication
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -968,7 +912,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for ExposeHeaders
     class ExposeHeaders
       def self.build(node_name, input)
         xml = []
@@ -979,7 +922,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for FilterRule
     class FilterRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -989,7 +931,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for FilterRuleList
     class FilterRuleList
       def self.build(node_name, input)
         xml = []
@@ -1000,7 +941,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketAccelerateConfiguration
     class GetBucketAccelerateConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1021,7 +961,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketAcl
     class GetBucketAcl
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1042,7 +981,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketAnalyticsConfiguration
     class GetBucketAnalyticsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1064,7 +1002,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketCors
     class GetBucketCors
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1085,7 +1022,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketEncryption
     class GetBucketEncryption
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1106,7 +1042,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketIntelligentTieringConfiguration
     class GetBucketIntelligentTieringConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1127,7 +1062,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketInventoryConfiguration
     class GetBucketInventoryConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1149,7 +1083,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketLifecycleConfiguration
     class GetBucketLifecycleConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1170,7 +1103,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketLocation
     class GetBucketLocation
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1191,7 +1123,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketLogging
     class GetBucketLogging
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1212,7 +1143,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketMetricsConfiguration
     class GetBucketMetricsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1234,7 +1164,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketNotificationConfiguration
     class GetBucketNotificationConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1255,7 +1184,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketOwnershipControls
     class GetBucketOwnershipControls
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1276,7 +1204,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketPolicy
     class GetBucketPolicy
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1297,7 +1224,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketPolicyStatus
     class GetBucketPolicyStatus
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1318,7 +1244,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketReplication
     class GetBucketReplication
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1339,7 +1264,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketRequestPayment
     class GetBucketRequestPayment
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1360,7 +1284,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketTagging
     class GetBucketTagging
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1381,7 +1304,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketVersioning
     class GetBucketVersioning
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1402,7 +1324,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetBucketWebsite
     class GetBucketWebsite
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1423,7 +1344,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObject
     class GetObject
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1466,7 +1386,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectAcl
     class GetObjectAcl
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1493,7 +1412,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectAttributes
     class GetObjectAttributes
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1526,7 +1444,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectLegalHold
     class GetObjectLegalHold
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1553,7 +1470,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectLockConfiguration
     class GetObjectLockConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1574,7 +1490,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectRetention
     class GetObjectRetention
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1601,7 +1516,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectTagging
     class GetObjectTagging
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1628,7 +1542,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetObjectTorrent
     class GetObjectTorrent
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1654,7 +1567,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for GetPublicAccessBlock
     class GetPublicAccessBlock
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -1675,7 +1587,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for GlacierJobParameters
     class GlacierJobParameters
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1684,7 +1595,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Grant
     class Grant
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1698,7 +1608,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Grantee
     class Grantee
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1711,7 +1620,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for Grants
     class Grants
       def self.build(node_name, input)
         xml = []
@@ -1722,7 +1630,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for HeadBucket
     class HeadBucket
       def self.build(http_req, input:)
         http_req.http_method = 'HEAD'
@@ -1740,7 +1647,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for HeadObject
     class HeadObject
       def self.build(http_req, input:)
         http_req.http_method = 'HEAD'
@@ -1774,7 +1680,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for IndexDocument
     class IndexDocument
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1783,7 +1688,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InputSerialization
     class InputSerialization
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1795,7 +1699,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for IntelligentTieringAndOperator
     class IntelligentTieringAndOperator
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1805,7 +1708,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for IntelligentTieringConfiguration
     class IntelligentTieringConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1817,7 +1719,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for IntelligentTieringFilter
     class IntelligentTieringFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1828,7 +1729,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventoryConfiguration
     class InventoryConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1843,7 +1743,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventoryDestination
     class InventoryDestination
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1852,7 +1751,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventoryEncryption
     class InventoryEncryption
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1862,7 +1760,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventoryFilter
     class InventoryFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1871,7 +1768,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for InventoryOptionalFields
     class InventoryOptionalFields
       def self.build(node_name, input)
         xml = []
@@ -1882,7 +1778,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventoryS3BucketDestination
     class InventoryS3BucketDestination
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1895,7 +1790,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for InventorySchedule
     class InventorySchedule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1904,7 +1798,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for JSONInput
     class JSONInput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1913,7 +1806,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for JSONOutput
     class JSONOutput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1922,7 +1814,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LambdaFunctionConfiguration
     class LambdaFunctionConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1934,7 +1825,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for LambdaFunctionConfigurationList
     class LambdaFunctionConfigurationList
       def self.build(node_name, input)
         xml = []
@@ -1945,7 +1835,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LifecycleExpiration
     class LifecycleExpiration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1956,7 +1845,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LifecycleRule
     class LifecycleRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1973,7 +1861,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LifecycleRuleAndOperator
     class LifecycleRuleAndOperator
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -1985,7 +1872,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LifecycleRuleFilter
     class LifecycleRuleFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2009,7 +1895,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for LifecycleRules
     class LifecycleRules
       def self.build(node_name, input)
         xml = []
@@ -2020,7 +1905,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListBucketAnalyticsConfigurations
     class ListBucketAnalyticsConfigurations
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2042,7 +1926,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListBucketIntelligentTieringConfigurations
     class ListBucketIntelligentTieringConfigurations
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2063,7 +1946,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListBucketInventoryConfigurations
     class ListBucketInventoryConfigurations
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2085,7 +1967,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListBucketMetricsConfigurations
     class ListBucketMetricsConfigurations
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2107,7 +1988,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListBuckets
     class ListBuckets
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2117,7 +1997,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListMultipartUploads
     class ListMultipartUploads
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2144,7 +2023,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListObjectVersions
     class ListObjectVersions
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2171,7 +2049,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListObjects
     class ListObjects
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2195,7 +2072,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListObjectsV2
     class ListObjectsV2
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2224,7 +2100,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for ListParts
     class ListParts
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -2256,7 +2131,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for LoggingEnabled
     class LoggingEnabled
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2267,7 +2141,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Map Builder for Metadata
     class Metadata
       def self.build(node_name, input)
         nodes = []
@@ -2281,7 +2154,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for MetadataEntry
     class MetadataEntry
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2291,7 +2163,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Metrics
     class Metrics
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2301,7 +2172,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for MetricsAndOperator
     class MetricsAndOperator
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2312,7 +2182,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for MetricsConfiguration
     class MetricsConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2322,7 +2191,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for MetricsFilter
     class MetricsFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2344,7 +2212,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for NoncurrentVersionExpiration
     class NoncurrentVersionExpiration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2354,7 +2221,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for NoncurrentVersionTransition
     class NoncurrentVersionTransition
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2365,7 +2231,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for NoncurrentVersionTransitionList
     class NoncurrentVersionTransitionList
       def self.build(node_name, input)
         xml = []
@@ -2376,7 +2241,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for NotificationConfiguration
     class NotificationConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2388,7 +2252,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for NotificationConfigurationFilter
     class NotificationConfigurationFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2397,7 +2260,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for ObjectAttributesList
     class ObjectAttributesList
       def self.build(node_name, input)
         xml = []
@@ -2408,7 +2270,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ObjectIdentifier
     class ObjectIdentifier
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2418,7 +2279,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for ObjectIdentifierList
     class ObjectIdentifierList
       def self.build(node_name, input)
         xml = []
@@ -2429,7 +2289,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ObjectLockConfiguration
     class ObjectLockConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2439,7 +2298,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ObjectLockLegalHold
     class ObjectLockLegalHold
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2448,7 +2306,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ObjectLockRetention
     class ObjectLockRetention
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2458,7 +2315,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ObjectLockRule
     class ObjectLockRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2467,7 +2323,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for OutputLocation
     class OutputLocation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2476,7 +2331,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for OutputSerialization
     class OutputSerialization
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2486,7 +2340,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Owner
     class Owner
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2496,7 +2349,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for OwnershipControls
     class OwnershipControls
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2505,7 +2357,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for OwnershipControlsRule
     class OwnershipControlsRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2514,7 +2365,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for OwnershipControlsRules
     class OwnershipControlsRules
       def self.build(node_name, input)
         xml = []
@@ -2525,7 +2375,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ParquetInput
     class ParquetInput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2533,7 +2382,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for PublicAccessBlockConfiguration
     class PublicAccessBlockConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2545,7 +2393,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketAccelerateConfiguration
     class PutBucketAccelerateConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2570,7 +2417,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketAcl
     class PutBucketAcl
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2602,7 +2448,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketAnalyticsConfiguration
     class PutBucketAnalyticsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2627,7 +2472,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketCors
     class PutBucketCors
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2653,7 +2497,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketEncryption
     class PutBucketEncryption
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2679,7 +2522,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketIntelligentTieringConfiguration
     class PutBucketIntelligentTieringConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2703,7 +2545,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketInventoryConfiguration
     class PutBucketInventoryConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2728,7 +2569,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketLifecycleConfiguration
     class PutBucketLifecycleConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2753,7 +2593,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketLogging
     class PutBucketLogging
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2779,7 +2618,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketMetricsConfiguration
     class PutBucketMetricsConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2804,7 +2642,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketNotificationConfiguration
     class PutBucketNotificationConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2829,7 +2666,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketOwnershipControls
     class PutBucketOwnershipControls
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2854,7 +2690,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketPolicy
     class PutBucketPolicy
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2880,7 +2715,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketReplication
     class PutBucketReplication
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2907,7 +2741,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketRequestPayment
     class PutBucketRequestPayment
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2933,7 +2766,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketTagging
     class PutBucketTagging
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2959,7 +2791,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketVersioning
     class PutBucketVersioning
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -2986,7 +2817,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutBucketWebsite
     class PutBucketWebsite
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3012,7 +2842,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObject
     class PutObject
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3075,7 +2904,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObjectAcl
     class PutObjectAcl
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3113,7 +2941,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObjectLegalHold
     class PutObjectLegalHold
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3145,7 +2972,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObjectLockConfiguration
     class PutObjectLockConfiguration
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3173,7 +2999,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObjectRetention
     class PutObjectRetention
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3206,7 +3031,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutObjectTagging
     class PutObjectTagging
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3238,7 +3062,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for PutPublicAccessBlock
     class PutPublicAccessBlock
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3264,7 +3087,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for QueueConfiguration
     class QueueConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3276,7 +3098,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for QueueConfigurationList
     class QueueConfigurationList
       def self.build(node_name, input)
         xml = []
@@ -3287,7 +3108,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Redirect
     class Redirect
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3300,7 +3120,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for RedirectAllRequestsTo
     class RedirectAllRequestsTo
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3310,7 +3129,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicaModifications
     class ReplicaModifications
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3319,7 +3137,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationConfiguration
     class ReplicationConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3329,7 +3146,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationRule
     class ReplicationRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3346,7 +3162,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationRuleAndOperator
     class ReplicationRuleAndOperator
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3356,7 +3171,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationRuleFilter
     class ReplicationRuleFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3376,7 +3190,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for ReplicationRules
     class ReplicationRules
       def self.build(node_name, input)
         xml = []
@@ -3387,7 +3200,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationTime
     class ReplicationTime
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3397,7 +3209,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ReplicationTimeValue
     class ReplicationTimeValue
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3406,7 +3217,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for RequestPaymentConfiguration
     class RequestPaymentConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3415,7 +3225,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for RestoreObject
     class RestoreObject
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -3446,7 +3255,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for RestoreRequest
     class RestoreRequest
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3461,7 +3269,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for RoutingRule
     class RoutingRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3471,7 +3278,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for RoutingRules
     class RoutingRules
       def self.build(node_name, input)
         xml = []
@@ -3482,7 +3288,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for S3KeyFilter
     class S3KeyFilter
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3491,7 +3296,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for S3Location
     class S3Location
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3507,7 +3311,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for SSEKMS
     class SSEKMS
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3516,7 +3319,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for SSES3
     class SSES3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3524,7 +3326,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for SelectParameters
     class SelectParameters
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3536,7 +3337,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ServerSideEncryptionByDefault
     class ServerSideEncryptionByDefault
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3546,7 +3346,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ServerSideEncryptionConfiguration
     class ServerSideEncryptionConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3555,7 +3354,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for ServerSideEncryptionRule
     class ServerSideEncryptionRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3565,7 +3363,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for ServerSideEncryptionRules
     class ServerSideEncryptionRules
       def self.build(node_name, input)
         xml = []
@@ -3576,7 +3373,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for SourceSelectionCriteria
     class SourceSelectionCriteria
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3586,7 +3382,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for SseKmsEncryptedObjects
     class SseKmsEncryptedObjects
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3595,7 +3390,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for StorageClassAnalysis
     class StorageClassAnalysis
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3604,7 +3398,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for StorageClassAnalysisDataExport
     class StorageClassAnalysisDataExport
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3614,7 +3407,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Tag
     class Tag
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3624,7 +3416,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for TagSet
     class TagSet
       def self.build(node_name, input)
         xml = []
@@ -3635,7 +3426,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Tagging
     class Tagging
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3644,7 +3434,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for TargetGrant
     class TargetGrant
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3658,7 +3447,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for TargetGrants
     class TargetGrants
       def self.build(node_name, input)
         xml = []
@@ -3669,7 +3457,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Tiering
     class Tiering
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3679,7 +3466,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for TieringList
     class TieringList
       def self.build(node_name, input)
         xml = []
@@ -3690,7 +3476,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for TopicConfiguration
     class TopicConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3702,7 +3487,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for TopicConfigurationList
     class TopicConfigurationList
       def self.build(node_name, input)
         xml = []
@@ -3713,7 +3497,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for Transition
     class Transition
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3724,7 +3507,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for TransitionList
     class TransitionList
       def self.build(node_name, input)
         xml = []
@@ -3735,7 +3517,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for UploadPart
     class UploadPart
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3776,7 +3557,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for UploadPartCopy
     class UploadPartCopy
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
@@ -3817,7 +3597,6 @@ module AWS::SDK::S3
       end
     end
 
-    # List Builder for UserMetadata
     class UserMetadata
       def self.build(node_name, input)
         xml = []
@@ -3828,7 +3607,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for VersioningConfiguration
     class VersioningConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3838,7 +3616,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Structure Builder for WebsiteConfiguration
     class WebsiteConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3850,7 +3627,6 @@ module AWS::SDK::S3
       end
     end
 
-    # Operation Builder for WriteGetObjectResponse
     class WriteGetObjectResponse
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
