@@ -71,7 +71,7 @@ public class Sigv4Auth implements RubyIntegration {
                   
                 @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN""";
 
-        ClientConfig credentialProvider = (new ClientConfig.Builder())
+        ClientConfig credentialProvider = ClientConfig.builder()
                 .name("credential_provider")
                 .type("AWS::SDK::Core::CredentialProvider")
                 .documentation(credentialProviderDocumentation)
@@ -92,16 +92,14 @@ public class Sigv4Auth implements RubyIntegration {
                             + "credential_provider: cfg[:credential_provider]" + ") }";
                 }).build();
 
-        ClientConfig signer = (new ClientConfig.Builder()
+        ClientConfig signer = ClientConfig.builder()
                 .name("signer")
                 .type("AWS::SigV4::Signer")
                 .documentation("An instance of SigV4 signer used to sign requests.")
-                .defaults(new ConfigProviderChain.Builder()
-                        .dynamicProvider(initializeSigner)
-                        .build()))
+                .defaultDynamicValue(initializeSigner)
                 .build();
 
-        Middleware signatureV4 = (new Middleware.Builder())
+        Middleware signatureV4 = Middleware.builder()
                 // Do not render if operation has optional auth
                 .operationPredicate((model, service, operation) -> !operation.hasTrait(OptionalAuthTrait.class))
                 .addConfig(signer)

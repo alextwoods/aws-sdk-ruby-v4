@@ -29,7 +29,7 @@ public class HttpChecksum implements RubyIntegration {
 
     @Override
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
-        Middleware checksums = (new Middleware.Builder())
+        Middleware checksums = Middleware.builder()
                 // only render when the operation has the httpChecksum trait
                 .operationPredicate((model, service, operation) -> operation.hasTrait(HttpChecksumTrait.class))
                 .operationParams((ctx, operation) -> {

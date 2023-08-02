@@ -22,22 +22,22 @@ public final class AWSConfig {
             at HOME/.aws/credentials.  When not specified, 'default' is used.
             """;
 
-    public static final ClientConfig REGION = (new ClientConfig.Builder())
+    public static final ClientConfig REGION = ClientConfig.builder()
             .name("region")
             .type("String")
             .documentation(regionDocumentation)
-            .defaults(new ConfigProviderChain.Builder()
+            .defaults(ConfigProviderChain.builder()
                     .envProvider("AWS_REGION", "String")
                     .sharedConfigProvider("region", "String")
                     .build())
             .build();
 
-    public static final ClientConfig PROFILE = (new ClientConfig.Builder())
+    public static final ClientConfig PROFILE = ClientConfig.builder()
             .name("profile")
             .type("String")
             .documentation(regionDocumentation)
             .documentationDefaultValue("default")
-            .defaults(new ConfigProviderChain.Builder()
+            .defaults(ConfigProviderChain.builder()
                     .envProvider("AWS_PROFILE", "String")
                     .staticProvider("'default'")
                     .build())
