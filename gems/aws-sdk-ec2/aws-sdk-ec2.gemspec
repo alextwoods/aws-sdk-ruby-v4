@@ -9,10 +9,10 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'aws-sdk-ec2'
-  spec.version       = '2.0.0.pre'
+  spec.version       = File.read(File.expand_path('VERSION', __dir__)).strip
   spec.author        = 'Amazon Web Services'
   spec.summary       = 'TEST SERVICE'
-  spec.files         = Dir['lib/**/*.rb']
+  spec.files         = Dir['lib/**/*.rb', 'VERSION']
 
   spec.add_runtime_dependency 'aws-sdk-core', '~> 4.0.0.pre1'
 end

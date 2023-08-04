@@ -22,5 +22,5 @@ require_relative 'aws-sdk-kms/validators'
 require_relative 'aws-sdk-kms/waiters'
 
 module AWS::SDK::KMS
-  GEM_VERSION = '2.0.0.pre'
+  VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 end

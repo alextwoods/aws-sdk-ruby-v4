@@ -22,5 +22,5 @@ require_relative 'aws-sdk-sso/validators'
 require_relative 'aws-sdk-sso/waiters'
 
 module AWS::SDK::SSO
-  GEM_VERSION = '2.0.0.pre'
+  VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 end

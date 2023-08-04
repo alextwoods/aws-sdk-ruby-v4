@@ -22,5 +22,5 @@ require_relative 'aws-sdk-ec2/validators'
 require_relative 'aws-sdk-ec2/waiters'
 
 module AWS::SDK::EC2
-  GEM_VERSION = '2.0.0.pre'
+  VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 end

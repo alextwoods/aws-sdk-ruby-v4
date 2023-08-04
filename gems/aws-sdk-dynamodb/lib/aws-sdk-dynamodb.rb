@@ -22,5 +22,5 @@ require_relative 'aws-sdk-dynamodb/validators'
 require_relative 'aws-sdk-dynamodb/waiters'
 
 module AWS::SDK::DynamoDB
-  GEM_VERSION = '2.0.0.pre'
+  VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 end
