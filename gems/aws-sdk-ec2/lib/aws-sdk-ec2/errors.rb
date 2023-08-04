@@ -17,6 +17,8 @@ module AWS::SDK::EC2
         return unless xml && xml.name == 'Response'
         xml.at('Errors')&.at('Error')&.text_at('Code')
       end
+    rescue Hearth::XML::ParseError
+      "HTTP #{resp.status} Error"
     end
 
     # Base class for all errors returned by this service

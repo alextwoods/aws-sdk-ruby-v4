@@ -34,6 +34,9 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("xml = $T.parse(body) unless body.empty?", Hearth.XML)
                 .write("return unless xml && xml.name == 'Response'")
                 .write("xml.at('Errors')&.at('Error')&.text_at('Code')")
-                .closeBlock("end");
+                .closeBlock("end")
+                .dedent()
+                .openBlock("rescue Hearth::XML::ParseError")
+                .write("\"HTTP #{resp.status} Error\"");
     }
 }

@@ -20,6 +20,8 @@ module AWS::SDK::S3
           xml.text_at('Code')
         end
       end
+    rescue Hearth::XML::ParseError
+      "HTTP #{resp.status} Error"
     end
 
     # Base class for all errors returned by this service

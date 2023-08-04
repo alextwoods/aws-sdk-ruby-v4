@@ -34,7 +34,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("resp.body.rewind")
                 .write("xml = $T.parse(body) unless body.empty?", Hearth.XML)
                 .write("return unless xml")
-                .call( () -> {
+                .call(() -> {
                     if (context.service()
                             .getTrait(RestXmlTrait.class).get().isNoErrorWrapping()) {
                         writer
@@ -48,6 +48,9 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .openBlock("if xml")
                 .write("xml.text_at('Code')")
                 .closeBlock("end")
-                .closeBlock("end");
+                .closeBlock("end")
+                .dedent()
+                .openBlock("rescue Hearth::XML::ParseError")
+                .write("\"HTTP #{resp.status} Error\"");
     }
 }
