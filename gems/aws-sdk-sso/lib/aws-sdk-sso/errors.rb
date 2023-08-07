@@ -19,6 +19,8 @@ module AWS::SDK::SSO
       if code
         code.split('#').last.split(':').first
       end
+    rescue Hearth::JSON::ParseError
+      "HTTP #{resp.status} Error"
     end
 
     # Base class for all errors returned by this service

@@ -134,6 +134,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::NoSuchUpload]),
         data_parser: Parsers::AbortMultipartUpload
@@ -142,9 +145,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::AbortMultipartUpload,
-        stubs: @stubs,
-        params_class: Params::AbortMultipartUploadOutput
+        stub_error_classes: [Stubs::NoSuchUpload],
+        stub_data_class: Stubs::AbortMultipartUpload,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -417,6 +420,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CompleteMultipartUpload
@@ -425,9 +431,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::CompleteMultipartUpload,
-        stubs: @stubs,
-        params_class: Params::CompleteMultipartUploadOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::CompleteMultipartUpload,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -939,6 +945,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ObjectNotInActiveTierError]),
         data_parser: Parsers::CopyObject
@@ -947,9 +956,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::CopyObject,
-        stubs: @stubs,
-        params_class: Params::CopyObjectOutput
+        stub_error_classes: [Stubs::ObjectNotInActiveTierError],
+        stub_data_class: Stubs::CopyObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1209,6 +1218,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::BucketAlreadyExists, Errors::BucketAlreadyOwnedByYou]),
         data_parser: Parsers::CreateBucket
@@ -1217,9 +1229,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::CreateBucket,
-        stubs: @stubs,
-        params_class: Params::CreateBucketOutput
+        stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
+        stub_data_class: Stubs::CreateBucket,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1736,6 +1748,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateMultipartUpload
@@ -1744,9 +1759,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::CreateMultipartUpload,
-        stubs: @stubs,
-        params_class: Params::CreateMultipartUploadOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::CreateMultipartUpload,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1821,6 +1836,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucket
@@ -1829,9 +1847,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucket,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucket,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1921,6 +1939,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketAnalyticsConfiguration
@@ -1929,9 +1950,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketAnalyticsConfiguration,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketAnalyticsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2010,6 +2031,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketCors
@@ -2018,9 +2042,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketCors,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketCorsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketCors,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2104,6 +2128,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketEncryption
@@ -2112,9 +2139,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketEncryption,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketEncryptionOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketEncryption,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2194,6 +2221,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketIntelligentTieringConfiguration
@@ -2202,9 +2232,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketIntelligentTieringConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2292,6 +2322,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketInventoryConfiguration
@@ -2300,9 +2333,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketInventoryConfiguration,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketInventoryConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2383,6 +2416,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketLifecycle
@@ -2391,9 +2427,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketLifecycle,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketLifecycleOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketLifecycle,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2490,6 +2526,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketMetricsConfiguration
@@ -2498,9 +2537,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketMetricsConfiguration,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketMetricsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2577,6 +2616,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketOwnershipControls
@@ -2585,9 +2627,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketOwnershipControls,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketOwnershipControlsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketOwnershipControls,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2675,6 +2717,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketPolicy
@@ -2683,9 +2728,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketPolicy,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketPolicyOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketPolicy,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2768,6 +2813,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketReplication
@@ -2776,9 +2824,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketReplication,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketReplicationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketReplication,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2853,6 +2901,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketTagging
@@ -2861,9 +2912,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketTagging,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2945,6 +2996,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteBucketWebsite
@@ -2953,9 +3007,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteBucketWebsite,
-        stubs: @stubs,
-        params_class: Params::DeleteBucketWebsiteOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteBucketWebsite,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3072,6 +3126,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteObject
@@ -3080,9 +3137,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteObject,
-        stubs: @stubs,
-        params_class: Params::DeleteObjectOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3172,6 +3229,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeleteObjectTagging
@@ -3180,9 +3240,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteObjectTagging,
-        stubs: @stubs,
-        params_class: Params::DeleteObjectTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteObjectTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3354,6 +3414,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteObjects
@@ -3362,9 +3425,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteObjects,
-        stubs: @stubs,
-        params_class: Params::DeleteObjectsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeleteObjects,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3451,6 +3514,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: []),
         data_parser: Parsers::DeletePublicAccessBlock
@@ -3459,9 +3525,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeletePublicAccessBlock,
-        stubs: @stubs,
-        params_class: Params::DeletePublicAccessBlockOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DeletePublicAccessBlock,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3547,6 +3613,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketAccelerateConfiguration
@@ -3555,9 +3624,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketAccelerateConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketAccelerateConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketAccelerateConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3651,6 +3720,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketAcl
@@ -3659,9 +3731,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketAcl,
-        stubs: @stubs,
-        params_class: Params::GetBucketAclOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketAcl,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3772,6 +3844,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketAnalyticsConfiguration
@@ -3780,9 +3855,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketAnalyticsConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketAnalyticsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3873,6 +3948,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketCors
@@ -3881,9 +3959,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketCors,
-        stubs: @stubs,
-        params_class: Params::GetBucketCorsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketCors,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3971,6 +4049,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketEncryption
@@ -3979,9 +4060,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketEncryption,
-        stubs: @stubs,
-        params_class: Params::GetBucketEncryptionOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketEncryption,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4076,6 +4157,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketIntelligentTieringConfiguration
@@ -4084,9 +4168,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketIntelligentTieringConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketIntelligentTieringConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4195,6 +4279,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketInventoryConfiguration
@@ -4203,9 +4290,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketInventoryConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketInventoryConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketInventoryConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4353,6 +4440,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketLifecycleConfiguration
@@ -4361,9 +4451,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketLifecycleConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketLifecycleConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketLifecycleConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4444,6 +4534,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketLocation
@@ -4452,9 +4545,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketLocation,
-        stubs: @stubs,
-        params_class: Params::GetBucketLocationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketLocation,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4539,6 +4632,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketLogging
@@ -4547,9 +4643,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketLogging,
-        stubs: @stubs,
-        params_class: Params::GetBucketLoggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketLogging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4657,6 +4753,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketMetricsConfiguration
@@ -4665,9 +4764,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketMetricsConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketMetricsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketMetricsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4769,6 +4868,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketNotificationConfiguration
@@ -4777,9 +4879,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketNotificationConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetBucketNotificationConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketNotificationConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4861,6 +4963,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketOwnershipControls
@@ -4869,9 +4974,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketOwnershipControls,
-        stubs: @stubs,
-        params_class: Params::GetBucketOwnershipControlsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketOwnershipControls,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4954,6 +5059,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketPolicy
@@ -4962,9 +5070,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketPolicy,
-        stubs: @stubs,
-        params_class: Params::GetBucketPolicyOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketPolicy,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5053,6 +5161,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketPolicyStatus
@@ -5061,9 +5172,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketPolicyStatus,
-        stubs: @stubs,
-        params_class: Params::GetBucketPolicyStatusOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketPolicyStatus,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5191,6 +5302,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketReplication
@@ -5199,9 +5313,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketReplication,
-        stubs: @stubs,
-        params_class: Params::GetBucketReplicationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketReplication,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5271,6 +5385,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketRequestPayment
@@ -5279,9 +5396,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketRequestPayment,
-        stubs: @stubs,
-        params_class: Params::GetBucketRequestPaymentOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketRequestPayment,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5373,6 +5490,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketTagging
@@ -5381,9 +5501,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketTagging,
-        stubs: @stubs,
-        params_class: Params::GetBucketTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5466,6 +5586,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketVersioning
@@ -5474,9 +5597,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketVersioning,
-        stubs: @stubs,
-        params_class: Params::GetBucketVersioningOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketVersioning,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5572,6 +5695,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetBucketWebsite
@@ -5580,9 +5706,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetBucketWebsite,
-        stubs: @stubs,
-        params_class: Params::GetBucketWebsiteOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetBucketWebsite,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -5946,6 +6072,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidObjectState, Errors::NoSuchKey]),
         data_parser: Parsers::GetObject
@@ -5954,9 +6083,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObject,
-        stubs: @stubs,
-        params_class: Params::GetObjectOutput
+        stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
+        stub_data_class: Stubs::GetObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6085,6 +6214,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
         data_parser: Parsers::GetObjectAcl
@@ -6093,9 +6225,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectAcl,
-        stubs: @stubs,
-        params_class: Params::GetObjectAclOutput
+        stub_error_classes: [Stubs::NoSuchKey],
+        stub_data_class: Stubs::GetObjectAcl,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6375,6 +6507,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
         data_parser: Parsers::GetObjectAttributes
@@ -6383,9 +6518,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectAttributes,
-        stubs: @stubs,
-        params_class: Params::GetObjectAttributesOutput
+        stub_error_classes: [Stubs::NoSuchKey],
+        stub_data_class: Stubs::GetObjectAttributes,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6472,6 +6607,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetObjectLegalHold
@@ -6480,9 +6618,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectLegalHold,
-        stubs: @stubs,
-        params_class: Params::GetObjectLegalHoldOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetObjectLegalHold,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6559,6 +6697,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetObjectLockConfiguration
@@ -6567,9 +6708,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectLockConfiguration,
-        stubs: @stubs,
-        params_class: Params::GetObjectLockConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetObjectLockConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6657,6 +6798,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetObjectRetention
@@ -6665,9 +6809,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectRetention,
-        stubs: @stubs,
-        params_class: Params::GetObjectRetentionOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetObjectRetention,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6777,6 +6921,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetObjectTagging
@@ -6785,9 +6932,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectTagging,
-        stubs: @stubs,
-        params_class: Params::GetObjectTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetObjectTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6875,6 +7022,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetObjectTorrent
@@ -6883,9 +7033,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetObjectTorrent,
-        stubs: @stubs,
-        params_class: Params::GetObjectTorrentOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetObjectTorrent,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -6986,6 +7136,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetPublicAccessBlock
@@ -6994,9 +7147,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetPublicAccessBlock,
-        stubs: @stubs,
-        params_class: Params::GetPublicAccessBlockOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetPublicAccessBlock,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7074,6 +7227,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFound]),
         data_parser: Parsers::HeadBucket
@@ -7082,9 +7238,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::HeadBucket,
-        stubs: @stubs,
-        params_class: Params::HeadBucketOutput
+        stub_error_classes: [Stubs::NotFound],
+        stub_data_class: Stubs::HeadBucket,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7363,6 +7519,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NotFound]),
         data_parser: Parsers::HeadObject
@@ -7371,9 +7530,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::HeadObject,
-        stubs: @stubs,
-        params_class: Params::HeadObjectOutput
+        stub_error_classes: [Stubs::NotFound],
+        stub_data_class: Stubs::HeadObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7495,6 +7654,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBucketAnalyticsConfigurations
@@ -7503,9 +7665,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListBucketAnalyticsConfigurations,
-        stubs: @stubs,
-        params_class: Params::ListBucketAnalyticsConfigurationsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7605,6 +7767,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBucketIntelligentTieringConfigurations
@@ -7613,9 +7778,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListBucketIntelligentTieringConfigurations,
-        stubs: @stubs,
-        params_class: Params::ListBucketIntelligentTieringConfigurationsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7738,6 +7903,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBucketInventoryConfigurations
@@ -7746,9 +7914,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListBucketInventoryConfigurations,
-        stubs: @stubs,
-        params_class: Params::ListBucketInventoryConfigurationsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListBucketInventoryConfigurations,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7865,6 +8033,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBucketMetricsConfigurations
@@ -7873,9 +8044,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListBucketMetricsConfigurations,
-        stubs: @stubs,
-        params_class: Params::ListBucketMetricsConfigurationsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListBucketMetricsConfigurations,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -7935,6 +8106,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListBuckets
@@ -7943,9 +8117,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListBuckets,
-        stubs: @stubs,
-        params_class: Params::ListBucketsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListBuckets,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8126,6 +8300,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListMultipartUploads
@@ -8134,9 +8311,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListMultipartUploads,
-        stubs: @stubs,
-        params_class: Params::ListMultipartUploadsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListMultipartUploads,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8304,6 +8481,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListObjectVersions
@@ -8312,9 +8492,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListObjectVersions,
-        stubs: @stubs,
-        params_class: Params::ListObjectVersionsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListObjectVersions,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8466,6 +8646,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchBucket]),
         data_parser: Parsers::ListObjects
@@ -8474,9 +8657,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListObjects,
-        stubs: @stubs,
-        params_class: Params::ListObjectsOutput
+        stub_error_classes: [Stubs::NoSuchBucket],
+        stub_data_class: Stubs::ListObjects,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8638,6 +8821,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchBucket]),
         data_parser: Parsers::ListObjectsV2
@@ -8646,9 +8832,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListObjectsV2,
-        stubs: @stubs,
-        params_class: Params::ListObjectsV2Output
+        stub_error_classes: [Stubs::NoSuchBucket],
+        stub_data_class: Stubs::ListObjectsV2,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8831,6 +9017,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListParts
@@ -8839,9 +9028,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListParts,
-        stubs: @stubs,
-        params_class: Params::ListPartsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::ListParts,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -8958,6 +9147,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketAccelerateConfiguration
@@ -8966,9 +9158,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketAccelerateConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketAccelerateConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketAccelerateConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -9289,6 +9481,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketAcl
@@ -9297,9 +9492,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketAcl,
-        stubs: @stubs,
-        params_class: Params::PutBucketAclOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketAcl,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -9496,6 +9691,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketAnalyticsConfiguration
@@ -9504,9 +9702,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketAnalyticsConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketAnalyticsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -9669,6 +9867,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketCors
@@ -9677,9 +9878,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketCors,
-        stubs: @stubs,
-        params_class: Params::PutBucketCorsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketCors,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -9812,6 +10013,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketEncryption
@@ -9820,9 +10024,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketEncryption,
-        stubs: @stubs,
-        params_class: Params::PutBucketEncryptionOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketEncryption,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -9984,6 +10188,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketIntelligentTieringConfiguration
@@ -9992,9 +10199,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketIntelligentTieringConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketIntelligentTieringConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -10198,6 +10405,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketInventoryConfiguration
@@ -10206,9 +10416,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketInventoryConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketInventoryConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketInventoryConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -10421,6 +10631,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketLifecycleConfiguration
@@ -10429,9 +10642,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketLifecycleConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketLifecycleConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketLifecycleConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -10609,6 +10822,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketLogging
@@ -10617,9 +10833,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketLogging,
-        stubs: @stubs,
-        params_class: Params::PutBucketLoggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketLogging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -10748,6 +10964,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketMetricsConfiguration
@@ -10756,9 +10975,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketMetricsConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketMetricsConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketMetricsConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -10914,6 +11133,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketNotificationConfiguration
@@ -10922,9 +11144,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketNotificationConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutBucketNotificationConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketNotificationConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11020,6 +11242,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketOwnershipControls
@@ -11028,9 +11253,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketOwnershipControls,
-        stubs: @stubs,
-        params_class: Params::PutBucketOwnershipControlsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketOwnershipControls,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11144,6 +11369,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketPolicy
@@ -11152,9 +11380,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketPolicy,
-        stubs: @stubs,
-        params_class: Params::PutBucketPolicyOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketPolicy,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11360,6 +11588,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketReplication
@@ -11368,9 +11599,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketReplication,
-        stubs: @stubs,
-        params_class: Params::PutBucketReplicationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketReplication,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11473,6 +11704,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketRequestPayment
@@ -11481,9 +11715,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketRequestPayment,
-        stubs: @stubs,
-        params_class: Params::PutBucketRequestPaymentOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketRequestPayment,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11648,6 +11882,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketTagging
@@ -11656,9 +11893,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketTagging,
-        stubs: @stubs,
-        params_class: Params::PutBucketTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -11793,6 +12030,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketVersioning
@@ -11801,9 +12041,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketVersioning,
-        stubs: @stubs,
-        params_class: Params::PutBucketVersioningOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketVersioning,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -12034,6 +12274,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutBucketWebsite
@@ -12042,9 +12285,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutBucketWebsite,
-        stubs: @stubs,
-        params_class: Params::PutBucketWebsiteOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutBucketWebsite,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -12437,6 +12680,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutObject
@@ -12445,9 +12691,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObject,
-        stubs: @stubs,
-        params_class: Params::PutObjectOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -12784,6 +13030,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchKey]),
         data_parser: Parsers::PutObjectAcl
@@ -12792,9 +13041,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObjectAcl,
-        stubs: @stubs,
-        params_class: Params::PutObjectAclOutput
+        stub_error_classes: [Stubs::NoSuchKey],
+        stub_data_class: Stubs::PutObjectAcl,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -12899,6 +13148,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutObjectLegalHold
@@ -12907,9 +13159,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObjectLegalHold,
-        stubs: @stubs,
-        params_class: Params::PutObjectLegalHoldOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutObjectLegalHold,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -13031,6 +13283,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutObjectLockConfiguration
@@ -13039,9 +13294,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObjectLockConfiguration,
-        stubs: @stubs,
-        params_class: Params::PutObjectLockConfigurationOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutObjectLockConfiguration,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -13154,6 +13409,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutObjectRetention
@@ -13162,9 +13420,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObjectRetention,
-        stubs: @stubs,
-        params_class: Params::PutObjectRetentionOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutObjectRetention,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -13364,6 +13622,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutObjectTagging
@@ -13372,9 +13633,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutObjectTagging,
-        stubs: @stubs,
-        params_class: Params::PutObjectTaggingOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutObjectTagging,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -13502,6 +13763,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PutPublicAccessBlock
@@ -13510,9 +13774,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutPublicAccessBlock,
-        stubs: @stubs,
-        params_class: Params::PutPublicAccessBlockOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::PutPublicAccessBlock,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -13952,6 +14216,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ObjectAlreadyInActiveTierError]),
         data_parser: Parsers::RestoreObject
@@ -13960,9 +14227,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::RestoreObject,
-        stubs: @stubs,
-        params_class: Params::RestoreObjectOutput
+        stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
+        stub_data_class: Stubs::RestoreObject,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -14261,6 +14528,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::UploadPart
@@ -14269,9 +14539,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::UploadPart,
-        stubs: @stubs,
-        params_class: Params::UploadPartOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::UploadPart,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -14624,6 +14894,9 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::UploadPartCopy
@@ -14632,9 +14905,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::UploadPartCopy,
-        stubs: @stubs,
-        params_class: Params::UploadPartCopyOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::UploadPartCopy,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -15023,6 +15296,10 @@ module AWS::SDK::S3
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        unsigned_body: true,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::WriteGetObjectResponse
@@ -15031,9 +15308,9 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::WriteGetObjectResponse,
-        stubs: @stubs,
-        params_class: Params::WriteGetObjectResponseOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::WriteGetObjectResponse,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,

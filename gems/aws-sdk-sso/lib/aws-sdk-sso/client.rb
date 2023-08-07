@@ -114,9 +114,9 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetRoleCredentials,
-        stubs: @stubs,
-        params_class: Params::GetRoleCredentialsOutput
+        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+        stub_data_class: Stubs::GetRoleCredentials,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -197,9 +197,9 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListAccountRoles,
-        stubs: @stubs,
-        params_class: Params::ListAccountRolesOutput
+        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+        stub_data_class: Stubs::ListAccountRoles,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -280,9 +280,9 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListAccounts,
-        stubs: @stubs,
-        params_class: Params::ListAccountsOutput
+        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+        stub_data_class: Stubs::ListAccounts,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -361,9 +361,9 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::Logout,
-        stubs: @stubs,
-        params_class: Params::LogoutOutput
+        stub_error_classes: [Stubs::InvalidRequestException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
+        stub_data_class: Stubs::Logout,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,

@@ -104,6 +104,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFound]),
         data_parser: Parsers::DeleteAlarms
@@ -112,9 +115,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteAlarms,
-        stubs: @stubs,
-        params_class: Params::DeleteAlarmsOutput
+        stub_error_classes: [Stubs::ResourceNotFound],
+        stub_data_class: Stubs::DeleteAlarms,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -283,6 +286,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::DeleteAnomalyDetector
@@ -291,9 +297,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteAnomalyDetector,
-        stubs: @stubs,
-        params_class: Params::DeleteAnomalyDetectorOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::DeleteAnomalyDetector,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -352,6 +358,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::DeleteDashboards
@@ -360,9 +369,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteDashboards,
-        stubs: @stubs,
-        params_class: Params::DeleteDashboardsOutput
+        stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::DeleteDashboards,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -428,6 +437,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::DeleteInsightRules
@@ -436,9 +448,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteInsightRules,
-        stubs: @stubs,
-        params_class: Params::DeleteInsightRulesOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::DeleteInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -493,6 +505,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::DeleteMetricStream
@@ -501,9 +516,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DeleteMetricStream,
-        stubs: @stubs,
-        params_class: Params::DeleteMetricStreamOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::DeleteMetricStream,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -605,6 +620,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeAlarmHistory
@@ -613,9 +631,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DescribeAlarmHistory,
-        stubs: @stubs,
-        params_class: Params::DescribeAlarmHistoryOutput
+        stub_error_classes: [Stubs::InvalidNextToken],
+        stub_data_class: Stubs::DescribeAlarmHistory,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -818,6 +836,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeAlarms
@@ -826,9 +847,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DescribeAlarms,
-        stubs: @stubs,
-        params_class: Params::DescribeAlarmsOutput
+        stub_error_classes: [Stubs::InvalidNextToken],
+        stub_data_class: Stubs::DescribeAlarms,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -969,6 +990,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAlarmsForMetric
@@ -977,9 +1001,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DescribeAlarmsForMetric,
-        stubs: @stubs,
-        params_class: Params::DescribeAlarmsForMetricOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DescribeAlarmsForMetric,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1115,6 +1139,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::DescribeAnomalyDetectors
@@ -1123,9 +1150,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DescribeAnomalyDetectors,
-        stubs: @stubs,
-        params_class: Params::DescribeAnomalyDetectorsOutput
+        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::DescribeAnomalyDetectors,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1195,6 +1222,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken]),
         data_parser: Parsers::DescribeInsightRules
@@ -1203,9 +1233,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DescribeInsightRules,
-        stubs: @stubs,
-        params_class: Params::DescribeInsightRulesOutput
+        stub_error_classes: [Stubs::InvalidNextToken],
+        stub_data_class: Stubs::DescribeInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1263,6 +1293,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableAlarmActions
@@ -1271,9 +1304,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DisableAlarmActions,
-        stubs: @stubs,
-        params_class: Params::DisableAlarmActionsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::DisableAlarmActions,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1337,6 +1370,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::DisableInsightRules
@@ -1345,9 +1381,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::DisableInsightRules,
-        stubs: @stubs,
-        params_class: Params::DisableInsightRulesOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::DisableInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1404,6 +1440,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableAlarmActions
@@ -1412,9 +1451,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::EnableAlarmActions,
-        stubs: @stubs,
-        params_class: Params::EnableAlarmActionsOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::EnableAlarmActions,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1477,6 +1516,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::EnableInsightRules
@@ -1485,9 +1527,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::EnableInsightRules,
-        stubs: @stubs,
-        params_class: Params::EnableInsightRulesOutput
+        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::EnableInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1548,6 +1590,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::GetDashboard
@@ -1556,9 +1601,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetDashboard,
-        stubs: @stubs,
-        params_class: Params::GetDashboardOutput
+        stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::GetDashboard,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1738,6 +1783,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::GetInsightRuleReport
@@ -1746,9 +1794,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetInsightRuleReport,
-        stubs: @stubs,
-        params_class: Params::GetInsightRuleReportOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::GetInsightRuleReport,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -1960,6 +2008,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken]),
         data_parser: Parsers::GetMetricData
@@ -1968,9 +2019,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetMetricData,
-        stubs: @stubs,
-        params_class: Params::GetMetricDataOutput
+        stub_error_classes: [Stubs::InvalidNextToken],
+        stub_data_class: Stubs::GetMetricData,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2180,6 +2231,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::GetMetricStatistics
@@ -2188,9 +2242,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetMetricStatistics,
-        stubs: @stubs,
-        params_class: Params::GetMetricStatisticsOutput
+        stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::GetMetricStatistics,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2268,6 +2322,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::GetMetricStream
@@ -2276,9 +2333,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetMetricStream,
-        stubs: @stubs,
-        params_class: Params::GetMetricStreamOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::GetMetricStream,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2397,6 +2454,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetMetricWidgetImage
@@ -2405,9 +2465,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::GetMetricWidgetImage,
-        stubs: @stubs,
-        params_class: Params::GetMetricWidgetImageOutput
+        stub_error_classes: [],
+        stub_data_class: Stubs::GetMetricWidgetImage,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2485,6 +2545,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::ListDashboards
@@ -2493,9 +2556,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListDashboards,
-        stubs: @stubs,
-        params_class: Params::ListDashboardsOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::ListDashboards,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2591,6 +2654,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::ListManagedInsightRules
@@ -2599,9 +2665,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListManagedInsightRules,
-        stubs: @stubs,
-        params_class: Params::ListManagedInsightRulesOutput
+        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::ListManagedInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2670,6 +2736,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::ListMetricStreams
@@ -2678,9 +2747,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListMetricStreams,
-        stubs: @stubs,
-        params_class: Params::ListMetricStreamsOutput
+        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::ListMetricStreams,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2801,6 +2870,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::ListMetrics
@@ -2809,9 +2881,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListMetrics,
-        stubs: @stubs,
-        params_class: Params::ListMetricsOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::ListMetrics,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -2882,6 +2954,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::ListTagsForResource
@@ -2890,9 +2965,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::ListTagsForResource,
-        stubs: @stubs,
-        params_class: Params::ListTagsForResourceOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::ListTagsForResource,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3074,6 +3149,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::PutAnomalyDetector
@@ -3082,9 +3160,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutAnomalyDetector,
-        stubs: @stubs,
-        params_class: Params::PutAnomalyDetectorOutput
+        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::PutAnomalyDetector,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3339,6 +3417,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededFault]),
         data_parser: Parsers::PutCompositeAlarm
@@ -3347,9 +3428,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutCompositeAlarm,
-        stubs: @stubs,
-        params_class: Params::PutCompositeAlarmOutput
+        stub_error_classes: [Stubs::LimitExceededFault],
+        stub_data_class: Stubs::PutCompositeAlarm,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3430,6 +3511,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DashboardInvalidInputError, Errors::InternalServiceFault]),
         data_parser: Parsers::PutDashboard
@@ -3438,9 +3522,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutDashboard,
-        stubs: @stubs,
-        params_class: Params::PutDashboardOutput
+        stub_error_classes: [Stubs::DashboardInvalidInputError, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::PutDashboard,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3528,6 +3612,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::PutInsightRule
@@ -3536,9 +3623,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutInsightRule,
-        stubs: @stubs,
-        params_class: Params::PutInsightRuleOutput
+        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::PutInsightRule,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -3630,6 +3717,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::PutManagedInsightRules
@@ -3638,9 +3728,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutManagedInsightRules,
-        stubs: @stubs,
-        params_class: Params::PutManagedInsightRulesOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::PutManagedInsightRules,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4205,6 +4295,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededFault]),
         data_parser: Parsers::PutMetricAlarm
@@ -4213,9 +4306,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutMetricAlarm,
-        stubs: @stubs,
-        params_class: Params::PutMetricAlarmOutput
+        stub_error_classes: [Stubs::LimitExceededFault],
+        stub_data_class: Stubs::PutMetricAlarm,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4346,6 +4439,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServiceFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::PutMetricData
@@ -4354,9 +4450,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutMetricData,
-        stubs: @stubs,
-        params_class: Params::PutMetricDataOutput
+        stub_error_classes: [Stubs::InternalServiceFault, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::PutMetricData,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4545,6 +4641,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterCombinationException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::PutMetricStream
@@ -4553,9 +4652,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::PutMetricStream,
-        stubs: @stubs,
-        params_class: Params::PutMetricStreamOutput
+        stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::PutMetricStream,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4639,6 +4738,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidFormatFault, Errors::ResourceNotFound]),
         data_parser: Parsers::SetAlarmState
@@ -4647,9 +4749,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::SetAlarmState,
-        stubs: @stubs,
-        params_class: Params::SetAlarmStateOutput
+        stub_error_classes: [Stubs::InvalidFormatFault, Stubs::ResourceNotFound],
+        stub_data_class: Stubs::SetAlarmState,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4709,6 +4811,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::StartMetricStreams
@@ -4717,9 +4822,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::StartMetricStreams,
-        stubs: @stubs,
-        params_class: Params::StartMetricStreamsOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::StartMetricStreams,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4779,6 +4884,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]),
         data_parser: Parsers::StopMetricStreams
@@ -4787,9 +4895,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::StopMetricStreams,
-        stubs: @stubs,
-        params_class: Params::StopMetricStreamsOutput
+        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
+        stub_data_class: Stubs::StopMetricStreams,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4874,6 +4982,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::TagResource
@@ -4882,9 +4993,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::TagResource,
-        stubs: @stubs,
-        params_class: Params::TagResourceOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::TagResource,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,
@@ -4956,6 +5067,9 @@ module AWS::SDK::CloudWatch
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]),
         data_parser: Parsers::UntagResource
@@ -4964,9 +5078,9 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
         client: options.fetch(:http_client, config.http_client),
-        stub_class: Stubs::UntagResource,
-        stubs: @stubs,
-        params_class: Params::UntagResourceOutput
+        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
+        stub_data_class: Stubs::UntagResource,
+        stubs: @stubs
       )
       resp = stack.run(
         input: input,

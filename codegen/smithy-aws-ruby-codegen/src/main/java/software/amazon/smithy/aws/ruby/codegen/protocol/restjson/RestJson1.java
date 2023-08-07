@@ -75,7 +75,7 @@ public class RestJson1 implements ProtocolGenerator {
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
         middlewareBuilder.remove(MiddlewareStackStep.BUILD, "Hearth::HTTP::Middleware::ContentLength");
 
-        Middleware contentLength = (new Middleware.Builder())
+        Middleware contentLength = Middleware.builder()
                 .operationPredicate((model, serviceShape, operationShape) -> {
                     Shape inputShape = model.expectShape(operationShape.getInputShape());
 

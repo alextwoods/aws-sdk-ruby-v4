@@ -13,9 +13,16 @@ module AWS::SDK::STS
   # @api private
   module Stubs
 
-    # Operation Stubber for AssumeRole
     class AssumeRole
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::AssumeRoleOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::AssumeRoleOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           credentials: Credentials.default(visited),
           assumed_role_user: AssumedRoleUser.default(visited),
@@ -39,9 +46,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for AssumeRoleWithSAML
     class AssumeRoleWithSAML
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::AssumeRoleWithSAMLOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::AssumeRoleWithSAMLOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           credentials: Credentials.default(visited),
           assumed_role_user: AssumedRoleUser.default(visited),
@@ -75,9 +89,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::AssumeRoleWithWebIdentityOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::AssumeRoleWithWebIdentityOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           credentials: Credentials.default(visited),
           subject_from_web_identity_token: 'subject_from_web_identity_token',
@@ -107,9 +128,8 @@ module AWS::SDK::STS
       end
     end
 
-    # Structure Stubber for AssumedRoleUser
     class AssumedRoleUser
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AssumedRoleUser')
         visited = visited + ['AssumedRoleUser']
         {
@@ -127,9 +147,8 @@ module AWS::SDK::STS
       end
     end
 
-    # Structure Stubber for Credentials
     class Credentials
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Credentials')
         visited = visited + ['Credentials']
         {
@@ -151,9 +170,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DecodeAuthorizationMessageOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DecodeAuthorizationMessageOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           decoded_message: 'decoded_message',
         }
@@ -171,9 +197,25 @@ module AWS::SDK::STS
       end
     end
 
-    # Structure Stubber for FederatedUser
+    class ExpiredTokenException
+      def self.build(params, context:)
+        Params::ExpiredTokenException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ExpiredTokenException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
     class FederatedUser
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('FederatedUser')
         visited = visited + ['FederatedUser']
         {
@@ -191,9 +233,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for GetAccessKeyInfo
     class GetAccessKeyInfo
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetAccessKeyInfoOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetAccessKeyInfoOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           account: 'account',
         }
@@ -211,9 +260,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for GetCallerIdentity
     class GetCallerIdentity
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetCallerIdentityOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetCallerIdentityOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           user_id: 'user_id',
           account: 'account',
@@ -235,9 +291,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for GetFederationToken
     class GetFederationToken
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetFederationTokenOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetFederationTokenOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           credentials: Credentials.default(visited),
           federated_user: FederatedUser.default(visited),
@@ -259,9 +322,16 @@ module AWS::SDK::STS
       end
     end
 
-    # Operation Stubber for GetSessionToken
     class GetSessionToken
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetSessionTokenOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetSessionTokenOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           credentials: Credentials.default(visited),
         }
@@ -277,6 +347,125 @@ module AWS::SDK::STS
         http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
+    end
+
+    class IDPCommunicationErrorException
+      def self.build(params, context:)
+        Params::IDPCommunicationErrorException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::IDPCommunicationErrorException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class IDPRejectedClaimException
+      def self.build(params, context:)
+        Params::IDPRejectedClaimException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::IDPRejectedClaimException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidAuthorizationMessageException
+      def self.build(params, context:)
+        Params::InvalidAuthorizationMessageException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidAuthorizationMessageException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidIdentityTokenException
+      def self.build(params, context:)
+        Params::InvalidIdentityTokenException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidIdentityTokenException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class MalformedPolicyDocumentException
+      def self.build(params, context:)
+        Params::MalformedPolicyDocumentException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::MalformedPolicyDocumentException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class PackedPolicyTooLargeException
+      def self.build(params, context:)
+        Params::PackedPolicyTooLargeException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PackedPolicyTooLargeException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class RegionDisabledException
+      def self.build(params, context:)
+        Params::RegionDisabledException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::RegionDisabledException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
     end
   end
 end

@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
@@ -40,7 +39,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     // RestXml ignores queryParam trait in service responses
     // override the base class to not filter query params from the body
     @Override
-    protected void renderOperationBodyStubber(OperationShape operation, Shape outputShape) {
+    protected void renderBodyStubber(Shape outputShape) {
         //determine if there are any members of the input that need to be serialized to the body
         boolean serializeBody = outputShape.members().stream().anyMatch((m) -> !m.hasTrait(HttpLabelTrait.class)
                 && !m.hasTrait(HttpHeaderTrait.class)
@@ -53,17 +52,17 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 .collect(Collectors.toList());
         if (httpPayloadMembers.size() == 0) {
             if (serializeBody) {
-                renderBodyStub(operation, outputShape);
+                renderBodyStub(outputShape);
             }
         } else {
             MemberShape payloadMember = httpPayloadMembers.get(0);
             Shape target = model.expectShape(payloadMember.getTarget());
-            renderPayloadBodyStub(operation, outputShape, payloadMember, target);
+            renderPayloadBodyStub(outputShape, payloadMember, target);
         }
     }
 
     @Override
-    protected void renderBodyStub(OperationShape operation, Shape outputShape) {
+    protected void renderBodyStub(Shape outputShape) {
         String nodeName = symbolProvider.toSymbol(outputShape).getName();
         if (outputShape.hasTrait(XmlNameTrait.class)) {
             nodeName = outputShape.getTrait(XmlNameTrait.class).get().getValue();
@@ -90,7 +89,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     @Override
-    protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
+    protected void renderPayloadBodyStub(Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
         String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
         if (target.hasTrait(StreamingTrait.class)) {

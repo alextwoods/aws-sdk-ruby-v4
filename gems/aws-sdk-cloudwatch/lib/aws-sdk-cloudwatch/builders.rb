@@ -13,7 +13,6 @@ module AWS::SDK::CloudWatch
   # @api private
   module Builders
 
-    # List Builder for AlarmNames
     class AlarmNames
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -26,7 +25,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for AlarmTypes
     class AlarmTypes
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -39,7 +37,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for AnomalyDetectorConfiguration
     class AnomalyDetectorConfiguration
       def self.build(input, params, context: nil)
         AnomalyDetectorExcludedTimeRanges.build(input[:excluded_time_ranges], params, context: context + 'ExcludedTimeRanges' + '.member') unless input[:excluded_time_ranges].nil?
@@ -47,7 +44,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for AnomalyDetectorExcludedTimeRanges
     class AnomalyDetectorExcludedTimeRanges
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -60,7 +56,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for AnomalyDetectorTypes
     class AnomalyDetectorTypes
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -73,7 +68,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for Counts
     class Counts
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -86,7 +80,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for DashboardNames
     class DashboardNames
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -99,7 +92,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DeleteAlarms
     class DeleteAlarms
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -114,7 +106,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DeleteAnomalyDetector
     class DeleteAnomalyDetector
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -134,7 +125,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DeleteDashboards
     class DeleteDashboards
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -149,7 +139,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DeleteInsightRules
     class DeleteInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -164,7 +153,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DeleteMetricStream
     class DeleteMetricStream
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -179,7 +167,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DescribeAlarmHistory
     class DescribeAlarmHistory
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -201,7 +188,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DescribeAlarms
     class DescribeAlarms
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -224,7 +210,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DescribeAlarmsForMetric
     class DescribeAlarmsForMetric
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -245,7 +230,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DescribeAnomalyDetectors
     class DescribeAnomalyDetectors
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -265,7 +249,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DescribeInsightRules
     class DescribeInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -281,7 +264,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for Dimension
     class Dimension
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
@@ -289,7 +271,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for DimensionFilter
     class DimensionFilter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
@@ -297,7 +278,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for DimensionFilters
     class DimensionFilters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -310,7 +290,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for Dimensions
     class Dimensions
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -323,7 +302,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DisableAlarmActions
     class DisableAlarmActions
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -338,7 +316,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for DisableInsightRules
     class DisableInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -353,7 +330,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for EnableAlarmActions
     class EnableAlarmActions
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -368,7 +344,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for EnableInsightRules
     class EnableInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -383,7 +358,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for ExtendedStatistics
     class ExtendedStatistics
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -396,7 +370,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetDashboard
     class GetDashboard
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -411,7 +384,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetInsightRuleReport
     class GetInsightRuleReport
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -432,7 +404,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetMetricData
     class GetMetricData
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -453,7 +424,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetMetricStatistics
     class GetMetricStatistics
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -476,7 +446,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetMetricStream
     class GetMetricStream
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -491,7 +460,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for GetMetricWidgetImage
     class GetMetricWidgetImage
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -507,7 +475,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for InsightRuleMetricList
     class InsightRuleMetricList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -520,7 +487,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for InsightRuleNames
     class InsightRuleNames
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -533,14 +499,12 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for LabelOptions
     class LabelOptions
       def self.build(input, params, context: nil)
         params[context + 'Timezone'] = input[:timezone].to_s unless input[:timezone].nil?
       end
     end
 
-    # Operation Builder for ListDashboards
     class ListDashboards
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -556,7 +520,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for ListManagedInsightRules
     class ListManagedInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -573,7 +536,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for ListMetricStreams
     class ListMetricStreams
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -589,7 +551,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for ListMetrics
     class ListMetrics
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -610,7 +571,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for ListTagsForResource
     class ListTagsForResource
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -625,7 +585,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for ManagedRule
     class ManagedRule
       def self.build(input, params, context: nil)
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
@@ -634,7 +593,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for ManagedRules
     class ManagedRules
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -647,7 +605,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for Metric
     class Metric
       def self.build(input, params, context: nil)
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
@@ -656,7 +613,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricData
     class MetricData
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -669,7 +625,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricDataQueries
     class MetricDataQueries
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -682,7 +637,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricDataQuery
     class MetricDataQuery
       def self.build(input, params, context: nil)
         params[context + 'Id'] = input[:id].to_s unless input[:id].nil?
@@ -695,7 +649,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricDatum
     class MetricDatum
       def self.build(input, params, context: nil)
         params[context + 'MetricName'] = input[:metric_name].to_s unless input[:metric_name].nil?
@@ -710,14 +663,12 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricMathAnomalyDetector
     class MetricMathAnomalyDetector
       def self.build(input, params, context: nil)
         MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
       end
     end
 
-    # Structure Builder for MetricStat
     class MetricStat
       def self.build(input, params, context: nil)
         Metric.build(input[:metric], params, context: context + 'Metric' + '.') unless input[:metric].nil?
@@ -727,7 +678,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricStreamFilter
     class MetricStreamFilter
       def self.build(input, params, context: nil)
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
@@ -735,7 +685,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamFilterMetricNames
     class MetricStreamFilterMetricNames
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -748,7 +697,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamFilters
     class MetricStreamFilters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -761,7 +709,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamNames
     class MetricStreamNames
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -774,7 +721,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamStatisticsAdditionalStatistics
     class MetricStreamStatisticsAdditionalStatistics
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -787,7 +733,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricStreamStatisticsConfiguration
     class MetricStreamStatisticsConfiguration
       def self.build(input, params, context: nil)
         MetricStreamStatisticsIncludeMetrics.build(input[:include_metrics], params, context: context + 'IncludeMetrics' + '.member') unless input[:include_metrics].nil?
@@ -795,7 +740,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamStatisticsConfigurations
     class MetricStreamStatisticsConfigurations
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -808,7 +752,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for MetricStreamStatisticsIncludeMetrics
     class MetricStreamStatisticsIncludeMetrics
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -821,7 +764,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for MetricStreamStatisticsMetric
     class MetricStreamStatisticsMetric
       def self.build(input, params, context: nil)
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
@@ -829,7 +771,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutAnomalyDetector
     class PutAnomalyDetector
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -850,7 +791,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutCompositeAlarm
     class PutCompositeAlarm
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -875,7 +815,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutDashboard
     class PutDashboard
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -891,7 +830,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutInsightRule
     class PutInsightRule
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -909,7 +847,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutManagedInsightRules
     class PutManagedInsightRules
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -924,7 +861,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutMetricAlarm
     class PutMetricAlarm
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -960,7 +896,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutMetricData
     class PutMetricData
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -976,7 +911,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for PutMetricStream
     class PutMetricStream
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -999,7 +933,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for Range
     class Range
       def self.build(input, params, context: nil)
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
@@ -1007,7 +940,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for ResourceList
     class ResourceList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -1020,7 +952,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for SetAlarmState
     class SetAlarmState
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -1038,7 +969,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for SingleMetricAnomalyDetector
     class SingleMetricAnomalyDetector
       def self.build(input, params, context: nil)
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
@@ -1048,7 +978,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for StartMetricStreams
     class StartMetricStreams
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -1063,7 +992,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for StatisticSet
     class StatisticSet
       def self.build(input, params, context: nil)
         params[context + 'SampleCount'] = Hearth::NumberHelper.serialize(input[:sample_count]).to_s unless input[:sample_count].nil?
@@ -1073,7 +1001,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for Statistics
     class Statistics
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -1086,7 +1013,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for StopMetricStreams
     class StopMetricStreams
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -1101,7 +1027,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Builder for Tag
     class Tag
       def self.build(input, params, context: nil)
         params[context + 'Key'] = input[:key].to_s unless input[:key].nil?
@@ -1109,7 +1034,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for TagKeyList
     class TagKeyList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -1122,7 +1046,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for TagList
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -1135,7 +1058,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for TagResource
     class TagResource
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -1151,7 +1073,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Builder for UntagResource
     class UntagResource
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -1167,7 +1088,6 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Builder for Values
     class Values
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|

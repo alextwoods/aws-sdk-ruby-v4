@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -35,7 +34,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     @Override
-    protected void renderBodyStub(OperationShape operation, Shape outputShape) {
+    protected void renderBodyStub(Shape outputShape) {
         writer
                 .write("http_resp.headers['Content-Type'] = 'application/json'")
                 .call(() -> renderMemberStubbers(outputShape))
@@ -43,7 +42,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     }
 
     @Override
-    protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
+    protected void renderPayloadBodyStub(Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
         String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
         if (target.hasTrait(StreamingTrait.class)) {

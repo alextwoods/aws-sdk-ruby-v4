@@ -13,9 +13,8 @@ module AWS::SDK::SSO
   # @api private
   module Stubs
 
-    # Structure Stubber for AccountInfo
     class AccountInfo
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AccountInfo')
         visited = visited + ['AccountInfo']
         {
@@ -35,9 +34,8 @@ module AWS::SDK::SSO
       end
     end
 
-    # List Stubber for AccountListType
     class AccountListType
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AccountListType')
         visited = visited + ['AccountListType']
         [
@@ -55,9 +53,16 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for GetRoleCredentials
     class GetRoleCredentials
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetRoleCredentialsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetRoleCredentialsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           role_credentials: RoleCredentials.default(visited),
         }
@@ -72,9 +77,40 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for ListAccountRoles
+    class InvalidRequestException
+      def self.build(params, context:)
+        Params::InvalidRequestException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidRequestException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 400
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
     class ListAccountRoles
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListAccountRolesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListAccountRolesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           next_token: 'next_token',
           role_list: RoleListType.default(visited),
@@ -91,9 +127,16 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for ListAccounts
     class ListAccounts
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListAccountsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListAccountsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           next_token: 'next_token',
           account_list: AccountListType.default(visited),
@@ -110,9 +153,16 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Stubber for Logout
     class Logout
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::LogoutOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::LogoutOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -123,9 +173,32 @@ module AWS::SDK::SSO
       end
     end
 
-    # Structure Stubber for RoleCredentials
+    class ResourceNotFoundException
+      def self.build(params, context:)
+        Params::ResourceNotFoundException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ResourceNotFoundException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 404
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
     class RoleCredentials
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RoleCredentials')
         visited = visited + ['RoleCredentials']
         {
@@ -147,9 +220,8 @@ module AWS::SDK::SSO
       end
     end
 
-    # Structure Stubber for RoleInfo
     class RoleInfo
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RoleInfo')
         visited = visited + ['RoleInfo']
         {
@@ -167,9 +239,8 @@ module AWS::SDK::SSO
       end
     end
 
-    # List Stubber for RoleListType
     class RoleListType
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('RoleListType')
         visited = visited + ['RoleListType']
         [
@@ -184,6 +255,54 @@ module AWS::SDK::SSO
           data << RoleInfo.stub(element) unless element.nil?
         end
         data
+      end
+    end
+
+    class TooManyRequestsException
+      def self.build(params, context:)
+        Params::TooManyRequestsException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::TooManyRequestsException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 429
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    class UnauthorizedException
+      def self.build(params, context:)
+        Params::UnauthorizedException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::UnauthorizedException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 401
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['message'] = stub[:message] unless stub[:message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

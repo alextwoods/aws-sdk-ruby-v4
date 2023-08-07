@@ -22,5 +22,5 @@ require_relative 'aws-sdk-s3/validators'
 require_relative 'aws-sdk-s3/waiters'
 
 module AWS::SDK::S3
-  GEM_VERSION = '2.0.0.pre'
+  VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 end

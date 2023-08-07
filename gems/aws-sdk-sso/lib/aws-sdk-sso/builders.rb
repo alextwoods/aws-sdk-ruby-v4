@@ -11,7 +11,6 @@ module AWS::SDK::SSO
   # @api private
   module Builders
 
-    # Operation Builder for GetRoleCredentials
     class GetRoleCredentials
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -24,7 +23,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Builder for ListAccountRoles
     class ListAccountRoles
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -38,7 +36,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Builder for ListAccounts
     class ListAccounts
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
@@ -51,7 +48,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Builder for Logout
     class Logout
       def self.build(http_req, input:)
         http_req.http_method = 'POST'

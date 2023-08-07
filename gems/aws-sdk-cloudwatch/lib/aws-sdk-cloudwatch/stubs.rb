@@ -14,9 +14,8 @@ module AWS::SDK::CloudWatch
   # @api private
   module Stubs
 
-    # Structure Stubber for AlarmHistoryItem
     class AlarmHistoryItem
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AlarmHistoryItem')
         visited = visited + ['AlarmHistoryItem']
         {
@@ -42,9 +41,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for AlarmHistoryItems
     class AlarmHistoryItems
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AlarmHistoryItems')
         visited = visited + ['AlarmHistoryItems']
         [
@@ -61,9 +59,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for AnomalyDetector
     class AnomalyDetector
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnomalyDetector')
         visited = visited + ['AnomalyDetector']
         {
@@ -93,9 +90,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for AnomalyDetectorConfiguration
     class AnomalyDetectorConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnomalyDetectorConfiguration')
         visited = visited + ['AnomalyDetectorConfiguration']
         {
@@ -113,9 +109,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for AnomalyDetectorExcludedTimeRanges
     class AnomalyDetectorExcludedTimeRanges
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnomalyDetectorExcludedTimeRanges')
         visited = visited + ['AnomalyDetectorExcludedTimeRanges']
         [
@@ -132,9 +127,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for AnomalyDetectors
     class AnomalyDetectors
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('AnomalyDetectors')
         visited = visited + ['AnomalyDetectors']
         [
@@ -151,9 +145,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for BatchFailures
     class BatchFailures
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('BatchFailures')
         visited = visited + ['BatchFailures']
         [
@@ -170,9 +163,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for CompositeAlarm
     class CompositeAlarm
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CompositeAlarm')
         visited = visited + ['CompositeAlarm']
         {
@@ -224,9 +216,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for CompositeAlarms
     class CompositeAlarms
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('CompositeAlarms')
         visited = visited + ['CompositeAlarms']
         [
@@ -243,9 +234,25 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for DashboardEntries
+    class ConcurrentModificationException
+      def self.build(params, context:)
+        Params::ConcurrentModificationException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ConcurrentModificationException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
     class DashboardEntries
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DashboardEntries')
         visited = visited + ['DashboardEntries']
         [
@@ -262,9 +269,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for DashboardEntry
     class DashboardEntry
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DashboardEntry')
         visited = visited + ['DashboardEntry']
         {
@@ -286,9 +292,43 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for DashboardValidationMessage
+    class DashboardInvalidInputError
+      def self.build(params, context:)
+        Params::DashboardInvalidInputError.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DashboardInvalidInputError.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+          dashboard_validation_messages: DashboardValidationMessages.default(visited),
+        }
+      end
+
+    end
+
+    class DashboardNotFoundError
+      def self.build(params, context:)
+        Params::DashboardNotFoundError.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DashboardNotFoundError.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
     class DashboardValidationMessage
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DashboardValidationMessage')
         visited = visited + ['DashboardValidationMessage']
         {
@@ -306,9 +346,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for DashboardValidationMessages
     class DashboardValidationMessages
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DashboardValidationMessages')
         visited = visited + ['DashboardValidationMessages']
         [
@@ -325,9 +364,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for Datapoint
     class Datapoint
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Datapoint')
         visited = visited + ['Datapoint']
         {
@@ -357,13 +395,12 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Map Stubber for DatapointValueMap
     class DatapointValueMap
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DatapointValueMap')
         visited = visited + ['DatapointValueMap']
         {
-          test_key: 1.0
+          key: 1.0
         }
       end
 
@@ -379,9 +416,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for DatapointValues
     class DatapointValues
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('DatapointValues')
         visited = visited + ['DatapointValues']
         [
@@ -398,9 +434,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for Datapoints
     class Datapoints
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Datapoints')
         visited = visited + ['Datapoints']
         [
@@ -417,9 +452,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DeleteAlarms
     class DeleteAlarms
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteAlarmsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteAlarmsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -435,9 +477,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DeleteAnomalyDetector
     class DeleteAnomalyDetector
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteAnomalyDetectorOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteAnomalyDetectorOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -453,9 +502,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DeleteDashboards
     class DeleteDashboards
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteDashboardsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteDashboardsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -471,9 +527,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DeleteInsightRules
     class DeleteInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           failures: BatchFailures.default(visited),
         }
@@ -491,9 +554,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DeleteMetricStream
     class DeleteMetricStream
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DeleteMetricStreamOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DeleteMetricStreamOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -509,9 +579,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DescribeAlarmHistory
     class DescribeAlarmHistory
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DescribeAlarmHistoryOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DescribeAlarmHistoryOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           alarm_history_items: AlarmHistoryItems.default(visited),
           next_token: 'next_token',
@@ -531,9 +608,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DescribeAlarms
     class DescribeAlarms
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DescribeAlarmsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DescribeAlarmsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           composite_alarms: CompositeAlarms.default(visited),
           metric_alarms: MetricAlarms.default(visited),
@@ -555,9 +639,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DescribeAlarmsForMetric
     class DescribeAlarmsForMetric
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DescribeAlarmsForMetricOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DescribeAlarmsForMetricOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           metric_alarms: MetricAlarms.default(visited),
         }
@@ -575,9 +666,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DescribeAnomalyDetectors
     class DescribeAnomalyDetectors
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DescribeAnomalyDetectorsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DescribeAnomalyDetectorsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           anomaly_detectors: AnomalyDetectors.default(visited),
           next_token: 'next_token',
@@ -597,9 +695,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DescribeInsightRules
     class DescribeInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DescribeInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DescribeInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           next_token: 'next_token',
           insight_rules: InsightRules.default(visited),
@@ -619,9 +724,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for Dimension
     class Dimension
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Dimension')
         visited = visited + ['Dimension']
         {
@@ -639,9 +743,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for Dimensions
     class Dimensions
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Dimensions')
         visited = visited + ['Dimensions']
         [
@@ -658,9 +761,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DisableAlarmActions
     class DisableAlarmActions
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DisableAlarmActionsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DisableAlarmActionsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -676,9 +786,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for DisableInsightRules
     class DisableInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::DisableInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::DisableInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           failures: BatchFailures.default(visited),
         }
@@ -696,9 +813,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for EnableAlarmActions
     class EnableAlarmActions
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::EnableAlarmActionsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::EnableAlarmActionsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -714,9 +838,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for EnableInsightRules
     class EnableInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::EnableInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::EnableInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           failures: BatchFailures.default(visited),
         }
@@ -734,9 +865,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetDashboard
     class GetDashboard
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetDashboardOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetDashboardOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           dashboard_arn: 'dashboard_arn',
           dashboard_body: 'dashboard_body',
@@ -758,9 +896,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetInsightRuleReport
     class GetInsightRuleReport
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetInsightRuleReportOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetInsightRuleReportOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           key_labels: InsightRuleContributorKeyLabels.default(visited),
           aggregation_statistic: 'aggregation_statistic',
@@ -788,9 +933,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetMetricData
     class GetMetricData
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetMetricDataOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetMetricDataOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           metric_data_results: MetricDataResults.default(visited),
           next_token: 'next_token',
@@ -812,9 +964,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetMetricStatistics
     class GetMetricStatistics
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetMetricStatisticsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetMetricStatisticsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           label: 'label',
           datapoints: Datapoints.default(visited),
@@ -834,9 +993,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetMetricStream
     class GetMetricStream
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetMetricStreamOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetMetricStreamOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           arn: 'arn',
           name: 'name',
@@ -876,9 +1042,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for GetMetricWidgetImage
     class GetMetricWidgetImage
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::GetMetricWidgetImageOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::GetMetricWidgetImageOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           metric_widget_image: 'metric_widget_image',
         }
@@ -896,9 +1069,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for InsightRule
     class InsightRule
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRule')
         visited = visited + ['InsightRule']
         {
@@ -922,9 +1094,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for InsightRuleContributor
     class InsightRuleContributor
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributor')
         visited = visited + ['InsightRuleContributor']
         {
@@ -944,9 +1115,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for InsightRuleContributorDatapoint
     class InsightRuleContributorDatapoint
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributorDatapoint')
         visited = visited + ['InsightRuleContributorDatapoint']
         {
@@ -964,9 +1134,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRuleContributorDatapoints
     class InsightRuleContributorDatapoints
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributorDatapoints')
         visited = visited + ['InsightRuleContributorDatapoints']
         [
@@ -983,9 +1152,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRuleContributorKeyLabels
     class InsightRuleContributorKeyLabels
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributorKeyLabels')
         visited = visited + ['InsightRuleContributorKeyLabels']
         [
@@ -1002,9 +1170,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRuleContributorKeys
     class InsightRuleContributorKeys
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributorKeys')
         visited = visited + ['InsightRuleContributorKeys']
         [
@@ -1021,9 +1188,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRuleContributors
     class InsightRuleContributors
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleContributors')
         visited = visited + ['InsightRuleContributors']
         [
@@ -1040,9 +1206,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for InsightRuleMetricDatapoint
     class InsightRuleMetricDatapoint
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleMetricDatapoint')
         visited = visited + ['InsightRuleMetricDatapoint']
         {
@@ -1072,9 +1237,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRuleMetricDatapoints
     class InsightRuleMetricDatapoints
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRuleMetricDatapoints')
         visited = visited + ['InsightRuleMetricDatapoints']
         [
@@ -1091,9 +1255,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for InsightRules
     class InsightRules
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('InsightRules')
         visited = visited + ['InsightRules']
         [
@@ -1110,9 +1273,135 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for ListDashboards
+    class InternalServiceFault
+      def self.build(params, context:)
+        Params::InternalServiceFault.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InternalServiceFault.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidFormatFault
+      def self.build(params, context:)
+        Params::InvalidFormatFault.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidFormatFault.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidNextToken
+      def self.build(params, context:)
+        Params::InvalidNextToken.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidNextToken.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidParameterCombinationException
+      def self.build(params, context:)
+        Params::InvalidParameterCombinationException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidParameterCombinationException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class InvalidParameterValueException
+      def self.build(params, context:)
+        Params::InvalidParameterValueException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::InvalidParameterValueException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class LimitExceededException
+      def self.build(params, context:)
+        Params::LimitExceededException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::LimitExceededException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class LimitExceededFault
+      def self.build(params, context:)
+        Params::LimitExceededFault.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::LimitExceededFault.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
     class ListDashboards
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListDashboardsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListDashboardsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           dashboard_entries: DashboardEntries.default(visited),
           next_token: 'next_token',
@@ -1132,9 +1421,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for ListManagedInsightRules
     class ListManagedInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListManagedInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListManagedInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           managed_rules: ManagedRuleDescriptions.default(visited),
           next_token: 'next_token',
@@ -1154,9 +1450,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for ListMetricStreams
     class ListMetricStreams
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListMetricStreamsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListMetricStreamsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           next_token: 'next_token',
           entries: MetricStreamEntries.default(visited),
@@ -1176,9 +1479,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for ListMetrics
     class ListMetrics
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListMetricsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListMetricsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           metrics: Metrics.default(visited),
           next_token: 'next_token',
@@ -1200,9 +1510,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for ListTagsForResource
     class ListTagsForResource
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::ListTagsForResourceOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListTagsForResourceOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           tags: TagList.default(visited),
         }
@@ -1220,9 +1537,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for ManagedRuleDescription
     class ManagedRuleDescription
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ManagedRuleDescription')
         visited = visited + ['ManagedRuleDescription']
         {
@@ -1242,9 +1558,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for ManagedRuleDescriptions
     class ManagedRuleDescriptions
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ManagedRuleDescriptions')
         visited = visited + ['ManagedRuleDescriptions']
         [
@@ -1261,9 +1576,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for ManagedRuleState
     class ManagedRuleState
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ManagedRuleState')
         visited = visited + ['ManagedRuleState']
         {
@@ -1281,9 +1595,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MessageData
     class MessageData
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MessageData')
         visited = visited + ['MessageData']
         {
@@ -1301,9 +1614,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for Metric
     class Metric
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Metric')
         visited = visited + ['Metric']
         {
@@ -1323,9 +1635,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricAlarm
     class MetricAlarm
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricAlarm')
         visited = visited + ['MetricAlarm']
         {
@@ -1397,9 +1708,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricAlarms
     class MetricAlarms
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricAlarms')
         visited = visited + ['MetricAlarms']
         [
@@ -1416,9 +1726,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricDataQueries
     class MetricDataQueries
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricDataQueries')
         visited = visited + ['MetricDataQueries']
         [
@@ -1435,9 +1744,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricDataQuery
     class MetricDataQuery
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricDataQuery')
         visited = visited + ['MetricDataQuery']
         {
@@ -1465,9 +1773,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricDataResult
     class MetricDataResult
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricDataResult')
         visited = visited + ['MetricDataResult']
         {
@@ -1493,9 +1800,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricDataResultMessages
     class MetricDataResultMessages
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricDataResultMessages')
         visited = visited + ['MetricDataResultMessages']
         [
@@ -1512,9 +1818,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricDataResults
     class MetricDataResults
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricDataResults')
         visited = visited + ['MetricDataResults']
         [
@@ -1531,9 +1836,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricMathAnomalyDetector
     class MetricMathAnomalyDetector
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricMathAnomalyDetector')
         visited = visited + ['MetricMathAnomalyDetector']
         {
@@ -1549,9 +1853,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricStat
     class MetricStat
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStat')
         visited = visited + ['MetricStat']
         {
@@ -1573,9 +1876,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamEntries
     class MetricStreamEntries
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamEntries')
         visited = visited + ['MetricStreamEntries']
         [
@@ -1592,9 +1894,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricStreamEntry
     class MetricStreamEntry
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamEntry')
         visited = visited + ['MetricStreamEntry']
         {
@@ -1622,9 +1923,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricStreamFilter
     class MetricStreamFilter
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamFilter')
         visited = visited + ['MetricStreamFilter']
         {
@@ -1642,9 +1942,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamFilterMetricNames
     class MetricStreamFilterMetricNames
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamFilterMetricNames')
         visited = visited + ['MetricStreamFilterMetricNames']
         [
@@ -1661,9 +1960,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamFilters
     class MetricStreamFilters
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamFilters')
         visited = visited + ['MetricStreamFilters']
         [
@@ -1680,9 +1978,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamStatisticsAdditionalStatistics
     class MetricStreamStatisticsAdditionalStatistics
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamStatisticsAdditionalStatistics')
         visited = visited + ['MetricStreamStatisticsAdditionalStatistics']
         [
@@ -1699,9 +1996,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricStreamStatisticsConfiguration
     class MetricStreamStatisticsConfiguration
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamStatisticsConfiguration')
         visited = visited + ['MetricStreamStatisticsConfiguration']
         {
@@ -1719,9 +2015,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamStatisticsConfigurations
     class MetricStreamStatisticsConfigurations
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamStatisticsConfigurations')
         visited = visited + ['MetricStreamStatisticsConfigurations']
         [
@@ -1738,9 +2033,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for MetricStreamStatisticsIncludeMetrics
     class MetricStreamStatisticsIncludeMetrics
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamStatisticsIncludeMetrics')
         visited = visited + ['MetricStreamStatisticsIncludeMetrics']
         [
@@ -1757,9 +2051,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for MetricStreamStatisticsMetric
     class MetricStreamStatisticsMetric
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('MetricStreamStatisticsMetric')
         visited = visited + ['MetricStreamStatisticsMetric']
         {
@@ -1777,9 +2070,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for Metrics
     class Metrics
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Metrics')
         visited = visited + ['Metrics']
         [
@@ -1796,9 +2088,25 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for OwningAccounts
+    class MissingRequiredParameterException
+      def self.build(params, context:)
+        Params::MissingRequiredParameterException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::MissingRequiredParameterException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
     class OwningAccounts
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('OwningAccounts')
         visited = visited + ['OwningAccounts']
         [
@@ -1815,9 +2123,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for PartialFailure
     class PartialFailure
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('PartialFailure')
         visited = visited + ['PartialFailure']
         {
@@ -1839,9 +2146,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutAnomalyDetector
     class PutAnomalyDetector
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutAnomalyDetectorOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutAnomalyDetectorOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -1857,9 +2171,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutCompositeAlarm
     class PutCompositeAlarm
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutCompositeAlarmOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutCompositeAlarmOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -1875,9 +2196,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutDashboard
     class PutDashboard
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutDashboardOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutDashboardOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           dashboard_validation_messages: DashboardValidationMessages.default(visited),
         }
@@ -1895,9 +2223,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutInsightRule
     class PutInsightRule
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutInsightRuleOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutInsightRuleOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -1913,9 +2248,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutManagedInsightRules
     class PutManagedInsightRules
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutManagedInsightRulesOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutManagedInsightRulesOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           failures: BatchFailures.default(visited),
         }
@@ -1933,9 +2275,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutMetricAlarm
     class PutMetricAlarm
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutMetricAlarmOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutMetricAlarmOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -1951,9 +2300,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutMetricData
     class PutMetricData
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutMetricDataOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutMetricDataOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -1969,9 +2325,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for PutMetricStream
     class PutMetricStream
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::PutMetricStreamOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::PutMetricStreamOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
           arn: 'arn',
         }
@@ -1989,9 +2352,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for Range
     class Range
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Range')
         visited = visited + ['Range']
         {
@@ -2009,9 +2371,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for ResourceList
     class ResourceList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('ResourceList')
         visited = visited + ['ResourceList']
         [
@@ -2028,9 +2389,52 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for SetAlarmState
+    class ResourceNotFound
+      def self.build(params, context:)
+        Params::ResourceNotFound.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ResourceNotFound.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          message: 'message',
+        }
+      end
+
+    end
+
+    class ResourceNotFoundException
+      def self.build(params, context:)
+        Params::ResourceNotFoundException.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ResourceNotFoundException.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          resource_type: 'resource_type',
+          resource_id: 'resource_id',
+          message: 'message',
+        }
+      end
+
+    end
+
     class SetAlarmState
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::SetAlarmStateOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::SetAlarmStateOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -2046,9 +2450,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for SingleMetricAnomalyDetector
     class SingleMetricAnomalyDetector
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('SingleMetricAnomalyDetector')
         visited = visited + ['SingleMetricAnomalyDetector']
         {
@@ -2070,9 +2473,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for StartMetricStreams
     class StartMetricStreams
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::StartMetricStreamsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::StartMetricStreamsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -2088,9 +2498,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for StopMetricStreams
     class StopMetricStreams
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::StopMetricStreamsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::StopMetricStreamsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -2106,9 +2523,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Structure Stubber for Tag
     class Tag
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Tag')
         visited = visited + ['Tag']
         {
@@ -2126,9 +2542,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for TagList
     class TagList
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('TagList')
         visited = visited + ['TagList']
         [
@@ -2145,9 +2560,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for TagResource
     class TagResource
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::TagResourceOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::TagResourceOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end
@@ -2163,9 +2585,8 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # List Stubber for Timestamps
     class Timestamps
-      def self.default(visited=[])
+      def self.default(visited = [])
         return nil if visited.include?('Timestamps')
         visited = visited + ['Timestamps']
         [
@@ -2182,9 +2603,16 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    # Operation Stubber for UntagResource
     class UntagResource
-      def self.default(visited=[])
+      def self.build(params, context:)
+        Params::UntagResourceOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::UntagResourceOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
         {
         }
       end

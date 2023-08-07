@@ -822,7 +822,7 @@ module AWS
       def extract_url(request)
         raise ArgumentError, 'missing required option :url' unless request[:url]
 
-        URI.parse(request[:url].to_s)
+        URI(request[:url])
       end
 
       def extract_expires_in(kwargs)

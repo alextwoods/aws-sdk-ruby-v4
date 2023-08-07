@@ -3,11 +3,9 @@ package software.amazon.smithy.aws.ruby.codegen;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
-
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
 import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.knowledge.KnowledgeIndex;
 import software.amazon.smithy.model.knowledge.ServiceIndex;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.traits.OptionalAuthTrait;
@@ -15,10 +13,7 @@ import software.amazon.smithy.ruby.codegen.ClientFragment;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
-import software.amazon.smithy.ruby.codegen.config.ConfigProviderChain;
-import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.middleware.Middleware;
-
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareBuilder;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
 
@@ -29,7 +24,7 @@ public class Sigv4Auth implements RubyIntegration {
 
     @Override
     public boolean includeFor(ServiceShape service, Model model) {
-        return false; //new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
+       return new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
     }
 
     @Override
@@ -71,11 +66,11 @@ public class Sigv4Auth implements RubyIntegration {
                   
                 @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN""";
 
-        ClientConfig credentialProvider = (new ClientConfig.Builder())
+        ClientConfig credentialProvider = ClientConfig.builder()
                 .name("credential_provider")
                 .type("AWS::SDK::Core::CredentialProvider")
                 .documentation(credentialProviderDocumentation)
-                .defaultPrimitiveValue("AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
+                .defaultLiteral("AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
         SigV4Trait sigV4Trait = (SigV4Trait) new ServiceIndex(context.model())
@@ -92,16 +87,14 @@ public class Sigv4Auth implements RubyIntegration {
                             + "credential_provider: cfg[:credential_provider]" + ") }";
                 }).build();
 
-        ClientConfig signer = (new ClientConfig.Builder()
+        ClientConfig signer = ClientConfig.builder()
                 .name("signer")
                 .type("AWS::SigV4::Signer")
                 .documentation("An instance of SigV4 signer used to sign requests.")
-                .defaults(new ConfigProviderChain.Builder()
-                        .dynamicProvider(initializeSigner)
-                        .build()))
+                .defaultDynamicValue(initializeSigner)
                 .build();
 
-        Middleware signatureV4 = (new Middleware.Builder())
+        Middleware signatureV4 = Middleware.builder()
                 // Do not render if operation has optional auth
                 .operationPredicate((model, service, operation) -> !operation.hasTrait(OptionalAuthTrait.class))
                 .addConfig(signer)

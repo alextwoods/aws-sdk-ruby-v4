@@ -43,7 +43,10 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("return unless xml && xml.name == 'ErrorResponse'")
                 .write("code = xml.at('Error')&.text_at('Code')")
                 .write("custom_errors[code] || code")
-                .closeBlock("end");
+                .closeBlock("end")
+                .dedent()
+                .openBlock("rescue Hearth::XML::ParseError")
+                .write("\"HTTP #{resp.status} Error\"");
     }
 
     private void renderErrorCodesMap() {

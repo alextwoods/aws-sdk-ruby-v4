@@ -12,7 +12,7 @@ module AWS::SDK::S3
   module Params
 
     module AbortIncompleteMultipartUpload
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AbortIncompleteMultipartUpload, context: context)
         type = Types::AbortIncompleteMultipartUpload.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -22,7 +22,7 @@ module AWS::SDK::S3
     end
 
     module AbortMultipartUploadInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AbortMultipartUploadInput, context: context)
         type = Types::AbortMultipartUploadInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -36,7 +36,7 @@ module AWS::SDK::S3
     end
 
     module AbortMultipartUploadOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AbortMultipartUploadOutput, context: context)
         type = Types::AbortMultipartUploadOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -46,7 +46,7 @@ module AWS::SDK::S3
     end
 
     module AccelerateConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccelerateConfiguration, context: context)
         type = Types::AccelerateConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -56,7 +56,7 @@ module AWS::SDK::S3
     end
 
     module AccessControlPolicy
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessControlPolicy, context: context)
         type = Types::AccessControlPolicy.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -67,7 +67,7 @@ module AWS::SDK::S3
     end
 
     module AccessControlTranslation
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AccessControlTranslation, context: context)
         type = Types::AccessControlTranslation.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -77,7 +77,7 @@ module AWS::SDK::S3
     end
 
     module AllowedHeaders
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -88,7 +88,7 @@ module AWS::SDK::S3
     end
 
     module AllowedMethods
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -99,7 +99,7 @@ module AWS::SDK::S3
     end
 
     module AllowedOrigins
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -110,7 +110,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsAndOperator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalyticsAndOperator, context: context)
         type = Types::AnalyticsAndOperator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -121,7 +121,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalyticsConfiguration, context: context)
         type = Types::AnalyticsConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -133,7 +133,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -144,7 +144,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsExportDestination
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalyticsExportDestination, context: context)
         type = Types::AnalyticsExportDestination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -154,7 +154,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         return params if params.is_a?(Types::AnalyticsFilter)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalyticsFilter, context: context)
         unless params.size == 1
@@ -183,7 +183,7 @@ module AWS::SDK::S3
     end
 
     module AnalyticsS3BucketDestination
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnalyticsS3BucketDestination, context: context)
         type = Types::AnalyticsS3BucketDestination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -196,7 +196,7 @@ module AWS::SDK::S3
     end
 
     module Bucket
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Bucket, context: context)
         type = Types::Bucket.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -207,7 +207,7 @@ module AWS::SDK::S3
     end
 
     module BucketAlreadyExists
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BucketAlreadyExists, context: context)
         type = Types::BucketAlreadyExists.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -216,7 +216,7 @@ module AWS::SDK::S3
     end
 
     module BucketAlreadyOwnedByYou
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BucketAlreadyOwnedByYou, context: context)
         type = Types::BucketAlreadyOwnedByYou.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -225,7 +225,7 @@ module AWS::SDK::S3
     end
 
     module BucketLifecycleConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BucketLifecycleConfiguration, context: context)
         type = Types::BucketLifecycleConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -235,7 +235,7 @@ module AWS::SDK::S3
     end
 
     module BucketLoggingStatus
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::BucketLoggingStatus, context: context)
         type = Types::BucketLoggingStatus.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -245,7 +245,7 @@ module AWS::SDK::S3
     end
 
     module Buckets
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -256,7 +256,7 @@ module AWS::SDK::S3
     end
 
     module CORSConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CORSConfiguration, context: context)
         type = Types::CORSConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -266,7 +266,7 @@ module AWS::SDK::S3
     end
 
     module CORSRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CORSRule, context: context)
         type = Types::CORSRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -281,7 +281,7 @@ module AWS::SDK::S3
     end
 
     module CORSRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -292,7 +292,7 @@ module AWS::SDK::S3
     end
 
     module CSVInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CSVInput, context: context)
         type = Types::CSVInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -308,7 +308,7 @@ module AWS::SDK::S3
     end
 
     module CSVOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CSVOutput, context: context)
         type = Types::CSVOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -322,7 +322,7 @@ module AWS::SDK::S3
     end
 
     module Checksum
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Checksum, context: context)
         type = Types::Checksum.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -335,7 +335,7 @@ module AWS::SDK::S3
     end
 
     module ChecksumAlgorithmList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -346,7 +346,7 @@ module AWS::SDK::S3
     end
 
     module CommonPrefix
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CommonPrefix, context: context)
         type = Types::CommonPrefix.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -356,7 +356,7 @@ module AWS::SDK::S3
     end
 
     module CommonPrefixList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -367,7 +367,7 @@ module AWS::SDK::S3
     end
 
     module CompleteMultipartUploadInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompleteMultipartUploadInput, context: context)
         type = Types::CompleteMultipartUploadInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -389,7 +389,7 @@ module AWS::SDK::S3
     end
 
     module CompleteMultipartUploadOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompleteMultipartUploadOutput, context: context)
         type = Types::CompleteMultipartUploadOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -412,7 +412,7 @@ module AWS::SDK::S3
     end
 
     module CompletedMultipartUpload
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompletedMultipartUpload, context: context)
         type = Types::CompletedMultipartUpload.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -422,7 +422,7 @@ module AWS::SDK::S3
     end
 
     module CompletedPart
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompletedPart, context: context)
         type = Types::CompletedPart.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -437,7 +437,7 @@ module AWS::SDK::S3
     end
 
     module CompletedPartList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -448,7 +448,7 @@ module AWS::SDK::S3
     end
 
     module Condition
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Condition, context: context)
         type = Types::Condition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -459,7 +459,7 @@ module AWS::SDK::S3
     end
 
     module ContinuationEvent
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ContinuationEvent, context: context)
         type = Types::ContinuationEvent.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -468,7 +468,7 @@ module AWS::SDK::S3
     end
 
     module CopyObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyObjectInput, context: context)
         type = Types::CopyObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -518,7 +518,7 @@ module AWS::SDK::S3
     end
 
     module CopyObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyObjectOutput, context: context)
         type = Types::CopyObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -538,7 +538,7 @@ module AWS::SDK::S3
     end
 
     module CopyObjectResult
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyObjectResult, context: context)
         type = Types::CopyObjectResult.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -553,7 +553,7 @@ module AWS::SDK::S3
     end
 
     module CopyPartResult
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CopyPartResult, context: context)
         type = Types::CopyPartResult.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -568,7 +568,7 @@ module AWS::SDK::S3
     end
 
     module CreateBucketConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBucketConfiguration, context: context)
         type = Types::CreateBucketConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -578,7 +578,7 @@ module AWS::SDK::S3
     end
 
     module CreateBucketInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBucketInput, context: context)
         type = Types::CreateBucketInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -597,7 +597,7 @@ module AWS::SDK::S3
     end
 
     module CreateBucketOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateBucketOutput, context: context)
         type = Types::CreateBucketOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -607,7 +607,7 @@ module AWS::SDK::S3
     end
 
     module CreateMultipartUploadInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateMultipartUploadInput, context: context)
         type = Types::CreateMultipartUploadInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -646,7 +646,7 @@ module AWS::SDK::S3
     end
 
     module CreateMultipartUploadOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CreateMultipartUploadOutput, context: context)
         type = Types::CreateMultipartUploadOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -668,7 +668,7 @@ module AWS::SDK::S3
     end
 
     module DefaultRetention
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DefaultRetention, context: context)
         type = Types::DefaultRetention.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -680,7 +680,7 @@ module AWS::SDK::S3
     end
 
     module Delete
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Delete, context: context)
         type = Types::Delete.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -691,7 +691,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketAnalyticsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketAnalyticsConfigurationInput, context: context)
         type = Types::DeleteBucketAnalyticsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -703,7 +703,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketAnalyticsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketAnalyticsConfigurationOutput, context: context)
         type = Types::DeleteBucketAnalyticsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -712,7 +712,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketCorsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketCorsInput, context: context)
         type = Types::DeleteBucketCorsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -723,7 +723,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketCorsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketCorsOutput, context: context)
         type = Types::DeleteBucketCorsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -732,7 +732,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketEncryptionInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketEncryptionInput, context: context)
         type = Types::DeleteBucketEncryptionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -743,7 +743,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketEncryptionOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketEncryptionOutput, context: context)
         type = Types::DeleteBucketEncryptionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -752,7 +752,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketInput, context: context)
         type = Types::DeleteBucketInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -763,7 +763,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketIntelligentTieringConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketIntelligentTieringConfigurationInput, context: context)
         type = Types::DeleteBucketIntelligentTieringConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -774,7 +774,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketIntelligentTieringConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketIntelligentTieringConfigurationOutput, context: context)
         type = Types::DeleteBucketIntelligentTieringConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -783,7 +783,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketInventoryConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketInventoryConfigurationInput, context: context)
         type = Types::DeleteBucketInventoryConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -795,7 +795,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketInventoryConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketInventoryConfigurationOutput, context: context)
         type = Types::DeleteBucketInventoryConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -804,7 +804,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketLifecycleInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketLifecycleInput, context: context)
         type = Types::DeleteBucketLifecycleInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -815,7 +815,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketLifecycleOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketLifecycleOutput, context: context)
         type = Types::DeleteBucketLifecycleOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -824,7 +824,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketMetricsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketMetricsConfigurationInput, context: context)
         type = Types::DeleteBucketMetricsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -836,7 +836,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketMetricsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketMetricsConfigurationOutput, context: context)
         type = Types::DeleteBucketMetricsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -845,7 +845,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketOutput, context: context)
         type = Types::DeleteBucketOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -854,7 +854,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketOwnershipControlsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketOwnershipControlsInput, context: context)
         type = Types::DeleteBucketOwnershipControlsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -865,7 +865,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketOwnershipControlsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketOwnershipControlsOutput, context: context)
         type = Types::DeleteBucketOwnershipControlsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -874,7 +874,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketPolicyInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketPolicyInput, context: context)
         type = Types::DeleteBucketPolicyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -885,7 +885,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketPolicyOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketPolicyOutput, context: context)
         type = Types::DeleteBucketPolicyOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -894,7 +894,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketReplicationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketReplicationInput, context: context)
         type = Types::DeleteBucketReplicationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -905,7 +905,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketReplicationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketReplicationOutput, context: context)
         type = Types::DeleteBucketReplicationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -914,7 +914,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketTaggingInput, context: context)
         type = Types::DeleteBucketTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -925,7 +925,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketTaggingOutput, context: context)
         type = Types::DeleteBucketTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -934,7 +934,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketWebsiteInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketWebsiteInput, context: context)
         type = Types::DeleteBucketWebsiteInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -945,7 +945,7 @@ module AWS::SDK::S3
     end
 
     module DeleteBucketWebsiteOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteBucketWebsiteOutput, context: context)
         type = Types::DeleteBucketWebsiteOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -954,7 +954,7 @@ module AWS::SDK::S3
     end
 
     module DeleteMarkerEntry
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMarkerEntry, context: context)
         type = Types::DeleteMarkerEntry.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -968,7 +968,7 @@ module AWS::SDK::S3
     end
 
     module DeleteMarkerReplication
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMarkerReplication, context: context)
         type = Types::DeleteMarkerReplication.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -978,7 +978,7 @@ module AWS::SDK::S3
     end
 
     module DeleteMarkers
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -989,7 +989,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectInput, context: context)
         type = Types::DeleteObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1005,7 +1005,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectOutput, context: context)
         type = Types::DeleteObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1017,7 +1017,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectTaggingInput, context: context)
         type = Types::DeleteObjectTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1030,7 +1030,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectTaggingOutput, context: context)
         type = Types::DeleteObjectTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1040,7 +1040,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectsInput, context: context)
         type = Types::DeleteObjectsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1056,7 +1056,7 @@ module AWS::SDK::S3
     end
 
     module DeleteObjectsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteObjectsOutput, context: context)
         type = Types::DeleteObjectsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1068,7 +1068,7 @@ module AWS::SDK::S3
     end
 
     module DeletePublicAccessBlockInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePublicAccessBlockInput, context: context)
         type = Types::DeletePublicAccessBlockInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1079,7 +1079,7 @@ module AWS::SDK::S3
     end
 
     module DeletePublicAccessBlockOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletePublicAccessBlockOutput, context: context)
         type = Types::DeletePublicAccessBlockOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1088,7 +1088,7 @@ module AWS::SDK::S3
     end
 
     module DeletedObject
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeletedObject, context: context)
         type = Types::DeletedObject.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1101,7 +1101,7 @@ module AWS::SDK::S3
     end
 
     module DeletedObjects
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -1112,7 +1112,7 @@ module AWS::SDK::S3
     end
 
     module Destination
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Destination, context: context)
         type = Types::Destination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1128,7 +1128,7 @@ module AWS::SDK::S3
     end
 
     module Encryption
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Encryption, context: context)
         type = Types::Encryption.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1140,7 +1140,7 @@ module AWS::SDK::S3
     end
 
     module EncryptionConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EncryptionConfiguration, context: context)
         type = Types::EncryptionConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1150,7 +1150,7 @@ module AWS::SDK::S3
     end
 
     module EndEvent
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EndEvent, context: context)
         type = Types::EndEvent.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1159,7 +1159,7 @@ module AWS::SDK::S3
     end
 
     module Error
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Error, context: context)
         type = Types::Error.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1172,7 +1172,7 @@ module AWS::SDK::S3
     end
 
     module ErrorDocument
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ErrorDocument, context: context)
         type = Types::ErrorDocument.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1182,7 +1182,7 @@ module AWS::SDK::S3
     end
 
     module Errors
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -1193,7 +1193,7 @@ module AWS::SDK::S3
     end
 
     module EventBridgeConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EventBridgeConfiguration, context: context)
         type = Types::EventBridgeConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1202,7 +1202,7 @@ module AWS::SDK::S3
     end
 
     module EventList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -1213,7 +1213,7 @@ module AWS::SDK::S3
     end
 
     module ExistingObjectReplication
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ExistingObjectReplication, context: context)
         type = Types::ExistingObjectReplication.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1223,7 +1223,7 @@ module AWS::SDK::S3
     end
 
     module ExposeHeaders
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -1234,7 +1234,7 @@ module AWS::SDK::S3
     end
 
     module FilterRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::FilterRule, context: context)
         type = Types::FilterRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1245,7 +1245,7 @@ module AWS::SDK::S3
     end
 
     module FilterRuleList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -1256,7 +1256,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAccelerateConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAccelerateConfigurationInput, context: context)
         type = Types::GetBucketAccelerateConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1267,7 +1267,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAccelerateConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAccelerateConfigurationOutput, context: context)
         type = Types::GetBucketAccelerateConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1277,7 +1277,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAclInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAclInput, context: context)
         type = Types::GetBucketAclInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1288,7 +1288,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAclOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAclOutput, context: context)
         type = Types::GetBucketAclOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1299,7 +1299,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAnalyticsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAnalyticsConfigurationInput, context: context)
         type = Types::GetBucketAnalyticsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1311,7 +1311,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketAnalyticsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketAnalyticsConfigurationOutput, context: context)
         type = Types::GetBucketAnalyticsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1321,7 +1321,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketCorsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketCorsInput, context: context)
         type = Types::GetBucketCorsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1332,7 +1332,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketCorsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketCorsOutput, context: context)
         type = Types::GetBucketCorsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1342,7 +1342,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketEncryptionInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketEncryptionInput, context: context)
         type = Types::GetBucketEncryptionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1353,7 +1353,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketEncryptionOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketEncryptionOutput, context: context)
         type = Types::GetBucketEncryptionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1363,7 +1363,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketIntelligentTieringConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketIntelligentTieringConfigurationInput, context: context)
         type = Types::GetBucketIntelligentTieringConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1374,7 +1374,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketIntelligentTieringConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketIntelligentTieringConfigurationOutput, context: context)
         type = Types::GetBucketIntelligentTieringConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1384,7 +1384,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketInventoryConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketInventoryConfigurationInput, context: context)
         type = Types::GetBucketInventoryConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1396,7 +1396,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketInventoryConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketInventoryConfigurationOutput, context: context)
         type = Types::GetBucketInventoryConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1406,7 +1406,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLifecycleConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLifecycleConfigurationInput, context: context)
         type = Types::GetBucketLifecycleConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1417,7 +1417,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLifecycleConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLifecycleConfigurationOutput, context: context)
         type = Types::GetBucketLifecycleConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1427,7 +1427,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLocationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLocationInput, context: context)
         type = Types::GetBucketLocationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1438,7 +1438,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLocationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLocationOutput, context: context)
         type = Types::GetBucketLocationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1448,7 +1448,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLoggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLoggingInput, context: context)
         type = Types::GetBucketLoggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1459,7 +1459,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketLoggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketLoggingOutput, context: context)
         type = Types::GetBucketLoggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1469,7 +1469,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketMetricsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketMetricsConfigurationInput, context: context)
         type = Types::GetBucketMetricsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1481,7 +1481,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketMetricsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketMetricsConfigurationOutput, context: context)
         type = Types::GetBucketMetricsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1491,7 +1491,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketNotificationConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketNotificationConfigurationInput, context: context)
         type = Types::GetBucketNotificationConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1502,7 +1502,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketNotificationConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketNotificationConfigurationOutput, context: context)
         type = Types::GetBucketNotificationConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1515,7 +1515,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketOwnershipControlsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketOwnershipControlsInput, context: context)
         type = Types::GetBucketOwnershipControlsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1526,7 +1526,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketOwnershipControlsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketOwnershipControlsOutput, context: context)
         type = Types::GetBucketOwnershipControlsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1536,7 +1536,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketPolicyInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketPolicyInput, context: context)
         type = Types::GetBucketPolicyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1547,7 +1547,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketPolicyOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketPolicyOutput, context: context)
         type = Types::GetBucketPolicyOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1557,7 +1557,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketPolicyStatusInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketPolicyStatusInput, context: context)
         type = Types::GetBucketPolicyStatusInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1568,7 +1568,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketPolicyStatusOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketPolicyStatusOutput, context: context)
         type = Types::GetBucketPolicyStatusOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1578,7 +1578,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketReplicationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketReplicationInput, context: context)
         type = Types::GetBucketReplicationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1589,7 +1589,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketReplicationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketReplicationOutput, context: context)
         type = Types::GetBucketReplicationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1599,7 +1599,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketRequestPaymentInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketRequestPaymentInput, context: context)
         type = Types::GetBucketRequestPaymentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1610,7 +1610,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketRequestPaymentOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketRequestPaymentOutput, context: context)
         type = Types::GetBucketRequestPaymentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1620,7 +1620,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketTaggingInput, context: context)
         type = Types::GetBucketTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1631,7 +1631,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketTaggingOutput, context: context)
         type = Types::GetBucketTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1641,7 +1641,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketVersioningInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketVersioningInput, context: context)
         type = Types::GetBucketVersioningInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1652,7 +1652,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketVersioningOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketVersioningOutput, context: context)
         type = Types::GetBucketVersioningOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1663,7 +1663,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketWebsiteInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketWebsiteInput, context: context)
         type = Types::GetBucketWebsiteInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1674,7 +1674,7 @@ module AWS::SDK::S3
     end
 
     module GetBucketWebsiteOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetBucketWebsiteOutput, context: context)
         type = Types::GetBucketWebsiteOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1687,7 +1687,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectAclInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectAclInput, context: context)
         type = Types::GetObjectAclInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1701,7 +1701,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectAclOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectAclOutput, context: context)
         type = Types::GetObjectAclOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1713,7 +1713,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectAttributesInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectAttributesInput, context: context)
         type = Types::GetObjectAttributesInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1733,7 +1733,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectAttributesOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectAttributesOutput, context: context)
         type = Types::GetObjectAttributesOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1751,7 +1751,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectAttributesParts
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectAttributesParts, context: context)
         type = Types::GetObjectAttributesParts.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1766,7 +1766,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectInput, context: context)
         type = Types::GetObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1796,7 +1796,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectLegalHoldInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectLegalHoldInput, context: context)
         type = Types::GetObjectLegalHoldInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1810,7 +1810,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectLegalHoldOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectLegalHoldOutput, context: context)
         type = Types::GetObjectLegalHoldOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1820,7 +1820,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectLockConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectLockConfigurationInput, context: context)
         type = Types::GetObjectLockConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1831,7 +1831,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectLockConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectLockConfigurationOutput, context: context)
         type = Types::GetObjectLockConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1841,7 +1841,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectOutput, context: context)
         type = Types::GetObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1890,7 +1890,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectRetentionInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectRetentionInput, context: context)
         type = Types::GetObjectRetentionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1904,7 +1904,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectRetentionOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectRetentionOutput, context: context)
         type = Types::GetObjectRetentionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1914,7 +1914,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectTaggingInput, context: context)
         type = Types::GetObjectTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1928,7 +1928,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectTaggingOutput, context: context)
         type = Types::GetObjectTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1939,7 +1939,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectTorrentInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectTorrentInput, context: context)
         type = Types::GetObjectTorrentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1952,7 +1952,7 @@ module AWS::SDK::S3
     end
 
     module GetObjectTorrentOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetObjectTorrentOutput, context: context)
         type = Types::GetObjectTorrentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1967,7 +1967,7 @@ module AWS::SDK::S3
     end
 
     module GetPublicAccessBlockInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPublicAccessBlockInput, context: context)
         type = Types::GetPublicAccessBlockInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1978,7 +1978,7 @@ module AWS::SDK::S3
     end
 
     module GetPublicAccessBlockOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetPublicAccessBlockOutput, context: context)
         type = Types::GetPublicAccessBlockOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1988,7 +1988,7 @@ module AWS::SDK::S3
     end
 
     module GlacierJobParameters
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GlacierJobParameters, context: context)
         type = Types::GlacierJobParameters.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -1998,7 +1998,7 @@ module AWS::SDK::S3
     end
 
     module Grant
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Grant, context: context)
         type = Types::Grant.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2009,7 +2009,7 @@ module AWS::SDK::S3
     end
 
     module Grantee
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Grantee, context: context)
         type = Types::Grantee.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2023,7 +2023,7 @@ module AWS::SDK::S3
     end
 
     module Grants
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2034,7 +2034,7 @@ module AWS::SDK::S3
     end
 
     module HeadBucketInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HeadBucketInput, context: context)
         type = Types::HeadBucketInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2045,7 +2045,7 @@ module AWS::SDK::S3
     end
 
     module HeadBucketOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HeadBucketOutput, context: context)
         type = Types::HeadBucketOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2054,7 +2054,7 @@ module AWS::SDK::S3
     end
 
     module HeadObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HeadObjectInput, context: context)
         type = Types::HeadObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2078,7 +2078,7 @@ module AWS::SDK::S3
     end
 
     module HeadObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::HeadObjectOutput, context: context)
         type = Types::HeadObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2121,7 +2121,7 @@ module AWS::SDK::S3
     end
 
     module IndexDocument
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IndexDocument, context: context)
         type = Types::IndexDocument.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2131,7 +2131,7 @@ module AWS::SDK::S3
     end
 
     module Initiator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Initiator, context: context)
         type = Types::Initiator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2142,7 +2142,7 @@ module AWS::SDK::S3
     end
 
     module InputSerialization
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InputSerialization, context: context)
         type = Types::InputSerialization.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2155,7 +2155,7 @@ module AWS::SDK::S3
     end
 
     module IntelligentTieringAndOperator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IntelligentTieringAndOperator, context: context)
         type = Types::IntelligentTieringAndOperator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2166,7 +2166,7 @@ module AWS::SDK::S3
     end
 
     module IntelligentTieringConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IntelligentTieringConfiguration, context: context)
         type = Types::IntelligentTieringConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2179,7 +2179,7 @@ module AWS::SDK::S3
     end
 
     module IntelligentTieringConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2190,7 +2190,7 @@ module AWS::SDK::S3
     end
 
     module IntelligentTieringFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IntelligentTieringFilter, context: context)
         type = Types::IntelligentTieringFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2202,7 +2202,7 @@ module AWS::SDK::S3
     end
 
     module InvalidObjectState
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidObjectState, context: context)
         type = Types::InvalidObjectState.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2213,7 +2213,7 @@ module AWS::SDK::S3
     end
 
     module InventoryConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventoryConfiguration, context: context)
         type = Types::InventoryConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2229,7 +2229,7 @@ module AWS::SDK::S3
     end
 
     module InventoryConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2240,7 +2240,7 @@ module AWS::SDK::S3
     end
 
     module InventoryDestination
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventoryDestination, context: context)
         type = Types::InventoryDestination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2250,7 +2250,7 @@ module AWS::SDK::S3
     end
 
     module InventoryEncryption
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventoryEncryption, context: context)
         type = Types::InventoryEncryption.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2261,7 +2261,7 @@ module AWS::SDK::S3
     end
 
     module InventoryFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventoryFilter, context: context)
         type = Types::InventoryFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2271,7 +2271,7 @@ module AWS::SDK::S3
     end
 
     module InventoryOptionalFields
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -2282,7 +2282,7 @@ module AWS::SDK::S3
     end
 
     module InventoryS3BucketDestination
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventoryS3BucketDestination, context: context)
         type = Types::InventoryS3BucketDestination.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2296,7 +2296,7 @@ module AWS::SDK::S3
     end
 
     module InventorySchedule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InventorySchedule, context: context)
         type = Types::InventorySchedule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2306,7 +2306,7 @@ module AWS::SDK::S3
     end
 
     module JSONInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::JSONInput, context: context)
         type = Types::JSONInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2316,7 +2316,7 @@ module AWS::SDK::S3
     end
 
     module JSONOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::JSONOutput, context: context)
         type = Types::JSONOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2326,7 +2326,7 @@ module AWS::SDK::S3
     end
 
     module LambdaFunctionConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LambdaFunctionConfiguration, context: context)
         type = Types::LambdaFunctionConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2339,7 +2339,7 @@ module AWS::SDK::S3
     end
 
     module LambdaFunctionConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2350,7 +2350,7 @@ module AWS::SDK::S3
     end
 
     module LifecycleExpiration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LifecycleExpiration, context: context)
         type = Types::LifecycleExpiration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2362,7 +2362,7 @@ module AWS::SDK::S3
     end
 
     module LifecycleRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LifecycleRule, context: context)
         type = Types::LifecycleRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2380,7 +2380,7 @@ module AWS::SDK::S3
     end
 
     module LifecycleRuleAndOperator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LifecycleRuleAndOperator, context: context)
         type = Types::LifecycleRuleAndOperator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2393,7 +2393,7 @@ module AWS::SDK::S3
     end
 
     module LifecycleRuleFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         return params if params.is_a?(Types::LifecycleRuleFilter)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LifecycleRuleFilter, context: context)
         unless params.size == 1
@@ -2430,7 +2430,7 @@ module AWS::SDK::S3
     end
 
     module LifecycleRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2441,7 +2441,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketAnalyticsConfigurationsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketAnalyticsConfigurationsInput, context: context)
         type = Types::ListBucketAnalyticsConfigurationsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2453,7 +2453,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketAnalyticsConfigurationsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketAnalyticsConfigurationsOutput, context: context)
         type = Types::ListBucketAnalyticsConfigurationsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2466,7 +2466,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketIntelligentTieringConfigurationsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketIntelligentTieringConfigurationsInput, context: context)
         type = Types::ListBucketIntelligentTieringConfigurationsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2477,7 +2477,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketIntelligentTieringConfigurationsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketIntelligentTieringConfigurationsOutput, context: context)
         type = Types::ListBucketIntelligentTieringConfigurationsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2490,7 +2490,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketInventoryConfigurationsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketInventoryConfigurationsInput, context: context)
         type = Types::ListBucketInventoryConfigurationsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2502,7 +2502,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketInventoryConfigurationsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketInventoryConfigurationsOutput, context: context)
         type = Types::ListBucketInventoryConfigurationsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2515,7 +2515,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketMetricsConfigurationsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketMetricsConfigurationsInput, context: context)
         type = Types::ListBucketMetricsConfigurationsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2527,7 +2527,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketMetricsConfigurationsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketMetricsConfigurationsOutput, context: context)
         type = Types::ListBucketMetricsConfigurationsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2540,7 +2540,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketsInput, context: context)
         type = Types::ListBucketsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2549,7 +2549,7 @@ module AWS::SDK::S3
     end
 
     module ListBucketsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListBucketsOutput, context: context)
         type = Types::ListBucketsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2560,7 +2560,7 @@ module AWS::SDK::S3
     end
 
     module ListMultipartUploadsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMultipartUploadsInput, context: context)
         type = Types::ListMultipartUploadsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2577,7 +2577,7 @@ module AWS::SDK::S3
     end
 
     module ListMultipartUploadsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMultipartUploadsOutput, context: context)
         type = Types::ListMultipartUploadsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2598,7 +2598,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectVersionsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectVersionsInput, context: context)
         type = Types::ListObjectVersionsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2615,7 +2615,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectVersionsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectVersionsOutput, context: context)
         type = Types::ListObjectVersionsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2637,7 +2637,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectsInput, context: context)
         type = Types::ListObjectsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2654,7 +2654,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectsOutput, context: context)
         type = Types::ListObjectsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2673,7 +2673,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectsV2Input
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectsV2Input, context: context)
         type = Types::ListObjectsV2Input.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2692,7 +2692,7 @@ module AWS::SDK::S3
     end
 
     module ListObjectsV2Output
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListObjectsV2Output, context: context)
         type = Types::ListObjectsV2Output.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2713,7 +2713,7 @@ module AWS::SDK::S3
     end
 
     module ListPartsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListPartsInput, context: context)
         type = Types::ListPartsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2732,7 +2732,7 @@ module AWS::SDK::S3
     end
 
     module ListPartsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListPartsOutput, context: context)
         type = Types::ListPartsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2756,7 +2756,7 @@ module AWS::SDK::S3
     end
 
     module LoggingEnabled
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LoggingEnabled, context: context)
         type = Types::LoggingEnabled.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2768,7 +2768,7 @@ module AWS::SDK::S3
     end
 
     module Metadata
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
@@ -2779,7 +2779,7 @@ module AWS::SDK::S3
     end
 
     module MetadataEntry
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetadataEntry, context: context)
         type = Types::MetadataEntry.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2790,7 +2790,7 @@ module AWS::SDK::S3
     end
 
     module Metrics
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Metrics, context: context)
         type = Types::Metrics.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2801,7 +2801,7 @@ module AWS::SDK::S3
     end
 
     module MetricsAndOperator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricsAndOperator, context: context)
         type = Types::MetricsAndOperator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2813,7 +2813,7 @@ module AWS::SDK::S3
     end
 
     module MetricsConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricsConfiguration, context: context)
         type = Types::MetricsConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2824,7 +2824,7 @@ module AWS::SDK::S3
     end
 
     module MetricsConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2835,7 +2835,7 @@ module AWS::SDK::S3
     end
 
     module MetricsFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         return params if params.is_a?(Types::MetricsFilter)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricsFilter, context: context)
         unless params.size == 1
@@ -2868,7 +2868,7 @@ module AWS::SDK::S3
     end
 
     module MultipartUpload
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MultipartUpload, context: context)
         type = Types::MultipartUpload.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2884,7 +2884,7 @@ module AWS::SDK::S3
     end
 
     module MultipartUploadList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2895,7 +2895,7 @@ module AWS::SDK::S3
     end
 
     module NoSuchBucket
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NoSuchBucket, context: context)
         type = Types::NoSuchBucket.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2904,7 +2904,7 @@ module AWS::SDK::S3
     end
 
     module NoSuchKey
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NoSuchKey, context: context)
         type = Types::NoSuchKey.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2913,7 +2913,7 @@ module AWS::SDK::S3
     end
 
     module NoSuchUpload
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NoSuchUpload, context: context)
         type = Types::NoSuchUpload.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2922,7 +2922,7 @@ module AWS::SDK::S3
     end
 
     module NoncurrentVersionExpiration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NoncurrentVersionExpiration, context: context)
         type = Types::NoncurrentVersionExpiration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2933,7 +2933,7 @@ module AWS::SDK::S3
     end
 
     module NoncurrentVersionTransition
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NoncurrentVersionTransition, context: context)
         type = Types::NoncurrentVersionTransition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2945,7 +2945,7 @@ module AWS::SDK::S3
     end
 
     module NoncurrentVersionTransitionList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -2956,7 +2956,7 @@ module AWS::SDK::S3
     end
 
     module NotFound
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NotFound, context: context)
         type = Types::NotFound.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2965,7 +2965,7 @@ module AWS::SDK::S3
     end
 
     module NotificationConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NotificationConfiguration, context: context)
         type = Types::NotificationConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2978,7 +2978,7 @@ module AWS::SDK::S3
     end
 
     module NotificationConfigurationFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::NotificationConfigurationFilter, context: context)
         type = Types::NotificationConfigurationFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -2988,7 +2988,7 @@ module AWS::SDK::S3
     end
 
     module Object
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Object, context: context)
         type = Types::Object.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3004,7 +3004,7 @@ module AWS::SDK::S3
     end
 
     module ObjectAlreadyInActiveTierError
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectAlreadyInActiveTierError, context: context)
         type = Types::ObjectAlreadyInActiveTierError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3013,7 +3013,7 @@ module AWS::SDK::S3
     end
 
     module ObjectAttributesList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each do |element|
@@ -3024,7 +3024,7 @@ module AWS::SDK::S3
     end
 
     module ObjectIdentifier
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectIdentifier, context: context)
         type = Types::ObjectIdentifier.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3035,7 +3035,7 @@ module AWS::SDK::S3
     end
 
     module ObjectIdentifierList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3046,7 +3046,7 @@ module AWS::SDK::S3
     end
 
     module ObjectList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3057,7 +3057,7 @@ module AWS::SDK::S3
     end
 
     module ObjectLockConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectLockConfiguration, context: context)
         type = Types::ObjectLockConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3068,7 +3068,7 @@ module AWS::SDK::S3
     end
 
     module ObjectLockLegalHold
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectLockLegalHold, context: context)
         type = Types::ObjectLockLegalHold.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3078,7 +3078,7 @@ module AWS::SDK::S3
     end
 
     module ObjectLockRetention
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectLockRetention, context: context)
         type = Types::ObjectLockRetention.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3089,7 +3089,7 @@ module AWS::SDK::S3
     end
 
     module ObjectLockRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectLockRule, context: context)
         type = Types::ObjectLockRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3099,7 +3099,7 @@ module AWS::SDK::S3
     end
 
     module ObjectNotInActiveTierError
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectNotInActiveTierError, context: context)
         type = Types::ObjectNotInActiveTierError.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3108,7 +3108,7 @@ module AWS::SDK::S3
     end
 
     module ObjectPart
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectPart, context: context)
         type = Types::ObjectPart.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3123,7 +3123,7 @@ module AWS::SDK::S3
     end
 
     module ObjectVersion
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ObjectVersion, context: context)
         type = Types::ObjectVersion.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3141,7 +3141,7 @@ module AWS::SDK::S3
     end
 
     module ObjectVersionList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3152,7 +3152,7 @@ module AWS::SDK::S3
     end
 
     module OutputLocation
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OutputLocation, context: context)
         type = Types::OutputLocation.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3162,7 +3162,7 @@ module AWS::SDK::S3
     end
 
     module OutputSerialization
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OutputSerialization, context: context)
         type = Types::OutputSerialization.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3173,7 +3173,7 @@ module AWS::SDK::S3
     end
 
     module Owner
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Owner, context: context)
         type = Types::Owner.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3184,7 +3184,7 @@ module AWS::SDK::S3
     end
 
     module OwnershipControls
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OwnershipControls, context: context)
         type = Types::OwnershipControls.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3194,7 +3194,7 @@ module AWS::SDK::S3
     end
 
     module OwnershipControlsRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::OwnershipControlsRule, context: context)
         type = Types::OwnershipControlsRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3204,7 +3204,7 @@ module AWS::SDK::S3
     end
 
     module OwnershipControlsRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3215,7 +3215,7 @@ module AWS::SDK::S3
     end
 
     module ParquetInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ParquetInput, context: context)
         type = Types::ParquetInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3224,7 +3224,7 @@ module AWS::SDK::S3
     end
 
     module Part
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Part, context: context)
         type = Types::Part.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3241,7 +3241,7 @@ module AWS::SDK::S3
     end
 
     module Parts
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3252,7 +3252,7 @@ module AWS::SDK::S3
     end
 
     module PartsList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3263,7 +3263,7 @@ module AWS::SDK::S3
     end
 
     module PolicyStatus
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PolicyStatus, context: context)
         type = Types::PolicyStatus.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3273,7 +3273,7 @@ module AWS::SDK::S3
     end
 
     module Progress
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Progress, context: context)
         type = Types::Progress.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3285,7 +3285,7 @@ module AWS::SDK::S3
     end
 
     module ProgressEvent
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ProgressEvent, context: context)
         type = Types::ProgressEvent.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3295,7 +3295,7 @@ module AWS::SDK::S3
     end
 
     module PublicAccessBlockConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PublicAccessBlockConfiguration, context: context)
         type = Types::PublicAccessBlockConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3308,7 +3308,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAccelerateConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAccelerateConfigurationInput, context: context)
         type = Types::PutBucketAccelerateConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3321,7 +3321,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAccelerateConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAccelerateConfigurationOutput, context: context)
         type = Types::PutBucketAccelerateConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3330,7 +3330,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAclInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAclInput, context: context)
         type = Types::PutBucketAclInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3350,7 +3350,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAclOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAclOutput, context: context)
         type = Types::PutBucketAclOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3359,7 +3359,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAnalyticsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAnalyticsConfigurationInput, context: context)
         type = Types::PutBucketAnalyticsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3372,7 +3372,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketAnalyticsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketAnalyticsConfigurationOutput, context: context)
         type = Types::PutBucketAnalyticsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3381,7 +3381,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketCorsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketCorsInput, context: context)
         type = Types::PutBucketCorsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3395,7 +3395,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketCorsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketCorsOutput, context: context)
         type = Types::PutBucketCorsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3404,7 +3404,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketEncryptionInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketEncryptionInput, context: context)
         type = Types::PutBucketEncryptionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3418,7 +3418,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketEncryptionOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketEncryptionOutput, context: context)
         type = Types::PutBucketEncryptionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3427,7 +3427,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketIntelligentTieringConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketIntelligentTieringConfigurationInput, context: context)
         type = Types::PutBucketIntelligentTieringConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3439,7 +3439,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketIntelligentTieringConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketIntelligentTieringConfigurationOutput, context: context)
         type = Types::PutBucketIntelligentTieringConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3448,7 +3448,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketInventoryConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketInventoryConfigurationInput, context: context)
         type = Types::PutBucketInventoryConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3461,7 +3461,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketInventoryConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketInventoryConfigurationOutput, context: context)
         type = Types::PutBucketInventoryConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3470,7 +3470,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketLifecycleConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketLifecycleConfigurationInput, context: context)
         type = Types::PutBucketLifecycleConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3483,7 +3483,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketLifecycleConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketLifecycleConfigurationOutput, context: context)
         type = Types::PutBucketLifecycleConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3492,7 +3492,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketLoggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketLoggingInput, context: context)
         type = Types::PutBucketLoggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3506,7 +3506,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketLoggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketLoggingOutput, context: context)
         type = Types::PutBucketLoggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3515,7 +3515,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketMetricsConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketMetricsConfigurationInput, context: context)
         type = Types::PutBucketMetricsConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3528,7 +3528,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketMetricsConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketMetricsConfigurationOutput, context: context)
         type = Types::PutBucketMetricsConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3537,7 +3537,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketNotificationConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketNotificationConfigurationInput, context: context)
         type = Types::PutBucketNotificationConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3550,7 +3550,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketNotificationConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketNotificationConfigurationOutput, context: context)
         type = Types::PutBucketNotificationConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3559,7 +3559,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketOwnershipControlsInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketOwnershipControlsInput, context: context)
         type = Types::PutBucketOwnershipControlsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3572,7 +3572,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketOwnershipControlsOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketOwnershipControlsOutput, context: context)
         type = Types::PutBucketOwnershipControlsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3581,7 +3581,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketPolicyInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketPolicyInput, context: context)
         type = Types::PutBucketPolicyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3596,7 +3596,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketPolicyOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketPolicyOutput, context: context)
         type = Types::PutBucketPolicyOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3605,7 +3605,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketReplicationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketReplicationInput, context: context)
         type = Types::PutBucketReplicationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3620,7 +3620,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketReplicationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketReplicationOutput, context: context)
         type = Types::PutBucketReplicationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3629,7 +3629,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketRequestPaymentInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketRequestPaymentInput, context: context)
         type = Types::PutBucketRequestPaymentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3643,7 +3643,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketRequestPaymentOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketRequestPaymentOutput, context: context)
         type = Types::PutBucketRequestPaymentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3652,7 +3652,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketTaggingInput, context: context)
         type = Types::PutBucketTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3666,7 +3666,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketTaggingOutput, context: context)
         type = Types::PutBucketTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3675,7 +3675,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketVersioningInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketVersioningInput, context: context)
         type = Types::PutBucketVersioningInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3690,7 +3690,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketVersioningOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketVersioningOutput, context: context)
         type = Types::PutBucketVersioningOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3699,7 +3699,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketWebsiteInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketWebsiteInput, context: context)
         type = Types::PutBucketWebsiteInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3713,7 +3713,7 @@ module AWS::SDK::S3
     end
 
     module PutBucketWebsiteOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutBucketWebsiteOutput, context: context)
         type = Types::PutBucketWebsiteOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3722,7 +3722,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectAclInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectAclInput, context: context)
         type = Types::PutObjectAclInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3745,7 +3745,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectAclOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectAclOutput, context: context)
         type = Types::PutObjectAclOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3755,7 +3755,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectInput, context: context)
         type = Types::PutObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3805,7 +3805,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectLegalHoldInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectLegalHoldInput, context: context)
         type = Types::PutObjectLegalHoldInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3822,7 +3822,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectLegalHoldOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectLegalHoldOutput, context: context)
         type = Types::PutObjectLegalHoldOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3832,7 +3832,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectLockConfigurationInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectLockConfigurationInput, context: context)
         type = Types::PutObjectLockConfigurationInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3848,7 +3848,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectLockConfigurationOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectLockConfigurationOutput, context: context)
         type = Types::PutObjectLockConfigurationOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3858,7 +3858,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectOutput, context: context)
         type = Types::PutObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3881,7 +3881,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectRetentionInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectRetentionInput, context: context)
         type = Types::PutObjectRetentionInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3899,7 +3899,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectRetentionOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectRetentionOutput, context: context)
         type = Types::PutObjectRetentionOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3909,7 +3909,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectTaggingInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectTaggingInput, context: context)
         type = Types::PutObjectTaggingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3926,7 +3926,7 @@ module AWS::SDK::S3
     end
 
     module PutObjectTaggingOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutObjectTaggingOutput, context: context)
         type = Types::PutObjectTaggingOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3936,7 +3936,7 @@ module AWS::SDK::S3
     end
 
     module PutPublicAccessBlockInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutPublicAccessBlockInput, context: context)
         type = Types::PutPublicAccessBlockInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3950,7 +3950,7 @@ module AWS::SDK::S3
     end
 
     module PutPublicAccessBlockOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutPublicAccessBlockOutput, context: context)
         type = Types::PutPublicAccessBlockOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3959,7 +3959,7 @@ module AWS::SDK::S3
     end
 
     module QueueConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::QueueConfiguration, context: context)
         type = Types::QueueConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3972,7 +3972,7 @@ module AWS::SDK::S3
     end
 
     module QueueConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -3983,7 +3983,7 @@ module AWS::SDK::S3
     end
 
     module RecordsEvent
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RecordsEvent, context: context)
         type = Types::RecordsEvent.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -3993,7 +3993,7 @@ module AWS::SDK::S3
     end
 
     module Redirect
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Redirect, context: context)
         type = Types::Redirect.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4007,7 +4007,7 @@ module AWS::SDK::S3
     end
 
     module RedirectAllRequestsTo
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RedirectAllRequestsTo, context: context)
         type = Types::RedirectAllRequestsTo.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4018,7 +4018,7 @@ module AWS::SDK::S3
     end
 
     module ReplicaModifications
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicaModifications, context: context)
         type = Types::ReplicaModifications.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4028,7 +4028,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationConfiguration, context: context)
         type = Types::ReplicationConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4039,7 +4039,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationRule, context: context)
         type = Types::ReplicationRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4057,7 +4057,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationRuleAndOperator
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationRuleAndOperator, context: context)
         type = Types::ReplicationRuleAndOperator.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4068,7 +4068,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationRuleFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         return params if params.is_a?(Types::ReplicationRuleFilter)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationRuleFilter, context: context)
         unless params.size == 1
@@ -4097,7 +4097,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4108,7 +4108,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationTime
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationTime, context: context)
         type = Types::ReplicationTime.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4119,7 +4119,7 @@ module AWS::SDK::S3
     end
 
     module ReplicationTimeValue
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ReplicationTimeValue, context: context)
         type = Types::ReplicationTimeValue.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4129,7 +4129,7 @@ module AWS::SDK::S3
     end
 
     module RequestPaymentConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestPaymentConfiguration, context: context)
         type = Types::RequestPaymentConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4139,7 +4139,7 @@ module AWS::SDK::S3
     end
 
     module RequestProgress
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RequestProgress, context: context)
         type = Types::RequestProgress.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4149,7 +4149,7 @@ module AWS::SDK::S3
     end
 
     module RestoreObjectInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreObjectInput, context: context)
         type = Types::RestoreObjectInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4165,7 +4165,7 @@ module AWS::SDK::S3
     end
 
     module RestoreObjectOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreObjectOutput, context: context)
         type = Types::RestoreObjectOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4176,7 +4176,7 @@ module AWS::SDK::S3
     end
 
     module RestoreRequest
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RestoreRequest, context: context)
         type = Types::RestoreRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4192,7 +4192,7 @@ module AWS::SDK::S3
     end
 
     module RoutingRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::RoutingRule, context: context)
         type = Types::RoutingRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4203,7 +4203,7 @@ module AWS::SDK::S3
     end
 
     module RoutingRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4214,7 +4214,7 @@ module AWS::SDK::S3
     end
 
     module S3KeyFilter
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3KeyFilter, context: context)
         type = Types::S3KeyFilter.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4224,7 +4224,7 @@ module AWS::SDK::S3
     end
 
     module S3Location
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::S3Location, context: context)
         type = Types::S3Location.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4241,7 +4241,7 @@ module AWS::SDK::S3
     end
 
     module SSEKMS
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSEKMS, context: context)
         type = Types::SSEKMS.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4251,7 +4251,7 @@ module AWS::SDK::S3
     end
 
     module SSES3
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SSES3, context: context)
         type = Types::SSES3.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4260,7 +4260,7 @@ module AWS::SDK::S3
     end
 
     module ScanRange
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ScanRange, context: context)
         type = Types::ScanRange.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4271,7 +4271,7 @@ module AWS::SDK::S3
     end
 
     module SelectObjectContentEventStream
-      def self.build(params, context: '')
+      def self.build(params, context:)
         return params if params.is_a?(Types::SelectObjectContentEventStream)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SelectObjectContentEventStream, context: context)
         unless params.size == 1
@@ -4308,7 +4308,7 @@ module AWS::SDK::S3
     end
 
     module SelectObjectContentInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SelectObjectContentInput, context: context)
         type = Types::SelectObjectContentInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4329,7 +4329,7 @@ module AWS::SDK::S3
     end
 
     module SelectObjectContentOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SelectObjectContentOutput, context: context)
         type = Types::SelectObjectContentOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4339,7 +4339,7 @@ module AWS::SDK::S3
     end
 
     module SelectParameters
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SelectParameters, context: context)
         type = Types::SelectParameters.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4352,7 +4352,7 @@ module AWS::SDK::S3
     end
 
     module ServerSideEncryptionByDefault
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServerSideEncryptionByDefault, context: context)
         type = Types::ServerSideEncryptionByDefault.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4363,7 +4363,7 @@ module AWS::SDK::S3
     end
 
     module ServerSideEncryptionConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServerSideEncryptionConfiguration, context: context)
         type = Types::ServerSideEncryptionConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4373,7 +4373,7 @@ module AWS::SDK::S3
     end
 
     module ServerSideEncryptionRule
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ServerSideEncryptionRule, context: context)
         type = Types::ServerSideEncryptionRule.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4384,7 +4384,7 @@ module AWS::SDK::S3
     end
 
     module ServerSideEncryptionRules
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4395,7 +4395,7 @@ module AWS::SDK::S3
     end
 
     module SourceSelectionCriteria
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SourceSelectionCriteria, context: context)
         type = Types::SourceSelectionCriteria.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4406,7 +4406,7 @@ module AWS::SDK::S3
     end
 
     module SseKmsEncryptedObjects
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SseKmsEncryptedObjects, context: context)
         type = Types::SseKmsEncryptedObjects.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4416,7 +4416,7 @@ module AWS::SDK::S3
     end
 
     module Stats
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Stats, context: context)
         type = Types::Stats.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4428,7 +4428,7 @@ module AWS::SDK::S3
     end
 
     module StatsEvent
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StatsEvent, context: context)
         type = Types::StatsEvent.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4438,7 +4438,7 @@ module AWS::SDK::S3
     end
 
     module StorageClassAnalysis
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StorageClassAnalysis, context: context)
         type = Types::StorageClassAnalysis.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4448,7 +4448,7 @@ module AWS::SDK::S3
     end
 
     module StorageClassAnalysisDataExport
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StorageClassAnalysisDataExport, context: context)
         type = Types::StorageClassAnalysisDataExport.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4459,7 +4459,7 @@ module AWS::SDK::S3
     end
 
     module Tag
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4470,7 +4470,7 @@ module AWS::SDK::S3
     end
 
     module TagSet
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4481,7 +4481,7 @@ module AWS::SDK::S3
     end
 
     module Tagging
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tagging, context: context)
         type = Types::Tagging.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4491,7 +4491,7 @@ module AWS::SDK::S3
     end
 
     module TargetGrant
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetGrant, context: context)
         type = Types::TargetGrant.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4502,7 +4502,7 @@ module AWS::SDK::S3
     end
 
     module TargetGrants
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4513,7 +4513,7 @@ module AWS::SDK::S3
     end
 
     module Tiering
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tiering, context: context)
         type = Types::Tiering.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4524,7 +4524,7 @@ module AWS::SDK::S3
     end
 
     module TieringList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4535,7 +4535,7 @@ module AWS::SDK::S3
     end
 
     module TopicConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TopicConfiguration, context: context)
         type = Types::TopicConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4548,7 +4548,7 @@ module AWS::SDK::S3
     end
 
     module TopicConfigurationList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4559,7 +4559,7 @@ module AWS::SDK::S3
     end
 
     module Transition
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Transition, context: context)
         type = Types::Transition.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4571,7 +4571,7 @@ module AWS::SDK::S3
     end
 
     module TransitionList
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4582,7 +4582,7 @@ module AWS::SDK::S3
     end
 
     module UploadPartCopyInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UploadPartCopyInput, context: context)
         type = Types::UploadPartCopyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4610,7 +4610,7 @@ module AWS::SDK::S3
     end
 
     module UploadPartCopyOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UploadPartCopyOutput, context: context)
         type = Types::UploadPartCopyOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4627,7 +4627,7 @@ module AWS::SDK::S3
     end
 
     module UploadPartInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UploadPartInput, context: context)
         type = Types::UploadPartInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4657,7 +4657,7 @@ module AWS::SDK::S3
     end
 
     module UploadPartOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UploadPartOutput, context: context)
         type = Types::UploadPartOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4677,7 +4677,7 @@ module AWS::SDK::S3
     end
 
     module UserMetadata
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
@@ -4688,7 +4688,7 @@ module AWS::SDK::S3
     end
 
     module VersioningConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VersioningConfiguration, context: context)
         type = Types::VersioningConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4699,7 +4699,7 @@ module AWS::SDK::S3
     end
 
     module WebsiteConfiguration
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WebsiteConfiguration, context: context)
         type = Types::WebsiteConfiguration.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4712,7 +4712,7 @@ module AWS::SDK::S3
     end
 
     module WriteGetObjectResponseInput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WriteGetObjectResponseInput, context: context)
         type = Types::WriteGetObjectResponseInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
@@ -4765,7 +4765,7 @@ module AWS::SDK::S3
     end
 
     module WriteGetObjectResponseOutput
-      def self.build(params, context: '')
+      def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::WriteGetObjectResponseOutput, context: context)
         type = Types::WriteGetObjectResponseOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)

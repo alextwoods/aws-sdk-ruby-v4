@@ -9,7 +9,7 @@ import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
 public class RequestId implements RubyIntegration {
     @Override
     public void modifyClientMiddleware(MiddlewareBuilder middlewareBuilder, GenerationContext context) {
-        Middleware requestId = (new Middleware.Builder())
+        Middleware requestId = Middleware.builder()
                 .klass("Middleware::RequestId")
                 .step(MiddlewareStackStep.PARSE)
                 .rubySource("smithy-aws-ruby-codegen/middleware/request_id.rb")

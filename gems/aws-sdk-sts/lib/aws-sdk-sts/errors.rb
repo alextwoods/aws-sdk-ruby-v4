@@ -29,6 +29,8 @@ module AWS::SDK::STS
         code = xml.at('Error')&.text_at('Code')
         custom_errors[code] || code
       end
+    rescue Hearth::XML::ParseError
+      "HTTP #{resp.status} Error"
     end
 
     # Base class for all errors returned by this service

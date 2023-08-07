@@ -37,6 +37,9 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("code ||= resp.headers['x-amzn-errortype']")
                 .openBlock("if code")
                 .write("code.split('#').last.split(':').first")
-                .closeBlock("end");
+                .closeBlock("end")
+                .dedent()
+                .openBlock("rescue Hearth::JSON::ParseError")
+                .write("\"HTTP #{resp.status} Error\"");
     }
 }
