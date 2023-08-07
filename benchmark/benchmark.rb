@@ -176,7 +176,7 @@ module Benchmark
       config_klass = Kernel.const_get(client_module_name).const_get(:Config)
 
       report_data[:client_init_ms] = Benchmark.measure_time(300) do
-        config = config_klass.new(stub_responses: true)
+        config = config_klass.new(stub_responses: true, credential_provider: nil)
         client_klass.new(config)
       end
 
