@@ -156,7 +156,7 @@ module Benchmark
         config_klass = Kernel.const_get(client_module_name).const_get(:Config)
         unless defined?(JRUBY_VERSION)
           r = ::MemoryProfiler.report do
-            config = config_klass.new(stub_responses: true)
+            config = config_klass.new(stub_responses: true, credential_provider: nil)
             client_klass.new(config)
           end
           out[:client_mem_retained_kb] = r.total_retained_memsize / 1024.0
