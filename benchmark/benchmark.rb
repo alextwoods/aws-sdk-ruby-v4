@@ -184,7 +184,7 @@ module Benchmark
       puts "\t\t#{gem_name} client init avg: #{'%.2f' % (values.sum(0.0) / values.size)} ms"
 
       operation_benchmarks.each do |test_name, test_def|
-        config = config_klass.new(stub_responses: true)
+        config = config_klass.new(stub_responses: true, credential_provider: nil)
         client = client_klass.new(config)
         req = test_def[:setup].call(client)
 
