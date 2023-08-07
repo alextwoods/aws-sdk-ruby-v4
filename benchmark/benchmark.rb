@@ -110,6 +110,14 @@ module Benchmark
     # test: a proc that takes a client and request (generated from calling the setup proc)
     def operation_benchmarks; end
 
+    def client_options
+      {
+        stub_responses: true, 
+        credential_provider: AWS::SDK::Core::StaticCredentialProvider.new(access_key_id: 'akid', secret_access_key: 'skid'),
+        region: 'us-west-2'
+    }
+    end
+
     # build the gem from its gemspec, then get the file size on disc
     # done within a temp directory to prevent accumulation of .gem artifacts
     def benchmark_gem_size(report_data)
@@ -156,7 +164,7 @@ module Benchmark
         config_klass = Kernel.const_get(client_module_name).const_get(:Config)
         unless defined?(JRUBY_VERSION)
           r = ::MemoryProfiler.report do
-            config = config_klass.new(stub_responses: true, credential_provider: nil)
+            config = config_klass.new(**client_options)
             client_klass.new(config)
           end
           out[:client_mem_retained_kb] = r.total_retained_memsize / 1024.0
@@ -176,7 +184,7 @@ module Benchmark
       config_klass = Kernel.const_get(client_module_name).const_get(:Config)
 
       report_data[:client_init_ms] = Benchmark.measure_time(300) do
-        config = config_klass.new(stub_responses: true, credential_provider: nil)
+        config = config_klass.new(**client_options)
         client_klass.new(config)
       end
 
@@ -184,7 +192,7 @@ module Benchmark
       puts "\t\t#{gem_name} client init avg: #{'%.2f' % (values.sum(0.0) / values.size)} ms"
 
       operation_benchmarks.each do |test_name, test_def|
-        config = config_klass.new(stub_responses: true, credential_provider: nil)
+        config = config_klass.new(**client_options)
         client = client_klass.new(config)
         req = test_def[:setup].call(client)
 
