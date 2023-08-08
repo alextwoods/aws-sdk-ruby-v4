@@ -34,7 +34,7 @@ module AWS::SDK::Core
       next unless AWS::SDK::Core.sts_loaded?
 
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-      if profile_config['web_identity_token_file'] && profile_config['role_arn']
+      if profile_config && profile_config['web_identity_token_file'] && profile_config['role_arn']
         client = AWS::SDK::STS::Client.new(
           AWS::SDK::STS::Config.new(profile: cfg[:profile])
         )
