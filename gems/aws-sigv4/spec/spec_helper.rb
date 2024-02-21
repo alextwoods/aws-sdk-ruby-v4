@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+$:.unshift(File.expand_path('../../lib', __FILE__))
+
 require 'rspec'
 require 'simplecov'
+SimpleCov.minimum_coverage 100
 SimpleCov.start do
-  add_filter %r{^/spec/}
+  add_filter %r{/spec/}
 end
 
 require 'aws-sigv4'
