@@ -267,7 +267,9 @@ module AWS::SDK::EC2
         params['Action'] = 'AdvertiseByoipCidr'
         params['Version'] = '2016-11-15'
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
+        params[context + 'Asn'] = input[:asn].to_s unless input[:asn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'NetworkBorderGroup'] = input[:network_border_group].to_s unless input[:network_border_group].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -332,6 +334,7 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'PreviewNextCidr'] = input[:preview_next_cidr].to_s unless input[:preview_next_cidr].nil?
+        IpamPoolAllocationAllowedCidrs.build(input[:allowed_cidrs], params, context: context + 'AllowedCidr') unless input[:allowed_cidrs].nil?
         IpamPoolAllocationDisallowedCidrs.build(input[:disallowed_cidrs], params, context: context + 'DisallowedCidr') unless input[:disallowed_cidrs].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
@@ -411,6 +414,13 @@ module AWS::SDK::EC2
         if input.empty?
           params[context[0...context.rindex('.')]] = ''
         end
+      end
+    end
+
+    class AsnAuthorizationContext
+      def self.build(input, params, context: nil)
+        params[context + 'Message'] = input[:message].to_s unless input[:message].nil?
+        params[context + 'Signature'] = input[:signature].to_s unless input[:signature].nil?
       end
     end
 
@@ -580,6 +590,22 @@ module AWS::SDK::EC2
       end
     end
 
+    class AssociateIpamByoasn
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'AssociateIpamByoasn'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'Asn'] = input[:asn].to_s unless input[:asn].nil?
+        params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class AssociateIpamResourceDiscovery
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -643,6 +669,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Ipv6CidrBlock'] = input[:ipv6_cidr_block].to_s unless input[:ipv6_cidr_block].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
+        params[context + 'Ipv6IpamPoolId'] = input[:ipv6_ipam_pool_id].to_s unless input[:ipv6_ipam_pool_id].nil?
+        params[context + 'Ipv6NetmaskLength'] = input[:ipv6_netmask_length].to_s unless input[:ipv6_netmask_length].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -1425,6 +1453,14 @@ module AWS::SDK::EC2
       end
     end
 
+    class ConnectionTrackingSpecificationRequest
+      def self.build(input, params, context: nil)
+        params[context + 'TcpEstablishedTimeout'] = input[:tcp_established_timeout].to_s unless input[:tcp_established_timeout].nil?
+        params[context + 'UdpStreamTimeout'] = input[:udp_stream_timeout].to_s unless input[:udp_stream_timeout].nil?
+        params[context + 'UdpTimeout'] = input[:udp_timeout].to_s unless input[:udp_timeout].nil?
+      end
+    end
+
     class ConversionIdStringList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -1934,6 +1970,7 @@ module AWS::SDK::EC2
         AddIpamOperatingRegionSet.build(input[:operating_regions], params, context: context + 'OperatingRegion') unless input[:operating_regions].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
+        params[context + 'Tier'] = input[:tier].to_s unless input[:tier].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -1963,6 +2000,7 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'AwsService'] = input[:aws_service].to_s unless input[:aws_service].nil?
         params[context + 'PublicIpSource'] = input[:public_ip_source].to_s unless input[:public_ip_source].nil?
+        IpamPoolSourceResourceRequest.build(input[:source_resource], params, context: context + 'SourceResource' + '.') unless input[:source_resource].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2186,6 +2224,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2280,6 +2319,8 @@ module AWS::SDK::EC2
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
+        params[context + 'EnablePrimaryIpv6'] = input[:enable_primary_ipv6].to_s unless input[:enable_primary_ipv6].nil?
+        ConnectionTrackingSpecificationRequest.build(input[:connection_tracking_specification], params, context: context + 'ConnectionTrackingSpecification' + '.') unless input[:connection_tracking_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2432,6 +2473,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2542,6 +2584,10 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Ipv6Native'] = input[:ipv6_native].to_s unless input[:ipv6_native].nil?
+        params[context + 'Ipv4IpamPoolId'] = input[:ipv4_ipam_pool_id].to_s unless input[:ipv4_ipam_pool_id].nil?
+        params[context + 'Ipv4NetmaskLength'] = input[:ipv4_netmask_length].to_s unless input[:ipv4_netmask_length].nil?
+        params[context + 'Ipv6IpamPoolId'] = input[:ipv6_ipam_pool_id].to_s unless input[:ipv6_ipam_pool_id].nil?
+        params[context + 'Ipv6NetmaskLength'] = input[:ipv6_netmask_length].to_s unless input[:ipv6_netmask_length].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2884,6 +2930,7 @@ module AWS::SDK::EC2
     class CreateTransitGatewayVpcAttachmentRequestOptions
       def self.build(input, params, context: nil)
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
+        params[context + 'SecurityGroupReferencingSupport'] = input[:security_group_referencing_support].to_s unless input[:security_group_referencing_support].nil?
         params[context + 'Ipv6Support'] = input[:ipv6_support].to_s unless input[:ipv6_support].nil?
         params[context + 'ApplianceModeSupport'] = input[:appliance_mode_support].to_s unless input[:appliance_mode_support].nil?
       end
@@ -2912,6 +2959,7 @@ module AWS::SDK::EC2
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2960,6 +3008,7 @@ module AWS::SDK::EC2
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -2977,6 +3026,7 @@ module AWS::SDK::EC2
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'FIPSEnabled'] = input[:fips_enabled].to_s unless input[:fips_enabled].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -3000,6 +3050,7 @@ module AWS::SDK::EC2
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -3007,6 +3058,7 @@ module AWS::SDK::EC2
     class CreateVerifiedAccessTrustProviderDeviceOptions
       def self.build(input, params, context: nil)
         params[context + 'TenantId'] = input[:tenant_id].to_s unless input[:tenant_id].nil?
+        params[context + 'PublicSigningKeyUrl'] = input[:public_signing_key_url].to_s unless input[:public_signing_key_url].nil?
       end
     end
 
@@ -3121,6 +3173,7 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'PrivateDnsEnabled'] = input[:private_dns_enabled].to_s unless input[:private_dns_enabled].nil?
         TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        SubnetConfigurationsList.build(input[:subnet_configurations], params, context: context + 'SubnetConfiguration') unless input[:subnet_configurations].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -3532,6 +3585,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
+        params[context + 'Cascade'] = input[:cascade].to_s unless input[:cascade].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -4452,6 +4506,22 @@ module AWS::SDK::EC2
       end
     end
 
+    class DeprovisionIpamByoasn
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DeprovisionIpamByoasn'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'IpamId'] = input[:ipam_id].to_s unless input[:ipam_id].nil?
+        params[context + 'Asn'] = input[:asn].to_s unless input[:asn].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class DeprovisionIpamPoolCidr
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -4699,6 +4769,27 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DescribeCapacityBlockOfferings
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DescribeCapacityBlockOfferings'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
+        params[context + 'InstanceCount'] = input[:instance_count].to_s unless input[:instance_count].nil?
+        params[context + 'StartDateRange'] = Hearth::TimeHelper.to_date_time(input[:start_date_range]) unless input[:start_date_range].nil?
+        params[context + 'EndDateRange'] = Hearth::TimeHelper.to_date_time(input[:end_date_range]) unless input[:end_date_range].nil?
+        params[context + 'CapacityDurationHours'] = input[:capacity_duration_hours].to_s unless input[:capacity_duration_hours].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -5274,6 +5365,7 @@ module AWS::SDK::EC2
         ImageIdStringList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
         OwnerStringList.build(input[:owners], params, context: context + 'Owner') unless input[:owners].nil?
         params[context + 'IncludeDeprecated'] = input[:include_deprecated].to_s unless input[:include_deprecated].nil?
+        params[context + 'IncludeDisabled'] = input[:include_disabled].to_s unless input[:include_disabled].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
@@ -5420,6 +5512,49 @@ module AWS::SDK::EC2
       end
     end
 
+    class DescribeInstanceTopology
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DescribeInstanceTopology'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        DescribeInstanceTopologyInstanceIdSet.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        DescribeInstanceTopologyGroupNameSet.build(input[:group_names], params, context: context + 'GroupName') unless input[:group_names].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DescribeInstanceTopologyGroupNameSet
+      def self.build(input, params, context: '')
+        input.each_with_index do |element, index|
+          params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
+      end
+    end
+
+    class DescribeInstanceTopologyInstanceIdSet
+      def self.build(input, params, context: '')
+        input.each_with_index do |element, index|
+          params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
+      end
+    end
+
     class DescribeInstanceTypeOfferings
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -5488,6 +5623,22 @@ module AWS::SDK::EC2
         InternetGatewayIdList.build(input[:internet_gateway_ids], params, context: context + 'internetGatewayId') unless input[:internet_gateway_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DescribeIpamByoasn
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DescribeIpamByoasn'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -5763,6 +5914,24 @@ module AWS::SDK::EC2
         FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DescribeLockedSnapshots
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DescribeLockedSnapshots'
+        params['Version'] = '2016-11-15'
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        SnapshotIdStringList.build(input[:snapshot_ids], params, context: context + 'SnapshotId') unless input[:snapshot_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
@@ -7333,6 +7502,35 @@ module AWS::SDK::EC2
       end
     end
 
+    class DisableImage
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DisableImage'
+        params['Version'] = '2016-11-15'
+        params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DisableImageBlockPublicAccess
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DisableImageBlockPublicAccess'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class DisableImageDeprecation
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -7371,6 +7569,20 @@ module AWS::SDK::EC2
         context = ''
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DisableSerialConsoleAccess'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DisableSnapshotBlockPublicAccess
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DisableSnapshotBlockPublicAccess'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(params.to_s)
@@ -7513,6 +7725,22 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
         InstanceEventWindowDisassociationRequest.build(input[:association_target], params, context: context + 'AssociationTarget' + '.') unless input[:association_target].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class DisassociateIpamByoasn
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'DisassociateIpamByoasn'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'Asn'] = input[:asn].to_s unless input[:asn].nil?
+        params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -7812,7 +8040,20 @@ module AWS::SDK::EC2
       end
     end
 
+    class EnaSrdSpecificationRequest
+      def self.build(input, params, context: nil)
+        params[context + 'EnaSrdEnabled'] = input[:ena_srd_enabled].to_s unless input[:ena_srd_enabled].nil?
+        EnaSrdUdpSpecificationRequest.build(input[:ena_srd_udp_specification], params, context: context + 'EnaSrdUdpSpecification' + '.') unless input[:ena_srd_udp_specification].nil?
+      end
+    end
+
     class EnaSrdUdpSpecification
+      def self.build(input, params, context: nil)
+        params[context + 'EnaSrdUdpEnabled'] = input[:ena_srd_udp_enabled].to_s unless input[:ena_srd_udp_enabled].nil?
+      end
+    end
+
+    class EnaSrdUdpSpecificationRequest
       def self.build(input, params, context: nil)
         params[context + 'EnaSrdUdpEnabled'] = input[:ena_srd_udp_enabled].to_s unless input[:ena_srd_udp_enabled].nil?
       end
@@ -7901,6 +8142,36 @@ module AWS::SDK::EC2
       end
     end
 
+    class EnableImage
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'EnableImage'
+        params['Version'] = '2016-11-15'
+        params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class EnableImageBlockPublicAccess
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'EnableImageBlockPublicAccess'
+        params['Version'] = '2016-11-15'
+        params[context + 'ImageBlockPublicAccessState'] = input[:image_block_public_access_state].to_s unless input[:image_block_public_access_state].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class EnableImageDeprecation
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -7955,6 +8226,21 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'EnableSerialConsoleAccess'
         params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class EnableSnapshotBlockPublicAccess
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'EnableSnapshotBlockPublicAccess'
+        params['Version'] = '2016-11-15'
+        params[context + 'State'] = input[:state].to_s unless input[:state].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
@@ -8559,6 +8845,20 @@ module AWS::SDK::EC2
       end
     end
 
+    class GetImageBlockPublicAccessState
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'GetImageBlockPublicAccessState'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class GetInstanceTypesFromInstanceRequirements
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -8626,6 +8926,25 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamResourceDiscoveryId'] = input[:ipam_resource_discovery_id].to_s unless input[:ipam_resource_discovery_id].nil?
         params[context + 'DiscoveryRegion'] = input[:discovery_region].to_s unless input[:discovery_region].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class GetIpamDiscoveredPublicAddresses
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'GetIpamDiscoveredPublicAddresses'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'IpamResourceDiscoveryId'] = input[:ipam_resource_discovery_id].to_s unless input[:ipam_resource_discovery_id].nil?
+        params[context + 'AddressRegion'] = input[:address_region].to_s unless input[:address_region].nil?
         FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
@@ -8825,6 +9144,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class GetSecurityGroupsForVpc
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'GetSecurityGroupsForVpc'
+        params['Version'] = '2016-11-15'
+        params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
+        params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
+        params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
     class GetSerialConsoleAccessStatus
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
@@ -8833,6 +9170,20 @@ module AWS::SDK::EC2
         context = ''
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSerialConsoleAccessStatus'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class GetSnapshotBlockPublicAccessState
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'GetSnapshotBlockPublicAccessState'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(params.to_s)
@@ -9554,6 +9905,7 @@ module AWS::SDK::EC2
     class InstanceIpv6Address
       def self.build(input, params, context: nil)
         params[context + 'Ipv6Address'] = input[:ipv6_address].to_s unless input[:ipv6_address].nil?
+        params[context + 'IsPrimaryIpv6'] = input[:is_primary_ipv6].to_s unless input[:is_primary_ipv6].nil?
       end
     end
 
@@ -9631,6 +9983,9 @@ module AWS::SDK::EC2
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
         Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
+        params[context + 'PrimaryIpv6'] = input[:primary_ipv6].to_s unless input[:primary_ipv6].nil?
+        EnaSrdSpecificationRequest.build(input[:ena_srd_specification], params, context: context + 'EnaSrdSpecification' + '.') unless input[:ena_srd_specification].nil?
+        ConnectionTrackingSpecificationRequest.build(input[:connection_tracking_specification], params, context: context + 'ConnectionTrackingSpecification' + '.') unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -9671,6 +10026,7 @@ module AWS::SDK::EC2
         AcceleratorTotalMemoryMiB.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
         NetworkBandwidthGbps.build(input[:network_bandwidth_gbps], params, context: context + 'NetworkBandwidthGbps' + '.') unless input[:network_bandwidth_gbps].nil?
         AllowedInstanceTypeSet.build(input[:allowed_instance_types], params, context: context + 'allowedInstanceTypeSet') unless input[:allowed_instance_types].nil?
+        params[context + 'MaxSpotPriceAsPercentageOfOptimalOnDemandPrice'] = input[:max_spot_price_as_percentage_of_optimal_on_demand_price].to_s unless input[:max_spot_price_as_percentage_of_optimal_on_demand_price].nil?
       end
     end
 
@@ -9699,6 +10055,7 @@ module AWS::SDK::EC2
         AcceleratorTotalMemoryMiBRequest.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
         NetworkBandwidthGbpsRequest.build(input[:network_bandwidth_gbps], params, context: context + 'NetworkBandwidthGbps' + '.') unless input[:network_bandwidth_gbps].nil?
         AllowedInstanceTypeSet.build(input[:allowed_instance_types], params, context: context + 'AllowedInstanceType') unless input[:allowed_instance_types].nil?
+        params[context + 'MaxSpotPriceAsPercentageOfOptimalOnDemandPrice'] = input[:max_spot_price_as_percentage_of_optimal_on_demand_price].to_s unless input[:max_spot_price_as_percentage_of_optimal_on_demand_price].nil?
       end
     end
 
@@ -9846,6 +10203,18 @@ module AWS::SDK::EC2
       end
     end
 
+    class IpamPoolAllocationAllowedCidrs
+      def self.build(input, params, context: '')
+        input.each_with_index do |element, index|
+          params[context + ".#{index+1}"] = element.to_s unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
+      end
+    end
+
     class IpamPoolAllocationDisallowedCidrs
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -9855,6 +10224,15 @@ module AWS::SDK::EC2
         if input.empty?
           params[context[0...context.rindex('.')]] = ''
         end
+      end
+    end
+
+    class IpamPoolSourceResourceRequest
+      def self.build(input, params, context: nil)
+        params[context + 'ResourceId'] = input[:resource_id].to_s unless input[:resource_id].nil?
+        params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
+        params[context + 'ResourceRegion'] = input[:resource_region].to_s unless input[:resource_region].nil?
+        params[context + 'ResourceOwner'] = input[:resource_owner].to_s unless input[:resource_owner].nil?
       end
     end
 
@@ -10163,6 +10541,9 @@ module AWS::SDK::EC2
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
         Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
+        params[context + 'PrimaryIpv6'] = input[:primary_ipv6].to_s unless input[:primary_ipv6].nil?
+        EnaSrdSpecificationRequest.build(input[:ena_srd_specification], params, context: context + 'EnaSrdSpecification' + '.') unless input[:ena_srd_specification].nil?
+        ConnectionTrackingSpecificationRequest.build(input[:connection_tracking_specification], params, context: context + 'ConnectionTrackingSpecification' + '.') unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -10463,6 +10844,25 @@ module AWS::SDK::EC2
         if input.empty?
           params[context[0...context.rindex('.')]] = ''
         end
+      end
+    end
+
+    class LockSnapshot
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'LockSnapshot'
+        params['Version'] = '2016-11-15'
+        params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'LockMode'] = input[:lock_mode].to_s unless input[:lock_mode].nil?
+        params[context + 'CoolOffPeriod'] = input[:cool_off_period].to_s unless input[:cool_off_period].nil?
+        params[context + 'LockDuration'] = input[:lock_duration].to_s unless input[:lock_duration].nil?
+        params[context + 'ExpirationDate'] = Hearth::TimeHelper.to_date_time(input[:expiration_date]) unless input[:expiration_date].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10908,6 +11308,7 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         AddIpamOperatingRegionSet.build(input[:add_operating_regions], params, context: context + 'AddOperatingRegion') unless input[:add_operating_regions].nil?
         RemoveIpamOperatingRegionSet.build(input[:remove_operating_regions], params, context: context + 'RemoveOperatingRegion') unless input[:remove_operating_regions].nil?
+        params[context + 'Tier'] = input[:tier].to_s unless input[:tier].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -11062,6 +11463,8 @@ module AWS::SDK::EC2
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         AttributeBooleanValue.build(input[:source_dest_check], params, context: context + 'SourceDestCheck' + '.') unless input[:source_dest_check].nil?
         EnaSrdSpecification.build(input[:ena_srd_specification], params, context: context + 'EnaSrdSpecification' + '.') unless input[:ena_srd_specification].nil?
+        params[context + 'EnablePrimaryIpv6'] = input[:enable_primary_ipv6].to_s unless input[:enable_primary_ipv6].nil?
+        ConnectionTrackingSpecificationRequest.build(input[:connection_tracking_specification], params, context: context + 'ConnectionTrackingSpecification' + '.') unless input[:connection_tracking_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -11282,6 +11685,7 @@ module AWS::SDK::EC2
         TransitGatewayCidrBlockStringList.build(input[:remove_transit_gateway_cidr_blocks], params, context: context + 'RemoveTransitGatewayCidrBlocks') unless input[:remove_transit_gateway_cidr_blocks].nil?
         params[context + 'VpnEcmpSupport'] = input[:vpn_ecmp_support].to_s unless input[:vpn_ecmp_support].nil?
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
+        params[context + 'SecurityGroupReferencingSupport'] = input[:security_group_referencing_support].to_s unless input[:security_group_referencing_support].nil?
         params[context + 'AutoAcceptSharedAttachments'] = input[:auto_accept_shared_attachments].to_s unless input[:auto_accept_shared_attachments].nil?
         params[context + 'DefaultRouteTableAssociation'] = input[:default_route_table_association].to_s unless input[:default_route_table_association].nil?
         params[context + 'AssociationDefaultRouteTableId'] = input[:association_default_route_table_id].to_s unless input[:association_default_route_table_id].nil?
@@ -11330,6 +11734,7 @@ module AWS::SDK::EC2
     class ModifyTransitGatewayVpcAttachmentRequestOptions
       def self.build(input, params, context: nil)
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
+        params[context + 'SecurityGroupReferencingSupport'] = input[:security_group_referencing_support].to_s unless input[:security_group_referencing_support].nil?
         params[context + 'Ipv6Support'] = input[:ipv6_support].to_s unless input[:ipv6_support].nil?
         params[context + 'ApplianceModeSupport'] = input[:appliance_mode_support].to_s unless input[:appliance_mode_support].nil?
       end
@@ -11384,6 +11789,7 @@ module AWS::SDK::EC2
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -11432,6 +11838,7 @@ module AWS::SDK::EC2
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -11481,10 +11888,18 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VerifiedAccessTrustProviderId'] = input[:verified_access_trust_provider_id].to_s unless input[:verified_access_trust_provider_id].nil?
         ModifyVerifiedAccessTrustProviderOidcOptions.build(input[:oidc_options], params, context: context + 'OidcOptions' + '.') unless input[:oidc_options].nil?
+        ModifyVerifiedAccessTrustProviderDeviceOptions.build(input[:device_options], params, context: context + 'DeviceOptions' + '.') unless input[:device_options].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
+        VerifiedAccessSseSpecificationRequest.build(input[:sse_specification], params, context: context + 'SseSpecification' + '.') unless input[:sse_specification].nil?
         http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class ModifyVerifiedAccessTrustProviderDeviceOptions
+      def self.build(input, params, context: nil)
+        params[context + 'PublicSigningKeyUrl'] = input[:public_signing_key_url].to_s unless input[:public_signing_key_url].nil?
       end
     end
 
@@ -11575,6 +11990,7 @@ module AWS::SDK::EC2
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
         DnsOptionsSpecification.build(input[:dns_options], params, context: context + 'DnsOptions' + '.') unless input[:dns_options].nil?
         params[context + 'PrivateDnsEnabled'] = input[:private_dns_enabled].to_s unless input[:private_dns_enabled].nil?
+        SubnetConfigurationsList.build(input[:subnet_configurations], params, context: context + 'SubnetConfiguration') unless input[:subnet_configurations].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -12381,6 +12797,24 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         TagSpecificationList.build(input[:pool_tag_specifications], params, context: context + 'PoolTagSpecification') unless input[:pool_tag_specifications].nil?
         params[context + 'MultiRegion'] = input[:multi_region].to_s unless input[:multi_region].nil?
+        params[context + 'NetworkBorderGroup'] = input[:network_border_group].to_s unless input[:network_border_group].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class ProvisionIpamByoasn
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'ProvisionIpamByoasn'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        params[context + 'IpamId'] = input[:ipam_id].to_s unless input[:ipam_id].nil?
+        params[context + 'Asn'] = input[:asn].to_s unless input[:asn].nil?
+        AsnAuthorizationContext.build(input[:asn_authorization_context], params, context: context + 'AsnAuthorizationContext' + '.') unless input[:asn_authorization_context].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -12442,6 +12876,23 @@ module AWS::SDK::EC2
         if input.empty?
           params[context[0...context.rindex('.')]] = ''
         end
+      end
+    end
+
+    class PurchaseCapacityBlock
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'PurchaseCapacityBlock'
+        params['Version'] = '2016-11-15'
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        params[context + 'CapacityBlockOfferingId'] = input[:capacity_block_offering_id].to_s unless input[:capacity_block_offering_id].nil?
+        params[context + 'InstancePlatform'] = input[:instance_platform].to_s unless input[:instance_platform].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13626,6 +14077,7 @@ module AWS::SDK::EC2
         PrivateDnsNameOptionsRequest.build(input[:private_dns_name_options], params, context: context + 'PrivateDnsNameOptions' + '.') unless input[:private_dns_name_options].nil?
         InstanceMaintenanceOptionsRequest.build(input[:maintenance_options], params, context: context + 'MaintenanceOptions' + '.') unless input[:maintenance_options].nil?
         params[context + 'DisableApiStop'] = input[:disable_api_stop].to_s unless input[:disable_api_stop].nil?
+        params[context + 'EnablePrimaryIpv6'] = input[:enable_primary_ipv6].to_s unless input[:enable_primary_ipv6].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -14301,6 +14753,26 @@ module AWS::SDK::EC2
       end
     end
 
+    class SubnetConfiguration
+      def self.build(input, params, context: nil)
+        params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
+        params[context + 'Ipv4'] = input[:ipv4].to_s unless input[:ipv4].nil?
+        params[context + 'Ipv6'] = input[:ipv6].to_s unless input[:ipv6].nil?
+      end
+    end
+
+    class SubnetConfigurationsList
+      def self.build(input, params, context: '')
+        input.each_with_index do |element, index|
+          SubnetConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
+      end
+    end
+
     class SubnetIdStringList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
@@ -14645,6 +15117,7 @@ module AWS::SDK::EC2
         params[context + 'DefaultRouteTablePropagation'] = input[:default_route_table_propagation].to_s unless input[:default_route_table_propagation].nil?
         params[context + 'VpnEcmpSupport'] = input[:vpn_ecmp_support].to_s unless input[:vpn_ecmp_support].nil?
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
+        params[context + 'SecurityGroupReferencingSupport'] = input[:security_group_referencing_support].to_s unless input[:security_group_referencing_support].nil?
         params[context + 'MulticastSupport'] = input[:multicast_support].to_s unless input[:multicast_support].nil?
         TransitGatewayCidrBlockStringList.build(input[:transit_gateway_cidr_blocks], params, context: context + 'TransitGatewayCidrBlocks') unless input[:transit_gateway_cidr_blocks].nil?
       end
@@ -14742,6 +15215,21 @@ module AWS::SDK::EC2
         params[context + 'NatGatewayId'] = input[:nat_gateway_id].to_s unless input[:nat_gateway_id].nil?
         IpList.build(input[:private_ip_addresses], params, context: context + 'PrivateIpAddress') unless input[:private_ip_addresses].nil?
         params[context + 'MaxDrainDurationSeconds'] = input[:max_drain_duration_seconds].to_s unless input[:max_drain_duration_seconds].nil?
+        params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
+        http_req.body = ::StringIO.new(params.to_s)
+      end
+    end
+
+    class UnlockSnapshot
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        context = ''
+        params = Hearth::Query::ParamList.new
+        params['Action'] = 'UnlockSnapshot'
+        params['Version'] = '2016-11-15'
+        params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
@@ -14951,6 +15439,13 @@ module AWS::SDK::EC2
         params[context + 'BucketName'] = input[:bucket_name].to_s unless input[:bucket_name].nil?
         params[context + 'Prefix'] = input[:prefix].to_s unless input[:prefix].nil?
         params[context + 'BucketOwner'] = input[:bucket_owner].to_s unless input[:bucket_owner].nil?
+      end
+    end
+
+    class VerifiedAccessSseSpecificationRequest
+      def self.build(input, params, context: nil)
+        params[context + 'CustomerManagedKeyEnabled'] = input[:customer_managed_key_enabled].to_s unless input[:customer_managed_key_enabled].nil?
+        params[context + 'KmsKeyArn'] = input[:kms_key_arn].to_s unless input[:kms_key_arn].nil?
       end
     end
 

@@ -1174,6 +1174,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
+        type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
     end
@@ -1186,6 +1187,7 @@ module AWS::SDK::DynamoDB
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
         type.destination_status = params[:destination_status]
+        type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
     end
@@ -1200,6 +1202,16 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    module EnableKinesisStreamingConfiguration
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingConfiguration, context: context)
+        type = Types::EnableKinesisStreamingConfiguration.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
+        type
+      end
+    end
+
     module EnableKinesisStreamingDestinationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
@@ -1207,6 +1219,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
+        type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
     end
@@ -1219,6 +1232,7 @@ module AWS::SDK::DynamoDB
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
         type.destination_status = params[:destination_status]
+        type.enable_kinesis_streaming_configuration = EnableKinesisStreamingConfiguration.build(params[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless params[:enable_kinesis_streaming_configuration].nil?
         type
       end
     end
@@ -1355,6 +1369,8 @@ module AWS::SDK::DynamoDB
         type.export_format = params[:export_format]
         type.billed_size_bytes = params[:billed_size_bytes]
         type.item_count = params[:item_count]
+        type.export_type = params[:export_type]
+        type.incremental_export_specification = IncrementalExportSpecification.build(params[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless params[:incremental_export_specification].nil?
         type
       end
     end
@@ -1387,6 +1403,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.export_arn = params[:export_arn]
         type.export_status = params[:export_status]
+        type.export_type = params[:export_type]
         type
       end
     end
@@ -1405,6 +1422,8 @@ module AWS::SDK::DynamoDB
         type.s3_sse_algorithm = params[:s3_sse_algorithm]
         type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id]
         type.export_format = params[:export_format]
+        type.export_type = params[:export_type]
+        type.incremental_export_specification = IncrementalExportSpecification.build(params[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless params[:incremental_export_specification].nil?
         type
       end
     end
@@ -1815,6 +1834,18 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    module IncrementalExportSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IncrementalExportSpecification, context: context)
+        type = Types::IncrementalExportSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.export_from_time = params[:export_from_time]
+        type.export_to_time = params[:export_to_time]
+        type.export_view_type = params[:export_view_type]
+        type
+      end
+    end
+
     module IndexNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::IndexNotFoundException, context: context)
@@ -2049,6 +2080,7 @@ module AWS::SDK::DynamoDB
         type.stream_arn = params[:stream_arn]
         type.destination_status = params[:destination_status]
         type.destination_status_description = params[:destination_status_description]
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
         type
       end
     end
@@ -3677,6 +3709,41 @@ module AWS::SDK::DynamoDB
         type.attributes = AttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type.item_collection_metrics = ItemCollectionMetrics.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
+        type
+      end
+    end
+
+    module UpdateKinesisStreamingConfiguration
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingConfiguration, context: context)
+        type = Types::UpdateKinesisStreamingConfiguration.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.approximate_creation_date_time_precision = params[:approximate_creation_date_time_precision]
+        type
+      end
+    end
+
+    module UpdateKinesisStreamingDestinationInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationInput, context: context)
+        type = Types::UpdateKinesisStreamingDestinationInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.table_name = params[:table_name]
+        type.stream_arn = params[:stream_arn]
+        type.update_kinesis_streaming_configuration = UpdateKinesisStreamingConfiguration.build(params[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless params[:update_kinesis_streaming_configuration].nil?
+        type
+      end
+    end
+
+    module UpdateKinesisStreamingDestinationOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UpdateKinesisStreamingDestinationOutput, context: context)
+        type = Types::UpdateKinesisStreamingDestinationOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.table_name = params[:table_name]
+        type.stream_arn = params[:stream_arn]
+        type.destination_status = params[:destination_status]
+        type.update_kinesis_streaming_configuration = UpdateKinesisStreamingConfiguration.build(params[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless params[:update_kinesis_streaming_configuration].nil?
         type
       end
     end

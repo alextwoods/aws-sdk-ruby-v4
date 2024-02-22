@@ -12,13 +12,13 @@ module AWS::SDK::CloudWatch
 
     class DescribeAlarmHistory
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_alarm_history)
-      # @param [Hash] options (see Client#describe_alarm_history)
+      # @param (see Client#describe_alarm_history)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_alarm_history operation.
       # @return [Enumerator]
       def pages
@@ -53,13 +53,13 @@ module AWS::SDK::CloudWatch
 
     class DescribeAlarms
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_alarms)
-      # @param [Hash] options (see Client#describe_alarms)
+      # @param (see Client#describe_alarms)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_alarms operation.
       # @return [Enumerator]
       def pages
@@ -82,13 +82,13 @@ module AWS::SDK::CloudWatch
 
     class DescribeAnomalyDetectors
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_anomaly_detectors)
-      # @param [Hash] options (see Client#describe_anomaly_detectors)
+      # @param (see Client#describe_anomaly_detectors)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_anomaly_detectors operation.
       # @return [Enumerator]
       def pages
@@ -123,13 +123,13 @@ module AWS::SDK::CloudWatch
 
     class DescribeInsightRules
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_insight_rules)
-      # @param [Hash] options (see Client#describe_insight_rules)
+      # @param (see Client#describe_insight_rules)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_insight_rules operation.
       # @return [Enumerator]
       def pages
@@ -152,13 +152,13 @@ module AWS::SDK::CloudWatch
 
     class GetMetricData
       # @param [Client] client
-      # @param [Hash] params (see Client#get_metric_data)
-      # @param [Hash] options (see Client#get_metric_data)
+      # @param (see Client#get_metric_data)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_metric_data operation.
       # @return [Enumerator]
       def pages
@@ -181,13 +181,13 @@ module AWS::SDK::CloudWatch
 
     class ListDashboards
       # @param [Client] client
-      # @param [Hash] params (see Client#list_dashboards)
-      # @param [Hash] options (see Client#list_dashboards)
+      # @param (see Client#list_dashboards)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_dashboards operation.
       # @return [Enumerator]
       def pages
@@ -222,13 +222,13 @@ module AWS::SDK::CloudWatch
 
     class ListManagedInsightRules
       # @param [Client] client
-      # @param [Hash] params (see Client#list_managed_insight_rules)
-      # @param [Hash] options (see Client#list_managed_insight_rules)
+      # @param (see Client#list_managed_insight_rules)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_managed_insight_rules operation.
       # @return [Enumerator]
       def pages
@@ -251,13 +251,13 @@ module AWS::SDK::CloudWatch
 
     class ListMetrics
       # @param [Client] client
-      # @param [Hash] params (see Client#list_metrics)
-      # @param [Hash] options (see Client#list_metrics)
+      # @param (see Client#list_metrics)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_metrics operation.
       # @return [Enumerator]
       def pages
@@ -280,13 +280,13 @@ module AWS::SDK::CloudWatch
 
     class ListMetricStreams
       # @param [Client] client
-      # @param [Hash] params (see Client#list_metric_streams)
-      # @param [Hash] options (see Client#list_metric_streams)
+      # @param (see Client#list_metric_streams)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_metric_streams operation.
       # @return [Enumerator]
       def pages

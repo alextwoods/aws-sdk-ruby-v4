@@ -56,7 +56,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::BackupInUseException]
-      #
       attr_reader :data
     end
 
@@ -69,7 +68,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::BackupNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -82,7 +80,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ConditionalCheckFailedException]
-      #
       attr_reader :data
     end
 
@@ -95,7 +92,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ContinuousBackupsUnavailableException]
-      #
       attr_reader :data
     end
 
@@ -108,7 +104,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::DuplicateItemException]
-      #
       attr_reader :data
     end
 
@@ -121,7 +116,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ExportConflictException]
-      #
       attr_reader :data
     end
 
@@ -134,7 +128,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ExportNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -147,7 +140,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::GlobalTableAlreadyExistsException]
-      #
       attr_reader :data
     end
 
@@ -160,7 +152,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::GlobalTableNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -173,7 +164,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::IdempotentParameterMismatchException]
-      #
       attr_reader :data
     end
 
@@ -186,7 +176,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ImportConflictException]
-      #
       attr_reader :data
     end
 
@@ -199,7 +188,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ImportNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -212,7 +200,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::IndexNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -225,7 +212,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::InternalServerError]
-      #
       attr_reader :data
     end
 
@@ -238,7 +224,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::InvalidEndpointException]
-      #
       attr_reader :data
     end
 
@@ -251,7 +236,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::InvalidExportTimeException]
-      #
       attr_reader :data
     end
 
@@ -264,7 +248,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::InvalidRestoreTimeException]
-      #
       attr_reader :data
     end
 
@@ -277,7 +260,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ItemCollectionSizeLimitExceededException]
-      #
       attr_reader :data
     end
 
@@ -290,7 +272,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::LimitExceededException]
-      #
       attr_reader :data
     end
 
@@ -303,7 +284,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::PointInTimeRecoveryUnavailableException]
-      #
       attr_reader :data
     end
 
@@ -316,7 +296,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ProvisionedThroughputExceededException]
-      #
       attr_reader :data
     end
 
@@ -329,7 +308,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ReplicaAlreadyExistsException]
-      #
       attr_reader :data
     end
 
@@ -342,7 +320,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ReplicaNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -355,7 +332,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::RequestLimitExceeded]
-      #
       attr_reader :data
     end
 
@@ -368,7 +344,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ResourceInUseException]
-      #
       attr_reader :data
     end
 
@@ -381,7 +356,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::ResourceNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -394,7 +368,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TableAlreadyExistsException]
-      #
       attr_reader :data
     end
 
@@ -407,7 +380,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TableInUseException]
-      #
       attr_reader :data
     end
 
@@ -420,7 +392,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TableNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -433,7 +404,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TransactionCanceledException]
-      #
       attr_reader :data
     end
 
@@ -446,7 +416,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TransactionConflictException]
-      #
       attr_reader :data
     end
 
@@ -459,7 +428,6 @@ module AWS::SDK::DynamoDB
       end
 
       # @return [Types::TransactionInProgressException]
-      #
       attr_reader :data
     end
 

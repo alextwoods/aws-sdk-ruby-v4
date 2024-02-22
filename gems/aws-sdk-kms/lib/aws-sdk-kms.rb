@@ -9,6 +9,7 @@
 
 require 'aws-sdk-core'
 
+require_relative 'aws-sdk-kms/auth'
 require_relative 'aws-sdk-kms/builders'
 require_relative 'aws-sdk-kms/client'
 require_relative 'aws-sdk-kms/config'

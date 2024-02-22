@@ -11,38 +11,13 @@ require 'aws-sdk-s3'
 
 module AWS::SDK::S3
   describe Client do
-    let(:config) do
-      Config.new(
+    let(:client) do
+      Client.new(
         stub_responses: true,
         validate_input: false,
         endpoint: 'http://127.0.0.1',
         retry_strategy: Hearth::Retry::Standard.new(max_attempts: 0)
       )
-    end
-
-    let(:client) { Client.new(config) }
-    let(:before_send) do
-      Class.new do
-        def initialize(&block)
-          @block = block
-        end
-
-        def read_before_transmit(context)
-          @block.call(context)
-        end
-      end
-    end
-
-    let(:after_send) do
-      Class.new do
-        def initialize(&block)
-          @block = block
-        end
-
-        def read_after_transmit(context)
-          @block.call(context)
-        end
-      end
     end
 
     describe '#abort_multipart_upload' do
@@ -62,6 +37,10 @@ module AWS::SDK::S3
     end
 
     describe '#create_multipart_upload' do
+
+    end
+
+    describe '#create_session' do
 
     end
 
@@ -274,6 +253,10 @@ module AWS::SDK::S3
     end
 
     describe '#list_buckets' do
+
+    end
+
+    describe '#list_directory_buckets' do
 
     end
 

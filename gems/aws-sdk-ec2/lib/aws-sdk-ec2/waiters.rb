@@ -12,18 +12,14 @@ module AWS::SDK::EC2
 
     class BundleTaskComplete
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -59,17 +55,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_bundle_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_bundle_tasks)
-      #
-      # @return [Types::DescribeBundleTasks]
-      #   (see Client#describe_bundle_tasks)
-      #
+      # @param (see Client#describe_bundle_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -77,18 +70,14 @@ module AWS::SDK::EC2
 
     class ConversionTaskCancelled
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -114,17 +103,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @return [Types::DescribeConversionTasks]
-      #   (see Client#describe_conversion_tasks)
-      #
+      # @param (see Client#describe_conversion_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -132,18 +118,14 @@ module AWS::SDK::EC2
 
     class ConversionTaskCompleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -189,17 +171,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @return [Types::DescribeConversionTasks]
-      #   (see Client#describe_conversion_tasks)
-      #
+      # @param (see Client#describe_conversion_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -207,18 +186,14 @@ module AWS::SDK::EC2
 
     class ConversionTaskDeleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -244,17 +219,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_conversion_tasks)
-      #
-      # @return [Types::DescribeConversionTasks]
-      #   (see Client#describe_conversion_tasks)
-      #
+      # @param (see Client#describe_conversion_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -262,18 +234,14 @@ module AWS::SDK::EC2
 
     class CustomerGatewayAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -319,17 +287,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_customer_gateways)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_customer_gateways)
-      #
-      # @return [Types::DescribeCustomerGateways]
-      #   (see Client#describe_customer_gateways)
-      #
+      # @param (see Client#describe_customer_gateways)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -337,18 +302,14 @@ module AWS::SDK::EC2
 
     class ExportTaskCancelled
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -374,17 +335,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_export_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_export_tasks)
-      #
-      # @return [Types::DescribeExportTasks]
-      #   (see Client#describe_export_tasks)
-      #
+      # @param (see Client#describe_export_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -392,18 +350,14 @@ module AWS::SDK::EC2
 
     class ExportTaskCompleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -429,17 +383,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_export_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_export_tasks)
-      #
-      # @return [Types::DescribeExportTasks]
-      #   (see Client#describe_export_tasks)
-      #
+      # @param (see Client#describe_export_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -447,18 +398,14 @@ module AWS::SDK::EC2
 
     class ImageAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -494,17 +441,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_images)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_images)
-      #
-      # @return [Types::DescribeImages]
-      #   (see Client#describe_images)
-      #
+      # @param (see Client#describe_images)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -512,18 +456,14 @@ module AWS::SDK::EC2
 
     class ImageExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -555,17 +495,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_images)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_images)
-      #
-      # @return [Types::DescribeImages]
-      #   (see Client#describe_images)
-      #
+      # @param (see Client#describe_images)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -573,18 +510,14 @@ module AWS::SDK::EC2
 
     class SnapshotImported
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -620,17 +553,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_import_snapshot_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_import_snapshot_tasks)
-      #
-      # @return [Types::DescribeImportSnapshotTasks]
-      #   (see Client#describe_import_snapshot_tasks)
-      #
+      # @param (see Client#describe_import_snapshot_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -638,18 +568,14 @@ module AWS::SDK::EC2
 
     class InstanceExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -681,17 +607,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instances)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instances)
-      #
-      # @return [Types::DescribeInstances]
-      #   (see Client#describe_instances)
-      #
+      # @param (see Client#describe_instances)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -699,18 +622,14 @@ module AWS::SDK::EC2
 
     class InstanceRunning
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -772,17 +691,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instances)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instances)
-      #
-      # @return [Types::DescribeInstances]
-      #   (see Client#describe_instances)
-      #
+      # @param (see Client#describe_instances)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -790,18 +706,14 @@ module AWS::SDK::EC2
 
     class InstanceStopped
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -847,17 +759,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instances)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instances)
-      #
-      # @return [Types::DescribeInstances]
-      #   (see Client#describe_instances)
-      #
+      # @param (see Client#describe_instances)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -865,18 +774,14 @@ module AWS::SDK::EC2
 
     class InstanceTerminated
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -922,17 +827,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instances)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instances)
-      #
-      # @return [Types::DescribeInstances]
-      #   (see Client#describe_instances)
-      #
+      # @param (see Client#describe_instances)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -940,18 +842,14 @@ module AWS::SDK::EC2
 
     class InstanceStatusOk
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -983,17 +881,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instance_status)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instance_status)
-      #
-      # @return [Types::DescribeInstanceStatus]
-      #   (see Client#describe_instance_status)
-      #
+      # @param (see Client#describe_instance_status)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1001,18 +896,14 @@ module AWS::SDK::EC2
 
     class SystemStatusOk
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1038,17 +929,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_instance_status)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_instance_status)
-      #
-      # @return [Types::DescribeInstanceStatus]
-      #   (see Client#describe_instance_status)
-      #
+      # @param (see Client#describe_instance_status)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1056,18 +944,14 @@ module AWS::SDK::EC2
 
     class InternetGatewayExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1099,17 +983,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_internet_gateways)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_internet_gateways)
-      #
-      # @return [Types::DescribeInternetGateways]
-      #   (see Client#describe_internet_gateways)
-      #
+      # @param (see Client#describe_internet_gateways)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1117,18 +998,14 @@ module AWS::SDK::EC2
 
     class KeyPairExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1160,17 +1037,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_key_pairs)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_key_pairs)
-      #
-      # @return [Types::DescribeKeyPairs]
-      #   (see Client#describe_key_pairs)
-      #
+      # @param (see Client#describe_key_pairs)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1178,18 +1052,14 @@ module AWS::SDK::EC2
 
     class NatGatewayAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1251,17 +1121,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_nat_gateways)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_nat_gateways)
-      #
-      # @return [Types::DescribeNatGateways]
-      #   (see Client#describe_nat_gateways)
-      #
+      # @param (see Client#describe_nat_gateways)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1269,18 +1136,14 @@ module AWS::SDK::EC2
 
     class NatGatewayDeleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1312,17 +1175,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_nat_gateways)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_nat_gateways)
-      #
-      # @return [Types::DescribeNatGateways]
-      #   (see Client#describe_nat_gateways)
-      #
+      # @param (see Client#describe_nat_gateways)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1330,18 +1190,14 @@ module AWS::SDK::EC2
 
     class NetworkInterfaceAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (20)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1373,17 +1229,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_network_interfaces)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_network_interfaces)
-      #
-      # @return [Types::DescribeNetworkInterfaces]
-      #   (see Client#describe_network_interfaces)
-      #
+      # @param (see Client#describe_network_interfaces)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1391,18 +1244,14 @@ module AWS::SDK::EC2
 
     class SecurityGroupExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1434,17 +1283,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_security_groups)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_security_groups)
-      #
-      # @return [Types::DescribeSecurityGroups]
-      #   (see Client#describe_security_groups)
-      #
+      # @param (see Client#describe_security_groups)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1452,18 +1298,14 @@ module AWS::SDK::EC2
 
     class SnapshotCompleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1499,17 +1341,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_snapshots)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_snapshots)
-      #
-      # @return [Types::DescribeSnapshots]
-      #   (see Client#describe_snapshots)
-      #
+      # @param (see Client#describe_snapshots)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1517,18 +1356,14 @@ module AWS::SDK::EC2
 
     class SpotInstanceRequestFulfilled
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1610,17 +1445,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_spot_instance_requests)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_spot_instance_requests)
-      #
-      # @return [Types::DescribeSpotInstanceRequests]
-      #   (see Client#describe_spot_instance_requests)
-      #
+      # @param (see Client#describe_spot_instance_requests)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1628,18 +1460,14 @@ module AWS::SDK::EC2
 
     class StoreImageTaskComplete
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1685,17 +1513,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_store_image_tasks)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_store_image_tasks)
-      #
-      # @return [Types::DescribeStoreImageTasks]
-      #   (see Client#describe_store_image_tasks)
-      #
+      # @param (see Client#describe_store_image_tasks)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1703,18 +1528,14 @@ module AWS::SDK::EC2
 
     class SubnetAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1740,17 +1561,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_subnets)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_subnets)
-      #
-      # @return [Types::DescribeSubnets]
-      #   (see Client#describe_subnets)
-      #
+      # @param (see Client#describe_subnets)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1758,18 +1576,14 @@ module AWS::SDK::EC2
 
     class VolumeAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1805,17 +1619,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_volumes)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_volumes)
-      #
-      # @return [Types::DescribeVolumes]
-      #   (see Client#describe_volumes)
-      #
+      # @param (see Client#describe_volumes)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1823,18 +1634,14 @@ module AWS::SDK::EC2
 
     class VolumeDeleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1866,17 +1673,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_volumes)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_volumes)
-      #
-      # @return [Types::DescribeVolumes]
-      #   (see Client#describe_volumes)
-      #
+      # @param (see Client#describe_volumes)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1884,18 +1688,14 @@ module AWS::SDK::EC2
 
     class VolumeInUse
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1931,17 +1731,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_volumes)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_volumes)
-      #
-      # @return [Types::DescribeVolumes]
-      #   (see Client#describe_volumes)
-      #
+      # @param (see Client#describe_volumes)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -1949,18 +1746,14 @@ module AWS::SDK::EC2
 
     class VpcPeeringConnectionDeleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -1992,17 +1785,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpc_peering_connections)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpc_peering_connections)
-      #
-      # @return [Types::DescribeVpcPeeringConnections]
-      #   (see Client#describe_vpc_peering_connections)
-      #
+      # @param (see Client#describe_vpc_peering_connections)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2010,18 +1800,14 @@ module AWS::SDK::EC2
 
     class VpcPeeringConnectionExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2049,17 +1835,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpc_peering_connections)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpc_peering_connections)
-      #
-      # @return [Types::DescribeVpcPeeringConnections]
-      #   (see Client#describe_vpc_peering_connections)
-      #
+      # @param (see Client#describe_vpc_peering_connections)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2067,18 +1850,14 @@ module AWS::SDK::EC2
 
     class VpcAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2104,17 +1883,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpcs)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpcs)
-      #
-      # @return [Types::DescribeVpcs]
-      #   (see Client#describe_vpcs)
-      #
+      # @param (see Client#describe_vpcs)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2122,18 +1898,14 @@ module AWS::SDK::EC2
 
     class VpcExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (1)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2161,17 +1933,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpcs)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpcs)
-      #
-      # @return [Types::DescribeVpcs]
-      #   (see Client#describe_vpcs)
-      #
+      # @param (see Client#describe_vpcs)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2179,18 +1948,14 @@ module AWS::SDK::EC2
 
     class VpnConnectionAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2236,17 +2001,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpn_connections)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpn_connections)
-      #
-      # @return [Types::DescribeVpnConnections]
-      #   (see Client#describe_vpn_connections)
-      #
+      # @param (see Client#describe_vpn_connections)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2254,18 +2016,14 @@ module AWS::SDK::EC2
 
     class VpnConnectionDeleted
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2301,17 +2059,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_vpn_connections)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_vpn_connections)
-      #
-      # @return [Types::DescribeVpnConnections]
-      #   (see Client#describe_vpn_connections)
-      #
+      # @param (see Client#describe_vpn_connections)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -2319,18 +2074,14 @@ module AWS::SDK::EC2
 
     class PasswordDataAvailable
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (15)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -2356,17 +2107,14 @@ module AWS::SDK::EC2
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#get_password_data)
-      #
-      # @param [Hash] options
-      #   (see Client#get_password_data)
-      #
-      # @return [Types::GetPasswordData]
-      #   (see Client#get_password_data)
-      #
+      # @param (see Client#get_password_data)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end

@@ -12,8 +12,6 @@ require 'stringio'
 require_relative 'middleware/request_id'
 
 module AWS::SDK::DynamoDB
-  # An API client for DynamoDB_20120810
-  # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon DynamoDB</fullname>
   #          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
   #             and predictable performance with seamless scalability. DynamoDB lets you
@@ -31,21 +29,22 @@ module AWS::SDK::DynamoDB
   #             disks (SSDs) and automatically replicated across multiple Availability Zones in an
   #                 Amazon Web Services Region, providing built-in high availability and data
   #             durability.</p>
-  #
   class Client
     include Hearth::ClientStubs
+
+    # @api private
     @plugins = Hearth::PluginList.new
 
+    # @return [Hearth::PluginList]
     def self.plugins
       @plugins
     end
 
-    # @param [Config] config
-    #   An instance of {Config}
-    #
-    def initialize(config = AWS::SDK::DynamoDB::Config.new, options = {})
-      @config = initialize_config(config)
-      @stubs = Hearth::Stubbing::Stubs.new
+    # @param [Hash] options
+    #   Options used to construct an instance of {Config}
+    def initialize(options = {})
+      @config = initialize_config(options)
+      @stubs = Hearth::Stubs.new
     end
 
     # @return [Config] config
@@ -64,44 +63,14 @@ module AWS::SDK::DynamoDB
     #                 succeeded. Error details for individual statements can be found under the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error">Error</a> field of the <code>BatchStatementResponse</code> for each
     #                 statement.</p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::BatchExecuteStatementInput}.
-    #
-    # @option params [Array<BatchStatementRequest>] :statements
-    #   <p>The list of PartiQL statements representing the batch to run.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::BatchExecuteStatementInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::BatchExecuteStatementOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.batch_execute_statement(
     #     statements: [
     #       {
@@ -131,9 +100,7 @@ module AWS::SDK::DynamoDB
     #     ], # required
     #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::BatchExecuteStatementOutput
     #   resp.data.responses #=> Array<BatchStatementResponse>
     #   resp.data.responses[0] #=> Types::BatchStatementResponse
@@ -169,12 +136,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
     #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
-    #
-    def batch_execute_statement(params = {}, options = {}, &block)
+    def batch_execute_statement(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
@@ -188,34 +154,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :batch_execute_statement),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]
+        ),
         data_parser: Parsers::BatchExecuteStatement
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::RequestLimitExceeded],
         stub_data_class: Stubs::BatchExecuteStatement,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :batch_execute_statement,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :batch_execute_statement,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_execute_statement] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#batch_execute_statement] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_execute_statement] #{output.data}")
+      output
     end
 
     # <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
@@ -265,142 +244,14 @@ module AWS::SDK::DynamoDB
     #             nonexistent items consume the minimum read capacity units according to the type of read.
     #             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working with Tables</a> in the <i>Amazon DynamoDB Developer
     #                 Guide</i>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::BatchGetItemInput}.
-    #
-    # @option params [Hash<String, KeysAndAttributes>] :request_items
-    #   <p>A map of one or more table names and, for each table, a map that describes one or more
-    #               items to retrieve from that table. Each table name can be used only once per
-    #                   <code>BatchGetItem</code> request.</p>
-    #            <p>Each element in the map of items to retrieve consists of the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read
-    #                       is used; if <code>false</code> (the default), an eventually consistent read is
-    #                       used.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ExpressionAttributeNames</code> - One or more substitution tokens for
-    #                       attribute names in the <code>ProjectionExpression</code> parameter. The
-    #                       following are some use cases for using
-    #                       <code>ExpressionAttributeNames</code>:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                               word.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>To create a placeholder for repeating occurrences of an attribute name
-    #                               in an expression.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>To prevent special characters in an attribute name from being
-    #                               misinterpreted in an expression.</p>
-    #                     </li>
-    #                  </ul>
-    #                  <p>Use the <b>#</b> character in an expression to
-    #                       dereference an attribute name. For example, consider the following attribute
-    #                       name:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>Percentile</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #                  <p>The name of this attribute conflicts with a reserved word, so it cannot be
-    #                       used directly in an expression. (For the complete list of reserved words, see
-    #                           <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved
-    #                           Words</a> in the <i>Amazon DynamoDB Developer Guide</i>).
-    #                       To work around this, you could specify the following for
-    #                           <code>ExpressionAttributeNames</code>:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>{"#P":"Percentile"}</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #                  <p>You could then use this substitution in an expression, as in this
-    #                       example:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>#P = :val</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #                  <note>
-    #                     <p>Tokens that begin with the <b>:</b> character
-    #                           are <i>expression attribute values</i>, which are placeholders
-    #                           for the actual value at runtime.</p>
-    #                  </note>
-    #                  <p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB
-    #                           Developer Guide</i>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>Keys</code> - An array of primary key attribute values that define
-    #                       specific items in the table. For each primary key, you must provide
-    #                           <i>all</i> of the key attributes. For example, with a simple
-    #                       primary key, you only need to provide the partition key value. For a composite
-    #                       key, you must provide <i>both</i> the partition key value and the
-    #                       sort key value.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ProjectionExpression</code> - A string that identifies one or more
-    #                       attributes to retrieve from the table. These attributes can include scalars,
-    #                       sets, or elements of a JSON document. The attributes in the expression must be
-    #                       separated by commas.</p>
-    #                  <p>If no attribute names are specified, then all attributes are returned. If any
-    #                       of the requested attributes are not found, they do not appear in the
-    #                       result.</p>
-    #                  <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB
-    #                           Developer Guide</i>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>AttributesToGet</code> - This is a legacy parameter. Use
-    #                           <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer
-    #                           Guide</i>. </p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::BatchGetItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::BatchGetItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.batch_get_item(
     #     request_items: {
     #       'key' => {
@@ -437,9 +288,7 @@ module AWS::SDK::DynamoDB
     #     }, # required
     #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::BatchGetItemOutput
     #   resp.data.responses #=> Hash<String, Array<Hash<String, AttributeValue>>>
     #   resp.data.responses['key'] #=> Array<Hash<String, AttributeValue>>
@@ -480,12 +329,69 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
     #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    # @example To retrieve multiple items from a table
+    #   # This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.
+    #   resp = client.batch_get_item({
+    #     request_items: {
+    #       'Music' => {
+    #         keys: [
+    #           {
+    #             'Artist' => {
+    #               s: "No One You Know"
+    #             },
+    #             'SongTitle' => {
+    #               s: "Call Me Today"
+    #             }
+    #           },
+    #           {
+    #             'Artist' => {
+    #               s: "Acme Band"
+    #             },
+    #             'SongTitle' => {
+    #               s: "Happy Day"
+    #             }
+    #           },
+    #           {
+    #             'Artist' => {
+    #               s: "No One You Know"
+    #             },
+    #             'SongTitle' => {
+    #               s: "Scared of My Shadow"
+    #             }
+    #           }
+    #         ],
+    #         projection_expression: "AlbumTitle"
+    #       }
+    #     }
+    #   })
     #
-    def batch_get_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     responses: {
+    #       'Music' => [
+    #         {
+    #           'AlbumTitle' => {
+    #             s: "Somewhat Famous"
+    #           }
+    #         },
+    #         {
+    #           'AlbumTitle' => {
+    #             s: "Blue Sky Blues"
+    #           }
+    #         },
+    #         {
+    #           'AlbumTitle' => {
+    #             s: "Louder Than Ever"
+    #           }
+    #         }
+    #       ]
+    #     }
+    #   }
+    def batch_get_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetItemInput,
@@ -499,34 +405,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :batch_get_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::BatchGetItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::BatchGetItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :batch_get_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :batch_get_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_get_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#batch_get_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_get_item] #{output.data}")
+      output
     end
 
     # <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
@@ -611,92 +530,14 @@ module AWS::SDK::DynamoDB
     #                <p>The total request size exceeds 16 MB.</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::BatchWriteItemInput}.
-    #
-    # @option params [Hash<String, Array<WriteRequest>>] :request_items
-    #   <p>A map of one or more table names and, for each table, a list of operations to be
-    #               performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the
-    #               map consists of the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the
-    #                       specified item. The item to be deleted is identified by a <code>Key</code>
-    #                       subelement:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>Key</code> - A map of primary key attribute values that uniquely
-    #                               identify the item. Each entry in this map consists of an attribute name
-    #                               and an attribute value. For each primary key, you must provide
-    #                                   <i>all</i> of the key attributes. For example, with a
-    #                               simple primary key, you only need to provide a value for the partition
-    #                               key. For a composite primary key, you must provide values for
-    #                                   <i>both</i> the partition key and the sort key.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>PutRequest</code> - Perform a <code>PutItem</code> operation on the
-    #                       specified item. The item to be put is identified by an <code>Item</code>
-    #                       subelement:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>Item</code> - A map of attributes and their values. Each entry in
-    #                               this map consists of an attribute name and an attribute value. Attribute
-    #                               values must not be null; string and binary type attributes must have
-    #                               lengths greater than zero; and set type attributes must not be empty.
-    #                               Requests that contain empty values are rejected with a
-    #                                   <code>ValidationException</code> exception.</p>
-    #                        <p>If you specify any attributes that are part of an index key, then the
-    #                               data types for those attributes must match those of the schema in the
-    #                               table's attribute definition.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_item_collection_metrics
-    #   <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-    #               the response includes statistics about item collections, if any, that were modified
-    #               during the operation are returned in the response. If set to <code>NONE</code> (the
-    #               default), no statistics are returned.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::BatchWriteItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::BatchWriteItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.batch_write_item(
     #     request_items: {
     #       'key' => [
@@ -730,9 +571,7 @@ module AWS::SDK::DynamoDB
     #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
     #     return_item_collection_metrics: 'SIZE' # accepts ["SIZE", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::BatchWriteItemOutput
     #   resp.data.unprocessed_items #=> Hash<String, Array<WriteRequest>>
     #   resp.data.unprocessed_items['key'] #=> Array<WriteRequest>
@@ -773,12 +612,69 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
     #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    # @example To add multiple items to a table
+    #   # This example adds three new items to the Music table using a batch of three PutItem requests.
+    #   resp = client.batch_write_item({
+    #     request_items: {
+    #       'Music' => [
+    #         {
+    #           put_request: {
+    #             item: {
+    #               'AlbumTitle' => {
+    #                 s: "Somewhat Famous"
+    #               },
+    #               'SongTitle' => {
+    #                 s: "Call Me Today"
+    #               },
+    #               'Artist' => {
+    #                 s: "No One You Know"
+    #               }
+    #             }
+    #           }
+    #         },
+    #         {
+    #           put_request: {
+    #             item: {
+    #               'AlbumTitle' => {
+    #                 s: "Songs About Life"
+    #               },
+    #               'SongTitle' => {
+    #                 s: "Happy Day"
+    #               },
+    #               'Artist' => {
+    #                 s: "Acme Band"
+    #               }
+    #             }
+    #           }
+    #         },
+    #         {
+    #           put_request: {
+    #             item: {
+    #               'AlbumTitle' => {
+    #                 s: "Blue Sky Blues"
+    #               },
+    #               'SongTitle' => {
+    #                 s: "Scared of My Shadow"
+    #               },
+    #               'Artist' => {
+    #                 s: "No One You Know"
+    #               }
+    #             }
+    #           }
+    #         }
+    #       ]
+    #     }
+    #   })
     #
-    def batch_write_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    def batch_write_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteItemInput,
@@ -792,34 +688,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :batch_write_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::BatchWriteItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::BatchWriteItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :batch_write_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :batch_write_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_write_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#batch_write_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#batch_write_item] #{output.data}")
+      output
     end
 
     # <p>Creates a backup for an existing table.</p>
@@ -852,27 +761,19 @@ module AWS::SDK::DynamoDB
     #                <p>Provisioned read and write capacity</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::CreateBackupInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table.</p>
-    #
-    # @option params [String] :backup_name
-    #   <p>Specified name for the backup.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateBackupInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateBackupOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_backup(
     #     table_name: 'TableName', # required
     #     backup_name: 'BackupName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateBackupOutput
     #   resp.data.backup_details #=> Types::BackupDetails
     #   resp.data.backup_details.backup_arn #=> String
@@ -882,12 +783,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_details.backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_details.backup_creation_date_time #=> Time
     #   resp.data.backup_details.backup_expiry_date_time #=> Time
-    #
-    def create_backup(params = {}, options = {}, &block)
+    def create_backup(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
@@ -901,34 +801,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_backup),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
+        ),
         data_parser: Parsers::CreateBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
         stub_data_class: Stubs::CreateBackup,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_backup,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_backup,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_backup] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_backup] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_backup] #{output.data}")
+      output
     end
 
     # <p>Creates a global table from an existing table. A global table creates a replication
@@ -994,20 +907,14 @@ module AWS::SDK::DynamoDB
     #                 provision equal replicated write capacity units to matching secondary indexes across
     #                 your global table. </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::CreateGlobalTableInput}.
-    #
-    # @option params [String] :global_table_name
-    #   <p>The global table name.</p>
-    #
-    # @option params [Array<Replica>] :replication_group
-    #   <p>The Regions where the global table needs to be created.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateGlobalTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateGlobalTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_global_table(
     #     global_table_name: 'GlobalTableName', # required
     #     replication_group: [
@@ -1016,9 +923,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateGlobalTableOutput
     #   resp.data.global_table_description #=> Types::GlobalTableDescription
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
@@ -1042,12 +947,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.creation_date_time #=> Time
     #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
-    #
-    def create_global_table(params = {}, options = {}, &block)
+    def create_global_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalTableInput,
@@ -1061,34 +965,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_global_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]
+        ),
         data_parser: Parsers::CreateGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableNotFoundException, Stubs::GlobalTableAlreadyExistsException],
         stub_data_class: Stubs::CreateGlobalTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_global_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_global_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_global_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_global_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_global_table] #{output.data}")
+      output
     end
 
     # <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
@@ -1104,266 +1021,14 @@ module AWS::SDK::DynamoDB
     #             secondary indexes on them, you must create the tables sequentially. Only one table with
     #             secondary indexes can be in the <code>CREATING</code> state at any given time.</p>
     #          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
-    #
     # @param [Hash] params
-    #   See {Types::CreateTableInput}.
-    #
-    # @option params [Array<AttributeDefinition>] :attribute_definitions
-    #   <p>An array of attributes that describe the key schema for the table and indexes.</p>
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to create.</p>
-    #
-    # @option params [Array<KeySchemaElement>] :key_schema
-    #   <p>Specifies the attributes that make up the primary key for a table or an index. The
-    #               attributes in <code>KeySchema</code> must also be defined in the
-    #                   <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data
-    #                   Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #            <p>Each <code>KeySchemaElement</code> in the array is composed of:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>AttributeName</code> - The name of this key attribute.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>KeyType</code> - The role that the key attribute will assume:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>HASH</code> - partition key</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>RANGE</code> - sort key</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>The partition key of an item is also known as its <i>hash
-    #                       attribute</i>. The term "hash attribute" derives from the DynamoDB usage
-    #                   of an internal hash function to evenly distribute data items across partitions,
-    #                   based on their partition key values.</p>
-    #               <p>The sort key of an item is also known as its <i>range attribute</i>.
-    #                   The term "range attribute" derives from the way DynamoDB stores items with the same
-    #                   partition key physically close together, in sorted order by the sort key
-    #                   value.</p>
-    #            </note>
-    #            <p>For a simple primary key (partition key), you must provide exactly one element with a
-    #                   <code>KeyType</code> of <code>HASH</code>.</p>
-    #            <p>For a composite primary key (partition key and sort key), you must provide exactly two
-    #               elements, in this order: The first element must have a <code>KeyType</code> of
-    #                   <code>HASH</code>, and the second element must have a <code>KeyType</code> of
-    #                   <code>RANGE</code>.</p>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Array<LocalSecondaryIndex>] :local_secondary_indexes
-    #   <p>One or more local secondary indexes (the maximum is 5) to be created on the table.
-    #               Each index is scoped to a given partition key value. There is a 10 GB size limit per
-    #               partition key value; otherwise, the size of a local secondary index is
-    #               unconstrained.</p>
-    #            <p>Each local secondary index in the array includes the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>IndexName</code> - The name of the local secondary index. Must be unique
-    #                       only for this table.</p>
-    #                  <p></p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>KeySchema</code> - Specifies the key schema for the local secondary index.
-    #                       The key schema must begin with the same partition key as the table.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>Projection</code> - Specifies attributes that are copied (projected) from
-    #                       the table into the index. These are in addition to the primary key attributes
-    #                       and index key attributes, which are automatically projected. Each attribute
-    #                       specification is composed of:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>ProjectionType</code> - One of the following:</p>
-    #                        <ul>
-    #                           <li>
-    #                              <p>
-    #                                 <code>KEYS_ONLY</code> - Only the index and primary keys are
-    #                                       projected into the index.</p>
-    #                           </li>
-    #                           <li>
-    #                              <p>
-    #                                 <code>INCLUDE</code> - Only the specified table attributes are
-    #                                       projected into the index. The list of projected attributes is in
-    #                                           <code>NonKeyAttributes</code>.</p>
-    #                           </li>
-    #                           <li>
-    #                              <p>
-    #                                 <code>ALL</code> - All of the table attributes are projected
-    #                                       into the index.</p>
-    #                           </li>
-    #                        </ul>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>NonKeyAttributes</code> - A list of one or more non-key attribute
-    #                               names that are projected into the secondary index. The total count of
-    #                               attributes provided in <code>NonKeyAttributes</code>, summed across all
-    #                               of the secondary indexes, must not exceed 100. If you project the same
-    #                               attribute into two different indexes, this counts as two distinct
-    #                               attributes when determining the total.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Array<GlobalSecondaryIndex>] :global_secondary_indexes
-    #   <p>One or more global secondary indexes (the maximum is 20) to be created on the table.
-    #               Each global secondary index in the array includes the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>IndexName</code> - The name of the global secondary index. Must be unique
-    #                       only for this table.</p>
-    #                  <p></p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>KeySchema</code> - Specifies the key schema for the global secondary
-    #                       index.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>Projection</code> - Specifies attributes that are copied (projected) from
-    #                       the table into the index. These are in addition to the primary key attributes
-    #                       and index key attributes, which are automatically projected. Each attribute
-    #                       specification is composed of:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>ProjectionType</code> - One of the following:</p>
-    #                        <ul>
-    #                           <li>
-    #                              <p>
-    #                                 <code>KEYS_ONLY</code> - Only the index and primary keys are
-    #                                       projected into the index.</p>
-    #                           </li>
-    #                           <li>
-    #                              <p>
-    #                                 <code>INCLUDE</code> - Only the specified table attributes are
-    #                                       projected into the index. The list of projected attributes is in
-    #                                           <code>NonKeyAttributes</code>.</p>
-    #                           </li>
-    #                           <li>
-    #                              <p>
-    #                                 <code>ALL</code> - All of the table attributes are projected
-    #                                       into the index.</p>
-    #                           </li>
-    #                        </ul>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>NonKeyAttributes</code> - A list of one or more non-key attribute
-    #                               names that are projected into the secondary index. The total count of
-    #                               attributes provided in <code>NonKeyAttributes</code>, summed across all
-    #                               of the secondary indexes, must not exceed 100. If you project the same
-    #                               attribute into two different indexes, this counts as two distinct
-    #                               attributes when determining the total.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ProvisionedThroughput</code> - The provisioned throughput settings for the
-    #                       global secondary index, consisting of read and write capacity units.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :billing_mode
-    #   <p>Controls how you are charged for read and write throughput and how you manage
-    #               capacity. This setting can be changed later.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-    #                       predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-    #                       for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-    #                       to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [ProvisionedThroughput] :provisioned_throughput
-    #   <p>Represents the provisioned throughput settings for a specified table or index. The
-    #               settings can be modified using the <code>UpdateTable</code> operation.</p>
-    #            <p> If you set BillingMode as <code>PROVISIONED</code>, you must specify this property.
-    #               If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this
-    #               property.</p>
-    #            <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
-    #                   Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [StreamSpecification] :stream_specification
-    #   <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>StreamEnabled</code> - Indicates whether DynamoDB Streams is to be enabled
-    #                       (true) or disabled (false).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>StreamViewType</code> - When an item in the table is modified,
-    #                           <code>StreamViewType</code> determines what information is written to the
-    #                       table's stream. Valid values for <code>StreamViewType</code> are:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>KEYS_ONLY</code> - Only the key attributes of the modified item
-    #                               are written to the stream.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>NEW_IMAGE</code> - The entire item, as it appears after it was
-    #                               modified, is written to the stream.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>OLD_IMAGE</code> - The entire item, as it appeared before it was
-    #                               modified, is written to the stream.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images
-    #                               of the item are written to the stream.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [SSESpecification] :sse_specification
-    #   <p>Represents the settings used to enable server-side encryption.</p>
-    #
-    # @option params [Array<Tag>] :tags
-    #   <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging
-    #                   for DynamoDB</a>.</p>
-    #
-    # @option params [String] :table_class
-    #   <p>The table class of the new table. Valid values are <code>STANDARD</code> and
-    #                   <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-    #
-    # @option params [Boolean] :deletion_protection_enabled
-    #   <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_table(
     #     attribute_definitions: [
     #       {
@@ -1417,9 +1082,7 @@ module AWS::SDK::DynamoDB
     #     table_class: 'STANDARD', # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #     deletion_protection_enabled: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateTableOutput
     #   resp.data.table_description #=> Types::TableDescription
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
@@ -1507,12 +1170,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
     #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
-    #
-    def create_table(params = {}, options = {}, &block)
+    def create_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
@@ -1526,56 +1188,64 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::CreateTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::CreateTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_table] #{output.data}")
+      output
     end
 
     # <p>Deletes an existing backup of a table.</p>
     #          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
     #             second.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DeleteBackupInput}.
-    #
-    # @option params [String] :backup_arn
-    #   <p>The ARN associated with the backup.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteBackupInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteBackupOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_backup(
     #     backup_arn: 'BackupArn' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteBackupOutput
     #   resp.data.backup_description #=> Types::BackupDescription
     #   resp.data.backup_description.backup_details #=> Types::BackupDetails
@@ -1627,12 +1297,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
-    #
-    def delete_backup(params = {}, options = {}, &block)
+    def delete_backup(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
@@ -1646,34 +1315,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_backup),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]
+        ),
         data_parser: Parsers::DeleteBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::BackupInUseException],
         stub_data_class: Stubs::DeleteBackup,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_backup,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_backup,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_backup] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_backup] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_backup] #{output.data}")
+      output
     end
 
     # <p>Deletes a single item in a table by primary key. You can perform a conditional delete
@@ -1687,198 +1369,14 @@ module AWS::SDK::DynamoDB
     #          <p>Conditional deletes are useful for deleting items only if specific conditions are met.
     #             If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not
     #             deleted.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DeleteItemInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table from which to delete the item.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :key
-    #   <p>A map of attribute names to <code>AttributeValue</code> objects, representing the
-    #               primary key of the item to delete.</p>
-    #            <p>For the primary key, you must provide all of the key attributes. For example, with a
-    #               simple primary key, you only need to provide a value for the partition key. For a
-    #               composite primary key, you must provide values for both the partition key and the sort
-    #               key.</p>
-    #
-    # @option params [Hash<String, ExpectedAttributeValue>] :expected
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [String] :conditional_operator
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :return_values
-    #   <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
-    #               before they were deleted. For <code>DeleteItem</code>, the valid values are:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its
-    #                       value is <code>NONE</code>, then nothing is returned. (This setting is the
-    #                       default for <code>ReturnValues</code>.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_OLD</code> - The content of the old item is returned.</p>
-    #               </li>
-    #            </ul>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #            <note>
-    #               <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
-    #                   however, <code>DeleteItem</code> does not recognize any values other than
-    #                       <code>NONE</code> or <code>ALL_OLD</code>.</p>
-    #            </note>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_item_collection_metrics
-    #   <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-    #               the response includes statistics about item collections, if any, that were modified
-    #               during the operation are returned in the response. If set to <code>NONE</code> (the
-    #               default), no statistics are returned.</p>
-    #
-    # @option params [String] :condition_expression
-    #   <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code>
-    #               to succeed.</p>
-    #            <p>An expression can contain any of the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type |
-    #                           contains | begins_with | size</code>
-    #                  </p>
-    #                  <p>These function names are case-sensitive.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Comparison operators: <code>= | <> |
-    #               < | > | <= | >= |
-    #               BETWEEN | IN </code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p> Logical operators: <code>AND | OR | NOT</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>). To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :expression_attribute_values
-    #   <p>One or more values that can be substituted in an expression.</p>
-    #            <p>Use the <b>:</b> (colon) character in an expression to
-    #               dereference an attribute value. For example, suppose that you wanted to check whether
-    #               the value of the <i>ProductStatus</i> attribute was one of the following: </p>
-    #            <p>
-    #               <code>Available | Backordered | Discontinued</code>
-    #            </p>
-    #            <p>You would first need to specify <code>ExpressionAttributeValues</code> as
-    #               follows:</p>
-    #            <p>
-    #               <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-    #                   ":disc":{"S":"Discontinued"} }</code>
-    #            </p>
-    #            <p>You could then use these values in an expression, such as this:</p>
-    #            <p>
-    #               <code>ProductStatus IN (:avail, :back, :disc)</code>
-    #            </p>
-    #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :return_values_on_condition_check_failure
-    #   <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code>
-    #               operation that failed a condition check.</p>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_item(
     #     table_name: 'TableName', # required
     #     key: {
@@ -1916,9 +1414,7 @@ module AWS::SDK::DynamoDB
     #     },
     #     return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
     #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
@@ -1950,12 +1446,32 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
     #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
     #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    # @example To delete an item
+    #   # This example deletes an item from the Music table.
+    #   resp = client.delete_item({
+    #     table_name: "Music",
+    #     key: {
+    #       'Artist' => {
+    #         s: "No One You Know"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Scared of My Shadow"
+    #       }
+    #     }
+    #   })
     #
-    def delete_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     consumed_capacity: {
+    #       capacity_units: 1,
+    #       table_name: "Music"
+    #     }
+    #   }
+    def delete_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteItemInput,
@@ -1969,34 +1485,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::DeleteItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::DeleteItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_item] #{output.data}")
+      output
     end
 
     # <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
@@ -2022,23 +1551,18 @@ module AWS::SDK::DynamoDB
     #             that table goes into the <code>DISABLED</code> state, and the stream is automatically
     #             deleted after 24 hours.</p>
     #          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
-    #
     # @param [Hash] params
-    #   See {Types::DeleteTableInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to delete.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_table(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteTableOutput
     #   resp.data.table_description #=> Types::TableDescription
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
@@ -2126,12 +1650,31 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
     #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
+    # @example To delete a table
+    #   # This example deletes the Music table.
+    #   resp = client.delete_table({
+    #     table_name: "Music"
+    #   })
     #
-    def delete_table(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     table_description: {
+    #       table_status: "DELETING",
+    #       table_size_bytes: 0,
+    #       item_count: 0,
+    #       table_name: "Music",
+    #       provisioned_throughput: {
+    #         number_of_decreases_today: 1,
+    #         write_capacity_units: 5,
+    #         read_capacity_units: 5
+    #       }
+    #     }
+    #   }
+    def delete_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
@@ -2145,56 +1688,64 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::DeleteTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::DeleteTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_table] #{output.data}")
+      output
     end
 
     # <p>Describes an existing backup of a table.</p>
     #          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
     #             second.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeBackupInput}.
-    #
-    # @option params [String] :backup_arn
-    #   <p>The Amazon Resource Name (ARN) associated with the backup.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeBackupInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeBackupOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_backup(
     #     backup_arn: 'BackupArn' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeBackupOutput
     #   resp.data.backup_description #=> Types::BackupDescription
     #   resp.data.backup_description.backup_details #=> Types::BackupDetails
@@ -2246,12 +1797,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
-    #
-    def describe_backup(params = {}, options = {}, &block)
+    def describe_backup(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupInput,
@@ -2265,34 +1815,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_backup),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]
+        ),
         data_parser: Parsers::DescribeBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException],
         stub_data_class: Stubs::DescribeBackup,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_backup,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_backup,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_backup] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_backup] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_backup] #{output.data}")
+      output
     end
 
     # <p>Checks the status of continuous backups and point in time recovery on the specified
@@ -2307,24 +1870,18 @@ module AWS::SDK::DynamoDB
     #             You can restore your table to any point in time during the last 35 days. </p>
     #          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per
     #             second.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeContinuousBackupsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>Name of the table for which the customer wants to check the continuous backups and
-    #               point in time recovery settings.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeContinuousBackupsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeContinuousBackupsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_continuous_backups(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeContinuousBackupsOutput
     #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
     #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ["ENABLED", "DISABLED"]
@@ -2332,12 +1889,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
-    #
-    def describe_continuous_backups(params = {}, options = {}, &block)
+    def describe_continuous_backups(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousBackupsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousBackupsInput,
@@ -2351,59 +1907,64 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_continuous_backups),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]
+        ),
         data_parser: Parsers::DescribeContinuousBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException],
         stub_data_class: Stubs::DescribeContinuousBackups,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_continuous_backups,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_continuous_backups,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_continuous_backups] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_continuous_backups] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_continuous_backups] #{output.data}")
+      output
     end
 
     # <p>Returns information about contributor insights for a given table or global secondary
     #             index.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeContributorInsightsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to describe.</p>
-    #
-    # @option params [String] :index_name
-    #   <p>The name of the global secondary index to describe, if applicable.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeContributorInsightsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeContributorInsightsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_contributor_insights(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeContributorInsightsOutput
     #   resp.data.table_name #=> String
     #   resp.data.index_name #=> String
@@ -2414,12 +1975,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.failure_exception #=> Types::FailureException
     #   resp.data.failure_exception.exception_name #=> String
     #   resp.data.failure_exception.exception_description #=> String
-    #
-    def describe_contributor_insights(params = {}, options = {}, &block)
+    def describe_contributor_insights(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContributorInsightsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContributorInsightsInput,
@@ -2433,61 +1993,71 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_contributor_insights),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DescribeContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DescribeContributorInsights,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_contributor_insights,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_contributor_insights,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_contributor_insights] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_contributor_insights] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_contributor_insights] #{output.data}")
+      output
     end
 
     # <p>Returns the regional endpoint information. For more information
     #             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeEndpointsInput}.
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeEndpointsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeEndpointsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_endpoints()
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeEndpointsOutput
     #   resp.data.endpoints #=> Array<Endpoint>
     #   resp.data.endpoints[0] #=> Types::Endpoint
     #   resp.data.endpoints[0].address #=> String
     #   resp.data.endpoints[0].cache_period_in_minutes #=> Integer
-    #
-    def describe_endpoints(params = {}, options = {}, &block)
+    def describe_endpoints(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
@@ -2501,54 +2071,62 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_endpoints),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: []
+        ),
         data_parser: Parsers::DescribeEndpoints
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [],
         stub_data_class: Stubs::DescribeEndpoints,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_endpoints,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_endpoints,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_endpoints] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_endpoints] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_endpoints] #{output.data}")
+      output
     end
 
     # <p>Describes an existing table export.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeExportInput}.
-    #
-    # @option params [String] :export_arn
-    #   <p>The Amazon Resource Name (ARN) associated with the export.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeExportInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeExportOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_export(
     #     export_arn: 'ExportArn' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeExportOutput
     #   resp.data.export_description #=> Types::ExportDescription
     #   resp.data.export_description.export_arn #=> String
@@ -2570,12 +2148,16 @@ module AWS::SDK::DynamoDB
     #   resp.data.export_description.export_format #=> String, one of ["DYNAMODB_JSON", "ION"]
     #   resp.data.export_description.billed_size_bytes #=> Integer
     #   resp.data.export_description.item_count #=> Integer
-    #
-    def describe_export(params = {}, options = {}, &block)
+    #   resp.data.export_description.export_type #=> String, one of ["FULL_EXPORT", "INCREMENTAL_EXPORT"]
+    #   resp.data.export_description.incremental_export_specification #=> Types::IncrementalExportSpecification
+    #   resp.data.export_description.incremental_export_specification.export_from_time #=> Time
+    #   resp.data.export_description.incremental_export_specification.export_to_time #=> Time
+    #   resp.data.export_description.incremental_export_specification.export_view_type #=> String, one of ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
+    def describe_export(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
@@ -2589,34 +2171,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_export),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]
+        ),
         data_parser: Parsers::DescribeExport
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException, Stubs::ExportNotFoundException],
         stub_data_class: Stubs::DescribeExport,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_export,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_export,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_export] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_export] #{output.data}")
+      output
     end
 
     # <p>Returns information about the specified global table.</p>
@@ -2632,23 +2227,18 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeGlobalTableInput}.
-    #
-    # @option params [String] :global_table_name
-    #   <p>The name of the global table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeGlobalTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeGlobalTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_global_table(
     #     global_table_name: 'GlobalTableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeGlobalTableOutput
     #   resp.data.global_table_description #=> Types::GlobalTableDescription
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
@@ -2672,12 +2262,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.creation_date_time #=> Time
     #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
-    #
-    def describe_global_table(params = {}, options = {}, &block)
+    def describe_global_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableInput,
@@ -2691,34 +2280,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_global_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
+        ),
         data_parser: Parsers::DescribeGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
         stub_data_class: Stubs::DescribeGlobalTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_global_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_global_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_global_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table] #{output.data}")
+      output
     end
 
     # <p>Describes Region-specific settings for a global table.</p>
@@ -2734,23 +2336,18 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeGlobalTableSettingsInput}.
-    #
-    # @option params [String] :global_table_name
-    #   <p>The name of the global table to describe.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeGlobalTableSettingsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeGlobalTableSettingsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_global_table_settings(
     #     global_table_name: 'GlobalTableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeGlobalTableSettingsOutput
     #   resp.data.global_table_name #=> String
     #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
@@ -2787,12 +2384,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
     #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
-    #
-    def describe_global_table_settings(params = {}, options = {}, &block)
+    def describe_global_table_settings(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableSettingsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableSettingsInput,
@@ -2806,54 +2402,62 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_global_table_settings),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
+        ),
         data_parser: Parsers::DescribeGlobalTableSettings
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
         stub_data_class: Stubs::DescribeGlobalTableSettings,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_global_table_settings,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_global_table_settings,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table_settings] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_global_table_settings] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_global_table_settings] #{output.data}")
+      output
     end
 
     # <p> Represents the properties of the import. </p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeImportInput}.
-    #
-    # @option params [String] :import_arn
-    #   <p> The Amazon Resource Name (ARN) associated with the table you're importing to. </p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeImportInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeImportOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_import(
     #     import_arn: 'ImportArn' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeImportOutput
     #   resp.data.import_table_description #=> Types::ImportTableDescription
     #   resp.data.import_table_description.import_arn #=> String
@@ -2908,12 +2512,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.import_table_description.imported_item_count #=> Integer
     #   resp.data.import_table_description.failure_code #=> String
     #   resp.data.import_table_description.failure_message #=> String
-    #
-    def describe_import(params = {}, options = {}, &block)
+    def describe_import(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeImportInput,
@@ -2927,67 +2530,75 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_import),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ImportNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::ImportNotFoundException]
+        ),
         data_parser: Parsers::DescribeImport
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::ImportNotFoundException],
         stub_data_class: Stubs::DescribeImport,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_import,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_import,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_import] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_import] #{output.data}")
+      output
     end
 
     # <p>Returns information about the status of Kinesis streaming.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeKinesisStreamingDestinationInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table being described.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeKinesisStreamingDestinationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeKinesisStreamingDestinationOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_kinesis_streaming_destination(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeKinesisStreamingDestinationOutput
     #   resp.data.table_name #=> String
     #   resp.data.kinesis_data_stream_destinations #=> Array<KinesisDataStreamDestination>
     #   resp.data.kinesis_data_stream_destinations[0] #=> Types::KinesisDataStreamDestination
     #   resp.data.kinesis_data_stream_destinations[0].stream_arn #=> String
-    #   resp.data.kinesis_data_stream_destinations[0].destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
+    #   resp.data.kinesis_data_stream_destinations[0].destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED", "UPDATING"]
     #   resp.data.kinesis_data_stream_destinations[0].destination_status_description #=> String
-    #
-    def describe_kinesis_streaming_destination(params = {}, options = {}, &block)
+    #   resp.data.kinesis_data_stream_destinations[0].approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
+    def describe_kinesis_streaming_destination(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKinesisStreamingDestinationInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKinesisStreamingDestinationInput,
@@ -3001,34 +2612,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DescribeKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DescribeKinesisStreamingDestination,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_kinesis_streaming_destination,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_kinesis_streaming_destination,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_kinesis_streaming_destination] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_kinesis_streaming_destination] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_kinesis_streaming_destination] #{output.data}")
+      output
     end
 
     # <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
@@ -3101,29 +2725,36 @@ module AWS::SDK::DynamoDB
     #                 throttling errors if you call it more than once in a minute.</p>
     #          </note>
     #          <p>The <code>DescribeLimits</code> Request element has no content.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeLimitsInput}.
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeLimitsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeLimitsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_limits()
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeLimitsOutput
     #   resp.data.account_max_read_capacity_units #=> Integer
     #   resp.data.account_max_write_capacity_units #=> Integer
     #   resp.data.table_max_read_capacity_units #=> Integer
     #   resp.data.table_max_write_capacity_units #=> Integer
+    # @example To determine capacity limits per table and account, in the current AWS region
+    #   resp = client.describe_limits()
     #
-    def describe_limits(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     table_max_write_capacity_units: 10000,
+    #     table_max_read_capacity_units: 10000,
+    #     account_max_read_capacity_units: 20000,
+    #     account_max_write_capacity_units: 20000
+    #   }
+    def describe_limits(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
@@ -3137,34 +2768,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_limits),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+        ),
         data_parser: Parsers::DescribeLimits
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
         stub_data_class: Stubs::DescribeLimits,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_limits,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_limits,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_limits] #{output.data}")
+      output
     end
 
     # <p>Returns information about the table, including the current status of the table, when
@@ -3182,23 +2826,18 @@ module AWS::SDK::DynamoDB
     #                 for your table might not be available at that moment. Wait for a few seconds, and
     #                 then try the <code>DescribeTable</code> request again.</p>
     #          </note>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeTableInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to describe.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_table(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeTableOutput
     #   resp.data.table #=> Types::TableDescription
     #   resp.data.table.attribute_definitions #=> Array<AttributeDefinition>
@@ -3286,12 +2925,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table.archival_summary.archival_backup_arn #=> String
     #   resp.data.table.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table.deletion_protection_enabled #=> Boolean
-    #
-    def describe_table(params = {}, options = {}, &block)
+    def describe_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
@@ -3305,34 +2943,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DescribeTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DescribeTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table] #{output.data}")
+      output
     end
 
     # <p>Describes auto scaling settings across replicas of the global table at once.</p>
@@ -3340,23 +2991,18 @@ module AWS::SDK::DynamoDB
     #             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
     #             of global tables.</p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeTableReplicaAutoScalingInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeTableReplicaAutoScalingInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeTableReplicaAutoScalingOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_table_replica_auto_scaling(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeTableReplicaAutoScalingOutput
     #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
     #   resp.data.table_auto_scaling_description.table_name #=> String
@@ -3385,12 +3031,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
-    #
-    def describe_table_replica_auto_scaling(params = {}, options = {}, &block)
+    def describe_table_replica_auto_scaling(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableReplicaAutoScalingInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableReplicaAutoScalingInput,
@@ -3404,64 +3049,71 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DescribeTableReplicaAutoScaling
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DescribeTableReplicaAutoScaling,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_table_replica_auto_scaling,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_table_replica_auto_scaling,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table_replica_auto_scaling] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_table_replica_auto_scaling] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_table_replica_auto_scaling] #{output.data}")
+      output
     end
 
     # <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
-    #
     # @param [Hash] params
-    #   See {Types::DescribeTimeToLiveInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to be described.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeTimeToLiveInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeTimeToLiveOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_time_to_live(
     #     table_name: 'TableName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeTimeToLiveOutput
     #   resp.data.time_to_live_description #=> Types::TimeToLiveDescription
     #   resp.data.time_to_live_description.time_to_live_status #=> String, one of ["ENABLING", "DISABLING", "ENABLED", "DISABLED"]
     #   resp.data.time_to_live_description.attribute_name #=> String
-    #
-    def describe_time_to_live(params = {}, options = {}, &block)
+    def describe_time_to_live(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeToLiveInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeToLiveInput,
@@ -3475,69 +3127,78 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_time_to_live),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DescribeTimeToLive
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DescribeTimeToLive,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_time_to_live,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_time_to_live,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_time_to_live] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_time_to_live] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_time_to_live] #{output.data}")
+      output
     end
 
     # <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
     #             without deleting either of the resources.</p>
-    #
     # @param [Hash] params
-    #   See {Types::DisableKinesisStreamingDestinationInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the DynamoDB table.</p>
-    #
-    # @option params [String] :stream_arn
-    #   <p>The ARN for a Kinesis data stream.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DisableKinesisStreamingDestinationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DisableKinesisStreamingDestinationOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.disable_kinesis_streaming_destination(
     #     table_name: 'TableName', # required
-    #     stream_arn: 'StreamArn' # required
+    #     stream_arn: 'StreamArn', # required
+    #     enable_kinesis_streaming_configuration: {
+    #       approximate_creation_date_time_precision: 'MILLISECOND' # accepts ["MILLISECOND", "MICROSECOND"]
+    #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DisableKinesisStreamingDestinationOutput
     #   resp.data.table_name #=> String
     #   resp.data.stream_arn #=> String
-    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
-    #
-    def disable_kinesis_streaming_destination(params = {}, options = {}, &block)
+    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED", "UPDATING"]
+    #   resp.data.enable_kinesis_streaming_configuration #=> Types::EnableKinesisStreamingConfiguration
+    #   resp.data.enable_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
+    def disable_kinesis_streaming_destination(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKinesisStreamingDestinationInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKinesisStreamingDestinationInput,
@@ -3551,71 +3212,80 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::DisableKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::DisableKinesisStreamingDestination,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :disable_kinesis_streaming_destination,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :disable_kinesis_streaming_destination,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_kinesis_streaming_destination] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#disable_kinesis_streaming_destination] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_kinesis_streaming_destination] #{output.data}")
+      output
     end
 
     # <p>Starts table data replication to the specified Kinesis data stream at a timestamp
     #             chosen during the enable workflow. If this operation doesn't return results immediately,
     #             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
     #             is ACTIVE.</p>
-    #
     # @param [Hash] params
-    #   See {Types::EnableKinesisStreamingDestinationInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the DynamoDB table.</p>
-    #
-    # @option params [String] :stream_arn
-    #   <p>The ARN for a Kinesis data stream.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::EnableKinesisStreamingDestinationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::EnableKinesisStreamingDestinationOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.enable_kinesis_streaming_destination(
     #     table_name: 'TableName', # required
-    #     stream_arn: 'StreamArn' # required
+    #     stream_arn: 'StreamArn', # required
+    #     enable_kinesis_streaming_configuration: {
+    #       approximate_creation_date_time_precision: 'MILLISECOND' # accepts ["MILLISECOND", "MICROSECOND"]
+    #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::EnableKinesisStreamingDestinationOutput
     #   resp.data.table_name #=> String
     #   resp.data.stream_arn #=> String
-    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
-    #
-    def enable_kinesis_streaming_destination(params = {}, options = {}, &block)
+    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED", "UPDATING"]
+    #   resp.data.enable_kinesis_streaming_configuration #=> Types::EnableKinesisStreamingConfiguration
+    #   resp.data.enable_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
+    def enable_kinesis_streaming_destination(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKinesisStreamingDestinationInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKinesisStreamingDestinationInput,
@@ -3629,34 +3299,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::EnableKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::EnableKinesisStreamingDestination,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :enable_kinesis_streaming_destination,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :enable_kinesis_streaming_destination,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_kinesis_streaming_destination] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#enable_kinesis_streaming_destination] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_kinesis_streaming_destination] #{output.data}")
+      output
     end
 
     # <p>This operation allows you to perform reads and singleton writes on data stored in
@@ -3672,72 +3355,14 @@ module AWS::SDK::DynamoDB
     #                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
     #             result set. If <code>NextToken</code> is present, you need to paginate the result set and include
     #             <code>NextToken</code>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ExecuteStatementInput}.
-    #
-    # @option params [String] :statement
-    #   <p>The PartiQL statement representing the operation to run.</p>
-    #
-    # @option params [Array<AttributeValue>] :parameters
-    #   <p>The parameters for the PartiQL statement, if any.</p>
-    #
-    # @option params [Boolean] :consistent_read
-    #   <p>The consistency of a read operation. If set to <code>true</code>, then a strongly
-    #               consistent read is used; otherwise, an eventually consistent read is used.</p>
-    #
-    # @option params [String] :next_token
-    #   <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the
-    #               statement response.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Integer] :limit
-    #   <p>The maximum number of items to evaluate (not necessarily the number of matching
-    #               items). If DynamoDB processes the number of items up to the limit while processing the
-    #               results, it stops the operation and returns the matching values up to that point, along
-    #               with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you
-    #               can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-    #               DynamoDB reaches this limit, it stops the operation and returns the matching values up
-    #               to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-    #               operation to continue the operation. </p>
-    #
-    # @option params [String] :return_values_on_condition_check_failure
-    #   <p>An optional parameter that returns the item attributes for an
-    #               <code>ExecuteStatement</code> operation that failed a condition check.</p>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ExecuteStatementInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ExecuteStatementOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.execute_statement(
     #     statement: 'Statement', # required
     #     parameters: [
@@ -3765,9 +3390,7 @@ module AWS::SDK::DynamoDB
     #     limit: 1,
     #     return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ExecuteStatementOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
@@ -3798,12 +3421,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
-    #
-    def execute_statement(params = {}, options = {}, &block)
+    def execute_statement(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
@@ -3817,34 +3439,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :execute_statement),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::ExecuteStatement
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::DuplicateItemException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::ExecuteStatement,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :execute_statement,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :execute_statement,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#execute_statement] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#execute_statement] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#execute_statement] #{output.data}")
+      output
     end
 
     # <p>This operation allows you to perform transactional reads or writes on data stored in
@@ -3855,25 +3490,14 @@ module AWS::SDK::DynamoDB
     #                 be used to check the condition of specific attributes of the item in a similar
     #                 manner to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a> API.</p>
     #          </note>
-    #
     # @param [Hash] params
-    #   See {Types::ExecuteTransactionInput}.
-    #
-    # @option params [Array<ParameterizedStatement>] :transact_statements
-    #   <p>The list of PartiQL statements representing the transaction to run.</p>
-    #
-    # @option params [String] :client_request_token
-    #   <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the
-    #               statement response.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ExecuteTransactionInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ExecuteTransactionOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.execute_transaction(
     #     transact_statements: [
     #       {
@@ -3903,9 +3527,7 @@ module AWS::SDK::DynamoDB
     #     client_request_token: 'ClientRequestToken',
     #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ExecuteTransactionOutput
     #   resp.data.responses #=> Array<ItemResponse>
     #   resp.data.responses[0] #=> Types::ItemResponse
@@ -3936,12 +3558,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
     #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
-    #
-    def execute_transaction(params = {}, options = {}, &block)
+    def execute_transaction(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteTransactionInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteTransactionInput,
@@ -3955,102 +3576,60 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :execute_transaction),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
+        ),
         data_parser: Parsers::ExecuteTransaction
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
         stub_data_class: Stubs::ExecuteTransaction,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :execute_transaction,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :execute_transaction,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#execute_transaction] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#execute_transaction] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#execute_transaction] #{output.data}")
+      output
     end
 
     # <p>Exports table data to an S3 bucket. The table must have point in time recovery
     #             enabled, and you can export data from any time within the point in time recovery
     #             window.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ExportTableToPointInTimeInput}.
-    #
-    # @option params [String] :table_arn
-    #   <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
-    #
-    # @option params [Time] :export_time
-    #   <p>Time in the past from which to export table data, counted in seconds from the start of
-    #               the Unix epoch. The table export will be a snapshot of the table's state at this point
-    #               in time.</p>
-    #
-    # @option params [String] :client_token
-    #   <p>Providing a <code>ClientToken</code> makes the call to
-    #                   <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple
-    #               identical calls have the same effect as one single call.</p>
-    #            <p>A client token is valid for 8 hours after the first request that uses it is completed.
-    #               After 8 hours, any request with the same client token is treated as a new request. Do
-    #               not resubmit the same request with the same client token for more than 8 hours, or the
-    #               result might not be idempotent.</p>
-    #            <p>If you submit a request with the same client token but a change in other parameters
-    #               within the 8-hour idempotency window, DynamoDB returns an
-    #                   <code>ImportConflictException</code>.</p>
-    #
-    # @option params [String] :s3_bucket
-    #   <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
-    #
-    # @option params [String] :s3_bucket_owner
-    #   <p>The ID of the Amazon Web Services account that owns the bucket the export will be
-    #               stored in.</p>
-    #
-    # @option params [String] :s3_prefix
-    #   <p>The Amazon S3 bucket prefix to use as the file name and path of the exported
-    #               snapshot.</p>
-    #
-    # @option params [String] :s3_sse_algorithm
-    #   <p>Type of encryption used on the bucket where export data will be stored. Valid values
-    #               for <code>S3SseAlgorithm</code> are:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>AES256</code> - server-side encryption with Amazon S3 managed
-    #                       keys</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>KMS</code> - server-side encryption with KMS managed
-    #                       keys</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :s3_sse_kms_key_id
-    #   <p>The ID of the KMS managed key used to encrypt the S3 bucket where
-    #               export data will be stored (if applicable).</p>
-    #
-    # @option params [String] :export_format
-    #   <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
-    #                   <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ExportTableToPointInTimeInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ExportTableToPointInTimeOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.export_table_to_point_in_time(
     #     table_arn: 'TableArn', # required
     #     export_time: Time.now,
@@ -4060,11 +3639,15 @@ module AWS::SDK::DynamoDB
     #     s3_prefix: 'S3Prefix',
     #     s3_sse_algorithm: 'AES256', # accepts ["AES256", "KMS"]
     #     s3_sse_kms_key_id: 'S3SseKmsKeyId',
-    #     export_format: 'DYNAMODB_JSON' # accepts ["DYNAMODB_JSON", "ION"]
+    #     export_format: 'DYNAMODB_JSON', # accepts ["DYNAMODB_JSON", "ION"]
+    #     export_type: 'FULL_EXPORT', # accepts ["FULL_EXPORT", "INCREMENTAL_EXPORT"]
+    #     incremental_export_specification: {
+    #       export_from_time: Time.now,
+    #       export_to_time: Time.now,
+    #       export_view_type: 'NEW_IMAGE' # accepts ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
+    #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ExportTableToPointInTimeOutput
     #   resp.data.export_description #=> Types::ExportDescription
     #   resp.data.export_description.export_arn #=> String
@@ -4086,12 +3669,16 @@ module AWS::SDK::DynamoDB
     #   resp.data.export_description.export_format #=> String, one of ["DYNAMODB_JSON", "ION"]
     #   resp.data.export_description.billed_size_bytes #=> Integer
     #   resp.data.export_description.item_count #=> Integer
-    #
-    def export_table_to_point_in_time(params = {}, options = {}, &block)
+    #   resp.data.export_description.export_type #=> String, one of ["FULL_EXPORT", "INCREMENTAL_EXPORT"]
+    #   resp.data.export_description.incremental_export_specification #=> Types::IncrementalExportSpecification
+    #   resp.data.export_description.incremental_export_specification.export_from_time #=> Time
+    #   resp.data.export_description.incremental_export_specification.export_to_time #=> Time
+    #   resp.data.export_description.incremental_export_specification.export_view_type #=> String, one of ["NEW_IMAGE", "NEW_AND_OLD_IMAGES"]
+    def export_table_to_point_in_time(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportTableToPointInTimeInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTableToPointInTimeInput,
@@ -4105,34 +3692,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]
+        ),
         data_parser: Parsers::ExportTableToPointInTime
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidExportTimeException, Stubs::LimitExceededException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::ExportConflictException, Stubs::TableNotFoundException],
         stub_data_class: Stubs::ExportTableToPointInTime,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :export_table_to_point_in_time,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :export_table_to_point_in_time,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#export_table_to_point_in_time] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#export_table_to_point_in_time] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#export_table_to_point_in_time] #{output.data}")
+      output
     end
 
     # <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
@@ -4143,124 +3743,14 @@ module AWS::SDK::DynamoDB
     #             application requires a strongly consistent read, set <code>ConsistentRead</code> to
     #                 <code>true</code>. Although a strongly consistent read might take more time than an
     #             eventually consistent read, it always returns the last updated value.</p>
-    #
     # @param [Hash] params
-    #   See {Types::GetItemInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table containing the requested item.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :key
-    #   <p>A map of attribute names to <code>AttributeValue</code> objects, representing the
-    #               primary key of the item to retrieve.</p>
-    #            <p>For the primary key, you must provide all of the attributes. For example, with a
-    #               simple primary key, you only need to provide a value for the partition key. For a
-    #               composite primary key, you must provide values for both the partition key and the sort
-    #               key.</p>
-    #
-    # @option params [Array<String>] :attributes_to_get
-    #   <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [Boolean] :consistent_read
-    #   <p>Determines the read consistency model: If set to <code>true</code>, then the operation
-    #               uses strongly consistent reads; otherwise, the operation uses eventually consistent
-    #               reads.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :projection_expression
-    #   <p>A string that identifies one or more attributes to retrieve from the table. These
-    #               attributes can include scalars, sets, or elements of a JSON document. The attributes in
-    #               the expression must be separated by commas.</p>
-    #            <p>If no attribute names are specified, then all attributes are returned. If any of the
-    #               requested attributes are not found, they do not appear in the result.</p>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>). To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GetItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GetItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.get_item(
     #     table_name: 'TableName', # required
     #     key: {
@@ -4292,9 +3782,7 @@ module AWS::SDK::DynamoDB
     #       'key' => 'value'
     #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GetItemOutput
     #   resp.data.item #=> Hash<String, AttributeValue>
     #   resp.data.item['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
@@ -4322,12 +3810,39 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity.table.capacity_units #=> Float
     #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    # @example To read an item from a table
+    #   # This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.
+    #   resp = client.get_item({
+    #     table_name: "Music",
+    #     key: {
+    #       'Artist' => {
+    #         s: "Acme Band"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Happy Day"
+    #       }
+    #     }
+    #   })
     #
-    def get_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     item: {
+    #       'AlbumTitle' => {
+    #         s: "Songs About Life"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Happy Day"
+    #       },
+    #       'Artist' => {
+    #         s: "Acme Band"
+    #       }
+    #     }
+    #   }
+    def get_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetItemInput,
@@ -4341,73 +3856,58 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :get_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::GetItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::GetItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :get_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :get_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_item] #{output.data}")
+      output
     end
 
     # <p> Imports table data from an S3 bucket. </p>
-    #
     # @param [Hash] params
-    #   See {Types::ImportTableInput}.
-    #
-    # @option params [String] :client_token
-    #   <p>Providing a <code>ClientToken</code> makes the call to <code>ImportTableInput</code>
-    #               idempotent, meaning that multiple identical calls have the same effect as one single
-    #               call.</p>
-    #            <p>A client token is valid for 8 hours after the first request that uses it is completed.
-    #               After 8 hours, any request with the same client token is treated as a new request. Do
-    #               not resubmit the same request with the same client token for more than 8 hours, or the
-    #               result might not be idempotent.</p>
-    #            <p>If you submit a request with the same client token but a change in other parameters
-    #               within the 8-hour idempotency window, DynamoDB returns an
-    #                   <code>IdempotentParameterMismatch</code> exception.</p>
-    #
-    # @option params [S3BucketSource] :s3_bucket_source
-    #   <p> The S3 bucket that provides the source for the import. </p>
-    #
-    # @option params [String] :input_format
-    #   <p> The format of the source data. Valid values for <code>ImportFormat</code> are
-    #                   <code>CSV</code>, <code>DYNAMODB_JSON</code> or <code>ION</code>. </p>
-    #
-    # @option params [InputFormatOptions] :input_format_options
-    #   <p> Additional properties that specify how the input is formatted, </p>
-    #
-    # @option params [String] :input_compression_type
-    #   <p> Type of compression to be used on the input coming from the imported table. </p>
-    #
-    # @option params [TableCreationParameters] :table_creation_parameters
-    #   <p>Parameters for the table to import the data into. </p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ImportTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ImportTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.import_table(
     #     client_token: 'ClientToken',
     #     s3_bucket_source: {
@@ -4462,9 +3962,7 @@ module AWS::SDK::DynamoDB
     #       ]
     #     } # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ImportTableOutput
     #   resp.data.import_table_description #=> Types::ImportTableDescription
     #   resp.data.import_table_description.import_arn #=> String
@@ -4519,12 +4017,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.import_table_description.imported_item_count #=> Integer
     #   resp.data.import_table_description.failure_code #=> String
     #   resp.data.import_table_description.failure_message #=> String
-    #
-    def import_table(params = {}, options = {}, &block)
+    def import_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportTableInput,
@@ -4538,92 +4035,67 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :import_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ImportConflictException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ImportConflictException]
+        ),
         data_parser: Parsers::ImportTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ImportConflictException],
         stub_data_class: Stubs::ImportTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :import_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :import_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#import_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#import_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#import_table] #{output.data}")
+      output
     end
 
-    # <p>List backups associated with an Amazon Web Services account. To list backups for a
-    #             given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
+    # <p>List DynamoDB backups that are associated with an Amazon Web Services account and weren't made with Amazon Web Services Backup.
+    #             To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a
     #             paginated list of results with at most 1 MB worth of items in a page. You can also
     #             specify a maximum number of entries to be returned in a page.</p>
     #          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
     #             boundaries are for the time at which the original backup was requested.</p>
     #          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
-    #
+    #          <p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the
+    #             <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup list API.</a>
+    #          </p>
     # @param [Hash] params
-    #   See {Types::ListBackupsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The backups from the table specified by <code>TableName</code> are listed. </p>
-    #
-    # @option params [Integer] :limit
-    #   <p>Maximum number of backups to return at once.</p>
-    #
-    # @option params [Time] :time_range_lower_bound
-    #   <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is
-    #               inclusive.</p>
-    #
-    # @option params [Time] :time_range_upper_bound
-    #   <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is
-    #               exclusive. </p>
-    #
-    # @option params [String] :exclusive_start_backup_arn
-    #   <p>
-    #               <code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last
-    #               evaluated when the current page of results was returned, inclusive of the current page
-    #               of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a
-    #               new <code>ListBackups</code> operation in order to fetch the next page of results.
-    #           </p>
-    #
-    # @option params [String] :backup_type
-    #   <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
-    #            <p>Where <code>BackupType</code> can be:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>USER</code> - On-demand backup created by you. (The default setting if no
-    #                       other backup types are specified.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p>
-    #               </li>
-    #            </ul>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListBackupsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListBackupsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_backups(
     #     table_name: 'TableName',
     #     limit: 1,
@@ -4632,9 +4104,7 @@ module AWS::SDK::DynamoDB
     #     exclusive_start_backup_arn: 'ExclusiveStartBackupArn',
     #     backup_type: 'USER' # accepts ["USER", "SYSTEM", "AWS_BACKUP", "ALL"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListBackupsOutput
     #   resp.data.backup_summaries #=> Array<BackupSummary>
     #   resp.data.backup_summaries[0] #=> Types::BackupSummary
@@ -4649,12 +4119,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.backup_summaries[0].backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_summaries[0].backup_size_bytes #=> Integer
     #   resp.data.last_evaluated_backup_arn #=> String
-    #
-    def list_backups(params = {}, options = {}, &block)
+    def list_backups(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupsInput,
@@ -4668,63 +4137,65 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_backups),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+        ),
         data_parser: Parsers::ListBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
         stub_data_class: Stubs::ListBackups,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_backups,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_backups,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_backups] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_backups] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_backups] #{output.data}")
+      output
     end
 
     # <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
     #             indexes.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ListContributorInsightsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table.</p>
-    #
-    # @option params [String] :next_token
-    #   <p>A token to for the desired page, if there is one.</p>
-    #
-    # @option params [Integer] :max_results
-    #   <p>Maximum number of results to return per page.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListContributorInsightsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListContributorInsightsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_contributor_insights(
     #     table_name: 'TableName',
     #     next_token: 'NextToken',
     #     max_results: 1
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListContributorInsightsOutput
     #   resp.data.contributor_insights_summaries #=> Array<ContributorInsightsSummary>
     #   resp.data.contributor_insights_summaries[0] #=> Types::ContributorInsightsSummary
@@ -4732,12 +4203,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.contributor_insights_summaries[0].index_name #=> String
     #   resp.data.contributor_insights_summaries[0].contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #   resp.data.next_token #=> String
-    #
-    def list_contributor_insights(params = {}, options = {}, &block)
+    def list_contributor_insights(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContributorInsightsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContributorInsightsInput,
@@ -4751,76 +4221,76 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_contributor_insights),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::ListContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::ListContributorInsights,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_contributor_insights,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_contributor_insights,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_contributor_insights] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_contributor_insights] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_contributor_insights] #{output.data}")
+      output
     end
 
     # <p>Lists completed exports within the past 90 days.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ListExportsInput}.
-    #
-    # @option params [String] :table_arn
-    #   <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
-    #
-    # @option params [Integer] :max_results
-    #   <p>Maximum number of results to return per page.</p>
-    #
-    # @option params [String] :next_token
-    #   <p>An optional string that, if supplied, must be copied from the output of a previous
-    #               call to <code>ListExports</code>. When provided in this manner, the API fetches the next
-    #               page of results.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListExportsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListExportsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_exports(
     #     table_arn: 'TableArn',
     #     max_results: 1,
     #     next_token: 'NextToken'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListExportsOutput
     #   resp.data.export_summaries #=> Array<ExportSummary>
     #   resp.data.export_summaries[0] #=> Types::ExportSummary
     #   resp.data.export_summaries[0].export_arn #=> String
     #   resp.data.export_summaries[0].export_status #=> String, one of ["IN_PROGRESS", "COMPLETED", "FAILED"]
+    #   resp.data.export_summaries[0].export_type #=> String, one of ["FULL_EXPORT", "INCREMENTAL_EXPORT"]
     #   resp.data.next_token #=> String
-    #
-    def list_exports(params = {}, options = {}, &block)
+    def list_exports(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
@@ -4834,34 +4304,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_exports),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::LimitExceededException]
+        ),
         data_parser: Parsers::ListExports
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException],
         stub_data_class: Stubs::ListExports,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_exports,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_exports,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_exports] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_exports] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_exports] #{output.data}")
+      output
     end
 
     # <p>Lists all global tables that have a replica in the specified Region.</p>
@@ -4877,36 +4360,20 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::ListGlobalTablesInput}.
-    #
-    # @option params [String] :exclusive_start_global_table_name
-    #   <p>The first global table name that this operation will evaluate.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>The maximum number of table names to return, if the parameter is not specified
-    #               DynamoDB defaults to 100.</p>
-    #            <p>If the number of global tables DynamoDB finds reaches this limit, it stops the
-    #               operation and returns the table names collected up to that point, with a table name in
-    #               the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the
-    #                   <code>ExclusiveStartGlobalTableName</code> parameter.</p>
-    #
-    # @option params [String] :region_name
-    #   <p>Lists the global tables in a specific Region.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListGlobalTablesInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListGlobalTablesOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_global_tables(
     #     exclusive_start_global_table_name: 'ExclusiveStartGlobalTableName',
     #     limit: 1,
     #     region_name: 'RegionName'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListGlobalTablesOutput
     #   resp.data.global_tables #=> Array<GlobalTable>
     #   resp.data.global_tables[0] #=> Types::GlobalTable
@@ -4915,12 +4382,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_tables[0].replication_group[0] #=> Types::Replica
     #   resp.data.global_tables[0].replication_group[0].region_name #=> String
     #   resp.data.last_evaluated_global_table_name #=> String
-    #
-    def list_global_tables(params = {}, options = {}, &block)
+    def list_global_tables(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGlobalTablesInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGlobalTablesInput,
@@ -4934,65 +4400,64 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_global_tables),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+        ),
         data_parser: Parsers::ListGlobalTables
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
         stub_data_class: Stubs::ListGlobalTables,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_global_tables,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_global_tables,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_global_tables] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_global_tables] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_global_tables] #{output.data}")
+      output
     end
 
     # <p> Lists completed imports within the past 90 days. </p>
-    #
     # @param [Hash] params
-    #   See {Types::ListImportsInput}.
-    #
-    # @option params [String] :table_arn
-    #   <p> The Amazon Resource Name (ARN) associated with the table that was imported to.
-    #           </p>
-    #
-    # @option params [Integer] :page_size
-    #   <p> The number of <code>ImportSummary </code>objects returned in a single page. </p>
-    #
-    # @option params [String] :next_token
-    #   <p> An optional string that, if supplied, must be copied from the output of a previous
-    #               call to <code>ListImports</code>. When provided in this manner, the API fetches the next
-    #               page of results. </p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListImportsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListImportsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_imports(
     #     table_arn: 'TableArn',
     #     page_size: 1,
     #     next_token: 'NextToken'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListImportsOutput
     #   resp.data.import_summary_list #=> Array<ImportSummary>
     #   resp.data.import_summary_list[0] #=> Types::ImportSummary
@@ -5008,12 +4473,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.import_summary_list[0].start_time #=> Time
     #   resp.data.import_summary_list[0].end_time #=> Time
     #   resp.data.next_token #=> String
-    #
-    def list_imports(params = {}, options = {}, &block)
+    def list_imports(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListImportsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListImportsInput,
@@ -5027,73 +4491,86 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_imports),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::LimitExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::LimitExceededException]
+        ),
         data_parser: Parsers::ListImports
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::LimitExceededException],
         stub_data_class: Stubs::ListImports,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_imports,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_imports,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_imports] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_imports] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_imports] #{output.data}")
+      output
     end
 
     # <p>Returns an array of table names associated with the current account and endpoint. The
     #             output from <code>ListTables</code> is paginated, with each page returning a maximum of
     #             100 table names.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ListTablesInput}.
-    #
-    # @option params [String] :exclusive_start_table_name
-    #   <p>The first table name that this operation will evaluate. Use the value that was
-    #               returned for <code>LastEvaluatedTableName</code> in a previous operation, so that you
-    #               can obtain the next page of results.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>A maximum number of table names to return. If this parameter is not specified, the
-    #               limit is 100.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListTablesInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListTablesOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_tables(
     #     exclusive_start_table_name: 'ExclusiveStartTableName',
     #     limit: 1
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListTablesOutput
     #   resp.data.table_names #=> Array<String>
     #   resp.data.table_names[0] #=> String
     #   resp.data.last_evaluated_table_name #=> String
+    # @example To list tables
+    #   resp = client.list_tables()
     #
-    def list_tables(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     table_names: [
+    #       "Forum",
+    #       "ProductCatalog",
+    #       "Reply",
+    #       "Thread"
+    #     ]
+    #   }
+    def list_tables(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
@@ -5107,76 +4584,77 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_tables),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
+        ),
         data_parser: Parsers::ListTables
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
         stub_data_class: Stubs::ListTables,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_tables,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_tables,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tables] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_tables] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tables] #{output.data}")
+      output
     end
 
     # <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10
     #             times per second, per account.</p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::ListTagsOfResourceInput}.
-    #
-    # @option params [String] :resource_arn
-    #   <p>The Amazon DynamoDB resource with tags to be listed. This value is an Amazon Resource
-    #               Name (ARN).</p>
-    #
-    # @option params [String] :next_token
-    #   <p>An optional string that, if supplied, must be copied from the output of a previous
-    #               call to ListTagOfResource. When provided in this manner, this API fetches the next page
-    #               of results.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListTagsOfResourceInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListTagsOfResourceOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_tags_of_resource(
     #     resource_arn: 'ResourceArn', # required
     #     next_token: 'NextToken'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListTagsOfResourceOutput
     #   resp.data.tags #=> Array<Tag>
     #   resp.data.tags[0] #=> Types::Tag
     #   resp.data.tags[0].key #=> String
     #   resp.data.tags[0].value #=> String
     #   resp.data.next_token #=> String
-    #
-    def list_tags_of_resource(params = {}, options = {}, &block)
+    def list_tags_of_resource(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsOfResourceInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsOfResourceInput,
@@ -5190,34 +4668,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_tags_of_resource),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::ListTagsOfResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::ListTagsOfResource,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_tags_of_resource,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_tags_of_resource,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_of_resource] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_tags_of_resource] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_tags_of_resource] #{output.data}")
+      output
     end
 
     # <p>Creates a new item, or replaces an old item with a new item. If an item that has the
@@ -5242,212 +4733,14 @@ module AWS::SDK::DynamoDB
     #          </note>
     #          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with
     #                 Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::PutItemInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to contain the item.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :item
-    #   <p>A map of attribute name/value pairs, one for each attribute. Only the primary key
-    #               attributes are required; you can optionally provide other attribute name-value pairs for
-    #               the item.</p>
-    #            <p>You must provide all of the attributes for the primary key. For example, with a simple
-    #               primary key, you only need to provide a value for the partition key. For a composite
-    #               primary key, you must provide both values for both the partition key and the sort
-    #               key.</p>
-    #            <p>If you specify any attributes that are part of an index key, then the data types for
-    #               those attributes must match those of the schema in the table's attribute
-    #               definition.</p>
-    #            <p>Empty String and Binary attribute values are allowed. Attribute values of type String
-    #               and Binary must have a length greater than zero if the attribute is used as a key
-    #               attribute for a table or index.</p>
-    #            <p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #            <p>Each element in the <code>Item</code> map is an <code>AttributeValue</code>
-    #               object.</p>
-    #
-    # @option params [Hash<String, ExpectedAttributeValue>] :expected
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [String] :return_values
-    #   <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
-    #               before they were updated with the <code>PutItem</code> request. For
-    #               <code>PutItem</code>, the valid values are:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its
-    #                       value is <code>NONE</code>, then nothing is returned. (This setting is the
-    #                       default for <code>ReturnValues</code>.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_OLD</code> - If <code>PutItem</code> overwrote an attribute name-value
-    #                       pair, then the content of the old item is returned.</p>
-    #               </li>
-    #            </ul>
-    #            <p>The values returned are strongly consistent.</p>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #            <note>
-    #               <p>The <code>ReturnValues</code> parameter is used by several DynamoDB operations;
-    #                   however, <code>PutItem</code> does not recognize any values other than
-    #                       <code>NONE</code> or <code>ALL_OLD</code>.</p>
-    #            </note>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_item_collection_metrics
-    #   <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-    #               the response includes statistics about item collections, if any, that were modified
-    #               during the operation are returned in the response. If set to <code>NONE</code> (the
-    #               default), no statistics are returned.</p>
-    #
-    # @option params [String] :conditional_operator
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :condition_expression
-    #   <p>A condition that must be satisfied in order for a conditional <code>PutItem</code>
-    #               operation to succeed.</p>
-    #            <p>An expression can contain any of the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type |
-    #                           contains | begins_with | size</code>
-    #                  </p>
-    #                  <p>These function names are case-sensitive.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Comparison operators: <code>= | <> |
-    #               < | > | <= | >= |
-    #               BETWEEN | IN </code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p> Logical operators: <code>AND | OR | NOT</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>). To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :expression_attribute_values
-    #   <p>One or more values that can be substituted in an expression.</p>
-    #            <p>Use the <b>:</b> (colon) character in an expression to
-    #               dereference an attribute value. For example, suppose that you wanted to check whether
-    #               the value of the <i>ProductStatus</i> attribute was one of the following: </p>
-    #            <p>
-    #               <code>Available | Backordered | Discontinued</code>
-    #            </p>
-    #            <p>You would first need to specify <code>ExpressionAttributeValues</code> as
-    #               follows:</p>
-    #            <p>
-    #               <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-    #                   ":disc":{"S":"Discontinued"} }</code>
-    #            </p>
-    #            <p>You could then use these values in an expression, such as this:</p>
-    #            <p>
-    #               <code>ProductStatus IN (:avail, :back, :disc)</code>
-    #            </p>
-    #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :return_values_on_condition_check_failure
-    #   <p>An optional parameter that returns the item attributes for a <code>PutItem</code>
-    #               operation that failed a condition check.</p>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::PutItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::PutItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.put_item(
     #     table_name: 'TableName', # required
     #     item: {
@@ -5485,9 +4778,7 @@ module AWS::SDK::DynamoDB
     #     },
     #     return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::PutItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
     #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
@@ -5519,12 +4810,36 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
     #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
     #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    # @example To add an item to a table
+    #   # This example adds a new item to the Music table.
+    #   resp = client.put_item({
+    #     table_name: "Music",
+    #     item: {
+    #       'AlbumTitle' => {
+    #         s: "Somewhat Famous"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Call Me Today"
+    #       },
+    #       'Artist' => {
+    #         s: "No One You Know"
+    #       }
+    #     },
+    #     return_consumed_capacity: "TOTAL"
+    #   })
     #
-    def put_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     consumed_capacity: {
+    #       capacity_units: 1,
+    #       table_name: "Music"
+    #     }
+    #   }
+    def put_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemInput,
@@ -5538,34 +4853,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :put_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::PutItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::PutItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :put_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :put_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_item] #{output.data}")
+      output
     end
 
     # <p>You must provide the name of the partition key attribute and a single value for that
@@ -5619,375 +4947,14 @@ module AWS::SDK::DynamoDB
     #             consistent result. Global secondary indexes support eventually consistent reads only, so
     #             do not specify <code>ConsistentRead</code> when querying a global secondary
     #             index.</p>
-    #
     # @param [Hash] params
-    #   See {Types::QueryInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table containing the requested items.</p>
-    #
-    # @option params [String] :index_name
-    #   <p>The name of an index to query. This index can be any local secondary index or global
-    #               secondary index on the table. Note that if you use the <code>IndexName</code> parameter,
-    #               you must also provide <code>TableName.</code>
-    #            </p>
-    #
-    # @option params [String] :select
-    #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
-    #               specific item attributes, the count of matching items, or in the case of an index, some
-    #               or all of the attributes projected into the index.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the
-    #                       specified table or index. If you query a local secondary index, then for each
-    #                       matching item in the index, DynamoDB fetches the entire item from the parent
-    #                       table. If the index is configured to project all item attributes, then all of
-    #                       the data can be obtained from the local secondary index, and no fetching is
-    #                       required.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index.
-    #                       Retrieves all attributes that have been projected into the index. If the index
-    #                       is configured to project all attributes, this return value is equivalent to
-    #                       specifying <code>ALL_ATTRIBUTES</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>COUNT</code> - Returns the number of matching items, rather than the
-    #                       matching items themselves. Note that this uses the same quantity of read capacity units
-    #                       as getting the items, and is subject to the same item size calculations.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
-    #                           <code>ProjectionExpression</code>. This return value is equivalent to
-    #                       specifying <code>ProjectionExpression</code> without specifying any value for
-    #                           <code>Select</code>.</p>
-    #                  <p>If you query or scan a local secondary index and request only attributes that
-    #                       are projected into that index, the operation will read only the index and not
-    #                       the table. If any of the requested attributes are not projected into the local
-    #                       secondary index, DynamoDB fetches each of these attributes from the parent
-    #                       table. This extra fetching incurs additional throughput cost and latency.</p>
-    #                  <p>If you query or scan a global secondary index, you can only request attributes
-    #                       that are projected into the index. Global secondary index queries cannot fetch
-    #                       attributes from the parent table.</p>
-    #               </li>
-    #            </ul>
-    #            <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified,
-    #               DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and
-    #                   <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both
-    #                   <code>Select</code> and <code>ProjectionExpression</code> together in a single
-    #               request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>.
-    #               (This usage is equivalent to specifying <code>ProjectionExpression</code> without any
-    #               value for <code>Select</code>.)</p>
-    #            <note>
-    #               <p>If you use the <code>ProjectionExpression</code> parameter, then the value for
-    #                       <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other
-    #                   value for <code>Select</code> will return an error.</p>
-    #            </note>
-    #
-    # @option params [Array<String>] :attributes_to_get
-    #   <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>The maximum number of items to evaluate (not necessarily the number of matching
-    #               items). If DynamoDB processes the number of items up to the limit while processing the
-    #               results, it stops the operation and returns the matching values up to that point, and a
-    #               key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
-    #               pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-    #               DynamoDB reaches this limit, it stops the operation and returns the matching values up
-    #               to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-    #               operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [Boolean] :consistent_read
-    #   <p>Determines the read consistency model: If set to <code>true</code>, then the operation
-    #               uses strongly consistent reads; otherwise, the operation uses eventually consistent
-    #               reads.</p>
-    #            <p>Strongly consistent reads are not supported on global secondary indexes. If you query
-    #               a global secondary index with <code>ConsistentRead</code> set to <code>true</code>, you
-    #               will receive a <code>ValidationException</code>.</p>
-    #
-    # @option params [Hash<String, Condition>] :key_conditions
-    #   <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [Hash<String, Condition>] :query_filter
-    #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [String] :conditional_operator
-    #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Boolean] :scan_index_forward
-    #   <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal
-    #               is performed in ascending order; if <code>false</code>, the traversal is performed in
-    #               descending order. </p>
-    #            <p>Items with the same partition key value are stored in sorted order by sort key. If the
-    #               sort key data type is Number, the results are stored in numeric order. For type String,
-    #               the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each
-    #               byte of the binary data as unsigned.</p>
-    #            <p>If <code>ScanIndexForward</code> is <code>true</code>, DynamoDB returns the results in
-    #               the order in which they are stored (by sort key value). This is the default behavior. If
-    #                   <code>ScanIndexForward</code> is <code>false</code>, DynamoDB reads the results in
-    #               reverse order by sort key value, and then returns the results to the client.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :exclusive_start_key
-    #   <p>The primary key of the first item that this operation will evaluate. Use the value
-    #               that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
-    #            <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No
-    #               set data types are allowed.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :projection_expression
-    #   <p>A string that identifies one or more attributes to retrieve from the table. These
-    #               attributes can include scalars, sets, or elements of a JSON document. The attributes in
-    #               the expression must be separated by commas.</p>
-    #            <p>If no attribute names are specified, then all attributes will be returned. If any of
-    #               the requested attributes are not found, they will not appear in the result.</p>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :filter_expression
-    #   <p>A string that contains conditions that DynamoDB applies after the <code>Query</code>
-    #               operation, but before the data is returned to you. Items that do not satisfy the
-    #                   <code>FilterExpression</code> criteria are not returned.</p>
-    #            <p>A <code>FilterExpression</code> does not allow key attributes. You cannot define a
-    #               filter expression based on a partition key or a sort key.</p>
-    #            <note>
-    #               <p>A <code>FilterExpression</code> is applied after the items have already been read;
-    #                   the process of filtering does not consume any additional read capacity units.</p>
-    #            </note>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :key_condition_expression
-    #   <p>The condition that specifies the key values for items to be retrieved by the
-    #                   <code>Query</code> action.</p>
-    #            <p>The condition must perform an equality test on a single partition key value.</p>
-    #            <p>The condition can optionally perform one of several comparison tests on a single sort
-    #               key value. This allows <code>Query</code> to retrieve one item with a given partition
-    #               key value and sort key value, or several items that have the same partition key value
-    #               but different sort key values.</p>
-    #            <p>The partition key equality test is required, and must be specified in the following
-    #               format:</p>
-    #            <p>
-    #               <code>partitionKeyName</code>
-    #               <i>=</i>
-    #               <code>:partitionkeyval</code>
-    #            </p>
-    #            <p>If you also want to provide a condition for the sort key, it must be combined using
-    #                   <code>AND</code> with the condition for the sort key. Following is an example, using
-    #               the <b>=</b> comparison operator for the sort key:</p>
-    #            <p>
-    #               <code>partitionKeyName</code>
-    #               <code>=</code>
-    #               <code>:partitionkeyval</code>
-    #               <code>AND</code>
-    #               <code>sortKeyName</code>
-    #               <code>=</code>
-    #               <code>:sortkeyval</code>
-    #            </p>
-    #            <p>Valid comparisons for the sort key condition are as follows:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code>=</code>
-    #                     <code>:sortkeyval</code> - true if the sort key value is equal to
-    #                           <code>:sortkeyval</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code><</code>
-    #                     <code>:sortkeyval</code> - true if the sort key value is less than
-    #                           <code>:sortkeyval</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code><=</code>
-    #                     <code>:sortkeyval</code> - true if the sort key value is less than or equal to
-    #                           <code>:sortkeyval</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code>></code>
-    #                     <code>:sortkeyval</code> - true if the sort key value is greater than
-    #                           <code>:sortkeyval</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code>>= </code>
-    #                     <code>:sortkeyval</code> - true if the sort key value is greater than or equal
-    #                       to <code>:sortkeyval</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>sortKeyName</code>
-    #                     <code>BETWEEN</code>
-    #                     <code>:sortkeyval1</code>
-    #                     <code>AND</code>
-    #                     <code>:sortkeyval2</code> - true if the sort key value is greater than or equal
-    #                       to <code>:sortkeyval1</code>, and less than or equal to
-    #                           <code>:sortkeyval2</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>begins_with (</code>
-    #                     <code>sortKeyName</code>, <code>:sortkeyval</code>
-    #                     <code>)</code> - true if the sort key value begins with a particular operand.
-    #                       (You cannot use this function with a sort key that is of type Number.) Note that
-    #                       the function name <code>begins_with</code> is case-sensitive.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <code>ExpressionAttributeValues</code> parameter to replace tokens such as
-    #                   <code>:partitionval</code> and <code>:sortval</code> with actual values at
-    #               runtime.</p>
-    #            <p>You can optionally use the <code>ExpressionAttributeNames</code> parameter to replace
-    #               the names of the partition key and sort key with placeholder tokens. This option might
-    #               be necessary if an attribute name conflicts with a DynamoDB reserved word. For example,
-    #               the following <code>KeyConditionExpression</code> parameter causes an error because
-    #                   <i>Size</i> is a reserved word:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Size = :myval</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To work around this, define a placeholder (such a <code>#S</code>) to represent the
-    #               attribute name <i>Size</i>. <code>KeyConditionExpression</code> then is as
-    #               follows:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#S = :myval</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>For a list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a>
-    #               in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #            <p>For more information on <code>ExpressionAttributeNames</code> and
-    #                   <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using
-    #                   Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB
-    #                   Developer Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>). To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :expression_attribute_values
-    #   <p>One or more values that can be substituted in an expression.</p>
-    #            <p>Use the <b>:</b> (colon) character in an expression to
-    #               dereference an attribute value. For example, suppose that you wanted to check whether
-    #               the value of the <i>ProductStatus</i> attribute was one of the following: </p>
-    #            <p>
-    #               <code>Available | Backordered | Discontinued</code>
-    #            </p>
-    #            <p>You would first need to specify <code>ExpressionAttributeValues</code> as
-    #               follows:</p>
-    #            <p>
-    #               <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-    #                   ":disc":{"S":"Discontinued"} }</code>
-    #            </p>
-    #            <p>You could then use these values in an expression, such as this:</p>
-    #            <p>
-    #               <code>ProductStatus IN (:avail, :back, :disc)</code>
-    #            </p>
-    #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::QueryInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::QueryOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.query(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
@@ -6031,9 +4998,7 @@ module AWS::SDK::DynamoDB
     #       'key' => 'value'
     #     },
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::QueryOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
@@ -6065,12 +5030,39 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity.table.capacity_units #=> Float
     #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    # @example To query an item
+    #   # This example queries items in the Music table. The table has a partition key and sort key (Artist and SongTitle), but this query only specifies the partition key value. It returns song titles by the artist named "No One You Know".
+    #   resp = client.query({
+    #     table_name: "Music",
+    #     projection_expression: "SongTitle",
+    #     key_condition_expression: "Artist = :v1",
+    #     expression_attribute_values: {
+    #       ':v1' => {
+    #         s: "No One You Know"
+    #       }
+    #     }
+    #   })
     #
-    def query(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     count: 2,
+    #     items: [
+    #       {
+    #         'SongTitle' => {
+    #           s: "Call Me Today"
+    #         }
+    #       }
+    #     ],
+    #     scanned_count: 2,
+    #     consumed_capacity: {
+    #
+    #     }
+    #   }
+    def query(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
@@ -6084,34 +5076,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :query),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::Query
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::Query,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :query,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :query,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#query] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#query] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#query] #{output.data}")
+      output
     end
 
     # <p>Creates a new table from an existing backup. Any number of users can execute up to 50
@@ -6139,39 +5144,14 @@ module AWS::SDK::DynamoDB
     #                <p>Time to Live (TTL) settings</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::RestoreTableFromBackupInput}.
-    #
-    # @option params [String] :target_table_name
-    #   <p>The name of the new table to which the backup must be restored.</p>
-    #
-    # @option params [String] :backup_arn
-    #   <p>The Amazon Resource Name (ARN) associated with the backup.</p>
-    #
-    # @option params [String] :billing_mode_override
-    #   <p>The billing mode of the restored table.</p>
-    #
-    # @option params [Array<GlobalSecondaryIndex>] :global_secondary_index_override
-    #   <p>List of global secondary indexes for the restored table. The indexes provided should
-    #               match existing secondary indexes. You can choose to exclude some or all of the indexes
-    #               at the time of restore.</p>
-    #
-    # @option params [Array<LocalSecondaryIndex>] :local_secondary_index_override
-    #   <p>List of local secondary indexes for the restored table. The indexes provided should
-    #               match existing secondary indexes. You can choose to exclude some or all of the indexes
-    #               at the time of restore.</p>
-    #
-    # @option params [ProvisionedThroughput] :provisioned_throughput_override
-    #   <p>Provisioned throughput settings for the restored table.</p>
-    #
-    # @option params [SSESpecification] :sse_specification_override
-    #   <p>The new server-side encryption settings for the restored table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::RestoreTableFromBackupInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::RestoreTableFromBackupOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.restore_table_from_backup(
     #     target_table_name: 'TargetTableName', # required
     #     backup_arn: 'BackupArn', # required
@@ -6208,9 +5188,7 @@ module AWS::SDK::DynamoDB
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::RestoreTableFromBackupOutput
     #   resp.data.table_description #=> Types::TableDescription
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
@@ -6298,12 +5276,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
     #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
-    #
-    def restore_table_from_backup(params = {}, options = {}, &block)
+    def restore_table_from_backup(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromBackupInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromBackupInput,
@@ -6317,43 +5294,56 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :restore_table_from_backup),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]
+        ),
         data_parser: Parsers::RestoreTableFromBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableAlreadyExistsException],
         stub_data_class: Stubs::RestoreTableFromBackup,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :restore_table_from_backup,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :restore_table_from_backup,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_from_backup] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#restore_table_from_backup] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_from_backup] #{output.data}")
+      output
     end
 
     # <p>Restores the specified table to the specified point in time within
     #                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
     #             You can restore your table to any point in time during the last 35 days. Any number of
-    #             users can execute up to 4 concurrent restores (any type of restore) in a given account. </p>
-    #          <p> When you restore using point in time recovery, DynamoDB restores your table data to
+    #             users can execute up to 50 concurrent restores (any type of restore) in a given account. </p>
+    #          <p>When you restore using point in time recovery, DynamoDB restores your table data to
     #             the state based on the selected date and time (day:hour:minute:second) to a new table. </p>
-    #          <p> Along with data, the following are also included on the new restored table using
+    #          <p>Along with data, the following are also included on the new restored table using
     #             point in time recovery: </p>
     #          <ul>
     #             <li>
@@ -6397,50 +5387,14 @@ module AWS::SDK::DynamoDB
     #                <p>Point in time recovery settings</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::RestoreTableToPointInTimeInput}.
-    #
-    # @option params [String] :source_table_arn
-    #   <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name
-    #               (ARN).</p>
-    #
-    # @option params [String] :source_table_name
-    #   <p>Name of the source table that is being restored.</p>
-    #
-    # @option params [String] :target_table_name
-    #   <p>The name of the new table to which it must be restored to.</p>
-    #
-    # @option params [Boolean] :use_latest_restorable_time
-    #   <p>Restore the table to the latest possible time. <code>LatestRestorableDateTime</code>
-    #               is typically 5 minutes before the current time. </p>
-    #
-    # @option params [Time] :restore_date_time
-    #   <p>Time in the past to restore the table to.</p>
-    #
-    # @option params [String] :billing_mode_override
-    #   <p>The billing mode of the restored table.</p>
-    #
-    # @option params [Array<GlobalSecondaryIndex>] :global_secondary_index_override
-    #   <p>List of global secondary indexes for the restored table. The indexes provided should
-    #               match existing secondary indexes. You can choose to exclude some or all of the indexes
-    #               at the time of restore.</p>
-    #
-    # @option params [Array<LocalSecondaryIndex>] :local_secondary_index_override
-    #   <p>List of local secondary indexes for the restored table. The indexes provided should
-    #               match existing secondary indexes. You can choose to exclude some or all of the indexes
-    #               at the time of restore.</p>
-    #
-    # @option params [ProvisionedThroughput] :provisioned_throughput_override
-    #   <p>Provisioned throughput settings for the restored table.</p>
-    #
-    # @option params [SSESpecification] :sse_specification_override
-    #   <p>The new server-side encryption settings for the restored table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::RestoreTableToPointInTimeInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::RestoreTableToPointInTimeOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.restore_table_to_point_in_time(
     #     source_table_arn: 'SourceTableArn',
     #     source_table_name: 'SourceTableName',
@@ -6480,9 +5434,7 @@ module AWS::SDK::DynamoDB
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::RestoreTableToPointInTimeOutput
     #   resp.data.table_description #=> Types::TableDescription
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
@@ -6570,12 +5522,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
     #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
-    #
-    def restore_table_to_point_in_time(params = {}, options = {}, &block)
+    def restore_table_to_point_in_time(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableToPointInTimeInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableToPointInTimeInput,
@@ -6589,34 +5540,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]
+        ),
         data_parser: Parsers::RestoreTableToPointInTime
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::InvalidRestoreTimeException, Stubs::TableAlreadyExistsException, Stubs::TableNotFoundException],
         stub_data_class: Stubs::RestoreTableToPointInTime,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :restore_table_to_point_in_time,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :restore_table_to_point_in_time,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_to_point_in_time] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#restore_table_to_point_in_time] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#restore_table_to_point_in_time] #{output.data}")
+      output
     end
 
     # <p>The <code>Scan</code> operation returns one or more items and item attributes by
@@ -6661,284 +5625,14 @@ module AWS::SDK::DynamoDB
     #                 see a consistent snapshot of the table when the scan operation was requested.
     #             </p>
     #          </note>
-    #
     # @param [Hash] params
-    #   See {Types::ScanInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table containing the requested items; or, if you provide
-    #                   <code>IndexName</code>, the name of the table to which that index belongs.</p>
-    #
-    # @option params [String] :index_name
-    #   <p>The name of a secondary index to scan. This index can be any local secondary index or
-    #               global secondary index. Note that if you use the <code>IndexName</code> parameter, you
-    #               must also provide <code>TableName</code>.</p>
-    #
-    # @option params [Array<String>] :attributes_to_get
-    #   <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>The maximum number of items to evaluate (not necessarily the number of matching
-    #               items). If DynamoDB processes the number of items up to the limit while processing the
-    #               results, it stops the operation and returns the matching values up to that point, and a
-    #               key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can
-    #               pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
-    #               DynamoDB reaches this limit, it stops the operation and returns the matching values up
-    #               to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
-    #               operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :select
-    #   <p>The attributes to be returned in the result. You can retrieve all item attributes,
-    #               specific item attributes, the count of matching items, or in the case of an index, some
-    #               or all of the attributes projected into the index.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the
-    #                       specified table or index. If you query a local secondary index, then for each
-    #                       matching item in the index, DynamoDB fetches the entire item from the parent
-    #                       table. If the index is configured to project all item attributes, then all of
-    #                       the data can be obtained from the local secondary index, and no fetching is
-    #                       required.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index.
-    #                       Retrieves all attributes that have been projected into the index. If the index
-    #                       is configured to project all attributes, this return value is equivalent to
-    #                       specifying <code>ALL_ATTRIBUTES</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>COUNT</code> - Returns the number of matching items, rather than the
-    #                       matching items themselves. Note that this uses the same quantity of read capacity units
-    #                       as getting the items, and is subject to the same item size calculations.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in
-    #                           <code>ProjectionExpression</code>. This return value is equivalent to
-    #                       specifying <code>ProjectionExpression</code> without specifying any value for
-    #                           <code>Select</code>.</p>
-    #                  <p>If you query or scan a local secondary index and request only attributes that
-    #                       are projected into that index, the operation reads only the index and not the
-    #                       table. If any of the requested attributes are not projected into the local
-    #                       secondary index, DynamoDB fetches each of these attributes from the parent
-    #                       table. This extra fetching incurs additional throughput cost and latency.</p>
-    #                  <p>If you query or scan a global secondary index, you can only request attributes
-    #                       that are projected into the index. Global secondary index queries cannot fetch
-    #                       attributes from the parent table.</p>
-    #               </li>
-    #            </ul>
-    #            <p>If neither <code>Select</code> nor <code>ProjectionExpression</code> are specified,
-    #               DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and
-    #                   <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both
-    #                   <code>Select</code> and <code>ProjectionExpression</code> together in a single
-    #               request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>.
-    #               (This usage is equivalent to specifying <code>ProjectionExpression</code> without any
-    #               value for <code>Select</code>.)</p>
-    #            <note>
-    #               <p>If you use the <code>ProjectionExpression</code> parameter, then the value for
-    #                       <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other
-    #                   value for <code>Select</code> will return an error.</p>
-    #            </note>
-    #
-    # @option params [Hash<String, Condition>] :scan_filter
-    #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ScanFilter.html">ScanFilter</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [String] :conditional_operator
-    #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :exclusive_start_key
-    #   <p>The primary key of the first item that this operation will evaluate. Use the value
-    #               that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
-    #            <p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No
-    #               set data types are allowed.</p>
-    #            <p>In a parallel scan, a <code>Scan</code> request that includes
-    #                   <code>ExclusiveStartKey</code> must specify the same segment whose previous
-    #                   <code>Scan</code> returned the corresponding value of
-    #               <code>LastEvaluatedKey</code>.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Integer] :total_segments
-    #   <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the
-    #               total number of segments into which the <code>Scan</code> operation will be divided. The
-    #               value of <code>TotalSegments</code> corresponds to the number of application workers
-    #               that will perform the parallel scan. For example, if you want to use four application
-    #               threads to scan a table or an index, specify a <code>TotalSegments</code> value of
-    #               4.</p>
-    #            <p>The value for <code>TotalSegments</code> must be greater than or equal to 1, and less
-    #               than or equal to 1000000. If you specify a <code>TotalSegments</code> value of 1, the
-    #                   <code>Scan</code> operation will be sequential rather than parallel.</p>
-    #            <p>If you specify <code>TotalSegments</code>, you must also specify
-    #               <code>Segment</code>.</p>
-    #
-    # @option params [Integer] :segment
-    #   <p>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an
-    #               individual segment to be scanned by an application worker.</p>
-    #            <p>Segment IDs are zero-based, so the first segment is always 0. For example, if you want
-    #               to use four application threads to scan a table or an index, then the first thread
-    #               specifies a <code>Segment</code> value of 0, the second thread specifies 1, and so
-    #               on.</p>
-    #            <p>The value of <code>LastEvaluatedKey</code> returned from a parallel <code>Scan</code>
-    #               request must be used as <code>ExclusiveStartKey</code> with the same segment ID in a
-    #               subsequent <code>Scan</code> operation.</p>
-    #            <p>The value for <code>Segment</code> must be greater than or equal to 0, and less than
-    #               the value provided for <code>TotalSegments</code>.</p>
-    #            <p>If you provide <code>Segment</code>, you must also provide
-    #               <code>TotalSegments</code>.</p>
-    #
-    # @option params [String] :projection_expression
-    #   <p>A string that identifies one or more attributes to retrieve from the specified table
-    #               or index. These attributes can include scalars, sets, or elements of a JSON document.
-    #               The attributes in the expression must be separated by commas.</p>
-    #            <p>If no attribute names are specified, then all attributes will be returned. If any of
-    #               the requested attributes are not found, they will not appear in the result.</p>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :filter_expression
-    #   <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code>
-    #               operation, but before the data is returned to you. Items that do not satisfy the
-    #                   <code>FilterExpression</code> criteria are not returned.</p>
-    #            <note>
-    #               <p>A <code>FilterExpression</code> is applied after the items have already been read;
-    #                   the process of filtering does not consume any additional read capacity units.</p>
-    #            </note>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>). To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :expression_attribute_values
-    #   <p>One or more values that can be substituted in an expression.</p>
-    #            <p>Use the <b>:</b> (colon) character in an expression to
-    #               dereference an attribute value. For example, suppose that you wanted to check whether
-    #               the value of the <code>ProductStatus</code> attribute was one of the following: </p>
-    #            <p>
-    #               <code>Available | Backordered | Discontinued</code>
-    #            </p>
-    #            <p>You would first need to specify <code>ExpressionAttributeValues</code> as
-    #               follows:</p>
-    #            <p>
-    #               <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-    #                   ":disc":{"S":"Discontinued"} }</code>
-    #            </p>
-    #            <p>You could then use these values in an expression, such as this:</p>
-    #            <p>
-    #               <code>ProductStatus IN (:avail, :back, :disc)</code>
-    #            </p>
-    #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Boolean] :consistent_read
-    #   <p>A Boolean value that determines the read consistency model during the scan:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned
-    #                       from <code>Scan</code> might not contain the results from other recently
-    #                       completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or
-    #                           <code>DeleteItem</code>).</p>
-    #               </li>
-    #               <li>
-    #                  <p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write
-    #                       operations that completed before the <code>Scan</code> began are guaranteed to
-    #                       be contained in the <code>Scan</code> response.</p>
-    #               </li>
-    #            </ul>
-    #            <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
-    #            <p>The <code>ConsistentRead</code> parameter is not supported on global secondary
-    #               indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to
-    #               true, you will receive a <code>ValidationException</code>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ScanInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ScanOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.scan(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
@@ -6982,9 +5676,7 @@ module AWS::SDK::DynamoDB
     #     },
     #     consistent_read: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ScanOutput
     #   resp.data.items #=> Array<Hash<String, AttributeValue>>
     #   resp.data.items[0] #=> Hash<String, AttributeValue>
@@ -7016,12 +5708,54 @@ module AWS::SDK::DynamoDB
     #   resp.data.consumed_capacity.table.capacity_units #=> Float
     #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    # @example To scan a table
+    #   # This example scans the entire Music table, and then narrows the results to songs by the artist "No One You Know". For each item, only the album title and song title are returned.
+    #   resp = client.scan({
+    #     table_name: "Music",
+    #     filter_expression: "Artist = :a",
+    #     projection_expression: "#ST, #AT",
+    #     expression_attribute_names: {
+    #       '#ST' => "SongTitle",
+    #       '#AT' => "AlbumTitle"
+    #     },
+    #     expression_attribute_values: {
+    #       ':a' => {
+    #         s: "No One You Know"
+    #       }
+    #     }
+    #   })
     #
-    def scan(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     count: 2,
+    #     items: [
+    #       {
+    #         'SongTitle' => {
+    #           s: "Call Me Today"
+    #         },
+    #         'AlbumTitle' => {
+    #           s: "Somewhat Famous"
+    #         }
+    #       },
+    #       {
+    #         'SongTitle' => {
+    #           s: "Scared of My Shadow"
+    #         },
+    #         'AlbumTitle' => {
+    #           s: "Blue Sky Blues"
+    #         }
+    #       }
+    #     ],
+    #     scanned_count: 3,
+    #     consumed_capacity: {
+    #
+    #     }
+    #   }
+    def scan(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScanInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanInput,
@@ -7035,34 +5769,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :scan),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::Scan
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::Scan,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :scan,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :scan,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#scan] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#scan] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#scan] #{output.data}")
+      output
     end
 
     # <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
@@ -7071,21 +5818,14 @@ module AWS::SDK::DynamoDB
     #             account. </p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::TagResourceInput}.
-    #
-    # @option params [String] :resource_arn
-    #   <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is
-    #               an Amazon Resource Name (ARN).</p>
-    #
-    # @option params [Array<Tag>] :tags
-    #   <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::TagResourceInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::TagResourceOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.tag_resource(
     #     resource_arn: 'ResourceArn', # required
     #     tags: [
@@ -7095,16 +5835,13 @@ module AWS::SDK::DynamoDB
     #       }
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::TagResourceOutput
-    #
-    def tag_resource(params = {}, options = {}, &block)
+    def tag_resource(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
@@ -7118,34 +5855,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :tag_resource),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::TagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::TagResource,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :tag_resource,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :tag_resource,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+      output
     end
 
     # <p>
@@ -7175,23 +5925,14 @@ module AWS::SDK::DynamoDB
     #                <p>The aggregate size of the items in the transaction exceeded 4 MB.</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::TransactGetItemsInput}.
-    #
-    # @option params [Array<TransactGetItem>] :transact_items
-    #   <p>An ordered array of up to 100 <code>TransactGetItem</code> objects, each of which
-    #               contains a <code>Get</code> structure.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and
-    #               a value of <code>NONE</code> prevents that information from being returned. No other
-    #               value is valid.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::TransactGetItemsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::TransactGetItemsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.transact_get_items(
     #     transact_items: [
     #       {
@@ -7225,9 +5966,7 @@ module AWS::SDK::DynamoDB
     #     ], # required
     #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::TransactGetItemsOutput
     #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
     #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
@@ -7258,12 +5997,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.responses[0].item['key'].l #=> Array<AttributeValue>
     #   resp.data.responses[0].item['key'].null #=> Boolean
     #   resp.data.responses[0].item['key'].bool #=> Boolean
-    #
-    def transact_get_items(params = {}, options = {}, &block)
+    def transact_get_items(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactGetItemsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactGetItemsInput,
@@ -7277,34 +6015,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :transact_get_items),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::TransactGetItems
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::TransactGetItems,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :transact_get_items,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :transact_get_items,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#transact_get_items] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#transact_get_items] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#transact_get_items] #{output.data}")
+      output
     end
 
     # <p>
@@ -7380,73 +6131,14 @@ module AWS::SDK::DynamoDB
     #                <p>There is a user error, such as an invalid data format.</p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::TransactWriteItemsInput}.
-    #
-    # @option params [Array<TransactWriteItem>] :transact_items
-    #   <p>An ordered array of up to 100 <code>TransactWriteItem</code> objects, each of which
-    #               contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or
-    #                   <code>Delete</code> object. These can operate on items in different tables, but the
-    #               tables must reside in the same Amazon Web Services account and Region, and no two of them
-    #               can operate on the same item. </p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_item_collection_metrics
-    #   <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-    #               the response includes statistics about item collections (if any), that were modified
-    #               during the operation and are returned in the response. If set to <code>NONE</code> (the
-    #               default), no statistics are returned. </p>
-    #
-    # @option params [String] :client_request_token
-    #   <p>Providing a <code>ClientRequestToken</code> makes the call to
-    #                   <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls
-    #               have the same effect as one single call.</p>
-    #            <p>Although multiple identical calls using the same client request token produce the same
-    #               result on the server (no side effects), the responses to the calls might not be the
-    #               same. If the <code>ReturnConsumedCapacity</code> parameter is set, then the initial
-    #                   <code>TransactWriteItems</code> call returns the amount of write capacity units
-    #               consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls with
-    #               the same client token return the number of read capacity units consumed in reading the
-    #               item.</p>
-    #            <p>A client request token is valid for 10 minutes after the first request that uses it is
-    #               completed. After 10 minutes, any request with the same client token is treated as a new
-    #               request. Do not resubmit the same request with the same client token for more than 10
-    #               minutes, or the result might not be idempotent.</p>
-    #            <p>If you submit a request with the same client token but a change in other parameters
-    #               within the 10-minute idempotency window, DynamoDB returns an
-    #                   <code>IdempotentParameterMismatch</code> exception.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::TransactWriteItemsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::TransactWriteItemsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.transact_write_items(
     #     transact_items: [
     #       {
@@ -7499,9 +6191,7 @@ module AWS::SDK::DynamoDB
     #     return_item_collection_metrics: 'SIZE', # accepts ["SIZE", "NONE"]
     #     client_request_token: 'ClientRequestToken'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::TransactWriteItemsOutput
     #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
     #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
@@ -7535,12 +6225,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'].bool #=> Boolean
     #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
     #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
-    #
-    def transact_write_items(params = {}, options = {}, &block)
+    def transact_write_items(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactWriteItemsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactWriteItemsInput,
@@ -7554,72 +6243,74 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :transact_write_items),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
+        ),
         data_parser: Parsers::TransactWriteItems
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
         stub_data_class: Stubs::TransactWriteItems,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :transact_write_items,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :transact_write_items,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#transact_write_items] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#transact_write_items] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#transact_write_items] #{output.data}")
+      output
     end
 
     # <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
     #                 <code>UntagResource</code> up to five times per second, per account. </p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    #
     # @param [Hash] params
-    #   See {Types::UntagResourceInput}.
-    #
-    # @option params [String] :resource_arn
-    #   <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon
-    #               Resource Name (ARN).</p>
-    #
-    # @option params [Array<String>] :tag_keys
-    #   <p>A list of tag keys. Existing tags of the resource whose keys are members of this list
-    #               will be removed from the DynamoDB resource.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UntagResourceInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UntagResourceOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.untag_resource(
     #     resource_arn: 'ResourceArn', # required
     #     tag_keys: [
     #       'member'
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UntagResourceOutput
-    #
-    def untag_resource(params = {}, options = {}, &block)
+    def untag_resource(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
@@ -7633,34 +6324,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :untag_resource),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::UntagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::UntagResource,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :untag_resource,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :untag_resource,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+      output
     end
 
     # <p>
@@ -7675,29 +6379,21 @@ module AWS::SDK::DynamoDB
     #          <p>
     #             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
     #             You can restore your table to any point in time during the last 35 days. </p>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateContinuousBackupsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table.</p>
-    #
-    # @option params [PointInTimeRecoverySpecification] :point_in_time_recovery_specification
-    #   <p>Represents the settings used to enable point in time recovery.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateContinuousBackupsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateContinuousBackupsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_continuous_backups(
     #     table_name: 'TableName', # required
     #     point_in_time_recovery_specification: {
     #       point_in_time_recovery_enabled: false # required
     #     } # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateContinuousBackupsOutput
     #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
     #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ["ENABLED", "DISABLED"]
@@ -7705,12 +6401,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
-    #
-    def update_continuous_backups(params = {}, options = {}, &block)
+    def update_continuous_backups(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContinuousBackupsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContinuousBackupsInput,
@@ -7724,34 +6419,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_continuous_backups),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
+        ),
         data_parser: Parsers::UpdateContinuousBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
         stub_data_class: Stubs::UpdateContinuousBackups,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_continuous_backups,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_continuous_backups,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_continuous_backups] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_continuous_backups] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_continuous_backups] #{output.data}")
+      output
     end
 
     # <p>Updates the status for contributor insights for a specific table or index. CloudWatch
@@ -7761,41 +6469,29 @@ module AWS::SDK::DynamoDB
     #             table’s partition key and sort key data with an Amazon Web Services managed key or
     #             customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB
     #             for this table.</p>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateContributorInsightsInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table.</p>
-    #
-    # @option params [String] :index_name
-    #   <p>The global secondary index name, if applicable.</p>
-    #
-    # @option params [String] :contributor_insights_action
-    #   <p>Represents the contributor insights action.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateContributorInsightsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateContributorInsightsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_contributor_insights(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
     #     contributor_insights_action: 'ENABLE' # required - accepts ["ENABLE", "DISABLE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateContributorInsightsOutput
     #   resp.data.table_name #=> String
     #   resp.data.index_name #=> String
     #   resp.data.contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
-    #
-    def update_contributor_insights(params = {}, options = {}, &block)
+    def update_contributor_insights(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContributorInsightsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContributorInsightsInput,
@@ -7809,34 +6505,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_contributor_insights),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
+        ),
         data_parser: Parsers::UpdateContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
         stub_data_class: Stubs::UpdateContributorInsights,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_contributor_insights,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_contributor_insights,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_contributor_insights] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_contributor_insights] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_contributor_insights] #{output.data}")
+      output
     end
 
     # <p>Adds or removes replicas in the specified global table. The global table must already
@@ -7882,20 +6591,14 @@ module AWS::SDK::DynamoDB
     #                     capacity units. </p>
     #             </li>
     #          </ul>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateGlobalTableInput}.
-    #
-    # @option params [String] :global_table_name
-    #   <p>The global table name.</p>
-    #
-    # @option params [Array<ReplicaUpdate>] :replica_updates
-    #   <p>A list of Regions that should be added or removed from the global table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateGlobalTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateGlobalTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_global_table(
     #     global_table_name: 'GlobalTableName', # required
     #     replica_updates: [
@@ -7909,9 +6612,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateGlobalTableOutput
     #   resp.data.global_table_description #=> Types::GlobalTableDescription
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
@@ -7935,12 +6636,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.global_table_description.creation_date_time #=> Time
     #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
-    #
-    def update_global_table(params = {}, options = {}, &block)
+    def update_global_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableInput,
@@ -7954,34 +6654,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_global_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]
+        ),
         data_parser: Parsers::UpdateGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException, Stubs::ReplicaNotFoundException, Stubs::TableNotFoundException, Stubs::ReplicaAlreadyExistsException],
         stub_data_class: Stubs::UpdateGlobalTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_global_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_global_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_global_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table] #{output.data}")
+      output
     end
 
     # <p>Updates settings for a global table.</p>
@@ -7997,51 +6710,14 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateGlobalTableSettingsInput}.
-    #
-    # @option params [String] :global_table_name
-    #   <p>The name of the global table</p>
-    #
-    # @option params [String] :global_table_billing_mode
-    #   <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not
-    #               specified, the global table defaults to <code>PROVISIONED</code> capacity billing
-    #               mode.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-    #                       predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-    #                       for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-    #                       to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Integer] :global_table_provisioned_write_capacity_units
-    #   <p>The maximum number of writes consumed per second before DynamoDB returns a
-    #                   <code>ThrottlingException.</code>
-    #            </p>
-    #
-    # @option params [AutoScalingSettingsUpdate] :global_table_provisioned_write_capacity_auto_scaling_settings_update
-    #   <p>Auto scaling settings for managing provisioned write capacity for the global
-    #               table.</p>
-    #
-    # @option params [Array<GlobalTableGlobalSecondaryIndexSettingsUpdate>] :global_table_global_secondary_index_settings_update
-    #   <p>Represents the settings of a global secondary index for a global table that will be
-    #               modified.</p>
-    #
-    # @option params [Array<ReplicaSettingsUpdate>] :replica_settings_update
-    #   <p>Represents the settings for a global table in a Region that will be modified.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateGlobalTableSettingsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateGlobalTableSettingsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_global_table_settings(
     #     global_table_name: 'GlobalTableName', # required
     #     global_table_billing_mode: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
@@ -8081,9 +6757,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateGlobalTableSettingsOutput
     #   resp.data.global_table_name #=> String
     #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
@@ -8120,12 +6794,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
     #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
-    #
-    def update_global_table_settings(params = {}, options = {}, &block)
+    def update_global_table_settings(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableSettingsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableSettingsInput,
@@ -8139,34 +6812,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_global_table_settings),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::UpdateGlobalTableSettings
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::GlobalTableNotFoundException, Stubs::IndexNotFoundException, Stubs::ReplicaNotFoundException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::UpdateGlobalTableSettings,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_global_table_settings,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_global_table_settings,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table_settings] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_global_table_settings] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_global_table_settings] #{output.data}")
+      output
     end
 
     # <p>Edits an existing item's attributes, or adds a new item to the table if it does not
@@ -8176,320 +6862,14 @@ module AWS::SDK::DynamoDB
     #             attribute values).</p>
     #          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
     #             operation using the <code>ReturnValues</code> parameter.</p>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateItemInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table containing the item to update.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :key
-    #   <p>The primary key of the item to be updated. Each element consists of an attribute name
-    #               and a value for that attribute.</p>
-    #            <p>For the primary key, you must provide all of the attributes. For example, with a
-    #               simple primary key, you only need to provide a value for the partition key. For a
-    #               composite primary key, you must provide values for both the partition key and the sort
-    #               key.</p>
-    #
-    # @option params [Hash<String, AttributeValueUpdate>] :attribute_updates
-    #   <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, ExpectedAttributeValue>] :expected
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.</p>
-    #
-    # @option params [String] :conditional_operator
-    #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
-    #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :return_values
-    #   <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
-    #               before or after they are successfully updated. For <code>UpdateItem</code>, the valid values
-    #               are:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - If <code>ReturnValues</code> is not specified, or if its
-    #                       value is <code>NONE</code>, then nothing is returned. (This setting is the
-    #                       default for <code>ReturnValues</code>.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_OLD</code> - Returns all of the attributes of the item, as they
-    #                       appeared before the UpdateItem operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>UPDATED_OLD</code> - Returns only the updated attributes, as they appeared
-    #                       before the UpdateItem operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ALL_NEW</code> - Returns all of the attributes of the item, as they appear
-    #                       after the UpdateItem operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>UPDATED_NEW</code> - Returns only the updated attributes, as they appear
-    #                       after the UpdateItem operation.</p>
-    #               </li>
-    #            </ul>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #            <p>The values returned are strongly consistent.</p>
-    #
-    # @option params [String] :return_consumed_capacity
-    #   <p>Determines the level of detail about either provisioned or on-demand throughput
-    #               consumption that is returned in the response:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>INDEXES</code> - The response includes the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation, together with
-    #                           <code>ConsumedCapacity</code> for each table and secondary index that was
-    #                       accessed.</p>
-    #                  <p>Note that some operations, such as <code>GetItem</code> and
-    #                           <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
-    #                       specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
-    #                       information for table(s).</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>TOTAL</code> - The response includes only the aggregate
-    #                           <code>ConsumedCapacity</code> for the operation.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
-    #                       response.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :return_item_collection_metrics
-    #   <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
-    #               the response includes statistics about item collections, if any, that were modified
-    #               during the operation are returned in the response. If set to <code>NONE</code> (the
-    #               default), no statistics are returned.</p>
-    #
-    # @option params [String] :update_expression
-    #   <p>An expression that defines one or more attributes to be updated, the action to be
-    #               performed on them, and new values for them.</p>
-    #            <p>The following action values are available for <code>UpdateExpression</code>.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>SET</code> - Adds one or more attributes and values to an item. If any of
-    #                       these attributes already exist, they are replaced by the new values. You can
-    #                       also use <code>SET</code> to add or subtract from an attribute that is of type
-    #                       Number. For example: <code>SET myNum = myNum + :val</code>
-    #                  </p>
-    #                  <p>
-    #                     <code>SET</code> supports the following functions:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>if_not_exists (path, operand)</code> - if the item does not
-    #                               contain an attribute at the specified path, then
-    #                                   <code>if_not_exists</code> evaluates to operand; otherwise, it
-    #                               evaluates to path. You can use this function to avoid overwriting an
-    #                               attribute that may already be present in the item.</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>list_append (operand, operand)</code> - evaluates to a list with a
-    #                               new element added to it. You can append the new element to the start or
-    #                               the end of the list by reversing the order of the operands.</p>
-    #                     </li>
-    #                  </ul>
-    #                  <p>These function names are case-sensitive.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>REMOVE</code> - Removes one or more attributes from an item.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>ADD</code> - Adds the specified value to the item, if the attribute does
-    #                       not already exist. If the attribute does exist, then the behavior of
-    #                           <code>ADD</code> depends on the data type of the attribute:</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>If the existing attribute is a number, and if <code>Value</code> is
-    #                               also a number, then <code>Value</code> is mathematically added to the
-    #                               existing attribute. If <code>Value</code> is a negative number, then it
-    #                               is subtracted from the existing attribute.</p>
-    #                        <note>
-    #                           <p>If you use <code>ADD</code> to increment or decrement a number
-    #                                   value for an item that doesn't exist before the update, DynamoDB
-    #                                   uses <code>0</code> as the initial value.</p>
-    #                           <p>Similarly, if you use <code>ADD</code> for an existing item to
-    #                                   increment or decrement an attribute value that doesn't exist before
-    #                                   the update, DynamoDB uses <code>0</code> as the initial value. For
-    #                                   example, suppose that the item you want to update doesn't have an
-    #                                   attribute named <code>itemcount</code>, but you decide to
-    #                                       <code>ADD</code> the number <code>3</code> to this attribute
-    #                                   anyway. DynamoDB will create the <code>itemcount</code> attribute,
-    #                                   set its initial value to <code>0</code>, and finally add
-    #                                       <code>3</code> to it. The result will be a new
-    #                                       <code>itemcount</code> attribute in the item, with a value of
-    #                                       <code>3</code>.</p>
-    #                        </note>
-    #                     </li>
-    #                     <li>
-    #                        <p>If the existing data type is a set and if <code>Value</code> is also a
-    #                               set, then <code>Value</code> is added to the existing set. For example,
-    #                               if the attribute value is the set <code>[1,2]</code>, and the
-    #                                   <code>ADD</code> action specified <code>[3]</code>, then the final
-    #                               attribute value is <code>[1,2,3]</code>. An error occurs if an
-    #                                   <code>ADD</code> action is specified for a set attribute and the
-    #                               attribute type specified does not match the existing set type. </p>
-    #                        <p>Both sets must have the same primitive data type. For example, if the
-    #                               existing data type is a set of strings, the <code>Value</code> must also
-    #                               be a set of strings.</p>
-    #                     </li>
-    #                  </ul>
-    #                  <important>
-    #                     <p>The <code>ADD</code> action only supports Number and set data types. In
-    #                           addition, <code>ADD</code> can only be used on top-level attributes, not
-    #                           nested attributes.</p>
-    #                  </important>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>DELETE</code> - Deletes an element from a set.</p>
-    #                  <p>If a set of values is specified, then those values are subtracted from the old
-    #                       set. For example, if the attribute value was the set <code>[a,b,c]</code> and
-    #                       the <code>DELETE</code> action specifies <code>[a,c]</code>, then the final
-    #                       attribute value is <code>[b]</code>. Specifying an empty set is an error.</p>
-    #                  <important>
-    #                     <p>The <code>DELETE</code> action only supports set data types. In addition,
-    #                               <code>DELETE</code> can only be used on top-level attributes, not nested
-    #                           attributes.</p>
-    #                  </important>
-    #               </li>
-    #            </ul>
-    #            <p>You can have many actions in a single expression, such as the following: <code>SET
-    #                   a=:value1, b=:value2 DELETE :value3, :value4, :value5</code>
-    #            </p>
-    #            <p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying
-    #                   Items and Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :condition_expression
-    #   <p>A condition that must be satisfied in order for a conditional update to
-    #               succeed.</p>
-    #            <p>An expression can contain any of the following:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type |
-    #                           contains | begins_with | size</code>
-    #                  </p>
-    #                  <p>These function names are case-sensitive.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Comparison operators: <code>= | <> |
-    #               < | > | <= | >= |
-    #               BETWEEN | IN </code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p> Logical operators: <code>AND | OR | NOT</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, String>] :expression_attribute_names
-    #   <p>One or more substitution tokens for attribute names in an expression. The following
-    #               are some use cases for using <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>To access an attribute whose name conflicts with a DynamoDB reserved
-    #                       word.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To create a placeholder for repeating occurrences of an attribute name in an
-    #                       expression.</p>
-    #               </li>
-    #               <li>
-    #                  <p>To prevent special characters in an attribute name from being misinterpreted
-    #                       in an expression.</p>
-    #               </li>
-    #            </ul>
-    #            <p>Use the <b>#</b> character in an expression to dereference
-    #               an attribute name. For example, consider the following attribute name:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Percentile</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>The name of this attribute conflicts with a reserved word, so it cannot be used
-    #               directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer
-    #               Guide</i>.) To work around this, you could specify the following for
-    #                   <code>ExpressionAttributeNames</code>:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>{"#P":"Percentile"}</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>You could then use this substitution in an expression, as in this example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>#P = :val</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <note>
-    #               <p>Tokens that begin with the <b>:</b> character are
-    #                       <i>expression attribute values</i>, which are placeholders for the
-    #                   actual value at runtime.</p>
-    #            </note>
-    #            <p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [Hash<String, AttributeValue>] :expression_attribute_values
-    #   <p>One or more values that can be substituted in an expression.</p>
-    #            <p>Use the <b>:</b> (colon) character in an expression to
-    #               dereference an attribute value. For example, suppose that you wanted to check whether
-    #               the value of the <code>ProductStatus</code> attribute was one of the following: </p>
-    #            <p>
-    #               <code>Available | Backordered | Discontinued</code>
-    #            </p>
-    #            <p>You would first need to specify <code>ExpressionAttributeValues</code> as
-    #               follows:</p>
-    #            <p>
-    #               <code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},
-    #                   ":disc":{"S":"Discontinued"} }</code>
-    #            </p>
-    #            <p>You could then use these values in an expression, such as this:</p>
-    #            <p>
-    #               <code>ProductStatus IN (:avail, :back, :disc)</code>
-    #            </p>
-    #            <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>.</p>
-    #
-    # @option params [String] :return_values_on_condition_check_failure
-    #   <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a
-    #               condition check.</p>
-    #            <p>There is no additional cost associated with requesting a return value aside from the
-    #               small network and processing overhead of receiving a larger response. No read capacity
-    #               units are consumed.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateItemInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateItemOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_item(
     #     table_name: 'TableName', # required
     #     key: {
@@ -8533,9 +6913,7 @@ module AWS::SDK::DynamoDB
     #     },
     #     return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateItemOutput
     #   resp.data.attributes #=> Hash<String, AttributeValue>
     #   resp.data.attributes['key'] #=> Types::AttributeValue, one of [S, N, B, Ss, Ns, Bs, M, L, Null, Bool]
@@ -8567,12 +6945,56 @@ module AWS::SDK::DynamoDB
     #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
     #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
     #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    # @example To update an item in a table
+    #   # This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.
+    #   resp = client.update_item({
+    #     table_name: "Music",
+    #     key: {
+    #       'Artist' => {
+    #         s: "Acme Band"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Happy Day"
+    #       }
+    #     },
+    #     update_expression: "SET #Y = :y, #AT = :t",
+    #     expression_attribute_names: {
+    #       '#Y' => "Year",
+    #       '#AT' => "AlbumTitle"
+    #     },
+    #     expression_attribute_values: {
+    #       ':y' => {
+    #         n: "2015"
+    #       },
+    #       ':t' => {
+    #         s: "Louder Than Ever"
+    #       }
+    #     },
+    #     return_values: "ALL_NEW"
+    #   })
     #
-    def update_item(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     attributes: {
+    #       'AlbumTitle' => {
+    #         s: "Louder Than Ever"
+    #       },
+    #       'Artist' => {
+    #         s: "Acme Band"
+    #       },
+    #       'Year' => {
+    #         n: "2015"
+    #       },
+    #       'SongTitle' => {
+    #         s: "Happy Day"
+    #       }
+    #     }
+    #   }
+    def update_item(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateItemInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateItemInput,
@@ -8586,34 +7008,131 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_item),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
+        ),
         data_parser: Parsers::UpdateItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
         stub_data_class: Stubs::UpdateItem,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_item,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_item,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_item] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_item] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_item] #{output.data}")
+      output
+    end
+
+    # <p>The command to update the Kinesis stream destination.</p>
+    # @param [Hash] params
+    #   Request parameters for this operation.
+    #   See {Types::UpdateKinesisStreamingDestinationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
+    # @return [Types::UpdateKinesisStreamingDestinationOutput]
+    # @example Request syntax with placeholder values
+    #   resp = client.update_kinesis_streaming_destination(
+    #     table_name: 'TableName', # required
+    #     stream_arn: 'StreamArn', # required
+    #     update_kinesis_streaming_configuration: {
+    #       approximate_creation_date_time_precision: 'MILLISECOND' # accepts ["MILLISECOND", "MICROSECOND"]
+    #     }
+    #   )
+    # @example Response structure
+    #   resp.data #=> Types::UpdateKinesisStreamingDestinationOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.stream_arn #=> String
+    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED", "UPDATING"]
+    #   resp.data.update_kinesis_streaming_configuration #=> Types::UpdateKinesisStreamingConfiguration
+    #   resp.data.update_kinesis_streaming_configuration.approximate_creation_date_time_precision #=> String, one of ["MILLISECOND", "MICROSECOND"]
+    def update_kinesis_streaming_destination(params = {}, options = {})
+      response_body = ::StringIO.new
+      config = operation_config(options)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::UpdateKinesisStreamingDestinationInput.build(params, context: 'params')
+      stack.use(Hearth::Middleware::Initialize)
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::UpdateKinesisStreamingDestinationInput,
+        validate_input: config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::UpdateKinesisStreamingDestination
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
+      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
+        signer: config.signer
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
+        data_parser: Parsers::UpdateKinesisStreamingDestination
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: config.stub_responses,
+        client: config.http_client,
+        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
+        stub_data_class: Stubs::UpdateKinesisStreamingDestination,
+        stubs: @stubs
+      )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_kinesis_streaming_destination,
+        interceptors: config.interceptors
+      )
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_kinesis_streaming_destination] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_kinesis_streaming_destination] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_kinesis_streaming_destination] #{output.data}")
+      output
     end
 
     # <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
@@ -8638,100 +7157,22 @@ module AWS::SDK::DynamoDB
     #             </li>
     #          </ul>
     #          <p>
-    #             <code>UpdateTable</code> is an asynchronous operation; while it is executing, the table
-    #             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
-    #                 <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.
-    #             When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
-    #             operation is complete.</p>
-    #
+    #             <code>UpdateTable</code> is an asynchronous operation; while
+    #             it's
+    #             executing, the table status changes from <code>ACTIVE</code> to <code>UPDATING</code>.
+    #             While it's <code>UPDATING</code>, you can't issue another <code>UpdateTable</code>
+    #             request on the
+    #             base table nor any replicas. When the table returns to the
+    #                 <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is
+    #             complete.</p>
     # @param [Hash] params
-    #   See {Types::UpdateTableInput}.
-    #
-    # @option params [Array<AttributeDefinition>] :attribute_definitions
-    #   <p>An array of attributes that describe the key schema for the table and indexes. If you
-    #               are adding a new global secondary index to the table, <code>AttributeDefinitions</code>
-    #               must include the key element(s) of the new index.</p>
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to be updated.</p>
-    #
-    # @option params [String] :billing_mode
-    #   <p>Controls how you are charged for read and write throughput and how you manage
-    #               capacity. When switching from pay-per-request to provisioned capacity, initial
-    #               provisioned capacity values must be set. The initial provisioned capacity values are
-    #               estimated based on the consumed read and write capacity of your table and global
-    #               secondary indexes over the past 30 minutes.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-    #                       predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-    #                       for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-    #                       to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [ProvisionedThroughput] :provisioned_throughput
-    #   <p>The new provisioned throughput settings for the specified table or index.</p>
-    #
-    # @option params [Array<GlobalSecondaryIndexUpdate>] :global_secondary_index_updates
-    #   <p>An array of one or more global secondary indexes for the table. For each index in the
-    #               array, you can request one action:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <code>Create</code> - add a new global secondary index to the table.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>Update</code> - modify the provisioned throughput settings of an existing
-    #                       global secondary index.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <code>Delete</code> - remove a global secondary index from the table.</p>
-    #               </li>
-    #            </ul>
-    #            <p>You can create or delete only one global secondary index per <code>UpdateTable</code>
-    #               operation.</p>
-    #            <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global
-    #                   Secondary Indexes</a> in the <i>Amazon DynamoDB Developer
-    #                   Guide</i>. </p>
-    #
-    # @option params [StreamSpecification] :stream_specification
-    #   <p>Represents the DynamoDB Streams configuration for the table.</p>
-    #            <note>
-    #               <p>You receive a <code>ResourceInUseException</code> if you try to enable a stream on
-    #                   a table that already has a stream, or if you try to disable a stream on a table that
-    #                   doesn't have a stream.</p>
-    #            </note>
-    #
-    # @option params [SSESpecification] :sse_specification
-    #   <p>The new server-side encryption settings for the specified table.</p>
-    #
-    # @option params [Array<ReplicationGroupUpdate>] :replica_updates
-    #   <p>A list of replica update actions (create, delete, or update) for the table.</p>
-    #            <note>
-    #               <p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
-    #                   of global tables.
-    #               </p>
-    #            </note>
-    #
-    # @option params [String] :table_class
-    #   <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and
-    #                   <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
-    #
-    # @option params [Boolean] :deletion_protection_enabled
-    #   <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateTableInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateTableOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_table(
     #     attribute_definitions: [
     #       {
@@ -8807,9 +7248,7 @@ module AWS::SDK::DynamoDB
     #     table_class: 'STANDARD', # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #     deletion_protection_enabled: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateTableOutput
     #   resp.data.table_description #=> Types::TableDescription
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
@@ -8897,12 +7336,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
     #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #   resp.data.table_description.deletion_protection_enabled #=> Boolean
-    #
-    def update_table(params = {}, options = {}, &block)
+    def update_table(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
@@ -8916,34 +7354,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_table),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::UpdateTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::UpdateTable,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_table,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_table,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_table] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_table] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_table] #{output.data}")
+      output
     end
 
     # <p>Updates auto scaling settings on your global tables at once.</p>
@@ -8952,29 +7403,14 @@ module AWS::SDK::DynamoDB
     #                 of global tables.
     #             </p>
     #          </important>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateTableReplicaAutoScalingInput}.
-    #
-    # @option params [Array<GlobalSecondaryIndexAutoScalingUpdate>] :global_secondary_index_updates
-    #   <p>Represents the auto scaling settings of the global secondary indexes of the replica to
-    #               be updated.</p>
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the global table to be updated.</p>
-    #
-    # @option params [AutoScalingSettingsUpdate] :provisioned_write_capacity_auto_scaling_update
-    #   <p>Represents the auto scaling settings to be modified for a global table or global
-    #               secondary index.</p>
-    #
-    # @option params [Array<ReplicaAutoScalingUpdate>] :replica_updates
-    #   <p>Represents the auto scaling settings of replicas of the table that will be
-    #               modified.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateTableReplicaAutoScalingInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateTableReplicaAutoScalingOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_table_replica_auto_scaling(
     #     global_secondary_index_updates: [
     #       {
@@ -9008,9 +7444,7 @@ module AWS::SDK::DynamoDB
     #       }
     #     ]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateTableReplicaAutoScalingOutput
     #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
     #   resp.data.table_auto_scaling_description.table_name #=> String
@@ -9039,12 +7473,11 @@ module AWS::SDK::DynamoDB
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
-    #
-    def update_table_replica_auto_scaling(params = {}, options = {}, &block)
+    def update_table_replica_auto_scaling(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableReplicaAutoScalingInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableReplicaAutoScalingInput,
@@ -9058,34 +7491,47 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::UpdateTableReplicaAutoScaling
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::UpdateTableReplicaAutoScaling,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_table_replica_auto_scaling,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_table_replica_auto_scaling,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_table_replica_auto_scaling] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_table_replica_auto_scaling] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_table_replica_auto_scaling] #{output.data}")
+      output
     end
 
     # <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
@@ -9113,21 +7559,14 @@ module AWS::SDK::DynamoDB
     #             operation.</p>
     #          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
     #             Amazon DynamoDB Developer Guide. </p>
-    #
     # @param [Hash] params
-    #   See {Types::UpdateTimeToLiveInput}.
-    #
-    # @option params [String] :table_name
-    #   <p>The name of the table to be configured.</p>
-    #
-    # @option params [TimeToLiveSpecification] :time_to_live_specification
-    #   <p>Represents the settings used to enable or disable Time to Live for the specified
-    #               table.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateTimeToLiveInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateTimeToLiveOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_time_to_live(
     #     table_name: 'TableName', # required
     #     time_to_live_specification: {
@@ -9135,19 +7574,16 @@ module AWS::SDK::DynamoDB
     #       attribute_name: 'AttributeName' # required
     #     } # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateTimeToLiveOutput
     #   resp.data.time_to_live_specification #=> Types::TimeToLiveSpecification
     #   resp.data.time_to_live_specification.enabled #=> Boolean
     #   resp.data.time_to_live_specification.attribute_name #=> String
-    #
-    def update_time_to_live(params = {}, options = {}, &block)
+    def update_time_to_live(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimeToLiveInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimeToLiveInput,
@@ -9161,54 +7597,70 @@ module AWS::SDK::DynamoDB
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_time_to_live),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes,
+        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
+        ),
         data_parser: Parsers::UpdateTimeToLive
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
         stub_data_class: Stubs::UpdateTimeToLive,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_time_to_live,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_time_to_live,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_time_to_live] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_time_to_live] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_time_to_live] #{output.data}")
+      output
     end
 
     private
 
-    def initialize_config(config)
-      config = config.dup
-      client_interceptors = config.interceptors
-      config.interceptors = Hearth::InterceptorList.new
-      Client.plugins.apply(config)
-      Hearth::PluginList.new(config.plugins).apply(config)
-      config.interceptors << client_interceptors
+    def initialize_config(options)
+      client_interceptors = options.delete(:interceptors)
+      config = Config.new(**options)
+      Client.plugins.each { |p| p.call(config) }
+      config.plugins.each { |p| p.call(config) }
+      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
+      config.validate!
       config.freeze
     end
 
     def operation_config(options)
-      return @config unless options[:plugins] || options[:interceptors]
+      return @config if options.empty?
 
-      config = @config.dup
-      Hearth::PluginList.new(options[:plugins]).apply(config) if options[:plugins]
-      config.interceptors << options[:interceptors] if options[:interceptors]
+      operation_plugins = options.delete(:plugins)
+      operation_interceptors = options.delete(:interceptors)
+      config = @config.merge(options)
+      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
+      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
+      config.validate!
       config.freeze
     end
   end

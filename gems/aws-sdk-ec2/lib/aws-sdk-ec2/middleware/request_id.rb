@@ -1,3 +1,12 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
 module AWS::SDK::EC2
   module Middleware
     # A middleware that extracts a request id from a response and sets it

@@ -10,63 +10,210 @@
 module AWS::SDK::STS
   module Types
 
-    AssumeRoleInput: untyped
+    class AssumeRoleInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_arn (): ::String
+      attr_accessor role_session_name (): ::String
+      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy (): ::String
+      attr_accessor duration_seconds (): ::Integer
+      attr_accessor tags (): ::Array[Tag]
+      attr_accessor transitive_tag_keys (): ::Array[::String]
+      attr_accessor external_id (): ::String
+      attr_accessor serial_number (): ::String
+      attr_accessor token_code (): ::String
+      attr_accessor source_identity (): ::String
+      attr_accessor provided_contexts (): ::Array[ProvidedContext]
+    end
 
-    AssumeRoleOutput: untyped
+    class AssumeRoleOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): Credentials
+      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor packed_policy_size (): ::Integer
+      attr_accessor source_identity (): ::String
+    end
 
-    AssumeRoleWithSAMLInput: untyped
+    class AssumeRoleWithSAMLInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_arn (): ::String
+      attr_accessor principal_arn (): ::String
+      attr_accessor saml_assertion (): ::String
+      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy (): ::String
+      attr_accessor duration_seconds (): ::Integer
+    end
 
-    AssumeRoleWithSAMLOutput: untyped
+    class AssumeRoleWithSAMLOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): Credentials
+      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor packed_policy_size (): ::Integer
+      attr_accessor subject (): ::String
+      attr_accessor subject_type (): ::String
+      attr_accessor issuer (): ::String
+      attr_accessor audience (): ::String
+      attr_accessor name_qualifier (): ::String
+      attr_accessor source_identity (): ::String
+    end
 
-    AssumeRoleWithWebIdentityInput: untyped
+    class AssumeRoleWithWebIdentityInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_arn (): ::String
+      attr_accessor role_session_name (): ::String
+      attr_accessor web_identity_token (): ::String
+      attr_accessor provider_id (): ::String
+      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy (): ::String
+      attr_accessor duration_seconds (): ::Integer
+    end
 
-    AssumeRoleWithWebIdentityOutput: untyped
+    class AssumeRoleWithWebIdentityOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): Credentials
+      attr_accessor subject_from_web_identity_token (): ::String
+      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor packed_policy_size (): ::Integer
+      attr_accessor provider (): ::String
+      attr_accessor audience (): ::String
+      attr_accessor source_identity (): ::String
+    end
 
-    AssumedRoleUser: untyped
+    class AssumedRoleUser < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor assumed_role_id (): ::String
+      attr_accessor arn (): ::String
+    end
 
-    Credentials: untyped
+    class Credentials < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor access_key_id (): ::String
+      attr_accessor secret_access_key (): ::String
+      attr_accessor session_token (): ::String
+      attr_accessor expiration (): ::Time
+    end
 
-    DecodeAuthorizationMessageInput: untyped
+    class DecodeAuthorizationMessageInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor encoded_message (): ::String
+    end
 
-    DecodeAuthorizationMessageOutput: untyped
+    class DecodeAuthorizationMessageOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor decoded_message (): ::String
+    end
 
-    ExpiredTokenException: untyped
+    class ExpiredTokenException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    FederatedUser: untyped
+    class FederatedUser < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor federated_user_id (): ::String
+      attr_accessor arn (): ::String
+    end
 
-    GetAccessKeyInfoInput: untyped
+    class GetAccessKeyInfoInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor access_key_id (): ::String
+    end
 
-    GetAccessKeyInfoOutput: untyped
+    class GetAccessKeyInfoOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor account (): ::String
+    end
 
-    GetCallerIdentityInput: untyped
+    class GetCallerIdentityInput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    GetCallerIdentityOutput: untyped
+    class GetCallerIdentityOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor user_id (): ::String
+      attr_accessor account (): ::String
+      attr_accessor arn (): ::String
+    end
 
-    GetFederationTokenInput: untyped
+    class GetFederationTokenInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor policy (): ::String
+      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor duration_seconds (): ::Integer
+      attr_accessor tags (): ::Array[Tag]
+    end
 
-    GetFederationTokenOutput: untyped
+    class GetFederationTokenOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): Credentials
+      attr_accessor federated_user (): FederatedUser
+      attr_accessor packed_policy_size (): ::Integer
+    end
 
-    GetSessionTokenInput: untyped
+    class GetSessionTokenInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor duration_seconds (): ::Integer
+      attr_accessor serial_number (): ::String
+      attr_accessor token_code (): ::String
+    end
 
-    GetSessionTokenOutput: untyped
+    class GetSessionTokenOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): Credentials
+    end
 
-    IDPCommunicationErrorException: untyped
+    class IDPCommunicationErrorException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    IDPRejectedClaimException: untyped
+    class IDPRejectedClaimException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    InvalidAuthorizationMessageException: untyped
+    class InvalidAuthorizationMessageException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    InvalidIdentityTokenException: untyped
+    class InvalidIdentityTokenException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    MalformedPolicyDocumentException: untyped
+    class MalformedPolicyDocumentException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    PackedPolicyTooLargeException: untyped
+    class PackedPolicyTooLargeException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    PolicyDescriptorType: untyped
+    class PolicyDescriptorType < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor arn (): ::String
+    end
 
-    RegionDisabledException: untyped
+    class ProvidedContext < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor provider_arn (): ::String
+      attr_accessor context_assertion (): ::String
+    end
 
-    Tag: untyped
+    class RegionDisabledException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
+
+    class Tag < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor value (): ::String
+    end
 
   end
 end

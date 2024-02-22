@@ -12,18 +12,14 @@ module AWS::SDK::DynamoDB
 
     class TableExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (20)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -55,17 +51,14 @@ module AWS::SDK::DynamoDB
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_table)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_table)
-      #
-      # @return [Types::DescribeTable]
-      #   (see Client#describe_table)
-      #
+      # @param (see Client#describe_table)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -73,18 +66,14 @@ module AWS::SDK::DynamoDB
 
     class TableNotExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (20)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -106,17 +95,14 @@ module AWS::SDK::DynamoDB
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#describe_table)
-      #
-      # @param [Hash] options
-      #   (see Client#describe_table)
-      #
-      # @return [Types::DescribeTable]
-      #   (see Client#describe_table)
-      #
+      # @param (see Client#describe_table)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end

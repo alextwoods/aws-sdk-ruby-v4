@@ -995,6 +995,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate_required!(input[:stream_arn], context: "#{context}[:stream_arn]")
         Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
+        EnableKinesisStreamingConfiguration.validate!(input[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless input[:enable_kinesis_streaming_configuration].nil?
       end
     end
 
@@ -1004,6 +1005,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate_types!(input[:destination_status], ::String, context: "#{context}[:destination_status]")
+        EnableKinesisStreamingConfiguration.validate!(input[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless input[:enable_kinesis_streaming_configuration].nil?
       end
     end
 
@@ -1014,6 +1016,13 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    class EnableKinesisStreamingConfiguration
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableKinesisStreamingConfiguration, context: context)
+        Hearth::Validator.validate_types!(input[:approximate_creation_date_time_precision], ::String, context: "#{context}[:approximate_creation_date_time_precision]")
+      end
+    end
+
     class EnableKinesisStreamingDestinationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::EnableKinesisStreamingDestinationInput, context: context)
@@ -1021,6 +1030,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate_required!(input[:stream_arn], context: "#{context}[:stream_arn]")
         Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
+        EnableKinesisStreamingConfiguration.validate!(input[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless input[:enable_kinesis_streaming_configuration].nil?
       end
     end
 
@@ -1030,6 +1040,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
         Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate_types!(input[:destination_status], ::String, context: "#{context}[:destination_status]")
+        EnableKinesisStreamingConfiguration.validate!(input[:enable_kinesis_streaming_configuration], context: "#{context}[:enable_kinesis_streaming_configuration]") unless input[:enable_kinesis_streaming_configuration].nil?
       end
     end
 
@@ -1143,6 +1154,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:export_format], ::String, context: "#{context}[:export_format]")
         Hearth::Validator.validate_types!(input[:billed_size_bytes], ::Integer, context: "#{context}[:billed_size_bytes]")
         Hearth::Validator.validate_types!(input[:item_count], ::Integer, context: "#{context}[:item_count]")
+        Hearth::Validator.validate_types!(input[:export_type], ::String, context: "#{context}[:export_type]")
+        IncrementalExportSpecification.validate!(input[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless input[:incremental_export_specification].nil?
       end
     end
 
@@ -1167,6 +1180,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input, Types::ExportSummary, context: context)
         Hearth::Validator.validate_types!(input[:export_arn], ::String, context: "#{context}[:export_arn]")
         Hearth::Validator.validate_types!(input[:export_status], ::String, context: "#{context}[:export_status]")
+        Hearth::Validator.validate_types!(input[:export_type], ::String, context: "#{context}[:export_type]")
       end
     end
 
@@ -1184,6 +1198,8 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:s3_sse_algorithm], ::String, context: "#{context}[:s3_sse_algorithm]")
         Hearth::Validator.validate_types!(input[:s3_sse_kms_key_id], ::String, context: "#{context}[:s3_sse_kms_key_id]")
         Hearth::Validator.validate_types!(input[:export_format], ::String, context: "#{context}[:export_format]")
+        Hearth::Validator.validate_types!(input[:export_type], ::String, context: "#{context}[:export_type]")
+        IncrementalExportSpecification.validate!(input[:incremental_export_specification], context: "#{context}[:incremental_export_specification]") unless input[:incremental_export_specification].nil?
       end
     end
 
@@ -1520,6 +1536,15 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    class IncrementalExportSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IncrementalExportSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:export_from_time], ::Time, context: "#{context}[:export_from_time]")
+        Hearth::Validator.validate_types!(input[:export_to_time], ::Time, context: "#{context}[:export_to_time]")
+        Hearth::Validator.validate_types!(input[:export_view_type], ::String, context: "#{context}[:export_view_type]")
+      end
+    end
+
     class IndexNotFoundException
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::IndexNotFoundException, context: context)
@@ -1706,6 +1731,7 @@ module AWS::SDK::DynamoDB
         Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
         Hearth::Validator.validate_types!(input[:destination_status], ::String, context: "#{context}[:destination_status]")
         Hearth::Validator.validate_types!(input[:destination_status_description], ::String, context: "#{context}[:destination_status_description]")
+        Hearth::Validator.validate_types!(input[:approximate_creation_date_time_precision], ::String, context: "#{context}[:approximate_creation_date_time_precision]")
       end
     end
 
@@ -3030,6 +3056,34 @@ module AWS::SDK::DynamoDB
         AttributeMap.validate!(input[:attributes], context: "#{context}[:attributes]") unless input[:attributes].nil?
         ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
         ItemCollectionMetrics.validate!(input[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless input[:item_collection_metrics].nil?
+      end
+    end
+
+    class UpdateKinesisStreamingConfiguration
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::UpdateKinesisStreamingConfiguration, context: context)
+        Hearth::Validator.validate_types!(input[:approximate_creation_date_time_precision], ::String, context: "#{context}[:approximate_creation_date_time_precision]")
+      end
+    end
+
+    class UpdateKinesisStreamingDestinationInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::UpdateKinesisStreamingDestinationInput, context: context)
+        Hearth::Validator.validate_required!(input[:table_name], context: "#{context}[:table_name]")
+        Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
+        Hearth::Validator.validate_required!(input[:stream_arn], context: "#{context}[:stream_arn]")
+        Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
+        UpdateKinesisStreamingConfiguration.validate!(input[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless input[:update_kinesis_streaming_configuration].nil?
+      end
+    end
+
+    class UpdateKinesisStreamingDestinationOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::UpdateKinesisStreamingDestinationOutput, context: context)
+        Hearth::Validator.validate_types!(input[:table_name], ::String, context: "#{context}[:table_name]")
+        Hearth::Validator.validate_types!(input[:stream_arn], ::String, context: "#{context}[:stream_arn]")
+        Hearth::Validator.validate_types!(input[:destination_status], ::String, context: "#{context}[:destination_status]")
+        UpdateKinesisStreamingConfiguration.validate!(input[:update_kinesis_streaming_configuration], context: "#{context}[:update_kinesis_streaming_configuration]") unless input[:update_kinesis_streaming_configuration].nil?
       end
     end
 

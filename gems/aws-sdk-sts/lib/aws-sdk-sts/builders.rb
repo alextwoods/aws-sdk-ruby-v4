@@ -33,6 +33,7 @@ module AWS::SDK::STS
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
         params[context + 'TokenCode'] = input[:token_code].to_s unless input[:token_code].nil?
         params[context + 'SourceIdentity'] = input[:source_identity].to_s unless input[:source_identity].nil?
+        ProvidedContextsListType.build(input[:provided_contexts], params, context: context + 'ProvidedContexts' + '.member') unless input[:provided_contexts].nil?
         http_req.body = ::StringIO.new(params.to_s)
       end
     end
@@ -154,6 +155,25 @@ module AWS::SDK::STS
     class PolicyDescriptorType
       def self.build(input, params, context: nil)
         params[context + 'arn'] = input[:arn].to_s unless input[:arn].nil?
+      end
+    end
+
+    class ProvidedContext
+      def self.build(input, params, context: nil)
+        params[context + 'ProviderArn'] = input[:provider_arn].to_s unless input[:provider_arn].nil?
+        params[context + 'ContextAssertion'] = input[:context_assertion].to_s unless input[:context_assertion].nil?
+      end
+    end
+
+    class ProvidedContextsListType
+      def self.build(input, params, context: '')
+        input.each_with_index do |element, index|
+          ProvidedContext.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+        end
+
+        if input.empty?
+          params[context[0...context.rindex('.')]] = ''
+        end
       end
     end
 

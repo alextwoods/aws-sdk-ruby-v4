@@ -1344,6 +1344,7 @@ module AWS::SDK::DynamoDB
           table_name: 'table_name',
           stream_arn: 'stream_arn',
           destination_status: 'destination_status',
+          enable_kinesis_streaming_configuration: EnableKinesisStreamingConfiguration.default(visited),
         }
       end
 
@@ -1352,6 +1353,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
+        data['EnableKinesisStreamingConfiguration'] = EnableKinesisStreamingConfiguration.stub(stub[:enable_kinesis_streaming_configuration]) unless stub[:enable_kinesis_streaming_configuration].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1374,6 +1376,23 @@ module AWS::SDK::DynamoDB
 
     end
 
+    class EnableKinesisStreamingConfiguration
+      def self.default(visited = [])
+        return nil if visited.include?('EnableKinesisStreamingConfiguration')
+        visited = visited + ['EnableKinesisStreamingConfiguration']
+        {
+          approximate_creation_date_time_precision: 'approximate_creation_date_time_precision',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::EnableKinesisStreamingConfiguration.new
+        data = {}
+        data['ApproximateCreationDateTimePrecision'] = stub[:approximate_creation_date_time_precision] unless stub[:approximate_creation_date_time_precision].nil?
+        data
+      end
+    end
+
     class EnableKinesisStreamingDestination
       def self.build(params, context:)
         Params::EnableKinesisStreamingDestinationOutput.build(params, context: context)
@@ -1388,6 +1407,7 @@ module AWS::SDK::DynamoDB
           table_name: 'table_name',
           stream_arn: 'stream_arn',
           destination_status: 'destination_status',
+          enable_kinesis_streaming_configuration: EnableKinesisStreamingConfiguration.default(visited),
         }
       end
 
@@ -1396,6 +1416,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
+        data['EnableKinesisStreamingConfiguration'] = EnableKinesisStreamingConfiguration.stub(stub[:enable_kinesis_streaming_configuration]) unless stub[:enable_kinesis_streaming_configuration].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
@@ -1534,6 +1555,8 @@ module AWS::SDK::DynamoDB
           export_format: 'export_format',
           billed_size_bytes: 1,
           item_count: 1,
+          export_type: 'export_type',
+          incremental_export_specification: IncrementalExportSpecification.default(visited),
         }
       end
 
@@ -1559,6 +1582,8 @@ module AWS::SDK::DynamoDB
         data['ExportFormat'] = stub[:export_format] unless stub[:export_format].nil?
         data['BilledSizeBytes'] = stub[:billed_size_bytes] unless stub[:billed_size_bytes].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
+        data['ExportType'] = stub[:export_type] unless stub[:export_type].nil?
+        data['IncrementalExportSpecification'] = IncrementalExportSpecification.stub(stub[:incremental_export_specification]) unless stub[:incremental_export_specification].nil?
         data
       end
     end
@@ -1606,6 +1631,7 @@ module AWS::SDK::DynamoDB
         {
           export_arn: 'export_arn',
           export_status: 'export_status',
+          export_type: 'export_type',
         }
       end
 
@@ -1614,6 +1640,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['ExportArn'] = stub[:export_arn] unless stub[:export_arn].nil?
         data['ExportStatus'] = stub[:export_status] unless stub[:export_status].nil?
+        data['ExportType'] = stub[:export_type] unless stub[:export_type].nil?
         data
       end
     end
@@ -2114,6 +2141,27 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    class IncrementalExportSpecification
+      def self.default(visited = [])
+        return nil if visited.include?('IncrementalExportSpecification')
+        visited = visited + ['IncrementalExportSpecification']
+        {
+          export_from_time: Time.now,
+          export_to_time: Time.now,
+          export_view_type: 'export_view_type',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::IncrementalExportSpecification.new
+        data = {}
+        data['ExportFromTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:export_from_time]).to_i unless stub[:export_from_time].nil?
+        data['ExportToTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:export_to_time]).to_i unless stub[:export_to_time].nil?
+        data['ExportViewType'] = stub[:export_view_type] unless stub[:export_view_type].nil?
+        data
+      end
+    end
+
     class IndexNotFoundException
       def self.build(params, context:)
         Params::IndexNotFoundException.build(params, context: context)
@@ -2492,6 +2540,7 @@ module AWS::SDK::DynamoDB
           stream_arn: 'stream_arn',
           destination_status: 'destination_status',
           destination_status_description: 'destination_status_description',
+          approximate_creation_date_time_precision: 'approximate_creation_date_time_precision',
         }
       end
 
@@ -2501,6 +2550,7 @@ module AWS::SDK::DynamoDB
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
         data['DestinationStatusDescription'] = stub[:destination_status_description] unless stub[:destination_status_description].nil?
+        data['ApproximateCreationDateTimePrecision'] = stub[:approximate_creation_date_time_precision] unless stub[:approximate_creation_date_time_precision].nil?
         data
       end
     end
@@ -4341,6 +4391,52 @@ module AWS::SDK::DynamoDB
         data['Attributes'] = AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['ItemCollectionMetrics'] = ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
+      end
+    end
+
+    class UpdateKinesisStreamingConfiguration
+      def self.default(visited = [])
+        return nil if visited.include?('UpdateKinesisStreamingConfiguration')
+        visited = visited + ['UpdateKinesisStreamingConfiguration']
+        {
+          approximate_creation_date_time_precision: 'approximate_creation_date_time_precision',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::UpdateKinesisStreamingConfiguration.new
+        data = {}
+        data['ApproximateCreationDateTimePrecision'] = stub[:approximate_creation_date_time_precision] unless stub[:approximate_creation_date_time_precision].nil?
+        data
+      end
+    end
+
+    class UpdateKinesisStreamingDestination
+      def self.build(params, context:)
+        Params::UpdateKinesisStreamingDestinationOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::UpdateKinesisStreamingDestinationOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          table_name: 'table_name',
+          stream_arn: 'stream_arn',
+          destination_status: 'destination_status',
+          update_kinesis_streaming_configuration: UpdateKinesisStreamingConfiguration.default(visited),
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
+        data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
+        data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
+        data['UpdateKinesisStreamingConfiguration'] = UpdateKinesisStreamingConfiguration.stub(stub[:update_kinesis_streaming_configuration]) unless stub[:update_kinesis_streaming_configuration].nil?
         http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end

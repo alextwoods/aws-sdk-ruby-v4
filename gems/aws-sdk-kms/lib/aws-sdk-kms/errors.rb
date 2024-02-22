@@ -56,7 +56,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::AlreadyExistsException]
-      #
       attr_reader :data
     end
 
@@ -69,7 +68,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CloudHsmClusterInUseException]
-      #
       attr_reader :data
     end
 
@@ -82,7 +80,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CloudHsmClusterInvalidConfigurationException]
-      #
       attr_reader :data
     end
 
@@ -95,7 +92,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CloudHsmClusterNotActiveException]
-      #
       attr_reader :data
     end
 
@@ -108,7 +104,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CloudHsmClusterNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -121,7 +116,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CloudHsmClusterNotRelatedException]
-      #
       attr_reader :data
     end
 
@@ -134,7 +128,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CustomKeyStoreHasCMKsException]
-      #
       attr_reader :data
     end
 
@@ -147,7 +140,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CustomKeyStoreInvalidStateException]
-      #
       attr_reader :data
     end
 
@@ -160,7 +152,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CustomKeyStoreNameInUseException]
-      #
       attr_reader :data
     end
 
@@ -173,7 +164,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::CustomKeyStoreNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -186,7 +176,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::DependencyTimeoutException]
-      #
       attr_reader :data
     end
 
@@ -199,7 +188,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::DisabledException]
-      #
       attr_reader :data
     end
 
@@ -212,7 +200,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::DryRunOperationException]
-      #
       attr_reader :data
     end
 
@@ -225,7 +212,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::ExpiredImportTokenException]
-      #
       attr_reader :data
     end
 
@@ -238,7 +224,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::IncorrectKeyException]
-      #
       attr_reader :data
     end
 
@@ -251,7 +236,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::IncorrectKeyMaterialException]
-      #
       attr_reader :data
     end
 
@@ -264,7 +248,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::IncorrectTrustAnchorException]
-      #
       attr_reader :data
     end
 
@@ -277,7 +260,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidAliasNameException]
-      #
       attr_reader :data
     end
 
@@ -290,7 +272,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidArnException]
-      #
       attr_reader :data
     end
 
@@ -303,7 +284,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidCiphertextException]
-      #
       attr_reader :data
     end
 
@@ -316,7 +296,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidGrantIdException]
-      #
       attr_reader :data
     end
 
@@ -329,7 +308,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidGrantTokenException]
-      #
       attr_reader :data
     end
 
@@ -342,7 +320,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidImportTokenException]
-      #
       attr_reader :data
     end
 
@@ -355,7 +332,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidKeyUsageException]
-      #
       attr_reader :data
     end
 
@@ -368,7 +344,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::InvalidMarkerException]
-      #
       attr_reader :data
     end
 
@@ -381,7 +356,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::KMSInternalException]
-      #
       attr_reader :data
     end
 
@@ -394,7 +368,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::KMSInvalidMacException]
-      #
       attr_reader :data
     end
 
@@ -407,7 +380,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::KMSInvalidSignatureException]
-      #
       attr_reader :data
     end
 
@@ -420,7 +392,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::KMSInvalidStateException]
-      #
       attr_reader :data
     end
 
@@ -433,7 +404,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::KeyUnavailableException]
-      #
       attr_reader :data
     end
 
@@ -446,7 +416,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::LimitExceededException]
-      #
       attr_reader :data
     end
 
@@ -459,7 +428,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::MalformedPolicyDocumentException]
-      #
       attr_reader :data
     end
 
@@ -472,7 +440,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::NotFoundException]
-      #
       attr_reader :data
     end
 
@@ -485,7 +452,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::TagException]
-      #
       attr_reader :data
     end
 
@@ -498,7 +464,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::UnsupportedOperationException]
-      #
       attr_reader :data
     end
 
@@ -511,7 +476,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksKeyAlreadyInUseException]
-      #
       attr_reader :data
     end
 
@@ -524,7 +488,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksKeyInvalidConfigurationException]
-      #
       attr_reader :data
     end
 
@@ -537,7 +500,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksKeyNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -550,7 +512,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyIncorrectAuthenticationCredentialException]
-      #
       attr_reader :data
     end
 
@@ -563,7 +524,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyInvalidConfigurationException]
-      #
       attr_reader :data
     end
 
@@ -576,7 +536,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyInvalidResponseException]
-      #
       attr_reader :data
     end
 
@@ -589,7 +548,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyUriEndpointInUseException]
-      #
       attr_reader :data
     end
 
@@ -602,7 +560,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyUriInUseException]
-      #
       attr_reader :data
     end
 
@@ -615,7 +572,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyUriUnreachableException]
-      #
       attr_reader :data
     end
 
@@ -628,7 +584,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyVpcEndpointServiceInUseException]
-      #
       attr_reader :data
     end
 
@@ -641,7 +596,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyVpcEndpointServiceInvalidConfigurationException]
-      #
       attr_reader :data
     end
 
@@ -654,7 +608,6 @@ module AWS::SDK::KMS
       end
 
       # @return [Types::XksProxyVpcEndpointServiceNotFoundException]
-      #
       attr_reader :data
     end
 
