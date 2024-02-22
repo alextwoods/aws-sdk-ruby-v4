@@ -92,8 +92,7 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_role_credentials),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
@@ -172,8 +171,7 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_account_roles),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
@@ -254,8 +252,7 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_accounts),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
@@ -339,8 +336,7 @@ module AWS::SDK::SSO
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :logout),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,

@@ -189,8 +189,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :cancel_key_deletion),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -363,8 +362,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :connect_custom_key_store),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -507,8 +505,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_alias),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -699,8 +696,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_custom_key_store),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -871,8 +867,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_grant),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1161,8 +1156,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1376,8 +1370,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :decrypt),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1509,8 +1502,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_alias),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1655,8 +1647,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_custom_key_store),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1768,8 +1759,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_imported_key_material),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1934,8 +1924,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2294,8 +2283,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2394,8 +2382,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2512,8 +2499,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_key_rotation),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2651,8 +2637,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2747,8 +2732,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2873,8 +2857,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_key_rotation),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3098,8 +3081,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :encrypt),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3308,8 +3290,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3500,8 +3481,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_pair),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3667,8 +3647,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3840,8 +3819,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3969,8 +3947,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_mac),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4084,8 +4061,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_random),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4182,8 +4158,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_key_policy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4323,8 +4298,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_key_rotation_status),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4480,8 +4454,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_parameters_for_import),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4634,8 +4607,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_public_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4828,8 +4800,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :import_key_material),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5006,8 +4977,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_aliases),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5149,8 +5119,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_grants),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5267,8 +5236,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_key_policies),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5418,8 +5386,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_keys),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5561,8 +5528,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_resource_tags),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5709,8 +5675,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_retirable_grants),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5812,8 +5777,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_key_policy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6013,8 +5977,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :re_encrypt),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6267,8 +6230,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :replicate_key),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6402,8 +6364,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :retire_grant),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6534,8 +6495,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :revoke_grant),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6673,8 +6633,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :schedule_key_deletion),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6842,8 +6801,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :sign),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6986,8 +6944,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :tag_resource),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7120,8 +7077,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :untag_resource),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7270,8 +7226,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_alias),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7508,8 +7463,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_custom_key_store),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7617,8 +7571,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_key_description),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7773,8 +7726,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_primary_region),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7928,8 +7880,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :verify),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8051,8 +8002,7 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :verify_mac),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,

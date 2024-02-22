@@ -156,8 +156,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :abort_multipart_upload),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -422,8 +421,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :complete_multipart_upload),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -728,8 +726,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :copy_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -969,8 +966,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_bucket),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1317,8 +1313,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_multipart_upload),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1461,8 +1456,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_session),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1594,8 +1588,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1701,8 +1694,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1808,8 +1800,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_cors),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1909,8 +1900,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2009,8 +1999,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2114,8 +2103,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2223,8 +2211,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2336,8 +2323,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2433,8 +2419,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2578,8 +2563,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_policy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2689,8 +2673,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_replication),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2792,8 +2775,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2902,8 +2884,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_bucket_website),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3103,8 +3084,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3227,8 +3207,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_object_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3490,8 +3469,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_objects),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3596,8 +3574,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_public_access_block),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3703,8 +3680,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3819,8 +3795,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_acl),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3946,8 +3921,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4084,8 +4058,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_cors),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4191,8 +4164,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_encryption),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4306,8 +4278,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4432,8 +4403,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4622,8 +4592,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4737,8 +4706,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_location),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4846,8 +4814,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_logging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -4970,8 +4937,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5096,8 +5062,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5197,8 +5162,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5345,8 +5309,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_policy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5454,8 +5417,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5624,8 +5586,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_replication),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5724,8 +5685,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5855,8 +5815,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -5969,8 +5928,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_versioning),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6100,8 +6058,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_bucket_website),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6386,8 +6343,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6567,8 +6523,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_acl),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6866,8 +6821,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_attributes),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -6960,8 +6914,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_legal_hold),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7056,8 +7009,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7151,8 +7103,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_retention),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7305,8 +7256,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7415,8 +7365,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_object_torrent),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7535,8 +7484,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_public_access_block),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7672,8 +7620,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :head_bucket),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -7930,8 +7877,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :head_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8068,8 +8014,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8187,8 +8132,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8325,8 +8269,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8456,8 +8399,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8566,8 +8508,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_buckets),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8665,8 +8606,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_directory_buckets),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -8927,8 +8867,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_multipart_uploads),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -9127,8 +9066,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_object_versions),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -9277,8 +9215,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_objects),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -9471,8 +9408,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_objects_v2),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -9664,8 +9600,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_parts),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -9789,8 +9724,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10105,8 +10039,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_acl),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10314,8 +10247,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10514,8 +10446,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_cors),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10640,8 +10571,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_encryption),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10793,8 +10723,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -10984,8 +10913,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -11239,8 +11167,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -11455,8 +11382,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_logging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -11597,8 +11523,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -11780,8 +11705,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -11888,8 +11812,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12047,8 +11970,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_policy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12280,8 +12202,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_replication),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12396,8 +12317,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12566,8 +12486,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12708,8 +12627,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_versioning),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -12959,8 +12877,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_bucket_website),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -13322,8 +13239,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -13636,8 +13552,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object_acl),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -13731,8 +13646,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object_legal_hold),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -13849,8 +13763,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -13947,8 +13860,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object_retention),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -14119,8 +14031,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_object_tagging),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -14246,8 +14157,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_public_access_block),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -14693,8 +14603,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :restore_object),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -14963,8 +14872,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :upload_part),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -15247,8 +15155,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :upload_part_copy),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -15402,8 +15309,7 @@ module AWS::SDK::S3
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :write_get_object_response),
         auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes,
-        Auth::HTTPCustomAuthIdentity => config.http_custom_auth_identity_resolver
+        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,

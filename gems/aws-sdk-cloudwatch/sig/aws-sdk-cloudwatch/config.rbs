@@ -7,7 +7,6 @@ module AWS::SDK::CloudWatch
     attr_accessor disable_request_compression (): bool
     attr_accessor endpoint (): String
     attr_accessor http_client (): Hearth::HTTP::Client
-    attr_accessor http_custom_auth_identity_resolver (): Hearth::IdentityResolver
     attr_accessor interceptors (): Hearth::InterceptorList
     attr_accessor logger (): Logger
     attr_accessor plugins (): Hearth::PluginList

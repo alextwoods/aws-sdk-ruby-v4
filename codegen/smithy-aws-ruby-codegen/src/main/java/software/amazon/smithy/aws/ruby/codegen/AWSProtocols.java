@@ -47,31 +47,10 @@ public class AWSProtocols implements RubyIntegration {
 
     @Override
     public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
-        String identityResolverDocumentation = """
-                A %s that returns a %s for operations modeled with the %s auth scheme.
-                """;
-
-        String defaultIdentity = "Auth::HTTPCustomAuthIdentity.new(key: 'key')";
-        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : nil"
-                .formatted(Hearth.IDENTITY_RESOLVER, defaultIdentity);
-        String identityType = "Auth::HTTPCustomAuthIdentity";
-
-        ClientConfig identityResolverConfig = ClientConfig.builder()
-                .name("http_custom_auth_identity_resolver")
-                .type(Hearth.IDENTITY_RESOLVER.toString())
-                .documentation(
-                        identityResolverDocumentation.formatted(
-                                Hearth.IDENTITY_RESOLVER,
-                                identityType,
-                                HttpBasicAuthTrait.ID))
-                .defaultDynamicValue(defaultConfigValue)
-                .build();
-
         AuthScheme authScheme = AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)
-                .rubyAuthScheme("HTTPCustomAuthScheme.new")
-                .rubyIdentityType(identityType)
-                .identityResolverConfig(identityResolverConfig)
+                .rubyAuthScheme("String.new")
+                .rubyIdentityType("String")
                 .build();
 
         return List.of(authScheme);

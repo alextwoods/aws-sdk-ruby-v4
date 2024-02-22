@@ -12,7 +12,7 @@ module AWS::SDK::S3
     Params = Struct.new(:operation_name, keyword_init: true)
 
     SCHEMES = [
-      HTTPCustomAuthScheme.new
+      String.new
     ].freeze
 
     class Resolver

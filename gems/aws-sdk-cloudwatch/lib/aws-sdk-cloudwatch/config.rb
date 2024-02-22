@@ -25,8 +25,6 @@ module AWS::SDK::CloudWatch
   #     Endpoint of the service
   #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
   #     The HTTP Client to use for request transport.
-  #   @option args [Hearth::IdentityResolver] :http_custom_auth_identity_resolver
-  #     A Hearth::IdentityResolver that returns a Auth::HTTPCustomAuthIdentity for operations modeled with the smithy.api#httpBasicAuth auth scheme.
   #   @option args [Hearth::InterceptorList] :interceptors (Hearth::InterceptorList.new)
   #     A list of Interceptors to apply to the client.  Interceptors are a generic
   #     extension point that allows injecting logic at specific stages of execution
@@ -72,8 +70,6 @@ module AWS::SDK::CloudWatch
   #   @return [String]
   # @!attribute http_client
   #   @return [Hearth::HTTP::Client]
-  # @!attribute http_custom_auth_identity_resolver
-  #   @return [Hearth::IdentityResolver]
   # @!attribute interceptors
   #   @return [Hearth::InterceptorList]
   # @!attribute logger
@@ -97,7 +93,6 @@ module AWS::SDK::CloudWatch
     :disable_request_compression,
     :endpoint,
     :http_client,
-    :http_custom_auth_identity_resolver,
     :interceptors,
     :logger,
     :plugins,
@@ -118,7 +113,6 @@ module AWS::SDK::CloudWatch
       Hearth::Validator.validate_types!(disable_request_compression, TrueClass, FalseClass, context: 'config[:disable_request_compression]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
       Hearth::Validator.validate_types!(http_client, Hearth::HTTP::Client, context: 'config[:http_client]')
-      Hearth::Validator.validate_types!(http_custom_auth_identity_resolver, Hearth::IdentityResolver, context: 'config[:http_custom_auth_identity_resolver]')
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'config[:logger]')
       Hearth::Validator.validate_types!(plugins, Hearth::PluginList, context: 'config[:plugins]')
@@ -140,7 +134,6 @@ module AWS::SDK::CloudWatch
         disable_request_compression: [false],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         http_client: [proc { |cfg| Hearth::HTTP::Client.new(logger: cfg[:logger]) }],
-        http_custom_auth_identity_resolver: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityResolver.new(proc { Auth::HTTPCustomAuthIdentity.new(key: 'key') }) : nil }],
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
