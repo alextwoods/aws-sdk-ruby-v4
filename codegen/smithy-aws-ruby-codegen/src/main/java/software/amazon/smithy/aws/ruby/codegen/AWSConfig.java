@@ -35,7 +35,7 @@ public final class AWSConfig {
     public static final ClientConfig PROFILE = ClientConfig.builder()
             .name("profile")
             .type("String")
-            .documentation(regionDocumentation)
+            .documentation(profileDocumentation)
             .documentationDefaultValue("default")
             .defaults(ConfigProviderChain.builder()
                     .envProvider("AWS_PROFILE", "String")

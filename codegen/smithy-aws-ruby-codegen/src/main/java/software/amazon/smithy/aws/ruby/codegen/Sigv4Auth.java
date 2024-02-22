@@ -70,7 +70,7 @@ public class Sigv4Auth implements RubyIntegration {
                 .name("credential_provider")
                 .type("AWS::SDK::Core::CredentialProvider")
                 .documentation(credentialProviderDocumentation)
-                .defaultLiteral("AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
+                .defaultValue("AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
         SigV4Trait sigV4Trait = (SigV4Trait) new ServiceIndex(context.model())
@@ -80,18 +80,17 @@ public class Sigv4Auth implements RubyIntegration {
                 .addConfig(credentialProvider)
                 .addConfig(AWSConfig.REGION)
                 .addConfig(AWSConfig.PROFILE)
-                .render( (f, c) -> {
-                    return "proc { |cfg| AWS::SigV4::Signer.new("
-                            + "service: '" + sigV4Trait.getName() + "', "
-                            + "region: cfg[:region], "
-                            + "credential_provider: cfg[:credential_provider]" + ") }";
-                }).build();
+                .build();
+
+        String signerDefault = """
+            AWS::SigV4::Signer.new(service: '%s', region: cfg[:region], credential_provider: cfg[:credential_provider])
+            """.formatted(sigV4Trait.getName());
 
         ClientConfig signer = ClientConfig.builder()
                 .name("signer")
                 .type("AWS::SigV4::Signer")
                 .documentation("An instance of SigV4 signer used to sign requests.")
-                .defaultDynamicValue(initializeSigner)
+                .defaultDynamicValue(signerDefault)
                 .build();
 
         Middleware signatureV4 = Middleware.builder()
@@ -107,7 +106,7 @@ public class Sigv4Auth implements RubyIntegration {
                     return params;
                 })
                 .klass("AWS::SDK::Core::Middleware::SignatureV4")
-                .step(MiddlewareStackStep.FINALIZE)
+                .step(MiddlewareStackStep.SIGN)
                 .build();
 
         middlewareBuilder.register(signatureV4);
