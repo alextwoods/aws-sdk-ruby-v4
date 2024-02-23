@@ -55,7 +55,6 @@ module AWS::SDK::SSO
       end
 
       # @return [Types::InvalidRequestException]
-      #
       attr_reader :data
     end
 
@@ -68,7 +67,6 @@ module AWS::SDK::SSO
       end
 
       # @return [Types::ResourceNotFoundException]
-      #
       attr_reader :data
     end
 
@@ -81,7 +79,6 @@ module AWS::SDK::SSO
       end
 
       # @return [Types::TooManyRequestsException]
-      #
       attr_reader :data
     end
 
@@ -94,7 +91,6 @@ module AWS::SDK::SSO
       end
 
       # @return [Types::UnauthorizedException]
-      #
       attr_reader :data
     end
 

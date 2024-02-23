@@ -29,6 +29,7 @@ module AWS::SDK::STS
         Hearth::Validator.validate_types!(input[:serial_number], ::String, context: "#{context}[:serial_number]")
         Hearth::Validator.validate_types!(input[:token_code], ::String, context: "#{context}[:token_code]")
         Hearth::Validator.validate_types!(input[:source_identity], ::String, context: "#{context}[:source_identity]")
+        ProvidedContextsListType.validate!(input[:provided_contexts], context: "#{context}[:provided_contexts]") unless input[:provided_contexts].nil?
       end
     end
 
@@ -270,6 +271,23 @@ module AWS::SDK::STS
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::PolicyDescriptorType, context: context)
         Hearth::Validator.validate_types!(input[:arn], ::String, context: "#{context}[:arn]")
+      end
+    end
+
+    class ProvidedContext
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ProvidedContext, context: context)
+        Hearth::Validator.validate_types!(input[:provider_arn], ::String, context: "#{context}[:provider_arn]")
+        Hearth::Validator.validate_types!(input[:context_assertion], ::String, context: "#{context}[:context_assertion]")
+      end
+    end
+
+    class ProvidedContextsListType
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          ProvidedContext.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
       end
     end
 

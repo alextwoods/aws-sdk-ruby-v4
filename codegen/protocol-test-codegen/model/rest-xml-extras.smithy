@@ -34,8 +34,8 @@ structure CreateFooRequest {
 
 structure CreateFooInput {}
 
-@enum([{"value": "enumvalue", "name": "V"}])
-string StringEnum
+//@enum([{"value": "enumvalue", "name": "V"}])
+//string StringEnum
 
 integer PrimitiveInt
 

@@ -27,6 +27,7 @@ module AWS::SDK::STS
         type.serial_number = params[:serial_number]
         type.token_code = params[:token_code]
         type.source_identity = params[:source_identity]
+        type.provided_contexts = ProvidedContextsListType.build(params[:provided_contexts], context: "#{context}[:provided_contexts]") unless params[:provided_contexts].nil?
         type
       end
     end
@@ -330,6 +331,28 @@ module AWS::SDK::STS
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.arn = params[:arn]
         type
+      end
+    end
+
+    module ProvidedContext
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ProvidedContext, context: context)
+        type = Types::ProvidedContext.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.provider_arn = params[:provider_arn]
+        type.context_assertion = params[:context_assertion]
+        type
+      end
+    end
+
+    module ProvidedContextsListType
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ProvidedContext.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
       end
     end
 

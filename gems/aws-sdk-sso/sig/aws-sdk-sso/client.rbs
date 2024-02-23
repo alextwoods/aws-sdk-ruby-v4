@@ -11,17 +11,15 @@ module AWS::SDK::SSO
   class Client
     include Hearth::ClientStubs
 
-    def self.middleware: () -> untyped
+    def self.plugins: () -> Hearth::PluginList
 
-    def self.plugins: () -> untyped
+    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
-    attr_reader config: untyped
+    attr_reader config: Config
 
-    def get_role_credentials: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_account_roles: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_accounts: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def logout: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-
+    def get_role_credentials: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_account_roles: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_accounts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def logout: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
   end
 end

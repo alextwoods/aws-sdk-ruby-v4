@@ -56,7 +56,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::BucketAlreadyExists]
-      #
       attr_reader :data
     end
 
@@ -69,7 +68,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::BucketAlreadyOwnedByYou]
-      #
       attr_reader :data
     end
 
@@ -82,7 +80,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::InvalidObjectState]
-      #
       attr_reader :data
     end
 
@@ -95,7 +92,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::NoSuchBucket]
-      #
       attr_reader :data
     end
 
@@ -108,7 +104,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::NoSuchKey]
-      #
       attr_reader :data
     end
 
@@ -121,7 +116,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::NoSuchUpload]
-      #
       attr_reader :data
     end
 
@@ -134,7 +128,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::NotFound]
-      #
       attr_reader :data
     end
 
@@ -147,7 +140,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::ObjectAlreadyInActiveTierError]
-      #
       attr_reader :data
     end
 
@@ -160,7 +152,6 @@ module AWS::SDK::S3
       end
 
       # @return [Types::ObjectNotInActiveTierError]
-      #
       attr_reader :data
     end
 

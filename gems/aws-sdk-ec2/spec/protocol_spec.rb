@@ -11,38 +11,13 @@ require 'aws-sdk-ec2'
 
 module AWS::SDK::EC2
   describe Client do
-    let(:config) do
-      Config.new(
+    let(:client) do
+      Client.new(
         stub_responses: true,
         validate_input: false,
         endpoint: 'http://127.0.0.1',
         retry_strategy: Hearth::Retry::Standard.new(max_attempts: 0)
       )
-    end
-
-    let(:client) { Client.new(config) }
-    let(:before_send) do
-      Class.new do
-        def initialize(&block)
-          @block = block
-        end
-
-        def read_before_transmit(context)
-          @block.call(context)
-        end
-      end
-    end
-
-    let(:after_send) do
-      Class.new do
-        def initialize(&block)
-          @block = block
-        end
-
-        def read_after_transmit(context)
-          @block.call(context)
-        end
-      end
     end
 
     describe '#accept_address_transfer' do
@@ -126,6 +101,10 @@ module AWS::SDK::EC2
     end
 
     describe '#associate_instance_event_window' do
+
+    end
+
+    describe '#associate_ipam_byoasn' do
 
     end
 
@@ -889,6 +868,10 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#deprovision_ipam_byoasn' do
+
+    end
+
     describe '#deprovision_ipam_pool_cidr' do
 
     end
@@ -946,6 +929,10 @@ module AWS::SDK::EC2
     end
 
     describe '#describe_byoip_cidrs' do
+
+    end
+
+    describe '#describe_capacity_block_offerings' do
 
     end
 
@@ -1117,6 +1104,10 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#describe_instance_topology' do
+
+    end
+
     describe '#describe_instance_type_offerings' do
 
     end
@@ -1126,6 +1117,10 @@ module AWS::SDK::EC2
     end
 
     describe '#describe_internet_gateways' do
+
+    end
+
+    describe '#describe_ipam_byoasn' do
 
     end
 
@@ -1186,6 +1181,10 @@ module AWS::SDK::EC2
     end
 
     describe '#describe_local_gateway_virtual_interfaces' do
+
+    end
+
+    describe '#describe_locked_snapshots' do
 
     end
 
@@ -1537,6 +1536,14 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#disable_image' do
+
+    end
+
+    describe '#disable_image_block_public_access' do
+
+    end
+
     describe '#disable_image_deprecation' do
 
     end
@@ -1546,6 +1553,10 @@ module AWS::SDK::EC2
     end
 
     describe '#disable_serial_console_access' do
+
+    end
+
+    describe '#disable_snapshot_block_public_access' do
 
     end
 
@@ -1582,6 +1593,10 @@ module AWS::SDK::EC2
     end
 
     describe '#disassociate_instance_event_window' do
+
+    end
+
+    describe '#disassociate_ipam_byoasn' do
 
     end
 
@@ -1641,6 +1656,14 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#enable_image' do
+
+    end
+
+    describe '#enable_image_block_public_access' do
+
+    end
+
     describe '#enable_image_deprecation' do
 
     end
@@ -1654,6 +1677,10 @@ module AWS::SDK::EC2
     end
 
     describe '#enable_serial_console_access' do
+
+    end
+
+    describe '#enable_snapshot_block_public_access' do
 
     end
 
@@ -1745,6 +1772,10 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#get_image_block_public_access_state' do
+
+    end
+
     describe '#get_instance_types_from_instance_requirements' do
 
     end
@@ -1758,6 +1789,10 @@ module AWS::SDK::EC2
     end
 
     describe '#get_ipam_discovered_accounts' do
+
+    end
+
+    describe '#get_ipam_discovered_public_addresses' do
 
     end
 
@@ -1805,7 +1840,15 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#get_security_groups_for_vpc' do
+
+    end
+
     describe '#get_serial_console_access_status' do
+
+    end
+
+    describe '#get_snapshot_block_public_access_state' do
 
     end
 
@@ -1894,6 +1937,10 @@ module AWS::SDK::EC2
     end
 
     describe '#list_snapshots_in_recycle_bin' do
+
+    end
+
+    describe '#lock_snapshot' do
 
     end
 
@@ -2169,11 +2216,19 @@ module AWS::SDK::EC2
 
     end
 
+    describe '#provision_ipam_byoasn' do
+
+    end
+
     describe '#provision_ipam_pool_cidr' do
 
     end
 
     describe '#provision_public_ipv4_pool_cidr' do
+
+    end
+
+    describe '#purchase_capacity_block' do
 
     end
 
@@ -2402,6 +2457,10 @@ module AWS::SDK::EC2
     end
 
     describe '#unassign_private_nat_gateway_address' do
+
+    end
+
+    describe '#unlock_snapshot' do
 
     end
 

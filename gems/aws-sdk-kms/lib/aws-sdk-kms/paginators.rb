@@ -12,13 +12,13 @@ module AWS::SDK::KMS
 
     class DescribeCustomKeyStores
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_custom_key_stores)
-      # @param [Hash] options (see Client#describe_custom_key_stores)
+      # @param (see Client#describe_custom_key_stores)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_custom_key_stores operation.
       # @return [Enumerator]
       def pages
@@ -53,13 +53,13 @@ module AWS::SDK::KMS
 
     class ListAliases
       # @param [Client] client
-      # @param [Hash] params (see Client#list_aliases)
-      # @param [Hash] options (see Client#list_aliases)
+      # @param (see Client#list_aliases)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_aliases operation.
       # @return [Enumerator]
       def pages
@@ -94,13 +94,13 @@ module AWS::SDK::KMS
 
     class ListGrants
       # @param [Client] client
-      # @param [Hash] params (see Client#list_grants)
-      # @param [Hash] options (see Client#list_grants)
+      # @param (see Client#list_grants)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_grants operation.
       # @return [Enumerator]
       def pages
@@ -135,13 +135,13 @@ module AWS::SDK::KMS
 
     class ListKeyPolicies
       # @param [Client] client
-      # @param [Hash] params (see Client#list_key_policies)
-      # @param [Hash] options (see Client#list_key_policies)
+      # @param (see Client#list_key_policies)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_key_policies operation.
       # @return [Enumerator]
       def pages
@@ -176,13 +176,13 @@ module AWS::SDK::KMS
 
     class ListKeys
       # @param [Client] client
-      # @param [Hash] params (see Client#list_keys)
-      # @param [Hash] options (see Client#list_keys)
+      # @param (see Client#list_keys)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_keys operation.
       # @return [Enumerator]
       def pages
@@ -217,13 +217,13 @@ module AWS::SDK::KMS
 
     class ListResourceTags
       # @param [Client] client
-      # @param [Hash] params (see Client#list_resource_tags)
-      # @param [Hash] options (see Client#list_resource_tags)
+      # @param (see Client#list_resource_tags)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_resource_tags operation.
       # @return [Enumerator]
       def pages
@@ -258,13 +258,13 @@ module AWS::SDK::KMS
 
     class ListRetirableGrants
       # @param [Client] client
-      # @param [Hash] params (see Client#list_retirable_grants)
-      # @param [Hash] options (see Client#list_retirable_grants)
+      # @param (see Client#list_retirable_grants)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_retirable_grants operation.
       # @return [Enumerator]
       def pages

@@ -575,7 +575,9 @@ module AWS::SDK::EC2
         type = Types::AdvertiseByoipCidrInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.cidr = params[:cidr]
+        type.asn = params[:asn]
         type.dry_run = params[:dry_run]
+        type.network_border_group = params[:network_border_group]
         type
       end
     end
@@ -665,6 +667,7 @@ module AWS::SDK::EC2
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.description = params[:description]
         type.preview_next_cidr = params[:preview_next_cidr]
+        type.allowed_cidrs = IpamPoolAllocationAllowedCidrs.build(params[:allowed_cidrs], context: "#{context}[:allowed_cidrs]") unless params[:allowed_cidrs].nil?
         type.disallowed_cidrs = IpamPoolAllocationDisallowedCidrs.build(params[:disallowed_cidrs], context: "#{context}[:disallowed_cidrs]") unless params[:disallowed_cidrs].nil?
         type
       end
@@ -930,6 +933,41 @@ module AWS::SDK::EC2
       end
     end
 
+    module AsnAssociation
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AsnAssociation, context: context)
+        type = Types::AsnAssociation.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.asn = params[:asn]
+        type.cidr = params[:cidr]
+        type.status_message = params[:status_message]
+        type.state = params[:state]
+        type
+      end
+    end
+
+    module AsnAssociationSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << AsnAssociation.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module AsnAuthorizationContext
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AsnAuthorizationContext, context: context)
+        type = Types::AsnAuthorizationContext.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.message = params[:message]
+        type.signature = params[:signature]
+        type
+      end
+    end
+
     module AssetIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
@@ -1177,6 +1215,28 @@ module AWS::SDK::EC2
       end
     end
 
+    module AssociateIpamByoasnInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamByoasnInput, context: context)
+        type = Types::AssociateIpamByoasnInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.asn = params[:asn]
+        type.cidr = params[:cidr]
+        type
+      end
+    end
+
+    module AssociateIpamByoasnOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamByoasnOutput, context: context)
+        type = Types::AssociateIpamByoasnOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.asn_association = AsnAssociation.build(params[:asn_association], context: "#{context}[:asn_association]") unless params[:asn_association].nil?
+        type
+      end
+    end
+
     module AssociateIpamResourceDiscoveryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AssociateIpamResourceDiscoveryInput, context: context)
@@ -1256,6 +1316,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.ipv6_cidr_block = params[:ipv6_cidr_block]
         type.subnet_id = params[:subnet_id]
+        type.ipv6_ipam_pool_id = params[:ipv6_ipam_pool_id]
+        type.ipv6_netmask_length = params[:ipv6_netmask_length]
         type
       end
     end
@@ -1536,7 +1598,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::AttachNetworkInterfaceInput, context: context)
         type = Types::AttachNetworkInterfaceInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.device_index = params.fetch(:device_index, 0)
+        type.device_index = params[:device_index]
         type.dry_run = params[:dry_run]
         type.instance_id = params[:instance_id]
         type.network_interface_id = params[:network_interface_id]
@@ -1605,6 +1667,8 @@ module AWS::SDK::EC2
         type.state = params[:state]
         type.volume_id = params[:volume_id]
         type.delete_on_termination = params[:delete_on_termination]
+        type.associated_resource = params[:associated_resource]
+        type.instance_owning_service = params[:instance_owning_service]
         type
       end
     end
@@ -2031,6 +2095,30 @@ module AWS::SDK::EC2
       end
     end
 
+    module Byoasn
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::Byoasn, context: context)
+        type = Types::Byoasn.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.asn = params[:asn]
+        type.ipam_id = params[:ipam_id]
+        type.status_message = params[:status_message]
+        type.state = params[:state]
+        type
+      end
+    end
+
+    module ByoasnSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << Byoasn.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module ByoipCidr
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ByoipCidr, context: context)
@@ -2038,8 +2126,10 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.cidr = params[:cidr]
         type.description = params[:description]
+        type.asn_associations = AsnAssociationSet.build(params[:asn_associations], context: "#{context}[:asn_associations]") unless params[:asn_associations].nil?
         type.status_message = params[:status_message]
         type.state = params[:state]
+        type.network_border_group = params[:network_border_group]
         type
       end
     end
@@ -2275,7 +2365,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
         type.spot_fleet_request_ids = SpotFleetRequestIdList.build(params[:spot_fleet_request_ids], context: "#{context}[:spot_fleet_request_ids]") unless params[:spot_fleet_request_ids].nil?
-        type.terminate_instances = params.fetch(:terminate_instances, false)
+        type.terminate_instances = params[:terminate_instances]
         type
       end
     end
@@ -2379,6 +2469,36 @@ module AWS::SDK::EC2
       end
     end
 
+    module CapacityBlockOffering
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityBlockOffering, context: context)
+        type = Types::CapacityBlockOffering.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.capacity_block_offering_id = params[:capacity_block_offering_id]
+        type.instance_type = params[:instance_type]
+        type.availability_zone = params[:availability_zone]
+        type.instance_count = params[:instance_count]
+        type.start_date = params[:start_date]
+        type.end_date = params[:end_date]
+        type.capacity_block_duration_hours = params[:capacity_block_duration_hours]
+        type.upfront_fee = params[:upfront_fee]
+        type.currency_code = params[:currency_code]
+        type.tenancy = params[:tenancy]
+        type
+      end
+    end
+
+    module CapacityBlockOfferingSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << CapacityBlockOffering.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module CapacityReservation
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CapacityReservation, context: context)
@@ -2407,6 +2527,7 @@ module AWS::SDK::EC2
         type.capacity_reservation_fleet_id = params[:capacity_reservation_fleet_id]
         type.placement_group_arn = params[:placement_group_arn]
         type.capacity_allocations = CapacityAllocations.build(params[:capacity_allocations], context: "#{context}[:capacity_allocations]") unless params[:capacity_allocations].nil?
+        type.reservation_type = params[:reservation_type]
         type
       end
     end
@@ -3218,6 +3339,54 @@ module AWS::SDK::EC2
       end
     end
 
+    module ConnectionTrackingConfiguration
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingConfiguration, context: context)
+        type = Types::ConnectionTrackingConfiguration.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.tcp_established_timeout = params[:tcp_established_timeout]
+        type.udp_stream_timeout = params[:udp_stream_timeout]
+        type.udp_timeout = params[:udp_timeout]
+        type
+      end
+    end
+
+    module ConnectionTrackingSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecification, context: context)
+        type = Types::ConnectionTrackingSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.tcp_established_timeout = params[:tcp_established_timeout]
+        type.udp_timeout = params[:udp_timeout]
+        type.udp_stream_timeout = params[:udp_stream_timeout]
+        type
+      end
+    end
+
+    module ConnectionTrackingSpecificationRequest
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecificationRequest, context: context)
+        type = Types::ConnectionTrackingSpecificationRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.tcp_established_timeout = params[:tcp_established_timeout]
+        type.udp_stream_timeout = params[:udp_stream_timeout]
+        type.udp_timeout = params[:udp_timeout]
+        type
+      end
+    end
+
+    module ConnectionTrackingSpecificationResponse
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ConnectionTrackingSpecificationResponse, context: context)
+        type = Types::ConnectionTrackingSpecificationResponse.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.tcp_established_timeout = params[:tcp_established_timeout]
+        type.udp_stream_timeout = params[:udp_stream_timeout]
+        type.udp_timeout = params[:udp_timeout]
+        type
+      end
+    end
+
     module ConversionIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
@@ -3384,7 +3553,7 @@ module AWS::SDK::EC2
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.instance_type_specifications = ReservationFleetInstanceSpecificationList.build(params[:instance_type_specifications], context: "#{context}[:instance_type_specifications]") unless params[:instance_type_specifications].nil?
         type.tenancy = params[:tenancy]
-        type.total_target_capacity = params.fetch(:total_target_capacity, 0)
+        type.total_target_capacity = params[:total_target_capacity]
         type.end_date = params[:end_date]
         type.instance_match_criteria = params[:instance_match_criteria]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
@@ -3424,7 +3593,7 @@ module AWS::SDK::EC2
         type.availability_zone = params[:availability_zone]
         type.availability_zone_id = params[:availability_zone_id]
         type.tenancy = params[:tenancy]
-        type.instance_count = params.fetch(:instance_count, 0)
+        type.instance_count = params[:instance_count]
         type.ebs_optimized = params[:ebs_optimized]
         type.ephemeral_storage = params[:ephemeral_storage]
         type.end_date = params[:end_date]
@@ -3971,6 +4140,7 @@ module AWS::SDK::EC2
         type.operating_regions = AddIpamOperatingRegionSet.build(params[:operating_regions], context: "#{context}[:operating_regions]") unless params[:operating_regions].nil?
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
+        type.tier = params[:tier]
         type
       end
     end
@@ -4006,6 +4176,7 @@ module AWS::SDK::EC2
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.aws_service = params[:aws_service]
         type.public_ip_source = params[:public_ip_source]
+        type.source_resource = IpamPoolSourceResourceRequest.build(params[:source_resource], context: "#{context}[:source_resource]") unless params[:source_resource].nil?
         type
       end
     end
@@ -4252,7 +4423,7 @@ module AWS::SDK::EC2
         type.dry_run = params[:dry_run]
         type.prefix_list_name = params[:prefix_list_name]
         type.entries = AddPrefixListEntries.build(params[:entries], context: "#{context}[:entries]") unless params[:entries].nil?
-        type.max_entries = params.fetch(:max_entries, 0)
+        type.max_entries = params[:max_entries]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.address_family = params[:address_family]
         type.client_token = params[:client_token] || ::SecureRandom.uuid
@@ -4307,14 +4478,14 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.cidr_block = params[:cidr_block]
         type.dry_run = params[:dry_run]
-        type.egress = params.fetch(:egress, false)
+        type.egress = params[:egress]
         type.icmp_type_code = IcmpTypeCode.build(params[:icmp_type_code], context: "#{context}[:icmp_type_code]") unless params[:icmp_type_code].nil?
         type.ipv6_cidr_block = params[:ipv6_cidr_block]
         type.network_acl_id = params[:network_acl_id]
         type.port_range = PortRange.build(params[:port_range], context: "#{context}[:port_range]") unless params[:port_range].nil?
         type.protocol = params[:protocol]
         type.rule_action = params[:rule_action]
-        type.rule_number = params.fetch(:rule_number, 0)
+        type.rule_number = params[:rule_number]
         type
       end
     end
@@ -4336,6 +4507,7 @@ module AWS::SDK::EC2
         type.dry_run = params[:dry_run]
         type.vpc_id = params[:vpc_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4346,6 +4518,7 @@ module AWS::SDK::EC2
         type = Types::CreateNetworkAclOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.network_acl = NetworkAcl.build(params[:network_acl], context: "#{context}[:network_acl]") unless params[:network_acl].nil?
+        type.client_token = params[:client_token]
         type
       end
     end
@@ -4426,6 +4599,8 @@ module AWS::SDK::EC2
         type.subnet_id = params[:subnet_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
+        type.enable_primary_ipv6 = params[:enable_primary_ipv6]
+        type.connection_tracking_specification = ConnectionTrackingSpecificationRequest.build(params[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless params[:connection_tracking_specification].nil?
         type
       end
     end
@@ -4543,7 +4718,7 @@ module AWS::SDK::EC2
         type = Types::CreateReservedInstancesListingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.client_token = params[:client_token]
-        type.instance_count = params.fetch(:instance_count, 0)
+        type.instance_count = params[:instance_count]
         type.price_schedules = PriceScheduleSpecificationList.build(params[:price_schedules], context: "#{context}[:price_schedules]") unless params[:price_schedules].nil?
         type.reserved_instances_id = params[:reserved_instances_id]
         type
@@ -4627,6 +4802,7 @@ module AWS::SDK::EC2
         type.dry_run = params[:dry_run]
         type.vpc_id = params[:vpc_id]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
+        type.client_token = params[:client_token] || ::SecureRandom.uuid
         type
       end
     end
@@ -4637,6 +4813,7 @@ module AWS::SDK::EC2
         type = Types::CreateRouteTableOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.route_table = RouteTable.build(params[:route_table], context: "#{context}[:route_table]") unless params[:route_table].nil?
+        type.client_token = params[:client_token]
         type
       end
     end
@@ -4816,6 +4993,10 @@ module AWS::SDK::EC2
         type.vpc_id = params[:vpc_id]
         type.dry_run = params[:dry_run]
         type.ipv6_native = params[:ipv6_native]
+        type.ipv4_ipam_pool_id = params[:ipv4_ipam_pool_id]
+        type.ipv4_netmask_length = params[:ipv4_netmask_length]
+        type.ipv6_ipam_pool_id = params[:ipv6_ipam_pool_id]
+        type.ipv6_netmask_length = params[:ipv6_netmask_length]
         type
       end
     end
@@ -4882,7 +5063,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.traffic_mirror_filter_id = params[:traffic_mirror_filter_id]
         type.traffic_direction = params[:traffic_direction]
-        type.rule_number = params.fetch(:rule_number, 0)
+        type.rule_number = params[:rule_number]
         type.rule_action = params[:rule_action]
         type.destination_port_range = TrafficMirrorPortRangeRequest.build(params[:destination_port_range], context: "#{context}[:destination_port_range]") unless params[:destination_port_range].nil?
         type.source_port_range = TrafficMirrorPortRangeRequest.build(params[:source_port_range], context: "#{context}[:source_port_range]") unless params[:source_port_range].nil?
@@ -4916,7 +5097,7 @@ module AWS::SDK::EC2
         type.traffic_mirror_target_id = params[:traffic_mirror_target_id]
         type.traffic_mirror_filter_id = params[:traffic_mirror_filter_id]
         type.packet_length = params[:packet_length]
-        type.session_number = params.fetch(:session_number, 0)
+        type.session_number = params[:session_number]
         type.virtual_network_id = params[:virtual_network_id]
         type.description = params[:description]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
@@ -5263,6 +5444,7 @@ module AWS::SDK::EC2
         type = Types::CreateTransitGatewayVpcAttachmentRequestOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.ipv6_support = params[:ipv6_support]
         type.appliance_mode_support = params[:appliance_mode_support]
         type
@@ -5300,6 +5482,7 @@ module AWS::SDK::EC2
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -5349,6 +5532,7 @@ module AWS::SDK::EC2
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -5372,6 +5556,7 @@ module AWS::SDK::EC2
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.fips_enabled = params[:fips_enabled]
         type
       end
     end
@@ -5392,6 +5577,7 @@ module AWS::SDK::EC2
         type = Types::CreateVerifiedAccessTrustProviderDeviceOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.tenant_id = params[:tenant_id]
+        type.public_signing_key_url = params[:public_signing_key_url]
         type
       end
     end
@@ -5411,6 +5597,7 @@ module AWS::SDK::EC2
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -5566,6 +5753,7 @@ module AWS::SDK::EC2
         type.client_token = params[:client_token]
         type.private_dns_enabled = params[:private_dns_enabled]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
+        type.subnet_configurations = SubnetConfigurationsList.build(params[:subnet_configurations], context: "#{context}[:subnet_configurations]") unless params[:subnet_configurations].nil?
         type
       end
     end
@@ -6090,7 +6278,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
         type.fleet_ids = FleetIdSet.build(params[:fleet_ids], context: "#{context}[:fleet_ids]") unless params[:fleet_ids].nil?
-        type.terminate_instances = params.fetch(:terminate_instances, false)
+        type.terminate_instances = params[:terminate_instances]
         type
       end
     end
@@ -6240,6 +6428,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
         type.ipam_pool_id = params[:ipam_pool_id]
+        type.cascade = params[:cascade]
         type
       end
     end
@@ -6313,6 +6502,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteKeyPairOutput, context: context)
         type = Types::DeleteKeyPairOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.return = params[:return]
+        type.key_pair_id = params[:key_pair_id]
         type
       end
     end
@@ -6544,9 +6735,9 @@ module AWS::SDK::EC2
         type = Types::DeleteNetworkAclEntryInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
-        type.egress = params.fetch(:egress, false)
+        type.egress = params[:egress]
         type.network_acl_id = params[:network_acl_id]
-        type.rule_number = params.fetch(:rule_number, 0)
+        type.rule_number = params[:rule_number]
         type
       end
     end
@@ -7566,6 +7757,28 @@ module AWS::SDK::EC2
       end
     end
 
+    module DeprovisionIpamByoasnInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamByoasnInput, context: context)
+        type = Types::DeprovisionIpamByoasnInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.ipam_id = params[:ipam_id]
+        type.asn = params[:asn]
+        type
+      end
+    end
+
+    module DeprovisionIpamByoasnOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamByoasnOutput, context: context)
+        type = Types::DeprovisionIpamByoasnOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.byoasn = Byoasn.build(params[:byoasn], context: "#{context}[:byoasn]") unless params[:byoasn].nil?
+        type
+      end
+    end
+
     module DeprovisionIpamPoolCidrInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeprovisionIpamPoolCidrInput, context: context)
@@ -7910,7 +8123,7 @@ module AWS::SDK::EC2
         type = Types::DescribeByoipCidrsInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
-        type.max_results = params.fetch(:max_results, 0)
+        type.max_results = params[:max_results]
         type.next_token = params[:next_token]
         type
       end
@@ -7922,6 +8135,34 @@ module AWS::SDK::EC2
         type = Types::DescribeByoipCidrsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.byoip_cidrs = ByoipCidrSet.build(params[:byoip_cidrs], context: "#{context}[:byoip_cidrs]") unless params[:byoip_cidrs].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module DescribeCapacityBlockOfferingsInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityBlockOfferingsInput, context: context)
+        type = Types::DescribeCapacityBlockOfferingsInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.instance_type = params[:instance_type]
+        type.instance_count = params[:instance_count]
+        type.start_date_range = params[:start_date_range]
+        type.end_date_range = params[:end_date_range]
+        type.capacity_duration_hours = params[:capacity_duration_hours]
+        type.next_token = params[:next_token]
+        type.max_results = params[:max_results]
+        type
+      end
+    end
+
+    module DescribeCapacityBlockOfferingsOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeCapacityBlockOfferingsOutput, context: context)
+        type = Types::DescribeCapacityBlockOfferingsOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.capacity_block_offerings = CapacityBlockOfferingSet.build(params[:capacity_block_offerings], context: "#{context}[:capacity_block_offerings]") unless params[:capacity_block_offerings].nil?
         type.next_token = params[:next_token]
         type
       end
@@ -8848,6 +9089,7 @@ module AWS::SDK::EC2
         type.image_ids = ImageIdStringList.build(params[:image_ids], context: "#{context}[:image_ids]") unless params[:image_ids].nil?
         type.owners = OwnerStringList.build(params[:owners], context: "#{context}[:owners]") unless params[:owners].nil?
         type.include_deprecated = params[:include_deprecated]
+        type.include_disabled = params[:include_disabled]
         type.dry_run = params[:dry_run]
         type.max_results = params[:max_results]
         type.next_token = params[:next_token]
@@ -9075,6 +9317,54 @@ module AWS::SDK::EC2
       end
     end
 
+    module DescribeInstanceTopologyGroupNameSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
+      end
+    end
+
+    module DescribeInstanceTopologyInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTopologyInput, context: context)
+        type = Types::DescribeInstanceTopologyInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.next_token = params[:next_token]
+        type.max_results = params[:max_results]
+        type.instance_ids = DescribeInstanceTopologyInstanceIdSet.build(params[:instance_ids], context: "#{context}[:instance_ids]") unless params[:instance_ids].nil?
+        type.group_names = DescribeInstanceTopologyGroupNameSet.build(params[:group_names], context: "#{context}[:group_names]") unless params[:group_names].nil?
+        type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
+        type
+      end
+    end
+
+    module DescribeInstanceTopologyInstanceIdSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
+      end
+    end
+
+    module DescribeInstanceTopologyOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTopologyOutput, context: context)
+        type = Types::DescribeInstanceTopologyOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.instances = InstanceSet.build(params[:instances], context: "#{context}[:instances]") unless params[:instances].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
     module DescribeInstanceTypeOfferingsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInstanceTypeOfferingsInput, context: context)
@@ -9170,6 +9460,29 @@ module AWS::SDK::EC2
         type = Types::DescribeInternetGatewaysOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.internet_gateways = InternetGatewayList.build(params[:internet_gateways], context: "#{context}[:internet_gateways]") unless params[:internet_gateways].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module DescribeIpamByoasnInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamByoasnInput, context: context)
+        type = Types::DescribeIpamByoasnInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.max_results = params[:max_results]
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module DescribeIpamByoasnOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeIpamByoasnOutput, context: context)
+        type = Types::DescribeIpamByoasnOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.byoasns = ByoasnSet.build(params[:byoasns], context: "#{context}[:byoasns]") unless params[:byoasns].nil?
         type.next_token = params[:next_token]
         type
       end
@@ -9550,6 +9863,31 @@ module AWS::SDK::EC2
         type = Types::DescribeLocalGatewaysOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.local_gateways = LocalGatewaySet.build(params[:local_gateways], context: "#{context}[:local_gateways]") unless params[:local_gateways].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module DescribeLockedSnapshotsInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLockedSnapshotsInput, context: context)
+        type = Types::DescribeLockedSnapshotsInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
+        type.max_results = params[:max_results]
+        type.next_token = params[:next_token]
+        type.snapshot_ids = SnapshotIdStringList.build(params[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless params[:snapshot_ids].nil?
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module DescribeLockedSnapshotsOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeLockedSnapshotsOutput, context: context)
+        type = Types::DescribeLockedSnapshotsOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.snapshots = LockedSnapshotsInfoList.build(params[:snapshots], context: "#{context}[:snapshots]") unless params[:snapshots].nil?
         type.next_token = params[:next_token]
         type
       end
@@ -11588,6 +11926,8 @@ module AWS::SDK::EC2
         type.state = params[:state]
         type.volume_id = params[:volume_id]
         type.delete_on_termination = params[:delete_on_termination]
+        type.associated_resource = params[:associated_resource]
+        type.instance_owning_service = params[:instance_owning_service]
         type
       end
     end
@@ -11619,6 +11959,7 @@ module AWS::SDK::EC2
         type = Types::DeviceOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.tenant_id = params[:tenant_id]
+        type.public_signing_key_url = params[:public_signing_key_url]
         type
       end
     end
@@ -11915,6 +12256,26 @@ module AWS::SDK::EC2
       end
     end
 
+    module DisableImageBlockPublicAccessInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageBlockPublicAccessInput, context: context)
+        type = Types::DisableImageBlockPublicAccessInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module DisableImageBlockPublicAccessOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageBlockPublicAccessOutput, context: context)
+        type = Types::DisableImageBlockPublicAccessOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_block_public_access_state = params[:image_block_public_access_state]
+        type
+      end
+    end
+
     module DisableImageDeprecationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageDeprecationInput, context: context)
@@ -11930,6 +12291,27 @@ module AWS::SDK::EC2
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageDeprecationOutput, context: context)
         type = Types::DisableImageDeprecationOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.return = params[:return]
+        type
+      end
+    end
+
+    module DisableImageInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageInput, context: context)
+        type = Types::DisableImageInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_id = params[:image_id]
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module DisableImageOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableImageOutput, context: context)
+        type = Types::DisableImageOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.return = params[:return]
         type
@@ -11973,6 +12355,26 @@ module AWS::SDK::EC2
         type = Types::DisableSerialConsoleAccessOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.serial_console_access_enabled = params[:serial_console_access_enabled]
+        type
+      end
+    end
+
+    module DisableSnapshotBlockPublicAccessInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSnapshotBlockPublicAccessInput, context: context)
+        type = Types::DisableSnapshotBlockPublicAccessInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module DisableSnapshotBlockPublicAccessOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisableSnapshotBlockPublicAccessOutput, context: context)
+        type = Types::DisableSnapshotBlockPublicAccessOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.state = params[:state]
         type
       end
     end
@@ -12166,6 +12568,28 @@ module AWS::SDK::EC2
         type = Types::DisassociateInstanceEventWindowOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.instance_event_window = InstanceEventWindow.build(params[:instance_event_window], context: "#{context}[:instance_event_window]") unless params[:instance_event_window].nil?
+        type
+      end
+    end
+
+    module DisassociateIpamByoasnInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamByoasnInput, context: context)
+        type = Types::DisassociateIpamByoasnInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.asn = params[:asn]
+        type.cidr = params[:cidr]
+        type
+      end
+    end
+
+    module DisassociateIpamByoasnOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::DisassociateIpamByoasnOutput, context: context)
+        type = Types::DisassociateIpamByoasnOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.asn_association = AsnAssociation.build(params[:asn_association], context: "#{context}[:asn_association]") unless params[:asn_association].nil?
         type
       end
     end
@@ -12398,7 +12822,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::DiskImageDetail, context: context)
         type = Types::DiskImageDetail.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.bytes = params.fetch(:bytes, 0)
+        type.bytes = params[:bytes]
         type.format = params[:format]
         type.import_manifest_url = params[:import_manifest_url]
         type
@@ -12545,6 +12969,8 @@ module AWS::SDK::EC2
         type.delete_on_termination = params[:delete_on_termination]
         type.status = params[:status]
         type.volume_id = params[:volume_id]
+        type.associated_resource = params[:associated_resource]
+        type.volume_owner_id = params[:volume_owner_id]
         type
       end
     end
@@ -12836,10 +13262,31 @@ module AWS::SDK::EC2
       end
     end
 
+    module EnaSrdSpecificationRequest
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdSpecificationRequest, context: context)
+        type = Types::EnaSrdSpecificationRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_enabled = params[:ena_srd_enabled]
+        type.ena_srd_udp_specification = EnaSrdUdpSpecificationRequest.build(params[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless params[:ena_srd_udp_specification].nil?
+        type
+      end
+    end
+
     module EnaSrdUdpSpecification
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdUdpSpecification, context: context)
         type = Types::EnaSrdUdpSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_udp_enabled = params[:ena_srd_udp_enabled]
+        type
+      end
+    end
+
+    module EnaSrdUdpSpecificationRequest
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnaSrdUdpSpecificationRequest, context: context)
+        type = Types::EnaSrdUdpSpecificationRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.ena_srd_udp_enabled = params[:ena_srd_udp_enabled]
         type
@@ -13054,6 +13501,27 @@ module AWS::SDK::EC2
       end
     end
 
+    module EnableImageBlockPublicAccessInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageBlockPublicAccessInput, context: context)
+        type = Types::EnableImageBlockPublicAccessInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_block_public_access_state = params[:image_block_public_access_state]
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module EnableImageBlockPublicAccessOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageBlockPublicAccessOutput, context: context)
+        type = Types::EnableImageBlockPublicAccessOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_block_public_access_state = params[:image_block_public_access_state]
+        type
+      end
+    end
+
     module EnableImageDeprecationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageDeprecationInput, context: context)
@@ -13070,6 +13538,27 @@ module AWS::SDK::EC2
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageDeprecationOutput, context: context)
         type = Types::EnableImageDeprecationOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.return = params[:return]
+        type
+      end
+    end
+
+    module EnableImageInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageInput, context: context)
+        type = Types::EnableImageInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_id = params[:image_id]
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module EnableImageOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableImageOutput, context: context)
+        type = Types::EnableImageOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.return = params[:return]
         type
@@ -13133,6 +13622,27 @@ module AWS::SDK::EC2
         type = Types::EnableSerialConsoleAccessOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.serial_console_access_enabled = params[:serial_console_access_enabled]
+        type
+      end
+    end
+
+    module EnableSnapshotBlockPublicAccessInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSnapshotBlockPublicAccessInput, context: context)
+        type = Types::EnableSnapshotBlockPublicAccessInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.state = params[:state]
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module EnableSnapshotBlockPublicAccessOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::EnableSnapshotBlockPublicAccessOutput, context: context)
+        type = Types::EnableSnapshotBlockPublicAccessOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.state = params[:state]
         type
       end
     end
@@ -14354,6 +14864,7 @@ module AWS::SDK::EC2
         type.coip_pool_id = params[:coip_pool_id]
         type.coip_address_usages = CoipAddressUsageSet.build(params[:coip_address_usages], context: "#{context}[:coip_address_usages]") unless params[:coip_address_usages].nil?
         type.local_gateway_route_table_id = params[:local_gateway_route_table_id]
+        type.next_token = params[:next_token]
         type
       end
     end
@@ -14538,6 +15049,26 @@ module AWS::SDK::EC2
       end
     end
 
+    module GetImageBlockPublicAccessStateInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetImageBlockPublicAccessStateInput, context: context)
+        type = Types::GetImageBlockPublicAccessStateInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module GetImageBlockPublicAccessStateOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetImageBlockPublicAccessStateOutput, context: context)
+        type = Types::GetImageBlockPublicAccessStateOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.image_block_public_access_state = params[:image_block_public_access_state]
+        type
+      end
+    end
+
     module GetInstanceTypesFromInstanceRequirementsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInstanceTypesFromInstanceRequirementsInput, context: context)
@@ -14635,6 +15166,33 @@ module AWS::SDK::EC2
         type = Types::GetIpamDiscoveredAccountsOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.ipam_discovered_accounts = IpamDiscoveredAccountSet.build(params[:ipam_discovered_accounts], context: "#{context}[:ipam_discovered_accounts]") unless params[:ipam_discovered_accounts].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module GetIpamDiscoveredPublicAddressesInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredPublicAddressesInput, context: context)
+        type = Types::GetIpamDiscoveredPublicAddressesInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.ipam_resource_discovery_id = params[:ipam_resource_discovery_id]
+        type.address_region = params[:address_region]
+        type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
+        type.next_token = params[:next_token]
+        type.max_results = params[:max_results]
+        type
+      end
+    end
+
+    module GetIpamDiscoveredPublicAddressesOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetIpamDiscoveredPublicAddressesOutput, context: context)
+        type = Types::GetIpamDiscoveredPublicAddressesOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ipam_discovered_public_addresses = IpamDiscoveredPublicAddressSet.build(params[:ipam_discovered_public_addresses], context: "#{context}[:ipam_discovered_public_addresses]") unless params[:ipam_discovered_public_addresses].nil?
+        type.oldest_sample_time = params[:oldest_sample_time]
         type.next_token = params[:next_token]
         type
       end
@@ -14917,6 +15475,31 @@ module AWS::SDK::EC2
       end
     end
 
+    module GetSecurityGroupsForVpcInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSecurityGroupsForVpcInput, context: context)
+        type = Types::GetSecurityGroupsForVpcInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.vpc_id = params[:vpc_id]
+        type.next_token = params[:next_token]
+        type.max_results = params[:max_results]
+        type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module GetSecurityGroupsForVpcOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSecurityGroupsForVpcOutput, context: context)
+        type = Types::GetSecurityGroupsForVpcOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.next_token = params[:next_token]
+        type.security_group_for_vpcs = SecurityGroupForVpcList.build(params[:security_group_for_vpcs], context: "#{context}[:security_group_for_vpcs]") unless params[:security_group_for_vpcs].nil?
+        type
+      end
+    end
+
     module GetSerialConsoleAccessStatusInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSerialConsoleAccessStatusInput, context: context)
@@ -14937,13 +15520,33 @@ module AWS::SDK::EC2
       end
     end
 
+    module GetSnapshotBlockPublicAccessStateInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSnapshotBlockPublicAccessStateInput, context: context)
+        type = Types::GetSnapshotBlockPublicAccessStateInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module GetSnapshotBlockPublicAccessStateOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::GetSnapshotBlockPublicAccessStateOutput, context: context)
+        type = Types::GetSnapshotBlockPublicAccessStateOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.state = params[:state]
+        type
+      end
+    end
+
     module GetSpotPlacementScoresInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetSpotPlacementScoresInput, context: context)
         type = Types::GetSpotPlacementScoresInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.instance_types = InstanceTypes.build(params[:instance_types], context: "#{context}[:instance_types]") unless params[:instance_types].nil?
-        type.target_capacity = params.fetch(:target_capacity, 0)
+        type.target_capacity = params[:target_capacity]
         type.target_capacity_unit_type = params[:target_capacity_unit_type]
         type.single_availability_zone = params[:single_availability_zone]
         type.region_names = RegionNames.build(params[:region_names], context: "#{context}[:region_names]") unless params[:region_names].nil?
@@ -15767,6 +16370,7 @@ module AWS::SDK::EC2
         type.tpm_support = params[:tpm_support]
         type.deprecation_time = params[:deprecation_time]
         type.imds_support = params[:imds_support]
+        type.source_instance_id = params[:source_instance_id]
         type
       end
     end
@@ -16353,6 +16957,27 @@ module AWS::SDK::EC2
       end
     end
 
+    module InstanceAttachmentEnaSrdSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceAttachmentEnaSrdSpecification, context: context)
+        type = Types::InstanceAttachmentEnaSrdSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_enabled = params[:ena_srd_enabled]
+        type.ena_srd_udp_specification = InstanceAttachmentEnaSrdUdpSpecification.build(params[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless params[:ena_srd_udp_specification].nil?
+        type
+      end
+    end
+
+    module InstanceAttachmentEnaSrdUdpSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceAttachmentEnaSrdUdpSpecification, context: context)
+        type = Types::InstanceAttachmentEnaSrdUdpSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_udp_enabled = params[:ena_srd_udp_enabled]
+        type
+      end
+    end
+
     module InstanceBlockDeviceMapping
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceBlockDeviceMapping, context: context)
@@ -16725,6 +17350,7 @@ module AWS::SDK::EC2
         type = Types::InstanceIpv6Address.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.ipv6_address = params[:ipv6_address]
+        type.is_primary_ipv6 = params[:is_primary_ipv6]
         type
       end
     end
@@ -16898,6 +17524,7 @@ module AWS::SDK::EC2
         type.interface_type = params[:interface_type]
         type.ipv4_prefixes = InstanceIpv4PrefixList.build(params[:ipv4_prefixes], context: "#{context}[:ipv4_prefixes]") unless params[:ipv4_prefixes].nil?
         type.ipv6_prefixes = InstanceIpv6PrefixList.build(params[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless params[:ipv6_prefixes].nil?
+        type.connection_tracking_configuration = ConnectionTrackingSpecificationResponse.build(params[:connection_tracking_configuration], context: "#{context}[:connection_tracking_configuration]") unless params[:connection_tracking_configuration].nil?
         type
       end
     end
@@ -16927,6 +17554,7 @@ module AWS::SDK::EC2
         type.device_index = params[:device_index]
         type.status = params[:status]
         type.network_card_index = params[:network_card_index]
+        type.ena_srd_specification = InstanceAttachmentEnaSrdSpecification.build(params[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless params[:ena_srd_specification].nil?
         type
       end
     end
@@ -16966,6 +17594,9 @@ module AWS::SDK::EC2
         type.ipv4_prefix_count = params[:ipv4_prefix_count]
         type.ipv6_prefixes = Ipv6PrefixList.build(params[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless params[:ipv6_prefixes].nil?
         type.ipv6_prefix_count = params[:ipv6_prefix_count]
+        type.primary_ipv6 = params[:primary_ipv6]
+        type.ena_srd_specification = EnaSrdSpecificationRequest.build(params[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless params[:ena_srd_specification].nil?
+        type.connection_tracking_specification = ConnectionTrackingSpecificationRequest.build(params[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless params[:connection_tracking_specification].nil?
         type
       end
     end
@@ -17033,6 +17664,7 @@ module AWS::SDK::EC2
         type.accelerator_total_memory_mi_b = AcceleratorTotalMemoryMiB.build(params[:accelerator_total_memory_mi_b], context: "#{context}[:accelerator_total_memory_mi_b]") unless params[:accelerator_total_memory_mi_b].nil?
         type.network_bandwidth_gbps = NetworkBandwidthGbps.build(params[:network_bandwidth_gbps], context: "#{context}[:network_bandwidth_gbps]") unless params[:network_bandwidth_gbps].nil?
         type.allowed_instance_types = AllowedInstanceTypeSet.build(params[:allowed_instance_types], context: "#{context}[:allowed_instance_types]") unless params[:allowed_instance_types].nil?
+        type.max_spot_price_as_percentage_of_optimal_on_demand_price = params[:max_spot_price_as_percentage_of_optimal_on_demand_price]
         type
       end
     end
@@ -17065,6 +17697,7 @@ module AWS::SDK::EC2
         type.accelerator_total_memory_mi_b = AcceleratorTotalMemoryMiBRequest.build(params[:accelerator_total_memory_mi_b], context: "#{context}[:accelerator_total_memory_mi_b]") unless params[:accelerator_total_memory_mi_b].nil?
         type.network_bandwidth_gbps = NetworkBandwidthGbpsRequest.build(params[:network_bandwidth_gbps], context: "#{context}[:network_bandwidth_gbps]") unless params[:network_bandwidth_gbps].nil?
         type.allowed_instance_types = AllowedInstanceTypeSet.build(params[:allowed_instance_types], context: "#{context}[:allowed_instance_types]") unless params[:allowed_instance_types].nil?
+        type.max_spot_price_as_percentage_of_optimal_on_demand_price = params[:max_spot_price_as_percentage_of_optimal_on_demand_price]
         type
       end
     end
@@ -17078,6 +17711,17 @@ module AWS::SDK::EC2
         type.virtualization_types = VirtualizationTypeSet.build(params[:virtualization_types], context: "#{context}[:virtualization_types]") unless params[:virtualization_types].nil?
         type.instance_requirements = InstanceRequirementsRequest.build(params[:instance_requirements], context: "#{context}[:instance_requirements]") unless params[:instance_requirements].nil?
         type
+      end
+    end
+
+    module InstanceSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << InstanceTopology.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
       end
     end
 
@@ -17245,6 +17889,21 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.instance_tag_keys = InstanceTagKeySet.build(params[:instance_tag_keys], context: "#{context}[:instance_tag_keys]") unless params[:instance_tag_keys].nil?
         type.include_all_tags_of_instance = params[:include_all_tags_of_instance]
+        type
+      end
+    end
+
+    module InstanceTopology
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::InstanceTopology, context: context)
+        type = Types::InstanceTopology.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.instance_id = params[:instance_id]
+        type.instance_type = params[:instance_type]
+        type.group_name = params[:group_name]
+        type.network_nodes = NetworkNodesList.build(params[:network_nodes], context: "#{context}[:network_nodes]") unless params[:network_nodes].nil?
+        type.availability_zone = params[:availability_zone]
+        type.zone_id = params[:zone_id]
         type
       end
     end
@@ -17574,6 +18233,8 @@ module AWS::SDK::EC2
         type.default_resource_discovery_id = params[:default_resource_discovery_id]
         type.default_resource_discovery_association_id = params[:default_resource_discovery_association_id]
         type.resource_discovery_association_count = params[:resource_discovery_association_count]
+        type.state_message = params[:state_message]
+        type.tier = params[:tier]
         type
       end
     end
@@ -17640,6 +18301,45 @@ module AWS::SDK::EC2
         data = []
         params.each_with_index do |element, index|
           data << IpamDiscoveredAccount.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module IpamDiscoveredPublicAddress
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamDiscoveredPublicAddress, context: context)
+        type = Types::IpamDiscoveredPublicAddress.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ipam_resource_discovery_id = params[:ipam_resource_discovery_id]
+        type.address_region = params[:address_region]
+        type.address = params[:address]
+        type.address_owner_id = params[:address_owner_id]
+        type.address_allocation_id = params[:address_allocation_id]
+        type.association_status = params[:association_status]
+        type.address_type = params[:address_type]
+        type.service = params[:service]
+        type.service_resource = params[:service_resource]
+        type.vpc_id = params[:vpc_id]
+        type.subnet_id = params[:subnet_id]
+        type.public_ipv4_pool_id = params[:public_ipv4_pool_id]
+        type.network_interface_id = params[:network_interface_id]
+        type.network_interface_description = params[:network_interface_description]
+        type.instance_id = params[:instance_id]
+        type.tags = IpamPublicAddressTags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.network_border_group = params[:network_border_group]
+        type.security_groups = IpamPublicAddressSecurityGroupList.build(params[:security_groups], context: "#{context}[:security_groups]") unless params[:security_groups].nil?
+        type.sample_time = params[:sample_time]
+        type
+      end
+    end
+
+    module IpamDiscoveredPublicAddressSet
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << IpamDiscoveredPublicAddress.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -17735,6 +18435,7 @@ module AWS::SDK::EC2
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.aws_service = params[:aws_service]
         type.public_ip_source = params[:public_ip_source]
+        type.source_resource = IpamPoolSourceResource.build(params[:source_resource], context: "#{context}[:source_resource]") unless params[:source_resource].nil?
         type
       end
     end
@@ -17752,6 +18453,17 @@ module AWS::SDK::EC2
         type.resource_region = params[:resource_region]
         type.resource_owner = params[:resource_owner]
         type
+      end
+    end
+
+    module IpamPoolAllocationAllowedCidrs
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
       end
     end
 
@@ -17821,6 +18533,86 @@ module AWS::SDK::EC2
           data << IpamPool.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
+      end
+    end
+
+    module IpamPoolSourceResource
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolSourceResource, context: context)
+        type = Types::IpamPoolSourceResource.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.resource_id = params[:resource_id]
+        type.resource_type = params[:resource_type]
+        type.resource_region = params[:resource_region]
+        type.resource_owner = params[:resource_owner]
+        type
+      end
+    end
+
+    module IpamPoolSourceResourceRequest
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPoolSourceResourceRequest, context: context)
+        type = Types::IpamPoolSourceResourceRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.resource_id = params[:resource_id]
+        type.resource_type = params[:resource_type]
+        type.resource_region = params[:resource_region]
+        type.resource_owner = params[:resource_owner]
+        type
+      end
+    end
+
+    module IpamPublicAddressSecurityGroup
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressSecurityGroup, context: context)
+        type = Types::IpamPublicAddressSecurityGroup.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.group_name = params[:group_name]
+        type.group_id = params[:group_id]
+        type
+      end
+    end
+
+    module IpamPublicAddressSecurityGroupList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << IpamPublicAddressSecurityGroup.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module IpamPublicAddressTag
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressTag, context: context)
+        type = Types::IpamPublicAddressTag.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.key = params[:key]
+        type.value = params[:value]
+        type
+      end
+    end
+
+    module IpamPublicAddressTagList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << IpamPublicAddressTag.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module IpamPublicAddressTags
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::IpamPublicAddressTags, context: context)
+        type = Types::IpamPublicAddressTags.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.eip_tags = IpamPublicAddressTagList.build(params[:eip_tags], context: "#{context}[:eip_tags]") unless params[:eip_tags].nil?
+        type
       end
     end
 
@@ -18571,6 +19363,27 @@ module AWS::SDK::EC2
       end
     end
 
+    module LaunchTemplateEnaSrdSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnaSrdSpecification, context: context)
+        type = Types::LaunchTemplateEnaSrdSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_enabled = params[:ena_srd_enabled]
+        type.ena_srd_udp_specification = LaunchTemplateEnaSrdUdpSpecification.build(params[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless params[:ena_srd_udp_specification].nil?
+        type
+      end
+    end
+
+    module LaunchTemplateEnaSrdUdpSpecification
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnaSrdUdpSpecification, context: context)
+        type = Types::LaunchTemplateEnaSrdUdpSpecification.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.ena_srd_udp_enabled = params[:ena_srd_udp_enabled]
+        type
+      end
+    end
+
     module LaunchTemplateEnclaveOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LaunchTemplateEnclaveOptions, context: context)
@@ -18739,6 +19552,9 @@ module AWS::SDK::EC2
         type.ipv4_prefix_count = params[:ipv4_prefix_count]
         type.ipv6_prefixes = Ipv6PrefixListResponse.build(params[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless params[:ipv6_prefixes].nil?
         type.ipv6_prefix_count = params[:ipv6_prefix_count]
+        type.primary_ipv6 = params[:primary_ipv6]
+        type.ena_srd_specification = LaunchTemplateEnaSrdSpecification.build(params[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless params[:ena_srd_specification].nil?
+        type.connection_tracking_specification = ConnectionTrackingSpecification.build(params[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless params[:connection_tracking_specification].nil?
         type
       end
     end
@@ -18778,6 +19594,9 @@ module AWS::SDK::EC2
         type.ipv4_prefix_count = params[:ipv4_prefix_count]
         type.ipv6_prefixes = Ipv6PrefixList.build(params[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless params[:ipv6_prefixes].nil?
         type.ipv6_prefix_count = params[:ipv6_prefix_count]
+        type.primary_ipv6 = params[:primary_ipv6]
+        type.ena_srd_specification = EnaSrdSpecificationRequest.build(params[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless params[:ena_srd_specification].nil?
+        type.connection_tracking_specification = ConnectionTrackingSpecificationRequest.build(params[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless params[:connection_tracking_specification].nil?
         type
       end
     end
@@ -19504,6 +20323,67 @@ module AWS::SDK::EC2
       end
     end
 
+    module LockSnapshotInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LockSnapshotInput, context: context)
+        type = Types::LockSnapshotInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.snapshot_id = params[:snapshot_id]
+        type.dry_run = params[:dry_run]
+        type.lock_mode = params[:lock_mode]
+        type.cool_off_period = params[:cool_off_period]
+        type.lock_duration = params[:lock_duration]
+        type.expiration_date = params[:expiration_date]
+        type
+      end
+    end
+
+    module LockSnapshotOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LockSnapshotOutput, context: context)
+        type = Types::LockSnapshotOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.snapshot_id = params[:snapshot_id]
+        type.lock_state = params[:lock_state]
+        type.lock_duration = params[:lock_duration]
+        type.cool_off_period = params[:cool_off_period]
+        type.cool_off_period_expires_on = params[:cool_off_period_expires_on]
+        type.lock_created_on = params[:lock_created_on]
+        type.lock_expires_on = params[:lock_expires_on]
+        type.lock_duration_start_time = params[:lock_duration_start_time]
+        type
+      end
+    end
+
+    module LockedSnapshotsInfo
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::LockedSnapshotsInfo, context: context)
+        type = Types::LockedSnapshotsInfo.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.owner_id = params[:owner_id]
+        type.snapshot_id = params[:snapshot_id]
+        type.lock_state = params[:lock_state]
+        type.lock_duration = params[:lock_duration]
+        type.cool_off_period = params[:cool_off_period]
+        type.cool_off_period_expires_on = params[:cool_off_period_expires_on]
+        type.lock_created_on = params[:lock_created_on]
+        type.lock_duration_start_time = params[:lock_duration_start_time]
+        type.lock_expires_on = params[:lock_expires_on]
+        type
+      end
+    end
+
+    module LockedSnapshotsInfoList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << LockedSnapshotsInfo.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module MaintenanceDetails
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MaintenanceDetails, context: context)
@@ -19594,7 +20474,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::MemoryMiBRequest, context: context)
         type = Types::MemoryMiBRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.min = params.fetch(:min, 0)
+        type.min = params[:min]
         type.max = params[:max]
         type
       end
@@ -19880,7 +20760,7 @@ module AWS::SDK::EC2
         type = Types::ModifyIdFormatInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.resource = params[:resource]
-        type.use_long_ids = params.fetch(:use_long_ids, false)
+        type.use_long_ids = params[:use_long_ids]
         type
       end
     end
@@ -19901,7 +20781,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.principal_arn = params[:principal_arn]
         type.resource = params[:resource]
-        type.use_long_ids = params.fetch(:use_long_ids, false)
+        type.use_long_ids = params[:use_long_ids]
         type
       end
     end
@@ -20160,6 +21040,7 @@ module AWS::SDK::EC2
         type.description = params[:description]
         type.add_operating_regions = AddIpamOperatingRegionSet.build(params[:add_operating_regions], context: "#{context}[:add_operating_regions]") unless params[:add_operating_regions].nil?
         type.remove_operating_regions = RemoveIpamOperatingRegionSet.build(params[:remove_operating_regions], context: "#{context}[:remove_operating_regions]") unless params[:remove_operating_regions].nil?
+        type.tier = params[:tier]
         type
       end
     end
@@ -20214,7 +21095,7 @@ module AWS::SDK::EC2
         type.resource_region = params[:resource_region]
         type.current_ipam_scope_id = params[:current_ipam_scope_id]
         type.destination_ipam_scope_id = params[:destination_ipam_scope_id]
-        type.monitored = params.fetch(:monitored, false)
+        type.monitored = params[:monitored]
         type
       end
     end
@@ -20362,6 +21243,8 @@ module AWS::SDK::EC2
         type.network_interface_id = params[:network_interface_id]
         type.source_dest_check = AttributeBooleanValue.build(params[:source_dest_check], context: "#{context}[:source_dest_check]") unless params[:source_dest_check].nil?
         type.ena_srd_specification = EnaSrdSpecification.build(params[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless params[:ena_srd_specification].nil?
+        type.enable_primary_ipv6 = params[:enable_primary_ipv6]
+        type.connection_tracking_specification = ConnectionTrackingSpecificationRequest.build(params[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless params[:connection_tracking_specification].nil?
         type
       end
     end
@@ -20649,6 +21532,7 @@ module AWS::SDK::EC2
         type.remove_transit_gateway_cidr_blocks = TransitGatewayCidrBlockStringList.build(params[:remove_transit_gateway_cidr_blocks], context: "#{context}[:remove_transit_gateway_cidr_blocks]") unless params[:remove_transit_gateway_cidr_blocks].nil?
         type.vpn_ecmp_support = params[:vpn_ecmp_support]
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.auto_accept_shared_attachments = params[:auto_accept_shared_attachments]
         type.default_route_table_association = params[:default_route_table_association]
         type.association_default_route_table_id = params[:association_default_route_table_id]
@@ -20723,6 +21607,7 @@ module AWS::SDK::EC2
         type = Types::ModifyTransitGatewayVpcAttachmentRequestOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.ipv6_support = params[:ipv6_support]
         type.appliance_mode_support = params[:appliance_mode_support]
         type
@@ -20784,10 +21669,11 @@ module AWS::SDK::EC2
         type = Types::ModifyVerifiedAccessEndpointPolicyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.verified_access_endpoint_id = params[:verified_access_endpoint_id]
-        type.policy_enabled = params.fetch(:policy_enabled, false)
+        type.policy_enabled = params[:policy_enabled]
         type.policy_document = params[:policy_document]
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -20799,6 +21685,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.policy_enabled = params[:policy_enabled]
         type.policy_document = params[:policy_document]
+        type.sse_specification = VerifiedAccessSseSpecificationResponse.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -20844,10 +21731,11 @@ module AWS::SDK::EC2
         type = Types::ModifyVerifiedAccessGroupPolicyInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.verified_access_group_id = params[:verified_access_group_id]
-        type.policy_enabled = params.fetch(:policy_enabled, false)
+        type.policy_enabled = params[:policy_enabled]
         type.policy_document = params[:policy_document]
         type.client_token = params[:client_token] || ::SecureRandom.uuid
         type.dry_run = params[:dry_run]
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -20859,6 +21747,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.policy_enabled = params[:policy_enabled]
         type.policy_document = params[:policy_document]
+        type.sse_specification = VerifiedAccessSseSpecificationResponse.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -20909,6 +21798,16 @@ module AWS::SDK::EC2
       end
     end
 
+    module ModifyVerifiedAccessTrustProviderDeviceOptions
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderDeviceOptions, context: context)
+        type = Types::ModifyVerifiedAccessTrustProviderDeviceOptions.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.public_signing_key_url = params[:public_signing_key_url]
+        type
+      end
+    end
+
     module ModifyVerifiedAccessTrustProviderInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ModifyVerifiedAccessTrustProviderInput, context: context)
@@ -20916,9 +21815,11 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.verified_access_trust_provider_id = params[:verified_access_trust_provider_id]
         type.oidc_options = ModifyVerifiedAccessTrustProviderOidcOptions.build(params[:oidc_options], context: "#{context}[:oidc_options]") unless params[:oidc_options].nil?
+        type.device_options = ModifyVerifiedAccessTrustProviderDeviceOptions.build(params[:device_options], context: "#{context}[:device_options]") unless params[:device_options].nil?
         type.description = params[:description]
         type.dry_run = params[:dry_run]
         type.client_token = params[:client_token] || ::SecureRandom.uuid
+        type.sse_specification = VerifiedAccessSseSpecificationRequest.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -21059,6 +21960,7 @@ module AWS::SDK::EC2
         type.ip_address_type = params[:ip_address_type]
         type.dns_options = DnsOptionsSpecification.build(params[:dns_options], context: "#{context}[:dns_options]") unless params[:dns_options].nil?
         type.private_dns_enabled = params[:private_dns_enabled]
+        type.subnet_configurations = SubnetConfigurationsList.build(params[:subnet_configurations], context: "#{context}[:subnet_configurations]") unless params[:subnet_configurations].nil?
         type
       end
     end
@@ -21836,6 +22738,7 @@ module AWS::SDK::EC2
         type.association = NetworkInterfaceAssociation.build(params[:association], context: "#{context}[:association]") unless params[:association].nil?
         type.attachment = NetworkInterfaceAttachment.build(params[:attachment], context: "#{context}[:attachment]") unless params[:attachment].nil?
         type.availability_zone = params[:availability_zone]
+        type.connection_tracking_configuration = ConnectionTrackingConfiguration.build(params[:connection_tracking_configuration], context: "#{context}[:connection_tracking_configuration]") unless params[:connection_tracking_configuration].nil?
         type.description = params[:description]
         type.groups = GroupIdentifierList.build(params[:groups], context: "#{context}[:groups]") unless params[:groups].nil?
         type.interface_type = params[:interface_type]
@@ -21958,6 +22861,7 @@ module AWS::SDK::EC2
         type = Types::NetworkInterfaceIpv6Address.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.ipv6_address = params[:ipv6_address]
+        type.is_primary_ipv6 = params[:is_primary_ipv6]
         type
       end
     end
@@ -22051,6 +22955,17 @@ module AWS::SDK::EC2
         data = []
         params.each_with_index do |element, index|
           data << NetworkInterfacePrivateIpAddress.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module NetworkNodesList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
         end
         data
       end
@@ -23099,6 +24014,7 @@ module AWS::SDK::EC2
         type.supported_architectures = ArchitectureTypeList.build(params[:supported_architectures], context: "#{context}[:supported_architectures]") unless params[:supported_architectures].nil?
         type.sustained_clock_speed_in_ghz = params[:sustained_clock_speed_in_ghz]&.to_f
         type.supported_features = SupportedAdditionalProcessorFeatureList.build(params[:supported_features], context: "#{context}[:supported_features]") unless params[:supported_features].nil?
+        type.manufacturer = params[:manufacturer]
         type
       end
     end
@@ -23202,6 +24118,7 @@ module AWS::SDK::EC2
         type.dry_run = params[:dry_run]
         type.pool_tag_specifications = TagSpecificationList.build(params[:pool_tag_specifications], context: "#{context}[:pool_tag_specifications]") unless params[:pool_tag_specifications].nil?
         type.multi_region = params[:multi_region]
+        type.network_border_group = params[:network_border_group]
         type
       end
     end
@@ -23212,6 +24129,29 @@ module AWS::SDK::EC2
         type = Types::ProvisionByoipCidrOutput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.byoip_cidr = ByoipCidr.build(params[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless params[:byoip_cidr].nil?
+        type
+      end
+    end
+
+    module ProvisionIpamByoasnInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamByoasnInput, context: context)
+        type = Types::ProvisionIpamByoasnInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.ipam_id = params[:ipam_id]
+        type.asn = params[:asn]
+        type.asn_authorization_context = AsnAuthorizationContext.build(params[:asn_authorization_context], context: "#{context}[:asn_authorization_context]") unless params[:asn_authorization_context].nil?
+        type
+      end
+    end
+
+    module ProvisionIpamByoasnOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::ProvisionIpamByoasnOutput, context: context)
+        type = Types::ProvisionIpamByoasnOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.byoasn = Byoasn.build(params[:byoasn], context: "#{context}[:byoasn]") unless params[:byoasn].nil?
         type
       end
     end
@@ -23249,7 +24189,7 @@ module AWS::SDK::EC2
         type.dry_run = params[:dry_run]
         type.ipam_pool_id = params[:ipam_pool_id]
         type.pool_id = params[:pool_id]
-        type.netmask_length = params.fetch(:netmask_length, 0)
+        type.netmask_length = params[:netmask_length]
         type
       end
     end
@@ -23381,6 +24321,29 @@ module AWS::SDK::EC2
       end
     end
 
+    module PurchaseCapacityBlockInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseCapacityBlockInput, context: context)
+        type = Types::PurchaseCapacityBlockInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.dry_run = params[:dry_run]
+        type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
+        type.capacity_block_offering_id = params[:capacity_block_offering_id]
+        type.instance_platform = params[:instance_platform]
+        type
+      end
+    end
+
+    module PurchaseCapacityBlockOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseCapacityBlockOutput, context: context)
+        type = Types::PurchaseCapacityBlockOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.capacity_reservation = CapacityReservation.build(params[:capacity_reservation], context: "#{context}[:capacity_reservation]") unless params[:capacity_reservation].nil?
+        type
+      end
+    end
+
     module PurchaseHostReservationInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseHostReservationInput, context: context)
@@ -23415,7 +24378,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseRequest, context: context)
         type = Types::PurchaseRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.instance_count = params.fetch(:instance_count, 0)
+        type.instance_count = params[:instance_count]
         type.purchase_token = params[:purchase_token]
         type
       end
@@ -23437,7 +24400,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::PurchaseReservedInstancesOfferingInput, context: context)
         type = Types::PurchaseReservedInstancesOfferingInput.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.instance_count = params.fetch(:instance_count, 0)
+        type.instance_count = params[:instance_count]
         type.reserved_instances_offering_id = params[:reserved_instances_offering_id]
         type.dry_run = params[:dry_run]
         type.limit_price = ReservedInstanceLimitPrice.build(params[:limit_price], context: "#{context}[:limit_price]") unless params[:limit_price].nil?
@@ -23992,14 +24955,14 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.cidr_block = params[:cidr_block]
         type.dry_run = params[:dry_run]
-        type.egress = params.fetch(:egress, false)
+        type.egress = params[:egress]
         type.icmp_type_code = IcmpTypeCode.build(params[:icmp_type_code], context: "#{context}[:icmp_type_code]") unless params[:icmp_type_code].nil?
         type.ipv6_cidr_block = params[:ipv6_cidr_block]
         type.network_acl_id = params[:network_acl_id]
         type.port_range = PortRange.build(params[:port_range], context: "#{context}[:port_range]") unless params[:port_range].nil?
         type.protocol = params[:protocol]
         type.rule_action = params[:rule_action]
-        type.rule_number = params.fetch(:rule_number, 0)
+        type.rule_number = params[:rule_number]
         type
       end
     end
@@ -25056,8 +26019,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dry_run = params[:dry_run]
         type.prefix_list_id = params[:prefix_list_id]
-        type.previous_version = params.fetch(:previous_version, 0)
-        type.current_version = params.fetch(:current_version, 0)
+        type.previous_version = params[:previous_version]
+        type.current_version = params[:current_version]
         type
       end
     end
@@ -25414,8 +26377,8 @@ module AWS::SDK::EC2
         type.ipv6_addresses = InstanceIpv6AddressList.build(params[:ipv6_addresses], context: "#{context}[:ipv6_addresses]") unless params[:ipv6_addresses].nil?
         type.kernel_id = params[:kernel_id]
         type.key_name = params[:key_name]
-        type.max_count = params.fetch(:max_count, 0)
-        type.min_count = params.fetch(:min_count, 0)
+        type.max_count = params[:max_count]
+        type.min_count = params[:min_count]
         type.monitoring = RunInstancesMonitoringEnabled.build(params[:monitoring], context: "#{context}[:monitoring]") unless params[:monitoring].nil?
         type.placement = Placement.build(params[:placement], context: "#{context}[:placement]") unless params[:placement].nil?
         type.ramdisk_id = params[:ramdisk_id]
@@ -25447,6 +26410,7 @@ module AWS::SDK::EC2
         type.private_dns_name_options = PrivateDnsNameOptionsRequest.build(params[:private_dns_name_options], context: "#{context}[:private_dns_name_options]") unless params[:private_dns_name_options].nil?
         type.maintenance_options = InstanceMaintenanceOptionsRequest.build(params[:maintenance_options], context: "#{context}[:maintenance_options]") unless params[:maintenance_options].nil?
         type.disable_api_stop = params[:disable_api_stop]
+        type.enable_primary_ipv6 = params[:enable_primary_ipv6]
         type
       end
     end
@@ -25456,7 +26420,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::RunInstancesMonitoringEnabled, context: context)
         type = Types::RunInstancesMonitoringEnabled.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params.fetch(:enabled, false)
+        type.enabled = params[:enabled]
         type
       end
     end
@@ -25902,6 +26866,32 @@ module AWS::SDK::EC2
       end
     end
 
+    module SecurityGroupForVpc
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SecurityGroupForVpc, context: context)
+        type = Types::SecurityGroupForVpc.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.description = params[:description]
+        type.group_name = params[:group_name]
+        type.owner_id = params[:owner_id]
+        type.group_id = params[:group_id]
+        type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.primary_vpc_id = params[:primary_vpc_id]
+        type
+      end
+    end
+
+    module SecurityGroupForVpcList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << SecurityGroupForVpc.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module SecurityGroupIdList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
@@ -25976,6 +26966,7 @@ module AWS::SDK::EC2
         type.group_id = params[:group_id]
         type.referencing_vpc_id = params[:referencing_vpc_id]
         type.vpc_peering_connection_id = params[:vpc_peering_connection_id]
+        type.transit_gateway_id = params[:transit_gateway_id]
         type
       end
     end
@@ -26524,7 +27515,7 @@ module AWS::SDK::EC2
         type.launch_specifications = LaunchSpecsList.build(params[:launch_specifications], context: "#{context}[:launch_specifications]") unless params[:launch_specifications].nil?
         type.launch_template_configs = LaunchTemplateConfigList.build(params[:launch_template_configs], context: "#{context}[:launch_template_configs]") unless params[:launch_template_configs].nil?
         type.spot_price = params[:spot_price]
-        type.target_capacity = params.fetch(:target_capacity, 0)
+        type.target_capacity = params[:target_capacity]
         type.on_demand_target_capacity = params[:on_demand_target_capacity]
         type.on_demand_max_total_price = params[:on_demand_max_total_price]
         type.spot_max_total_price = params[:spot_max_total_price]
@@ -27104,6 +28095,29 @@ module AWS::SDK::EC2
       end
     end
 
+    module SubnetConfiguration
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::SubnetConfiguration, context: context)
+        type = Types::SubnetConfiguration.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.subnet_id = params[:subnet_id]
+        type.ipv4 = params[:ipv4]
+        type.ipv6 = params[:ipv6]
+        type
+      end
+    end
+
+    module SubnetConfigurationsList
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << SubnetConfiguration.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module SubnetIdStringList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
@@ -27325,7 +28339,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::TargetCapacitySpecificationRequest, context: context)
         type = Types::TargetCapacitySpecificationRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.total_target_capacity = params.fetch(:total_target_capacity, 0)
+        type.total_target_capacity = params[:total_target_capacity]
         type.on_demand_target_capacity = params[:on_demand_target_capacity]
         type.spot_target_capacity = params[:spot_target_capacity]
         type.default_target_capacity_type = params[:default_target_capacity_type]
@@ -28249,6 +29263,7 @@ module AWS::SDK::EC2
         type.propagation_default_route_table_id = params[:propagation_default_route_table_id]
         type.vpn_ecmp_support = params[:vpn_ecmp_support]
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.multicast_support = params[:multicast_support]
         type
       end
@@ -28467,6 +29482,7 @@ module AWS::SDK::EC2
         type.default_route_table_propagation = params[:default_route_table_propagation]
         type.vpn_ecmp_support = params[:vpn_ecmp_support]
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.multicast_support = params[:multicast_support]
         type.transit_gateway_cidr_blocks = TransitGatewayCidrBlockStringList.build(params[:transit_gateway_cidr_blocks], context: "#{context}[:transit_gateway_cidr_blocks]") unless params[:transit_gateway_cidr_blocks].nil?
         type
@@ -28713,6 +29729,7 @@ module AWS::SDK::EC2
         type = Types::TransitGatewayVpcAttachmentOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.dns_support = params[:dns_support]
+        type.security_group_referencing_support = params[:security_group_referencing_support]
         type.ipv6_support = params[:ipv6_support]
         type.appliance_mode_support = params[:appliance_mode_support]
         type
@@ -28863,6 +29880,27 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
         type.nat_gateway_id = params[:nat_gateway_id]
         type.nat_gateway_addresses = NatGatewayAddressList.build(params[:nat_gateway_addresses], context: "#{context}[:nat_gateway_addresses]") unless params[:nat_gateway_addresses].nil?
+        type
+      end
+    end
+
+    module UnlockSnapshotInput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UnlockSnapshotInput, context: context)
+        type = Types::UnlockSnapshotInput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.snapshot_id = params[:snapshot_id]
+        type.dry_run = params[:dry_run]
+        type
+      end
+    end
+
+    module UnlockSnapshotOutput
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::UnlockSnapshotOutput, context: context)
+        type = Types::UnlockSnapshotOutput.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.snapshot_id = params[:snapshot_id]
         type
       end
     end
@@ -29132,7 +30170,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VCpuCountRangeRequest, context: context)
         type = Types::VCpuCountRangeRequest.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.min = params.fetch(:min, 0)
+        type.min = params[:min]
         type.max = params[:max]
         type
       end
@@ -29207,6 +30245,7 @@ module AWS::SDK::EC2
         type.last_updated_time = params[:last_updated_time]
         type.deletion_time = params[:deletion_time]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.sse_specification = VerifiedAccessSseSpecificationResponse.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -29294,6 +30333,7 @@ module AWS::SDK::EC2
         type.last_updated_time = params[:last_updated_time]
         type.deletion_time = params[:deletion_time]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.sse_specification = VerifiedAccessSseSpecificationResponse.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -29331,6 +30371,7 @@ module AWS::SDK::EC2
         type.creation_time = params[:creation_time]
         type.last_updated_time = params[:last_updated_time]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.fips_enabled = params[:fips_enabled]
         type
       end
     end
@@ -29396,7 +30437,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogCloudWatchLogsDestinationOptions, context: context)
         type = Types::VerifiedAccessLogCloudWatchLogsDestinationOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params.fetch(:enabled, false)
+        type.enabled = params[:enabled]
         type.log_group = params[:log_group]
         type
       end
@@ -29430,7 +30471,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogKinesisDataFirehoseDestinationOptions, context: context)
         type = Types::VerifiedAccessLogKinesisDataFirehoseDestinationOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params.fetch(:enabled, false)
+        type.enabled = params[:enabled]
         type.delivery_stream = params[:delivery_stream]
         type
       end
@@ -29469,7 +30510,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessLogS3DestinationOptions, context: context)
         type = Types::VerifiedAccessLogS3DestinationOptions.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.enabled = params.fetch(:enabled, false)
+        type.enabled = params[:enabled]
         type.bucket_name = params[:bucket_name]
         type.prefix = params[:prefix]
         type.bucket_owner = params[:bucket_owner]
@@ -29491,6 +30532,28 @@ module AWS::SDK::EC2
       end
     end
 
+    module VerifiedAccessSseSpecificationRequest
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessSseSpecificationRequest, context: context)
+        type = Types::VerifiedAccessSseSpecificationRequest.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.customer_managed_key_enabled = params[:customer_managed_key_enabled]
+        type.kms_key_arn = params[:kms_key_arn]
+        type
+      end
+    end
+
+    module VerifiedAccessSseSpecificationResponse
+      def self.build(params, context:)
+        Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessSseSpecificationResponse, context: context)
+        type = Types::VerifiedAccessSseSpecificationResponse.new
+        Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
+        type.customer_managed_key_enabled = params[:customer_managed_key_enabled]
+        type.kms_key_arn = params[:kms_key_arn]
+        type
+      end
+    end
+
     module VerifiedAccessTrustProvider
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::VerifiedAccessTrustProvider, context: context)
@@ -29507,6 +30570,7 @@ module AWS::SDK::EC2
         type.creation_time = params[:creation_time]
         type.last_updated_time = params[:last_updated_time]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
+        type.sse_specification = VerifiedAccessSseSpecificationResponse.build(params[:sse_specification], context: "#{context}[:sse_specification]") unless params[:sse_specification].nil?
         type
       end
     end
@@ -29654,6 +30718,8 @@ module AWS::SDK::EC2
         type.state = params[:state]
         type.volume_id = params[:volume_id]
         type.delete_on_termination = params[:delete_on_termination]
+        type.associated_resource = params[:associated_resource]
+        type.instance_owning_service = params[:instance_owning_service]
         type
       end
     end
@@ -29674,7 +30740,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(params, ::Hash, Types::VolumeDetail, context: context)
         type = Types::VolumeDetail.new
         Hearth::Validator.validate_unknown!(type, params, context: context) if params.is_a?(Hash)
-        type.size = params.fetch(:size, 0)
+        type.size = params[:size]
         type
       end
     end

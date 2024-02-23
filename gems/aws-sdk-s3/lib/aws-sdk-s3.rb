@@ -9,6 +9,7 @@
 
 require 'aws-sdk-core'
 
+require_relative 'aws-sdk-s3/auth'
 require_relative 'aws-sdk-s3/builders'
 require_relative 'aws-sdk-s3/client'
 require_relative 'aws-sdk-s3/config'

@@ -12,13 +12,13 @@ module AWS::SDK::DynamoDB
 
     class ListContributorInsights
       # @param [Client] client
-      # @param [Hash] params (see Client#list_contributor_insights)
-      # @param [Hash] options (see Client#list_contributor_insights)
+      # @param (see Client#list_contributor_insights)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_contributor_insights operation.
       # @return [Enumerator]
       def pages
@@ -41,13 +41,13 @@ module AWS::SDK::DynamoDB
 
     class ListExports
       # @param [Client] client
-      # @param [Hash] params (see Client#list_exports)
-      # @param [Hash] options (see Client#list_exports)
+      # @param (see Client#list_exports)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_exports operation.
       # @return [Enumerator]
       def pages
@@ -70,13 +70,13 @@ module AWS::SDK::DynamoDB
 
     class ListImports
       # @param [Client] client
-      # @param [Hash] params (see Client#list_imports)
-      # @param [Hash] options (see Client#list_imports)
+      # @param (see Client#list_imports)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_imports operation.
       # @return [Enumerator]
       def pages
@@ -99,13 +99,13 @@ module AWS::SDK::DynamoDB
 
     class ListTables
       # @param [Client] client
-      # @param [Hash] params (see Client#list_tables)
-      # @param [Hash] options (see Client#list_tables)
+      # @param (see Client#list_tables)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_tables operation.
       # @return [Enumerator]
       def pages
@@ -140,13 +140,13 @@ module AWS::SDK::DynamoDB
 
     class Query
       # @param [Client] client
-      # @param [Hash] params (see Client#query)
-      # @param [Hash] options (see Client#query)
+      # @param (see Client#query)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the query operation.
       # @return [Enumerator]
       def pages
@@ -181,13 +181,13 @@ module AWS::SDK::DynamoDB
 
     class Scan
       # @param [Client] client
-      # @param [Hash] params (see Client#scan)
-      # @param [Hash] options (see Client#scan)
+      # @param (see Client#scan)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the scan operation.
       # @return [Enumerator]
       def pages

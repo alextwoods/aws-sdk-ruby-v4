@@ -65,7 +65,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::ExpiredTokenException]
-      #
       attr_reader :data
     end
 
@@ -78,7 +77,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::IDPCommunicationErrorException]
-      #
       attr_reader :data
     end
 
@@ -91,7 +89,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::IDPRejectedClaimException]
-      #
       attr_reader :data
     end
 
@@ -104,7 +101,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::InvalidAuthorizationMessageException]
-      #
       attr_reader :data
     end
 
@@ -117,7 +113,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::InvalidIdentityTokenException]
-      #
       attr_reader :data
     end
 
@@ -130,7 +125,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::MalformedPolicyDocumentException]
-      #
       attr_reader :data
     end
 
@@ -143,7 +137,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::PackedPolicyTooLargeException]
-      #
       attr_reader :data
     end
 
@@ -156,7 +149,6 @@ module AWS::SDK::STS
       end
 
       # @return [Types::RegionDisabledException]
-      #
       attr_reader :data
     end
 

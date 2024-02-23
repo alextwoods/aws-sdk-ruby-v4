@@ -11,42 +11,42 @@ module AWS::SDK::DynamoDB
   module Paginators
 
     class ListContributorInsights
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
     end
 
     class ListExports
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
     end
 
     class ListImports
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
     end
 
     class ListTables
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
-      def items: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def items: () -> Enumerator[Array[TableName], void]
     end
 
     class Query
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
-      def items: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def items: () -> Enumerator[Array[AWS::SDK::DynamoDB::Types::AttributeMap], void]
     end
 
     class Scan
-      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> untyped
-      def items: () -> untyped
+      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def items: () -> Enumerator[Array[AWS::SDK::DynamoDB::Types::AttributeMap], void]
     end
 
   end

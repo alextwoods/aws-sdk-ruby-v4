@@ -10,35 +10,94 @@
 module AWS::SDK::SSO
   module Types
 
-    AccountInfo: untyped
+    class AccountInfo < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor account_id (): ::String
+      attr_accessor account_name (): ::String
+      attr_accessor email_address (): ::String
+    end
 
-    GetRoleCredentialsInput: untyped
+    class GetRoleCredentialsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_name (): ::String
+      attr_accessor account_id (): ::String
+      attr_accessor access_token (): ::String
+    end
 
-    GetRoleCredentialsOutput: untyped
+    class GetRoleCredentialsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_credentials (): RoleCredentials
+    end
 
-    InvalidRequestException: untyped
+    class InvalidRequestException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    ListAccountRolesInput: untyped
+    class ListAccountRolesInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor next_token (): ::String
+      attr_accessor max_results (): ::Integer
+      attr_accessor access_token (): ::String
+      attr_accessor account_id (): ::String
+    end
 
-    ListAccountRolesOutput: untyped
+    class ListAccountRolesOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor next_token (): ::String
+      attr_accessor role_list (): ::Array[RoleInfo]
+    end
 
-    ListAccountsInput: untyped
+    class ListAccountsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor next_token (): ::String
+      attr_accessor max_results (): ::Integer
+      attr_accessor access_token (): ::String
+    end
 
-    ListAccountsOutput: untyped
+    class ListAccountsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor next_token (): ::String
+      attr_accessor account_list (): ::Array[AccountInfo]
+    end
 
-    LogoutInput: untyped
+    class LogoutInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor access_token (): ::String
+    end
 
-    LogoutOutput: untyped
+    class LogoutOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    ResourceNotFoundException: untyped
+    class ResourceNotFoundException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    RoleCredentials: untyped
+    class RoleCredentials < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor access_key_id (): ::String
+      attr_accessor secret_access_key (): ::String
+      attr_accessor session_token (): ::String
+      attr_accessor expiration (): ::Integer
+    end
 
-    RoleInfo: untyped
+    class RoleInfo < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role_name (): ::String
+      attr_accessor account_id (): ::String
+    end
 
-    TooManyRequestsException: untyped
+    class TooManyRequestsException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
-    UnauthorizedException: untyped
+    class UnauthorizedException < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor message (): ::String
+    end
 
   end
 end

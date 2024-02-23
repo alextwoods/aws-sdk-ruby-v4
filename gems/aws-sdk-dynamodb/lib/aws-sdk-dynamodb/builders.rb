@@ -594,7 +594,16 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
+        data['EnableKinesisStreamingConfiguration'] = EnableKinesisStreamingConfiguration.build(input[:enable_kinesis_streaming_configuration]) unless input[:enable_kinesis_streaming_configuration].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    class EnableKinesisStreamingConfiguration
+      def self.build(input)
+        data = {}
+        data['ApproximateCreationDateTimePrecision'] = input[:approximate_creation_date_time_precision] unless input[:approximate_creation_date_time_precision].nil?
+        data
       end
     end
 
@@ -607,6 +616,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
+        data['EnableKinesisStreamingConfiguration'] = EnableKinesisStreamingConfiguration.build(input[:enable_kinesis_streaming_configuration]) unless input[:enable_kinesis_streaming_configuration].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -680,6 +690,8 @@ module AWS::SDK::DynamoDB
         data['S3SseAlgorithm'] = input[:s3_sse_algorithm] unless input[:s3_sse_algorithm].nil?
         data['S3SseKmsKeyId'] = input[:s3_sse_kms_key_id] unless input[:s3_sse_kms_key_id].nil?
         data['ExportFormat'] = input[:export_format] unless input[:export_format].nil?
+        data['ExportType'] = input[:export_type] unless input[:export_type].nil?
+        data['IncrementalExportSpecification'] = IncrementalExportSpecification.build(input[:incremental_export_specification]) unless input[:incremental_export_specification].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -837,6 +849,16 @@ module AWS::SDK::DynamoDB
         data['InputCompressionType'] = input[:input_compression_type] unless input[:input_compression_type].nil?
         data['TableCreationParameters'] = TableCreationParameters.build(input[:table_creation_parameters]) unless input[:table_creation_parameters].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    class IncrementalExportSpecification
+      def self.build(input)
+        data = {}
+        data['ExportFromTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:export_from_time]).to_i unless input[:export_from_time].nil?
+        data['ExportToTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:export_to_time]).to_i unless input[:export_to_time].nil?
+        data['ExportViewType'] = input[:export_view_type] unless input[:export_view_type].nil?
+        data
       end
     end
 
@@ -1730,6 +1752,28 @@ module AWS::SDK::DynamoDB
         data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
         data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ReturnValuesOnConditionCheckFailure'] = input[:return_values_on_condition_check_failure] unless input[:return_values_on_condition_check_failure].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    class UpdateKinesisStreamingConfiguration
+      def self.build(input)
+        data = {}
+        data['ApproximateCreationDateTimePrecision'] = input[:approximate_creation_date_time_precision] unless input[:approximate_creation_date_time_precision].nil?
+        data
+      end
+    end
+
+    class UpdateKinesisStreamingDestination
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        http_req.append_path('/')
+        http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
+        http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateKinesisStreamingDestination'
+        data = {}
+        data['TableName'] = input[:table_name] unless input[:table_name].nil?
+        data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
+        data['UpdateKinesisStreamingConfiguration'] = UpdateKinesisStreamingConfiguration.build(input[:update_kinesis_streaming_configuration]) unless input[:update_kinesis_streaming_configuration].nil?
         http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end

@@ -70,7 +70,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::ConcurrentModificationException]
-      #
       attr_reader :data
     end
 
@@ -83,7 +82,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::DashboardInvalidInputError]
-      #
       attr_reader :data
     end
 
@@ -96,7 +94,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::DashboardNotFoundError]
-      #
       attr_reader :data
     end
 
@@ -109,7 +106,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::InternalServiceFault]
-      #
       attr_reader :data
     end
 
@@ -122,7 +118,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::InvalidFormatFault]
-      #
       attr_reader :data
     end
 
@@ -135,7 +130,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::InvalidNextToken]
-      #
       attr_reader :data
     end
 
@@ -148,7 +142,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::InvalidParameterCombinationException]
-      #
       attr_reader :data
     end
 
@@ -161,7 +154,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::InvalidParameterValueException]
-      #
       attr_reader :data
     end
 
@@ -174,7 +166,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::LimitExceededException]
-      #
       attr_reader :data
     end
 
@@ -187,7 +178,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::LimitExceededFault]
-      #
       attr_reader :data
     end
 
@@ -200,7 +190,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::MissingRequiredParameterException]
-      #
       attr_reader :data
     end
 
@@ -213,7 +202,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::ResourceNotFound]
-      #
       attr_reader :data
     end
 
@@ -226,7 +214,6 @@ module AWS::SDK::CloudWatch
       end
 
       # @return [Types::ResourceNotFoundException]
-      #
       attr_reader :data
     end
 
