@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [3.0] #, 3.1, 3.2]
+        ruby: [3.0] #, 3.1, 3.2, 3.3]
 
     steps:
       - name: Setup Ruby
@@ -28,25 +28,30 @@ jobs:
       - name: Install gems
         run: bundle install
 
-      - name: Unit tests
-        # TODO - run all when possible
-        run: bundle exec rspec -I gems/aws-sdk-core/lib -I gems/aws-sigv4/lib gems/aws-sdk-core gems/aws-sigv4
+      - name: SigV4 Unit tests
+        run: bundle exec rspec gems/aws-sigv4
+
+      - name: Core Unit tests
+        run: bundle exec rspec gems/aws-sdk-core
+
+      - name: Gem Unit tests
+        run: bundle exec rspec gems/ --exclude-pattern "gems/aws-sdk-core" --exclude-pattern "gems/aws-sigv4"
 
   rubocop:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Ruby 3.1
+      - name: Set up Ruby 3.3
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
+          ruby-version: 3.3
 
       - uses: actions/checkout@v2
 
       - name: Install gems
         run: bundle install
-        working-directory: gems/aws-sdk-core
+        working-directory: gems/
 
       - name: Rubocop
         run: bundle exec rubocop -E -S
-        working-directory: gems/aws-sdk-core
+        working-directory: gems/
