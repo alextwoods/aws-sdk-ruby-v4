@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -14,6 +14,7 @@ require_relative 'aws-sdk-dynamodb/builders'
 require_relative 'aws-sdk-dynamodb/client'
 require_relative 'aws-sdk-dynamodb/config'
 require_relative 'aws-sdk-dynamodb/errors'
+require_relative 'aws-sdk-dynamodb/endpoint'
 require_relative 'aws-sdk-dynamodb/paginators'
 require_relative 'aws-sdk-dynamodb/params'
 require_relative 'aws-sdk-dynamodb/parsers'

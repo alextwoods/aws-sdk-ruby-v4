@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -274,7 +274,7 @@ module AWS::SDK::SSO
 
       def initialize(*)
         super
-        self.expiration ||= 0
+        self.expiration = 0 if self.expiration.nil?
       end
 
       def to_s

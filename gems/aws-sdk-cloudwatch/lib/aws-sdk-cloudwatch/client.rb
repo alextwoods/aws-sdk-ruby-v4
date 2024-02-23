@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -92,15 +92,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteAlarms
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_alarms),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteAlarms,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -123,7 +131,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_alarms,
@@ -208,15 +216,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteAnomalyDetector
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_anomaly_detector),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteAnomalyDetector,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -239,7 +255,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_anomaly_detector,
@@ -286,15 +302,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteDashboards
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_dashboards),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteDashboards,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -317,7 +341,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_dashboards,
@@ -371,15 +395,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -402,7 +434,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_insight_rules,
@@ -445,15 +477,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteMetricStream
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_metric_stream),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteMetricStream,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -476,7 +516,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_metric_stream,
@@ -542,15 +582,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeAlarmHistory
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_alarm_history),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeAlarmHistory,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -573,7 +621,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarm_history,
@@ -704,15 +752,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeAlarms
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_alarms),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeAlarms,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -735,7 +791,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarms,
@@ -843,15 +899,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeAlarmsForMetric
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_alarms_for_metric),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeAlarmsForMetric,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -874,7 +938,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarms_for_metric,
@@ -974,15 +1038,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeAnomalyDetectors
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_anomaly_detectors),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeAnomalyDetectors,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1005,7 +1077,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_anomaly_detectors,
@@ -1059,15 +1131,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1090,7 +1170,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_insight_rules,
@@ -1136,15 +1216,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableAlarmActions
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_alarm_actions),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisableAlarmActions,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1167,7 +1255,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_alarm_actions,
@@ -1219,15 +1307,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisableInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1250,7 +1346,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_insight_rules,
@@ -1295,15 +1391,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableAlarmActions
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_alarm_actions),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::EnableAlarmActions,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1326,7 +1430,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_alarm_actions,
@@ -1377,15 +1481,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::EnableInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1408,7 +1520,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_insight_rules,
@@ -1457,15 +1569,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetDashboard
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_dashboard),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetDashboard,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1488,7 +1608,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_dashboard,
@@ -1599,15 +1719,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetInsightRuleReport
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_insight_rule_report),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetInsightRuleReport,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1630,7 +1758,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_insight_rule_report,
@@ -1767,15 +1895,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetMetricData
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_metric_data),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetMetricData,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1798,7 +1934,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_data,
@@ -1916,15 +2052,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetMetricStatistics
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_metric_statistics),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetMetricStatistics,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1947,7 +2091,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_statistics,
@@ -2013,15 +2157,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetMetricStream
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_metric_stream),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetMetricStream,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2044,7 +2196,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_stream,
@@ -2104,15 +2256,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetMetricWidgetImage
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_metric_widget_image),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetMetricWidgetImage,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2135,7 +2295,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_widget_image,
@@ -2194,15 +2354,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDashboards
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_dashboards),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListDashboards,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2225,7 +2393,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_dashboards,
@@ -2284,15 +2452,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListManagedInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_managed_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListManagedInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2315,7 +2491,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_managed_insight_rules,
@@ -2369,15 +2545,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListMetricStreams
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_metric_streams),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListMetricStreams,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2400,7 +2584,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_metric_streams,
@@ -2477,15 +2661,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListMetrics
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_metrics),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListMetrics,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2508,7 +2700,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_metrics,
@@ -2556,15 +2748,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTagsForResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_tags_for_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListTagsForResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2587,7 +2787,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_tags_for_resource,
@@ -2675,15 +2875,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutAnomalyDetector
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_anomaly_detector),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutAnomalyDetector,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2706,7 +2914,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_anomaly_detector,
@@ -2802,15 +3010,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutCompositeAlarm
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_composite_alarm),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutCompositeAlarm,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2833,7 +3049,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_composite_alarm,
@@ -2894,15 +3110,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutDashboard
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_dashboard),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutDashboard,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -2925,7 +3149,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_dashboard,
@@ -2980,15 +3204,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutInsightRule
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_insight_rule),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutInsightRule,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3011,7 +3243,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_insight_rule,
@@ -3087,15 +3319,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutManagedInsightRules
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_managed_insight_rules),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutManagedInsightRules,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3118,7 +3358,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_managed_insight_rules,
@@ -3262,15 +3502,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutMetricAlarm
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_metric_alarm),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutMetricAlarm,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3293,7 +3541,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_alarm,
@@ -3405,6 +3653,11 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutMetricData
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :put_metric_data),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::HTTP::Middleware::RequestCompression,
         streaming: false,
@@ -3412,14 +3665,17 @@ module AWS::SDK::CloudWatch
         request_min_compression_size_bytes: config.request_min_compression_size_bytes,
         disable_request_compression: config.disable_request_compression
       )
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutMetricData,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
       stack.use(Hearth::Middleware::Retry,
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_metric_data),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3442,7 +3698,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_data,
@@ -3550,15 +3806,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutMetricStream
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_metric_stream),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutMetricStream,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3581,7 +3845,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_stream,
@@ -3642,15 +3906,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::SetAlarmState
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :set_alarm_state),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::SetAlarmState,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3673,7 +3945,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :set_alarm_state,
@@ -3718,15 +3990,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::StartMetricStreams
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :start_metric_streams),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::StartMetricStreams,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3749,7 +4029,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :start_metric_streams,
@@ -3794,15 +4074,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::StopMetricStreams
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :stop_metric_streams),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::StopMetricStreams,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3825,7 +4113,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :stop_metric_streams,
@@ -3884,15 +4172,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :tag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::TagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3915,7 +4211,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :tag_resource,
@@ -3961,15 +4257,23 @@ module AWS::SDK::CloudWatch
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :untag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UntagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -3992,7 +4296,7 @@ module AWS::SDK::CloudWatch
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :untag_resource,

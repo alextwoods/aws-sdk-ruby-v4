@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -3517,7 +3517,7 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.cache_period_in_minutes ||= 0
+        self.cache_period_in_minutes = 0 if self.cache_period_in_minutes.nil?
       end
     end
 
@@ -5223,9 +5223,9 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.error_count ||= 0
-        self.processed_item_count ||= 0
-        self.imported_item_count ||= 0
+        self.error_count = 0 if self.error_count.nil?
+        self.processed_item_count = 0 if self.processed_item_count.nil?
+        self.imported_item_count = 0 if self.imported_item_count.nil?
       end
     end
 
@@ -5828,7 +5828,7 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.max_results ||= 0
+        self.max_results = 0 if self.max_results.nil?
       end
     end
 
@@ -7325,8 +7325,8 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.count ||= 0
-        self.scanned_count ||= 0
+        self.count = 0 if self.count.nil?
+        self.scanned_count = 0 if self.scanned_count.nil?
       end
     end
 
@@ -8768,8 +8768,8 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.count ||= 0
-        self.scanned_count ||= 0
+        self.count = 0 if self.count.nil?
+        self.scanned_count = 0 if self.scanned_count.nil?
       end
     end
 

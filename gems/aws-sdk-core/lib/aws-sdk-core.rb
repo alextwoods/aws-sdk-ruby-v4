@@ -80,6 +80,9 @@ require_relative 'aws-sdk-core/checksums'
 # Middleware
 require_relative 'aws-sdk-core/middleware'
 
+# Endpoint Rules
+require_relative 'aws-sdk-core/endpoint_rules'
+
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core
   GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
