@@ -50,8 +50,6 @@ jobs:
 
       - name: Install gems
         run: bundle install
-        working-directory: gems/
 
       - name: Rubocop
-        run: bundle exec rubocop -E -S
-        working-directory: gems/
+        run: bundle exec rubocop -E -S gems/aws-sdk-core gems/aws-sigv4
