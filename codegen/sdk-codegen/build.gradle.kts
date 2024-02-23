@@ -144,7 +144,12 @@ tasks["build"]
         .dependsOn(tasks["generate-smithy-build"])
         .finalizedBy(tasks["buildSdk"])
 
-// ensure built artifacts are put into the SDK's folders
+
+tasks.register<Delete>("cleanGems") {
+    forEachService { service ->
+        delete("$buildDir/../../../gems/${service.gemName}/")
+    }
+}
 tasks.register<Copy>("copyGeneratedGems") {
     forEachService { service ->
         from("$buildDir/smithyprojections/sdk-codegen/${service.projectionName}/ruby-codegen")
@@ -152,4 +157,5 @@ tasks.register<Copy>("copyGeneratedGems") {
     into("$buildDir/../../../gems/")
 }
 
+tasks["buildSdk"].dependsOn(tasks["cleanGems"])
 tasks["buildSdk"].finalizedBy(tasks["copyGeneratedGems"])
