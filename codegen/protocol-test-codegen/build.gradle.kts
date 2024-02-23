@@ -38,3 +38,7 @@ dependencies {
     implementation(project(":smithy-aws-ruby-codegen"))
     implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
 }
+
+java.sourceSets["main"].java {
+    srcDirs("model", "src/main/smithy")
+}

@@ -9,6 +9,7 @@
 
 require 'aws-sdk-core'
 
+require_relative 'aws-sdk-dynamodb/auth'
 require_relative 'aws-sdk-dynamodb/builders'
 require_relative 'aws-sdk-dynamodb/client'
 require_relative 'aws-sdk-dynamodb/config'

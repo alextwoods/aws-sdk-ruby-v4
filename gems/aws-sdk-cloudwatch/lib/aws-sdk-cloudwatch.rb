@@ -9,6 +9,7 @@
 
 require 'aws-sdk-core'
 
+require_relative 'aws-sdk-cloudwatch/auth'
 require_relative 'aws-sdk-cloudwatch/builders'
 require_relative 'aws-sdk-cloudwatch/client'
 require_relative 'aws-sdk-cloudwatch/config'

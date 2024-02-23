@@ -461,6 +461,20 @@ module AWS::SDK::S3
       end
     end
 
+    # Operation Parser for CreateSession
+    class CreateSession
+      def self.parse(http_resp)
+        data = Types::CreateSessionOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('Credentials') do |node|
+          data.credentials = SessionCredentials.parse(node)
+        end
+        data
+      end
+    end
+
     class DefaultRetention
       def self.parse(xml)
         data = Types::DefaultRetention.new
@@ -887,6 +901,7 @@ module AWS::SDK::S3
     class GetBucketAccelerateConfiguration
       def self.parse(http_resp)
         data = Types::GetBucketAccelerateConfigurationOutput.new
+        data.request_charged = http_resp.headers['x-amz-request-charged']
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -1414,6 +1429,10 @@ module AWS::SDK::S3
     class HeadBucket
       def self.parse(http_resp)
         data = Types::HeadBucketOutput.new
+        data.bucket_location_type = http_resp.headers['x-amz-bucket-location-type']
+        data.bucket_location_name = http_resp.headers['x-amz-bucket-location-name']
+        data.bucket_region = http_resp.headers['x-amz-bucket-region']
+        data.access_point_alias = http_resp.headers['x-amz-access-point-alias'] == 'true' unless http_resp.headers['x-amz-access-point-alias'].nil?
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -1932,10 +1951,29 @@ module AWS::SDK::S3
       end
     end
 
+    # Operation Parser for ListDirectoryBuckets
+    class ListDirectoryBuckets
+      def self.parse(http_resp)
+        data = Types::ListDirectoryBucketsOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('Buckets') do |node|
+          children = node.children('Bucket')
+          data.buckets = Buckets.parse(children)
+        end
+        xml.at('ContinuationToken') do |node|
+          data.continuation_token = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for ListMultipartUploads
     class ListMultipartUploads
       def self.parse(http_resp)
         data = Types::ListMultipartUploadsOutput.new
+        data.request_charged = http_resp.headers['x-amz-request-charged']
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -1983,6 +2021,7 @@ module AWS::SDK::S3
     class ListObjectVersions
       def self.parse(http_resp)
         data = Types::ListObjectVersionsOutput.new
+        data.request_charged = http_resp.headers['x-amz-request-charged']
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -2033,6 +2072,7 @@ module AWS::SDK::S3
     class ListObjects
       def self.parse(http_resp)
         data = Types::ListObjectsOutput.new
+        data.request_charged = http_resp.headers['x-amz-request-charged']
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -2074,6 +2114,7 @@ module AWS::SDK::S3
     class ListObjectsV2
       def self.parse(http_resp)
         data = Types::ListObjectsV2Output.new
+        data.request_charged = http_resp.headers['x-amz-request-charged']
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
@@ -2179,6 +2220,9 @@ module AWS::SDK::S3
         end
         xml.at('TargetPrefix') do |node|
           data.target_prefix = (node.text || '')
+        end
+        xml.at('TargetObjectKeyFormat') do |node|
+          data.target_object_key_format = TargetObjectKeyFormat.parse(node)
         end
         return data
       end
@@ -2430,6 +2474,9 @@ module AWS::SDK::S3
         xml.at('Owner') do |node|
           data.owner = Owner.parse(node)
         end
+        xml.at('RestoreStatus') do |node|
+          data.restore_status = RestoreStatus.parse(node)
+        end
         return data
       end
     end
@@ -2567,6 +2614,9 @@ module AWS::SDK::S3
         xml.at('Owner') do |node|
           data.owner = Owner.parse(node)
         end
+        xml.at('RestoreStatus') do |node|
+          data.restore_status = RestoreStatus.parse(node)
+        end
         return data
       end
     end
@@ -2650,6 +2700,16 @@ module AWS::SDK::S3
         end
         xml.at('ChecksumSHA256') do |node|
           data.checksum_sha256 = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class PartitionedPrefix
+      def self.parse(xml)
+        data = Types::PartitionedPrefix.new
+        xml.at('PartitionDateSource') do |node|
+          data.partition_date_source = (node.text || '')
         end
         return data
       end
@@ -3201,6 +3261,19 @@ module AWS::SDK::S3
       end
     end
 
+    class RestoreStatus
+      def self.parse(xml)
+        data = Types::RestoreStatus.new
+        xml.at('IsRestoreInProgress') do |node|
+          data.is_restore_in_progress = (node.text == 'true')
+        end
+        xml.at('RestoreExpiryDate') do |node|
+          data.restore_expiry_date = Time.parse(node.text) if node.text
+        end
+        return data
+      end
+    end
+
     class RoutingRule
       def self.parse(xml)
         data = Types::RoutingRule.new
@@ -3297,6 +3370,32 @@ module AWS::SDK::S3
       end
     end
 
+    class SessionCredentials
+      def self.parse(xml)
+        data = Types::SessionCredentials.new
+        xml.at('AccessKeyId') do |node|
+          data.access_key_id = (node.text || '')
+        end
+        xml.at('SecretAccessKey') do |node|
+          data.secret_access_key = (node.text || '')
+        end
+        xml.at('SessionToken') do |node|
+          data.session_token = (node.text || '')
+        end
+        xml.at('Expiration') do |node|
+          data.expiration = Time.parse(node.text) if node.text
+        end
+        return data
+      end
+    end
+
+    class SimplePrefix
+      def self.parse(xml)
+        data = Types::SimplePrefix.new
+        return data
+      end
+    end
+
     class SourceSelectionCriteria
       def self.parse(xml)
         data = Types::SourceSelectionCriteria.new
@@ -3386,6 +3485,19 @@ module AWS::SDK::S3
           data << TargetGrant.parse(node)
         end
         data
+      end
+    end
+
+    class TargetObjectKeyFormat
+      def self.parse(xml)
+        data = Types::TargetObjectKeyFormat.new
+        xml.at('SimplePrefix') do |node|
+          data.simple_prefix = SimplePrefix.parse(node)
+        end
+        xml.at('PartitionedPrefix') do |node|
+          data.partitioned_prefix = PartitionedPrefix.parse(node)
+        end
+        return data
       end
     end
 

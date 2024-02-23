@@ -11,291 +11,291 @@ module AWS::SDK::EC2
   module Waiters
 
     class BundleTaskComplete
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ConversionTaskCancelled
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ConversionTaskCompleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ConversionTaskDeleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class CustomerGatewayAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ExportTaskCancelled
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ExportTaskCompleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ImageAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class ImageExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SnapshotImported
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InstanceExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InstanceRunning
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InstanceStopped
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InstanceTerminated
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InstanceStatusOk
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SystemStatusOk
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class InternetGatewayExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class KeyPairExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class NatGatewayAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class NatGatewayDeleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class NetworkInterfaceAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SecurityGroupExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SnapshotCompleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SpotInstanceRequestFulfilled
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class StoreImageTaskComplete
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class SubnetAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VolumeAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VolumeDeleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VolumeInUse
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpcPeeringConnectionDeleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpcPeeringConnectionExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpcAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpcExists
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpnConnectionAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class VpnConnectionDeleted
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
     class PasswordDataAvailable
-      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+      def initialize: (Client, ?::Hash[::Symbol, untyped] options) -> void
 
-      attr_reader tags: untyped
+      attr_reader tags: Array[::String]
 
-      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+      def wait: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> true
     end
 
   end

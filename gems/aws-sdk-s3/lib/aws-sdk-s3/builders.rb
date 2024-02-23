@@ -159,6 +159,15 @@ module AWS::SDK::S3
       end
     end
 
+    class BucketInfo
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('DataRedundancy', input[:data_redundancy].to_s) unless input[:data_redundancy].nil?
+        xml << Hearth::XML::Node.new('Type', input[:type].to_s) unless input[:type].nil?
+        xml
+      end
+    end
+
     class BucketLifecycleConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -403,6 +412,8 @@ module AWS::SDK::S3
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('LocationConstraint', input[:location_constraint].to_s) unless input[:location_constraint].nil?
+        xml << LocationInfo.build('Location', input[:location]) unless input[:location].nil?
+        xml << BucketInfo.build('Bucket', input[:bucket]) unless input[:bucket].nil?
         xml
       end
     end
@@ -457,6 +468,26 @@ module AWS::SDK::S3
         input[:metadata]&.each do |key, value|
           http_req.headers["x-amz-meta-#{key}"] = value unless value.nil? || value.empty?
         end
+      end
+    end
+
+    class CreateSession
+      def self.build(http_req, input:)
+        http_req.http_method = 'GET'
+        CGI.parse('session').each do |k,v|
+          v.each { |q_v| http_req.append_query_param(k, q_v) }
+        end
+        if input[:bucket].to_s.empty?
+          raise ArgumentError, "HTTP label :bucket cannot be empty."
+        end
+        http_req.append_path(format(
+            '/%<Bucket>s',
+            Bucket: Hearth::HTTP.uri_escape(input[:bucket].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_param_list(params)
+        http_req.headers['x-amz-create-session-mode'] = input[:session_mode] unless input[:session_mode].nil? || input[:session_mode].empty?
       end
     end
 
@@ -958,6 +989,7 @@ module AWS::SDK::S3
         params = Hearth::Query::ParamList.new
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
+        http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
       end
     end
 
@@ -1991,8 +2023,25 @@ module AWS::SDK::S3
     class ListBuckets
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        CGI.parse('x-id=ListBuckets').each do |k,v|
+          v.each { |q_v| http_req.append_query_param(k, q_v) }
+        end
         http_req.append_path('/')
         params = Hearth::Query::ParamList.new
+        http_req.append_query_param_list(params)
+      end
+    end
+
+    class ListDirectoryBuckets
+      def self.build(http_req, input:)
+        http_req.http_method = 'GET'
+        CGI.parse('x-id=ListDirectoryBuckets').each do |k,v|
+          v.each { |q_v| http_req.append_query_param(k, q_v) }
+        end
+        http_req.append_path('/')
+        params = Hearth::Query::ParamList.new
+        params['continuation-token'] = input[:continuation_token].to_s unless input[:continuation_token].nil?
+        params['max-directory-buckets'] = input[:max_directory_buckets].to_s unless input[:max_directory_buckets].nil?
         http_req.append_query_param_list(params)
       end
     end
@@ -2020,6 +2069,7 @@ module AWS::SDK::S3
         params['upload-id-marker'] = input[:upload_id_marker].to_s unless input[:upload_id_marker].nil?
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
+        http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
       end
     end
 
@@ -2046,6 +2096,8 @@ module AWS::SDK::S3
         params['version-id-marker'] = input[:version_id_marker].to_s unless input[:version_id_marker].nil?
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
+        http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
+        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
       end
     end
 
@@ -2069,6 +2121,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
+        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
       end
     end
 
@@ -2097,6 +2150,7 @@ module AWS::SDK::S3
         http_req.append_query_param_list(params)
         http_req.headers['x-amz-request-payer'] = input[:request_payer] unless input[:request_payer].nil? || input[:request_payer].empty?
         http_req.headers['x-amz-expected-bucket-owner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil? || input[:expected_bucket_owner].empty?
+        http_req.headers['x-amz-optional-object-attributes'] = input[:optional_object_attributes] unless input[:optional_object_attributes].nil? || input[:optional_object_attributes].empty?
       end
     end
 
@@ -2131,12 +2185,22 @@ module AWS::SDK::S3
       end
     end
 
+    class LocationInfo
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Type', input[:type].to_s) unless input[:type].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
+        xml
+      end
+    end
+
     class LoggingEnabled
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetBucket', input[:target_bucket].to_s) unless input[:target_bucket].nil?
         xml << Hearth::XML::Node.new('TargetGrants', TargetGrants.build('Grant', input[:target_grants])) unless input[:target_grants].nil?
         xml << Hearth::XML::Node.new('TargetPrefix', input[:target_prefix].to_s) unless input[:target_prefix].nil?
+        xml << TargetObjectKeyFormat.build('TargetObjectKeyFormat', input[:target_object_key_format]) unless input[:target_object_key_format].nil?
         xml
       end
     end
@@ -2323,6 +2387,16 @@ module AWS::SDK::S3
       end
     end
 
+    class OptionalObjectAttributesList
+      def self.build(node_name, input)
+        xml = []
+        input.each do |element|
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+        end
+        xml
+      end
+    end
+
     class OutputLocation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -2378,6 +2452,14 @@ module AWS::SDK::S3
     class ParquetInput
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
+        xml
+      end
+    end
+
+    class PartitionedPrefix
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('PartitionDateSource', input[:partition_date_source].to_s) unless input[:partition_date_source].nil?
         xml
       end
     end
@@ -3373,6 +3455,13 @@ module AWS::SDK::S3
       end
     end
 
+    class SimplePrefix
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml
+      end
+    end
+
     class SourceSelectionCriteria
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
@@ -3453,6 +3542,15 @@ module AWS::SDK::S3
         input.each do |element|
           xml << TargetGrant.build(node_name, element) unless element.nil?
         end
+        xml
+      end
+    end
+
+    class TargetObjectKeyFormat
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << SimplePrefix.build('SimplePrefix', input[:simple_prefix]) unless input[:simple_prefix].nil?
+        xml << PartitionedPrefix.build('PartitionedPrefix', input[:partitioned_prefix]) unless input[:partitioned_prefix].nil?
         xml
       end
     end

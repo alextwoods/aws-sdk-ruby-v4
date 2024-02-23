@@ -12,18 +12,14 @@ module AWS::SDK::S3
 
     class BucketExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -51,17 +47,14 @@ module AWS::SDK::S3
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#head_bucket)
-      #
-      # @param [Hash] options
-      #   (see Client#head_bucket)
-      #
-      # @return [Types::HeadBucket]
-      #   (see Client#head_bucket)
-      #
+      # @param (see Client#head_bucket)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -69,18 +62,14 @@ module AWS::SDK::S3
 
     class BucketNotExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -102,17 +91,14 @@ module AWS::SDK::S3
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#head_bucket)
-      #
-      # @param [Hash] options
-      #   (see Client#head_bucket)
-      #
-      # @return [Types::HeadBucket]
-      #   (see Client#head_bucket)
-      #
+      # @param (see Client#head_bucket)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -120,18 +106,14 @@ module AWS::SDK::S3
 
     class ObjectExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -159,17 +141,14 @@ module AWS::SDK::S3
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#head_object)
-      #
-      # @param [Hash] options
-      #   (see Client#head_object)
-      #
-      # @return [Types::HeadObject]
-      #   (see Client#head_object)
-      #
+      # @param (see Client#head_object)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end
@@ -177,18 +156,14 @@ module AWS::SDK::S3
 
     class ObjectNotExists
       # @param [Client] client
-      #
       # @param [Hash] options
-      #
+      #   Waiter options
       # @option options [required, Integer] :max_wait_time
       #   The maximum time in seconds to wait before the waiter gives up.
-      #
       # @option options [Integer] :min_delay (5)
       #   The minimum time in seconds to delay polling attempts.
-      #
       # @option options [Integer] :max_delay (120)
       #   The maximum time in seconds to delay polling attempts.
-      #
       def initialize(client, options = {})
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
@@ -210,17 +185,14 @@ module AWS::SDK::S3
         @tags = []
       end
 
+      # @return [Array<String>]
       attr_reader :tags
 
-      # @param [Hash] params
-      #   (see Client#head_object)
-      #
-      # @param [Hash] options
-      #   (see Client#head_object)
-      #
-      # @return [Types::HeadObject]
-      #   (see Client#head_object)
-      #
+      # @param (see Client#head_object)
+      # @return [true]
+      # @raise [Hearth::Waiters::FailureStateError]
+      # @raise [Hearth::Waiters::MaxWaitTimeExceededError]
+      # @raise [Hearth::Waiters::UnexpectedError]
       def wait(params = {}, options = {})
         @waiter.wait(@client, params, options)
       end

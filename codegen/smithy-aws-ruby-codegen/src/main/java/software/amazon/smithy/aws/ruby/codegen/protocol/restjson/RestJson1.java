@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 import software.amazon.smithy.ruby.codegen.middleware.Middleware;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareBuilder;
 import software.amazon.smithy.ruby.codegen.middleware.MiddlewareStackStep;
-import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 
 public class RestJson1 implements ProtocolGenerator {
     private static final Logger LOGGER = Logger.getLogger(RestJson1.class.getName());

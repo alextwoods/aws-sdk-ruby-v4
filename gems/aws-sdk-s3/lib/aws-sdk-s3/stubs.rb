@@ -288,7 +288,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 409
       end
     end
 
@@ -308,7 +308,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 409
       end
     end
 
@@ -709,6 +709,33 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
         xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
         xml << Hearth::XML::Node.new('UploadId', stub[:upload_id].to_s) unless stub[:upload_id].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
+      end
+    end
+
+    class CreateSession
+      def self.build(params, context:)
+        Params::CreateSessionOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::CreateSessionOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          credentials: SessionCredentials.default(visited),
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+
+        http_resp.headers['Content-Type'] = 'application/xml'
+        xml = Hearth::XML::Node.new('CreateSessionOutput')
+        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml << Stubs::SessionCredentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
         http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
@@ -1436,12 +1463,14 @@ module AWS::SDK::S3
       def self.default(visited = [])
         {
           status: 'status',
+          request_charged: 'request_charged',
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AccelerateConfiguration')
@@ -2374,12 +2403,20 @@ module AWS::SDK::S3
 
       def self.default(visited = [])
         {
+          bucket_location_type: 'bucket_location_type',
+          bucket_location_name: 'bucket_location_name',
+          bucket_region: 'bucket_region',
+          access_point_alias: false,
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-bucket-location-type'] = stub[:bucket_location_type] unless stub[:bucket_location_type].nil? || stub[:bucket_location_type].empty?
+        http_resp.headers['x-amz-bucket-location-name'] = stub[:bucket_location_name] unless stub[:bucket_location_name].nil? || stub[:bucket_location_name].empty?
+        http_resp.headers['x-amz-bucket-region'] = stub[:bucket_region] unless stub[:bucket_region].nil? || stub[:bucket_region].empty?
+        http_resp.headers['x-amz-access-point-alias'] = stub[:access_point_alias].to_s unless stub[:access_point_alias].nil?
       end
     end
 
@@ -2609,7 +2646,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 403
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('InvalidObjectState')
@@ -3112,6 +3149,35 @@ module AWS::SDK::S3
       end
     end
 
+    class ListDirectoryBuckets
+      def self.build(params, context:)
+        Params::ListDirectoryBucketsOutput.build(params, context: context)
+      end
+
+      def self.validate!(output, context:)
+        Validators::ListDirectoryBucketsOutput.validate!(output, context: context)
+      end
+
+      def self.default(visited = [])
+        {
+          buckets: Buckets.default(visited),
+          continuation_token: 'continuation_token',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+
+        http_resp.headers['Content-Type'] = 'application/xml'
+        xml = Hearth::XML::Node.new('ListDirectoryBucketsOutput')
+        xml.attributes['xmlns'] = 'http://s3.amazonaws.com/doc/2006-03-01/'
+        xml << Hearth::XML::Node.new('Buckets', Stubs::Buckets.stub('Bucket', stub[:buckets])) unless stub[:buckets].nil?
+        xml << Hearth::XML::Node.new('ContinuationToken', stub[:continuation_token].to_s) unless stub[:continuation_token].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
+      end
+    end
+
     class ListMultipartUploads
       def self.build(params, context:)
         Params::ListMultipartUploadsOutput.build(params, context: context)
@@ -3135,12 +3201,14 @@ module AWS::SDK::S3
           uploads: MultipartUploadList.default(visited),
           common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
+          request_charged: 'request_charged',
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListMultipartUploadsResult')
@@ -3185,12 +3253,14 @@ module AWS::SDK::S3
           max_keys: 1,
           common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
+          request_charged: 'request_charged',
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListVersionsResult')
@@ -3233,12 +3303,14 @@ module AWS::SDK::S3
           max_keys: 1,
           common_prefixes: CommonPrefixList.default(visited),
           encoding_type: 'encoding_type',
+          request_charged: 'request_charged',
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListBucketResult')
@@ -3280,12 +3352,14 @@ module AWS::SDK::S3
           continuation_token: 'continuation_token',
           next_continuation_token: 'next_continuation_token',
           start_after: 'start_after',
+          request_charged: 'request_charged',
         }
       end
 
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
+        http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListBucketResult')
@@ -3369,6 +3443,7 @@ module AWS::SDK::S3
           target_bucket: 'target_bucket',
           target_grants: TargetGrants.default(visited),
           target_prefix: 'target_prefix',
+          target_object_key_format: TargetObjectKeyFormat.default(visited),
         }
       end
 
@@ -3378,6 +3453,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('TargetBucket', stub[:target_bucket].to_s) unless stub[:target_bucket].nil?
         xml << Hearth::XML::Node.new('TargetGrants', Stubs::TargetGrants.stub('Grant', stub[:target_grants])) unless stub[:target_grants].nil?
         xml << Hearth::XML::Node.new('TargetPrefix', stub[:target_prefix].to_s) unless stub[:target_prefix].nil?
+        xml << Stubs::TargetObjectKeyFormat.stub('TargetObjectKeyFormat', stub[:target_object_key_format]) unless stub[:target_object_key_format].nil?
         xml
       end
     end
@@ -3575,7 +3651,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 404
       end
     end
 
@@ -3595,7 +3671,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 404
       end
     end
 
@@ -3615,7 +3691,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 404
       end
     end
 
@@ -3727,6 +3803,7 @@ module AWS::SDK::S3
           size: 1,
           storage_class: 'storage_class',
           owner: Owner.default(visited),
+          restore_status: RestoreStatus.default(visited),
         }
       end
 
@@ -3740,6 +3817,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('Size', stub[:size].to_s) unless stub[:size].nil?
         xml << Hearth::XML::Node.new('StorageClass', stub[:storage_class].to_s) unless stub[:storage_class].nil?
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml << Stubs::RestoreStatus.stub('RestoreStatus', stub[:restore_status]) unless stub[:restore_status].nil?
         xml
       end
     end
@@ -3760,7 +3838,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 403
       end
     end
 
@@ -3871,7 +3949,7 @@ module AWS::SDK::S3
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.status = 400
+        http_resp.status = 403
       end
     end
 
@@ -3916,6 +3994,7 @@ module AWS::SDK::S3
           is_latest: false,
           last_modified: Time.now,
           owner: Owner.default(visited),
+          restore_status: RestoreStatus.default(visited),
         }
       end
 
@@ -3931,6 +4010,7 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('IsLatest', stub[:is_latest].to_s) unless stub[:is_latest].nil?
         xml << Hearth::XML::Node.new('LastModified', Hearth::TimeHelper.to_date_time(stub[:last_modified])) unless stub[:last_modified].nil?
         xml << Stubs::Owner.stub('Owner', stub[:owner]) unless stub[:owner].nil?
+        xml << Stubs::RestoreStatus.stub('RestoreStatus', stub[:restore_status]) unless stub[:restore_status].nil?
         xml
       end
     end
@@ -4053,6 +4133,23 @@ module AWS::SDK::S3
         xml << Hearth::XML::Node.new('ChecksumCRC32C', stub[:checksum_crc32_c].to_s) unless stub[:checksum_crc32_c].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA1', stub[:checksum_sha1].to_s) unless stub[:checksum_sha1].nil?
         xml << Hearth::XML::Node.new('ChecksumSHA256', stub[:checksum_sha256].to_s) unless stub[:checksum_sha256].nil?
+        xml
+      end
+    end
+
+    class PartitionedPrefix
+      def self.default(visited = [])
+        return nil if visited.include?('PartitionedPrefix')
+        visited = visited + ['PartitionedPrefix']
+        {
+          partition_date_source: 'partition_date_source',
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::PartitionedPrefix.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('PartitionDateSource', stub[:partition_date_source].to_s) unless stub[:partition_date_source].nil?
         xml
       end
     end
@@ -5008,6 +5105,25 @@ module AWS::SDK::S3
       end
     end
 
+    class RestoreStatus
+      def self.default(visited = [])
+        return nil if visited.include?('RestoreStatus')
+        visited = visited + ['RestoreStatus']
+        {
+          is_restore_in_progress: false,
+          restore_expiry_date: Time.now,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::RestoreStatus.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('IsRestoreInProgress', stub[:is_restore_in_progress].to_s) unless stub[:is_restore_in_progress].nil?
+        xml << Hearth::XML::Node.new('RestoreExpiryDate', Hearth::TimeHelper.to_date_time(stub[:restore_expiry_date])) unless stub[:restore_expiry_date].nil?
+        xml
+      end
+    end
+
     class RoutingRule
       def self.default(visited = [])
         return nil if visited.include?('RoutingRule')
@@ -5222,6 +5338,44 @@ module AWS::SDK::S3
       end
     end
 
+    class SessionCredentials
+      def self.default(visited = [])
+        return nil if visited.include?('SessionCredentials')
+        visited = visited + ['SessionCredentials']
+        {
+          access_key_id: 'access_key_id',
+          secret_access_key: 'secret_access_key',
+          session_token: 'session_token',
+          expiration: Time.now,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::SessionCredentials.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('AccessKeyId', stub[:access_key_id].to_s) unless stub[:access_key_id].nil?
+        xml << Hearth::XML::Node.new('SecretAccessKey', stub[:secret_access_key].to_s) unless stub[:secret_access_key].nil?
+        xml << Hearth::XML::Node.new('SessionToken', stub[:session_token].to_s) unless stub[:session_token].nil?
+        xml << Hearth::XML::Node.new('Expiration', Hearth::TimeHelper.to_date_time(stub[:expiration])) unless stub[:expiration].nil?
+        xml
+      end
+    end
+
+    class SimplePrefix
+      def self.default(visited = [])
+        return nil if visited.include?('SimplePrefix')
+        visited = visited + ['SimplePrefix']
+        {
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::SimplePrefix.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml
+      end
+    end
+
     class SourceSelectionCriteria
       def self.default(visited = [])
         return nil if visited.include?('SourceSelectionCriteria')
@@ -5408,6 +5562,25 @@ module AWS::SDK::S3
         stub.each do |element|
           xml << Stubs::TargetGrant.stub(node_name, element) unless element.nil?
         end
+        xml
+      end
+    end
+
+    class TargetObjectKeyFormat
+      def self.default(visited = [])
+        return nil if visited.include?('TargetObjectKeyFormat')
+        visited = visited + ['TargetObjectKeyFormat']
+        {
+          simple_prefix: SimplePrefix.default(visited),
+          partitioned_prefix: PartitionedPrefix.default(visited),
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::TargetObjectKeyFormat.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Stubs::SimplePrefix.stub('SimplePrefix', stub[:simple_prefix]) unless stub[:simple_prefix].nil?
+        xml << Stubs::PartitionedPrefix.stub('PartitionedPrefix', stub[:partitioned_prefix]) unless stub[:partitioned_prefix].nil?
         xml
       end
     end

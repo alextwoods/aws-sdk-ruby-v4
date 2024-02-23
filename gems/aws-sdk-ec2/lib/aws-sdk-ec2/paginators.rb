@@ -12,13 +12,13 @@ module AWS::SDK::EC2
 
     class DescribeAddressesAttribute
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_addresses_attribute)
-      # @param [Hash] options (see Client#describe_addresses_attribute)
+      # @param (see Client#describe_addresses_attribute)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_addresses_attribute operation.
       # @return [Enumerator]
       def pages
@@ -53,13 +53,13 @@ module AWS::SDK::EC2
 
     class DescribeAddressTransfers
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_address_transfers)
-      # @param [Hash] options (see Client#describe_address_transfers)
+      # @param (see Client#describe_address_transfers)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_address_transfers operation.
       # @return [Enumerator]
       def pages
@@ -94,13 +94,13 @@ module AWS::SDK::EC2
 
     class DescribeAwsNetworkPerformanceMetricSubscriptions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_aws_network_performance_metric_subscriptions)
-      # @param [Hash] options (see Client#describe_aws_network_performance_metric_subscriptions)
+      # @param (see Client#describe_aws_network_performance_metric_subscriptions)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_aws_network_performance_metric_subscriptions operation.
       # @return [Enumerator]
       def pages
@@ -135,13 +135,13 @@ module AWS::SDK::EC2
 
     class DescribeByoipCidrs
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_byoip_cidrs)
-      # @param [Hash] options (see Client#describe_byoip_cidrs)
+      # @param (see Client#describe_byoip_cidrs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_byoip_cidrs operation.
       # @return [Enumerator]
       def pages
@@ -174,15 +174,56 @@ module AWS::SDK::EC2
       end
     end
 
-    class DescribeCapacityReservationFleets
+    class DescribeCapacityBlockOfferings
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_capacity_reservation_fleets)
-      # @param [Hash] options (see Client#describe_capacity_reservation_fleets)
+      # @param (see Client#describe_capacity_block_offerings)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
+      # Iterate all response pages of the describe_capacity_block_offerings operation.
+      # @return [Enumerator]
+      def pages
+        params = @params
+        Enumerator.new do |e|
+          @prev_token = params[:next_token]
+          response = @client.describe_capacity_block_offerings(params, @options)
+          e.yield(response)
+          output_token = response.next_token
+
+          until output_token.nil? || @prev_token == output_token
+            params = params.merge(next_token: output_token)
+            response = @client.describe_capacity_block_offerings(params, @options)
+            e.yield(response)
+            output_token = response.next_token
+          end
+        end
+      end
+
+      # Iterate all items from pages in the describe_capacity_block_offerings operation.
+      # @return [Enumerator]
+      def items
+        Enumerator.new do |e|
+          pages.each do |page|
+            page.capacity_block_offerings.each do |item|
+              e.yield(item)
+            end
+          end
+        end
+      end
+    end
+
+    class DescribeCapacityReservationFleets
+      # @param [Client] client
+      # @param (see Client#describe_capacity_reservation_fleets)
+      def initialize(client, params = {}, options = {})
+        @params = params
+        @options = options
+        @client = client
+      end
+
       # Iterate all response pages of the describe_capacity_reservation_fleets operation.
       # @return [Enumerator]
       def pages
@@ -217,13 +258,13 @@ module AWS::SDK::EC2
 
     class DescribeCapacityReservations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_capacity_reservations)
-      # @param [Hash] options (see Client#describe_capacity_reservations)
+      # @param (see Client#describe_capacity_reservations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_capacity_reservations operation.
       # @return [Enumerator]
       def pages
@@ -258,13 +299,13 @@ module AWS::SDK::EC2
 
     class DescribeCarrierGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_carrier_gateways)
-      # @param [Hash] options (see Client#describe_carrier_gateways)
+      # @param (see Client#describe_carrier_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_carrier_gateways operation.
       # @return [Enumerator]
       def pages
@@ -299,13 +340,13 @@ module AWS::SDK::EC2
 
     class DescribeClassicLinkInstances
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_classic_link_instances)
-      # @param [Hash] options (see Client#describe_classic_link_instances)
+      # @param (see Client#describe_classic_link_instances)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_classic_link_instances operation.
       # @return [Enumerator]
       def pages
@@ -340,13 +381,13 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnAuthorizationRules
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_client_vpn_authorization_rules)
-      # @param [Hash] options (see Client#describe_client_vpn_authorization_rules)
+      # @param (see Client#describe_client_vpn_authorization_rules)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_client_vpn_authorization_rules operation.
       # @return [Enumerator]
       def pages
@@ -381,13 +422,13 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnConnections
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_client_vpn_connections)
-      # @param [Hash] options (see Client#describe_client_vpn_connections)
+      # @param (see Client#describe_client_vpn_connections)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_client_vpn_connections operation.
       # @return [Enumerator]
       def pages
@@ -422,13 +463,13 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnEndpoints
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_client_vpn_endpoints)
-      # @param [Hash] options (see Client#describe_client_vpn_endpoints)
+      # @param (see Client#describe_client_vpn_endpoints)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_client_vpn_endpoints operation.
       # @return [Enumerator]
       def pages
@@ -463,13 +504,13 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnRoutes
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_client_vpn_routes)
-      # @param [Hash] options (see Client#describe_client_vpn_routes)
+      # @param (see Client#describe_client_vpn_routes)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_client_vpn_routes operation.
       # @return [Enumerator]
       def pages
@@ -504,13 +545,13 @@ module AWS::SDK::EC2
 
     class DescribeClientVpnTargetNetworks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_client_vpn_target_networks)
-      # @param [Hash] options (see Client#describe_client_vpn_target_networks)
+      # @param (see Client#describe_client_vpn_target_networks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_client_vpn_target_networks operation.
       # @return [Enumerator]
       def pages
@@ -545,13 +586,13 @@ module AWS::SDK::EC2
 
     class DescribeCoipPools
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_coip_pools)
-      # @param [Hash] options (see Client#describe_coip_pools)
+      # @param (see Client#describe_coip_pools)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_coip_pools operation.
       # @return [Enumerator]
       def pages
@@ -586,13 +627,13 @@ module AWS::SDK::EC2
 
     class DescribeDhcpOptions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_dhcp_options)
-      # @param [Hash] options (see Client#describe_dhcp_options)
+      # @param (see Client#describe_dhcp_options)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_dhcp_options operation.
       # @return [Enumerator]
       def pages
@@ -627,13 +668,13 @@ module AWS::SDK::EC2
 
     class DescribeEgressOnlyInternetGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_egress_only_internet_gateways)
-      # @param [Hash] options (see Client#describe_egress_only_internet_gateways)
+      # @param (see Client#describe_egress_only_internet_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_egress_only_internet_gateways operation.
       # @return [Enumerator]
       def pages
@@ -668,13 +709,13 @@ module AWS::SDK::EC2
 
     class DescribeExportImageTasks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_export_image_tasks)
-      # @param [Hash] options (see Client#describe_export_image_tasks)
+      # @param (see Client#describe_export_image_tasks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_export_image_tasks operation.
       # @return [Enumerator]
       def pages
@@ -709,13 +750,13 @@ module AWS::SDK::EC2
 
     class DescribeFastLaunchImages
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_fast_launch_images)
-      # @param [Hash] options (see Client#describe_fast_launch_images)
+      # @param (see Client#describe_fast_launch_images)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_fast_launch_images operation.
       # @return [Enumerator]
       def pages
@@ -750,13 +791,13 @@ module AWS::SDK::EC2
 
     class DescribeFastSnapshotRestores
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_fast_snapshot_restores)
-      # @param [Hash] options (see Client#describe_fast_snapshot_restores)
+      # @param (see Client#describe_fast_snapshot_restores)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_fast_snapshot_restores operation.
       # @return [Enumerator]
       def pages
@@ -791,13 +832,13 @@ module AWS::SDK::EC2
 
     class DescribeFleets
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_fleets)
-      # @param [Hash] options (see Client#describe_fleets)
+      # @param (see Client#describe_fleets)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_fleets operation.
       # @return [Enumerator]
       def pages
@@ -832,13 +873,13 @@ module AWS::SDK::EC2
 
     class DescribeFlowLogs
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_flow_logs)
-      # @param [Hash] options (see Client#describe_flow_logs)
+      # @param (see Client#describe_flow_logs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_flow_logs operation.
       # @return [Enumerator]
       def pages
@@ -873,13 +914,13 @@ module AWS::SDK::EC2
 
     class DescribeFpgaImages
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_fpga_images)
-      # @param [Hash] options (see Client#describe_fpga_images)
+      # @param (see Client#describe_fpga_images)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_fpga_images operation.
       # @return [Enumerator]
       def pages
@@ -914,13 +955,13 @@ module AWS::SDK::EC2
 
     class DescribeHostReservationOfferings
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_host_reservation_offerings)
-      # @param [Hash] options (see Client#describe_host_reservation_offerings)
+      # @param (see Client#describe_host_reservation_offerings)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_host_reservation_offerings operation.
       # @return [Enumerator]
       def pages
@@ -955,13 +996,13 @@ module AWS::SDK::EC2
 
     class DescribeHostReservations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_host_reservations)
-      # @param [Hash] options (see Client#describe_host_reservations)
+      # @param (see Client#describe_host_reservations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_host_reservations operation.
       # @return [Enumerator]
       def pages
@@ -996,13 +1037,13 @@ module AWS::SDK::EC2
 
     class DescribeHosts
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_hosts)
-      # @param [Hash] options (see Client#describe_hosts)
+      # @param (see Client#describe_hosts)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_hosts operation.
       # @return [Enumerator]
       def pages
@@ -1037,13 +1078,13 @@ module AWS::SDK::EC2
 
     class DescribeIamInstanceProfileAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_iam_instance_profile_associations)
-      # @param [Hash] options (see Client#describe_iam_instance_profile_associations)
+      # @param (see Client#describe_iam_instance_profile_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_iam_instance_profile_associations operation.
       # @return [Enumerator]
       def pages
@@ -1078,13 +1119,13 @@ module AWS::SDK::EC2
 
     class DescribeImages
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_images)
-      # @param [Hash] options (see Client#describe_images)
+      # @param (see Client#describe_images)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_images operation.
       # @return [Enumerator]
       def pages
@@ -1119,13 +1160,13 @@ module AWS::SDK::EC2
 
     class DescribeImportImageTasks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_import_image_tasks)
-      # @param [Hash] options (see Client#describe_import_image_tasks)
+      # @param (see Client#describe_import_image_tasks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_import_image_tasks operation.
       # @return [Enumerator]
       def pages
@@ -1160,13 +1201,13 @@ module AWS::SDK::EC2
 
     class DescribeImportSnapshotTasks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_import_snapshot_tasks)
-      # @param [Hash] options (see Client#describe_import_snapshot_tasks)
+      # @param (see Client#describe_import_snapshot_tasks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_import_snapshot_tasks operation.
       # @return [Enumerator]
       def pages
@@ -1201,13 +1242,13 @@ module AWS::SDK::EC2
 
     class DescribeInstanceConnectEndpoints
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_connect_endpoints)
-      # @param [Hash] options (see Client#describe_instance_connect_endpoints)
+      # @param (see Client#describe_instance_connect_endpoints)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instance_connect_endpoints operation.
       # @return [Enumerator]
       def pages
@@ -1242,13 +1283,13 @@ module AWS::SDK::EC2
 
     class DescribeInstanceCreditSpecifications
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_credit_specifications)
-      # @param [Hash] options (see Client#describe_instance_credit_specifications)
+      # @param (see Client#describe_instance_credit_specifications)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instance_credit_specifications operation.
       # @return [Enumerator]
       def pages
@@ -1283,13 +1324,13 @@ module AWS::SDK::EC2
 
     class DescribeInstanceEventWindows
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_event_windows)
-      # @param [Hash] options (see Client#describe_instance_event_windows)
+      # @param (see Client#describe_instance_event_windows)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instance_event_windows operation.
       # @return [Enumerator]
       def pages
@@ -1324,13 +1365,13 @@ module AWS::SDK::EC2
 
     class DescribeInstances
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instances)
-      # @param [Hash] options (see Client#describe_instances)
+      # @param (see Client#describe_instances)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instances operation.
       # @return [Enumerator]
       def pages
@@ -1365,13 +1406,13 @@ module AWS::SDK::EC2
 
     class DescribeInstanceStatus
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_status)
-      # @param [Hash] options (see Client#describe_instance_status)
+      # @param (see Client#describe_instance_status)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instance_status operation.
       # @return [Enumerator]
       def pages
@@ -1404,15 +1445,56 @@ module AWS::SDK::EC2
       end
     end
 
-    class DescribeInstanceTypeOfferings
+    class DescribeInstanceTopology
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_type_offerings)
-      # @param [Hash] options (see Client#describe_instance_type_offerings)
+      # @param (see Client#describe_instance_topology)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
+      # Iterate all response pages of the describe_instance_topology operation.
+      # @return [Enumerator]
+      def pages
+        params = @params
+        Enumerator.new do |e|
+          @prev_token = params[:next_token]
+          response = @client.describe_instance_topology(params, @options)
+          e.yield(response)
+          output_token = response.next_token
+
+          until output_token.nil? || @prev_token == output_token
+            params = params.merge(next_token: output_token)
+            response = @client.describe_instance_topology(params, @options)
+            e.yield(response)
+            output_token = response.next_token
+          end
+        end
+      end
+
+      # Iterate all items from pages in the describe_instance_topology operation.
+      # @return [Enumerator]
+      def items
+        Enumerator.new do |e|
+          pages.each do |page|
+            page.instances.each do |item|
+              e.yield(item)
+            end
+          end
+        end
+      end
+    end
+
+    class DescribeInstanceTypeOfferings
+      # @param [Client] client
+      # @param (see Client#describe_instance_type_offerings)
+      def initialize(client, params = {}, options = {})
+        @params = params
+        @options = options
+        @client = client
+      end
+
       # Iterate all response pages of the describe_instance_type_offerings operation.
       # @return [Enumerator]
       def pages
@@ -1447,13 +1529,13 @@ module AWS::SDK::EC2
 
     class DescribeInstanceTypes
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_instance_types)
-      # @param [Hash] options (see Client#describe_instance_types)
+      # @param (see Client#describe_instance_types)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_instance_types operation.
       # @return [Enumerator]
       def pages
@@ -1488,13 +1570,13 @@ module AWS::SDK::EC2
 
     class DescribeInternetGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_internet_gateways)
-      # @param [Hash] options (see Client#describe_internet_gateways)
+      # @param (see Client#describe_internet_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_internet_gateways operation.
       # @return [Enumerator]
       def pages
@@ -1529,13 +1611,13 @@ module AWS::SDK::EC2
 
     class DescribeIpamPools
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipam_pools)
-      # @param [Hash] options (see Client#describe_ipam_pools)
+      # @param (see Client#describe_ipam_pools)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipam_pools operation.
       # @return [Enumerator]
       def pages
@@ -1570,13 +1652,13 @@ module AWS::SDK::EC2
 
     class DescribeIpamResourceDiscoveries
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipam_resource_discoveries)
-      # @param [Hash] options (see Client#describe_ipam_resource_discoveries)
+      # @param (see Client#describe_ipam_resource_discoveries)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipam_resource_discoveries operation.
       # @return [Enumerator]
       def pages
@@ -1611,13 +1693,13 @@ module AWS::SDK::EC2
 
     class DescribeIpamResourceDiscoveryAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipam_resource_discovery_associations)
-      # @param [Hash] options (see Client#describe_ipam_resource_discovery_associations)
+      # @param (see Client#describe_ipam_resource_discovery_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipam_resource_discovery_associations operation.
       # @return [Enumerator]
       def pages
@@ -1652,13 +1734,13 @@ module AWS::SDK::EC2
 
     class DescribeIpams
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipams)
-      # @param [Hash] options (see Client#describe_ipams)
+      # @param (see Client#describe_ipams)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipams operation.
       # @return [Enumerator]
       def pages
@@ -1693,13 +1775,13 @@ module AWS::SDK::EC2
 
     class DescribeIpamScopes
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipam_scopes)
-      # @param [Hash] options (see Client#describe_ipam_scopes)
+      # @param (see Client#describe_ipam_scopes)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipam_scopes operation.
       # @return [Enumerator]
       def pages
@@ -1734,13 +1816,13 @@ module AWS::SDK::EC2
 
     class DescribeIpv6Pools
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_ipv6_pools)
-      # @param [Hash] options (see Client#describe_ipv6_pools)
+      # @param (see Client#describe_ipv6_pools)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_ipv6_pools operation.
       # @return [Enumerator]
       def pages
@@ -1775,13 +1857,13 @@ module AWS::SDK::EC2
 
     class DescribeLaunchTemplates
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_launch_templates)
-      # @param [Hash] options (see Client#describe_launch_templates)
+      # @param (see Client#describe_launch_templates)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_launch_templates operation.
       # @return [Enumerator]
       def pages
@@ -1816,13 +1898,13 @@ module AWS::SDK::EC2
 
     class DescribeLaunchTemplateVersions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_launch_template_versions)
-      # @param [Hash] options (see Client#describe_launch_template_versions)
+      # @param (see Client#describe_launch_template_versions)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_launch_template_versions operation.
       # @return [Enumerator]
       def pages
@@ -1857,13 +1939,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGatewayRouteTables
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateway_route_tables)
-      # @param [Hash] options (see Client#describe_local_gateway_route_tables)
+      # @param (see Client#describe_local_gateway_route_tables)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateway_route_tables operation.
       # @return [Enumerator]
       def pages
@@ -1898,13 +1980,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateway_route_table_virtual_interface_group_associations)
-      # @param [Hash] options (see Client#describe_local_gateway_route_table_virtual_interface_group_associations)
+      # @param (see Client#describe_local_gateway_route_table_virtual_interface_group_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateway_route_table_virtual_interface_group_associations operation.
       # @return [Enumerator]
       def pages
@@ -1939,13 +2021,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGatewayRouteTableVpcAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateway_route_table_vpc_associations)
-      # @param [Hash] options (see Client#describe_local_gateway_route_table_vpc_associations)
+      # @param (see Client#describe_local_gateway_route_table_vpc_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateway_route_table_vpc_associations operation.
       # @return [Enumerator]
       def pages
@@ -1980,13 +2062,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateways)
-      # @param [Hash] options (see Client#describe_local_gateways)
+      # @param (see Client#describe_local_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateways operation.
       # @return [Enumerator]
       def pages
@@ -2021,13 +2103,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGatewayVirtualInterfaceGroups
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateway_virtual_interface_groups)
-      # @param [Hash] options (see Client#describe_local_gateway_virtual_interface_groups)
+      # @param (see Client#describe_local_gateway_virtual_interface_groups)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateway_virtual_interface_groups operation.
       # @return [Enumerator]
       def pages
@@ -2062,13 +2144,13 @@ module AWS::SDK::EC2
 
     class DescribeLocalGatewayVirtualInterfaces
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_local_gateway_virtual_interfaces)
-      # @param [Hash] options (see Client#describe_local_gateway_virtual_interfaces)
+      # @param (see Client#describe_local_gateway_virtual_interfaces)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_local_gateway_virtual_interfaces operation.
       # @return [Enumerator]
       def pages
@@ -2103,13 +2185,13 @@ module AWS::SDK::EC2
 
     class DescribeManagedPrefixLists
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_managed_prefix_lists)
-      # @param [Hash] options (see Client#describe_managed_prefix_lists)
+      # @param (see Client#describe_managed_prefix_lists)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_managed_prefix_lists operation.
       # @return [Enumerator]
       def pages
@@ -2144,13 +2226,13 @@ module AWS::SDK::EC2
 
     class DescribeMovingAddresses
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_moving_addresses)
-      # @param [Hash] options (see Client#describe_moving_addresses)
+      # @param (see Client#describe_moving_addresses)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_moving_addresses operation.
       # @return [Enumerator]
       def pages
@@ -2185,13 +2267,13 @@ module AWS::SDK::EC2
 
     class DescribeNatGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_nat_gateways)
-      # @param [Hash] options (see Client#describe_nat_gateways)
+      # @param (see Client#describe_nat_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_nat_gateways operation.
       # @return [Enumerator]
       def pages
@@ -2226,13 +2308,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkAcls
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_acls)
-      # @param [Hash] options (see Client#describe_network_acls)
+      # @param (see Client#describe_network_acls)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_acls operation.
       # @return [Enumerator]
       def pages
@@ -2267,13 +2349,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInsightsAccessScopeAnalyses
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_insights_access_scope_analyses)
-      # @param [Hash] options (see Client#describe_network_insights_access_scope_analyses)
+      # @param (see Client#describe_network_insights_access_scope_analyses)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_insights_access_scope_analyses operation.
       # @return [Enumerator]
       def pages
@@ -2308,13 +2390,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInsightsAccessScopes
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_insights_access_scopes)
-      # @param [Hash] options (see Client#describe_network_insights_access_scopes)
+      # @param (see Client#describe_network_insights_access_scopes)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_insights_access_scopes operation.
       # @return [Enumerator]
       def pages
@@ -2349,13 +2431,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInsightsAnalyses
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_insights_analyses)
-      # @param [Hash] options (see Client#describe_network_insights_analyses)
+      # @param (see Client#describe_network_insights_analyses)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_insights_analyses operation.
       # @return [Enumerator]
       def pages
@@ -2390,13 +2472,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInsightsPaths
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_insights_paths)
-      # @param [Hash] options (see Client#describe_network_insights_paths)
+      # @param (see Client#describe_network_insights_paths)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_insights_paths operation.
       # @return [Enumerator]
       def pages
@@ -2431,13 +2513,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInterfacePermissions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_interface_permissions)
-      # @param [Hash] options (see Client#describe_network_interface_permissions)
+      # @param (see Client#describe_network_interface_permissions)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_interface_permissions operation.
       # @return [Enumerator]
       def pages
@@ -2472,13 +2554,13 @@ module AWS::SDK::EC2
 
     class DescribeNetworkInterfaces
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_network_interfaces)
-      # @param [Hash] options (see Client#describe_network_interfaces)
+      # @param (see Client#describe_network_interfaces)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_network_interfaces operation.
       # @return [Enumerator]
       def pages
@@ -2513,13 +2595,13 @@ module AWS::SDK::EC2
 
     class DescribePrefixLists
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_prefix_lists)
-      # @param [Hash] options (see Client#describe_prefix_lists)
+      # @param (see Client#describe_prefix_lists)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_prefix_lists operation.
       # @return [Enumerator]
       def pages
@@ -2554,13 +2636,13 @@ module AWS::SDK::EC2
 
     class DescribePrincipalIdFormat
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_principal_id_format)
-      # @param [Hash] options (see Client#describe_principal_id_format)
+      # @param (see Client#describe_principal_id_format)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_principal_id_format operation.
       # @return [Enumerator]
       def pages
@@ -2595,13 +2677,13 @@ module AWS::SDK::EC2
 
     class DescribePublicIpv4Pools
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_public_ipv4_pools)
-      # @param [Hash] options (see Client#describe_public_ipv4_pools)
+      # @param (see Client#describe_public_ipv4_pools)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_public_ipv4_pools operation.
       # @return [Enumerator]
       def pages
@@ -2636,13 +2718,13 @@ module AWS::SDK::EC2
 
     class DescribeReplaceRootVolumeTasks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_replace_root_volume_tasks)
-      # @param [Hash] options (see Client#describe_replace_root_volume_tasks)
+      # @param (see Client#describe_replace_root_volume_tasks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_replace_root_volume_tasks operation.
       # @return [Enumerator]
       def pages
@@ -2677,13 +2759,13 @@ module AWS::SDK::EC2
 
     class DescribeReservedInstancesModifications
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_reserved_instances_modifications)
-      # @param [Hash] options (see Client#describe_reserved_instances_modifications)
+      # @param (see Client#describe_reserved_instances_modifications)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_reserved_instances_modifications operation.
       # @return [Enumerator]
       def pages
@@ -2718,13 +2800,13 @@ module AWS::SDK::EC2
 
     class DescribeReservedInstancesOfferings
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_reserved_instances_offerings)
-      # @param [Hash] options (see Client#describe_reserved_instances_offerings)
+      # @param (see Client#describe_reserved_instances_offerings)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_reserved_instances_offerings operation.
       # @return [Enumerator]
       def pages
@@ -2759,13 +2841,13 @@ module AWS::SDK::EC2
 
     class DescribeRouteTables
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_route_tables)
-      # @param [Hash] options (see Client#describe_route_tables)
+      # @param (see Client#describe_route_tables)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_route_tables operation.
       # @return [Enumerator]
       def pages
@@ -2800,13 +2882,13 @@ module AWS::SDK::EC2
 
     class DescribeScheduledInstanceAvailability
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_scheduled_instance_availability)
-      # @param [Hash] options (see Client#describe_scheduled_instance_availability)
+      # @param (see Client#describe_scheduled_instance_availability)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_scheduled_instance_availability operation.
       # @return [Enumerator]
       def pages
@@ -2841,13 +2923,13 @@ module AWS::SDK::EC2
 
     class DescribeScheduledInstances
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_scheduled_instances)
-      # @param [Hash] options (see Client#describe_scheduled_instances)
+      # @param (see Client#describe_scheduled_instances)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_scheduled_instances operation.
       # @return [Enumerator]
       def pages
@@ -2882,13 +2964,13 @@ module AWS::SDK::EC2
 
     class DescribeSecurityGroupRules
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_security_group_rules)
-      # @param [Hash] options (see Client#describe_security_group_rules)
+      # @param (see Client#describe_security_group_rules)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_security_group_rules operation.
       # @return [Enumerator]
       def pages
@@ -2923,13 +3005,13 @@ module AWS::SDK::EC2
 
     class DescribeSecurityGroups
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_security_groups)
-      # @param [Hash] options (see Client#describe_security_groups)
+      # @param (see Client#describe_security_groups)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_security_groups operation.
       # @return [Enumerator]
       def pages
@@ -2964,13 +3046,13 @@ module AWS::SDK::EC2
 
     class DescribeSnapshots
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_snapshots)
-      # @param [Hash] options (see Client#describe_snapshots)
+      # @param (see Client#describe_snapshots)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_snapshots operation.
       # @return [Enumerator]
       def pages
@@ -3005,13 +3087,13 @@ module AWS::SDK::EC2
 
     class DescribeSnapshotTierStatus
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_snapshot_tier_status)
-      # @param [Hash] options (see Client#describe_snapshot_tier_status)
+      # @param (see Client#describe_snapshot_tier_status)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_snapshot_tier_status operation.
       # @return [Enumerator]
       def pages
@@ -3046,13 +3128,13 @@ module AWS::SDK::EC2
 
     class DescribeSpotFleetRequests
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_spot_fleet_requests)
-      # @param [Hash] options (see Client#describe_spot_fleet_requests)
+      # @param (see Client#describe_spot_fleet_requests)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_spot_fleet_requests operation.
       # @return [Enumerator]
       def pages
@@ -3087,13 +3169,13 @@ module AWS::SDK::EC2
 
     class DescribeSpotInstanceRequests
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_spot_instance_requests)
-      # @param [Hash] options (see Client#describe_spot_instance_requests)
+      # @param (see Client#describe_spot_instance_requests)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_spot_instance_requests operation.
       # @return [Enumerator]
       def pages
@@ -3128,13 +3210,13 @@ module AWS::SDK::EC2
 
     class DescribeSpotPriceHistory
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_spot_price_history)
-      # @param [Hash] options (see Client#describe_spot_price_history)
+      # @param (see Client#describe_spot_price_history)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_spot_price_history operation.
       # @return [Enumerator]
       def pages
@@ -3169,13 +3251,13 @@ module AWS::SDK::EC2
 
     class DescribeStaleSecurityGroups
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_stale_security_groups)
-      # @param [Hash] options (see Client#describe_stale_security_groups)
+      # @param (see Client#describe_stale_security_groups)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_stale_security_groups operation.
       # @return [Enumerator]
       def pages
@@ -3210,13 +3292,13 @@ module AWS::SDK::EC2
 
     class DescribeStoreImageTasks
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_store_image_tasks)
-      # @param [Hash] options (see Client#describe_store_image_tasks)
+      # @param (see Client#describe_store_image_tasks)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_store_image_tasks operation.
       # @return [Enumerator]
       def pages
@@ -3251,13 +3333,13 @@ module AWS::SDK::EC2
 
     class DescribeSubnets
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_subnets)
-      # @param [Hash] options (see Client#describe_subnets)
+      # @param (see Client#describe_subnets)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_subnets operation.
       # @return [Enumerator]
       def pages
@@ -3292,13 +3374,13 @@ module AWS::SDK::EC2
 
     class DescribeTags
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_tags)
-      # @param [Hash] options (see Client#describe_tags)
+      # @param (see Client#describe_tags)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_tags operation.
       # @return [Enumerator]
       def pages
@@ -3333,13 +3415,13 @@ module AWS::SDK::EC2
 
     class DescribeTrafficMirrorFilters
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_traffic_mirror_filters)
-      # @param [Hash] options (see Client#describe_traffic_mirror_filters)
+      # @param (see Client#describe_traffic_mirror_filters)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_traffic_mirror_filters operation.
       # @return [Enumerator]
       def pages
@@ -3374,13 +3456,13 @@ module AWS::SDK::EC2
 
     class DescribeTrafficMirrorSessions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_traffic_mirror_sessions)
-      # @param [Hash] options (see Client#describe_traffic_mirror_sessions)
+      # @param (see Client#describe_traffic_mirror_sessions)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_traffic_mirror_sessions operation.
       # @return [Enumerator]
       def pages
@@ -3415,13 +3497,13 @@ module AWS::SDK::EC2
 
     class DescribeTrafficMirrorTargets
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_traffic_mirror_targets)
-      # @param [Hash] options (see Client#describe_traffic_mirror_targets)
+      # @param (see Client#describe_traffic_mirror_targets)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_traffic_mirror_targets operation.
       # @return [Enumerator]
       def pages
@@ -3456,13 +3538,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayAttachments
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_attachments)
-      # @param [Hash] options (see Client#describe_transit_gateway_attachments)
+      # @param (see Client#describe_transit_gateway_attachments)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_attachments operation.
       # @return [Enumerator]
       def pages
@@ -3497,13 +3579,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayConnectPeers
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_connect_peers)
-      # @param [Hash] options (see Client#describe_transit_gateway_connect_peers)
+      # @param (see Client#describe_transit_gateway_connect_peers)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_connect_peers operation.
       # @return [Enumerator]
       def pages
@@ -3538,13 +3620,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayConnects
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_connects)
-      # @param [Hash] options (see Client#describe_transit_gateway_connects)
+      # @param (see Client#describe_transit_gateway_connects)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_connects operation.
       # @return [Enumerator]
       def pages
@@ -3579,13 +3661,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayMulticastDomains
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_multicast_domains)
-      # @param [Hash] options (see Client#describe_transit_gateway_multicast_domains)
+      # @param (see Client#describe_transit_gateway_multicast_domains)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_multicast_domains operation.
       # @return [Enumerator]
       def pages
@@ -3620,13 +3702,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayPeeringAttachments
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_peering_attachments)
-      # @param [Hash] options (see Client#describe_transit_gateway_peering_attachments)
+      # @param (see Client#describe_transit_gateway_peering_attachments)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_peering_attachments operation.
       # @return [Enumerator]
       def pages
@@ -3661,13 +3743,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayPolicyTables
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_policy_tables)
-      # @param [Hash] options (see Client#describe_transit_gateway_policy_tables)
+      # @param (see Client#describe_transit_gateway_policy_tables)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_policy_tables operation.
       # @return [Enumerator]
       def pages
@@ -3702,13 +3784,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayRouteTableAnnouncements
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_route_table_announcements)
-      # @param [Hash] options (see Client#describe_transit_gateway_route_table_announcements)
+      # @param (see Client#describe_transit_gateway_route_table_announcements)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_route_table_announcements operation.
       # @return [Enumerator]
       def pages
@@ -3743,13 +3825,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayRouteTables
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_route_tables)
-      # @param [Hash] options (see Client#describe_transit_gateway_route_tables)
+      # @param (see Client#describe_transit_gateway_route_tables)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_route_tables operation.
       # @return [Enumerator]
       def pages
@@ -3784,13 +3866,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGateways
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateways)
-      # @param [Hash] options (see Client#describe_transit_gateways)
+      # @param (see Client#describe_transit_gateways)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateways operation.
       # @return [Enumerator]
       def pages
@@ -3825,13 +3907,13 @@ module AWS::SDK::EC2
 
     class DescribeTransitGatewayVpcAttachments
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_transit_gateway_vpc_attachments)
-      # @param [Hash] options (see Client#describe_transit_gateway_vpc_attachments)
+      # @param (see Client#describe_transit_gateway_vpc_attachments)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_transit_gateway_vpc_attachments operation.
       # @return [Enumerator]
       def pages
@@ -3866,13 +3948,13 @@ module AWS::SDK::EC2
 
     class DescribeTrunkInterfaceAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_trunk_interface_associations)
-      # @param [Hash] options (see Client#describe_trunk_interface_associations)
+      # @param (see Client#describe_trunk_interface_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_trunk_interface_associations operation.
       # @return [Enumerator]
       def pages
@@ -3907,13 +3989,13 @@ module AWS::SDK::EC2
 
     class DescribeVerifiedAccessEndpoints
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_verified_access_endpoints)
-      # @param [Hash] options (see Client#describe_verified_access_endpoints)
+      # @param (see Client#describe_verified_access_endpoints)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_verified_access_endpoints operation.
       # @return [Enumerator]
       def pages
@@ -3948,13 +4030,13 @@ module AWS::SDK::EC2
 
     class DescribeVerifiedAccessGroups
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_verified_access_groups)
-      # @param [Hash] options (see Client#describe_verified_access_groups)
+      # @param (see Client#describe_verified_access_groups)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_verified_access_groups operation.
       # @return [Enumerator]
       def pages
@@ -3989,13 +4071,13 @@ module AWS::SDK::EC2
 
     class DescribeVerifiedAccessInstanceLoggingConfigurations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_verified_access_instance_logging_configurations)
-      # @param [Hash] options (see Client#describe_verified_access_instance_logging_configurations)
+      # @param (see Client#describe_verified_access_instance_logging_configurations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_verified_access_instance_logging_configurations operation.
       # @return [Enumerator]
       def pages
@@ -4030,13 +4112,13 @@ module AWS::SDK::EC2
 
     class DescribeVerifiedAccessInstances
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_verified_access_instances)
-      # @param [Hash] options (see Client#describe_verified_access_instances)
+      # @param (see Client#describe_verified_access_instances)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_verified_access_instances operation.
       # @return [Enumerator]
       def pages
@@ -4071,13 +4153,13 @@ module AWS::SDK::EC2
 
     class DescribeVerifiedAccessTrustProviders
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_verified_access_trust_providers)
-      # @param [Hash] options (see Client#describe_verified_access_trust_providers)
+      # @param (see Client#describe_verified_access_trust_providers)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_verified_access_trust_providers operation.
       # @return [Enumerator]
       def pages
@@ -4112,13 +4194,13 @@ module AWS::SDK::EC2
 
     class DescribeVolumes
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_volumes)
-      # @param [Hash] options (see Client#describe_volumes)
+      # @param (see Client#describe_volumes)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_volumes operation.
       # @return [Enumerator]
       def pages
@@ -4153,13 +4235,13 @@ module AWS::SDK::EC2
 
     class DescribeVolumesModifications
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_volumes_modifications)
-      # @param [Hash] options (see Client#describe_volumes_modifications)
+      # @param (see Client#describe_volumes_modifications)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_volumes_modifications operation.
       # @return [Enumerator]
       def pages
@@ -4194,13 +4276,13 @@ module AWS::SDK::EC2
 
     class DescribeVolumeStatus
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_volume_status)
-      # @param [Hash] options (see Client#describe_volume_status)
+      # @param (see Client#describe_volume_status)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_volume_status operation.
       # @return [Enumerator]
       def pages
@@ -4235,13 +4317,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcClassicLinkDnsSupport
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_classic_link_dns_support)
-      # @param [Hash] options (see Client#describe_vpc_classic_link_dns_support)
+      # @param (see Client#describe_vpc_classic_link_dns_support)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_classic_link_dns_support operation.
       # @return [Enumerator]
       def pages
@@ -4276,13 +4358,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcEndpointConnectionNotifications
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_endpoint_connection_notifications)
-      # @param [Hash] options (see Client#describe_vpc_endpoint_connection_notifications)
+      # @param (see Client#describe_vpc_endpoint_connection_notifications)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_endpoint_connection_notifications operation.
       # @return [Enumerator]
       def pages
@@ -4317,13 +4399,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcEndpointConnections
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_endpoint_connections)
-      # @param [Hash] options (see Client#describe_vpc_endpoint_connections)
+      # @param (see Client#describe_vpc_endpoint_connections)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_endpoint_connections operation.
       # @return [Enumerator]
       def pages
@@ -4358,13 +4440,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcEndpoints
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_endpoints)
-      # @param [Hash] options (see Client#describe_vpc_endpoints)
+      # @param (see Client#describe_vpc_endpoints)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_endpoints operation.
       # @return [Enumerator]
       def pages
@@ -4399,13 +4481,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcEndpointServiceConfigurations
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_endpoint_service_configurations)
-      # @param [Hash] options (see Client#describe_vpc_endpoint_service_configurations)
+      # @param (see Client#describe_vpc_endpoint_service_configurations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_endpoint_service_configurations operation.
       # @return [Enumerator]
       def pages
@@ -4440,13 +4522,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcEndpointServicePermissions
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_endpoint_service_permissions)
-      # @param [Hash] options (see Client#describe_vpc_endpoint_service_permissions)
+      # @param (see Client#describe_vpc_endpoint_service_permissions)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_endpoint_service_permissions operation.
       # @return [Enumerator]
       def pages
@@ -4481,13 +4563,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcPeeringConnections
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpc_peering_connections)
-      # @param [Hash] options (see Client#describe_vpc_peering_connections)
+      # @param (see Client#describe_vpc_peering_connections)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpc_peering_connections operation.
       # @return [Enumerator]
       def pages
@@ -4522,13 +4604,13 @@ module AWS::SDK::EC2
 
     class DescribeVpcs
       # @param [Client] client
-      # @param [Hash] params (see Client#describe_vpcs)
-      # @param [Hash] options (see Client#describe_vpcs)
+      # @param (see Client#describe_vpcs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the describe_vpcs operation.
       # @return [Enumerator]
       def pages
@@ -4563,13 +4645,13 @@ module AWS::SDK::EC2
 
     class GetAssociatedIpv6PoolCidrs
       # @param [Client] client
-      # @param [Hash] params (see Client#get_associated_ipv6_pool_cidrs)
-      # @param [Hash] options (see Client#get_associated_ipv6_pool_cidrs)
+      # @param (see Client#get_associated_ipv6_pool_cidrs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_associated_ipv6_pool_cidrs operation.
       # @return [Enumerator]
       def pages
@@ -4604,13 +4686,13 @@ module AWS::SDK::EC2
 
     class GetAwsNetworkPerformanceData
       # @param [Client] client
-      # @param [Hash] params (see Client#get_aws_network_performance_data)
-      # @param [Hash] options (see Client#get_aws_network_performance_data)
+      # @param (see Client#get_aws_network_performance_data)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_aws_network_performance_data operation.
       # @return [Enumerator]
       def pages
@@ -4645,13 +4727,13 @@ module AWS::SDK::EC2
 
     class GetGroupsForCapacityReservation
       # @param [Client] client
-      # @param [Hash] params (see Client#get_groups_for_capacity_reservation)
-      # @param [Hash] options (see Client#get_groups_for_capacity_reservation)
+      # @param (see Client#get_groups_for_capacity_reservation)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_groups_for_capacity_reservation operation.
       # @return [Enumerator]
       def pages
@@ -4686,13 +4768,13 @@ module AWS::SDK::EC2
 
     class GetInstanceTypesFromInstanceRequirements
       # @param [Client] client
-      # @param [Hash] params (see Client#get_instance_types_from_instance_requirements)
-      # @param [Hash] options (see Client#get_instance_types_from_instance_requirements)
+      # @param (see Client#get_instance_types_from_instance_requirements)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_instance_types_from_instance_requirements operation.
       # @return [Enumerator]
       def pages
@@ -4727,13 +4809,13 @@ module AWS::SDK::EC2
 
     class GetIpamAddressHistory
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_address_history)
-      # @param [Hash] options (see Client#get_ipam_address_history)
+      # @param (see Client#get_ipam_address_history)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_address_history operation.
       # @return [Enumerator]
       def pages
@@ -4768,13 +4850,13 @@ module AWS::SDK::EC2
 
     class GetIpamDiscoveredAccounts
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_discovered_accounts)
-      # @param [Hash] options (see Client#get_ipam_discovered_accounts)
+      # @param (see Client#get_ipam_discovered_accounts)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_discovered_accounts operation.
       # @return [Enumerator]
       def pages
@@ -4809,13 +4891,13 @@ module AWS::SDK::EC2
 
     class GetIpamDiscoveredResourceCidrs
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_discovered_resource_cidrs)
-      # @param [Hash] options (see Client#get_ipam_discovered_resource_cidrs)
+      # @param (see Client#get_ipam_discovered_resource_cidrs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_discovered_resource_cidrs operation.
       # @return [Enumerator]
       def pages
@@ -4850,13 +4932,13 @@ module AWS::SDK::EC2
 
     class GetIpamPoolAllocations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_pool_allocations)
-      # @param [Hash] options (see Client#get_ipam_pool_allocations)
+      # @param (see Client#get_ipam_pool_allocations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_pool_allocations operation.
       # @return [Enumerator]
       def pages
@@ -4891,13 +4973,13 @@ module AWS::SDK::EC2
 
     class GetIpamPoolCidrs
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_pool_cidrs)
-      # @param [Hash] options (see Client#get_ipam_pool_cidrs)
+      # @param (see Client#get_ipam_pool_cidrs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_pool_cidrs operation.
       # @return [Enumerator]
       def pages
@@ -4932,13 +5014,13 @@ module AWS::SDK::EC2
 
     class GetIpamResourceCidrs
       # @param [Client] client
-      # @param [Hash] params (see Client#get_ipam_resource_cidrs)
-      # @param [Hash] options (see Client#get_ipam_resource_cidrs)
+      # @param (see Client#get_ipam_resource_cidrs)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_ipam_resource_cidrs operation.
       # @return [Enumerator]
       def pages
@@ -4973,13 +5055,13 @@ module AWS::SDK::EC2
 
     class GetManagedPrefixListAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_managed_prefix_list_associations)
-      # @param [Hash] options (see Client#get_managed_prefix_list_associations)
+      # @param (see Client#get_managed_prefix_list_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_managed_prefix_list_associations operation.
       # @return [Enumerator]
       def pages
@@ -5014,13 +5096,13 @@ module AWS::SDK::EC2
 
     class GetManagedPrefixListEntries
       # @param [Client] client
-      # @param [Hash] params (see Client#get_managed_prefix_list_entries)
-      # @param [Hash] options (see Client#get_managed_prefix_list_entries)
+      # @param (see Client#get_managed_prefix_list_entries)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_managed_prefix_list_entries operation.
       # @return [Enumerator]
       def pages
@@ -5055,13 +5137,13 @@ module AWS::SDK::EC2
 
     class GetNetworkInsightsAccessScopeAnalysisFindings
       # @param [Client] client
-      # @param [Hash] params (see Client#get_network_insights_access_scope_analysis_findings)
-      # @param [Hash] options (see Client#get_network_insights_access_scope_analysis_findings)
+      # @param (see Client#get_network_insights_access_scope_analysis_findings)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_network_insights_access_scope_analysis_findings operation.
       # @return [Enumerator]
       def pages
@@ -5094,15 +5176,56 @@ module AWS::SDK::EC2
       end
     end
 
-    class GetSpotPlacementScores
+    class GetSecurityGroupsForVpc
       # @param [Client] client
-      # @param [Hash] params (see Client#get_spot_placement_scores)
-      # @param [Hash] options (see Client#get_spot_placement_scores)
+      # @param (see Client#get_security_groups_for_vpc)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
+      # Iterate all response pages of the get_security_groups_for_vpc operation.
+      # @return [Enumerator]
+      def pages
+        params = @params
+        Enumerator.new do |e|
+          @prev_token = params[:next_token]
+          response = @client.get_security_groups_for_vpc(params, @options)
+          e.yield(response)
+          output_token = response.next_token
+
+          until output_token.nil? || @prev_token == output_token
+            params = params.merge(next_token: output_token)
+            response = @client.get_security_groups_for_vpc(params, @options)
+            e.yield(response)
+            output_token = response.next_token
+          end
+        end
+      end
+
+      # Iterate all items from pages in the get_security_groups_for_vpc operation.
+      # @return [Enumerator]
+      def items
+        Enumerator.new do |e|
+          pages.each do |page|
+            page.security_group_for_vpcs.each do |item|
+              e.yield(item)
+            end
+          end
+        end
+      end
+    end
+
+    class GetSpotPlacementScores
+      # @param [Client] client
+      # @param (see Client#get_spot_placement_scores)
+      def initialize(client, params = {}, options = {})
+        @params = params
+        @options = options
+        @client = client
+      end
+
       # Iterate all response pages of the get_spot_placement_scores operation.
       # @return [Enumerator]
       def pages
@@ -5137,13 +5260,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayAttachmentPropagations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_attachment_propagations)
-      # @param [Hash] options (see Client#get_transit_gateway_attachment_propagations)
+      # @param (see Client#get_transit_gateway_attachment_propagations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_attachment_propagations operation.
       # @return [Enumerator]
       def pages
@@ -5178,13 +5301,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayMulticastDomainAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_multicast_domain_associations)
-      # @param [Hash] options (see Client#get_transit_gateway_multicast_domain_associations)
+      # @param (see Client#get_transit_gateway_multicast_domain_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_multicast_domain_associations operation.
       # @return [Enumerator]
       def pages
@@ -5219,13 +5342,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayPolicyTableAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_policy_table_associations)
-      # @param [Hash] options (see Client#get_transit_gateway_policy_table_associations)
+      # @param (see Client#get_transit_gateway_policy_table_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_policy_table_associations operation.
       # @return [Enumerator]
       def pages
@@ -5260,13 +5383,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayPrefixListReferences
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_prefix_list_references)
-      # @param [Hash] options (see Client#get_transit_gateway_prefix_list_references)
+      # @param (see Client#get_transit_gateway_prefix_list_references)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_prefix_list_references operation.
       # @return [Enumerator]
       def pages
@@ -5301,13 +5424,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayRouteTableAssociations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_route_table_associations)
-      # @param [Hash] options (see Client#get_transit_gateway_route_table_associations)
+      # @param (see Client#get_transit_gateway_route_table_associations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_route_table_associations operation.
       # @return [Enumerator]
       def pages
@@ -5342,13 +5465,13 @@ module AWS::SDK::EC2
 
     class GetTransitGatewayRouteTablePropagations
       # @param [Client] client
-      # @param [Hash] params (see Client#get_transit_gateway_route_table_propagations)
-      # @param [Hash] options (see Client#get_transit_gateway_route_table_propagations)
+      # @param (see Client#get_transit_gateway_route_table_propagations)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_transit_gateway_route_table_propagations operation.
       # @return [Enumerator]
       def pages
@@ -5383,13 +5506,13 @@ module AWS::SDK::EC2
 
     class GetVpnConnectionDeviceTypes
       # @param [Client] client
-      # @param [Hash] params (see Client#get_vpn_connection_device_types)
-      # @param [Hash] options (see Client#get_vpn_connection_device_types)
+      # @param (see Client#get_vpn_connection_device_types)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the get_vpn_connection_device_types operation.
       # @return [Enumerator]
       def pages
@@ -5424,13 +5547,13 @@ module AWS::SDK::EC2
 
     class ListImagesInRecycleBin
       # @param [Client] client
-      # @param [Hash] params (see Client#list_images_in_recycle_bin)
-      # @param [Hash] options (see Client#list_images_in_recycle_bin)
+      # @param (see Client#list_images_in_recycle_bin)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_images_in_recycle_bin operation.
       # @return [Enumerator]
       def pages
@@ -5465,13 +5588,13 @@ module AWS::SDK::EC2
 
     class ListSnapshotsInRecycleBin
       # @param [Client] client
-      # @param [Hash] params (see Client#list_snapshots_in_recycle_bin)
-      # @param [Hash] options (see Client#list_snapshots_in_recycle_bin)
+      # @param (see Client#list_snapshots_in_recycle_bin)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_snapshots_in_recycle_bin operation.
       # @return [Enumerator]
       def pages
@@ -5506,13 +5629,13 @@ module AWS::SDK::EC2
 
     class SearchLocalGatewayRoutes
       # @param [Client] client
-      # @param [Hash] params (see Client#search_local_gateway_routes)
-      # @param [Hash] options (see Client#search_local_gateway_routes)
+      # @param (see Client#search_local_gateway_routes)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the search_local_gateway_routes operation.
       # @return [Enumerator]
       def pages
@@ -5547,13 +5670,13 @@ module AWS::SDK::EC2
 
     class SearchTransitGatewayMulticastGroups
       # @param [Client] client
-      # @param [Hash] params (see Client#search_transit_gateway_multicast_groups)
-      # @param [Hash] options (see Client#search_transit_gateway_multicast_groups)
+      # @param (see Client#search_transit_gateway_multicast_groups)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the search_transit_gateway_multicast_groups operation.
       # @return [Enumerator]
       def pages

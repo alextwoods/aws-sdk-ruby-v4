@@ -25,7 +25,7 @@ import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.RubyImportContainer;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
-import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.traits.NoSerializeTrait;
 import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 public class BuilderGenerator extends BuilderGeneratorBase {

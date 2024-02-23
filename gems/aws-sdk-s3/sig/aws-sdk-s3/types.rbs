@@ -10,43 +10,88 @@
 module AWS::SDK::S3
   module Types
 
-    AbortIncompleteMultipartUpload: untyped
+    class AbortIncompleteMultipartUpload < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor days_after_initiation (): ::Integer
+    end
 
-    AbortMultipartUploadInput: untyped
+    class AbortMultipartUploadInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor upload_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    AbortMultipartUploadOutput: untyped
+    class AbortMultipartUploadOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+    end
 
-    AccelerateConfiguration: untyped
+    class AccelerateConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
-    AccessControlPolicy: untyped
+    class AccessControlPolicy < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor grants (): ::Array[Grant]
+      attr_accessor owner (): Owner
+    end
 
-    AccessControlTranslation: untyped
+    class AccessControlTranslation < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor owner (): ::String
+    end
 
-    AnalyticsAndOperator: untyped
+    class AnalyticsAndOperator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tags (): ::Array[Tag]
+    end
 
-    AnalyticsConfiguration: untyped
+    class AnalyticsConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor filter (): AnalyticsFilter
+      attr_accessor storage_class_analysis (): StorageClassAnalysis
+    end
 
-    AnalyticsExportDestination: untyped
+    class AnalyticsExportDestination < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor s3_bucket_destination (): AnalyticsS3BucketDestination
+    end
 
     class AnalyticsFilter < Hearth::Union
       class Prefix < AnalyticsFilter
-        def to_h: () -> { prefix: Hash[Symbol,AnalyticsFilter] }
+        def to_h: () -> { prefix: ::String }
+        def to_s: () -> String
       end
 
       class Tag < AnalyticsFilter
-        def to_h: () -> { tag: Hash[Symbol,AnalyticsFilter] }
+        def to_h: () -> { tag: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class And < AnalyticsFilter
-        def to_h: () -> { and: Hash[Symbol,AnalyticsFilter] }
+        def to_h: () -> { and: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Unknown < AnalyticsFilter
-        def to_h: () -> { unknown: Hash[Symbol,AnalyticsFilter] }
+        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_s: () -> String
       end
     end
 
-    AnalyticsS3BucketDestination: untyped
+    class AnalyticsS3BucketDestination < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor format (): ::String
+      attr_accessor bucket_account_id (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor prefix (): ::String
+    end
 
     module AnalyticsS3ExportFileFormat
       CSV: ::String
@@ -58,7 +103,11 @@ module AWS::SDK::S3
       DEEP_ARCHIVE_ACCESS: ::String
     end
 
-    Bucket: untyped
+    class Bucket < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor creation_date (): ::Time
+    end
 
     module BucketAccelerateStatus
       Enabled: ::String
@@ -66,9 +115,13 @@ module AWS::SDK::S3
       Suspended: ::String
     end
 
-    BucketAlreadyExists: untyped
+    class BucketAlreadyExists < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    BucketAlreadyOwnedByYou: untyped
+    class BucketAlreadyOwnedByYou < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
     module BucketCannedACL
       private: ::String
@@ -80,7 +133,16 @@ module AWS::SDK::S3
       authenticated_read: ::String
     end
 
-    BucketLifecycleConfiguration: untyped
+    class BucketInfo < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor data_redundancy (): ::String
+      attr_accessor type (): ::String
+    end
+
+    class BucketLifecycleConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor rules (): ::Array[LifecycleRule]
+    end
 
     module BucketLocationConstraint
       af_south_1: ::String
@@ -94,6 +156,8 @@ module AWS::SDK::S3
       ap_northeast_3: ::String
 
       ap_south_1: ::String
+
+      ap_south_2: ::String
 
       ap_southeast_1: ::String
 
@@ -114,6 +178,8 @@ module AWS::SDK::S3
       eu_north_1: ::String
 
       eu_south_1: ::String
+
+      eu_south_2: ::String
 
       eu_west_1: ::String
 
@@ -136,7 +202,10 @@ module AWS::SDK::S3
       us_west_2: ::String
     end
 
-    BucketLoggingStatus: untyped
+    class BucketLoggingStatus < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor logging_enabled (): LoggingEnabled
+    end
 
     module BucketLogsPermission
       FULL_CONTROL: ::String
@@ -146,21 +215,58 @@ module AWS::SDK::S3
       WRITE: ::String
     end
 
+    module BucketType
+      Directory: ::String
+    end
+
     module BucketVersioningStatus
       Enabled: ::String
 
       Suspended: ::String
     end
 
-    CORSConfiguration: untyped
+    class CORSConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor cors_rules (): ::Array[CORSRule]
+    end
 
-    CORSRule: untyped
+    class CORSRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor allowed_headers (): ::Array[::String]
+      attr_accessor allowed_methods (): ::Array[::String]
+      attr_accessor allowed_origins (): ::Array[::String]
+      attr_accessor expose_headers (): ::Array[::String]
+      attr_accessor max_age_seconds (): ::Integer
+    end
 
-    CSVInput: untyped
+    class CSVInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor file_header_info (): ::String
+      attr_accessor comments (): ::String
+      attr_accessor quote_escape_character (): ::String
+      attr_accessor record_delimiter (): ::String
+      attr_accessor field_delimiter (): ::String
+      attr_accessor quote_character (): ::String
+      attr_accessor allow_quoted_record_delimiter (): bool
+    end
 
-    CSVOutput: untyped
+    class CSVOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor quote_fields (): ::String
+      attr_accessor quote_escape_character (): ::String
+      attr_accessor record_delimiter (): ::String
+      attr_accessor field_delimiter (): ::String
+      attr_accessor quote_character (): ::String
+    end
 
-    Checksum: untyped
+    class Checksum < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+    end
 
     module ChecksumAlgorithm
       CRC32: ::String
@@ -176,15 +282,60 @@ module AWS::SDK::S3
       ENABLED: ::String
     end
 
-    CommonPrefix: untyped
+    class CommonPrefix < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+    end
 
-    CompleteMultipartUploadInput: untyped
+    class CompleteMultipartUploadInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor multipart_upload (): CompletedMultipartUpload
+      attr_accessor upload_id (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+    end
 
-    CompleteMultipartUploadOutput: untyped
+    class CompleteMultipartUploadOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor location (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor expiration (): ::String
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+    end
 
-    CompletedMultipartUpload: untyped
+    class CompletedMultipartUpload < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor parts (): ::Array[CompletedPart]
+    end
 
-    CompletedPart: untyped
+    class CompletedPart < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor part_number (): ::Integer
+    end
 
     module CompressionType
       NONE: ::String
@@ -194,87 +345,347 @@ module AWS::SDK::S3
       BZIP2: ::String
     end
 
-    Condition: untyped
+    class Condition < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor http_error_code_returned_equals (): ::String
+      attr_accessor key_prefix_equals (): ::String
+    end
 
-    ContinuationEvent: untyped
+    class ContinuationEvent < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    CopyObjectInput: untyped
+    class CopyObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor copy_source (): ::String
+      attr_accessor copy_source_if_match (): ::String
+      attr_accessor copy_source_if_modified_since (): ::Time
+      attr_accessor copy_source_if_none_match (): ::String
+      attr_accessor copy_source_if_unmodified_since (): ::Time
+      attr_accessor expires (): ::Time
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor key (): ::String
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor metadata_directive (): ::String
+      attr_accessor tagging_directive (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor storage_class (): ::String
+      attr_accessor website_redirect_location (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor copy_source_sse_customer_algorithm (): ::String
+      attr_accessor copy_source_sse_customer_key (): ::String
+      attr_accessor copy_source_sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor tagging (): ::String
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor object_lock_legal_hold_status (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor expected_source_bucket_owner (): ::String
+    end
 
-    CopyObjectOutput: untyped
+    class CopyObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor copy_object_result (): CopyObjectResult
+      attr_accessor expiration (): ::String
+      attr_accessor copy_source_version_id (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+    end
 
-    CopyObjectResult: untyped
+    class CopyObjectResult < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor e_tag (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+    end
 
-    CopyPartResult: untyped
+    class CopyPartResult < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor e_tag (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+    end
 
-    CreateBucketConfiguration: untyped
+    class CreateBucketConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor location_constraint (): ::String
+      attr_accessor location (): LocationInfo
+      attr_accessor bucket (): BucketInfo
+    end
 
-    CreateBucketInput: untyped
+    class CreateBucketInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor create_bucket_configuration (): CreateBucketConfiguration
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor object_lock_enabled_for_bucket (): bool
+      attr_accessor object_ownership (): ::String
+    end
 
-    CreateBucketOutput: untyped
+    class CreateBucketOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor location (): ::String
+    end
 
-    CreateMultipartUploadInput: untyped
+    class CreateMultipartUploadInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor expires (): ::Time
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor key (): ::String
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor storage_class (): ::String
+      attr_accessor website_redirect_location (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_payer (): ::String
+      attr_accessor tagging (): ::String
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor object_lock_legal_hold_status (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor checksum_algorithm (): ::String
+    end
 
-    CreateMultipartUploadOutput: untyped
+    class CreateMultipartUploadOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor abort_date (): ::Time
+      attr_accessor abort_rule_id (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor upload_id (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+      attr_accessor checksum_algorithm (): ::String
+    end
 
-    DefaultRetention: untyped
+    class CreateSessionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor session_mode (): ::String
+      attr_accessor bucket (): ::String
+    end
 
-    Delete: untyped
+    class CreateSessionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor credentials (): SessionCredentials
+    end
 
-    DeleteBucketAnalyticsConfigurationInput: untyped
+    module DataRedundancy
+      SingleAvailabilityZone: ::String
+    end
 
-    DeleteBucketAnalyticsConfigurationOutput: untyped
+    class DefaultRetention < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor mode (): ::String
+      attr_accessor days (): ::Integer
+      attr_accessor years (): ::Integer
+    end
 
-    DeleteBucketCorsInput: untyped
+    class Delete < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor objects (): ::Array[ObjectIdentifier]
+      attr_accessor quiet (): bool
+    end
 
-    DeleteBucketCorsOutput: untyped
+    class DeleteBucketAnalyticsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketEncryptionInput: untyped
+    class DeleteBucketAnalyticsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketEncryptionOutput: untyped
+    class DeleteBucketCorsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketInput: untyped
+    class DeleteBucketCorsOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketIntelligentTieringConfigurationInput: untyped
+    class DeleteBucketEncryptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketIntelligentTieringConfigurationOutput: untyped
+    class DeleteBucketEncryptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketInventoryConfigurationInput: untyped
+    class DeleteBucketInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketInventoryConfigurationOutput: untyped
+    class DeleteBucketIntelligentTieringConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+    end
 
-    DeleteBucketLifecycleInput: untyped
+    class DeleteBucketIntelligentTieringConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketLifecycleOutput: untyped
+    class DeleteBucketInventoryConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketMetricsConfigurationInput: untyped
+    class DeleteBucketInventoryConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketMetricsConfigurationOutput: untyped
+    class DeleteBucketLifecycleInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketOutput: untyped
+    class DeleteBucketLifecycleOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketOwnershipControlsInput: untyped
+    class DeleteBucketMetricsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketOwnershipControlsOutput: untyped
+    class DeleteBucketMetricsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketPolicyInput: untyped
+    class DeleteBucketOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketPolicyOutput: untyped
+    class DeleteBucketOwnershipControlsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketReplicationInput: untyped
+    class DeleteBucketOwnershipControlsOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketReplicationOutput: untyped
+    class DeleteBucketPolicyInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketTaggingInput: untyped
+    class DeleteBucketPolicyOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketTaggingOutput: untyped
+    class DeleteBucketReplicationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteBucketWebsiteInput: untyped
+    class DeleteBucketReplicationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteBucketWebsiteOutput: untyped
+    class DeleteBucketTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteMarkerEntry: untyped
+    class DeleteBucketTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeleteMarkerReplication: untyped
+    class DeleteBucketWebsiteInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class DeleteBucketWebsiteOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
+
+    class DeleteMarkerEntry < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor owner (): Owner
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor is_latest (): bool
+      attr_accessor last_modified (): ::Time
+    end
+
+    class DeleteMarkerReplication < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
     module DeleteMarkerReplicationStatus
       Enabled: ::String
@@ -282,39 +693,116 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    DeleteObjectInput: untyped
+    class DeleteObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor mfa (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor bypass_governance_retention (): bool
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteObjectOutput: untyped
+    class DeleteObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor delete_marker (): bool
+      attr_accessor version_id (): ::String
+      attr_accessor request_charged (): ::String
+    end
 
-    DeleteObjectTaggingInput: untyped
+    class DeleteObjectTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeleteObjectTaggingOutput: untyped
+    class DeleteObjectTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor version_id (): ::String
+    end
 
-    DeleteObjectsInput: untyped
+    class DeleteObjectsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor delete (): Delete
+      attr_accessor mfa (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor bypass_governance_retention (): bool
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor checksum_algorithm (): ::String
+    end
 
-    DeleteObjectsOutput: untyped
+    class DeleteObjectsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor deleted (): ::Array[DeletedObject]
+      attr_accessor request_charged (): ::String
+      attr_accessor errors (): ::Array[Error]
+    end
 
-    DeletePublicAccessBlockInput: untyped
+    class DeletePublicAccessBlockInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    DeletePublicAccessBlockOutput: untyped
+    class DeletePublicAccessBlockOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    DeletedObject: untyped
+    class DeletedObject < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor delete_marker (): bool
+      attr_accessor delete_marker_version_id (): ::String
+    end
 
-    Destination: untyped
+    class Destination < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor account (): ::String
+      attr_accessor storage_class (): ::String
+      attr_accessor access_control_translation (): AccessControlTranslation
+      attr_accessor encryption_configuration (): EncryptionConfiguration
+      attr_accessor replication_time (): ReplicationTime
+      attr_accessor metrics (): Metrics
+    end
 
     module EncodingType
       url: ::String
     end
 
-    Encryption: untyped
+    class Encryption < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor encryption_type (): ::String
+      attr_accessor kms_key_id (): ::String
+      attr_accessor kms_context (): ::String
+    end
 
-    EncryptionConfiguration: untyped
+    class EncryptionConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor replica_kms_key_id (): ::String
+    end
 
-    EndEvent: untyped
+    class EndEvent < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    Error: untyped
+    class Error < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor code (): ::String
+      attr_accessor message (): ::String
+    end
 
-    ErrorDocument: untyped
+    class ErrorDocument < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+    end
 
     module Event
       s3_ReducedRedundancyLostObject: ::String
@@ -372,9 +860,14 @@ module AWS::SDK::S3
       s3_ObjectTagging_Delete: ::String
     end
 
-    EventBridgeConfiguration: untyped
+    class EventBridgeConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    ExistingObjectReplication: untyped
+    class ExistingObjectReplication < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
     module ExistingObjectReplicationStatus
       Enabled: ::String
@@ -400,7 +893,11 @@ module AWS::SDK::S3
       NONE: ::String
     end
 
-    FilterRule: untyped
+    class FilterRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor value (): ::String
+    end
 
     module FilterRuleName
       prefix: ::String
@@ -408,143 +905,546 @@ module AWS::SDK::S3
       suffix: ::String
     end
 
-    GetBucketAccelerateConfigurationInput: untyped
-
-    GetBucketAccelerateConfigurationOutput: untyped
-
-    GetBucketAclInput: untyped
-
-    GetBucketAclOutput: untyped
-
-    GetBucketAnalyticsConfigurationInput: untyped
-
-    GetBucketAnalyticsConfigurationOutput: untyped
-
-    GetBucketCorsInput: untyped
-
-    GetBucketCorsOutput: untyped
-
-    GetBucketEncryptionInput: untyped
-
-    GetBucketEncryptionOutput: untyped
-
-    GetBucketIntelligentTieringConfigurationInput: untyped
-
-    GetBucketIntelligentTieringConfigurationOutput: untyped
-
-    GetBucketInventoryConfigurationInput: untyped
-
-    GetBucketInventoryConfigurationOutput: untyped
-
-    GetBucketLifecycleConfigurationInput: untyped
-
-    GetBucketLifecycleConfigurationOutput: untyped
-
-    GetBucketLocationInput: untyped
-
-    GetBucketLocationOutput: untyped
-
-    GetBucketLoggingInput: untyped
-
-    GetBucketLoggingOutput: untyped
-
-    GetBucketMetricsConfigurationInput: untyped
-
-    GetBucketMetricsConfigurationOutput: untyped
-
-    GetBucketNotificationConfigurationInput: untyped
-
-    GetBucketNotificationConfigurationOutput: untyped
-
-    GetBucketOwnershipControlsInput: untyped
-
-    GetBucketOwnershipControlsOutput: untyped
-
-    GetBucketPolicyInput: untyped
-
-    GetBucketPolicyOutput: untyped
-
-    GetBucketPolicyStatusInput: untyped
-
-    GetBucketPolicyStatusOutput: untyped
-
-    GetBucketReplicationInput: untyped
-
-    GetBucketReplicationOutput: untyped
-
-    GetBucketRequestPaymentInput: untyped
-
-    GetBucketRequestPaymentOutput: untyped
-
-    GetBucketTaggingInput: untyped
-
-    GetBucketTaggingOutput: untyped
-
-    GetBucketVersioningInput: untyped
-
-    GetBucketVersioningOutput: untyped
-
-    GetBucketWebsiteInput: untyped
-
-    GetBucketWebsiteOutput: untyped
-
-    GetObjectAclInput: untyped
-
-    GetObjectAclOutput: untyped
-
-    GetObjectAttributesInput: untyped
-
-    GetObjectAttributesOutput: untyped
-
-    GetObjectAttributesParts: untyped
-
-    GetObjectInput: untyped
-
-    GetObjectLegalHoldInput: untyped
-
-    GetObjectLegalHoldOutput: untyped
-
-    GetObjectLockConfigurationInput: untyped
-
-    GetObjectLockConfigurationOutput: untyped
-
-    GetObjectOutput: untyped
-
-    GetObjectRetentionInput: untyped
-
-    GetObjectRetentionOutput: untyped
-
-    GetObjectTaggingInput: untyped
-
-    GetObjectTaggingOutput: untyped
-
-    GetObjectTorrentInput: untyped
-
-    GetObjectTorrentOutput: untyped
-
-    GetPublicAccessBlockInput: untyped
-
-    GetPublicAccessBlockOutput: untyped
-
-    GlacierJobParameters: untyped
-
-    Grant: untyped
-
-    Grantee: untyped
-
-    HeadBucketInput: untyped
-
-    HeadBucketOutput: untyped
-
-    HeadObjectInput: untyped
-
-    HeadObjectOutput: untyped
-
-    IndexDocument: untyped
-
-    Initiator: untyped
-
-    InputSerialization: untyped
+    class GetBucketAccelerateConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor request_payer (): ::String
+    end
+
+    class GetBucketAccelerateConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+      attr_accessor request_charged (): ::String
+    end
+
+    class GetBucketAclInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketAclOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor owner (): Owner
+      attr_accessor grants (): ::Array[Grant]
+    end
+
+    class GetBucketAnalyticsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketAnalyticsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor analytics_configuration (): AnalyticsConfiguration
+    end
+
+    class GetBucketCorsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketCorsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor cors_rules (): ::Array[CORSRule]
+    end
+
+    class GetBucketEncryptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketEncryptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor server_side_encryption_configuration (): ServerSideEncryptionConfiguration
+    end
+
+    class GetBucketIntelligentTieringConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+    end
+
+    class GetBucketIntelligentTieringConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor intelligent_tiering_configuration (): IntelligentTieringConfiguration
+    end
+
+    class GetBucketInventoryConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketInventoryConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor inventory_configuration (): InventoryConfiguration
+    end
+
+    class GetBucketLifecycleConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketLifecycleConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor rules (): ::Array[LifecycleRule]
+    end
+
+    class GetBucketLocationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketLocationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor location_constraint (): ::String
+    end
+
+    class GetBucketLoggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketLoggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor logging_enabled (): LoggingEnabled
+    end
+
+    class GetBucketMetricsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketMetricsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor metrics_configuration (): MetricsConfiguration
+    end
+
+    class GetBucketNotificationConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketNotificationConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor topic_configurations (): ::Array[TopicConfiguration]
+      attr_accessor queue_configurations (): ::Array[QueueConfiguration]
+      attr_accessor lambda_function_configurations (): ::Array[LambdaFunctionConfiguration]
+      attr_accessor event_bridge_configuration (): EventBridgeConfiguration
+    end
+
+    class GetBucketOwnershipControlsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketOwnershipControlsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor ownership_controls (): OwnershipControls
+    end
+
+    class GetBucketPolicyInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketPolicyOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor policy (): ::String
+    end
+
+    class GetBucketPolicyStatusInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketPolicyStatusOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor policy_status (): PolicyStatus
+    end
+
+    class GetBucketReplicationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketReplicationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor replication_configuration (): ReplicationConfiguration
+    end
+
+    class GetBucketRequestPaymentInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketRequestPaymentOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor payer (): ::String
+    end
+
+    class GetBucketTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor tag_set (): ::Array[Tag]
+    end
+
+    class GetBucketVersioningInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketVersioningOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+      attr_accessor mfa_delete (): ::String
+    end
+
+    class GetBucketWebsiteInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetBucketWebsiteOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor redirect_all_requests_to (): RedirectAllRequestsTo
+      attr_accessor index_document (): IndexDocument
+      attr_accessor error_document (): ErrorDocument
+      attr_accessor routing_rules (): ::Array[RoutingRule]
+    end
+
+    class GetObjectAclInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetObjectAclOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor owner (): Owner
+      attr_accessor grants (): ::Array[Grant]
+      attr_accessor request_charged (): ::String
+    end
+
+    class GetObjectAttributesInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor max_parts (): ::Integer
+      attr_accessor part_number_marker (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor object_attributes (): ::Array[::String]
+    end
+
+    class GetObjectAttributesOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor delete_marker (): bool
+      attr_accessor last_modified (): ::Time
+      attr_accessor version_id (): ::String
+      attr_accessor request_charged (): ::String
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum (): Checksum
+      attr_accessor object_parts (): GetObjectAttributesParts
+      attr_accessor storage_class (): ::String
+      attr_accessor object_size (): ::Integer
+    end
+
+    class GetObjectAttributesParts < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor total_parts_count (): ::Integer
+      attr_accessor part_number_marker (): ::String
+      attr_accessor next_part_number_marker (): ::String
+      attr_accessor max_parts (): ::Integer
+      attr_accessor is_truncated (): bool
+      attr_accessor parts (): ::Array[ObjectPart]
+    end
+
+    class GetObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor if_match (): ::String
+      attr_accessor if_modified_since (): ::Time
+      attr_accessor if_none_match (): ::String
+      attr_accessor if_unmodified_since (): ::Time
+      attr_accessor key (): ::String
+      attr_accessor range (): ::String
+      attr_accessor response_cache_control (): ::String
+      attr_accessor response_content_disposition (): ::String
+      attr_accessor response_content_encoding (): ::String
+      attr_accessor response_content_language (): ::String
+      attr_accessor response_content_type (): ::String
+      attr_accessor response_expires (): ::Time
+      attr_accessor version_id (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor part_number (): ::Integer
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor checksum_mode (): ::String
+    end
+
+    class GetObjectLegalHoldInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetObjectLegalHoldOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor legal_hold (): ObjectLockLegalHold
+    end
+
+    class GetObjectLockConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetObjectLockConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor object_lock_configuration (): ObjectLockConfiguration
+    end
+
+    class GetObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor body (): ::String
+      attr_accessor delete_marker (): bool
+      attr_accessor accept_ranges (): ::String
+      attr_accessor expiration (): ::String
+      attr_accessor restore (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor content_length (): ::Integer
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor missing_meta (): ::Integer
+      attr_accessor version_id (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_range (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor expires (): ::Time
+      attr_accessor website_redirect_location (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor storage_class (): ::String
+      attr_accessor request_charged (): ::String
+      attr_accessor replication_status (): ::String
+      attr_accessor parts_count (): ::Integer
+      attr_accessor tag_count (): ::Integer
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor object_lock_legal_hold_status (): ::String
+    end
+
+    class GetObjectRetentionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetObjectRetentionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor retention (): ObjectLockRetention
+    end
+
+    class GetObjectTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor request_payer (): ::String
+    end
+
+    class GetObjectTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor version_id (): ::String
+      attr_accessor tag_set (): ::Array[Tag]
+    end
+
+    class GetObjectTorrentInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetObjectTorrentOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor body (): ::String
+      attr_accessor request_charged (): ::String
+    end
+
+    class GetPublicAccessBlockInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class GetPublicAccessBlockOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor public_access_block_configuration (): PublicAccessBlockConfiguration
+    end
+
+    class GlacierJobParameters < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor tier (): ::String
+    end
+
+    class Grant < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor grantee (): Grantee
+      attr_accessor permission (): ::String
+    end
+
+    class Grantee < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor display_name (): ::String
+      attr_accessor email_address (): ::String
+      attr_accessor id (): ::String
+      attr_accessor uri (): ::String
+      attr_accessor type (): ::String
+    end
+
+    class HeadBucketInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
+
+    class HeadBucketOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket_location_type (): ::String
+      attr_accessor bucket_location_name (): ::String
+      attr_accessor bucket_region (): ::String
+      attr_accessor access_point_alias (): bool
+    end
+
+    class HeadObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor if_match (): ::String
+      attr_accessor if_modified_since (): ::Time
+      attr_accessor if_none_match (): ::String
+      attr_accessor if_unmodified_since (): ::Time
+      attr_accessor key (): ::String
+      attr_accessor range (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor part_number (): ::Integer
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor checksum_mode (): ::String
+    end
+
+    class HeadObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor delete_marker (): bool
+      attr_accessor accept_ranges (): ::String
+      attr_accessor expiration (): ::String
+      attr_accessor restore (): ::String
+      attr_accessor archive_status (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor content_length (): ::Integer
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor e_tag (): ::String
+      attr_accessor missing_meta (): ::Integer
+      attr_accessor version_id (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor expires (): ::Time
+      attr_accessor website_redirect_location (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor storage_class (): ::String
+      attr_accessor request_charged (): ::String
+      attr_accessor replication_status (): ::String
+      attr_accessor parts_count (): ::Integer
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor object_lock_legal_hold_status (): ::String
+    end
+
+    class IndexDocument < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor suffix (): ::String
+    end
+
+    class Initiator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor display_name (): ::String
+    end
+
+    class InputSerialization < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor csv (): CSVInput
+      attr_accessor compression_type (): ::String
+      attr_accessor json (): JSONInput
+      attr_accessor parquet (): ParquetInput
+    end
 
     module IntelligentTieringAccessTier
       ARCHIVE_ACCESS: ::String
@@ -552,11 +1452,26 @@ module AWS::SDK::S3
       DEEP_ARCHIVE_ACCESS: ::String
     end
 
-    IntelligentTieringAndOperator: untyped
+    class IntelligentTieringAndOperator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tags (): ::Array[Tag]
+    end
 
-    IntelligentTieringConfiguration: untyped
+    class IntelligentTieringConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor filter (): IntelligentTieringFilter
+      attr_accessor status (): ::String
+      attr_accessor tierings (): ::Array[Tiering]
+    end
 
-    IntelligentTieringFilter: untyped
+    class IntelligentTieringFilter < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tag (): Tag
+      attr_accessor and (): IntelligentTieringAndOperator
+    end
 
     module IntelligentTieringStatus
       Enabled: ::String
@@ -564,15 +1479,38 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    InvalidObjectState: untyped
+    class InvalidObjectState < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor storage_class (): ::String
+      attr_accessor access_tier (): ::String
+    end
 
-    InventoryConfiguration: untyped
+    class InventoryConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor destination (): InventoryDestination
+      attr_accessor is_enabled (): bool
+      attr_accessor filter (): InventoryFilter
+      attr_accessor id (): ::String
+      attr_accessor included_object_versions (): ::String
+      attr_accessor optional_fields (): ::Array[::String]
+      attr_accessor schedule (): InventorySchedule
+    end
 
-    InventoryDestination: untyped
+    class InventoryDestination < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor s3_bucket_destination (): InventoryS3BucketDestination
+    end
 
-    InventoryEncryption: untyped
+    class InventoryEncryption < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor sses3 (): SSES3
+      attr_accessor ssekms (): SSEKMS
+    end
 
-    InventoryFilter: untyped
+    class InventoryFilter < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+    end
 
     module InventoryFormat
       CSV: ::String
@@ -620,15 +1558,35 @@ module AWS::SDK::S3
       BucketKeyStatus: ::String
 
       ChecksumAlgorithm: ::String
+
+      ObjectAccessControlList: ::String
+
+      ObjectOwner: ::String
     end
 
-    InventoryS3BucketDestination: untyped
+    class InventoryS3BucketDestination < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor account_id (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor format (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor encryption (): InventoryEncryption
+    end
 
-    InventorySchedule: untyped
+    class InventorySchedule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor frequency (): ::String
+    end
 
-    JSONInput: untyped
+    class JSONInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor type (): ::String
+    end
 
-    JSONOutput: untyped
+    class JSONOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor record_delimiter (): ::String
+    end
 
     module JSONType
       DOCUMENT: ::String
@@ -636,81 +1594,327 @@ module AWS::SDK::S3
       LINES: ::String
     end
 
-    LambdaFunctionConfiguration: untyped
+    class LambdaFunctionConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor lambda_function_arn (): ::String
+      attr_accessor events (): ::Array[::String]
+      attr_accessor filter (): NotificationConfigurationFilter
+    end
 
-    LifecycleExpiration: untyped
+    class LifecycleExpiration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor date (): ::Time
+      attr_accessor days (): ::Integer
+      attr_accessor expired_object_delete_marker (): bool
+    end
 
-    LifecycleRule: untyped
+    class LifecycleRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor expiration (): LifecycleExpiration
+      attr_accessor id (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor filter (): LifecycleRuleFilter
+      attr_accessor status (): ::String
+      attr_accessor transitions (): ::Array[Transition]
+      attr_accessor noncurrent_version_transitions (): ::Array[NoncurrentVersionTransition]
+      attr_accessor noncurrent_version_expiration (): NoncurrentVersionExpiration
+      attr_accessor abort_incomplete_multipart_upload (): AbortIncompleteMultipartUpload
+    end
 
-    LifecycleRuleAndOperator: untyped
+    class LifecycleRuleAndOperator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tags (): ::Array[Tag]
+      attr_accessor object_size_greater_than (): ::Integer
+      attr_accessor object_size_less_than (): ::Integer
+    end
 
     class LifecycleRuleFilter < Hearth::Union
       class Prefix < LifecycleRuleFilter
-        def to_h: () -> { prefix: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { prefix: ::String }
+        def to_s: () -> String
       end
 
       class Tag < LifecycleRuleFilter
-        def to_h: () -> { tag: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { tag: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class ObjectSizeGreaterThan < LifecycleRuleFilter
-        def to_h: () -> { object_size_greater_than: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { object_size_greater_than: ::Integer }
+        def to_s: () -> String
       end
 
       class ObjectSizeLessThan < LifecycleRuleFilter
-        def to_h: () -> { object_size_less_than: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { object_size_less_than: ::Integer }
+        def to_s: () -> String
       end
 
       class And < LifecycleRuleFilter
-        def to_h: () -> { and: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { and: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Unknown < LifecycleRuleFilter
-        def to_h: () -> { unknown: Hash[Symbol,LifecycleRuleFilter] }
+        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_s: () -> String
       end
     end
 
-    ListBucketAnalyticsConfigurationsInput: untyped
+    class ListBucketAnalyticsConfigurationsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor continuation_token (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    ListBucketAnalyticsConfigurationsOutput: untyped
+    class ListBucketAnalyticsConfigurationsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor continuation_token (): ::String
+      attr_accessor next_continuation_token (): ::String
+      attr_accessor analytics_configuration_list (): ::Array[AnalyticsConfiguration]
+    end
 
-    ListBucketIntelligentTieringConfigurationsInput: untyped
+    class ListBucketIntelligentTieringConfigurationsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor continuation_token (): ::String
+    end
 
-    ListBucketIntelligentTieringConfigurationsOutput: untyped
+    class ListBucketIntelligentTieringConfigurationsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor continuation_token (): ::String
+      attr_accessor next_continuation_token (): ::String
+      attr_accessor intelligent_tiering_configuration_list (): ::Array[IntelligentTieringConfiguration]
+    end
 
-    ListBucketInventoryConfigurationsInput: untyped
+    class ListBucketInventoryConfigurationsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor continuation_token (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    ListBucketInventoryConfigurationsOutput: untyped
+    class ListBucketInventoryConfigurationsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor continuation_token (): ::String
+      attr_accessor inventory_configuration_list (): ::Array[InventoryConfiguration]
+      attr_accessor is_truncated (): bool
+      attr_accessor next_continuation_token (): ::String
+    end
 
-    ListBucketMetricsConfigurationsInput: untyped
+    class ListBucketMetricsConfigurationsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor continuation_token (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    ListBucketMetricsConfigurationsOutput: untyped
+    class ListBucketMetricsConfigurationsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor continuation_token (): ::String
+      attr_accessor next_continuation_token (): ::String
+      attr_accessor metrics_configuration_list (): ::Array[MetricsConfiguration]
+    end
 
-    ListBucketsInput: untyped
+    class ListBucketsInput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    ListBucketsOutput: untyped
+    class ListBucketsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor buckets (): ::Array[Bucket]
+      attr_accessor owner (): Owner
+    end
 
-    ListMultipartUploadsInput: untyped
+    class ListDirectoryBucketsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor continuation_token (): ::String
+      attr_accessor max_directory_buckets (): ::Integer
+    end
 
-    ListMultipartUploadsOutput: untyped
+    class ListDirectoryBucketsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor buckets (): ::Array[Bucket]
+      attr_accessor continuation_token (): ::String
+    end
 
-    ListObjectVersionsInput: untyped
+    class ListMultipartUploadsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor encoding_type (): ::String
+      attr_accessor key_marker (): ::String
+      attr_accessor max_uploads (): ::Integer
+      attr_accessor prefix (): ::String
+      attr_accessor upload_id_marker (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor request_payer (): ::String
+    end
 
-    ListObjectVersionsOutput: untyped
+    class ListMultipartUploadsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key_marker (): ::String
+      attr_accessor upload_id_marker (): ::String
+      attr_accessor next_key_marker (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor next_upload_id_marker (): ::String
+      attr_accessor max_uploads (): ::Integer
+      attr_accessor is_truncated (): bool
+      attr_accessor uploads (): ::Array[MultipartUpload]
+      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor encoding_type (): ::String
+      attr_accessor request_charged (): ::String
+    end
 
-    ListObjectsInput: untyped
+    class ListObjectVersionsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor encoding_type (): ::String
+      attr_accessor key_marker (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor prefix (): ::String
+      attr_accessor version_id_marker (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor optional_object_attributes (): ::Array[::String]
+    end
 
-    ListObjectsOutput: untyped
+    class ListObjectVersionsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor key_marker (): ::String
+      attr_accessor version_id_marker (): ::String
+      attr_accessor next_key_marker (): ::String
+      attr_accessor next_version_id_marker (): ::String
+      attr_accessor versions (): ::Array[ObjectVersion]
+      attr_accessor delete_markers (): ::Array[DeleteMarkerEntry]
+      attr_accessor name (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor encoding_type (): ::String
+      attr_accessor request_charged (): ::String
+    end
 
-    ListObjectsV2Input: untyped
+    class ListObjectsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor encoding_type (): ::String
+      attr_accessor marker (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor prefix (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor optional_object_attributes (): ::Array[::String]
+    end
 
-    ListObjectsV2Output: untyped
+    class ListObjectsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor marker (): ::String
+      attr_accessor next_marker (): ::String
+      attr_accessor contents (): ::Array[Object]
+      attr_accessor name (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor encoding_type (): ::String
+      attr_accessor request_charged (): ::String
+    end
 
-    ListPartsInput: untyped
+    class ListObjectsV2Input < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor encoding_type (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor prefix (): ::String
+      attr_accessor continuation_token (): ::String
+      attr_accessor fetch_owner (): bool
+      attr_accessor start_after (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor optional_object_attributes (): ::Array[::String]
+    end
 
-    ListPartsOutput: untyped
+    class ListObjectsV2Output < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_truncated (): bool
+      attr_accessor contents (): ::Array[Object]
+      attr_accessor name (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor delimiter (): ::String
+      attr_accessor max_keys (): ::Integer
+      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor encoding_type (): ::String
+      attr_accessor key_count (): ::Integer
+      attr_accessor continuation_token (): ::String
+      attr_accessor next_continuation_token (): ::String
+      attr_accessor start_after (): ::String
+      attr_accessor request_charged (): ::String
+    end
 
-    LoggingEnabled: untyped
+    class ListPartsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor max_parts (): ::Integer
+      attr_accessor part_number_marker (): ::String
+      attr_accessor upload_id (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+    end
+
+    class ListPartsOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor abort_date (): ::Time
+      attr_accessor abort_rule_id (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor upload_id (): ::String
+      attr_accessor part_number_marker (): ::String
+      attr_accessor next_part_number_marker (): ::String
+      attr_accessor max_parts (): ::Integer
+      attr_accessor is_truncated (): bool
+      attr_accessor parts (): ::Array[Part]
+      attr_accessor initiator (): Initiator
+      attr_accessor owner (): Owner
+      attr_accessor storage_class (): ::String
+      attr_accessor request_charged (): ::String
+      attr_accessor checksum_algorithm (): ::String
+    end
+
+    class LocationInfo < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor type (): ::String
+      attr_accessor name (): ::String
+    end
+
+    module LocationType
+      AvailabilityZone: ::String
+    end
+
+    class LoggingEnabled < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor target_bucket (): ::String
+      attr_accessor target_grants (): ::Array[TargetGrant]
+      attr_accessor target_prefix (): ::String
+      attr_accessor target_object_key_format (): TargetObjectKeyFormat
+    end
 
     module MFADelete
       Enabled: ::String
@@ -730,33 +1934,55 @@ module AWS::SDK::S3
       REPLACE: ::String
     end
 
-    MetadataEntry: untyped
+    class MetadataEntry < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor name (): ::String
+      attr_accessor value (): ::String
+    end
 
-    Metrics: untyped
+    class Metrics < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+      attr_accessor event_threshold (): ReplicationTimeValue
+    end
 
-    MetricsAndOperator: untyped
+    class MetricsAndOperator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tags (): ::Array[Tag]
+      attr_accessor access_point_arn (): ::String
+    end
 
-    MetricsConfiguration: untyped
+    class MetricsConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor filter (): MetricsFilter
+    end
 
     class MetricsFilter < Hearth::Union
       class Prefix < MetricsFilter
-        def to_h: () -> { prefix: Hash[Symbol,MetricsFilter] }
+        def to_h: () -> { prefix: ::String }
+        def to_s: () -> String
       end
 
       class Tag < MetricsFilter
-        def to_h: () -> { tag: Hash[Symbol,MetricsFilter] }
+        def to_h: () -> { tag: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class AccessPointArn < MetricsFilter
-        def to_h: () -> { access_point_arn: Hash[Symbol,MetricsFilter] }
+        def to_h: () -> { access_point_arn: ::String }
+        def to_s: () -> String
       end
 
       class And < MetricsFilter
-        def to_h: () -> { and: Hash[Symbol,MetricsFilter] }
+        def to_h: () -> { and: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Unknown < MetricsFilter
-        def to_h: () -> { unknown: Hash[Symbol,MetricsFilter] }
+        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_s: () -> String
       end
     end
 
@@ -766,27 +1992,74 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    MultipartUpload: untyped
+    class MultipartUpload < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor upload_id (): ::String
+      attr_accessor key (): ::String
+      attr_accessor initiated (): ::Time
+      attr_accessor storage_class (): ::String
+      attr_accessor owner (): Owner
+      attr_accessor initiator (): Initiator
+      attr_accessor checksum_algorithm (): ::String
+    end
 
-    NoSuchBucket: untyped
+    class NoSuchBucket < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    NoSuchKey: untyped
+    class NoSuchKey < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    NoSuchUpload: untyped
+    class NoSuchUpload < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    NoncurrentVersionExpiration: untyped
+    class NoncurrentVersionExpiration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor noncurrent_days (): ::Integer
+      attr_accessor newer_noncurrent_versions (): ::Integer
+    end
 
-    NoncurrentVersionTransition: untyped
+    class NoncurrentVersionTransition < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor noncurrent_days (): ::Integer
+      attr_accessor storage_class (): ::String
+      attr_accessor newer_noncurrent_versions (): ::Integer
+    end
 
-    NotFound: untyped
+    class NotFound < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    NotificationConfiguration: untyped
+    class NotificationConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor topic_configurations (): ::Array[TopicConfiguration]
+      attr_accessor queue_configurations (): ::Array[QueueConfiguration]
+      attr_accessor lambda_function_configurations (): ::Array[LambdaFunctionConfiguration]
+      attr_accessor event_bridge_configuration (): EventBridgeConfiguration
+    end
 
-    NotificationConfigurationFilter: untyped
+    class NotificationConfigurationFilter < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): S3KeyFilter
+    end
 
-    Object: untyped
+    class Object < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_algorithm (): ::Array[::String]
+      attr_accessor size (): ::Integer
+      attr_accessor storage_class (): ::String
+      attr_accessor owner (): Owner
+      attr_accessor restore_status (): RestoreStatus
+    end
 
-    ObjectAlreadyInActiveTierError: untyped
+    class ObjectAlreadyInActiveTierError < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
     module ObjectAttributes
       ETAG: ::String
@@ -816,15 +2089,26 @@ module AWS::SDK::S3
       bucket_owner_full_control: ::String
     end
 
-    ObjectIdentifier: untyped
+    class ObjectIdentifier < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+    end
 
-    ObjectLockConfiguration: untyped
+    class ObjectLockConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor object_lock_enabled (): ::String
+      attr_accessor rule (): ObjectLockRule
+    end
 
     module ObjectLockEnabled
       Enabled: ::String
     end
 
-    ObjectLockLegalHold: untyped
+    class ObjectLockLegalHold < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
     module ObjectLockLegalHoldStatus
       ON: ::String
@@ -838,7 +2122,11 @@ module AWS::SDK::S3
       COMPLIANCE: ::String
     end
 
-    ObjectLockRetention: untyped
+    class ObjectLockRetention < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor mode (): ::String
+      attr_accessor retain_until_date (): ::Time
+    end
 
     module ObjectLockRetentionMode
       GOVERNANCE: ::String
@@ -846,9 +2134,14 @@ module AWS::SDK::S3
       COMPLIANCE: ::String
     end
 
-    ObjectLockRule: untyped
+    class ObjectLockRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor default_retention (): DefaultRetention
+    end
 
-    ObjectNotInActiveTierError: untyped
+    class ObjectNotInActiveTierError < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
     module ObjectOwnership
       BucketOwnerPreferred: ::String
@@ -858,7 +2151,15 @@ module AWS::SDK::S3
       BucketOwnerEnforced: ::String
     end
 
-    ObjectPart: untyped
+    class ObjectPart < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor part_number (): ::Integer
+      attr_accessor size (): ::Integer
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+    end
 
     module ObjectStorageClass
       STANDARD: ::String
@@ -878,31 +2179,91 @@ module AWS::SDK::S3
       OUTPOSTS: ::String
 
       GLACIER_IR: ::String
+
+      SNOW: ::String
+
+      EXPRESS_ONEZONE: ::String
     end
 
-    ObjectVersion: untyped
+    class ObjectVersion < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_algorithm (): ::Array[::String]
+      attr_accessor size (): ::Integer
+      attr_accessor storage_class (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor is_latest (): bool
+      attr_accessor last_modified (): ::Time
+      attr_accessor owner (): Owner
+      attr_accessor restore_status (): RestoreStatus
+    end
 
     module ObjectVersionStorageClass
       STANDARD: ::String
     end
 
-    OutputLocation: untyped
+    module OptionalObjectAttributes
+      RESTORE_STATUS: ::String
+    end
 
-    OutputSerialization: untyped
+    class OutputLocation < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor s3 (): S3Location
+    end
 
-    Owner: untyped
+    class OutputSerialization < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor csv (): CSVOutput
+      attr_accessor json (): JSONOutput
+    end
+
+    class Owner < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor display_name (): ::String
+      attr_accessor id (): ::String
+    end
 
     module OwnerOverride
       Destination: ::String
     end
 
-    OwnershipControls: untyped
+    class OwnershipControls < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor rules (): ::Array[OwnershipControlsRule]
+    end
 
-    OwnershipControlsRule: untyped
+    class OwnershipControlsRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor object_ownership (): ::String
+    end
 
-    ParquetInput: untyped
+    class ParquetInput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    Part: untyped
+    class Part < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor part_number (): ::Integer
+      attr_accessor last_modified (): ::Time
+      attr_accessor e_tag (): ::String
+      attr_accessor size (): ::Integer
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+    end
+
+    module PartitionDateSource
+      EventTime: ::String
+
+      DeliveryTime: ::String
+    end
+
+    class PartitionedPrefix < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor partition_date_source (): ::String
+    end
 
     module Payer
       Requester: ::String
@@ -922,11 +2283,22 @@ module AWS::SDK::S3
       READ_ACP: ::String
     end
 
-    PolicyStatus: untyped
+    class PolicyStatus < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_public (): bool
+    end
 
-    Progress: untyped
+    class Progress < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bytes_scanned (): ::Integer
+      attr_accessor bytes_processed (): ::Integer
+      attr_accessor bytes_returned (): ::Integer
+    end
 
-    ProgressEvent: untyped
+    class ProgressEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor details (): Progress
+    end
 
     module Protocol
       http: ::String
@@ -934,109 +2306,418 @@ module AWS::SDK::S3
       https: ::String
     end
 
-    PublicAccessBlockConfiguration: untyped
+    class PublicAccessBlockConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor block_public_acls (): bool
+      attr_accessor ignore_public_acls (): bool
+      attr_accessor block_public_policy (): bool
+      attr_accessor restrict_public_buckets (): bool
+    end
 
-    PutBucketAccelerateConfigurationInput: untyped
+    class PutBucketAccelerateConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor accelerate_configuration (): AccelerateConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor checksum_algorithm (): ::String
+    end
 
-    PutBucketAccelerateConfigurationOutput: untyped
+    class PutBucketAccelerateConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketAclInput: untyped
+    class PutBucketAclInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor access_control_policy (): AccessControlPolicy
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketAclOutput: untyped
+    class PutBucketAclOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketAnalyticsConfigurationInput: untyped
+    class PutBucketAnalyticsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor analytics_configuration (): AnalyticsConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketAnalyticsConfigurationOutput: untyped
+    class PutBucketAnalyticsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketCorsInput: untyped
+    class PutBucketCorsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor cors_configuration (): CORSConfiguration
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketCorsOutput: untyped
+    class PutBucketCorsOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketEncryptionInput: untyped
+    class PutBucketEncryptionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor server_side_encryption_configuration (): ServerSideEncryptionConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketEncryptionOutput: untyped
+    class PutBucketEncryptionOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketIntelligentTieringConfigurationInput: untyped
+    class PutBucketIntelligentTieringConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor intelligent_tiering_configuration (): IntelligentTieringConfiguration
+    end
 
-    PutBucketIntelligentTieringConfigurationOutput: untyped
+    class PutBucketIntelligentTieringConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketInventoryConfigurationInput: untyped
+    class PutBucketInventoryConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor inventory_configuration (): InventoryConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketInventoryConfigurationOutput: untyped
+    class PutBucketInventoryConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketLifecycleConfigurationInput: untyped
+    class PutBucketLifecycleConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor lifecycle_configuration (): BucketLifecycleConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketLifecycleConfigurationOutput: untyped
+    class PutBucketLifecycleConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketLoggingInput: untyped
+    class PutBucketLoggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor bucket_logging_status (): BucketLoggingStatus
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketLoggingOutput: untyped
+    class PutBucketLoggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketMetricsConfigurationInput: untyped
+    class PutBucketMetricsConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor id (): ::String
+      attr_accessor metrics_configuration (): MetricsConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketMetricsConfigurationOutput: untyped
+    class PutBucketMetricsConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketNotificationConfigurationInput: untyped
+    class PutBucketNotificationConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor notification_configuration (): NotificationConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor skip_destination_validation (): bool
+    end
 
-    PutBucketNotificationConfigurationOutput: untyped
+    class PutBucketNotificationConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketOwnershipControlsInput: untyped
+    class PutBucketOwnershipControlsInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor ownership_controls (): OwnershipControls
+    end
 
-    PutBucketOwnershipControlsOutput: untyped
+    class PutBucketOwnershipControlsOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketPolicyInput: untyped
+    class PutBucketPolicyInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor confirm_remove_self_bucket_access (): bool
+      attr_accessor policy (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketPolicyOutput: untyped
+    class PutBucketPolicyOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketReplicationInput: untyped
+    class PutBucketReplicationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor replication_configuration (): ReplicationConfiguration
+      attr_accessor token (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketReplicationOutput: untyped
+    class PutBucketReplicationOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketRequestPaymentInput: untyped
+    class PutBucketRequestPaymentInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor request_payment_configuration (): RequestPaymentConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketRequestPaymentOutput: untyped
+    class PutBucketRequestPaymentOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketTaggingInput: untyped
+    class PutBucketTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor tagging (): Tagging
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketTaggingOutput: untyped
+    class PutBucketTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketVersioningInput: untyped
+    class PutBucketVersioningInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor mfa (): ::String
+      attr_accessor versioning_configuration (): VersioningConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketVersioningOutput: untyped
+    class PutBucketVersioningOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutBucketWebsiteInput: untyped
+    class PutBucketWebsiteInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor website_configuration (): WebsiteConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutBucketWebsiteOutput: untyped
+    class PutBucketWebsiteOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    PutObjectAclInput: untyped
+    class PutObjectAclInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor access_control_policy (): AccessControlPolicy
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor key (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutObjectAclOutput: untyped
+    class PutObjectAclOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+    end
 
-    PutObjectInput: untyped
+    class PutObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor acl (): ::String
+      attr_accessor body (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_length (): ::Integer
+      attr_accessor content_md5 (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor expires (): ::Time
+      attr_accessor grant_full_control (): ::String
+      attr_accessor grant_read (): ::String
+      attr_accessor grant_read_acp (): ::String
+      attr_accessor grant_write_acp (): ::String
+      attr_accessor key (): ::String
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor storage_class (): ::String
+      attr_accessor website_redirect_location (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_payer (): ::String
+      attr_accessor tagging (): ::String
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor object_lock_legal_hold_status (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutObjectLegalHoldInput: untyped
+    class PutObjectLegalHoldInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor legal_hold (): ObjectLockLegalHold
+      attr_accessor request_payer (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutObjectLegalHoldOutput: untyped
+    class PutObjectLegalHoldOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+    end
 
-    PutObjectLockConfigurationInput: untyped
+    class PutObjectLockConfigurationInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor object_lock_configuration (): ObjectLockConfiguration
+      attr_accessor request_payer (): ::String
+      attr_accessor token (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutObjectLockConfigurationOutput: untyped
+    class PutObjectLockConfigurationOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+    end
 
-    PutObjectOutput: untyped
+    class PutObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor expiration (): ::String
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor ssekms_encryption_context (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+    end
 
-    PutObjectRetentionInput: untyped
+    class PutObjectRetentionInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor retention (): ObjectLockRetention
+      attr_accessor request_payer (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor bypass_governance_retention (): bool
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutObjectRetentionOutput: untyped
+    class PutObjectRetentionOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+    end
 
-    PutObjectTaggingInput: untyped
+    class PutObjectTaggingInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor tagging (): Tagging
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor request_payer (): ::String
+    end
 
-    PutObjectTaggingOutput: untyped
+    class PutObjectTaggingOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor version_id (): ::String
+    end
 
-    PutPublicAccessBlockInput: untyped
+    class PutPublicAccessBlockInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor public_access_block_configuration (): PublicAccessBlockConfiguration
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    PutPublicAccessBlockOutput: untyped
+    class PutPublicAccessBlockOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
-    QueueConfiguration: untyped
+    class QueueConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor queue_arn (): ::String
+      attr_accessor events (): ::Array[::String]
+      attr_accessor filter (): NotificationConfigurationFilter
+    end
 
     module QuoteFields
       ALWAYS: ::String
@@ -1044,13 +2725,30 @@ module AWS::SDK::S3
       ASNEEDED: ::String
     end
 
-    RecordsEvent: untyped
+    class RecordsEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor payload (): ::String
+    end
 
-    Redirect: untyped
+    class Redirect < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor host_name (): ::String
+      attr_accessor http_redirect_code (): ::String
+      attr_accessor protocol (): ::String
+      attr_accessor replace_key_prefix_with (): ::String
+      attr_accessor replace_key_with (): ::String
+    end
 
-    RedirectAllRequestsTo: untyped
+    class RedirectAllRequestsTo < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor host_name (): ::String
+      attr_accessor protocol (): ::String
+    end
 
-    ReplicaModifications: untyped
+    class ReplicaModifications < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
     module ReplicaModificationsStatus
       Enabled: ::String
@@ -1058,27 +2756,50 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    ReplicationConfiguration: untyped
+    class ReplicationConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor role (): ::String
+      attr_accessor rules (): ::Array[ReplicationRule]
+    end
 
-    ReplicationRule: untyped
+    class ReplicationRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor priority (): ::Integer
+      attr_accessor prefix (): ::String
+      attr_accessor filter (): ReplicationRuleFilter
+      attr_accessor status (): ::String
+      attr_accessor source_selection_criteria (): SourceSelectionCriteria
+      attr_accessor existing_object_replication (): ExistingObjectReplication
+      attr_accessor destination (): Destination
+      attr_accessor delete_marker_replication (): DeleteMarkerReplication
+    end
 
-    ReplicationRuleAndOperator: untyped
+    class ReplicationRuleAndOperator < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor prefix (): ::String
+      attr_accessor tags (): ::Array[Tag]
+    end
 
     class ReplicationRuleFilter < Hearth::Union
       class Prefix < ReplicationRuleFilter
-        def to_h: () -> { prefix: Hash[Symbol,ReplicationRuleFilter] }
+        def to_h: () -> { prefix: ::String }
+        def to_s: () -> String
       end
 
       class Tag < ReplicationRuleFilter
-        def to_h: () -> { tag: Hash[Symbol,ReplicationRuleFilter] }
+        def to_h: () -> { tag: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class And < ReplicationRuleFilter
-        def to_h: () -> { and: Hash[Symbol,ReplicationRuleFilter] }
+        def to_h: () -> { and: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Unknown < ReplicationRuleFilter
-        def to_h: () -> { unknown: Hash[Symbol,ReplicationRuleFilter] }
+        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_s: () -> String
       end
     end
 
@@ -1096,9 +2817,15 @@ module AWS::SDK::S3
       FAILED: ::String
 
       REPLICA: ::String
+
+      COMPLETED: ::String
     end
 
-    ReplicationTime: untyped
+    class ReplicationTime < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+      attr_accessor time (): ReplicationTimeValue
+    end
 
     module ReplicationTimeStatus
       Enabled: ::String
@@ -1106,7 +2833,10 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    ReplicationTimeValue: untyped
+    class ReplicationTimeValue < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor minutes (): ::Integer
+    end
 
     module RequestCharged
       requester: ::String
@@ -1116,79 +2846,206 @@ module AWS::SDK::S3
       requester: ::String
     end
 
-    RequestPaymentConfiguration: untyped
+    class RequestPaymentConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor payer (): ::String
+    end
 
-    RequestProgress: untyped
+    class RequestProgress < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor enabled (): bool
+    end
 
-    RestoreObjectInput: untyped
+    class RestoreObjectInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor version_id (): ::String
+      attr_accessor restore_request (): RestoreRequest
+      attr_accessor request_payer (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    RestoreObjectOutput: untyped
+    class RestoreObjectOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_charged (): ::String
+      attr_accessor restore_output_path (): ::String
+    end
 
-    RestoreRequest: untyped
+    class RestoreRequest < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor days (): ::Integer
+      attr_accessor glacier_job_parameters (): GlacierJobParameters
+      attr_accessor type (): ::String
+      attr_accessor tier (): ::String
+      attr_accessor description (): ::String
+      attr_accessor select_parameters (): SelectParameters
+      attr_accessor output_location (): OutputLocation
+    end
 
     module RestoreRequestType
       SELECT: ::String
     end
 
-    RoutingRule: untyped
+    class RestoreStatus < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor is_restore_in_progress (): bool
+      attr_accessor restore_expiry_date (): ::Time
+    end
 
-    S3KeyFilter: untyped
+    class RoutingRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor condition (): Condition
+      attr_accessor redirect (): Redirect
+    end
 
-    S3Location: untyped
+    class S3KeyFilter < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor filter_rules (): ::Array[FilterRule]
+    end
 
-    SSEKMS: untyped
+    class S3Location < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket_name (): ::String
+      attr_accessor prefix (): ::String
+      attr_accessor encryption (): Encryption
+      attr_accessor canned_acl (): ::String
+      attr_accessor access_control_list (): ::Array[Grant]
+      attr_accessor tagging (): Tagging
+      attr_accessor user_metadata (): ::Array[MetadataEntry]
+      attr_accessor storage_class (): ::String
+    end
 
-    SSES3: untyped
+    class SSEKMS < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key_id (): ::String
+    end
 
-    ScanRange: untyped
+    class SSES3 < ::Struct[untyped]
+      include Hearth::Structure
+    end
+
+    class ScanRange < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor start (): ::Integer
+      attr_accessor end (): ::Integer
+    end
 
     class SelectObjectContentEventStream < Hearth::Union
       class Records < SelectObjectContentEventStream
-        def to_h: () -> { records: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { records: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Stats < SelectObjectContentEventStream
-        def to_h: () -> { stats: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { stats: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Progress < SelectObjectContentEventStream
-        def to_h: () -> { progress: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { progress: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Cont < SelectObjectContentEventStream
-        def to_h: () -> { cont: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { cont: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class End < SelectObjectContentEventStream
-        def to_h: () -> { end: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { end: ::Hash[::Symbol, untyped] }
+        def to_s: () -> String
       end
 
       class Unknown < SelectObjectContentEventStream
-        def to_h: () -> { unknown: Hash[Symbol,SelectObjectContentEventStream] }
+        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_s: () -> String
       end
     end
 
-    SelectObjectContentInput: untyped
+    class SelectObjectContentInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor key (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor expression (): ::String
+      attr_accessor expression_type (): ::String
+      attr_accessor request_progress (): RequestProgress
+      attr_accessor input_serialization (): InputSerialization
+      attr_accessor output_serialization (): OutputSerialization
+      attr_accessor scan_range (): ScanRange
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    SelectObjectContentOutput: untyped
+    class SelectObjectContentOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor payload (): SelectObjectContentEventStream
+    end
 
-    SelectParameters: untyped
+    class SelectParameters < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor input_serialization (): InputSerialization
+      attr_accessor expression_type (): ::String
+      attr_accessor expression (): ::String
+      attr_accessor output_serialization (): OutputSerialization
+    end
 
     module ServerSideEncryption
       AES256: ::String
 
       aws_kms: ::String
+
+      aws_kms_dsse: ::String
     end
 
-    ServerSideEncryptionByDefault: untyped
+    class ServerSideEncryptionByDefault < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor sse_algorithm (): ::String
+      attr_accessor kms_master_key_id (): ::String
+    end
 
-    ServerSideEncryptionConfiguration: untyped
+    class ServerSideEncryptionConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor rules (): ::Array[ServerSideEncryptionRule]
+    end
 
-    ServerSideEncryptionRule: untyped
+    class ServerSideEncryptionRule < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor apply_server_side_encryption_by_default (): ServerSideEncryptionByDefault
+      attr_accessor bucket_key_enabled (): bool
+    end
 
-    SourceSelectionCriteria: untyped
+    class SessionCredentials < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor access_key_id (): ::String
+      attr_accessor secret_access_key (): ::String
+      attr_accessor session_token (): ::String
+      attr_accessor expiration (): ::Time
+    end
 
-    SseKmsEncryptedObjects: untyped
+    module SessionMode
+      ReadOnly: ::String
+
+      ReadWrite: ::String
+    end
+
+    class SimplePrefix < ::Struct[untyped]
+      include Hearth::Structure
+    end
+
+    class SourceSelectionCriteria < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor sse_kms_encrypted_objects (): SseKmsEncryptedObjects
+      attr_accessor replica_modifications (): ReplicaModifications
+    end
+
+    class SseKmsEncryptedObjects < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor status (): ::String
+    end
 
     module SseKmsEncryptedObjectsStatus
       Enabled: ::String
@@ -1196,9 +3053,17 @@ module AWS::SDK::S3
       Disabled: ::String
     end
 
-    Stats: untyped
+    class Stats < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bytes_scanned (): ::Integer
+      attr_accessor bytes_processed (): ::Integer
+      attr_accessor bytes_returned (): ::Integer
+    end
 
-    StatsEvent: untyped
+    class StatsEvent < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor details (): Stats
+    end
 
     module StorageClass
       STANDARD: ::String
@@ -1218,19 +3083,37 @@ module AWS::SDK::S3
       OUTPOSTS: ::String
 
       GLACIER_IR: ::String
+
+      SNOW: ::String
+
+      EXPRESS_ONEZONE: ::String
     end
 
-    StorageClassAnalysis: untyped
+    class StorageClassAnalysis < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor data_export (): StorageClassAnalysisDataExport
+    end
 
-    StorageClassAnalysisDataExport: untyped
+    class StorageClassAnalysisDataExport < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor output_schema_version (): ::String
+      attr_accessor destination (): AnalyticsExportDestination
+    end
 
     module StorageClassAnalysisSchemaVersion
       V_1: ::String
     end
 
-    Tag: untyped
+    class Tag < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor key (): ::String
+      attr_accessor value (): ::String
+    end
 
-    Tagging: untyped
+    class Tagging < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor tag_set (): ::Array[Tag]
+    end
 
     module TaggingDirective
       COPY: ::String
@@ -1238,7 +3121,17 @@ module AWS::SDK::S3
       REPLACE: ::String
     end
 
-    TargetGrant: untyped
+    class TargetGrant < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor grantee (): Grantee
+      attr_accessor permission (): ::String
+    end
+
+    class TargetObjectKeyFormat < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor simple_prefix (): SimplePrefix
+      attr_accessor partitioned_prefix (): PartitionedPrefix
+    end
 
     module Tier
       Standard: ::String
@@ -1248,11 +3141,26 @@ module AWS::SDK::S3
       Expedited: ::String
     end
 
-    Tiering: untyped
+    class Tiering < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor days (): ::Integer
+      attr_accessor access_tier (): ::String
+    end
 
-    TopicConfiguration: untyped
+    class TopicConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor id (): ::String
+      attr_accessor topic_arn (): ::String
+      attr_accessor events (): ::Array[::String]
+      attr_accessor filter (): NotificationConfigurationFilter
+    end
 
-    Transition: untyped
+    class Transition < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor date (): ::Time
+      attr_accessor days (): ::Integer
+      attr_accessor storage_class (): ::String
+    end
 
     module TransitionStorageClass
       GLACIER: ::String
@@ -1276,21 +3184,138 @@ module AWS::SDK::S3
       Group: ::String
     end
 
-    UploadPartCopyInput: untyped
+    class UploadPartCopyInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor bucket (): ::String
+      attr_accessor copy_source (): ::String
+      attr_accessor copy_source_if_match (): ::String
+      attr_accessor copy_source_if_modified_since (): ::Time
+      attr_accessor copy_source_if_none_match (): ::String
+      attr_accessor copy_source_if_unmodified_since (): ::Time
+      attr_accessor copy_source_range (): ::String
+      attr_accessor key (): ::String
+      attr_accessor part_number (): ::Integer
+      attr_accessor upload_id (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor copy_source_sse_customer_algorithm (): ::String
+      attr_accessor copy_source_sse_customer_key (): ::String
+      attr_accessor copy_source_sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+      attr_accessor expected_source_bucket_owner (): ::String
+    end
 
-    UploadPartCopyOutput: untyped
+    class UploadPartCopyOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor copy_source_version_id (): ::String
+      attr_accessor copy_part_result (): CopyPartResult
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+    end
 
-    UploadPartInput: untyped
+    class UploadPartInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor body (): ::String
+      attr_accessor bucket (): ::String
+      attr_accessor content_length (): ::Integer
+      attr_accessor content_md5 (): ::String
+      attr_accessor checksum_algorithm (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor key (): ::String
+      attr_accessor part_number (): ::Integer
+      attr_accessor upload_id (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor request_payer (): ::String
+      attr_accessor expected_bucket_owner (): ::String
+    end
 
-    UploadPartOutput: untyped
+    class UploadPartOutput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor e_tag (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+      attr_accessor request_charged (): ::String
+    end
 
-    VersioningConfiguration: untyped
+    class VersioningConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor mfa_delete (): ::String
+      attr_accessor status (): ::String
+    end
 
-    WebsiteConfiguration: untyped
+    class WebsiteConfiguration < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor error_document (): ErrorDocument
+      attr_accessor index_document (): IndexDocument
+      attr_accessor redirect_all_requests_to (): RedirectAllRequestsTo
+      attr_accessor routing_rules (): ::Array[RoutingRule]
+    end
 
-    WriteGetObjectResponseInput: untyped
+    class WriteGetObjectResponseInput < ::Struct[untyped]
+      include Hearth::Structure
+      attr_accessor request_route (): ::String
+      attr_accessor request_token (): ::String
+      attr_accessor body (): ::String
+      attr_accessor status_code (): ::Integer
+      attr_accessor error_code (): ::String
+      attr_accessor error_message (): ::String
+      attr_accessor accept_ranges (): ::String
+      attr_accessor cache_control (): ::String
+      attr_accessor content_disposition (): ::String
+      attr_accessor content_encoding (): ::String
+      attr_accessor content_language (): ::String
+      attr_accessor content_length (): ::Integer
+      attr_accessor content_range (): ::String
+      attr_accessor content_type (): ::String
+      attr_accessor checksum_crc32 (): ::String
+      attr_accessor checksum_crc32_c (): ::String
+      attr_accessor checksum_sha1 (): ::String
+      attr_accessor checksum_sha256 (): ::String
+      attr_accessor delete_marker (): bool
+      attr_accessor e_tag (): ::String
+      attr_accessor expires (): ::Time
+      attr_accessor expiration (): ::String
+      attr_accessor last_modified (): ::Time
+      attr_accessor missing_meta (): ::Integer
+      attr_accessor metadata (): ::Hash[::String, ::String]
+      attr_accessor object_lock_mode (): ::String
+      attr_accessor object_lock_legal_hold_status (): ::String
+      attr_accessor object_lock_retain_until_date (): ::Time
+      attr_accessor parts_count (): ::Integer
+      attr_accessor replication_status (): ::String
+      attr_accessor request_charged (): ::String
+      attr_accessor restore (): ::String
+      attr_accessor server_side_encryption (): ::String
+      attr_accessor sse_customer_algorithm (): ::String
+      attr_accessor ssekms_key_id (): ::String
+      attr_accessor sse_customer_key_md5 (): ::String
+      attr_accessor storage_class (): ::String
+      attr_accessor tag_count (): ::Integer
+      attr_accessor version_id (): ::String
+      attr_accessor bucket_key_enabled (): bool
+    end
 
-    WriteGetObjectResponseOutput: untyped
+    class WriteGetObjectResponseOutput < ::Struct[untyped]
+      include Hearth::Structure
+    end
 
   end
 end

@@ -704,6 +704,7 @@ module AWS::SDK::DynamoDB
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
+        data.enable_kinesis_streaming_configuration = (EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?)
         data
       end
     end
@@ -720,6 +721,14 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    class EnableKinesisStreamingConfiguration
+      def self.parse(map)
+        data = Types::EnableKinesisStreamingConfiguration.new
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
+        return data
+      end
+    end
+
     # Operation Parser for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
       def self.parse(http_resp)
@@ -730,6 +739,7 @@ module AWS::SDK::DynamoDB
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
+        data.enable_kinesis_streaming_configuration = (EnableKinesisStreamingConfiguration.parse(map['EnableKinesisStreamingConfiguration']) unless map['EnableKinesisStreamingConfiguration'].nil?)
         data
       end
     end
@@ -813,6 +823,8 @@ module AWS::SDK::DynamoDB
         data.export_format = map['ExportFormat']
         data.billed_size_bytes = map['BilledSizeBytes']
         data.item_count = map['ItemCount']
+        data.export_type = map['ExportType']
+        data.incremental_export_specification = (IncrementalExportSpecification.parse(map['IncrementalExportSpecification']) unless map['IncrementalExportSpecification'].nil?)
         return data
       end
     end
@@ -842,6 +854,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportSummary.new
         data.export_arn = map['ExportArn']
         data.export_status = map['ExportStatus']
+        data.export_type = map['ExportType']
         return data
       end
     end
@@ -1102,6 +1115,16 @@ module AWS::SDK::DynamoDB
       end
     end
 
+    class IncrementalExportSpecification
+      def self.parse(map)
+        data = Types::IncrementalExportSpecification.new
+        data.export_from_time = Time.at(map['ExportFromTime'].to_i) if map['ExportFromTime']
+        data.export_to_time = Time.at(map['ExportToTime'].to_i) if map['ExportToTime']
+        data.export_view_type = map['ExportViewType']
+        return data
+      end
+    end
+
     # Error Parser for IndexNotFoundException
     class IndexNotFoundException
       def self.parse(http_resp)
@@ -1304,6 +1327,7 @@ module AWS::SDK::DynamoDB
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
         data.destination_status_description = map['DestinationStatusDescription']
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
         return data
       end
     end
@@ -2246,6 +2270,29 @@ module AWS::SDK::DynamoDB
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
+        data
+      end
+    end
+
+    class UpdateKinesisStreamingConfiguration
+      def self.parse(map)
+        data = Types::UpdateKinesisStreamingConfiguration.new
+        data.approximate_creation_date_time_precision = map['ApproximateCreationDateTimePrecision']
+        return data
+      end
+    end
+
+    # Operation Parser for UpdateKinesisStreamingDestination
+    class UpdateKinesisStreamingDestination
+      def self.parse(http_resp)
+        data = Types::UpdateKinesisStreamingDestinationOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        map = Hearth::JSON.load(body)
+        data.table_name = map['TableName']
+        data.stream_arn = map['StreamArn']
+        data.destination_status = map['DestinationStatus']
+        data.update_kinesis_streaming_configuration = (UpdateKinesisStreamingConfiguration.parse(map['UpdateKinesisStreamingConfiguration']) unless map['UpdateKinesisStreamingConfiguration'].nil?)
         data
       end
     end

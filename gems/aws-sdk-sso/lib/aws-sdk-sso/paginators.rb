@@ -12,13 +12,13 @@ module AWS::SDK::SSO
 
     class ListAccountRoles
       # @param [Client] client
-      # @param [Hash] params (see Client#list_account_roles)
-      # @param [Hash] options (see Client#list_account_roles)
+      # @param (see Client#list_account_roles)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_account_roles operation.
       # @return [Enumerator]
       def pages
@@ -53,13 +53,13 @@ module AWS::SDK::SSO
 
     class ListAccounts
       # @param [Client] client
-      # @param [Hash] params (see Client#list_accounts)
-      # @param [Hash] options (see Client#list_accounts)
+      # @param (see Client#list_accounts)
       def initialize(client, params = {}, options = {})
         @params = params
         @options = options
         @client = client
       end
+
       # Iterate all response pages of the list_accounts operation.
       # @return [Enumerator]
       def pages

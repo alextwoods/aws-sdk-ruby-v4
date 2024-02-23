@@ -194,6 +194,14 @@ module AWS::SDK::S3
       end
     end
 
+    class BucketInfo
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::BucketInfo, context: context)
+        Hearth::Validator.validate_types!(input[:data_redundancy], ::String, context: "#{context}[:data_redundancy]")
+        Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
+      end
+    end
+
     class BucketLifecycleConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::BucketLifecycleConfiguration, context: context)
@@ -487,6 +495,8 @@ module AWS::SDK::S3
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CreateBucketConfiguration, context: context)
         Hearth::Validator.validate_types!(input[:location_constraint], ::String, context: "#{context}[:location_constraint]")
+        LocationInfo.validate!(input[:location], context: "#{context}[:location]") unless input[:location].nil?
+        BucketInfo.validate!(input[:bucket], context: "#{context}[:bucket]") unless input[:bucket].nil?
       end
     end
 
@@ -568,6 +578,23 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:bucket_key_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:bucket_key_enabled]")
         Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
         Hearth::Validator.validate_types!(input[:checksum_algorithm], ::String, context: "#{context}[:checksum_algorithm]")
+      end
+    end
+
+    class CreateSessionInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::CreateSessionInput, context: context)
+        Hearth::Validator.validate_types!(input[:session_mode], ::String, context: "#{context}[:session_mode]")
+        Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
+        Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
+      end
+    end
+
+    class CreateSessionOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::CreateSessionOutput, context: context)
+        Hearth::Validator.validate_required!(input[:credentials], context: "#{context}[:credentials]")
+        SessionCredentials.validate!(input[:credentials], context: "#{context}[:credentials]") unless input[:credentials].nil?
       end
     end
 
@@ -1038,6 +1065,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_required!(input[:bucket], context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
       end
     end
 
@@ -1045,6 +1073,7 @@ module AWS::SDK::S3
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetBucketAccelerateConfigurationOutput, context: context)
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
+        Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
       end
     end
 
@@ -1675,6 +1704,10 @@ module AWS::SDK::S3
     class HeadBucketOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::HeadBucketOutput, context: context)
+        Hearth::Validator.validate_types!(input[:bucket_location_type], ::String, context: "#{context}[:bucket_location_type]")
+        Hearth::Validator.validate_types!(input[:bucket_location_name], ::String, context: "#{context}[:bucket_location_name]")
+        Hearth::Validator.validate_types!(input[:bucket_region], ::String, context: "#{context}[:bucket_region]")
+        Hearth::Validator.validate_types!(input[:access_point_alias], ::TrueClass, ::FalseClass, context: "#{context}[:access_point_alias]")
       end
     end
 
@@ -2118,6 +2151,22 @@ module AWS::SDK::S3
       end
     end
 
+    class ListDirectoryBucketsInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ListDirectoryBucketsInput, context: context)
+        Hearth::Validator.validate_types!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
+        Hearth::Validator.validate_types!(input[:max_directory_buckets], ::Integer, context: "#{context}[:max_directory_buckets]")
+      end
+    end
+
+    class ListDirectoryBucketsOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ListDirectoryBucketsOutput, context: context)
+        Buckets.validate!(input[:buckets], context: "#{context}[:buckets]") unless input[:buckets].nil?
+        Hearth::Validator.validate_types!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
+      end
+    end
+
     class ListMultipartUploadsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ListMultipartUploadsInput, context: context)
@@ -2130,6 +2179,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate_types!(input[:upload_id_marker], ::String, context: "#{context}[:upload_id_marker]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
       end
     end
 
@@ -2148,6 +2198,7 @@ module AWS::SDK::S3
         MultipartUploadList.validate!(input[:uploads], context: "#{context}[:uploads]") unless input[:uploads].nil?
         CommonPrefixList.validate!(input[:common_prefixes], context: "#{context}[:common_prefixes]") unless input[:common_prefixes].nil?
         Hearth::Validator.validate_types!(input[:encoding_type], ::String, context: "#{context}[:encoding_type]")
+        Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
       end
     end
 
@@ -2163,6 +2214,8 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate_types!(input[:version_id_marker], ::String, context: "#{context}[:version_id_marker]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
+        OptionalObjectAttributesList.validate!(input[:optional_object_attributes], context: "#{context}[:optional_object_attributes]") unless input[:optional_object_attributes].nil?
       end
     end
 
@@ -2182,6 +2235,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:max_keys], ::Integer, context: "#{context}[:max_keys]")
         CommonPrefixList.validate!(input[:common_prefixes], context: "#{context}[:common_prefixes]") unless input[:common_prefixes].nil?
         Hearth::Validator.validate_types!(input[:encoding_type], ::String, context: "#{context}[:encoding_type]")
+        Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
       end
     end
 
@@ -2197,6 +2251,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:prefix], ::String, context: "#{context}[:prefix]")
         Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        OptionalObjectAttributesList.validate!(input[:optional_object_attributes], context: "#{context}[:optional_object_attributes]") unless input[:optional_object_attributes].nil?
       end
     end
 
@@ -2213,6 +2268,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:max_keys], ::Integer, context: "#{context}[:max_keys]")
         CommonPrefixList.validate!(input[:common_prefixes], context: "#{context}[:common_prefixes]") unless input[:common_prefixes].nil?
         Hearth::Validator.validate_types!(input[:encoding_type], ::String, context: "#{context}[:encoding_type]")
+        Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
       end
     end
 
@@ -2230,6 +2286,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:start_after], ::String, context: "#{context}[:start_after]")
         Hearth::Validator.validate_types!(input[:request_payer], ::String, context: "#{context}[:request_payer]")
         Hearth::Validator.validate_types!(input[:expected_bucket_owner], ::String, context: "#{context}[:expected_bucket_owner]")
+        OptionalObjectAttributesList.validate!(input[:optional_object_attributes], context: "#{context}[:optional_object_attributes]") unless input[:optional_object_attributes].nil?
       end
     end
 
@@ -2248,6 +2305,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:continuation_token], ::String, context: "#{context}[:continuation_token]")
         Hearth::Validator.validate_types!(input[:next_continuation_token], ::String, context: "#{context}[:next_continuation_token]")
         Hearth::Validator.validate_types!(input[:start_after], ::String, context: "#{context}[:start_after]")
+        Hearth::Validator.validate_types!(input[:request_charged], ::String, context: "#{context}[:request_charged]")
       end
     end
 
@@ -2291,6 +2349,14 @@ module AWS::SDK::S3
       end
     end
 
+    class LocationInfo
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LocationInfo, context: context)
+        Hearth::Validator.validate_types!(input[:type], ::String, context: "#{context}[:type]")
+        Hearth::Validator.validate_types!(input[:name], ::String, context: "#{context}[:name]")
+      end
+    end
+
     class LoggingEnabled
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::LoggingEnabled, context: context)
@@ -2299,6 +2365,7 @@ module AWS::SDK::S3
         TargetGrants.validate!(input[:target_grants], context: "#{context}[:target_grants]") unless input[:target_grants].nil?
         Hearth::Validator.validate_required!(input[:target_prefix], context: "#{context}[:target_prefix]")
         Hearth::Validator.validate_types!(input[:target_prefix], ::String, context: "#{context}[:target_prefix]")
+        TargetObjectKeyFormat.validate!(input[:target_object_key_format], context: "#{context}[:target_object_key_format]") unless input[:target_object_key_format].nil?
       end
     end
 
@@ -2498,6 +2565,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:size], ::Integer, context: "#{context}[:size]")
         Hearth::Validator.validate_types!(input[:storage_class], ::String, context: "#{context}[:storage_class]")
         Owner.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
+        RestoreStatus.validate!(input[:restore_status], context: "#{context}[:restore_status]") unless input[:restore_status].nil?
       end
     end
 
@@ -2603,6 +2671,7 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:is_latest], ::TrueClass, ::FalseClass, context: "#{context}[:is_latest]")
         Hearth::Validator.validate_types!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Owner.validate!(input[:owner], context: "#{context}[:owner]") unless input[:owner].nil?
+        RestoreStatus.validate!(input[:restore_status], context: "#{context}[:restore_status]") unless input[:restore_status].nil?
       end
     end
 
@@ -2611,6 +2680,15 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           ObjectVersion.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class OptionalObjectAttributesList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate_types!(element, ::String, context: "#{context}[#{index}]")
         end
       end
     end
@@ -2680,6 +2758,13 @@ module AWS::SDK::S3
         Hearth::Validator.validate_types!(input[:checksum_crc32_c], ::String, context: "#{context}[:checksum_crc32_c]")
         Hearth::Validator.validate_types!(input[:checksum_sha1], ::String, context: "#{context}[:checksum_sha1]")
         Hearth::Validator.validate_types!(input[:checksum_sha256], ::String, context: "#{context}[:checksum_sha256]")
+      end
+    end
+
+    class PartitionedPrefix
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::PartitionedPrefix, context: context)
+        Hearth::Validator.validate_types!(input[:partition_date_source], ::String, context: "#{context}[:partition_date_source]")
       end
     end
 
@@ -3488,6 +3573,14 @@ module AWS::SDK::S3
       end
     end
 
+    class RestoreStatus
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::RestoreStatus, context: context)
+        Hearth::Validator.validate_types!(input[:is_restore_in_progress], ::TrueClass, ::FalseClass, context: "#{context}[:is_restore_in_progress]")
+        Hearth::Validator.validate_types!(input[:restore_expiry_date], ::Time, context: "#{context}[:restore_expiry_date]")
+      end
+    end
+
     class RoutingRule
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::RoutingRule, context: context)
@@ -3681,6 +3774,26 @@ module AWS::SDK::S3
       end
     end
 
+    class SessionCredentials
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::SessionCredentials, context: context)
+        Hearth::Validator.validate_required!(input[:access_key_id], context: "#{context}[:access_key_id]")
+        Hearth::Validator.validate_types!(input[:access_key_id], ::String, context: "#{context}[:access_key_id]")
+        Hearth::Validator.validate_required!(input[:secret_access_key], context: "#{context}[:secret_access_key]")
+        Hearth::Validator.validate_types!(input[:secret_access_key], ::String, context: "#{context}[:secret_access_key]")
+        Hearth::Validator.validate_required!(input[:session_token], context: "#{context}[:session_token]")
+        Hearth::Validator.validate_types!(input[:session_token], ::String, context: "#{context}[:session_token]")
+        Hearth::Validator.validate_required!(input[:expiration], context: "#{context}[:expiration]")
+        Hearth::Validator.validate_types!(input[:expiration], ::Time, context: "#{context}[:expiration]")
+      end
+    end
+
+    class SimplePrefix
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::SimplePrefix, context: context)
+      end
+    end
+
     class SourceSelectionCriteria
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::SourceSelectionCriteria, context: context)
@@ -3771,6 +3884,14 @@ module AWS::SDK::S3
         input.each_with_index do |element, index|
           TargetGrant.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
+      end
+    end
+
+    class TargetObjectKeyFormat
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::TargetObjectKeyFormat, context: context)
+        SimplePrefix.validate!(input[:simple_prefix], context: "#{context}[:simple_prefix]") unless input[:simple_prefix].nil?
+        PartitionedPrefix.validate!(input[:partitioned_prefix], context: "#{context}[:partitioned_prefix]") unless input[:partitioned_prefix].nil?
       end
     end
 

@@ -858,6 +858,35 @@ module AWS::SDK::EC2
       end
     end
 
+    class AsnAssociation
+      def self.parse(xml)
+        data = Types::AsnAssociation.new
+        xml.at('asn') do |node|
+          data.asn = (node.text || '')
+        end
+        xml.at('cidr') do |node|
+          data.cidr = (node.text || '')
+        end
+        xml.at('statusMessage') do |node|
+          data.status_message = (node.text || '')
+        end
+        xml.at('state') do |node|
+          data.state = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class AsnAssociationSet
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << AsnAssociation.parse(node)
+        end
+        data
+      end
+    end
+
     # Operation Parser for AssignIpv6Addresses
     class AssignIpv6Addresses
       def self.parse(http_resp)
@@ -1025,6 +1054,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
           data.instance_event_window = InstanceEventWindow.parse(node)
+        end
+        data
+      end
+    end
+
+    # Operation Parser for AssociateIpamByoasn
+    class AssociateIpamByoasn
+      def self.parse(http_resp)
+        data = Types::AssociateIpamByoasnOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('asnAssociation') do |node|
+          data.asn_association = AsnAssociation.parse(node)
         end
         data
       end
@@ -1323,6 +1366,12 @@ module AWS::SDK::EC2
         end
         xml.at('deleteOnTermination') do |node|
           data.delete_on_termination = (node.text == 'true')
+        end
+        xml.at('associatedResource') do |node|
+          data.associated_resource = (node.text || '')
+        end
+        xml.at('instanceOwningService') do |node|
+          data.instance_owning_service = (node.text || '')
         end
         data
       end
@@ -1685,6 +1734,35 @@ module AWS::SDK::EC2
       end
     end
 
+    class Byoasn
+      def self.parse(xml)
+        data = Types::Byoasn.new
+        xml.at('asn') do |node|
+          data.asn = (node.text || '')
+        end
+        xml.at('ipamId') do |node|
+          data.ipam_id = (node.text || '')
+        end
+        xml.at('statusMessage') do |node|
+          data.status_message = (node.text || '')
+        end
+        xml.at('state') do |node|
+          data.state = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class ByoasnSet
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << Byoasn.parse(node)
+        end
+        data
+      end
+    end
+
     class ByoipCidr
       def self.parse(xml)
         data = Types::ByoipCidr.new
@@ -1694,11 +1772,18 @@ module AWS::SDK::EC2
         xml.at('description') do |node|
           data.description = (node.text || '')
         end
+        xml.at('asnAssociationSet') do |node|
+          children = node.children('item')
+          data.asn_associations = AsnAssociationSet.parse(children)
+        end
         xml.at('statusMessage') do |node|
           data.status_message = (node.text || '')
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
+        end
+        xml.at('networkBorderGroup') do |node|
+          data.network_border_group = (node.text || '')
         end
         return data
       end
@@ -1987,6 +2072,53 @@ module AWS::SDK::EC2
       end
     end
 
+    class CapacityBlockOffering
+      def self.parse(xml)
+        data = Types::CapacityBlockOffering.new
+        xml.at('capacityBlockOfferingId') do |node|
+          data.capacity_block_offering_id = (node.text || '')
+        end
+        xml.at('instanceType') do |node|
+          data.instance_type = (node.text || '')
+        end
+        xml.at('availabilityZone') do |node|
+          data.availability_zone = (node.text || '')
+        end
+        xml.at('instanceCount') do |node|
+          data.instance_count = node.text&.to_i
+        end
+        xml.at('startDate') do |node|
+          data.start_date = Time.parse(node.text) if node.text
+        end
+        xml.at('endDate') do |node|
+          data.end_date = Time.parse(node.text) if node.text
+        end
+        xml.at('capacityBlockDurationHours') do |node|
+          data.capacity_block_duration_hours = node.text&.to_i
+        end
+        xml.at('upfrontFee') do |node|
+          data.upfront_fee = (node.text || '')
+        end
+        xml.at('currencyCode') do |node|
+          data.currency_code = (node.text || '')
+        end
+        xml.at('tenancy') do |node|
+          data.tenancy = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class CapacityBlockOfferingSet
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << CapacityBlockOffering.parse(node)
+        end
+        data
+      end
+    end
+
     class CapacityReservation
       def self.parse(xml)
         data = Types::CapacityReservation.new
@@ -2060,6 +2192,9 @@ module AWS::SDK::EC2
         xml.at('capacityAllocationSet') do |node|
           children = node.children('item')
           data.capacity_allocations = CapacityAllocations.parse(children)
+        end
+        xml.at('reservationType') do |node|
+          data.reservation_type = (node.text || '')
         end
         return data
       end
@@ -2855,6 +2990,70 @@ module AWS::SDK::EC2
       end
     end
 
+    class ConnectionTrackingConfiguration
+      def self.parse(xml)
+        data = Types::ConnectionTrackingConfiguration.new
+        xml.at('tcpEstablishedTimeout') do |node|
+          data.tcp_established_timeout = node.text&.to_i
+        end
+        xml.at('udpStreamTimeout') do |node|
+          data.udp_stream_timeout = node.text&.to_i
+        end
+        xml.at('udpTimeout') do |node|
+          data.udp_timeout = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class ConnectionTrackingSpecification
+      def self.parse(xml)
+        data = Types::ConnectionTrackingSpecification.new
+        xml.at('tcpEstablishedTimeout') do |node|
+          data.tcp_established_timeout = node.text&.to_i
+        end
+        xml.at('udpTimeout') do |node|
+          data.udp_timeout = node.text&.to_i
+        end
+        xml.at('udpStreamTimeout') do |node|
+          data.udp_stream_timeout = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class ConnectionTrackingSpecificationRequest
+      def self.parse(xml)
+        data = Types::ConnectionTrackingSpecificationRequest.new
+        xml.at('TcpEstablishedTimeout') do |node|
+          data.tcp_established_timeout = node.text&.to_i
+        end
+        xml.at('UdpStreamTimeout') do |node|
+          data.udp_stream_timeout = node.text&.to_i
+        end
+        xml.at('UdpTimeout') do |node|
+          data.udp_timeout = node.text&.to_i
+        end
+        return data
+      end
+    end
+
+    class ConnectionTrackingSpecificationResponse
+      def self.parse(xml)
+        data = Types::ConnectionTrackingSpecificationResponse.new
+        xml.at('tcpEstablishedTimeout') do |node|
+          data.tcp_established_timeout = node.text&.to_i
+        end
+        xml.at('udpStreamTimeout') do |node|
+          data.udp_stream_timeout = node.text&.to_i
+        end
+        xml.at('udpTimeout') do |node|
+          data.udp_timeout = node.text&.to_i
+        end
+        return data
+      end
+    end
+
     class ConversionTask
       def self.parse(xml)
         data = Types::ConversionTask.new
@@ -3585,6 +3784,9 @@ module AWS::SDK::EC2
         xml.at('networkAcl') do |node|
           data.network_acl = NetworkAcl.parse(node)
         end
+        xml.at('clientToken') do |node|
+          data.client_token = (node.text || '')
+        end
         data
       end
     end
@@ -3756,6 +3958,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('routeTable') do |node|
           data.route_table = RouteTable.parse(node)
+        end
+        xml.at('clientToken') do |node|
+          data.client_token = (node.text || '')
         end
         data
       end
@@ -4829,6 +5034,12 @@ module AWS::SDK::EC2
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
+        xml.at('return') do |node|
+          data.return = (node.text == 'true')
+        end
+        xml.at('keyPairId') do |node|
+          data.key_pair_id = (node.text || '')
+        end
         data
       end
     end
@@ -5650,6 +5861,20 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for DeprovisionIpamByoasn
+    class DeprovisionIpamByoasn
+      def self.parse(http_resp)
+        data = Types::DeprovisionIpamByoasnOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('byoasn') do |node|
+          data.byoasn = Byoasn.parse(node)
+        end
+        data
+      end
+    end
+
     # Operation Parser for DeprovisionIpamPoolCidr
     class DeprovisionIpamPoolCidr
       def self.parse(http_resp)
@@ -5887,6 +6112,24 @@ module AWS::SDK::EC2
         xml.at('byoipCidrSet') do |node|
           children = node.children('item')
           data.byoip_cidrs = ByoipCidrSet.parse(children)
+        end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DescribeCapacityBlockOfferings
+    class DescribeCapacityBlockOfferings
+      def self.parse(http_resp)
+        data = Types::DescribeCapacityBlockOfferingsOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('capacityBlockOfferingSet') do |node|
+          children = node.children('item')
+          data.capacity_block_offerings = CapacityBlockOfferingSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -6873,6 +7116,24 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for DescribeInstanceTopology
+    class DescribeInstanceTopology
+      def self.parse(http_resp)
+        data = Types::DescribeInstanceTopologyOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('instanceSet') do |node|
+          children = node.children('item')
+          data.instances = InstanceSet.parse(children)
+        end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for DescribeInstanceTypeOfferings
     class DescribeInstanceTypeOfferings
       def self.parse(http_resp)
@@ -6937,6 +7198,24 @@ module AWS::SDK::EC2
         xml.at('internetGatewaySet') do |node|
           children = node.children('item')
           data.internet_gateways = InternetGatewayList.parse(children)
+        end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DescribeIpamByoasn
+    class DescribeIpamByoasn
+      def self.parse(http_resp)
+        data = Types::DescribeIpamByoasnOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('byoasnSet') do |node|
+          children = node.children('item')
+          data.byoasns = ByoasnSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -7204,6 +7483,24 @@ module AWS::SDK::EC2
         xml.at('localGatewaySet') do |node|
           children = node.children('item')
           data.local_gateways = LocalGatewaySet.parse(children)
+        end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DescribeLockedSnapshots
+    class DescribeLockedSnapshots
+      def self.parse(http_resp)
+        data = Types::DescribeLockedSnapshotsOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('snapshotSet') do |node|
+          children = node.children('item')
+          data.snapshots = LockedSnapshotsInfoList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -8683,6 +8980,12 @@ module AWS::SDK::EC2
         xml.at('deleteOnTermination') do |node|
           data.delete_on_termination = (node.text == 'true')
         end
+        xml.at('associatedResource') do |node|
+          data.associated_resource = (node.text || '')
+        end
+        xml.at('instanceOwningService') do |node|
+          data.instance_owning_service = (node.text || '')
+        end
         data
       end
     end
@@ -8703,6 +9006,9 @@ module AWS::SDK::EC2
         data = Types::DeviceOptions.new
         xml.at('tenantId') do |node|
           data.tenant_id = (node.text || '')
+        end
+        xml.at('publicSigningKeyUrl') do |node|
+          data.public_signing_key_url = (node.text || '')
         end
         return data
       end
@@ -8992,6 +9298,34 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for DisableImage
+    class DisableImage
+      def self.parse(http_resp)
+        data = Types::DisableImageOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('return') do |node|
+          data.return = (node.text == 'true')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DisableImageBlockPublicAccess
+    class DisableImageBlockPublicAccess
+      def self.parse(http_resp)
+        data = Types::DisableImageBlockPublicAccessOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('imageBlockPublicAccessState') do |node|
+          data.image_block_public_access_state = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for DisableImageDeprecation
     class DisableImageDeprecation
       def self.parse(http_resp)
@@ -9029,6 +9363,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('serialConsoleAccessEnabled') do |node|
           data.serial_console_access_enabled = (node.text == 'true')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DisableSnapshotBlockPublicAccess
+    class DisableSnapshotBlockPublicAccess
+      def self.parse(http_resp)
+        data = Types::DisableSnapshotBlockPublicAccessOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('state') do |node|
+          data.state = (node.text || '')
         end
         data
       end
@@ -9152,6 +9500,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
           data.instance_event_window = InstanceEventWindow.parse(node)
+        end
+        data
+      end
+    end
+
+    # Operation Parser for DisassociateIpamByoasn
+    class DisassociateIpamByoasn
+      def self.parse(http_resp)
+        data = Types::DisassociateIpamByoasnOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('asnAssociation') do |node|
+          data.asn_association = AsnAssociation.parse(node)
         end
         data
       end
@@ -9458,6 +9820,12 @@ module AWS::SDK::EC2
         xml.at('volumeId') do |node|
           data.volume_id = (node.text || '')
         end
+        xml.at('associatedResource') do |node|
+          data.associated_resource = (node.text || '')
+        end
+        xml.at('volumeOwnerId') do |node|
+          data.volume_owner_id = (node.text || '')
+        end
         return data
       end
     end
@@ -9707,6 +10075,29 @@ module AWS::SDK::EC2
       end
     end
 
+    class EnaSrdSpecificationRequest
+      def self.parse(xml)
+        data = Types::EnaSrdSpecificationRequest.new
+        xml.at('EnaSrdEnabled') do |node|
+          data.ena_srd_enabled = (node.text == 'true')
+        end
+        xml.at('EnaSrdUdpSpecification') do |node|
+          data.ena_srd_udp_specification = EnaSrdUdpSpecificationRequest.parse(node)
+        end
+        return data
+      end
+    end
+
+    class EnaSrdUdpSpecificationRequest
+      def self.parse(xml)
+        data = Types::EnaSrdUdpSpecificationRequest.new
+        xml.at('EnaSrdUdpEnabled') do |node|
+          data.ena_srd_udp_enabled = (node.text == 'true')
+        end
+        return data
+      end
+    end
+
     # Operation Parser for EnableAddressTransfer
     class EnableAddressTransfer
       def self.parse(http_resp)
@@ -9916,6 +10307,34 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for EnableImage
+    class EnableImage
+      def self.parse(http_resp)
+        data = Types::EnableImageOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('return') do |node|
+          data.return = (node.text == 'true')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for EnableImageBlockPublicAccess
+    class EnableImageBlockPublicAccess
+      def self.parse(http_resp)
+        data = Types::EnableImageBlockPublicAccessOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('imageBlockPublicAccessState') do |node|
+          data.image_block_public_access_state = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for EnableImageDeprecation
     class EnableImageDeprecation
       def self.parse(http_resp)
@@ -9967,6 +10386,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('serialConsoleAccessEnabled') do |node|
           data.serial_console_access_enabled = (node.text == 'true')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for EnableSnapshotBlockPublicAccess
+    class EnableSnapshotBlockPublicAccess
+      def self.parse(http_resp)
+        data = Types::EnableSnapshotBlockPublicAccessOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('state') do |node|
+          data.state = (node.text || '')
         end
         data
       end
@@ -11210,6 +11643,9 @@ module AWS::SDK::EC2
         xml.at('localGatewayRouteTableId') do |node|
           data.local_gateway_route_table_id = (node.text || '')
         end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
         data
       end
     end
@@ -11352,6 +11788,20 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for GetImageBlockPublicAccessState
+    class GetImageBlockPublicAccessState
+      def self.parse(http_resp)
+        data = Types::GetImageBlockPublicAccessStateOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('imageBlockPublicAccessState') do |node|
+          data.image_block_public_access_state = (node.text || '')
+        end
+        data
+      end
+    end
+
     # Operation Parser for GetInstanceTypesFromInstanceRequirements
     class GetInstanceTypesFromInstanceRequirements
       def self.parse(http_resp)
@@ -11415,6 +11865,27 @@ module AWS::SDK::EC2
         xml.at('ipamDiscoveredAccountSet') do |node|
           children = node.children('item')
           data.ipam_discovered_accounts = IpamDiscoveredAccountSet.parse(children)
+        end
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for GetIpamDiscoveredPublicAddresses
+    class GetIpamDiscoveredPublicAddresses
+      def self.parse(http_resp)
+        data = Types::GetIpamDiscoveredPublicAddressesOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('ipamDiscoveredPublicAddressSet') do |node|
+          children = node.children('item')
+          data.ipam_discovered_public_addresses = IpamDiscoveredPublicAddressSet.parse(children)
+        end
+        xml.at('oldestSampleTime') do |node|
+          data.oldest_sample_time = Time.parse(node.text) if node.text
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11643,6 +12114,24 @@ module AWS::SDK::EC2
       end
     end
 
+    # Operation Parser for GetSecurityGroupsForVpc
+    class GetSecurityGroupsForVpc
+      def self.parse(http_resp)
+        data = Types::GetSecurityGroupsForVpcOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('nextToken') do |node|
+          data.next_token = (node.text || '')
+        end
+        xml.at('securityGroupForVpcSet') do |node|
+          children = node.children('item')
+          data.security_group_for_vpcs = SecurityGroupForVpcList.parse(children)
+        end
+        data
+      end
+    end
+
     # Operation Parser for GetSerialConsoleAccessStatus
     class GetSerialConsoleAccessStatus
       def self.parse(http_resp)
@@ -11652,6 +12141,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('serialConsoleAccessEnabled') do |node|
           data.serial_console_access_enabled = (node.text == 'true')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for GetSnapshotBlockPublicAccessState
+    class GetSnapshotBlockPublicAccessState
+      def self.parse(http_resp)
+        data = Types::GetSnapshotBlockPublicAccessStateOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('state') do |node|
+          data.state = (node.text || '')
         end
         data
       end
@@ -12512,6 +13015,9 @@ module AWS::SDK::EC2
         xml.at('imdsSupport') do |node|
           data.imds_support = (node.text || '')
         end
+        xml.at('sourceInstanceId') do |node|
+          data.source_instance_id = (node.text || '')
+        end
         return data
       end
     end
@@ -13160,6 +13666,29 @@ module AWS::SDK::EC2
       end
     end
 
+    class InstanceAttachmentEnaSrdSpecification
+      def self.parse(xml)
+        data = Types::InstanceAttachmentEnaSrdSpecification.new
+        xml.at('enaSrdEnabled') do |node|
+          data.ena_srd_enabled = (node.text == 'true')
+        end
+        xml.at('enaSrdUdpSpecification') do |node|
+          data.ena_srd_udp_specification = InstanceAttachmentEnaSrdUdpSpecification.parse(node)
+        end
+        return data
+      end
+    end
+
+    class InstanceAttachmentEnaSrdUdpSpecification
+      def self.parse(xml)
+        data = Types::InstanceAttachmentEnaSrdUdpSpecification.new
+        xml.at('enaSrdUdpEnabled') do |node|
+          data.ena_srd_udp_enabled = (node.text == 'true')
+        end
+        return data
+      end
+    end
+
     class InstanceBlockDeviceMapping
       def self.parse(xml)
         data = Types::InstanceBlockDeviceMapping.new
@@ -13448,6 +13977,9 @@ module AWS::SDK::EC2
         xml.at('ipv6Address') do |node|
           data.ipv6_address = (node.text || '')
         end
+        xml.at('isPrimaryIpv6') do |node|
+          data.is_primary_ipv6 = (node.text == 'true')
+        end
         return data
       end
     end
@@ -13612,6 +14144,9 @@ module AWS::SDK::EC2
           children = node.children('item')
           data.ipv6_prefixes = InstanceIpv6PrefixList.parse(children)
         end
+        xml.at('connectionTrackingConfiguration') do |node|
+          data.connection_tracking_configuration = ConnectionTrackingSpecificationResponse.parse(node)
+        end
         return data
       end
     end
@@ -13658,6 +14193,9 @@ module AWS::SDK::EC2
         end
         xml.at('networkCardIndex') do |node|
           data.network_card_index = node.text&.to_i
+        end
+        xml.at('enaSrdSpecification') do |node|
+          data.ena_srd_specification = InstanceAttachmentEnaSrdSpecification.parse(node)
         end
         return data
       end
@@ -13737,6 +14275,15 @@ module AWS::SDK::EC2
         end
         xml.at('Ipv6PrefixCount') do |node|
           data.ipv6_prefix_count = node.text&.to_i
+        end
+        xml.at('PrimaryIpv6') do |node|
+          data.primary_ipv6 = (node.text == 'true')
+        end
+        xml.at('EnaSrdSpecification') do |node|
+          data.ena_srd_specification = EnaSrdSpecificationRequest.parse(node)
+        end
+        xml.at('ConnectionTrackingSpecification') do |node|
+          data.connection_tracking_specification = ConnectionTrackingSpecificationRequest.parse(node)
         end
         return data
       end
@@ -13861,7 +14408,20 @@ module AWS::SDK::EC2
           children = node.children('item')
           data.allowed_instance_types = AllowedInstanceTypeSet.parse(children)
         end
+        xml.at('maxSpotPriceAsPercentageOfOptimalOnDemandPrice') do |node|
+          data.max_spot_price_as_percentage_of_optimal_on_demand_price = node.text&.to_i
+        end
         return data
+      end
+    end
+
+    class InstanceSet
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << InstanceTopology.parse(node)
+        end
+        data
       end
     end
 
@@ -14057,6 +14617,32 @@ module AWS::SDK::EC2
         end
         xml.at('includeAllTagsOfInstance') do |node|
           data.include_all_tags_of_instance = (node.text == 'true')
+        end
+        return data
+      end
+    end
+
+    class InstanceTopology
+      def self.parse(xml)
+        data = Types::InstanceTopology.new
+        xml.at('instanceId') do |node|
+          data.instance_id = (node.text || '')
+        end
+        xml.at('instanceType') do |node|
+          data.instance_type = (node.text || '')
+        end
+        xml.at('groupName') do |node|
+          data.group_name = (node.text || '')
+        end
+        xml.at('networkNodeSet') do |node|
+          children = node.children('item')
+          data.network_nodes = NetworkNodesList.parse(children)
+        end
+        xml.at('availabilityZone') do |node|
+          data.availability_zone = (node.text || '')
+        end
+        xml.at('zoneId') do |node|
+          data.zone_id = (node.text || '')
         end
         return data
       end
@@ -14439,6 +15025,12 @@ module AWS::SDK::EC2
         xml.at('resourceDiscoveryAssociationCount') do |node|
           data.resource_discovery_association_count = node.text&.to_i
         end
+        xml.at('stateMessage') do |node|
+          data.state_message = (node.text || '')
+        end
+        xml.at('tier') do |node|
+          data.tier = (node.text || '')
+        end
         return data
       end
     end
@@ -14520,6 +15112,81 @@ module AWS::SDK::EC2
         data = []
         xml.each do |node|
           data << IpamDiscoveredAccount.parse(node)
+        end
+        data
+      end
+    end
+
+    class IpamDiscoveredPublicAddress
+      def self.parse(xml)
+        data = Types::IpamDiscoveredPublicAddress.new
+        xml.at('ipamResourceDiscoveryId') do |node|
+          data.ipam_resource_discovery_id = (node.text || '')
+        end
+        xml.at('addressRegion') do |node|
+          data.address_region = (node.text || '')
+        end
+        xml.at('address') do |node|
+          data.address = (node.text || '')
+        end
+        xml.at('addressOwnerId') do |node|
+          data.address_owner_id = (node.text || '')
+        end
+        xml.at('addressAllocationId') do |node|
+          data.address_allocation_id = (node.text || '')
+        end
+        xml.at('associationStatus') do |node|
+          data.association_status = (node.text || '')
+        end
+        xml.at('addressType') do |node|
+          data.address_type = (node.text || '')
+        end
+        xml.at('service') do |node|
+          data.service = (node.text || '')
+        end
+        xml.at('serviceResource') do |node|
+          data.service_resource = (node.text || '')
+        end
+        xml.at('vpcId') do |node|
+          data.vpc_id = (node.text || '')
+        end
+        xml.at('subnetId') do |node|
+          data.subnet_id = (node.text || '')
+        end
+        xml.at('publicIpv4PoolId') do |node|
+          data.public_ipv4_pool_id = (node.text || '')
+        end
+        xml.at('networkInterfaceId') do |node|
+          data.network_interface_id = (node.text || '')
+        end
+        xml.at('networkInterfaceDescription') do |node|
+          data.network_interface_description = (node.text || '')
+        end
+        xml.at('instanceId') do |node|
+          data.instance_id = (node.text || '')
+        end
+        xml.at('tags') do |node|
+          data.tags = IpamPublicAddressTags.parse(node)
+        end
+        xml.at('networkBorderGroup') do |node|
+          data.network_border_group = (node.text || '')
+        end
+        xml.at('securityGroupSet') do |node|
+          children = node.children('item')
+          data.security_groups = IpamPublicAddressSecurityGroupList.parse(children)
+        end
+        xml.at('sampleTime') do |node|
+          data.sample_time = Time.parse(node.text) if node.text
+        end
+        return data
+      end
+    end
+
+    class IpamDiscoveredPublicAddressSet
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << IpamDiscoveredPublicAddress.parse(node)
         end
         data
       end
@@ -14680,6 +15347,9 @@ module AWS::SDK::EC2
         xml.at('publicIpSource') do |node|
           data.public_ip_source = (node.text || '')
         end
+        xml.at('sourceResource') do |node|
+          data.source_resource = IpamPoolSourceResource.parse(node)
+        end
         return data
       end
     end
@@ -14774,6 +15444,82 @@ module AWS::SDK::EC2
           data << IpamPool.parse(node)
         end
         data
+      end
+    end
+
+    class IpamPoolSourceResource
+      def self.parse(xml)
+        data = Types::IpamPoolSourceResource.new
+        xml.at('resourceId') do |node|
+          data.resource_id = (node.text || '')
+        end
+        xml.at('resourceType') do |node|
+          data.resource_type = (node.text || '')
+        end
+        xml.at('resourceRegion') do |node|
+          data.resource_region = (node.text || '')
+        end
+        xml.at('resourceOwner') do |node|
+          data.resource_owner = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class IpamPublicAddressSecurityGroup
+      def self.parse(xml)
+        data = Types::IpamPublicAddressSecurityGroup.new
+        xml.at('groupName') do |node|
+          data.group_name = (node.text || '')
+        end
+        xml.at('groupId') do |node|
+          data.group_id = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class IpamPublicAddressSecurityGroupList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << IpamPublicAddressSecurityGroup.parse(node)
+        end
+        data
+      end
+    end
+
+    class IpamPublicAddressTag
+      def self.parse(xml)
+        data = Types::IpamPublicAddressTag.new
+        xml.at('key') do |node|
+          data.key = (node.text || '')
+        end
+        xml.at('value') do |node|
+          data.value = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class IpamPublicAddressTagList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << IpamPublicAddressTag.parse(node)
+        end
+        data
+      end
+    end
+
+    class IpamPublicAddressTags
+      def self.parse(xml)
+        data = Types::IpamPublicAddressTags.new
+        xml.at('eipTagSet') do |node|
+          children = node.children('item')
+          data.eip_tags = IpamPublicAddressTagList.parse(children)
+        end
+        return data
       end
     end
 
@@ -15572,6 +16318,29 @@ module AWS::SDK::EC2
       end
     end
 
+    class LaunchTemplateEnaSrdSpecification
+      def self.parse(xml)
+        data = Types::LaunchTemplateEnaSrdSpecification.new
+        xml.at('enaSrdEnabled') do |node|
+          data.ena_srd_enabled = (node.text == 'true')
+        end
+        xml.at('enaSrdUdpSpecification') do |node|
+          data.ena_srd_udp_specification = LaunchTemplateEnaSrdUdpSpecification.parse(node)
+        end
+        return data
+      end
+    end
+
+    class LaunchTemplateEnaSrdUdpSpecification
+      def self.parse(xml)
+        data = Types::LaunchTemplateEnaSrdUdpSpecification.new
+        xml.at('enaSrdUdpEnabled') do |node|
+          data.ena_srd_udp_enabled = (node.text == 'true')
+        end
+        return data
+      end
+    end
+
     class LaunchTemplateEnclaveOptions
       def self.parse(xml)
         data = Types::LaunchTemplateEnclaveOptions.new
@@ -15717,6 +16486,15 @@ module AWS::SDK::EC2
         end
         xml.at('ipv6PrefixCount') do |node|
           data.ipv6_prefix_count = node.text&.to_i
+        end
+        xml.at('primaryIpv6') do |node|
+          data.primary_ipv6 = (node.text == 'true')
+        end
+        xml.at('enaSrdSpecification') do |node|
+          data.ena_srd_specification = LaunchTemplateEnaSrdSpecification.parse(node)
+        end
+        xml.at('connectionTrackingSpecification') do |node|
+          data.connection_tracking_specification = ConnectionTrackingSpecification.parse(node)
         end
         return data
       end
@@ -16345,6 +17123,85 @@ module AWS::SDK::EC2
         data = []
         xml.each do |node|
           data << (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Operation Parser for LockSnapshot
+    class LockSnapshot
+      def self.parse(http_resp)
+        data = Types::LockSnapshotOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('snapshotId') do |node|
+          data.snapshot_id = (node.text || '')
+        end
+        xml.at('lockState') do |node|
+          data.lock_state = (node.text || '')
+        end
+        xml.at('lockDuration') do |node|
+          data.lock_duration = node.text&.to_i
+        end
+        xml.at('coolOffPeriod') do |node|
+          data.cool_off_period = node.text&.to_i
+        end
+        xml.at('coolOffPeriodExpiresOn') do |node|
+          data.cool_off_period_expires_on = Time.parse(node.text) if node.text
+        end
+        xml.at('lockCreatedOn') do |node|
+          data.lock_created_on = Time.parse(node.text) if node.text
+        end
+        xml.at('lockExpiresOn') do |node|
+          data.lock_expires_on = Time.parse(node.text) if node.text
+        end
+        xml.at('lockDurationStartTime') do |node|
+          data.lock_duration_start_time = Time.parse(node.text) if node.text
+        end
+        data
+      end
+    end
+
+    class LockedSnapshotsInfo
+      def self.parse(xml)
+        data = Types::LockedSnapshotsInfo.new
+        xml.at('ownerId') do |node|
+          data.owner_id = (node.text || '')
+        end
+        xml.at('snapshotId') do |node|
+          data.snapshot_id = (node.text || '')
+        end
+        xml.at('lockState') do |node|
+          data.lock_state = (node.text || '')
+        end
+        xml.at('lockDuration') do |node|
+          data.lock_duration = node.text&.to_i
+        end
+        xml.at('coolOffPeriod') do |node|
+          data.cool_off_period = node.text&.to_i
+        end
+        xml.at('coolOffPeriodExpiresOn') do |node|
+          data.cool_off_period_expires_on = Time.parse(node.text) if node.text
+        end
+        xml.at('lockCreatedOn') do |node|
+          data.lock_created_on = Time.parse(node.text) if node.text
+        end
+        xml.at('lockDurationStartTime') do |node|
+          data.lock_duration_start_time = Time.parse(node.text) if node.text
+        end
+        xml.at('lockExpiresOn') do |node|
+          data.lock_expires_on = Time.parse(node.text) if node.text
+        end
+        return data
+      end
+    end
+
+    class LockedSnapshotsInfoList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << LockedSnapshotsInfo.parse(node)
         end
         data
       end
@@ -17106,6 +17963,9 @@ module AWS::SDK::EC2
         xml.at('policyDocument') do |node|
           data.policy_document = (node.text || '')
         end
+        xml.at('sseSpecification') do |node|
+          data.sse_specification = VerifiedAccessSseSpecificationResponse.parse(node)
+        end
         data
       end
     end
@@ -17136,6 +17996,9 @@ module AWS::SDK::EC2
         end
         xml.at('policyDocument') do |node|
           data.policy_document = (node.text || '')
+        end
+        xml.at('sseSpecification') do |node|
+          data.sse_specification = VerifiedAccessSseSpecificationResponse.parse(node)
         end
         data
       end
@@ -18002,6 +18865,9 @@ module AWS::SDK::EC2
         xml.at('availabilityZone') do |node|
           data.availability_zone = (node.text || '')
         end
+        xml.at('connectionTrackingConfiguration') do |node|
+          data.connection_tracking_configuration = ConnectionTrackingConfiguration.parse(node)
+        end
         xml.at('description') do |node|
           data.description = (node.text || '')
         end
@@ -18172,6 +19038,9 @@ module AWS::SDK::EC2
         xml.at('ipv6Address') do |node|
           data.ipv6_address = (node.text || '')
         end
+        xml.at('isPrimaryIpv6') do |node|
+          data.is_primary_ipv6 = (node.text == 'true')
+        end
         return data
       end
     end
@@ -18268,6 +19137,16 @@ module AWS::SDK::EC2
         data = []
         xml.each do |node|
           data << NetworkInterfacePrivateIpAddress.parse(node)
+        end
+        data
+      end
+    end
+
+    class NetworkNodesList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << (node.text || '')
         end
         data
       end
@@ -19130,6 +20009,9 @@ module AWS::SDK::EC2
           children = node.children('item')
           data.supported_features = SupportedAdditionalProcessorFeatureList.parse(children)
         end
+        xml.at('manufacturer') do |node|
+          data.manufacturer = (node.text || '')
+        end
         return data
       end
     end
@@ -19206,6 +20088,20 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
           data.byoip_cidr = ByoipCidr.parse(node)
+        end
+        data
+      end
+    end
+
+    # Operation Parser for ProvisionIpamByoasn
+    class ProvisionIpamByoasn
+      def self.parse(http_resp)
+        data = Types::ProvisionIpamByoasnOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('byoasn') do |node|
+          data.byoasn = Byoasn.parse(node)
         end
         data
       end
@@ -19378,6 +20274,20 @@ module AWS::SDK::EC2
           data.upfront_price = (node.text || '')
         end
         return data
+      end
+    end
+
+    # Operation Parser for PurchaseCapacityBlock
+    class PurchaseCapacityBlock
+      def self.parse(http_resp)
+        data = Types::PurchaseCapacityBlockOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('capacityReservation') do |node|
+          data.capacity_reservation = CapacityReservation.parse(node)
+        end
+        data
       end
     end
 
@@ -21205,6 +22115,42 @@ module AWS::SDK::EC2
       end
     end
 
+    class SecurityGroupForVpc
+      def self.parse(xml)
+        data = Types::SecurityGroupForVpc.new
+        xml.at('description') do |node|
+          data.description = (node.text || '')
+        end
+        xml.at('groupName') do |node|
+          data.group_name = (node.text || '')
+        end
+        xml.at('ownerId') do |node|
+          data.owner_id = (node.text || '')
+        end
+        xml.at('groupId') do |node|
+          data.group_id = (node.text || '')
+        end
+        xml.at('tagSet') do |node|
+          children = node.children('item')
+          data.tags = TagList.parse(children)
+        end
+        xml.at('primaryVpcId') do |node|
+          data.primary_vpc_id = (node.text || '')
+        end
+        return data
+      end
+    end
+
+    class SecurityGroupForVpcList
+      def self.parse(xml)
+        data = []
+        xml.each do |node|
+          data << SecurityGroupForVpc.parse(node)
+        end
+        data
+      end
+    end
+
     class SecurityGroupIdList
       def self.parse(xml)
         data = []
@@ -21269,6 +22215,9 @@ module AWS::SDK::EC2
         end
         xml.at('vpcPeeringConnectionId') do |node|
           data.vpc_peering_connection_id = (node.text || '')
+        end
+        xml.at('transitGatewayId') do |node|
+          data.transit_gateway_id = (node.text || '')
         end
         return data
       end
@@ -23833,6 +24782,9 @@ module AWS::SDK::EC2
         xml.at('dnsSupport') do |node|
           data.dns_support = (node.text || '')
         end
+        xml.at('securityGroupReferencingSupport') do |node|
+          data.security_group_referencing_support = (node.text || '')
+        end
         xml.at('multicastSupport') do |node|
           data.multicast_support = (node.text || '')
         end
@@ -24393,6 +25345,9 @@ module AWS::SDK::EC2
         xml.at('dnsSupport') do |node|
           data.dns_support = (node.text || '')
         end
+        xml.at('securityGroupReferencingSupport') do |node|
+          data.security_group_referencing_support = (node.text || '')
+        end
         xml.at('ipv6Support') do |node|
           data.ipv6_support = (node.text || '')
         end
@@ -24575,6 +25530,20 @@ module AWS::SDK::EC2
         xml.at('natGatewayAddressSet') do |node|
           children = node.children('item')
           data.nat_gateway_addresses = NatGatewayAddressList.parse(children)
+        end
+        data
+      end
+    end
+
+    # Operation Parser for UnlockSnapshot
+    class UnlockSnapshot
+      def self.parse(http_resp)
+        data = Types::UnlockSnapshotOutput.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml.at('snapshotId') do |node|
+          data.snapshot_id = (node.text || '')
         end
         data
       end
@@ -24906,6 +25875,9 @@ module AWS::SDK::EC2
           children = node.children('item')
           data.tags = TagList.parse(children)
         end
+        xml.at('sseSpecification') do |node|
+          data.sse_specification = VerifiedAccessSseSpecificationResponse.parse(node)
+        end
         return data
       end
     end
@@ -25010,6 +25982,9 @@ module AWS::SDK::EC2
           children = node.children('item')
           data.tags = TagList.parse(children)
         end
+        xml.at('sseSpecification') do |node|
+          data.sse_specification = VerifiedAccessSseSpecificationResponse.parse(node)
+        end
         return data
       end
     end
@@ -25046,6 +26021,9 @@ module AWS::SDK::EC2
         xml.at('tagSet') do |node|
           children = node.children('item')
           data.tags = TagList.parse(children)
+        end
+        xml.at('fipsEnabled') do |node|
+          data.fips_enabled = (node.text == 'true')
         end
         return data
       end
@@ -25173,6 +26151,19 @@ module AWS::SDK::EC2
       end
     end
 
+    class VerifiedAccessSseSpecificationResponse
+      def self.parse(xml)
+        data = Types::VerifiedAccessSseSpecificationResponse.new
+        xml.at('customerManagedKeyEnabled') do |node|
+          data.customer_managed_key_enabled = (node.text == 'true')
+        end
+        xml.at('kmsKeyArn') do |node|
+          data.kms_key_arn = (node.text || '')
+        end
+        return data
+      end
+    end
+
     class VerifiedAccessTrustProvider
       def self.parse(xml)
         data = Types::VerifiedAccessTrustProvider.new
@@ -25209,6 +26200,9 @@ module AWS::SDK::EC2
         xml.at('tagSet') do |node|
           children = node.children('item')
           data.tags = TagList.parse(children)
+        end
+        xml.at('sseSpecification') do |node|
+          data.sse_specification = VerifiedAccessSseSpecificationResponse.parse(node)
         end
         return data
       end
@@ -25381,6 +26375,12 @@ module AWS::SDK::EC2
         end
         xml.at('deleteOnTermination') do |node|
           data.delete_on_termination = (node.text == 'true')
+        end
+        xml.at('associatedResource') do |node|
+          data.associated_resource = (node.text || '')
+        end
+        xml.at('instanceOwningService') do |node|
+          data.instance_owning_service = (node.text || '')
         end
         return data
       end

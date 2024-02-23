@@ -12,8 +12,6 @@ require 'stringio'
 require_relative 'middleware/request_id'
 
 module AWS::SDK::KMS
-  # An API client for TrentService
-  # See {#initialize} for a full list of supported configuration options
   # <fullname>Key Management Service</fullname>
   #          <p>Key Management Service (KMS) is an encryption and key management web service. This guide describes
   #       the KMS operations that you can call programmatically. For general information about KMS,
@@ -109,21 +107,22 @@ module AWS::SDK::KMS
   #                </p>
   #             </li>
   #          </ul>
-  #
   class Client
     include Hearth::ClientStubs
+
+    # @api private
     @plugins = Hearth::PluginList.new
 
+    # @return [Hearth::PluginList]
     def self.plugins
       @plugins
     end
 
-    # @param [Config] config
-    #   An instance of {Config}
-    #
-    def initialize(config = AWS::SDK::KMS::Config.new, options = {})
-      @config = initialize_config(config)
-      @stubs = Hearth::Stubbing::Stubs.new
+    # @param [Hash] options
+    #   Options used to construct an instance of {Config}
+    def initialize(options = {})
+      @config = initialize_config(options)
+      @stubs = Hearth::Stubs.new
     end
 
     # @return [Config] config
@@ -142,44 +141,38 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>ScheduleKeyDeletion</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::CancelKeyDeletionInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key whose deletion is being canceled.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CancelKeyDeletionInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CancelKeyDeletionOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.cancel_key_deletion(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CancelKeyDeletionOutput
     #   resp.data.key_id #=> String
+    # @example To cancel deletion of a KMS key
+    #   # The following example cancels deletion of the specified KMS key.
+    #   resp = client.cancel_key_deletion({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def cancel_key_deletion(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   }
+    def cancel_key_deletion(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CancelKeyDeletionInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CancelKeyDeletionInput,
@@ -193,34 +186,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :cancel_key_deletion),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::CancelKeyDeletion
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::CancelKeyDeletion,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :cancel_key_deletion,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :cancel_key_deletion,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#cancel_key_deletion] #{output.data}")
+      output
     end
 
     # <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
@@ -310,31 +315,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ConnectCustomKeyStoreInput}.
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Enter the key store ID of the custom key store that you want to connect.
-    #         To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ConnectCustomKeyStoreInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ConnectCustomKeyStoreOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.connect_custom_key_store(
     #     custom_key_store_id: 'CustomKeyStoreId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ConnectCustomKeyStoreOutput
+    # @example To connect a custom key store
+    #   # This example connects an AWS KMS custom key store to its backing key store. For an AWS CloudHSM key store, it connects the key store to its AWS CloudHSM cluster. For an external key store, it connects the key store to the external key store proxy that communicates with your external key manager. This operation does not return any data. To verify that the custom key store is connected, use the <code>DescribeCustomKeyStores</code> operation.
+    #   resp = client.connect_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0"
+    #   })
     #
-    def connect_custom_key_store(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    def connect_custom_key_store(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ConnectCustomKeyStoreInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ConnectCustomKeyStoreInput,
@@ -348,34 +359,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :connect_custom_key_store),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+        ),
         data_parser: Parsers::ConnectCustomKeyStore
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
         stub_data_class: Stubs::ConnectCustomKeyStore,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :connect_custom_key_store,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :connect_custom_key_store,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#connect_custom_key_store] #{output.data}")
+      output
     end
 
     # <p>Creates a friendly name for a KMS key. </p>
@@ -435,63 +458,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::CreateAliasInput}.
-    #
-    # @option params [String] :alias_name
-    #   <p>Specifies the alias name. This value must begin with <code>alias/</code> followed by a
-    #         name, such as <code>alias/ExampleAlias</code>. </p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>The <code>AliasName</code> value must be string of 1-256 characters. It can contain only
-    #         alphanumeric characters, forward slashes (/), underscores (_), and dashes (-). The alias name
-    #         cannot begin with <code>alias/aws/</code>. The <code>alias/aws/</code> prefix is reserved for
-    #           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed
-    #           keys</a>.</p>
-    #
-    # @option params [String] :target_key_id
-    #   <p>Associates the alias with the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>. The KMS key must
-    #         be in the same Amazon Web Services Region. </p>
-    #            <p>A valid key ID is required. If you supply a null or empty string value, this operation
-    #         returns an error.</p>
-    #            <p>For help finding the key ID and ARN, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html#find-cmk-id-arn">Finding the Key ID and
-    #           ARN</a> in the <i>
-    #                  <i>Key Management Service Developer Guide</i>
-    #               </i>.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateAliasInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateAliasOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_alias(
     #     alias_name: 'AliasName', # required
     #     target_key_id: 'TargetKeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateAliasOutput
+    # @example To create an alias
+    #   # The following example creates an alias for the specified KMS key.
+    #   resp = client.create_alias({
+    #     alias_name: "alias/ExampleAlias",
+    #     target_key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def create_alias(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def create_alias(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
@@ -505,34 +502,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_alias),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::DependencyTimeoutException, Errors::InvalidAliasNameException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::AlreadyExistsException, Errors::DependencyTimeoutException, Errors::InvalidAliasNameException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::CreateAlias
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DependencyTimeoutException, Stubs::InvalidAliasNameException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
         stub_data_class: Stubs::CreateAlias,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_alias,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_alias,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_alias] #{output.data}")
+      output
     end
 
     # <p>Creates a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> backed by a key store that you own and manage. When you use a
@@ -624,161 +633,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::CreateCustomKeyStoreInput}.
-    #
-    # @option params [String] :custom_key_store_name
-    #   <p>Specifies a friendly name for the custom key store. The name must be unique in your
-    #         Amazon Web Services account and Region. This parameter is required for all custom key stores.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #
-    # @option params [String] :cloud_hsm_cluster_id
-    #   <p>Identifies the CloudHSM cluster for an CloudHSM key store. This parameter is required for custom
-    #         key stores with <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>Enter the cluster ID of any active CloudHSM cluster that is not already associated with a
-    #         custom key store. To find the cluster ID, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
-    #
-    # @option params [String] :trust_anchor_certificate
-    #   <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom
-    #         key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is the
-    #         content of the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized the
-    #           cluster</a>.</p>
-    #
-    # @option params [String] :key_store_password
-    #   <p>Specifies the <code>kmsuser</code> password for an CloudHSM key store. This parameter is
-    #         required for custom key stores with a <code>CustomKeyStoreType</code> of
-    #           <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>Enter the password of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
-    #                  <code>kmsuser</code> crypto user
-    #           (CU) account</a> in the specified CloudHSM cluster. KMS logs into the cluster as this
-    #         user to manage key material on your behalf.</p>
-    #            <p>The password must be a string of 7 to 32 characters. Its value is case sensitive.</p>
-    #            <p>This parameter tells KMS the <code>kmsuser</code> account password; it does not change
-    #         the password in the CloudHSM cluster.</p>
-    #
-    # @option params [String] :custom_key_store_type
-    #   <p>Specifies the type of custom key store. The default value is
-    #         <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>For a custom key store backed by an CloudHSM cluster, omit the parameter or enter
-    #           <code>AWS_CLOUDHSM</code>. For a custom key store backed by an external key manager outside
-    #         of Amazon Web Services, enter <code>EXTERNAL_KEY_STORE</code>. You cannot change this property after the key
-    #         store is created.</p>
-    #
-    # @option params [String] :xks_proxy_uri_endpoint
-    #   <p>Specifies the endpoint that KMS uses to send requests to the external key store proxy
-    #         (XKS proxy). This parameter is required for custom key stores with a
-    #           <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>The protocol must be HTTPS. KMS communicates on port 443. Do not specify the port in the
-    #           <code>XksProxyUriEndpoint</code> value.</p>
-    #            <p>For external key stores with <code>XksProxyConnectivity</code> value of
-    #           <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS
-    #         name of the VPC endpoint service.</p>
-    #            <p>For external key stores with <code>PUBLIC_ENDPOINT</code> connectivity, this endpoint must
-    #         be reachable before you create the custom key store. KMS connects to the external key store
-    #         proxy while creating the custom key store. For external key stores with
-    #           <code>VPC_ENDPOINT_SERVICE</code> connectivity, KMS connects when you call the <a>ConnectCustomKeyStore</a> operation.</p>
-    #            <p>The value of this parameter must begin with <code>https://</code>. The remainder can
-    #         contain upper and lower case letters (A-Z and a-z), numbers (0-9), dots (<code>.</code>), and
-    #         hyphens (<code>-</code>). Additional slashes (<code>/</code> and <code>\</code>) are not
-    #         permitted.</p>
-    #            <p>
-    #               <b>Uniqueness requirements: </b>
-    #            </p>
-    #            <ul>
-    #               <li>
-    #                  <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
-    #             must be unique in the Amazon Web Services account and Region.</p>
-    #               </li>
-    #               <li>
-    #                  <p>An external key store with <code>PUBLIC_ENDPOINT</code> connectivity cannot use the
-    #             same <code>XksProxyUriEndpoint</code> value as an external key store with
-    #               <code>VPC_ENDPOINT_SERVICE</code> connectivity in the same Amazon Web Services Region.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Each external key store with <code>VPC_ENDPOINT_SERVICE</code> connectivity must have
-    #             its own private DNS name. The <code>XksProxyUriEndpoint</code> value for external key
-    #             stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity (private DNS name) must be
-    #             unique in the Amazon Web Services account and Region.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :xks_proxy_uri_path
-    #   <p>Specifies the base path to the proxy APIs for this external key store. To find this value,
-    #         see the documentation for your external key store proxy. This parameter is required for all
-    #         custom key stores with a <code>CustomKeyStoreType</code> of
-    #         <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code> where
-    #           <code>v1</code> represents the version of the KMS external key store proxy API. This path
-    #         can include an optional prefix between the required elements such as
-    #             <code>/<i>prefix</i>/kms/xks/v1</code>.</p>
-    #            <p>
-    #               <b>Uniqueness requirements: </b>
-    #            </p>
-    #            <ul>
-    #               <li>
-    #                  <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values
-    #             must be unique in the Amazon Web Services account and Region.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :xks_proxy_vpc_endpoint_service_name
-    #   <p>Specifies the name of the Amazon VPC endpoint service for interface endpoints that is used to
-    #         communicate with your external key store proxy (XKS proxy). This parameter is required when
-    #         the value of <code>CustomKeyStoreType</code> is <code>EXTERNAL_KEY_STORE</code> and the value
-    #         of <code>XksProxyConnectivity</code> is <code>VPC_ENDPOINT_SERVICE</code>.</p>
-    #            <p>The Amazon VPC endpoint service must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keystore.html#xks-requirements">fulfill all
-    #           requirements</a> for use with an external key store. </p>
-    #            <p>
-    #               <b>Uniqueness requirements:</b>
-    #            </p>
-    #            <ul>
-    #               <li>
-    #                  <p>External key stores with <code>VPC_ENDPOINT_SERVICE</code> connectivity can share an
-    #             Amazon VPC, but each external key store must have its own VPC endpoint service and private DNS
-    #             name.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [XksProxyAuthenticationCredentialType] :xks_proxy_authentication_credential
-    #   <p>Specifies an authentication credential for the external key store proxy (XKS proxy). This
-    #         parameter is required for all custom key stores with a <code>CustomKeyStoreType</code> of
-    #           <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>The <code>XksProxyAuthenticationCredential</code> has two required elements:
-    #           <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique
-    #         identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="kms/latest/APIReference/API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
-    #            <p>KMS uses this authentication credential to sign requests to the external key store proxy
-    #         on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
-    #            <p>This parameter doesn't set or change the authentication credentials on the XKS proxy. It
-    #         just tells KMS the credential that you established on your external key store proxy. If you
-    #         rotate your proxy authentication credential, use the <a>UpdateCustomKeyStore</a>
-    #         operation to provide the new credential to KMS.</p>
-    #
-    # @option params [String] :xks_proxy_connectivity
-    #   <p>Indicates how KMS communicates with the external key store proxy. This parameter is
-    #         required for custom key stores with a <code>CustomKeyStoreType</code> of
-    #           <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>If the external key store proxy uses a public endpoint, specify
-    #           <code>PUBLIC_ENDPOINT</code>. If the external key store proxy uses a Amazon VPC
-    #         endpoint service for communication with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. For
-    #         help making this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/plan-xks-keystore.html#choose-xks-connectivity">Choosing a connectivity
-    #           option</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            <p>An Amazon VPC endpoint service keeps your communication with KMS in a private address space
-    #         entirely within Amazon Web Services, but it requires more configuration, including establishing a Amazon VPC with multiple subnets, a VPC endpoint service, a network load balancer, and a
-    #         verified private DNS name. A public endpoint is simpler to set up, but it might be slower and
-    #         might not fulfill your security requirements. You might consider testing with a public
-    #         endpoint, and then establishing a VPC endpoint service for production tasks. Note that this
-    #         choice does not determine the location of the external key store proxy. Even if you choose a
-    #         VPC endpoint service, the proxy can be hosted within the VPC or outside of Amazon Web Services such as in
-    #         your corporate data center.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateCustomKeyStoreInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateCustomKeyStoreOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_custom_key_store(
     #     custom_key_store_name: 'CustomKeyStoreName', # required
     #     cloud_hsm_cluster_id: 'CloudHsmClusterId',
@@ -794,17 +659,27 @@ module AWS::SDK::KMS
     #     },
     #     xks_proxy_connectivity: 'PUBLIC_ENDPOINT' # accepts ["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateCustomKeyStoreOutput
     #   resp.data.custom_key_store_id #=> String
+    # @example To create an AWS CloudHSM key store
+    #   # This example creates a custom key store that is associated with an AWS CloudHSM cluster.
+    #   resp = client.create_custom_key_store({
+    #     custom_key_store_name: "ExampleKeyStore",
+    #     cloud_hsm_cluster_id: "cluster-234abcdefABC",
+    #     trust_anchor_certificate: "<certificate-goes-here>",
+    #     key_store_password: "kmsPswd"
+    #   })
     #
-    def create_custom_key_store(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     custom_key_store_id: "cks-1234567890abcdef0"
+    #   }
+    def create_custom_key_store(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCustomKeyStoreInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCustomKeyStoreInput,
@@ -818,34 +693,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_custom_key_store),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmClusterInUseException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CustomKeyStoreNameInUseException, Errors::IncorrectTrustAnchorException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CloudHsmClusterInUseException, Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CustomKeyStoreNameInUseException, Errors::IncorrectTrustAnchorException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
+        ),
         data_parser: Parsers::CreateCustomKeyStore
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CloudHsmClusterInUseException, Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CustomKeyStoreNameInUseException, Stubs::IncorrectTrustAnchorException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
         stub_data_class: Stubs::CreateCustomKeyStore,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_custom_key_store,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_custom_key_store,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_custom_key_store] #{output.data}")
+      output
     end
 
     # <p>Adds a grant to a KMS key. </p>
@@ -910,116 +797,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::CreateGrantInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key for the grant. The grant gives principals permission to use this
-    #         KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-    #   different Amazon Web Services account, you must use the key ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :grantee_principal
-    #   <p>The identity that gets the permissions specified in the grant.</p>
-    #            <p>To specify the grantee principal, use the Amazon Resource Name (ARN) of an Amazon Web Services
-    #         principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-    #         federated users, and assumed role users. For help with the ARN syntax for a principal, see
-    #           <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #
-    # @option params [String] :retiring_principal
-    #   <p>The principal that has permission to use the <a>RetireGrant</a> operation to
-    #         retire the grant. </p>
-    #            <p>To specify the principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-    #         Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-    #         federated users, and assumed role users. For help with the ARN syntax for a principal, see
-    #           <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #            <p>The grant determines the retiring principal. Other principals might have permission to
-    #         retire the grant or revoke the grant. For details, see <a>RevokeGrant</a> and
-    #           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and
-    #           revoking grants</a> in the <i>Key Management Service Developer Guide</i>. </p>
-    #
-    # @option params [Array<String>] :operations
-    #   <p>A list of operations that the grant permits. </p>
-    #            <p>This list must include only operations that are permitted in a grant. Also, the operation
-    #         must be supported on the KMS key. For example, you cannot create a grant for a symmetric
-    #         encryption KMS key that allows the <a>Sign</a> operation, or a grant for an
-    #         asymmetric KMS key that allows the <a>GenerateDataKey</a> operation. If you try,
-    #         KMS returns a <code>ValidationError</code> exception. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">Grant
-    #           operations</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [GrantConstraints] :constraints
-    #   <p>Specifies a grant constraint.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>KMS supports the <code>EncryptionContextEquals</code> and
-    #           <code>EncryptionContextSubset</code> grant constraints, which allow the permissions in the
-    #         grant only when the encryption context in the request matches
-    #           (<code>EncryptionContextEquals</code>) or includes (<code>EncryptionContextSubset</code>)
-    #         the encryption context specified in the constraint. </p>
-    #            <p>The encryption context grant constraints are supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-grant-operations">grant operations</a> that include
-    #         an <code>EncryptionContext</code> parameter, such as cryptographic operations on symmetric
-    #         encryption KMS keys. Grants with grant constraints can include the <a>DescribeKey</a> and <a>RetireGrant</a> operations, but the constraint doesn't apply to these
-    #         operations. If a grant with a grant constraint includes the <code>CreateGrant</code>
-    #         operation, the constraint requires that any grants created with the <code>CreateGrant</code>
-    #         permission have an equally strict or stricter encryption context constraint.</p>
-    #            <p>You cannot use an encryption context grant constraint for cryptographic operations with
-    #         asymmetric KMS keys or HMAC KMS keys. Operations with these keys don't support an encryption
-    #         context.</p>
-    #            <p>Each constraint value can include up to 8 encryption context pairs. The encryption context
-    #         value in each constraint cannot exceed 384 characters. For information about grant
-    #         constraints, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html#grant-constraints">Using grant
-    #           constraints</a> in the <i>Key Management Service Developer Guide</i>. For more information about encryption context,
-    #         see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
-    #           context</a> in the <i>
-    #                  <i>Key Management Service Developer Guide</i>
-    #               </i>. </p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens. </p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :name
-    #   <p>A friendly name for the grant. Use this value to prevent the unintended creation of
-    #         duplicate grants when retrying this request.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>When this value is absent, all <code>CreateGrant</code> requests result in a new grant
-    #         with a unique <code>GrantId</code> even if all the supplied parameters are identical. This can
-    #         result in unintended duplicates when you retry the <code>CreateGrant</code> request.</p>
-    #            <p>When this value is present, you can retry a <code>CreateGrant</code> request with
-    #         identical parameters; if the grant already exists, the original <code>GrantId</code> is
-    #         returned without creating a new grant. Note that the returned grant token is unique with every
-    #           <code>CreateGrant</code> request, even when a duplicate <code>GrantId</code> is returned.
-    #         All grant tokens for the same grant ID can be used interchangeably.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateGrantInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateGrantOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_grant(
     #     key_id: 'KeyId', # required
     #     grantee_principal: 'GranteePrincipal', # required
@@ -1038,18 +826,31 @@ module AWS::SDK::KMS
     #     name: 'Name',
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateGrantOutput
     #   resp.data.grant_token #=> String
     #   resp.data.grant_id #=> String
+    # @example To create a grant
+    #   # The following example creates a grant that allows the specified IAM role to encrypt data with the specified KMS key.
+    #   resp = client.create_grant({
+    #     key_id: "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     grantee_principal: "arn:aws:iam::111122223333:role/ExampleRole",
+    #     operations: [
+    #       "Encrypt",
+    #       "Decrypt"
+    #     ]
+    #   })
     #
-    def create_grant(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     grant_token: "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW__MSrqnre1HIN0Grt00ViSSuUjhqOC8OT3YAAADfMIHcBgkqhkiG9w0BBwaggc4wgcsCAQAwgcUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmqLyBTAegIn9XlK5AgEQgIGXZQjkBcl1dykDdqZBUQ6L1OfUivQy7JVYO2-ZJP7m6f1g8GzV47HX5phdtONAP7K_HQIflcgpkoCqd_fUnE114mSmiagWkbQ5sqAVV3ov-VeqgrvMe5ZFEWLMSluvBAqdjHEdMIkHMlhlj4ENZbzBfo9Wxk8b8SnwP4kc4gGivedzFXo-dwN8fxjjq_ZZ9JFOj2ijIbj5FyogDCN0drOfi8RORSEuCEmPvjFRMFAwcmwFkN2NPp89amA",
+    #     grant_id: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60"
+    #   }
+    def create_grant(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGrantInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGrantInput,
@@ -1063,34 +864,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_grant),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::CreateGrant
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
         stub_data_class: Stubs::CreateGrant,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_grant,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_grant,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_grant] #{output.data}")
+      output
     end
 
     # <p>Creates a unique customer managed <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms-keys">KMS key</a> in your Amazon Web Services account and Region.
@@ -1257,297 +1070,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::CreateKeyInput}.
-    #
-    # @option params [String] :policy
-    #   <p>The key policy to attach to the KMS key.</p>
-    #            <p>If you provide a key policy, it must meet the following criteria:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>The key policy must allow the calling principal to make a
-    #             subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
-    #             the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
-    #             this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>Each statement in the key policy must contain one or more principals. The principals
-    #             in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-    #             principal, you might need to enforce a delay before including the new principal in a key
-    #             policy because the new principal might not be immediately visible to KMS. For more
-    #             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
-    #               Identity and Access Management User Guide</i>.</p>
-    #               </li>
-    #            </ul>
-    #            <p>If you do not provide a key policy, KMS attaches a default key policy to the KMS key.
-    #         For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default key policy</a> in the
-    #         <i>Key Management Service Developer Guide</i>. </p>
-    #            <p>The key policy size quota is 32 kilobytes (32768 bytes).</p>
-    #            <p>For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #
-    # @option params [String] :description
-    #   <p>A description of the KMS key. Use a description that helps you decide whether the KMS key
-    #         is appropriate for a task. The default value is an empty string (no description).</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>To set or change the description after the key is created, use <a>UpdateKeyDescription</a>.</p>
-    #
-    # @option params [String] :key_usage
-    #   <p>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> for which you can use the KMS key. The default value is
-    #           <code>ENCRYPT_DECRYPT</code>. This parameter is optional when you are creating a symmetric
-    #         encryption KMS key; otherwise, it is required. You can't change the <code>KeyUsage</code>
-    #         value after the KMS key is created.</p>
-    #            <p>Select only one valid value.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>For symmetric encryption KMS keys, omit the parameter or specify
-    #               <code>ENCRYPT_DECRYPT</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>For HMAC KMS keys (symmetric), specify <code>GENERATE_VERIFY_MAC</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>For asymmetric KMS keys with RSA key material, specify <code>ENCRYPT_DECRYPT</code> or
-    #               <code>SIGN_VERIFY</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>For asymmetric KMS keys with ECC key material, specify
-    #             <code>SIGN_VERIFY</code>.</p>
-    #               </li>
-    #               <li>
-    #                  <p>For asymmetric KMS keys with SM2 key material (China Regions only), specify
-    #               <code>ENCRYPT_DECRYPT</code> or <code>SIGN_VERIFY</code>.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :customer_master_key_spec
-    #   <p>Instead, use the <code>KeySpec</code> parameter.</p>
-    #            <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> parameters work the same
-    #         way. Only the names differ. We recommend that you use <code>KeySpec</code> parameter in your
-    #         code. However, to avoid breaking changes, KMS supports both parameters.</p>
-    #
-    # @option params [String] :key_spec
-    #   <p>Specifies the type of KMS key to create. The default value,
-    #         <code>SYMMETRIC_DEFAULT</code>, creates a KMS key with a 256-bit AES-GCM key that is used for
-    #         encryption and decryption, except in China Regions, where it creates a 128-bit symmetric key
-    #         that uses SM4 encryption. For help choosing a key spec for your KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-types.html#symm-asymm-choose">Choosing a KMS key type</a> in the <i>
-    #                  <i>Key Management Service Developer Guide</i>
-    #               </i>.</p>
-    #            <p>The <code>KeySpec</code> determines whether the KMS key contains a symmetric key or an
-    #         asymmetric key pair. It also determines the algorithms that the KMS key supports. You can't
-    #         change the <code>KeySpec</code> after the KMS key is created. To further restrict the
-    #         algorithms that can be used with the KMS key, use a condition key in its key policy or IAM
-    #         policy. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm">kms:EncryptionAlgorithm</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-mac-algorithm">kms:MacAlgorithm</a> or <a href="https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm">kms:Signing Algorithm</a> in the <i>
-    #                  <i>Key Management Service Developer Guide</i>
-    #               </i>.</p>
-    #            <important>
-    #               <p>
-    #                  <a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web Services services that
-    #             are integrated with KMS</a> use symmetric encryption KMS keys to protect your data.
-    #           These services do not support asymmetric KMS keys or HMAC KMS keys.</p>
-    #            </important>
-    #            <p>KMS supports the following key specs for KMS keys:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Symmetric encryption key (default)</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>SYMMETRIC_DEFAULT</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>HMAC keys (symmetric)</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>HMAC_224</code>
-    #                        </p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>HMAC_256</code>
-    #                        </p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>HMAC_384</code>
-    #                        </p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>HMAC_512</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>Asymmetric RSA key pairs</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>RSA_2048</code>
-    #                        </p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>RSA_3072</code>
-    #                        </p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>RSA_4096</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>Asymmetric NIST-recommended elliptic curve key pairs</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>ECC_NIST_P256</code> (secp256r1)</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>ECC_NIST_P384</code> (secp384r1)</p>
-    #                     </li>
-    #                     <li>
-    #                        <p>
-    #                           <code>ECC_NIST_P521</code> (secp521r1)</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>Other asymmetric elliptic curve key pairs</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>ECC_SECG_P256K1</code> (secp256k1), commonly used for
-    #                 cryptocurrencies.</p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #               <li>
-    #                  <p>SM2 key pairs (China Regions only)</p>
-    #                  <ul>
-    #                     <li>
-    #                        <p>
-    #                           <code>SM2</code>
-    #                        </p>
-    #                     </li>
-    #                  </ul>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :origin
-    #   <p>The source of the key material for the KMS key. You cannot change the origin after you
-    #         create the KMS key. The default is <code>AWS_KMS</code>, which means that KMS creates the
-    #         key material.</p>
-    #            <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html">create a
-    #           KMS key with no key material</a> (for imported key material), set this value to
-    #           <code>EXTERNAL</code>. For more information about importing key material into KMS, see
-    #           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">Importing Key
-    #           Material</a> in the <i>Key Management Service Developer Guide</i>. The <code>EXTERNAL</code> origin value is valid
-    #         only for symmetric KMS keys.</p>
-    #            <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">create a KMS
-    #           key in an CloudHSM key store</a> and create its key material in the associated CloudHSM
-    #         cluster, set this value to <code>AWS_CLOUDHSM</code>. You must also use the
-    #           <code>CustomKeyStoreId</code> parameter to identify the CloudHSM key store. The
-    #           <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
-    #            <p>To <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">create a KMS key in
-    #           an external key store</a>, set this value to <code>EXTERNAL_KEY_STORE</code>. You must
-    #         also use the <code>CustomKeyStoreId</code> parameter to identify the external key store and
-    #         the <code>XksKeyId</code> parameter to identify the associated external key. The
-    #           <code>KeySpec</code> value must be <code>SYMMETRIC_DEFAULT</code>.</p>
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Creates the KMS key in the specified <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. The <code>ConnectionState</code> of
-    #         the custom key store must be <code>CONNECTED</code>. To find the CustomKeyStoreID and
-    #         ConnectionState use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #            <p>This parameter is valid only for symmetric encryption KMS keys in a single Region. You
-    #         cannot create any other type of KMS key in a custom key store.</p>
-    #            <p>When you create a KMS key in an CloudHSM key store, KMS generates a non-exportable 256-bit
-    #         symmetric key in its associated CloudHSM cluster and associates it with the KMS key. When you
-    #         create a KMS key in an external key store, you must use the <code>XksKeyId</code> parameter to
-    #         specify an external key that serves as key material for the KMS key.</p>
-    #
-    # @option params [Boolean] :bypass_policy_lockout_safety_check
-    #   <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
-    #            <important>
-    #               <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
-    #           not set this value to true indiscriminately.</p>
-    #               <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </important>
-    #            <p>Use this parameter only when you intend to prevent the principal that is making the
-    #         request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
-    #
-    # @option params [Array<Tag>] :tags
-    #   <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is
-    #         created. To tag an existing KMS key, use the <a>TagResource</a> operation.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <note>
-    #               <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </note>
-    #            <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-    #            <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
-    #         required, but the tag value can be an empty (null) string. You cannot have more than one tag
-    #         on a KMS key with the same tag key. If you specify an existing tag key with a different tag
-    #         value, KMS replaces the current tag value with the specified one.</p>
-    #            <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation
-    #                 report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details,
-    #                 see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
-    #
-    # @option params [Boolean] :multi_region
-    #   <p>Creates a multi-Region primary key that you can replicate into other Amazon Web Services Regions. You
-    #         cannot change this value after you create the KMS key. </p>
-    #            <p>For a multi-Region key, set this parameter to <code>True</code>. For a single-Region KMS
-    #         key, omit this parameter or set it to <code>False</code>. The default value is
-    #           <code>False</code>.</p>
-    #            <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
-    #         interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
-    #         material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
-    #         it in a different Amazon Web Services Region without re-encrypting the data or making a cross-Region call. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            <p>This value creates a <i>primary key</i>, not a replica. To create a
-    #           <i>replica key</i>, use the <a>ReplicateKey</a> operation. </p>
-    #            <p>You can create a symmetric or asymmetric multi-Region key, and you can create a
-    #         multi-Region key with imported key material. However, you cannot create a multi-Region key in
-    #         a custom key store.</p>
-    #
-    # @option params [String] :xks_key_id
-    #   <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key</a> that
-    #         serves as key material for the KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>. Specify the ID that
-    #         the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-xks-proxy">external key store proxy</a> uses to refer to the external key. For help, see the
-    #         documentation for your external key store proxy.</p>
-    #            <p>This parameter is required for a KMS key with an <code>Origin</code> value of
-    #           <code>EXTERNAL_KEY_STORE</code>. It is not valid for KMS keys with any other
-    #           <code>Origin</code> value.</p>
-    #            <p>The external key must be an existing 256-bit AES symmetric encryption key hosted outside
-    #         of Amazon Web Services in an external key manager associated with the external key store specified by the
-    #           <code>CustomKeyStoreId</code> parameter. This key must be enabled and configured to perform
-    #         encryption and decryption. Each KMS key in an external key store must use a different external
-    #         key. For details, see <a href="https://docs.aws.amazon.com/create-xks-keys.html#xks-key-requirements">Requirements for a KMS key in an external
-    #           key store</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            <p>Each KMS key in an external key store is associated two backing keys. One is key material
-    #         that KMS generates. The other is the external key specified by this parameter. When you use
-    #         the KMS key in an external key store to encrypt data, the encryption operation is performed
-    #         first by KMS using the KMS key material, and then by the external key manager using the
-    #         specified external key, a process known as <i>double encryption</i>. For
-    #         details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-double-encryption">Double
-    #           encryption</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::CreateKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::CreateKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.create_key(
     #     policy: 'Policy',
     #     description: 'Description',
@@ -1566,9 +1099,7 @@ module AWS::SDK::KMS
     #     multi_region: false,
     #     xks_key_id: 'XksKeyId'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::CreateKeyOutput
     #   resp.data.key_metadata #=> Types::KeyMetadata
     #   resp.data.key_metadata.aws_account_id #=> String
@@ -1604,12 +1135,11 @@ module AWS::SDK::KMS
     #   resp.data.key_metadata.mac_algorithms[0] #=> String, one of ["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
     #   resp.data.key_metadata.xks_key_configuration #=> Types::XksKeyConfigurationType
     #   resp.data.key_metadata.xks_key_configuration.id #=> String
-    #
-    def create_key(params = {}, options = {}, &block)
+    def create_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyInput,
@@ -1623,34 +1153,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :create_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::TagException, Errors::UnsupportedOperationException, Errors::XksKeyAlreadyInUseException, Errors::XksKeyInvalidConfigurationException, Errors::XksKeyNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::TagException, Errors::UnsupportedOperationException, Errors::XksKeyAlreadyInUseException, Errors::XksKeyInvalidConfigurationException, Errors::XksKeyNotFoundException]
+        ),
         data_parser: Parsers::CreateKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::TagException, Stubs::UnsupportedOperationException, Stubs::XksKeyAlreadyInUseException, Stubs::XksKeyInvalidConfigurationException, Stubs::XksKeyNotFoundException],
         stub_data_class: Stubs::CreateKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :create_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :create_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#create_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#create_key] #{output.data}")
+      output
     end
 
     # <p>Decrypts ciphertext that was encrypted by a KMS key using any of the following
@@ -1713,7 +1255,7 @@ module AWS::SDK::KMS
     #       the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK. Use the <code>Recipient</code> parameter to provide the
     #       attestation document for the enclave. Instead of the plaintext data, the response includes the
     #       plaintext data encrypted with the public key from the attestation document
-    #         (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>..</p>
+    #         (<code>CiphertextForRecipient</code>). For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #          <p>The KMS key that you use for this operation must be in a compatible key state. For
     # details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #          <p>
@@ -1747,87 +1289,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DecryptInput}.
-    #
-    # @option params [String] :ciphertext_blob
-    #   <p>Ciphertext to be decrypted. The blob includes metadata.</p>
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context to use when decrypting the data.
-    #         An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens. </p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>Specifies the KMS key that KMS uses to decrypt the ciphertext.</p>
-    #            <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a
-    #         different KMS key, the <code>Decrypt</code> operation throws an
-    #           <code>IncorrectKeyException</code>.</p>
-    #            <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-    #         key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
-    #         it adds to the symmetric ciphertext blob. However, it is always recommended as a best
-    #         practice. This practice ensures that you use the KMS key that you intend.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :encryption_algorithm
-    #   <p>Specifies the encryption algorithm that will be used to decrypt the ciphertext. Specify
-    #         the same algorithm that was used to encrypt the data. If you specify a different algorithm,
-    #         the <code>Decrypt</code> operation fails.</p>
-    #            <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-    #         key. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the only supported
-    #         algorithm that is valid for symmetric encryption KMS keys.</p>
-    #
-    # @option params [RecipientInfo] :recipient
-    #   <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-    #         an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
-    #         only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-    #            <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-    #         parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
-    #            <p>When you use this parameter, instead of returning the plaintext data, KMS encrypts the
-    #         plaintext data with the public key in the attestation document, and returns the resulting
-    #         ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-    #         can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
-    #         the response is null or empty.</p>
-    #            <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DecryptInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DecryptOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.decrypt(
     #     ciphertext_blob: 'CiphertextBlob', # required
     #     encryption_context: {
@@ -1844,20 +1316,44 @@ module AWS::SDK::KMS
     #     },
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DecryptOutput
     #   resp.data.key_id #=> String
     #   resp.data.plaintext #=> String
     #   resp.data.encryption_algorithm #=> String, one of ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #   resp.data.ciphertext_for_recipient #=> String
+    # @example To decrypt data with a symmetric encryption KMS key
+    #   # The following example decrypts data that was encrypted with a symmetric encryption KMS key. The KeyId is not required when decrypting with a symmetric encryption key, but it is a best practice.
+    #   resp = client.decrypt({
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def decrypt(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     plaintext: '<binary data>',
+    #     encryption_algorithm: "SYMMETRIC_DEFAULT"
+    #   }
+    # @example To decrypt data with an asymmetric encryption KMS key
+    #   # The following example decrypts data that was encrypted with an asymmetric encryption KMS key. When the KMS encryption key is asymmetric, you must specify the KMS key ID and the encryption algorithm that was used to encrypt the data.
+    #   resp = client.decrypt({
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     encryption_algorithm: "RSAES_OAEP_SHA_256"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     plaintext: '<binary data>',
+    #     encryption_algorithm: "RSAES_OAEP_SHA_256"
+    #   }
+    def decrypt(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecryptInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecryptInput,
@@ -1871,34 +1367,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :decrypt),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::Decrypt
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::Decrypt,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :decrypt,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :decrypt,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#decrypt] #{output.data}")
+      output
     end
 
     # <p>Deletes the specified alias. </p>
@@ -1949,31 +1457,35 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DeleteAliasInput}.
-    #
-    # @option params [String] :alias_name
-    #   <p>The alias to be deleted. The alias name must begin with <code>alias/</code> followed by
-    #         the alias name, such as <code>alias/ExampleAlias</code>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteAliasInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteAliasOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_alias(
     #     alias_name: 'AliasName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteAliasOutput
+    # @example To delete an alias
+    #   # The following example deletes the specified alias.
+    #   resp = client.delete_alias({
+    #     alias_name: "alias/ExampleAlias"
+    #   })
     #
-    def delete_alias(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def delete_alias(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
@@ -1987,34 +1499,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_alias),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::DeleteAlias
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::DeleteAlias,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_alias,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_alias,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_alias] #{output.data}")
+      output
     end
 
     # <p>Deletes a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. This operation does not affect any backing elements of the
@@ -2076,30 +1600,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DeleteCustomKeyStoreInput}.
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteCustomKeyStoreInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteCustomKeyStoreOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_custom_key_store(
     #     custom_key_store_id: 'CustomKeyStoreId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteCustomKeyStoreOutput
+    # @example To delete a custom key store from AWS KMS
+    #   # This example deletes a custom key store from AWS KMS. This operation does not affect the backing key store, such as a CloudHSM cluster, external key store proxy, or your external key manager. This operation doesn't return any data. To verify that the operation was successful, use the DescribeCustomKeyStores operation.
+    #   resp = client.delete_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0"
+    #   })
     #
-    def delete_custom_key_store(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    def delete_custom_key_store(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCustomKeyStoreInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCustomKeyStoreInput,
@@ -2113,34 +1644,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_custom_key_store),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CustomKeyStoreHasCMKsException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CustomKeyStoreHasCMKsException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+        ),
         data_parser: Parsers::DeleteCustomKeyStore
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CustomKeyStoreHasCMKsException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
         stub_data_class: Stubs::DeleteCustomKeyStore,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_custom_key_store,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_custom_key_store,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_custom_key_store] #{output.data}")
+      output
     end
 
     # <p>Deletes key material that was previously imported. This operation makes the specified KMS
@@ -2171,44 +1714,35 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DeleteImportedKeyMaterialInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key from which you are deleting imported key material. The
-    #           <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DeleteImportedKeyMaterialInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DeleteImportedKeyMaterialOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.delete_imported_key_material(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DeleteImportedKeyMaterialOutput
+    # @example To delete imported key material
+    #   # The following example deletes the imported key material from the specified KMS key.
+    #   resp = client.delete_imported_key_material({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def delete_imported_key_material(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def delete_imported_key_material(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteImportedKeyMaterialInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteImportedKeyMaterialInput,
@@ -2222,34 +1756,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :delete_imported_key_material),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::DeleteImportedKeyMaterial
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::DeleteImportedKeyMaterial,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :delete_imported_key_material,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :delete_imported_key_material,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#delete_imported_key_material] #{output.data}")
+      output
     end
 
     # <p>Gets information about <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> in the account and Region.</p>
@@ -2311,48 +1857,24 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DescribeCustomKeyStoresInput}.
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
-    #            <p>By default, this operation gets information about all custom key stores in the account and
-    #         Region. To limit the output to a particular custom key store, provide either the
-    #           <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
-    #         both.</p>
-    #
-    # @option params [String] :custom_key_store_name
-    #   <p>Gets only information about the specified custom key store. Enter the friendly name of the
-    #         custom key store.</p>
-    #            <p>By default, this operation gets information about all custom key stores in the account and
-    #         Region. To limit the output to a particular custom key store, provide either the
-    #           <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not
-    #         both.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeCustomKeyStoresInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeCustomKeyStoresOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_custom_key_stores(
     #     custom_key_store_id: 'CustomKeyStoreId',
     #     custom_key_store_name: 'CustomKeyStoreName',
     #     limit: 1,
     #     marker: 'Marker'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeCustomKeyStoresOutput
     #   resp.data.custom_key_stores #=> Array<CustomKeyStoresListEntry>
     #   resp.data.custom_key_stores[0] #=> Types::CustomKeyStoresListEntry
@@ -2372,12 +1894,20 @@ module AWS::SDK::KMS
     #   resp.data.custom_key_stores[0].xks_proxy_configuration.vpc_endpoint_service_name #=> String
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
+    # @example To get detailed information about custom key stores in the account and Region
+    #   resp = client.describe_custom_key_stores()
     #
-    def describe_custom_key_stores(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     custom_key_stores: [
+    #
+    #     ]
+    #   }
+    def describe_custom_key_stores(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeCustomKeyStoresInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeCustomKeyStoresInput,
@@ -2391,34 +1921,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CustomKeyStoreNotFoundException, Errors::InvalidMarkerException, Errors::KMSInternalException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CustomKeyStoreNotFoundException, Errors::InvalidMarkerException, Errors::KMSInternalException]
+        ),
         data_parser: Parsers::DescribeCustomKeyStores
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CustomKeyStoreNotFoundException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
         stub_data_class: Stubs::DescribeCustomKeyStores,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_custom_key_stores,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_custom_key_stores,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_custom_key_stores] #{output.data}")
+      output
     end
 
     # <p>Provides detailed information about a KMS key. You can run <code>DescribeKey</code> on a
@@ -2429,12 +1971,10 @@ module AWS::SDK::KMS
     #       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
     #       KMS keys. It also displays the key usage (encryption, signing, or generating and verifying
     #       MACs) and the algorithms that the KMS key supports. </p>
-    #          <p>For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>,
-    #         <code>DescribeKey</code> displays the primary key and all related replica keys. For KMS keys
-    #       in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes
-    #       information about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS
-    #       keys in <a href="kms/latest/developerguide/keystore-external.html">external key stores</a>, it
-    #       includes the custom key store ID and the ID of the external key.</p>
+    #          <p>For <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>, <code>DescribeKey</code> displays the primary key and all
+    #       related replica keys. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes information
+    #       about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS keys in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key stores</a>,
+    #       it includes the custom key store ID and the ID of the external key.</p>
     #          <p>
     #             <code>DescribeKey</code> does not return the following information:</p>
     #          <ul>
@@ -2504,55 +2044,24 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DescribeKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Describes the specified KMS key. </p>
-    #            <p>If you specify a predefined Amazon Web Services alias (an Amazon Web Services alias with no key ID), KMS associates
-    #         the alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html##aws-managed-cmk">Amazon Web Services managed key</a> and returns its
-    #           <code>KeyId</code> and <code>Arn</code> in the response.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DescribeKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DescribeKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.describe_key(
     #     key_id: 'KeyId', # required
     #     grant_tokens: [
     #       'member'
     #     ]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DescribeKeyOutput
     #   resp.data.key_metadata #=> Types::KeyMetadata
     #   resp.data.key_metadata.aws_account_id #=> String
@@ -2588,12 +2097,176 @@ module AWS::SDK::KMS
     #   resp.data.key_metadata.mac_algorithms[0] #=> String, one of ["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
     #   resp.data.key_metadata.xks_key_configuration #=> Types::XksKeyConfigurationType
     #   resp.data.key_metadata.xks_key_configuration.id #=> String
+    # @example To get details about an RSA asymmetric KMS key
+    #   # The following example gets metadata for an asymmetric RSA KMS key used for signing and verification.
+    #   resp = client.describe_key({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def describe_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_metadata: {
+    #       aws_account_id: "111122223333",
+    #       key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       arn: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       creation_date: Time.at(1571767572, 317, :millisecond),
+    #       customer_master_key_spec: "RSA_2048",
+    #       enabled: false,
+    #       description: "",
+    #       key_state: "Disabled",
+    #       origin: "AWS_KMS",
+    #       multi_region: false,
+    #       key_manager: "CUSTOMER",
+    #       key_spec: "RSA_2048",
+    #       key_usage: "SIGN_VERIFY",
+    #       signing_algorithms: [
+    #         "RSASSA_PKCS1_V1_5_SHA_256",
+    #         "RSASSA_PKCS1_V1_5_SHA_384",
+    #         "RSASSA_PKCS1_V1_5_SHA_512",
+    #         "RSASSA_PSS_SHA_256",
+    #         "RSASSA_PSS_SHA_384",
+    #         "RSASSA_PSS_SHA_512"
+    #       ]
+    #     }
+    #   }
+    # @example To get details about a multi-Region key
+    #   # The following example gets metadata for a multi-Region replica key. This multi-Region key is a symmetric encryption key. DescribeKey returns information about the primary key and all of its replicas.
+    #   resp = client.describe_key({
+    #     key_id: "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_metadata: {
+    #       multi_region: true,
+    #       aws_account_id: "111122223333",
+    #       arn: "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #       creation_date: Time.at(1586329200, 918, :millisecond),
+    #       description: "",
+    #       enabled: true,
+    #       key_id: "mrk-1234abcd12ab34cd56ef1234567890ab",
+    #       key_manager: "CUSTOMER",
+    #       key_state: "Enabled",
+    #       key_usage: "ENCRYPT_DECRYPT",
+    #       origin: "AWS_KMS",
+    #       customer_master_key_spec: "SYMMETRIC_DEFAULT",
+    #       encryption_algorithms: [
+    #         "SYMMETRIC_DEFAULT"
+    #       ],
+    #       multi_region_configuration: {
+    #         multi_region_key_type: "PRIMARY",
+    #         primary_key: {
+    #           arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #           region: "us-west-2"
+    #         },
+    #         replica_keys: [
+    #           {
+    #             arn: "arn:aws:kms:eu-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #             region: "eu-west-1"
+    #           },
+    #           {
+    #             arn: "arn:aws:kms:ap-northeast-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #             region: "ap-northeast-1"
+    #           },
+    #           {
+    #             arn: "arn:aws:kms:sa-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #             region: "sa-east-1"
+    #           }
+    #         ]
+    #       }
+    #     }
+    #   }
+    # @example To get details about an HMAC KMS key
+    #   # The following example gets the metadata of an HMAC KMS key.
+    #   resp = client.describe_key({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_metadata: {
+    #       aws_account_id: "123456789012",
+    #       key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       arn: "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       creation_date: Time.at(1566160362, 664, :millisecond),
+    #       enabled: true,
+    #       description: "Development test key",
+    #       key_usage: "GENERATE_VERIFY_MAC",
+    #       key_state: "Enabled",
+    #       origin: "AWS_KMS",
+    #       key_manager: "CUSTOMER",
+    #       customer_master_key_spec: "HMAC_256",
+    #       mac_algorithms: [
+    #         "HMAC_SHA_256"
+    #       ],
+    #       multi_region: false
+    #     }
+    #   }
+    # @example To get details about a KMS key in an AWS CloudHSM key store
+    #   # The following example gets the metadata of a KMS key in an AWS CloudHSM key store.
+    #   resp = client.describe_key({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_metadata: {
+    #       aws_account_id: "123456789012",
+    #       key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       arn: "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       creation_date: Time.at(1646160362, 664, :millisecond),
+    #       description: "CloudHSM key store test key",
+    #       enabled: true,
+    #       multi_region: false,
+    #       key_manager: "CUSTOMER",
+    #       key_state: "Enabled",
+    #       key_usage: "ENCRYPT_DECRYPT",
+    #       origin: "AWS_CLOUDHSM",
+    #       cloud_hsm_cluster_id: "cluster-234abcdefABC",
+    #       custom_key_store_id: "cks-1234567890abcdef0",
+    #       key_spec: "SYMMETRIC_DEFAULT",
+    #       customer_master_key_spec: "SYMMETRIC_DEFAULT",
+    #       encryption_algorithms: [
+    #         "SYMMETRIC_DEFAULT"
+    #       ]
+    #     }
+    #   }
+    # @example To get details about a KMS key in an external key store
+    #   # The following example gets the metadata of a KMS key in an external key store.
+    #   resp = client.describe_key({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_metadata: {
+    #       arn: "arn:aws:kms:us-west-2:123456789012:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       aws_account_id: "123456789012",
+    #       creation_date: Time.at(1646160362, 664, :millisecond),
+    #       customer_master_key_spec: "SYMMETRIC_DEFAULT",
+    #       custom_key_store_id: "cks-1234567890abcdef0",
+    #       description: "External key store test key",
+    #       enabled: true,
+    #       encryption_algorithms: [
+    #         "SYMMETRIC_DEFAULT"
+    #       ],
+    #       key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #       key_manager: "CUSTOMER",
+    #       key_spec: "SYMMETRIC_DEFAULT",
+    #       key_state: "Enabled",
+    #       key_usage: "ENCRYPT_DECRYPT",
+    #       multi_region: false,
+    #       origin: "EXTERNAL_KEY_STORE",
+    #       xks_key_configuration: {
+    #         id: "bb8562717f809024"
+    #       }
+    #     }
+    #   }
+    def describe_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKeyInput,
@@ -2607,34 +2280,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :describe_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::DescribeKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::NotFoundException],
         stub_data_class: Stubs::DescribeKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :describe_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :describe_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#describe_key] #{output.data}")
+      output
     end
 
     # <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
@@ -2652,43 +2337,35 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>EnableKey</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DisableKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key to disable.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DisableKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DisableKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.disable_key(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DisableKeyOutput
+    # @example To disable a KMS key
+    #   # The following example disables the specified KMS key.
+    #   resp = client.disable_key({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def disable_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def disable_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKeyInput,
@@ -2702,34 +2379,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :disable_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::DisableKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::DisableKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :disable_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :disable_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key] #{output.data}")
+      output
     end
 
     # <p>Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
@@ -2765,46 +2454,35 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DisableKeyRotationInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic rotation
-    #         of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
-    #           KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a
-    #         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DisableKeyRotationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DisableKeyRotationOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.disable_key_rotation(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DisableKeyRotationOutput
+    # @example To disable automatic rotation of key material
+    #   # The following example disables automatic annual rotation of the key material for the specified KMS key.
+    #   resp = client.disable_key_rotation({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def disable_key_rotation(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def disable_key_rotation(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKeyRotationInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKeyRotationInput,
@@ -2818,34 +2496,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :disable_key_rotation),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::DisableKeyRotation
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::DisableKeyRotation,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :disable_key_rotation,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :disable_key_rotation,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disable_key_rotation] #{output.data}")
+      output
     end
 
     # <p>Disconnects the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> from its backing key store. This operation disconnects an
@@ -2900,30 +2590,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::DisconnectCustomKeyStoreInput}.
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::DisconnectCustomKeyStoreInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::DisconnectCustomKeyStoreOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.disconnect_custom_key_store(
     #     custom_key_store_id: 'CustomKeyStoreId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::DisconnectCustomKeyStoreOutput
+    # @example To disconnect a custom key store from its CloudHSM cluster
+    #   # This example disconnects an AWS KMS custom key store from its backing key store. For an AWS CloudHSM key store, it disconnects the key store from its AWS CloudHSM cluster. For an external key store, it disconnects the key store from the external key store proxy that communicates with your external key manager. This operation doesn't return any data. To verify that the custom key store is disconnected, use the <code>DescribeCustomKeyStores</code> operation.
+    #   resp = client.disconnect_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0"
+    #   })
     #
-    def disconnect_custom_key_store(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    def disconnect_custom_key_store(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisconnectCustomKeyStoreInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisconnectCustomKeyStoreInput,
@@ -2937,34 +2634,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException]
+        ),
         data_parser: Parsers::DisconnectCustomKeyStore
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException],
         stub_data_class: Stubs::DisconnectCustomKeyStore,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :disconnect_custom_key_store,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :disconnect_custom_key_store,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#disconnect_custom_key_store] #{output.data}")
+      output
     end
 
     # <p>Sets the key state of a KMS key to enabled. This allows you to use the KMS key for
@@ -2978,43 +2687,35 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>DisableKey</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::EnableKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key to enable.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::EnableKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::EnableKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.enable_key(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::EnableKeyOutput
+    # @example To enable a KMS key
+    #   # The following example enables the specified KMS key.
+    #   resp = client.enable_key({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def enable_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def enable_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKeyInput,
@@ -3028,39 +2729,51 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :enable_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::EnableKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
         stub_data_class: Stubs::EnableKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :enable_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :enable_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key] #{output.data}")
+      output
     end
 
     # <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation
     #         of the key material</a> of the specified symmetric encryption KMS key. </p>
-    #          <p>When you enable automatic rotation of a<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
+    #          <p>When you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
     #       rotates the key material of the KMS key one year (approximately 365 days) from the enable date
     #       and every year thereafter. You can monitor rotation of the key material for your KMS keys in
     #       CloudTrail and Amazon CloudWatch. To disable rotation of the key material in a customer
@@ -3099,43 +2812,35 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::EnableKeyRotationInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::EnableKeyRotationInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::EnableKeyRotationOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.enable_key_rotation(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::EnableKeyRotationOutput
+    # @example To enable automatic rotation of key material
+    #   # The following example enables automatic annual rotation of the key material for the specified KMS key.
+    #   resp = client.enable_key_rotation({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def enable_key_rotation(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def enable_key_rotation(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKeyRotationInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKeyRotationInput,
@@ -3149,34 +2854,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :enable_key_rotation),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::EnableKeyRotation
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::EnableKeyRotation,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :enable_key_rotation,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :enable_key_rotation,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#enable_key_rotation] #{output.data}")
+      output
     end
 
     # <p>Encrypts plaintext of up to 4,096 bytes using a KMS key. You can use a symmetric or
@@ -3288,72 +3005,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::EncryptInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a
-    #           <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of
-    #         a KMS key, use the <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :plaintext
-    #   <p>Data to be encrypted.</p>
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context that will be used to encrypt the data.
-    #         An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context. </p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :encryption_algorithm
-    #   <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message.
-    #         The algorithm must be compatible with the KMS key that you specify.</p>
-    #            <p>This parameter is required only for asymmetric KMS keys. The default value,
-    #           <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If
-    #         you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
-    #            <p>The SM2PKE algorithm is only available in China Regions.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::EncryptInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::EncryptOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.encrypt(
     #     key_id: 'KeyId', # required
     #     plaintext: 'Plaintext', # required
@@ -3366,19 +3028,43 @@ module AWS::SDK::KMS
     #     encryption_algorithm: 'SYMMETRIC_DEFAULT', # accepts ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::EncryptOutput
     #   resp.data.ciphertext_blob #=> String
     #   resp.data.key_id #=> String
     #   resp.data.encryption_algorithm #=> String, one of ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
+    # @example To encrypt data with a symmetric encryption KMS key
+    #   # The following example encrypts data with the specified symmetric encryption KMS key.
+    #   resp = client.encrypt({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     plaintext: '<binary data>'
+    #   })
     #
-    def encrypt(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     encryption_algorithm: "SYMMETRIC_DEFAULT"
+    #   }
+    # @example To encrypt data with an asymmetric encryption KMS key
+    #   # The following example encrypts data with the specified RSA asymmetric KMS key. When you encrypt with an asymmetric key, you must specify the encryption algorithm.
+    #   resp = client.encrypt({
+    #     key_id: "0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     plaintext: '<binary data>',
+    #     encryption_algorithm: "RSAES_OAEP_SHA_256"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     encryption_algorithm: "RSAES_OAEP_SHA_256"
+    #   }
+    def encrypt(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::EncryptInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EncryptInput,
@@ -3392,34 +3078,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :encrypt),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::Encrypt
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::Encrypt,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :encrypt,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :encrypt,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#encrypt] #{output.data}")
+      output
     end
 
     # <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
@@ -3525,88 +3223,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateDataKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
-    #         an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
-    #         KMS key, use the <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Integer] :number_of_bytes
-    #   <p>Specifies the length of the data key in bytes. For example, use the value 64 to generate a
-    #         512-bit data key (64 bytes is 512 bits). For 128-bit (16-byte) and 256-bit (32-byte) data
-    #         keys, use the <code>KeySpec</code> parameter.</p>
-    #            <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
-    #         parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
-    #
-    # @option params [String] :key_spec
-    #   <p>Specifies the length of the data key. Use <code>AES_128</code> to generate a 128-bit
-    #         symmetric key, or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    #            <p>You must specify either the <code>KeySpec</code> or the <code>NumberOfBytes</code>
-    #         parameter (but not both) in every <code>GenerateDataKey</code> request.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [RecipientInfo] :recipient
-    #   <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-    #         an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
-    #         only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-    #            <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-    #         parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
-    #            <p>When you use this parameter, instead of returning the plaintext data key, KMS encrypts
-    #         the plaintext data key under the public key in the attestation document, and returns the
-    #         resulting ciphertext in the <code>CiphertextForRecipient</code> field in the response. This
-    #         ciphertext can be decrypted only with the private key in the enclave. The
-    #           <code>CiphertextBlob</code> field in the response contains a copy of the data key encrypted
-    #         under the KMS key specified by the <code>KeyId</code> parameter. The <code>Plaintext</code>
-    #         field in the response is null or empty.</p>
-    #            <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateDataKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateDataKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_data_key(
     #     key_id: 'KeyId', # required
     #     encryption_context: {
@@ -3623,20 +3250,30 @@ module AWS::SDK::KMS
     #     },
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateDataKeyOutput
     #   resp.data.ciphertext_blob #=> String
     #   resp.data.plaintext #=> String
     #   resp.data.key_id #=> String
     #   resp.data.ciphertext_for_recipient #=> String
+    # @example To generate a data key
+    #   # The following example generates a 256-bit symmetric data encryption key (data key) in two formats. One is the unencrypted (plainext) data key, and the other is the data key encrypted with the specified KMS key.
+    #   resp = client.generate_data_key({
+    #     key_id: "alias/ExampleAlias",
+    #     key_spec: "AES_256"
+    #   })
     #
-    def generate_data_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     ciphertext_blob: '<binary data>',
+    #     plaintext: '<binary data>',
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   }
+    def generate_data_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyInput,
@@ -3650,41 +3287,53 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_data_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::GenerateDataKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::GenerateDataKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_data_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_data_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key] #{output.data}")
+      output
     end
 
     # <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
     #       a plaintext public key, a plaintext private key, and a copy of the private key that is
     #       encrypted under the symmetric encryption KMS key you specify. You can use the data key pair to
     #       perform asymmetric cryptography and implement digital signatures outside of KMS. The bytes
-    #       in the keys are random; they not related to the caller or to the KMS key that is used to
+    #       in the keys are random; they are not related to the caller or to the KMS key that is used to
     #       encrypt the private key. </p>
     #          <p>You can use the public key that <code>GenerateDataKeyPair</code> returns to encrypt data
     #       or verify a signature outside of KMS. Then, store the encrypted private key with the data.
@@ -3762,80 +3411,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateDataKeyPairInput}.
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context that will be used when encrypting the private key in the
-    #         data key pair.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
-    #         pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
-    #         type and origin of your KMS key, use the <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :key_pair_spec
-    #   <p>Determines the type of data key pair that is generated. </p>
-    #            <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [RecipientInfo] :recipient
-    #   <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-    #         an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
-    #         only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-    #            <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-    #         parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
-    #            <p>When you use this parameter, instead of returning a plaintext copy of the private data
-    #         key, KMS encrypts the plaintext private data key under the public key in the attestation
-    #         document, and returns the resulting ciphertext in the <code>CiphertextForRecipient</code>
-    #         field in the response. This ciphertext can be decrypted only with the private key in the
-    #         enclave. The <code>CiphertextBlob</code> field in the response contains a copy of the private
-    #         data key encrypted under the KMS key specified by the <code>KeyId</code> parameter. The
-    #           <code>PrivateKeyPlaintext</code> field in the response is null or empty.</p>
-    #            <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateDataKeyPairInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateDataKeyPairOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_data_key_pair(
     #     encryption_context: {
     #       'key' => 'value'
@@ -3851,9 +3437,7 @@ module AWS::SDK::KMS
     #     },
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateDataKeyPairOutput
     #   resp.data.private_key_ciphertext_blob #=> String
     #   resp.data.private_key_plaintext #=> String
@@ -3861,12 +3445,26 @@ module AWS::SDK::KMS
     #   resp.data.key_id #=> String
     #   resp.data.key_pair_spec #=> String, one of ["RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521", "ECC_SECG_P256K1", "SM2"]
     #   resp.data.ciphertext_for_recipient #=> String
+    # @example To generate an RSA key pair for encryption and decryption
+    #   # This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.
+    #   resp = client.generate_data_key_pair({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     key_pair_spec: "RSA_3072"
+    #   })
     #
-    def generate_data_key_pair(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     private_key_ciphertext_blob: '<binary data>',
+    #     private_key_plaintext: '<binary data>',
+    #     public_key: '<binary data>',
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     key_pair_spec: "RSA_3072"
+    #   }
+    def generate_data_key_pair(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyPairInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyPairInput,
@@ -3880,34 +3478,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_data_key_pair),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GenerateDataKeyPair
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GenerateDataKeyPair,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_data_key_pair,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_data_key_pair,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair] #{output.data}")
+      output
     end
 
     # <p>Returns a unique asymmetric data key pair for use outside of KMS. This operation returns
@@ -3974,65 +3584,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateDataKeyPairWithoutPlaintextInput}.
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context that will be used when encrypting the private key in the
-    #         data key pair.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>Specifies the symmetric encryption KMS key that encrypts the private key in the data key
-    #         pair. You cannot specify an asymmetric KMS key or a KMS key in a custom key store. To get the
-    #         type and origin of your KMS key, use the <a>DescribeKey</a> operation. </p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :key_pair_spec
-    #   <p>Determines the type of data key pair that is generated.</p>
-    #            <p>The KMS rule that restricts the use of asymmetric RSA and SM2 KMS keys to encrypt and decrypt or to sign and verify (but not both), and the rule that permits you to use ECC KMS keys only to sign and verify, are not effective on data key pairs, which are used outside of KMS. The SM2 key spec is only available in China Regions.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateDataKeyPairWithoutPlaintextInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateDataKeyPairWithoutPlaintextOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_data_key_pair_without_plaintext(
     #     encryption_context: {
     #       'key' => 'value'
@@ -4044,20 +3606,31 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateDataKeyPairWithoutPlaintextOutput
     #   resp.data.private_key_ciphertext_blob #=> String
     #   resp.data.public_key #=> String
     #   resp.data.key_id #=> String
     #   resp.data.key_pair_spec #=> String, one of ["RSA_2048", "RSA_3072", "RSA_4096", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521", "ECC_SECG_P256K1", "SM2"]
+    # @example To generate an asymmetric data key pair without a plaintext key
+    #   # This example returns an asymmetric elliptic curve (ECC) data key pair. The private key is encrypted under the symmetric encryption KMS key that you specify. This operation doesn't return a plaintext (unencrypted) private key.
+    #   resp = client.generate_data_key_pair_without_plaintext({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     key_pair_spec: "ECC_NIST_P521"
+    #   })
     #
-    def generate_data_key_pair_without_plaintext(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     private_key_ciphertext_blob: '<binary data>',
+    #     public_key: '<binary data>',
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     key_pair_spec: "ECC_NIST_P521"
+    #   }
+    def generate_data_key_pair_without_plaintext(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyPairWithoutPlaintextInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyPairWithoutPlaintextInput,
@@ -4071,34 +3644,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GenerateDataKeyPairWithoutPlaintext
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GenerateDataKeyPairWithoutPlaintext,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_data_key_pair_without_plaintext,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_data_key_pair_without_plaintext,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_pair_without_plaintext] #{output.data}")
+      output
     end
 
     # <p>Returns a unique symmetric data key for use outside of KMS. This operation returns a
@@ -4174,69 +3759,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateDataKeyWithoutPlaintextInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Specifies the symmetric encryption KMS key that encrypts the data key. You cannot specify
-    #         an asymmetric KMS key or a KMS key in a custom key store. To get the type and origin of your
-    #         KMS key, use the <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [Hash<String, String>] :encryption_context
-    #   <p>Specifies the encryption context that will be used when encrypting the data key.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :key_spec
-    #   <p>The length of the data key. Use <code>AES_128</code> to generate a 128-bit symmetric key,
-    #         or <code>AES_256</code> to generate a 256-bit symmetric key.</p>
-    #
-    # @option params [Integer] :number_of_bytes
-    #   <p>The length of the data key in bytes. For example, use the value 64 to generate a 512-bit
-    #         data key (64 bytes is 512 bits). For common key lengths (128-bit and 256-bit symmetric keys),
-    #         we recommend that you use the <code>KeySpec</code> field instead of this one.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateDataKeyWithoutPlaintextInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateDataKeyWithoutPlaintextOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_data_key_without_plaintext(
     #     key_id: 'KeyId', # required
     #     encryption_context: {
@@ -4249,18 +3782,27 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateDataKeyWithoutPlaintextOutput
     #   resp.data.ciphertext_blob #=> String
     #   resp.data.key_id #=> String
+    # @example To generate an encrypted data key
+    #   # The following example generates an encrypted copy of a 256-bit symmetric data encryption key (data key). The data key is encrypted with the specified KMS key.
+    #   resp = client.generate_data_key_without_plaintext({
+    #     key_id: "alias/ExampleAlias",
+    #     key_spec: "AES_256"
+    #   })
     #
-    def generate_data_key_without_plaintext(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   }
+    def generate_data_key_without_plaintext(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateDataKeyWithoutPlaintextInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateDataKeyWithoutPlaintextInput,
@@ -4274,34 +3816,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::GenerateDataKeyWithoutPlaintext
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::GenerateDataKeyWithoutPlaintext,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_data_key_without_plaintext,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_data_key_without_plaintext,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_data_key_without_plaintext] #{output.data}")
+      output
     end
 
     # <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
@@ -4333,42 +3887,17 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>VerifyMac</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateMacInput}.
-    #
-    # @option params [String] :message
-    #   <p>The message to be hashed. Specify a message of up to 4,096 bytes. </p>
-    #            <p>
-    #               <code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling
-    #         for message digests. If you generate an HMAC for a hash digest of a message, you must verify
-    #         the HMAC of the same hash digest.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the
-    #         message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
-    #            <p>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the
-    #           <code>KeySpec</code> field in the response.</p>
-    #
-    # @option params [String] :mac_algorithm
-    #   <p>The MAC algorithm used in the operation.</p>
-    #            <p> The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC
-    #         algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation
-    #         and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateMacInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateMacOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_mac(
     #     message: 'Message', # required
     #     key_id: 'KeyId', # required
@@ -4378,19 +3907,30 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateMacOutput
     #   resp.data.mac #=> String
     #   resp.data.mac_algorithm #=> String, one of ["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
     #   resp.data.key_id #=> String
+    # @example To generate an HMAC for a message
+    #   # This example generates an HMAC for a message, an HMAC KMS key, and a MAC algorithm. The algorithm must be supported by the specified HMAC KMS key.
+    #   resp = client.generate_mac({
+    #     message: 'Hello World',
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     mac_algorithm: "HMAC_SHA_384"
+    #   })
     #
-    def generate_mac(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     mac: '<HMAC_TAG>',
+    #     mac_algorithm: "HMAC_SHA_384",
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   }
+    def generate_mac(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateMacInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateMacInput,
@@ -4404,34 +3944,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_mac),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::GenerateMac
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::GenerateMac,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_mac,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_mac,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_mac] #{output.data}")
+      output
     end
 
     # <p>Returns a random byte string that is cryptographically secure.</p>
@@ -4455,37 +4007,17 @@ module AWS::SDK::KMS
     #       keys.</p>
     #          <p>
     #             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a> (IAM policy)</p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GenerateRandomInput}.
-    #
-    # @option params [Integer] :number_of_bytes
-    #   <p>The length of the random byte string. This parameter is required.</p>
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Generates the random byte string in the CloudHSM cluster that is associated with the
-    #         specified CloudHSM key store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #            <p>External key store IDs are not valid for this parameter. If you specify the ID of an
-    #         external key store, <code>GenerateRandom</code> throws an
-    #           <code>UnsupportedOperationException</code>.</p>
-    #
-    # @option params [RecipientInfo] :recipient
-    #   <p>A signed <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave-how.html#term-attestdoc">attestation document</a> from
-    #         an Amazon Web Services Nitro enclave and the encryption algorithm to use with the enclave's public key. The
-    #         only valid encryption algorithm is <code>RSAES_OAEP_SHA_256</code>. </p>
-    #            <p>This parameter only supports attestation documents for Amazon Web Services Nitro Enclaves. To include this
-    #         parameter, use the <a href="https://docs.aws.amazon.com/enclaves/latest/user/developing-applications.html#sdk">Amazon Web Services Nitro Enclaves SDK</a> or any Amazon Web Services SDK.</p>
-    #            <p>When you use this parameter, instead of returning plaintext bytes, KMS encrypts the
-    #         plaintext bytes under the public key in the attestation document, and returns the resulting
-    #         ciphertext in the <code>CiphertextForRecipient</code> field in the response. This ciphertext
-    #         can be decrypted only with the private key in the enclave. The <code>Plaintext</code> field in
-    #         the response is null or empty.</p>
-    #            <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GenerateRandomInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GenerateRandomOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.generate_random(
     #     number_of_bytes: 1,
     #     custom_key_store_id: 'CustomKeyStoreId',
@@ -4494,18 +4026,25 @@ module AWS::SDK::KMS
     #       attestation_document: 'AttestationDocument'
     #     }
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GenerateRandomOutput
     #   resp.data.plaintext #=> String
     #   resp.data.ciphertext_for_recipient #=> String
+    # @example To generate random data
+    #   # The following example generates 32 bytes of random data.
+    #   resp = client.generate_random({
+    #     number_of_bytes: 32
+    #   })
     #
-    def generate_random(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     plaintext: '<binary data>'
+    #   }
+    def generate_random(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GenerateRandomInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GenerateRandomInput,
@@ -4519,34 +4058,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :generate_random),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNotFoundException, Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GenerateRandom
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNotFoundException, Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GenerateRandom,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :generate_random,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :generate_random,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#generate_random] #{output.data}")
+      output
     end
 
     # <p>Gets a key policy attached to the specified KMS key.</p>
@@ -4555,51 +4106,42 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GetKeyPolicy</a> (key policy)</p>
     #          <p>
-    #             <b>Related operations</b>: <a>PutKeyPolicy</a>
+    #             <b>Related operations</b>: <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GetKeyPolicyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Gets the key policy for the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :policy_name
-    #   <p>Specifies the name of the key policy. The only valid name is <code>default</code>. To get
-    #         the names of key policies, use <a>ListKeyPolicies</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GetKeyPolicyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GetKeyPolicyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.get_key_policy(
     #     key_id: 'KeyId', # required
     #     policy_name: 'PolicyName' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GetKeyPolicyOutput
     #   resp.data.policy #=> String
+    # @example To retrieve a key policy
+    #   # The following example retrieves the key policy for the specified KMS key.
+    #   resp = client.get_key_policy({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     policy_name: "default"
+    #   })
     #
-    def get_key_policy(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     policy: "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",\n  \"Statement\" : [ {\n    \"Sid\" : \"Enable IAM User Permissions\",\n    \"Effect\" : \"Allow\",\n    \"Principal\" : {\n      \"AWS\" : \"arn:aws:iam::111122223333:root\"\n    },\n    \"Action\" : \"kms:*\",\n    \"Resource\" : \"*\"\n  } ]\n}"
+    #   }
+    def get_key_policy(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyPolicyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyPolicyInput,
@@ -4613,34 +4155,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :get_key_policy),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::GetKeyPolicy
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::GetKeyPolicy,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :get_key_policy,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :get_key_policy,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_policy] #{output.data}")
+      output
     end
 
     # <p>Gets a Boolean value that indicates whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is
@@ -4696,45 +4250,38 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GetKeyRotationStatusInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Gets the rotation status for the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-    #   different Amazon Web Services account, you must use the key ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GetKeyRotationStatusInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GetKeyRotationStatusOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.get_key_rotation_status(
     #     key_id: 'KeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GetKeyRotationStatusOutput
     #   resp.data.key_rotation_enabled #=> Boolean
+    # @example To retrieve the rotation status for a KMS key
+    #   # The following example retrieves the status of automatic annual rotation of the key material for the specified KMS key.
+    #   resp = client.get_key_rotation_status({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def get_key_rotation_status(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_rotation_enabled: true
+    #   }
+    def get_key_rotation_status(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyRotationStatusInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyRotationStatusInput,
@@ -4748,34 +4295,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :get_key_rotation_status),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GetKeyRotationStatus
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GetKeyRotationStatus,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :get_key_rotation_status,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :get_key_rotation_status,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_key_rotation_status] #{output.data}")
+      output
     end
 
     # <p>Returns the public key and an import token you need to import or reimport key material for
@@ -4790,9 +4349,9 @@ module AWS::SDK::KMS
     #       operation with an <code>Origin</code> value of <code>EXTERNAL</code> to create a KMS key with
     #       no key material. You can import key material for a symmetric encryption KMS key, HMAC KMS key,
     #       asymmetric encryption KMS key, or asymmetric signing KMS key. You can also import key material
-    #       into a <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of
-    #       any supported type. However, you can't import key material into a KMS key in a <a href="kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. You can also use
-    #         <code>GetParametersForImport</code> to get a public key and import token to <a href="kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the original key
+    #       into a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. However, you can't import key material into
+    #       a KMS key in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. You can also use <code>GetParametersForImport</code> to get a
+    #       public key and import token to <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html#reimport-key-material">reimport the original key
     #         material</a> into a KMS key whose key material expired or was deleted.</p>
     #          <p>
     #             <code>GetParametersForImport</code> returns the items that you need to import your key
@@ -4852,99 +4411,33 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GetParametersForImportInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>The identifier of the KMS key that will be associated with the imported key material. The
-    #           <code>Origin</code> of the KMS key must be <code>EXTERNAL</code>.</p>
-    #            <p>All KMS key types are supported, including multi-Region keys. However, you cannot import
-    #         key material into a KMS key in a custom key store.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :wrapping_algorithm
-    #   <p>The algorithm you will use with the RSA public key (<code>PublicKey</code>) in the
-    #         response to protect your key material during import. For more information, see <a href="kms/latest/developerguide/importing-keys-get-public-key-and-token.html#select-wrapping-algorithm">Select a wrapping algorithm</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            <p>For RSA_AES wrapping algorithms, you encrypt your key material with an AES key that you
-    #         generate, then encrypt your AES key with the RSA public key from KMS. For RSAES wrapping
-    #         algorithms, you encrypt your key material directly with the RSA public key from KMS.</p>
-    #            <p>The wrapping algorithms that you can use depend on the type of key material that you are
-    #         importing. To import an RSA private key, you must use an RSA_AES wrapping algorithm.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>
-    #                     <b>RSA_AES_KEY_WRAP_SHA_256</b> — Supported for
-    #             wrapping RSA and ECC key material.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <b>RSA_AES_KEY_WRAP_SHA_1</b> — Supported for
-    #             wrapping RSA and ECC key material.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <b>RSAES_OAEP_SHA_256</b> — Supported for all types
-    #             of key material, except RSA key material (private key).</p>
-    #                  <p>You cannot use the RSAES_OAEP_SHA_256 wrapping algorithm with the RSA_2048 wrapping
-    #             key spec to wrap ECC_NIST_P521 key material.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <b>RSAES_OAEP_SHA_1</b> — Supported for all types of
-    #             key material, except RSA key material (private key).</p>
-    #                  <p>You cannot use the RSAES_OAEP_SHA_1 wrapping algorithm with the RSA_2048 wrapping key
-    #             spec to wrap ECC_NIST_P521 key material.</p>
-    #               </li>
-    #               <li>
-    #                  <p>
-    #                     <b>RSAES_PKCS1_V1_5</b> (Deprecated) — Supported only
-    #             for symmetric encryption key material (and only in legacy mode).</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :wrapping_key_spec
-    #   <p>The type of RSA public key to return in the response. You will use this wrapping key with
-    #         the specified wrapping algorithm to protect your key material during import. </p>
-    #            <p>Use the longest RSA wrapping key that is practical. </p>
-    #            <p>You cannot use an RSA_2048 public key to directly wrap an ECC_NIST_P521 private key.
-    #         Instead, use an RSA_AES wrapping algorithm or choose a longer RSA public key.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GetParametersForImportInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GetParametersForImportOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.get_parameters_for_import(
     #     key_id: 'KeyId', # required
     #     wrapping_algorithm: 'RSAES_PKCS1_V1_5', # required - accepts ["RSAES_PKCS1_V1_5", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "RSA_AES_KEY_WRAP_SHA_1", "RSA_AES_KEY_WRAP_SHA_256"]
     #     wrapping_key_spec: 'RSA_2048' # required - accepts ["RSA_2048", "RSA_3072", "RSA_4096"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GetParametersForImportOutput
     #   resp.data.key_id #=> String
     #   resp.data.import_token #=> String
     #   resp.data.public_key #=> String
     #   resp.data.parameters_valid_to #=> Time
-    #
-    def get_parameters_for_import(params = {}, options = {}, &block)
+    def get_parameters_for_import(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetParametersForImportInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetParametersForImportInput,
@@ -4958,34 +4451,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :get_parameters_for_import),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GetParametersForImport
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GetParametersForImport,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :get_parameters_for_import,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :get_parameters_for_import,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_parameters_for_import] #{output.data}")
+      output
     end
 
     # <p>Returns the public key of an asymmetric KMS key. Unlike the private key of a asymmetric
@@ -5036,52 +4541,24 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>CreateKey</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::GetPublicKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the asymmetric KMS key that includes the public key.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::GetPublicKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::GetPublicKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.get_public_key(
     #     key_id: 'KeyId', # required
     #     grant_tokens: [
     #       'member'
     #     ]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::GetPublicKeyOutput
     #   resp.data.key_id #=> String
     #   resp.data.public_key #=> String
@@ -5092,12 +4569,28 @@ module AWS::SDK::KMS
     #   resp.data.encryption_algorithms[0] #=> String, one of ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #   resp.data.signing_algorithms #=> Array<String>
     #   resp.data.signing_algorithms[0] #=> String, one of ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
+    # @example To download the public key of an asymmetric KMS key
+    #   # This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.
+    #   resp = client.get_public_key({
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+    #   })
     #
-    def get_public_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     public_key: '<binary data>',
+    #     customer_master_key_spec: "RSA_4096",
+    #     key_usage: "ENCRYPT_DECRYPT",
+    #     encryption_algorithms: [
+    #       "RSAES_OAEP_SHA_1",
+    #       "RSAES_OAEP_SHA_256"
+    #     ]
+    #   }
+    def get_public_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyInput,
@@ -5111,34 +4604,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :get_public_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::InvalidArnException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::GetPublicKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::GetPublicKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :get_public_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :get_public_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#get_public_key] #{output.data}")
+      output
     end
 
     # <p>Imports or reimports key material into an existing KMS key that was created without key
@@ -5243,70 +4748,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ImportKeyMaterialInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>The identifier of the KMS key that will be associated with the imported key material. This
-    #         must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding
-    #           <a>GetParametersForImport</a> request. The <code>Origin</code> of the KMS key
-    #         must be <code>EXTERNAL</code> and its <code>KeyState</code> must be
-    #         <code>PendingImport</code>. </p>
-    #            <p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS
-    #         key, or asymmetric signing KMS key, including a <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported
-    #         type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in
-    #         a different Amazon Web Services account.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :import_token
-    #   <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained
-    #         the public key that you used to encrypt the key material.</p>
-    #
-    # @option params [String] :encrypted_key_material
-    #   <p>The encrypted key material to import. The key material must be encrypted under the public
-    #         wrapping key that <a>GetParametersForImport</a> returned, using the wrapping
-    #         algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    #
-    # @option params [Time] :valid_to
-    #   <p>The date and time when the imported key material expires. This parameter is required when
-    #         the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>.
-    #         Otherwise it is not valid.</p>
-    #            <p>The value of this parameter must be a future date and time. The maximum value is 365 days
-    #         from the request date.</p>
-    #            <p>When the key material expires, KMS deletes the key material from the KMS key. Without
-    #         its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you
-    #         must reimport the same key material.</p>
-    #            <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the
-    #         current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
-    #
-    # @option params [String] :expiration_model
-    #   <p>Specifies whether the key material expires. The default is
-    #           <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/en_us/kms/latest/developerguide/importing-keys.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you
-    #         must specify a value for the <code>ValidTo</code> parameter. When value is
-    #           <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code>
-    #         parameter.</p>
-    #            <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the
-    #         current import after the request completes. To change either value, you must reimport the key
-    #         material.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ImportKeyMaterialInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ImportKeyMaterialOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.import_key_material(
     #     key_id: 'KeyId', # required
     #     import_token: 'ImportToken', # required
@@ -5314,16 +4766,24 @@ module AWS::SDK::KMS
     #     valid_to: Time.now,
     #     expiration_model: 'KEY_MATERIAL_EXPIRES' # accepts ["KEY_MATERIAL_EXPIRES", "KEY_MATERIAL_DOES_NOT_EXPIRE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ImportKeyMaterialOutput
+    # @example To import key material into a KMS key
+    #   # The following example imports key material into the specified KMS key.
+    #   resp = client.import_key_material({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     import_token: '<binary data>',
+    #     encrypted_key_material: '<binary data>',
+    #     expiration_model: "KEY_MATERIAL_DOES_NOT_EXPIRE"
+    #   })
     #
-    def import_key_material(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def import_key_material(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ImportKeyMaterialInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ImportKeyMaterialInput,
@@ -5337,34 +4797,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :import_key_material),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::ExpiredImportTokenException, Errors::IncorrectKeyMaterialException, Errors::InvalidArnException, Errors::InvalidCiphertextException, Errors::InvalidImportTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::ExpiredImportTokenException, Errors::IncorrectKeyMaterialException, Errors::InvalidArnException, Errors::InvalidCiphertextException, Errors::InvalidImportTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::ImportKeyMaterial
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::ExpiredImportTokenException, Stubs::IncorrectKeyMaterialException, Stubs::InvalidArnException, Stubs::InvalidCiphertextException, Stubs::InvalidImportTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::ImportKeyMaterial,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :import_key_material,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :import_key_material,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#import_key_material] #{output.data}")
+      output
     end
 
     # <p>Gets a list of aliases in the caller's Amazon Web Services account and region. For more information
@@ -5408,53 +4880,23 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListAliasesInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Lists only aliases that are associated with the specified KMS key. Enter a KMS key in your
-    #         Amazon Web Services account. </p>
-    #            <p>This parameter is optional. If you omit it, <code>ListAliases</code> returns all aliases
-    #         in the account and Region.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between 1
-    #       and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListAliasesInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListAliasesOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_aliases(
     #     key_id: 'KeyId',
     #     limit: 1,
     #     marker: 'Marker'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListAliasesOutput
     #   resp.data.aliases #=> Array<AliasListEntry>
     #   resp.data.aliases[0] #=> Types::AliasListEntry
@@ -5465,12 +4907,60 @@ module AWS::SDK::KMS
     #   resp.data.aliases[0].last_updated_date #=> Time
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
+    # @example To list aliases
+    #   resp = client.list_aliases()
     #
-    def list_aliases(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     aliases: [
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/aws/acm",
+    #         alias_name: "alias/aws/acm",
+    #         target_key_id: "da03f6f7-d279-427a-9cae-de48d07e5b66"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/aws/ebs",
+    #         alias_name: "alias/aws/ebs",
+    #         target_key_id: "25a217e7-7170-4b8c-8bf6-045ea5f70e5b"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/aws/rds",
+    #         alias_name: "alias/aws/rds",
+    #         target_key_id: "7ec3104e-c3f2-4b5c-bf42-bfc4772c6685"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/aws/redshift",
+    #         alias_name: "alias/aws/redshift",
+    #         target_key_id: "08f7a25a-69e2-4fb5-8f10-393db27326fa"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/aws/s3",
+    #         alias_name: "alias/aws/s3",
+    #         target_key_id: "d2b0f1a3-580d-4f79-b836-bc983be8cfa5"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/example1",
+    #         alias_name: "alias/example1",
+    #         target_key_id: "4da1e216-62d0-46c5-a7c0-5f3a3d2f8046"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/example2",
+    #         alias_name: "alias/example2",
+    #         target_key_id: "f32fef59-2cc2-445b-8573-2d73328acbee"
+    #       },
+    #       {
+    #         alias_arn: "arn:aws:kms:us-east-2:111122223333:alias/example3",
+    #         alias_name: "alias/example3",
+    #         target_key_id: "1374ef38-d34e-4d5f-b2c9-4e0daee38855"
+    #       }
+    #     ],
+    #     truncated: false
+    #   }
+    def list_aliases(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
@@ -5484,34 +4974,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_aliases),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ListAliases
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
         stub_data_class: Stubs::ListAliases,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_aliases,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_aliases,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_aliases] #{output.data}")
+      output
     end
 
     # <p>Gets a list of all grants for the specified KMS key. </p>
@@ -5559,51 +5061,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListGrantsInput}.
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between 1
-    #       and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>Returns only grants for the specified KMS key. This parameter is required.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-    #   different Amazon Web Services account, you must use the key ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :grant_id
-    #   <p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the
-    #         grant. </p>
-    #
-    # @option params [String] :grantee_principal
-    #   <p>Returns only grants where the specified principal is the grantee principal for the
-    #         grant.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListGrantsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListGrantsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_grants(
     #     limit: 1,
     #     marker: 'Marker',
@@ -5611,9 +5079,7 @@ module AWS::SDK::KMS
     #     grant_id: 'GrantId',
     #     grantee_principal: 'GranteePrincipal'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListGrantsOutput
     #   resp.data.grants #=> Array<GrantListEntry>
     #   resp.data.grants[0] #=> Types::GrantListEntry
@@ -5632,12 +5098,11 @@ module AWS::SDK::KMS
     #   resp.data.grants[0].constraints.encryption_context_equals #=> Hash<String, String>
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
-    #
-    def list_grants(params = {}, options = {}, &block)
+    def list_grants(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGrantsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGrantsInput,
@@ -5651,34 +5116,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_grants),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ListGrants
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::ListGrants,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_grants,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_grants,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_grants] #{output.data}")
+      output
     end
 
     # <p>Gets the names of the key policies that are attached to a KMS key. This operation is
@@ -5699,66 +5176,50 @@ module AWS::SDK::KMS
     #             </li>
     #             <li>
     #                <p>
-    #                   <a>PutKeyPolicy</a>
+    #                   <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html">PutKeyPolicy</a>
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListKeyPoliciesInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Gets the names of key policies for the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between
-    #       1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-    #            <p>Only one policy can be attached to a key.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListKeyPoliciesInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListKeyPoliciesOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_key_policies(
     #     key_id: 'KeyId', # required
     #     limit: 1,
     #     marker: 'Marker'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListKeyPoliciesOutput
     #   resp.data.policy_names #=> Array<String>
     #   resp.data.policy_names[0] #=> String
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
+    # @example To list key policies for a KMS key
+    #   # The following example lists key policies for the specified KMS key.
+    #   resp = client.list_key_policies({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def list_key_policies(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     policy_names: [
+    #       "default"
+    #     ],
+    #     truncated: false
+    #   }
+    def list_key_policies(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyPoliciesInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyPoliciesInput,
@@ -5772,34 +5233,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_key_policies),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ListKeyPolicies
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::ListKeyPolicies,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_key_policies,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_key_policies,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_key_policies] #{output.data}")
+      output
     end
 
     # <p>Gets a list of all KMS keys in the caller's Amazon Web Services account and Region.</p>
@@ -5832,33 +5305,22 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListKeysInput}.
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between
-    #       1 and 1000, inclusive. If you do not include a value, it defaults to 100.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListKeysInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListKeysOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_keys(
     #     limit: 1,
     #     marker: 'Marker'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListKeysOutput
     #   resp.data.keys #=> Array<KeyListEntry>
     #   resp.data.keys[0] #=> Types::KeyListEntry
@@ -5866,12 +5328,48 @@ module AWS::SDK::KMS
     #   resp.data.keys[0].key_arn #=> String
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
+    # @example To list KMS keys
+    #   resp = client.list_keys()
     #
-    def list_keys(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     keys: [
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/0d990263-018e-4e65-a703-eff731de951e",
+    #         key_id: "0d990263-018e-4e65-a703-eff731de951e"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/144be297-0ae1-44ac-9c8f-93cd8c82f841",
+    #         key_id: "144be297-0ae1-44ac-9c8f-93cd8c82f841"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/21184251-b765-428e-b852-2c7353e72571",
+    #         key_id: "21184251-b765-428e-b852-2c7353e72571"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/214fe92f-5b03-4ae1-b350-db2a45dbe10c",
+    #         key_id: "214fe92f-5b03-4ae1-b350-db2a45dbe10c"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/339963f2-e523-49d3-af24-a0fe752aa458",
+    #         key_id: "339963f2-e523-49d3-af24-a0fe752aa458"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/b776a44b-df37-4438-9be4-a27494e4271a",
+    #         key_id: "b776a44b-df37-4438-9be4-a27494e4271a"
+    #       },
+    #       {
+    #         key_arn: "arn:aws:kms:us-east-2:111122223333:key/deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb",
+    #         key_id: "deaf6c9e-cf2c-46a6-bf6d-0b6d487cffbb"
+    #       }
+    #     ],
+    #     truncated: false
+    #   }
+    def list_keys(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeysInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeysInput,
@@ -5885,34 +5383,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_keys),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidMarkerException, Errors::KMSInternalException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidMarkerException, Errors::KMSInternalException]
+        ),
         data_parser: Parsers::ListKeys
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidMarkerException, Stubs::KMSInternalException],
         stub_data_class: Stubs::ListKeys,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_keys,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_keys,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_keys] #{output.data}")
+      output
     end
 
     # <p>Returns all tags on the specified KMS key.</p>
@@ -5949,52 +5459,23 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListResourceTagsInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Gets tags on the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between 1 and 50, inclusive. If
-    #         you do not include a value, it defaults to 50.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #            <p>Do not attempt to construct this value. Use only the value of <code>NextMarker</code> from
-    #         the truncated response you just received.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListResourceTagsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListResourceTagsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_resource_tags(
     #     key_id: 'KeyId', # required
     #     limit: 1,
     #     marker: 'Marker'
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListResourceTagsOutput
     #   resp.data.tags #=> Array<Tag>
     #   resp.data.tags[0] #=> Types::Tag
@@ -6002,12 +5483,35 @@ module AWS::SDK::KMS
     #   resp.data.tags[0].tag_value #=> String
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
+    # @example To list tags for a KMS key
+    #   # The following example lists tags for a KMS key.
+    #   resp = client.list_resource_tags({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def list_resource_tags(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     tags: [
+    #       {
+    #         tag_key: "CostCenter",
+    #         tag_value: "87654"
+    #       },
+    #       {
+    #         tag_key: "CreatedBy",
+    #         tag_value: "ExampleUser"
+    #       },
+    #       {
+    #         tag_key: "Purpose",
+    #         tag_value: "Test"
+    #       }
+    #     ],
+    #     truncated: false
+    #   }
+    def list_resource_tags(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResourceTagsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResourceTagsInput,
@@ -6021,34 +5525,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_resource_tags),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ListResourceTags
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
         stub_data_class: Stubs::ListResourceTags,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_resource_tags,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_resource_tags,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_resource_tags] #{output.data}")
+      output
     end
 
     # <p>Returns information about all grants in the Amazon Web Services account and Region that have the
@@ -6063,12 +5579,21 @@ module AWS::SDK::KMS
     #       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
     #          <p>
     #             <b>Cross-account use</b>: You must specify a principal in your
-    #       Amazon Web Services account. However, this operation can return grants in any Amazon Web Services account. You do not need
+    #       Amazon Web Services account. This operation returns a list of grants where the retiring principal specified
+    #       in the <code>ListRetirableGrants</code> request is the same retiring principal on the grant.
+    #       This can include grants on KMS keys owned by other Amazon Web Services accounts, but you do not need
     #         <code>kms:ListRetirableGrants</code> permission (or any other additional permission) in any
     #       Amazon Web Services account other than your own.</p>
     #          <p>
     #             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListRetirableGrants</a> (IAM policy) in your
     #       Amazon Web Services account.</p>
+    #          <note>
+    #             <p>KMS authorizes <code>ListRetirableGrants</code> requests by evaluating the caller
+    #         account's kms:ListRetirableGrants permissions. The authorized resource in
+    #           <code>ListRetirableGrants</code> calls is the retiring principal specified in the request.
+    #         KMS does not evaluate the caller's permissions to verify their access to any KMS keys or
+    #         grants that might be returned by the <code>ListRetirableGrants</code> call.</p>
+    #          </note>
     #          <p>
     #             <b>Related operations:</b>
     #          </p>
@@ -6094,44 +5619,23 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ListRetirableGrantsInput}.
-    #
-    # @option params [Integer] :limit
-    #   <p>Use this parameter to specify the maximum number of items to return. When this
-    #       value is present, KMS does not return more than the specified number of items, but it might
-    #       return fewer.</p>
-    #            <p>This value is optional. If you include a value, it must be between 1
-    #       and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-    #
-    # @option params [String] :marker
-    #   <p>Use this parameter in a subsequent request after you receive a response with
-    #       truncated results. Set it to the value of <code>NextMarker</code> from the truncated response
-    #       you just received.</p>
-    #
-    # @option params [String] :retiring_principal
-    #   <p>The retiring principal for which to list grants. Enter a principal in your
-    #         Amazon Web Services account.</p>
-    #            <p>To specify the retiring principal, use the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of an
-    #         Amazon Web Services principal. Valid principals include Amazon Web Services accounts, IAM users, IAM roles,
-    #         federated users, and assumed role users. For help with the ARN syntax for a principal, see
-    #           <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns">IAM ARNs</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ListRetirableGrantsInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ListRetirableGrantsOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.list_retirable_grants(
     #     limit: 1,
     #     marker: 'Marker',
     #     retiring_principal: 'RetiringPrincipal' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ListRetirableGrantsOutput
     #   resp.data.grants #=> Array<GrantListEntry>
     #   resp.data.grants[0] #=> Types::GrantListEntry
@@ -6150,12 +5654,11 @@ module AWS::SDK::KMS
     #   resp.data.grants[0].constraints.encryption_context_equals #=> Hash<String, String>
     #   resp.data.next_marker #=> String
     #   resp.data.truncated #=> Boolean
-    #
-    def list_retirable_grants(params = {}, options = {}, &block)
+    def list_retirable_grants(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRetirableGrantsInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRetirableGrantsInput,
@@ -6169,34 +5672,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :list_retirable_grants),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::InvalidMarkerException, Errors::KMSInternalException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ListRetirableGrants
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::InvalidMarkerException, Stubs::KMSInternalException, Stubs::NotFoundException],
         stub_data_class: Stubs::ListRetirableGrants,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :list_retirable_grants,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :list_retirable_grants,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#list_retirable_grants] #{output.data}")
+      output
     end
 
     # <p>Attaches a key policy to the specified KMS key. </p>
@@ -6212,95 +5727,40 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>GetKeyPolicy</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::PutKeyPolicyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Sets the key policy on the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :policy_name
-    #   <p>The name of the key policy. The only valid value is <code>default</code>.</p>
-    #
-    # @option params [String] :policy
-    #   <p>The key policy to attach to the KMS key.</p>
-    #            <p>The key policy must meet the following criteria:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>The key policy must allow the calling principal to make a
-    #             subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
-    #             the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
-    #             this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>Each statement in the key policy must contain one or more principals. The principals
-    #             in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-    #             principal, you might need to enforce a delay before including the new principal in a key
-    #             policy because the new principal might not be immediately visible to KMS. For more
-    #             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
-    #               Identity and Access Management User Guide</i>.</p>
-    #               </li>
-    #            </ul>
-    #            <p>A key policy document can include only the following characters:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
-    #               </li>
-    #               <li>
-    #                  <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
-    #               </li>
-    #            </ul>
-    #            <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the
-    #         <i>Key Management Service Developer Guide</i>.For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #
-    # @option params [Boolean] :bypass_policy_lockout_safety_check
-    #   <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
-    #            <important>
-    #               <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
-    #           not set this value to true indiscriminately.</p>
-    #               <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </important>
-    #            <p>Use this parameter only when you intend to prevent the principal that is making the
-    #         request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::PutKeyPolicyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::PutKeyPolicyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.put_key_policy(
     #     key_id: 'KeyId', # required
     #     policy_name: 'PolicyName', # required
     #     policy: 'Policy', # required
     #     bypass_policy_lockout_safety_check: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::PutKeyPolicyOutput
+    # @example To attach a key policy to a KMS key
+    #   # The following example attaches a key policy to the specified KMS key.
+    #   resp = client.put_key_policy({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     policy_name: "default",
+    #     policy: "{\n    \"Version\": \"2012-10-17\",\n    \"Id\": \"custom-policy-2016-12-07\",\n    \"Statement\": [\n        {\n            \"Sid\": \"Enable IAM User Permissions\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:root\"\n            },\n            \"Action\": \"kms:*\",\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow access for Key Administrators\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": [\n                    \"arn:aws:iam::111122223333:user/ExampleAdminUser\",\n                    \"arn:aws:iam::111122223333:role/ExampleAdminRole\"\n                ]\n            },\n            \"Action\": [\n                \"kms:Create*\",\n                \"kms:Describe*\",\n                \"kms:Enable*\",\n                \"kms:List*\",\n                \"kms:Put*\",\n                \"kms:Update*\",\n                \"kms:Revoke*\",\n                \"kms:Disable*\",\n                \"kms:Get*\",\n                \"kms:Delete*\",\n                \"kms:ScheduleKeyDeletion\",\n                \"kms:CancelKeyDeletion\"\n            ],\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow use of the key\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:role/ExamplePowerUserRole\"\n            },\n            \"Action\": [\n                \"kms:Encrypt\",\n                \"kms:Decrypt\",\n                \"kms:ReEncrypt*\",\n                \"kms:GenerateDataKey*\",\n                \"kms:DescribeKey\"\n            ],\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow attachment of persistent resources\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:role/ExamplePowerUserRole\"\n            },\n            \"Action\": [\n                \"kms:CreateGrant\",\n                \"kms:ListGrants\",\n                \"kms:RevokeGrant\"\n            ],\n            \"Resource\": \"*\",\n            \"Condition\": {\n                \"Bool\": {\n                    \"kms:GrantIsForAWSResource\": \"true\"\n                }\n            }\n        }\n    ]\n}\n"
+    #   })
     #
-    def put_key_policy(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def put_key_policy(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutKeyPolicyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutKeyPolicyInput,
@@ -6314,34 +5774,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :put_key_policy),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::PutKeyPolicy
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::PutKeyPolicy,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :put_key_policy,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :put_key_policy,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#put_key_policy] #{output.data}")
+      output
     end
 
     # <p>Decrypts ciphertext and then reencrypts it entirely within KMS. You can use this
@@ -6439,124 +5911,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ReEncryptInput}.
-    #
-    # @option params [String] :ciphertext_blob
-    #   <p>Ciphertext of the data to reencrypt.</p>
-    #
-    # @option params [Hash<String, String>] :source_encryption_context
-    #   <p>Specifies the encryption context to use to decrypt the ciphertext. Enter the same
-    #         encryption context that was used to encrypt the ciphertext.</p>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :source_key_id
-    #   <p>Specifies the KMS key that KMS will use to decrypt the ciphertext before it is
-    #         re-encrypted.</p>
-    #            <p>Enter a key ID of the KMS key that was used to encrypt the ciphertext. If you identify a
-    #         different KMS key, the <code>ReEncrypt</code> operation throws an
-    #           <code>IncorrectKeyException</code>.</p>
-    #            <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-    #         key. If you used a symmetric encryption KMS key, KMS can get the KMS key from metadata that
-    #         it adds to the symmetric ciphertext blob. However, it is always recommended as a best
-    #         practice. This practice ensures that you use the KMS key that you intend.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :destination_key_id
-    #   <p>A unique identifier for the KMS key that is used to reencrypt the data. Specify a
-    #         symmetric encryption KMS key or an asymmetric KMS key with a <code>KeyUsage</code> value of
-    #           <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> value of a KMS key, use the
-    #           <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [Hash<String, String>] :destination_encryption_context
-    #   <p>Specifies that encryption context to use when the reencrypting the data.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>A destination encryption context is valid only when the destination KMS key is a symmetric
-    #         encryption KMS key. The standard ciphertext format for asymmetric KMS keys does not include
-    #         fields for metadata.</p>
-    #            <p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data.
-    #   When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported
-    #   only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
-    #            <p>For more information, see
-    #   <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :source_encryption_algorithm
-    #   <p>Specifies the encryption algorithm that KMS will use to decrypt the ciphertext before it
-    #         is reencrypted. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the algorithm
-    #         used for symmetric encryption KMS keys.</p>
-    #            <p>Specify the same algorithm that was used to encrypt the ciphertext. If you specify a
-    #         different algorithm, the decrypt attempt fails.</p>
-    #            <p>This parameter is required only when the ciphertext was encrypted under an asymmetric KMS
-    #         key.</p>
-    #
-    # @option params [String] :destination_encryption_algorithm
-    #   <p>Specifies the encryption algorithm that KMS will use to reecrypt the data after it has
-    #         decrypted it. The default value, <code>SYMMETRIC_DEFAULT</code>, represents the encryption
-    #         algorithm used for symmetric encryption KMS keys.</p>
-    #            <p>This parameter is required only when the destination KMS key is an asymmetric KMS
-    #         key.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ReEncryptInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ReEncryptOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.re_encrypt(
     #     ciphertext_blob: 'CiphertextBlob', # required
     #     source_encryption_context: {
@@ -6571,21 +5936,31 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ReEncryptOutput
     #   resp.data.ciphertext_blob #=> String
     #   resp.data.source_key_id #=> String
     #   resp.data.key_id #=> String
     #   resp.data.source_encryption_algorithm #=> String, one of ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
     #   resp.data.destination_encryption_algorithm #=> String, one of ["SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "SM2PKE"]
+    # @example To reencrypt data
+    #   # The following example reencrypts data with the specified KMS key.
+    #   resp = client.re_encrypt({
+    #     ciphertext_blob: '<binary data>',
+    #     destination_key_id: "0987dcba-09fe-87dc-65ba-ab0987654321"
+    #   })
     #
-    def re_encrypt(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     ciphertext_blob: '<binary data>',
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     source_key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   }
+    def re_encrypt(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReEncryptInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReEncryptInput,
@@ -6599,34 +5974,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :re_encrypt),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::IncorrectKeyException, Errors::InvalidCiphertextException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ReEncrypt
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::IncorrectKeyException, Stubs::InvalidCiphertextException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::ReEncrypt,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :re_encrypt,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :re_encrypt,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#re_encrypt] #{output.data}")
+      output
     end
 
     # <p>Replicates a multi-Region key into the specified Region. This operation creates a
@@ -6668,7 +6055,8 @@ module AWS::SDK::KMS
     #         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
     #          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
     #       created with no key material. You must import the same key material that you imported into the
-    #       primary key. For details, see <a href="kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+    #       primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region
+    #         keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
     #          <p>To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a>
     #       operation.</p>
     #          <note>
@@ -6712,134 +6100,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ReplicateKeyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the multi-Region primary key that is being replicated. To determine whether a
-    #         KMS key is a multi-Region primary key, use the <a>DescribeKey</a> operation to
-    #         check the value of the <code>MultiRegionKeyType</code> property.</p>
-    #            <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :replica_region
-    #   <p>The Region ID of the Amazon Web Services Region for this replica key. </p>
-    #            <p>Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. For a
-    #         list of Amazon Web Services Regions in which KMS is supported, see <a href="https://docs.aws.amazon.com/general/latest/gr/kms.html#kms_region">KMS service endpoints</a> in the
-    #         <i>Amazon Web Services General Reference</i>.</p>
-    #            <note>
-    #               <p>HMAC KMS keys are not supported in all Amazon Web Services Regions. If you try to replicate an HMAC
-    #           KMS key in an Amazon Web Services Region in which HMAC keys are not supported, the
-    #             <code>ReplicateKey</code> operation returns an <code>UnsupportedOperationException</code>.
-    #           For a list of Regions in which HMAC KMS keys are supported, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </note>
-    #            <p>The replica must be in a different Amazon Web Services Region than its primary key and other replicas of
-    #         that primary key, but in the same Amazon Web Services partition. KMS must be available in the replica
-    #         Region. If the Region is not enabled by default, the Amazon Web Services account must be enabled in the
-    #         Region. For information about Amazon Web Services partitions, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the
-    #         <i>Amazon Web Services General Reference</i>. For information about enabling and disabling Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Enabling a
-    #           Region</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-disable">Disabling a Region</a> in the
-    #         <i>Amazon Web Services General Reference</i>.</p>
-    #
-    # @option params [String] :policy
-    #   <p>The key policy to attach to the KMS key. This parameter is optional. If you do not provide
-    #         a key policy, KMS attaches the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">default key policy</a> to the
-    #         KMS key.</p>
-    #            <p>The key policy is not a shared property of multi-Region keys. You can specify the same key
-    #         policy or a different key policy for each key in a set of related multi-Region keys. KMS
-    #         does not synchronize this property.</p>
-    #            <p>If you provide a key policy, it must meet the following criteria:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>The key policy must allow the calling principal to make a
-    #             subsequent <code>PutKeyPolicy</code> request on the KMS key.  This reduces the risk that
-    #             the KMS key becomes unmanageable. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>. (To omit
-    #             this condition, set <code>BypassPolicyLockoutSafetyCheck</code> to true.)</p>
-    #               </li>
-    #               <li>
-    #                  <p>Each statement in the key policy must contain one or more principals. The principals
-    #             in the key policy must exist and be visible to KMS. When you create a new Amazon Web Services
-    #             principal, you might need to enforce a delay before including the new principal in a key
-    #             policy because the new principal might not be immediately visible to KMS. For more
-    #             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes that I make are not always immediately visible</a> in the <i>Amazon Web Services
-    #               Identity and Access Management User Guide</i>.</p>
-    #               </li>
-    #            </ul>
-    #            <p>A key policy document can include only the following characters:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Printable ASCII characters from the space character (<code>\u0020</code>) through the end of the ASCII character range.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Printable characters in the Basic Latin and Latin-1 Supplement character set (through <code>\u00FF</code>).</p>
-    #               </li>
-    #               <li>
-    #                  <p>The tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>) special characters</p>
-    #               </li>
-    #            </ul>
-    #            <p>For information about key policies, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Key policies in KMS</a> in the <i>Key Management Service Developer Guide</i>.
-    #         For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
-    #                  <i>Identity and Access Management User Guide</i>
-    #               </i>.</p>
-    #
-    # @option params [Boolean] :bypass_policy_lockout_safety_check
-    #   <p>Skips ("bypasses") the key policy lockout safety check. The default value is false.</p>
-    #            <important>
-    #               <p>Setting this value to true increases the risk that the KMS key becomes unmanageable. Do
-    #           not set this value to true indiscriminately.</p>
-    #               <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-default.html#prevent-unmanageable-key">Default key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </important>
-    #            <p>Use this parameter only when you intend to prevent the principal that is making the
-    #         request from making a subsequent <a>PutKeyPolicy</a> request on the KMS key.</p>
-    #
-    # @option params [String] :description
-    #   <p>A description of the KMS key. The default value is an empty string (no
-    #         description).</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>The description is not a shared property of multi-Region keys. You can specify the same
-    #         description or a different description for each key in a set of related multi-Region keys.
-    #         KMS does not synchronize this property.</p>
-    #
-    # @option params [Array<Tag>] :tags
-    #   <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it
-    #         is created. To tag an existing KMS key, use the <a>TagResource</a>
-    #         operation.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <note>
-    #               <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #            </note>
-    #            <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-    #            <p>Tags are not a shared property of multi-Region keys. You can specify the same tags or
-    #         different tags for each key in a set of related multi-Region keys. KMS does not synchronize
-    #         this property.</p>
-    #            <p>Each tag consists of a tag key and a tag value. Both the tag key and the tag value are
-    #         required, but the tag value can be an empty (null) string. You cannot have more than one tag
-    #         on a KMS key with the same tag key. If you specify an existing tag key with a different tag
-    #         value, KMS replaces the current tag value with the specified one.</p>
-    #            <p>When you add tags to an Amazon Web Services resource, Amazon Web Services generates a cost allocation
-    #                 report with usage and costs aggregated by tags. Tags can also be used to control access to a KMS key. For details,
-    #                 see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging Keys</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ReplicateKeyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ReplicateKeyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.replicate_key(
     #     key_id: 'KeyId', # required
     #     replica_region: 'ReplicaRegion', # required
@@ -6853,9 +6124,7 @@ module AWS::SDK::KMS
     #       }
     #     ]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ReplicateKeyOutput
     #   resp.data.replica_key_metadata #=> Types::KeyMetadata
     #   resp.data.replica_key_metadata.aws_account_id #=> String
@@ -6896,12 +6165,55 @@ module AWS::SDK::KMS
     #   resp.data.replica_tags[0] #=> Types::Tag
     #   resp.data.replica_tags[0].tag_key #=> String
     #   resp.data.replica_tags[0].tag_value #=> String
+    # @example To replicate a multi-Region key in a different AWS Region
+    #   # This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.
+    #   resp = client.replicate_key({
+    #     key_id: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #     replica_region: "us-west-2"
+    #   })
     #
-    def replicate_key(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     replica_key_metadata: {
+    #       multi_region: true,
+    #       multi_region_configuration: {
+    #         multi_region_key_type: "REPLICA",
+    #         primary_key: {
+    #           arn: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #           region: "us-east-1"
+    #         },
+    #         replica_keys: [
+    #           {
+    #             arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #             region: "us-west-2"
+    #           }
+    #         ]
+    #       },
+    #       aws_account_id: "111122223333",
+    #       arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #       creation_date: Time.at(1607472987, 918, :millisecond),
+    #       description: "",
+    #       enabled: true,
+    #       key_id: "mrk-1234abcd12ab34cd56ef1234567890ab",
+    #       key_manager: "CUSTOMER",
+    #       key_state: "Enabled",
+    #       key_usage: "ENCRYPT_DECRYPT",
+    #       origin: "AWS_KMS",
+    #       customer_master_key_spec: "SYMMETRIC_DEFAULT",
+    #       encryption_algorithms: [
+    #         "SYMMETRIC_DEFAULT"
+    #       ]
+    #     },
+    #     replica_policy: "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",...}",
+    #     replica_tags: [
+    #
+    #     ]
+    #   }
+    def replicate_key(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ReplicateKeyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ReplicateKeyInput,
@@ -6915,34 +6227,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :replicate_key),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AlreadyExistsException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::TagException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::AlreadyExistsException, Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::MalformedPolicyDocumentException, Errors::NotFoundException, Errors::TagException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::ReplicateKey
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::AlreadyExistsException, Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::MalformedPolicyDocumentException, Stubs::NotFoundException, Stubs::TagException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::ReplicateKey,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :replicate_key,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :replicate_key,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#replicate_key] #{output.data}")
+      output
     end
 
     # <p>Deletes a grant. Typically, you retire a grant when you no longer need its permissions. To
@@ -6963,7 +6287,7 @@ module AWS::SDK::KMS
     #             <b>Cross-account use</b>: Yes. You can retire a grant on a KMS
     #       key in a different Amazon Web Services account.</p>
     #          <p>
-    #             <b>Required permissions:</b>:Permission to retire a grant is
+    #             <b>Required permissions</b>: Permission to retire a grant is
     #       determined primarily by the grant. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in
     #       the <i>Key Management Service Developer Guide</i>.</p>
     #          <p>
@@ -6991,56 +6315,39 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::RetireGrantInput}.
-    #
-    # @option params [String] :grant_token
-    #   <p>Identifies the grant to be retired. You can use a grant token to identify a new grant even
-    #         before it has achieved eventual consistency.</p>
-    #            <p>Only the <a>CreateGrant</a> operation returns a grant token. For details, see
-    #           <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a>
-    #         and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>The key ARN KMS key associated with the grant. To find the key ARN, use the <a>ListKeys</a> operation.</p>
-    #            <p>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #            </p>
-    #
-    # @option params [String] :grant_id
-    #   <p>Identifies the grant to retire. To get the grant ID, use <a>CreateGrant</a>,
-    #           <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Grant ID Example -
-    #             0123456789012345678901234567890123456789012345678901234567890123</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::RetireGrantInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::RetireGrantOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.retire_grant(
     #     grant_token: 'GrantToken',
     #     key_id: 'KeyId',
     #     grant_id: 'GrantId',
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::RetireGrantOutput
+    # @example To retire a grant
+    #   # The following example retires a grant.
+    #   resp = client.retire_grant({
+    #     key_id: "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     grant_id: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60"
+    #   })
     #
-    def retire_grant(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def retire_grant(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::RetireGrantInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RetireGrantInput,
@@ -7054,34 +6361,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :retire_grant),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::InvalidGrantTokenException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::RetireGrant
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::InvalidGrantTokenException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::RetireGrant,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :retire_grant,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :retire_grant,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#retire_grant] #{output.data}")
+      output
     end
 
     # <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
@@ -7128,55 +6447,38 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::RevokeGrantInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>A unique identifier for the KMS key associated with the grant. To get the key ID and key
-    #         ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a
-    #   different Amazon Web Services account, you must use the key ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :grant_id
-    #   <p>Identifies the grant to revoke. To get the grant ID, use <a>CreateGrant</a>,
-    #           <a>ListGrants</a>, or <a>ListRetirableGrants</a>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::RevokeGrantInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::RevokeGrantOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.revoke_grant(
     #     key_id: 'KeyId', # required
     #     grant_id: 'GrantId', # required
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::RevokeGrantOutput
+    # @example To revoke a grant
+    #   # The following example revokes a grant.
+    #   resp = client.revoke_grant({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     grant_id: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60"
+    #   })
     #
-    def revoke_grant(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def revoke_grant(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::RevokeGrantInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RevokeGrantInput,
@@ -7190,34 +6492,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :revoke_grant),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DryRunOperationException, Errors::InvalidArnException, Errors::InvalidGrantIdException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::RevokeGrant
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DryRunOperationException, Stubs::InvalidArnException, Stubs::InvalidGrantIdException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::RevokeGrant,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :revoke_grant,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :revoke_grant,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#revoke_grant] #{output.data}")
+      output
     end
 
     # <p>Schedules the deletion of a KMS key. By default, KMS applies a waiting period of 30
@@ -7231,8 +6545,7 @@ module AWS::SDK::KMS
     #          <important>
     #             <p>Deleting a KMS key is a destructive and potentially dangerous operation. When a KMS key
     #         is deleted, all data that was encrypted under the KMS key is unrecoverable. (The only
-    #         exception is a <a href="kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica
-    #           key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS
+    #         exception is a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html">multi-Region replica key</a>, or an <a href="kms/latest/developerguide/importing-keys-managing.html#import-delete-key">asymmetric or HMAC KMS
     #           key with imported key material</a>.) To prevent the use of a KMS key without deleting
     #         it, use <a>DisableKey</a>. </p>
     #          </important>
@@ -7278,61 +6591,32 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::ScheduleKeyDeletionInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>The unique identifier of the KMS key to delete.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Integer] :pending_window_in_days
-    #   <p>The waiting period, specified in number of days. After the waiting period ends, KMS
-    #         deletes the KMS key.</p>
-    #            <p>If the KMS key is a multi-Region primary key with replica keys, the waiting period begins
-    #         when the last of its replica keys is deleted. Otherwise, the waiting period begins
-    #         immediately.</p>
-    #            <p>This value is optional. If you include a value, it must be between 7 and 30, inclusive. If
-    #         you do not include a value, it defaults to 30. You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-schedule-key-deletion-pending-window-in-days">
-    #                  <code>kms:ScheduleKeyDeletionPendingWindowInDays</code>
-    #               </a> condition key to further
-    #         constrain the values that principals can specify in the <code>PendingWindowInDays</code>
-    #         parameter.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::ScheduleKeyDeletionInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::ScheduleKeyDeletionOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.schedule_key_deletion(
     #     key_id: 'KeyId', # required
     #     pending_window_in_days: 1
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::ScheduleKeyDeletionOutput
     #   resp.data.key_id #=> String
     #   resp.data.deletion_date #=> Time
     #   resp.data.key_state #=> String, one of ["Creating", "Enabled", "Disabled", "PendingDeletion", "PendingImport", "PendingReplicaDeletion", "Unavailable", "Updating"]
     #   resp.data.pending_window_in_days #=> Integer
-    #
-    def schedule_key_deletion(params = {}, options = {}, &block)
+    def schedule_key_deletion(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScheduleKeyDeletionInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScheduleKeyDeletionInput,
@@ -7346,34 +6630,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :schedule_key_deletion),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::ScheduleKeyDeletion
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::ScheduleKeyDeletion,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :schedule_key_deletion,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :schedule_key_deletion,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#schedule_key_deletion] #{output.data}")
+      output
     end
 
     # <p>Creates a <a href="https://en.wikipedia.org/wiki/Digital_signature">digital
@@ -7428,97 +6724,17 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>Verify</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::SignInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies an asymmetric KMS key. KMS uses the private key in the asymmetric KMS key to
-    #         sign the message. The <code>KeyUsage</code> type of the KMS key must be
-    #           <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :message
-    #   <p>Specifies the message or message digest to sign. Messages can be 0-4096 bytes. To sign a
-    #         larger message, provide a message digest.</p>
-    #            <p>If you provide a message digest, use the <code>DIGEST</code> value of
-    #           <code>MessageType</code> to prevent the digest from being hashed again while signing.</p>
-    #
-    # @option params [String] :message_type
-    #   <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
-    #         part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
-    #           <code>DIGEST</code> for message digests, which are already hashed.</p>
-    #            <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
-    #         signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
-    #         KMS skips the hashing step in the signing algorithm.</p>
-    #            <important>
-    #               <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-    #           parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
-    #           message, the security of the signing operation can be compromised.</p>
-    #            </important>
-    #            <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
-    #           <code>Message</code> value must match the length of hashed messages for the specified
-    #         signing algorithm.</p>
-    #            <p>You can submit a message digest and omit the <code>MessageType</code> or specify
-    #           <code>RAW</code> so the digest is hashed again while signing. However, this can cause
-    #         verification failures when verifying with a system that assumes a single hash.</p>
-    #            <p>The hashing algorithm in that <code>Sign</code> uses is based on the
-    #           <code>SigningAlgorithm</code> value.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
-    #               verification with SM2 key pairs</a>.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [String] :signing_algorithm
-    #   <p>Specifies the signing algorithm to use when signing the message. </p>
-    #            <p>Choose an algorithm that is compatible with the type and size of the specified asymmetric
-    #         KMS key. When signing with RSA key pairs, RSASSA-PSS algorithms are preferred. We include
-    #         RSASSA-PKCS1-v1_5 algorithms for compatibility with existing applications.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::SignInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::SignOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.sign(
     #     key_id: 'KeyId', # required
     #     message: 'Message', # required
@@ -7529,19 +6745,46 @@ module AWS::SDK::KMS
     #     signing_algorithm: 'RSASSA_PSS_SHA_256', # required - accepts ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::SignOutput
     #   resp.data.key_id #=> String
     #   resp.data.signature #=> String
     #   resp.data.signing_algorithm #=> String, one of ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
+    # @example To digitally sign a message with an asymmetric KMS key.
+    #   # This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.
+    #   resp = client.sign({
+    #     key_id: "alias/ECC_signing_key",
+    #     message: '<message to be signed>',
+    #     message_type: "RAW",
+    #     signing_algorithm: "ECDSA_SHA_384"
+    #   })
     #
-    def sign(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     signature: '<binary data>',
+    #     signing_algorithm: "ECDSA_SHA_384"
+    #   }
+    # @example To digitally sign a message digest with an asymmetric KMS key.
+    #   # This operation uses the private key in an asymmetric RSA signing KMS key to generate a digital signature for a message digest. In this example, a large message was hashed and the resulting digest is provided in the Message parameter. To tell KMS not to hash the message again, the MessageType field is set to DIGEST
+    #   resp = client.sign({
+    #     key_id: "alias/RSA_signing_key",
+    #     message: '<message digest to be signed>',
+    #     message_type: "DIGEST",
+    #     signing_algorithm: "RSASSA_PKCS1_V1_5_SHA_256"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     signature: '<binary data>',
+    #     signing_algorithm: "RSASSA_PKCS1_V1_5_SHA_256"
+    #   }
+    def sign(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::SignInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::SignInput,
@@ -7555,34 +6798,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :sign),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::Sign
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::Sign,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :sign,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :sign,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#sign] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#sign] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#sign] #{output.data}")
+      output
     end
 
     # <p>Adds or edits tags on a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>.</p>
@@ -7632,40 +6887,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::TagResourceInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies a customer managed key in the account and Region.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Array<Tag>] :tags
-    #   <p>One or more tags. Each tag consists of a tag key and a tag value. The tag value can be an
-    #         empty (null) string. </p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an
-    #         existing tag key with a different tag value, KMS replaces the current tag value with the
-    #         specified one.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::TagResourceInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::TagResourceOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.tag_resource(
     #     key_id: 'KeyId', # required
     #     tags: [
@@ -7675,16 +6907,27 @@ module AWS::SDK::KMS
     #       }
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::TagResourceOutput
+    # @example To tag a KMS key
+    #   # The following example tags a KMS key.
+    #   resp = client.tag_resource({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     tags: [
+    #       {
+    #         tag_key: "Purpose",
+    #         tag_value: "Test"
+    #       }
+    #     ]
+    #   })
     #
-    def tag_resource(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def tag_resource(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
@@ -7698,34 +6941,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :tag_resource),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TagException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException, Errors::TagException]
+        ),
         data_parser: Parsers::TagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException, Stubs::TagException],
         stub_data_class: Stubs::TagResource,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :tag_resource,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :tag_resource,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#tag_resource] #{output.data}")
+      output
     end
 
     # <p>Deletes tags from a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>. To delete a tag,
@@ -7770,49 +7025,42 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::UntagResourceInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the KMS key from which you are removing tags.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [Array<String>] :tag_keys
-    #   <p>One or more tag keys. Specify only the tag keys, not the tag values.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UntagResourceInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UntagResourceOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.untag_resource(
     #     key_id: 'KeyId', # required
     #     tag_keys: [
     #       'member'
     #     ] # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UntagResourceOutput
+    # @example To remove tags from a KMS key
+    #   # The following example removes tags from a KMS key.
+    #   resp = client.untag_resource({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     tag_keys: [
+    #       "Purpose",
+    #       "CostCenter"
+    #     ]
+    #   })
     #
-    def untag_resource(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def untag_resource(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
@@ -7826,34 +7074,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :untag_resource),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::TagException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::TagException]
+        ),
         data_parser: Parsers::UntagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::TagException],
         stub_data_class: Stubs::UntagResource,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :untag_resource,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :untag_resource,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#untag_resource] #{output.data}")
+      output
     end
 
     # <p>Associates an existing KMS alias with a different KMS key. Each alias is associated with
@@ -7919,57 +7179,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::UpdateAliasInput}.
-    #
-    # @option params [String] :alias_name
-    #   <p>Identifies the alias that is changing its KMS key. This value must begin with
-    #           <code>alias/</code> followed by the alias name, such as <code>alias/ExampleAlias</code>. You
-    #         cannot use <code>UpdateAlias</code> to change the alias name.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #
-    # @option params [String] :target_key_id
-    #   <p>Identifies the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> to associate with the alias. You don't have permission to
-    #         associate an alias with an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
-    #            <p>The KMS key must be in the same Amazon Web Services account and Region as the alias. Also, the new
-    #         target KMS key must be the same type as the current target KMS key (both symmetric or both
-    #         asymmetric or both HMAC) and they must have the same key usage. </p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #            <p>To verify that the alias is mapped to the correct KMS key, use <a>ListAliases</a>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateAliasInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateAliasOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_alias(
     #     alias_name: 'AliasName', # required
     #     target_key_id: 'TargetKeyId' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateAliasOutput
+    # @example To update an alias
+    #   # The following example updates the specified alias to refer to the specified KMS key.
+    #   resp = client.update_alias({
+    #     alias_name: "alias/ExampleAlias",
+    #     target_key_id: "1234abcd-12ab-34cd-56ef-1234567890ab"
+    #   })
     #
-    def update_alias(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def update_alias(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
@@ -7983,34 +7223,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_alias),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::LimitExceededException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::UpdateAlias
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::LimitExceededException, Stubs::NotFoundException],
         stub_data_class: Stubs::UpdateAlias,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_alias,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_alias,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_alias] #{output.data}")
+      output
     end
 
     # <p>Changes the properties of a custom key store. You can use this operation to change the
@@ -8106,105 +7358,17 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::UpdateCustomKeyStoreInput}.
-    #
-    # @option params [String] :custom_key_store_id
-    #   <p>Identifies the custom key store that you want to update. Enter the ID of the custom key
-    #         store. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
-    #
-    # @option params [String] :new_custom_key_store_name
-    #   <p>Changes the friendly name of the custom key store to the value that you specify. The
-    #         custom key store name must be unique in the Amazon Web Services account.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #            <p>To change this value, an CloudHSM key store must be disconnected. An external key store can
-    #         be connected or disconnected.</p>
-    #
-    # @option params [String] :key_store_password
-    #   <p>Enter the current password of the <code>kmsuser</code> crypto user (CU) in the CloudHSM
-    #         cluster that is associated with the custom key store. This parameter is valid only for custom
-    #         key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>This parameter tells KMS the current password of the <code>kmsuser</code> crypto user
-    #         (CU). It does not set or change the password of any users in the CloudHSM cluster.</p>
-    #            <p>To change this value, the CloudHSM key store must be disconnected.</p>
-    #
-    # @option params [String] :cloud_hsm_cluster_id
-    #   <p>Associates the custom key store with a related CloudHSM cluster. This parameter is valid only
-    #         for custom key stores with a <code>CustomKeyStoreType</code> of
-    #         <code>AWS_CLOUDHSM</code>.</p>
-    #            <p>Enter the cluster ID of the cluster that you used to create the custom key store or a
-    #         cluster that shares a backup history and has the same cluster certificate as the original
-    #         cluster. You cannot use this parameter to associate a custom key store with an unrelated
-    #         cluster. In addition, the replacement cluster must <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore">fulfill the requirements</a> for
-    #         a cluster associated with a custom key store. To view the cluster certificate of a cluster,
-    #         use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation.</p>
-    #            <p>To change this value, the CloudHSM key store must be disconnected.</p>
-    #
-    # @option params [String] :xks_proxy_uri_endpoint
-    #   <p>Changes the URI endpoint that KMS uses to connect to your external key store proxy (XKS
-    #         proxy). This parameter is valid only for custom key stores with a
-    #           <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>For external key stores with an <code>XksProxyConnectivity</code> value of
-    #           <code>PUBLIC_ENDPOINT</code>, the protocol must be HTTPS.</p>
-    #            <p>For external key stores with an <code>XksProxyConnectivity</code> value of
-    #           <code>VPC_ENDPOINT_SERVICE</code>, specify <code>https://</code> followed by the private DNS
-    #         name associated with the VPC endpoint service. Each external key store must use a different
-    #         private DNS name.</p>
-    #            <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must
-    #         be unique in the Amazon Web Services account and Region.</p>
-    #            <p>To change this value, the external key store must be disconnected.</p>
-    #
-    # @option params [String] :xks_proxy_uri_path
-    #   <p>Changes the base path to the proxy APIs for this external key store. To find this value,
-    #         see the documentation for your external key manager and external key store proxy (XKS proxy).
-    #         This parameter is valid only for custom key stores with a <code>CustomKeyStoreType</code> of
-    #           <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>The value must start with <code>/</code> and must end with <code>/kms/xks/v1</code>, where
-    #           <code>v1</code> represents the version of the KMS external key store proxy API. You can
-    #         include an optional prefix between the required elements such as
-    #             <code>/<i>example</i>/kms/xks/v1</code>.</p>
-    #            <p>The combined <code>XksProxyUriEndpoint</code> and <code>XksProxyUriPath</code> values must
-    #         be unique in the Amazon Web Services account and Region.</p>
-    #            <p>You can change this value when the external key store is connected or disconnected.</p>
-    #
-    # @option params [String] :xks_proxy_vpc_endpoint_service_name
-    #   <p>Changes the name that KMS uses to identify the Amazon VPC endpoint service for your external
-    #         key store proxy (XKS proxy). This parameter is valid when the <code>CustomKeyStoreType</code>
-    #         is <code>EXTERNAL_KEY_STORE</code> and the <code>XksProxyConnectivity</code> is
-    #           <code>VPC_ENDPOINT_SERVICE</code>.</p>
-    #            <p>To change this value, the external key store must be disconnected.</p>
-    #
-    # @option params [XksProxyAuthenticationCredentialType] :xks_proxy_authentication_credential
-    #   <p>Changes the credentials that KMS uses to sign requests to the external key store proxy
-    #         (XKS proxy). This parameter is valid only for custom key stores with a
-    #           <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>
-    #            <p>You must specify both the <code>AccessKeyId</code> and <code>SecretAccessKey</code> value
-    #         in the authentication credential, even if you are only updating one value.</p>
-    #            <p>This parameter doesn't establish or change your authentication credentials on the proxy.
-    #         It just tells KMS the credential that you established with your external key store proxy.
-    #         For example, if you rotate the credential on your external key store proxy, you can use this
-    #         parameter to update the credential in KMS.</p>
-    #            <p>You can change this value when the external key store is connected or disconnected.</p>
-    #
-    # @option params [String] :xks_proxy_connectivity
-    #   <p>Changes the connectivity setting for the external key store. To indicate that the external
-    #         key store proxy uses a Amazon VPC endpoint service to communicate with KMS, specify
-    #           <code>VPC_ENDPOINT_SERVICE</code>. Otherwise, specify <code>PUBLIC_ENDPOINT</code>.</p>
-    #            <p>If you change the <code>XksProxyConnectivity</code> to <code>VPC_ENDPOINT_SERVICE</code>,
-    #         you must also change the <code>XksProxyUriEndpoint</code> and add an
-    #           <code>XksProxyVpcEndpointServiceName</code> value. </p>
-    #            <p>If you change the <code>XksProxyConnectivity</code> to <code>PUBLIC_ENDPOINT</code>, you
-    #         must also change the <code>XksProxyUriEndpoint</code> and specify a null or empty string for
-    #         the <code>XksProxyVpcEndpointServiceName</code> value.</p>
-    #            <p>To change this value, the external key store must be disconnected.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateCustomKeyStoreInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateCustomKeyStoreOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_custom_key_store(
     #     custom_key_store_id: 'CustomKeyStoreId', # required
     #     new_custom_key_store_name: 'NewCustomKeyStoreName',
@@ -8219,16 +7383,70 @@ module AWS::SDK::KMS
     #     },
     #     xks_proxy_connectivity: 'PUBLIC_ENDPOINT' # accepts ["PUBLIC_ENDPOINT", "VPC_ENDPOINT_SERVICE"]
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateCustomKeyStoreOutput
+    # @example To edit the friendly name of a custom key store
+    #   # This example changes the friendly name of the AWS KMS custom key store to the name that you specify. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
+    #   resp = client.update_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0",
+    #     new_custom_key_store_name: "DevelopmentKeys"
+    #   })
     #
-    def update_custom_key_store(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    # @example To edit the password of an AWS CloudHSM key store
+    #   # This example tells AWS KMS the password for the kmsuser crypto user in the AWS CloudHSM cluster that is associated with the AWS KMS custom key store. (It does not change the password in the CloudHSM cluster.) This operation does not return any data.
+    #   resp = client.update_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0",
+    #     key_store_password: "ExamplePassword"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    # @example To associate the custom key store with a different, but related, AWS CloudHSM cluster.
+    #   # This example changes the AWS CloudHSM cluster that is associated with an AWS CloudHSM key store to a related cluster, such as a different backup of the same cluster. This operation does not return any data. To verify that the operation worked, use the DescribeCustomKeyStores operation.
+    #   resp = client.update_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0",
+    #     cloud_hsm_cluster_id: "cluster-234abcdefABC"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    # @example To edit the proxy URI path of an external key store.
+    #   # This example updates the proxy URI path for an external key store
+    #   resp = client.update_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0",
+    #     xks_proxy_uri_path: "/new-path/kms/xks/v1"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    # @example To update the proxy connectivity of an external key store to VPC_ENDPOINT_SERVICE
+    #   # To change the external key store proxy connectivity option from public endpoint connectivity to VPC endpoint service connectivity, in addition to changing the <code>XksProxyConnectivity</code> value, you must change the <code>XksProxyUriEndpoint</code> value to reflect the private DNS name associated with the VPC endpoint service. You must also add an <code>XksProxyVpcEndpointServiceName</code> value.
+    #   resp = client.update_custom_key_store({
+    #     custom_key_store_id: "cks-1234567890abcdef0",
+    #     xks_proxy_connectivity: "VPC_ENDPOINT_SERVICE",
+    #     xks_proxy_uri_endpoint: "https://myproxy-private.xks.example.com",
+    #     xks_proxy_vpc_endpoint_service_name: "com.amazonaws.vpce.us-east-1.vpce-svc-example"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #
+    #   }
+    def update_custom_key_store(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCustomKeyStoreInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCustomKeyStoreInput,
@@ -8242,34 +7460,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_custom_key_store),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterNotRelatedException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNameInUseException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::CloudHsmClusterInvalidConfigurationException, Errors::CloudHsmClusterNotActiveException, Errors::CloudHsmClusterNotFoundException, Errors::CloudHsmClusterNotRelatedException, Errors::CustomKeyStoreInvalidStateException, Errors::CustomKeyStoreNameInUseException, Errors::CustomKeyStoreNotFoundException, Errors::KMSInternalException, Errors::XksProxyIncorrectAuthenticationCredentialException, Errors::XksProxyInvalidConfigurationException, Errors::XksProxyInvalidResponseException, Errors::XksProxyUriEndpointInUseException, Errors::XksProxyUriInUseException, Errors::XksProxyUriUnreachableException, Errors::XksProxyVpcEndpointServiceInUseException, Errors::XksProxyVpcEndpointServiceInvalidConfigurationException, Errors::XksProxyVpcEndpointServiceNotFoundException]
+        ),
         data_parser: Parsers::UpdateCustomKeyStore
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::CloudHsmClusterInvalidConfigurationException, Stubs::CloudHsmClusterNotActiveException, Stubs::CloudHsmClusterNotFoundException, Stubs::CloudHsmClusterNotRelatedException, Stubs::CustomKeyStoreInvalidStateException, Stubs::CustomKeyStoreNameInUseException, Stubs::CustomKeyStoreNotFoundException, Stubs::KMSInternalException, Stubs::XksProxyIncorrectAuthenticationCredentialException, Stubs::XksProxyInvalidConfigurationException, Stubs::XksProxyInvalidResponseException, Stubs::XksProxyUriEndpointInUseException, Stubs::XksProxyUriInUseException, Stubs::XksProxyUriUnreachableException, Stubs::XksProxyVpcEndpointServiceInUseException, Stubs::XksProxyVpcEndpointServiceInvalidConfigurationException, Stubs::XksProxyVpcEndpointServiceNotFoundException],
         stub_data_class: Stubs::UpdateCustomKeyStore,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_custom_key_store,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_custom_key_store,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_custom_key_store] #{output.data}")
+      output
     end
 
     # <p>Updates the description of a KMS key. To see the description of a KMS key, use <a>DescribeKey</a>. </p>
@@ -8294,50 +7524,37 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::UpdateKeyDescriptionInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Updates the description of the specified KMS key.</p>
-    #            <p>Specify the key ID or key ARN of the KMS key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :description
-    #   <p>New description for the KMS key.</p>
-    #            <important>
-    #               <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
-    #            </important>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdateKeyDescriptionInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdateKeyDescriptionOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_key_description(
     #     key_id: 'KeyId', # required
     #     description: 'Description' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdateKeyDescriptionOutput
+    # @example To update the description of a KMS key
+    #   # The following example updates the description of the specified KMS key.
+    #   resp = client.update_key_description({
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     description: "Example description that indicates the intended use of this KMS key."
+    #   })
     #
-    def update_key_description(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def update_key_description(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKeyDescriptionInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKeyDescriptionInput,
@@ -8351,34 +7568,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_key_description),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::UpdateKeyDescription
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::UpdateKeyDescription,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_key_description,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_key_description,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_key_description] #{output.data}")
+      output
     end
 
     # <p>Changes the primary key of a multi-Region key. </p>
@@ -8446,52 +7675,41 @@ module AWS::SDK::KMS
     #                </p>
     #             </li>
     #          </ul>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::UpdatePrimaryRegionInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the current primary key. When the operation completes, this KMS key will be a
-    #         replica key.</p>
-    #            <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    #
-    # @option params [String] :primary_region
-    #   <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as
-    #           <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key
-    #         in this Region. </p>
-    #            <p>When the operation completes, the multi-Region key in this Region will be the primary
-    #         key.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::UpdatePrimaryRegionInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::UpdatePrimaryRegionOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.update_primary_region(
     #     key_id: 'KeyId', # required
     #     primary_region: 'PrimaryRegion' # required
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::UpdatePrimaryRegionOutput
+    # @example To update the primary Region of a multi-Region KMS key
+    #   # The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.
+    #   #
+    #   # The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
+    #   #
+    #   # This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
+    #   resp = client.update_primary_region({
+    #     key_id: "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+    #     primary_region: "eu-central-1"
+    #   })
     #
-    def update_primary_region(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   nil
+    def update_primary_region(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePrimaryRegionInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePrimaryRegionInput,
@@ -8505,34 +7723,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :update_primary_region),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DisabledException, Errors::InvalidArnException, Errors::KMSInternalException, Errors::KMSInvalidStateException, Errors::NotFoundException, Errors::UnsupportedOperationException]
+        ),
         data_parser: Parsers::UpdatePrimaryRegion
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DisabledException, Stubs::InvalidArnException, Stubs::KMSInternalException, Stubs::KMSInvalidStateException, Stubs::NotFoundException, Stubs::UnsupportedOperationException],
         stub_data_class: Stubs::UpdatePrimaryRegion,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :update_primary_region,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :update_primary_region,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#update_primary_region] #{output.data}")
+      output
     end
 
     # <p>Verifies a digital signature that was generated by the <a>Sign</a> operation. </p>
@@ -8570,101 +7800,17 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>Sign</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::VerifyInput}.
-    #
-    # @option params [String] :key_id
-    #   <p>Identifies the asymmetric KMS key that will be used to verify the signature. This must be
-    #         the same KMS key that was used to generate the signature. If you specify a different KMS key,
-    #         the signature verification fails.</p>
-    #            <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
-    #            <p>For example:</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias name: <code>alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #               <li>
-    #                  <p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code>
-    #                  </p>
-    #               </li>
-    #            </ul>
-    #            <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    #
-    # @option params [String] :message
-    #   <p>Specifies the message that was signed. You can submit a raw message of up to 4096 bytes,
-    #         or a hash digest of the message. If you submit a digest, use the <code>MessageType</code>
-    #         parameter with a value of <code>DIGEST</code>.</p>
-    #            <p>If the message specified here is different from the message that was signed, the signature
-    #         verification fails. A message and its hash digest are considered to be the same
-    #         message.</p>
-    #
-    # @option params [String] :message_type
-    #   <p>Tells KMS whether the value of the <code>Message</code> parameter should be hashed as
-    #         part of the signing algorithm. Use <code>RAW</code> for unhashed messages; use
-    #           <code>DIGEST</code> for message digests, which are already hashed.</p>
-    #            <p>When the value of <code>MessageType</code> is <code>RAW</code>, KMS uses the standard
-    #         signing algorithm, which begins with a hash function. When the value is <code>DIGEST</code>,
-    #         KMS skips the hashing step in the signing algorithm.</p>
-    #            <important>
-    #               <p>Use the <code>DIGEST</code> value only when the value of the <code>Message</code>
-    #           parameter is a message digest. If you use the <code>DIGEST</code> value with an unhashed
-    #           message, the security of the verification operation can be compromised.</p>
-    #            </important>
-    #            <p>When the value of <code>MessageType</code>is <code>DIGEST</code>, the length of the
-    #           <code>Message</code> value must match the length of hashed messages for the specified
-    #         signing algorithm.</p>
-    #            <p>You can submit a message digest and omit the <code>MessageType</code> or specify
-    #           <code>RAW</code> so the digest is hashed again while signing. However, if the signed message
-    #         is hashed once while signing, but twice while verifying, verification fails, even when the
-    #         message hasn't changed.</p>
-    #            <p>The hashing algorithm in that <code>Verify</code> uses is based on the
-    #           <code>SigningAlgorithm</code> value.</p>
-    #            <ul>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_256 use the SHA_256 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_384 use the SHA_384 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>Signing algorithms that end in SHA_512 use the SHA_512 hashing algorithm.</p>
-    #               </li>
-    #               <li>
-    #                  <p>SM2DSA uses the SM3 hashing algorithm. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
-    #               verification with SM2 key pairs</a>.</p>
-    #               </li>
-    #            </ul>
-    #
-    # @option params [String] :signature
-    #   <p>The signature that the <code>Sign</code> operation generated.</p>
-    #
-    # @option params [String] :signing_algorithm
-    #   <p>The signing algorithm that was used to sign the message. If you submit a different
-    #         algorithm, the signature verification fails.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::VerifyInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::VerifyOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.verify(
     #     key_id: 'KeyId', # required
     #     message: 'Message', # required
@@ -8676,19 +7822,48 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::VerifyOutput
     #   resp.data.key_id #=> String
     #   resp.data.signature_valid #=> Boolean
     #   resp.data.signing_algorithm #=> String, one of ["RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "SM2DSA"]
+    # @example To use an asymmetric KMS key to verify a digital signature
+    #   # This operation uses the public key in an elliptic curve (ECC) asymmetric key to verify a digital signature within AWS KMS.
+    #   resp = client.verify({
+    #     key_id: "alias/ECC_signing_key",
+    #     message: '<message to be verified>',
+    #     message_type: "RAW",
+    #     signature: '<binary data>',
+    #     signing_algorithm: "ECDSA_SHA_384"
+    #   })
     #
-    def verify(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     signature_valid: true,
+    #     signing_algorithm: "ECDSA_SHA_384"
+    #   }
+    # @example To use an asymmetric KMS key to verify a digital signature on a message digest
+    #   # This operation uses the public key in an RSA asymmetric signing key pair to verify the digital signature of a message digest. Hashing a message into a digest before sending it to KMS lets you verify messages that exceed the 4096-byte message size limit. To indicate that the value of Message is a digest, use the MessageType parameter
+    #   resp = client.verify({
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     message: '<message digest to be verified>',
+    #     message_type: "DIGEST",
+    #     signature: '<binary data>',
+    #     signing_algorithm: "RSASSA_PSS_SHA_512"
+    #   })
+    #
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+    #     signature_valid: true,
+    #     signing_algorithm: "RSASSA_PSS_SHA_512"
+    #   }
+    def verify(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyInput,
@@ -8702,34 +7877,46 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :verify),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidSignatureException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DependencyTimeoutException, Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidSignatureException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::Verify
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DependencyTimeoutException, Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidSignatureException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::Verify,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :verify,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :verify,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#verify] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#verify] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#verify] #{output.data}")
+      output
     end
 
     # <p>Verifies the hash-based message authentication code (HMAC) for a specified message, HMAC
@@ -8753,46 +7940,17 @@ module AWS::SDK::KMS
     #          <p>
     #             <b>Related operations</b>: <a>GenerateMac</a>
     #          </p>
-    #
+    #          <p>
+    #             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+    #   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
     # @param [Hash] params
-    #   See {Types::VerifyMacInput}.
-    #
-    # @option params [String] :message
-    #   <p>The message that will be used in the verification. Enter the same message that was used to
-    #         generate the HMAC.</p>
-    #            <p>
-    #               <a>GenerateMac</a> and <code>VerifyMac</code> do not provide special handling
-    #         for message digests. If you generated an HMAC for a hash digest of a message, you must verify
-    #         the HMAC for the same hash digest.</p>
-    #
-    # @option params [String] :key_id
-    #   <p>The KMS key that will be used in the verification.</p>
-    #            <p>Enter a key ID of the KMS key that was used to generate the HMAC. If you identify a
-    #         different KMS key, the <code>VerifyMac</code> operation fails.</p>
-    #
-    # @option params [String] :mac_algorithm
-    #   <p>The MAC algorithm that will be used in the verification. Enter the same MAC algorithm that
-    #         was used to compute the HMAC. This algorithm must be supported by the HMAC KMS key identified
-    #         by the <code>KeyId</code> parameter.</p>
-    #
-    # @option params [String] :mac
-    #   <p>The HMAC to verify. Enter the HMAC that was generated by the <a>GenerateMac</a>
-    #         operation when you specified the same message, HMAC KMS key, and MAC algorithm as the values
-    #         specified in this request.</p>
-    #
-    # @option params [Array<String>] :grant_tokens
-    #   <p>A list of grant tokens.</p>
-    #            <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a grant token</a> in the
-    #       <i>Key Management Service Developer Guide</i>.</p>
-    #
-    # @option params [Boolean] :dry_run
-    #   <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter. </p>
-    #            <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-dryrun.html">Testing your KMS API calls</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    #
+    #   Request parameters for this operation.
+    #   See {Types::VerifyMacInput#initialize} for available parameters.
+    # @param [Hash] options
+    #   Request option override of configuration. See {Config#initialize} for available options.
+    #   Some configurations cannot be overridden.
     # @return [Types::VerifyMacOutput]
-    #
     # @example Request syntax with placeholder values
-    #
     #   resp = client.verify_mac(
     #     message: 'Message', # required
     #     key_id: 'KeyId', # required
@@ -8803,19 +7961,31 @@ module AWS::SDK::KMS
     #     ],
     #     dry_run: false
     #   )
-    #
     # @example Response structure
-    #
     #   resp.data #=> Types::VerifyMacOutput
     #   resp.data.key_id #=> String
     #   resp.data.mac_valid #=> Boolean
     #   resp.data.mac_algorithm #=> String, one of ["HMAC_SHA_224", "HMAC_SHA_256", "HMAC_SHA_384", "HMAC_SHA_512"]
+    # @example To verify an HMAC
+    #   # This example verifies an HMAC for a particular message, HMAC KMS keys, and MAC algorithm. A value of 'true' in the MacValid value in the response indicates that the HMAC is valid.
+    #   resp = client.verify_mac({
+    #     message: 'Hello World',
+    #     key_id: "1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     mac_algorithm: "HMAC_SHA_384",
+    #     mac: '<HMAC_TAG>'
+    #   })
     #
-    def verify_mac(params = {}, options = {}, &block)
+    #   # resp.to_h outputs the following:
+    #   {
+    #     key_id: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    #     mac_valid: true,
+    #     mac_algorithm: "HMAC_SHA_384"
+    #   }
+    def verify_mac(params = {}, options = {})
+      response_body = ::StringIO.new
       config = operation_config(options)
       stack = Hearth::MiddlewareStack.new
       input = Params::VerifyMacInput.build(params, context: 'params')
-      response_body = ::StringIO.new
       stack.use(Hearth::Middleware::Initialize)
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::VerifyMacInput,
@@ -8829,54 +7999,69 @@ module AWS::SDK::KMS
         retry_strategy: config.retry_strategy,
         error_inspector_class: Hearth::HTTP::ErrorInspector
       )
+      stack.use(Hearth::Middleware::Auth,
+        auth_params: Auth::Params.new(operation_name: :verify_mac),
+        auth_resolver: config.auth_resolver,
+        auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
         signer: config.signer
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidMacException, Errors::KMSInvalidStateException, Errors::NotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(
+          error_module: Errors,
+          success_status: 200,
+          errors: [Errors::DisabledException, Errors::DryRunOperationException, Errors::InvalidGrantTokenException, Errors::InvalidKeyUsageException, Errors::KeyUnavailableException, Errors::KMSInternalException, Errors::KMSInvalidMacException, Errors::KMSInvalidStateException, Errors::NotFoundException]
+        ),
         data_parser: Parsers::VerifyMac
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: config.stub_responses,
-        client: options.fetch(:http_client, config.http_client),
+        client: config.http_client,
         stub_error_classes: [Stubs::DisabledException, Stubs::DryRunOperationException, Stubs::InvalidGrantTokenException, Stubs::InvalidKeyUsageException, Stubs::KeyUnavailableException, Stubs::KMSInternalException, Stubs::KMSInvalidMacException, Stubs::KMSInvalidStateException, Stubs::NotFoundException],
         stub_data_class: Stubs::VerifyMac,
         stubs: @stubs
       )
-      resp = stack.run(
-        input: input,
-        context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(uri: URI(options.fetch(:endpoint, config.endpoint))),
-          response: Hearth::HTTP::Response.new(body: response_body),
-          params: params,
-          logger: config.logger,
-          operation_name: :verify_mac,
-          interceptors: config.interceptors
-        )
+      context = Hearth::Context.new(
+        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        response: Hearth::HTTP::Response.new(body: response_body),
+        logger: config.logger,
+        operation_name: :verify_mac,
+        interceptors: config.interceptors
       )
-      raise resp.error if resp.error
-      resp
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] params: #{params}, options: #{options}")
+      output = stack.run(input, context)
+      if output.error
+        context.logger.error("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.error} (#{output.error.class})")
+        raise output.error
+      end
+      context.logger.info("[#{context.invocation_id}] [#{self.class}#verify_mac] #{output.data}")
+      output
     end
 
     private
 
-    def initialize_config(config)
-      config = config.dup
-      client_interceptors = config.interceptors
-      config.interceptors = Hearth::InterceptorList.new
-      Client.plugins.apply(config)
-      Hearth::PluginList.new(config.plugins).apply(config)
-      config.interceptors << client_interceptors
+    def initialize_config(options)
+      client_interceptors = options.delete(:interceptors)
+      config = Config.new(**options)
+      Client.plugins.each { |p| p.call(config) }
+      config.plugins.each { |p| p.call(config) }
+      config.interceptors.concat(Hearth::InterceptorList.new(client_interceptors)) if client_interceptors
+      config.validate!
       config.freeze
     end
 
     def operation_config(options)
-      return @config unless options[:plugins] || options[:interceptors]
+      return @config if options.empty?
 
-      config = @config.dup
-      Hearth::PluginList.new(options[:plugins]).apply(config) if options[:plugins]
-      config.interceptors << options[:interceptors] if options[:interceptors]
+      operation_plugins = options.delete(:plugins)
+      operation_interceptors = options.delete(:interceptors)
+      config = @config.merge(options)
+      Hearth::PluginList.new(operation_plugins).each { |p| p.call(config) } if operation_plugins
+      config.interceptors.concat(Hearth::InterceptorList.new(operation_interceptors)) if operation_interceptors
+      config.validate!
       config.freeze
     end
   end

@@ -455,7 +455,9 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::AdvertiseByoipCidrInput, context: context)
         Hearth::Validator.validate_required!(input[:cidr], context: "#{context}[:cidr]")
         Hearth::Validator.validate_types!(input[:cidr], ::String, context: "#{context}[:cidr]")
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_types!(input[:network_border_group], ::String, context: "#{context}[:network_border_group]")
       end
     end
 
@@ -529,6 +531,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate_types!(input[:preview_next_cidr], ::TrueClass, ::FalseClass, context: "#{context}[:preview_next_cidr]")
+        IpamPoolAllocationAllowedCidrs.validate!(input[:allowed_cidrs], context: "#{context}[:allowed_cidrs]") unless input[:allowed_cidrs].nil?
         IpamPoolAllocationDisallowedCidrs.validate!(input[:disallowed_cidrs], context: "#{context}[:disallowed_cidrs]") unless input[:disallowed_cidrs].nil?
       end
     end
@@ -742,6 +745,35 @@ module AWS::SDK::EC2
       end
     end
 
+    class AsnAssociation
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::AsnAssociation, context: context)
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:cidr], ::String, context: "#{context}[:cidr]")
+        Hearth::Validator.validate_types!(input[:status_message], ::String, context: "#{context}[:status_message]")
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
+      end
+    end
+
+    class AsnAssociationSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          AsnAssociation.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class AsnAuthorizationContext
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::AsnAuthorizationContext, context: context)
+        Hearth::Validator.validate_required!(input[:message], context: "#{context}[:message]")
+        Hearth::Validator.validate_types!(input[:message], ::String, context: "#{context}[:message]")
+        Hearth::Validator.validate_required!(input[:signature], context: "#{context}[:signature]")
+        Hearth::Validator.validate_types!(input[:signature], ::String, context: "#{context}[:signature]")
+      end
+    end
+
     class AssetIdList
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, ::Array, context: context)
@@ -941,6 +973,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class AssociateIpamByoasnInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::AssociateIpamByoasnInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:asn], context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+        Hearth::Validator.validate_required!(input[:cidr], context: "#{context}[:cidr]")
+        Hearth::Validator.validate_types!(input[:cidr], ::String, context: "#{context}[:cidr]")
+      end
+    end
+
+    class AssociateIpamByoasnOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::AssociateIpamByoasnOutput, context: context)
+        AsnAssociation.validate!(input[:asn_association], context: "#{context}[:asn_association]") unless input[:asn_association].nil?
+      end
+    end
+
     class AssociateIpamResourceDiscoveryInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AssociateIpamResourceDiscoveryInput, context: context)
@@ -1003,10 +1053,11 @@ module AWS::SDK::EC2
     class AssociateSubnetCidrBlockInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::AssociateSubnetCidrBlockInput, context: context)
-        Hearth::Validator.validate_required!(input[:ipv6_cidr_block], context: "#{context}[:ipv6_cidr_block]")
         Hearth::Validator.validate_types!(input[:ipv6_cidr_block], ::String, context: "#{context}[:ipv6_cidr_block]")
         Hearth::Validator.validate_required!(input[:subnet_id], context: "#{context}[:subnet_id]")
         Hearth::Validator.validate_types!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
+        Hearth::Validator.validate_types!(input[:ipv6_ipam_pool_id], ::String, context: "#{context}[:ipv6_ipam_pool_id]")
+        Hearth::Validator.validate_types!(input[:ipv6_netmask_length], ::Integer, context: "#{context}[:ipv6_netmask_length]")
       end
     end
 
@@ -1298,6 +1349,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate_types!(input[:delete_on_termination], ::TrueClass, ::FalseClass, context: "#{context}[:delete_on_termination]")
+        Hearth::Validator.validate_types!(input[:associated_resource], ::String, context: "#{context}[:associated_resource]")
+        Hearth::Validator.validate_types!(input[:instance_owning_service], ::String, context: "#{context}[:instance_owning_service]")
       end
     end
 
@@ -1636,13 +1689,34 @@ module AWS::SDK::EC2
       end
     end
 
+    class Byoasn
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::Byoasn, context: context)
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:ipam_id], ::String, context: "#{context}[:ipam_id]")
+        Hearth::Validator.validate_types!(input[:status_message], ::String, context: "#{context}[:status_message]")
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
+      end
+    end
+
+    class ByoasnSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Byoasn.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
     class ByoipCidr
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ByoipCidr, context: context)
         Hearth::Validator.validate_types!(input[:cidr], ::String, context: "#{context}[:cidr]")
         Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
+        AsnAssociationSet.validate!(input[:asn_associations], context: "#{context}[:asn_associations]") unless input[:asn_associations].nil?
         Hearth::Validator.validate_types!(input[:status_message], ::String, context: "#{context}[:status_message]")
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
+        Hearth::Validator.validate_types!(input[:network_border_group], ::String, context: "#{context}[:network_border_group]")
       end
     end
 
@@ -1903,6 +1977,31 @@ module AWS::SDK::EC2
       end
     end
 
+    class CapacityBlockOffering
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::CapacityBlockOffering, context: context)
+        Hearth::Validator.validate_types!(input[:capacity_block_offering_id], ::String, context: "#{context}[:capacity_block_offering_id]")
+        Hearth::Validator.validate_types!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
+        Hearth::Validator.validate_types!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
+        Hearth::Validator.validate_types!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
+        Hearth::Validator.validate_types!(input[:start_date], ::Time, context: "#{context}[:start_date]")
+        Hearth::Validator.validate_types!(input[:end_date], ::Time, context: "#{context}[:end_date]")
+        Hearth::Validator.validate_types!(input[:capacity_block_duration_hours], ::Integer, context: "#{context}[:capacity_block_duration_hours]")
+        Hearth::Validator.validate_types!(input[:upfront_fee], ::String, context: "#{context}[:upfront_fee]")
+        Hearth::Validator.validate_types!(input[:currency_code], ::String, context: "#{context}[:currency_code]")
+        Hearth::Validator.validate_types!(input[:tenancy], ::String, context: "#{context}[:tenancy]")
+      end
+    end
+
+    class CapacityBlockOfferingSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          CapacityBlockOffering.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
     class CapacityReservation
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CapacityReservation, context: context)
@@ -1929,6 +2028,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:capacity_reservation_fleet_id], ::String, context: "#{context}[:capacity_reservation_fleet_id]")
         Hearth::Validator.validate_types!(input[:placement_group_arn], ::String, context: "#{context}[:placement_group_arn]")
         CapacityAllocations.validate!(input[:capacity_allocations], context: "#{context}[:capacity_allocations]") unless input[:capacity_allocations].nil?
+        Hearth::Validator.validate_types!(input[:reservation_type], ::String, context: "#{context}[:reservation_type]")
       end
     end
 
@@ -2565,6 +2665,42 @@ module AWS::SDK::EC2
       end
     end
 
+    class ConnectionTrackingConfiguration
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ConnectionTrackingConfiguration, context: context)
+        Hearth::Validator.validate_types!(input[:tcp_established_timeout], ::Integer, context: "#{context}[:tcp_established_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_stream_timeout], ::Integer, context: "#{context}[:udp_stream_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_timeout], ::Integer, context: "#{context}[:udp_timeout]")
+      end
+    end
+
+    class ConnectionTrackingSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ConnectionTrackingSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:tcp_established_timeout], ::Integer, context: "#{context}[:tcp_established_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_timeout], ::Integer, context: "#{context}[:udp_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_stream_timeout], ::Integer, context: "#{context}[:udp_stream_timeout]")
+      end
+    end
+
+    class ConnectionTrackingSpecificationRequest
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ConnectionTrackingSpecificationRequest, context: context)
+        Hearth::Validator.validate_types!(input[:tcp_established_timeout], ::Integer, context: "#{context}[:tcp_established_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_stream_timeout], ::Integer, context: "#{context}[:udp_stream_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_timeout], ::Integer, context: "#{context}[:udp_timeout]")
+      end
+    end
+
+    class ConnectionTrackingSpecificationResponse
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ConnectionTrackingSpecificationResponse, context: context)
+        Hearth::Validator.validate_types!(input[:tcp_established_timeout], ::Integer, context: "#{context}[:tcp_established_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_stream_timeout], ::Integer, context: "#{context}[:udp_stream_timeout]")
+        Hearth::Validator.validate_types!(input[:udp_timeout], ::Integer, context: "#{context}[:udp_timeout]")
+      end
+    end
+
     class ConversionIdStringList
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, ::Array, context: context)
@@ -3191,6 +3327,7 @@ module AWS::SDK::EC2
         AddIpamOperatingRegionSet.validate!(input[:operating_regions], context: "#{context}[:operating_regions]") unless input[:operating_regions].nil?
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
+        Hearth::Validator.validate_types!(input[:tier], ::String, context: "#{context}[:tier]")
       end
     end
 
@@ -3222,6 +3359,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:aws_service], ::String, context: "#{context}[:aws_service]")
         Hearth::Validator.validate_types!(input[:public_ip_source], ::String, context: "#{context}[:public_ip_source]")
+        IpamPoolSourceResourceRequest.validate!(input[:source_resource], context: "#{context}[:source_resource]") unless input[:source_resource].nil?
       end
     end
 
@@ -3495,6 +3633,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_required!(input[:vpc_id], context: "#{context}[:vpc_id]")
         Hearth::Validator.validate_types!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
+        Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
 
@@ -3502,6 +3641,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CreateNetworkAclOutput, context: context)
         NetworkAcl.validate!(input[:network_acl], context: "#{context}[:network_acl]") unless input[:network_acl].nil?
+        Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
 
@@ -3572,6 +3712,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
+        Hearth::Validator.validate_types!(input[:enable_primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:enable_primary_ipv6]")
+        ConnectionTrackingSpecificationRequest.validate!(input[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -3736,6 +3878,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_required!(input[:vpc_id], context: "#{context}[:vpc_id]")
         Hearth::Validator.validate_types!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
+        Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
 
@@ -3743,6 +3886,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CreateRouteTableOutput, context: context)
         RouteTable.validate!(input[:route_table], context: "#{context}[:route_table]") unless input[:route_table].nil?
+        Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
     end
 
@@ -3894,6 +4038,10 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_types!(input[:ipv6_native], ::TrueClass, ::FalseClass, context: "#{context}[:ipv6_native]")
+        Hearth::Validator.validate_types!(input[:ipv4_ipam_pool_id], ::String, context: "#{context}[:ipv4_ipam_pool_id]")
+        Hearth::Validator.validate_types!(input[:ipv4_netmask_length], ::Integer, context: "#{context}[:ipv4_netmask_length]")
+        Hearth::Validator.validate_types!(input[:ipv6_ipam_pool_id], ::String, context: "#{context}[:ipv6_ipam_pool_id]")
+        Hearth::Validator.validate_types!(input[:ipv6_netmask_length], ::Integer, context: "#{context}[:ipv6_netmask_length]")
       end
     end
 
@@ -4264,6 +4412,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CreateTransitGatewayVpcAttachmentRequestOptions, context: context)
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:ipv6_support], ::String, context: "#{context}[:ipv6_support]")
         Hearth::Validator.validate_types!(input[:appliance_mode_support], ::String, context: "#{context}[:appliance_mode_support]")
       end
@@ -4301,6 +4450,7 @@ module AWS::SDK::EC2
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -4340,6 +4490,7 @@ module AWS::SDK::EC2
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -4357,6 +4508,7 @@ module AWS::SDK::EC2
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_types!(input[:fips_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:fips_enabled]")
       end
     end
 
@@ -4371,6 +4523,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::CreateVerifiedAccessTrustProviderDeviceOptions, context: context)
         Hearth::Validator.validate_types!(input[:tenant_id], ::String, context: "#{context}[:tenant_id]")
+        Hearth::Validator.validate_types!(input[:public_signing_key_url], ::String, context: "#{context}[:public_signing_key_url]")
       end
     end
 
@@ -4389,6 +4542,7 @@ module AWS::SDK::EC2
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -4520,6 +4674,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:private_dns_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:private_dns_enabled]")
         TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
+        SubnetConfigurationsList.validate!(input[:subnet_configurations], context: "#{context}[:subnet_configurations]") unless input[:subnet_configurations].nil?
       end
     end
 
@@ -5050,6 +5205,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_required!(input[:ipam_pool_id], context: "#{context}[:ipam_pool_id]")
         Hearth::Validator.validate_types!(input[:ipam_pool_id], ::String, context: "#{context}[:ipam_pool_id]")
+        Hearth::Validator.validate_types!(input[:cascade], ::TrueClass, ::FalseClass, context: "#{context}[:cascade]")
       end
     end
 
@@ -5104,6 +5260,8 @@ module AWS::SDK::EC2
     class DeleteKeyPairOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DeleteKeyPairOutput, context: context)
+        Hearth::Validator.validate_types!(input[:return], ::TrueClass, ::FalseClass, context: "#{context}[:return]")
+        Hearth::Validator.validate_types!(input[:key_pair_id], ::String, context: "#{context}[:key_pair_id]")
       end
     end
 
@@ -6063,6 +6221,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class DeprovisionIpamByoasnInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DeprovisionIpamByoasnInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:ipam_id], context: "#{context}[:ipam_id]")
+        Hearth::Validator.validate_types!(input[:ipam_id], ::String, context: "#{context}[:ipam_id]")
+        Hearth::Validator.validate_required!(input[:asn], context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+      end
+    end
+
+    class DeprovisionIpamByoasnOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DeprovisionIpamByoasnOutput, context: context)
+        Byoasn.validate!(input[:byoasn], context: "#{context}[:byoasn]") unless input[:byoasn].nil?
+      end
+    end
+
     class DeprovisionIpamPoolCidrInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DeprovisionIpamPoolCidrInput, context: context)
@@ -6331,6 +6507,31 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeByoipCidrsOutput, context: context)
         ByoipCidrSet.validate!(input[:byoip_cidrs], context: "#{context}[:byoip_cidrs]") unless input[:byoip_cidrs].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
+    class DescribeCapacityBlockOfferingsInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeCapacityBlockOfferingsInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:instance_type], context: "#{context}[:instance_type]")
+        Hearth::Validator.validate_types!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
+        Hearth::Validator.validate_required!(input[:instance_count], context: "#{context}[:instance_count]")
+        Hearth::Validator.validate_types!(input[:instance_count], ::Integer, context: "#{context}[:instance_count]")
+        Hearth::Validator.validate_types!(input[:start_date_range], ::Time, context: "#{context}[:start_date_range]")
+        Hearth::Validator.validate_types!(input[:end_date_range], ::Time, context: "#{context}[:end_date_range]")
+        Hearth::Validator.validate_required!(input[:capacity_duration_hours], context: "#{context}[:capacity_duration_hours]")
+        Hearth::Validator.validate_types!(input[:capacity_duration_hours], ::Integer, context: "#{context}[:capacity_duration_hours]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+      end
+    end
+
+    class DescribeCapacityBlockOfferingsOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeCapacityBlockOfferingsOutput, context: context)
+        CapacityBlockOfferingSet.validate!(input[:capacity_block_offerings], context: "#{context}[:capacity_block_offerings]") unless input[:capacity_block_offerings].nil?
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -7052,6 +7253,7 @@ module AWS::SDK::EC2
         ImageIdStringList.validate!(input[:image_ids], context: "#{context}[:image_ids]") unless input[:image_ids].nil?
         OwnerStringList.validate!(input[:owners], context: "#{context}[:owners]") unless input[:owners].nil?
         Hearth::Validator.validate_types!(input[:include_deprecated], ::TrueClass, ::FalseClass, context: "#{context}[:include_deprecated]")
+        Hearth::Validator.validate_types!(input[:include_disabled], ::TrueClass, ::FalseClass, context: "#{context}[:include_disabled]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
@@ -7229,6 +7431,44 @@ module AWS::SDK::EC2
       end
     end
 
+    class DescribeInstanceTopologyGroupNameSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate_types!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
+    class DescribeInstanceTopologyInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeInstanceTopologyInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+        DescribeInstanceTopologyInstanceIdSet.validate!(input[:instance_ids], context: "#{context}[:instance_ids]") unless input[:instance_ids].nil?
+        DescribeInstanceTopologyGroupNameSet.validate!(input[:group_names], context: "#{context}[:group_names]") unless input[:group_names].nil?
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+      end
+    end
+
+    class DescribeInstanceTopologyInstanceIdSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate_types!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
+    class DescribeInstanceTopologyOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeInstanceTopologyOutput, context: context)
+        InstanceSet.validate!(input[:instances], context: "#{context}[:instances]") unless input[:instances].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
     class DescribeInstanceTypeOfferingsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeInstanceTypeOfferingsInput, context: context)
@@ -7301,6 +7541,23 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeInternetGatewaysOutput, context: context)
         InternetGatewayList.validate!(input[:internet_gateways], context: "#{context}[:internet_gateways]") unless input[:internet_gateways].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
+    class DescribeIpamByoasnInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeIpamByoasnInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
+    class DescribeIpamByoasnOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeIpamByoasnOutput, context: context)
+        ByoasnSet.validate!(input[:byoasns], context: "#{context}[:byoasns]") unless input[:byoasns].nil?
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -7591,6 +7848,25 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DescribeLocalGatewaysOutput, context: context)
         LocalGatewaySet.validate!(input[:local_gateways], context: "#{context}[:local_gateways]") unless input[:local_gateways].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
+    class DescribeLockedSnapshotsInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeLockedSnapshotsInput, context: context)
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        SnapshotIdStringList.validate!(input[:snapshot_ids], context: "#{context}[:snapshot_ids]") unless input[:snapshot_ids].nil?
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class DescribeLockedSnapshotsOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DescribeLockedSnapshotsOutput, context: context)
+        LockedSnapshotsInfoList.validate!(input[:snapshots], context: "#{context}[:snapshots]") unless input[:snapshots].nil?
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -9160,6 +9436,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate_types!(input[:delete_on_termination], ::TrueClass, ::FalseClass, context: "#{context}[:delete_on_termination]")
+        Hearth::Validator.validate_types!(input[:associated_resource], ::String, context: "#{context}[:associated_resource]")
+        Hearth::Validator.validate_types!(input[:instance_owning_service], ::String, context: "#{context}[:instance_owning_service]")
       end
     end
 
@@ -9184,6 +9462,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DeviceOptions, context: context)
         Hearth::Validator.validate_types!(input[:tenant_id], ::String, context: "#{context}[:tenant_id]")
+        Hearth::Validator.validate_types!(input[:public_signing_key_url], ::String, context: "#{context}[:public_signing_key_url]")
       end
     end
 
@@ -9415,6 +9694,20 @@ module AWS::SDK::EC2
       end
     end
 
+    class DisableImageBlockPublicAccessInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableImageBlockPublicAccessInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class DisableImageBlockPublicAccessOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableImageBlockPublicAccessOutput, context: context)
+        Hearth::Validator.validate_types!(input[:image_block_public_access_state], ::String, context: "#{context}[:image_block_public_access_state]")
+      end
+    end
+
     class DisableImageDeprecationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DisableImageDeprecationInput, context: context)
@@ -9427,6 +9720,22 @@ module AWS::SDK::EC2
     class DisableImageDeprecationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DisableImageDeprecationOutput, context: context)
+        Hearth::Validator.validate_types!(input[:return], ::TrueClass, ::FalseClass, context: "#{context}[:return]")
+      end
+    end
+
+    class DisableImageInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableImageInput, context: context)
+        Hearth::Validator.validate_required!(input[:image_id], context: "#{context}[:image_id]")
+        Hearth::Validator.validate_types!(input[:image_id], ::String, context: "#{context}[:image_id]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class DisableImageOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableImageOutput, context: context)
         Hearth::Validator.validate_types!(input[:return], ::TrueClass, ::FalseClass, context: "#{context}[:return]")
       end
     end
@@ -9458,6 +9767,20 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DisableSerialConsoleAccessOutput, context: context)
         Hearth::Validator.validate_types!(input[:serial_console_access_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:serial_console_access_enabled]")
+      end
+    end
+
+    class DisableSnapshotBlockPublicAccessInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableSnapshotBlockPublicAccessInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class DisableSnapshotBlockPublicAccessOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisableSnapshotBlockPublicAccessOutput, context: context)
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
 
@@ -9608,6 +9931,24 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::DisassociateInstanceEventWindowOutput, context: context)
         InstanceEventWindow.validate!(input[:instance_event_window], context: "#{context}[:instance_event_window]") unless input[:instance_event_window].nil?
+      end
+    end
+
+    class DisassociateIpamByoasnInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisassociateIpamByoasnInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:asn], context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+        Hearth::Validator.validate_required!(input[:cidr], context: "#{context}[:cidr]")
+        Hearth::Validator.validate_types!(input[:cidr], ::String, context: "#{context}[:cidr]")
+      end
+    end
+
+    class DisassociateIpamByoasnOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::DisassociateIpamByoasnOutput, context: context)
+        AsnAssociation.validate!(input[:asn_association], context: "#{context}[:asn_association]") unless input[:asn_association].nil?
       end
     end
 
@@ -9908,6 +10249,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:delete_on_termination], ::TrueClass, ::FalseClass, context: "#{context}[:delete_on_termination]")
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
+        Hearth::Validator.validate_types!(input[:associated_resource], ::String, context: "#{context}[:associated_resource]")
+        Hearth::Validator.validate_types!(input[:volume_owner_id], ::String, context: "#{context}[:volume_owner_id]")
       end
     end
 
@@ -10139,9 +10482,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class EnaSrdSpecificationRequest
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnaSrdSpecificationRequest, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_enabled]")
+        EnaSrdUdpSpecificationRequest.validate!(input[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless input[:ena_srd_udp_specification].nil?
+      end
+    end
+
     class EnaSrdUdpSpecification
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::EnaSrdUdpSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_udp_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_udp_enabled]")
+      end
+    end
+
+    class EnaSrdUdpSpecificationRequest
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnaSrdUdpSpecificationRequest, context: context)
         Hearth::Validator.validate_types!(input[:ena_srd_udp_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_udp_enabled]")
       end
     end
@@ -10311,6 +10669,22 @@ module AWS::SDK::EC2
       end
     end
 
+    class EnableImageBlockPublicAccessInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableImageBlockPublicAccessInput, context: context)
+        Hearth::Validator.validate_required!(input[:image_block_public_access_state], context: "#{context}[:image_block_public_access_state]")
+        Hearth::Validator.validate_types!(input[:image_block_public_access_state], ::String, context: "#{context}[:image_block_public_access_state]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class EnableImageBlockPublicAccessOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableImageBlockPublicAccessOutput, context: context)
+        Hearth::Validator.validate_types!(input[:image_block_public_access_state], ::String, context: "#{context}[:image_block_public_access_state]")
+      end
+    end
+
     class EnableImageDeprecationInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::EnableImageDeprecationInput, context: context)
@@ -10325,6 +10699,22 @@ module AWS::SDK::EC2
     class EnableImageDeprecationOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::EnableImageDeprecationOutput, context: context)
+        Hearth::Validator.validate_types!(input[:return], ::TrueClass, ::FalseClass, context: "#{context}[:return]")
+      end
+    end
+
+    class EnableImageInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableImageInput, context: context)
+        Hearth::Validator.validate_required!(input[:image_id], context: "#{context}[:image_id]")
+        Hearth::Validator.validate_types!(input[:image_id], ::String, context: "#{context}[:image_id]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class EnableImageOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableImageOutput, context: context)
         Hearth::Validator.validate_types!(input[:return], ::TrueClass, ::FalseClass, context: "#{context}[:return]")
       end
     end
@@ -10370,6 +10760,22 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::EnableSerialConsoleAccessOutput, context: context)
         Hearth::Validator.validate_types!(input[:serial_console_access_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:serial_console_access_enabled]")
+      end
+    end
+
+    class EnableSnapshotBlockPublicAccessInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableSnapshotBlockPublicAccessInput, context: context)
+        Hearth::Validator.validate_required!(input[:state], context: "#{context}[:state]")
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class EnableSnapshotBlockPublicAccessOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::EnableSnapshotBlockPublicAccessOutput, context: context)
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
 
@@ -11350,6 +11756,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:coip_pool_id], ::String, context: "#{context}[:coip_pool_id]")
         CoipAddressUsageSet.validate!(input[:coip_address_usages], context: "#{context}[:coip_address_usages]") unless input[:coip_address_usages].nil?
         Hearth::Validator.validate_types!(input[:local_gateway_route_table_id], ::String, context: "#{context}[:local_gateway_route_table_id]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
 
@@ -11494,6 +11901,20 @@ module AWS::SDK::EC2
       end
     end
 
+    class GetImageBlockPublicAccessStateInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetImageBlockPublicAccessStateInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class GetImageBlockPublicAccessStateOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetImageBlockPublicAccessStateOutput, context: context)
+        Hearth::Validator.validate_types!(input[:image_block_public_access_state], ::String, context: "#{context}[:image_block_public_access_state]")
+      end
+    end
+
     class GetInstanceTypesFromInstanceRequirementsInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetInstanceTypesFromInstanceRequirementsInput, context: context)
@@ -11576,6 +11997,29 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetIpamDiscoveredAccountsOutput, context: context)
         IpamDiscoveredAccountSet.validate!(input[:ipam_discovered_accounts], context: "#{context}[:ipam_discovered_accounts]") unless input[:ipam_discovered_accounts].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+      end
+    end
+
+    class GetIpamDiscoveredPublicAddressesInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetIpamDiscoveredPublicAddressesInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:ipam_resource_discovery_id], context: "#{context}[:ipam_resource_discovery_id]")
+        Hearth::Validator.validate_types!(input[:ipam_resource_discovery_id], ::String, context: "#{context}[:ipam_resource_discovery_id]")
+        Hearth::Validator.validate_required!(input[:address_region], context: "#{context}[:address_region]")
+        Hearth::Validator.validate_types!(input[:address_region], ::String, context: "#{context}[:address_region]")
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+      end
+    end
+
+    class GetIpamDiscoveredPublicAddressesOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetIpamDiscoveredPublicAddressesOutput, context: context)
+        IpamDiscoveredPublicAddressSet.validate!(input[:ipam_discovered_public_addresses], context: "#{context}[:ipam_discovered_public_addresses]") unless input[:ipam_discovered_public_addresses].nil?
+        Hearth::Validator.validate_types!(input[:oldest_sample_time], ::Time, context: "#{context}[:oldest_sample_time]")
         Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
       end
     end
@@ -11803,6 +12247,26 @@ module AWS::SDK::EC2
       end
     end
 
+    class GetSecurityGroupsForVpcInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetSecurityGroupsForVpcInput, context: context)
+        Hearth::Validator.validate_required!(input[:vpc_id], context: "#{context}[:vpc_id]")
+        Hearth::Validator.validate_types!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        Hearth::Validator.validate_types!(input[:max_results], ::Integer, context: "#{context}[:max_results]")
+        FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class GetSecurityGroupsForVpcOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetSecurityGroupsForVpcOutput, context: context)
+        Hearth::Validator.validate_types!(input[:next_token], ::String, context: "#{context}[:next_token]")
+        SecurityGroupForVpcList.validate!(input[:security_group_for_vpcs], context: "#{context}[:security_group_for_vpcs]") unless input[:security_group_for_vpcs].nil?
+      end
+    end
+
     class GetSerialConsoleAccessStatusInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetSerialConsoleAccessStatusInput, context: context)
@@ -11814,6 +12278,20 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::GetSerialConsoleAccessStatusOutput, context: context)
         Hearth::Validator.validate_types!(input[:serial_console_access_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:serial_console_access_enabled]")
+      end
+    end
+
+    class GetSnapshotBlockPublicAccessStateInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetSnapshotBlockPublicAccessStateInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class GetSnapshotBlockPublicAccessStateOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::GetSnapshotBlockPublicAccessStateOutput, context: context)
+        Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
       end
     end
 
@@ -12482,6 +12960,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:tpm_support], ::String, context: "#{context}[:tpm_support]")
         Hearth::Validator.validate_types!(input[:deprecation_time], ::String, context: "#{context}[:deprecation_time]")
         Hearth::Validator.validate_types!(input[:imds_support], ::String, context: "#{context}[:imds_support]")
+        Hearth::Validator.validate_types!(input[:source_instance_id], ::String, context: "#{context}[:source_instance_id]")
       end
     end
 
@@ -12969,6 +13448,21 @@ module AWS::SDK::EC2
       end
     end
 
+    class InstanceAttachmentEnaSrdSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::InstanceAttachmentEnaSrdSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_enabled]")
+        InstanceAttachmentEnaSrdUdpSpecification.validate!(input[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless input[:ena_srd_udp_specification].nil?
+      end
+    end
+
+    class InstanceAttachmentEnaSrdUdpSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::InstanceAttachmentEnaSrdUdpSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_udp_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_udp_enabled]")
+      end
+    end
+
     class InstanceBlockDeviceMapping
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::InstanceBlockDeviceMapping, context: context)
@@ -13260,6 +13754,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::InstanceIpv6Address, context: context)
         Hearth::Validator.validate_types!(input[:ipv6_address], ::String, context: "#{context}[:ipv6_address]")
+        Hearth::Validator.validate_types!(input[:is_primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:is_primary_ipv6]")
       end
     end
 
@@ -13396,6 +13891,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:interface_type], ::String, context: "#{context}[:interface_type]")
         InstanceIpv4PrefixList.validate!(input[:ipv4_prefixes], context: "#{context}[:ipv4_prefixes]") unless input[:ipv4_prefixes].nil?
         InstanceIpv6PrefixList.validate!(input[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless input[:ipv6_prefixes].nil?
+        ConnectionTrackingSpecificationResponse.validate!(input[:connection_tracking_configuration], context: "#{context}[:connection_tracking_configuration]") unless input[:connection_tracking_configuration].nil?
       end
     end
 
@@ -13419,6 +13915,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:device_index], ::Integer, context: "#{context}[:device_index]")
         Hearth::Validator.validate_types!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate_types!(input[:network_card_index], ::Integer, context: "#{context}[:network_card_index]")
+        InstanceAttachmentEnaSrdSpecification.validate!(input[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless input[:ena_srd_specification].nil?
       end
     end
 
@@ -13453,6 +13950,9 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:ipv4_prefix_count], ::Integer, context: "#{context}[:ipv4_prefix_count]")
         Ipv6PrefixList.validate!(input[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless input[:ipv6_prefixes].nil?
         Hearth::Validator.validate_types!(input[:ipv6_prefix_count], ::Integer, context: "#{context}[:ipv6_prefix_count]")
+        Hearth::Validator.validate_types!(input[:primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:primary_ipv6]")
+        EnaSrdSpecificationRequest.validate!(input[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless input[:ena_srd_specification].nil?
+        ConnectionTrackingSpecificationRequest.validate!(input[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -13510,6 +14010,7 @@ module AWS::SDK::EC2
         AcceleratorTotalMemoryMiB.validate!(input[:accelerator_total_memory_mi_b], context: "#{context}[:accelerator_total_memory_mi_b]") unless input[:accelerator_total_memory_mi_b].nil?
         NetworkBandwidthGbps.validate!(input[:network_bandwidth_gbps], context: "#{context}[:network_bandwidth_gbps]") unless input[:network_bandwidth_gbps].nil?
         AllowedInstanceTypeSet.validate!(input[:allowed_instance_types], context: "#{context}[:allowed_instance_types]") unless input[:allowed_instance_types].nil?
+        Hearth::Validator.validate_types!(input[:max_spot_price_as_percentage_of_optimal_on_demand_price], ::Integer, context: "#{context}[:max_spot_price_as_percentage_of_optimal_on_demand_price]")
       end
     end
 
@@ -13541,6 +14042,7 @@ module AWS::SDK::EC2
         AcceleratorTotalMemoryMiBRequest.validate!(input[:accelerator_total_memory_mi_b], context: "#{context}[:accelerator_total_memory_mi_b]") unless input[:accelerator_total_memory_mi_b].nil?
         NetworkBandwidthGbpsRequest.validate!(input[:network_bandwidth_gbps], context: "#{context}[:network_bandwidth_gbps]") unless input[:network_bandwidth_gbps].nil?
         AllowedInstanceTypeSet.validate!(input[:allowed_instance_types], context: "#{context}[:allowed_instance_types]") unless input[:allowed_instance_types].nil?
+        Hearth::Validator.validate_types!(input[:max_spot_price_as_percentage_of_optimal_on_demand_price], ::Integer, context: "#{context}[:max_spot_price_as_percentage_of_optimal_on_demand_price]")
       end
     end
 
@@ -13550,6 +14052,15 @@ module AWS::SDK::EC2
         ArchitectureTypeSet.validate!(input[:architecture_types], context: "#{context}[:architecture_types]") unless input[:architecture_types].nil?
         VirtualizationTypeSet.validate!(input[:virtualization_types], context: "#{context}[:virtualization_types]") unless input[:virtualization_types].nil?
         InstanceRequirementsRequest.validate!(input[:instance_requirements], context: "#{context}[:instance_requirements]") unless input[:instance_requirements].nil?
+      end
+    end
+
+    class InstanceSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          InstanceTopology.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
       end
     end
 
@@ -13682,6 +14193,18 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::InstanceTagNotificationAttribute, context: context)
         InstanceTagKeySet.validate!(input[:instance_tag_keys], context: "#{context}[:instance_tag_keys]") unless input[:instance_tag_keys].nil?
         Hearth::Validator.validate_types!(input[:include_all_tags_of_instance], ::TrueClass, ::FalseClass, context: "#{context}[:include_all_tags_of_instance]")
+      end
+    end
+
+    class InstanceTopology
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::InstanceTopology, context: context)
+        Hearth::Validator.validate_types!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
+        Hearth::Validator.validate_types!(input[:instance_type], ::String, context: "#{context}[:instance_type]")
+        Hearth::Validator.validate_types!(input[:group_name], ::String, context: "#{context}[:group_name]")
+        NetworkNodesList.validate!(input[:network_nodes], context: "#{context}[:network_nodes]") unless input[:network_nodes].nil?
+        Hearth::Validator.validate_types!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
+        Hearth::Validator.validate_types!(input[:zone_id], ::String, context: "#{context}[:zone_id]")
       end
     end
 
@@ -13949,6 +14472,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:default_resource_discovery_id], ::String, context: "#{context}[:default_resource_discovery_id]")
         Hearth::Validator.validate_types!(input[:default_resource_discovery_association_id], ::String, context: "#{context}[:default_resource_discovery_association_id]")
         Hearth::Validator.validate_types!(input[:resource_discovery_association_count], ::Integer, context: "#{context}[:resource_discovery_association_count]")
+        Hearth::Validator.validate_types!(input[:state_message], ::String, context: "#{context}[:state_message]")
+        Hearth::Validator.validate_types!(input[:tier], ::String, context: "#{context}[:tier]")
       end
     end
 
@@ -14002,6 +14527,40 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           IpamDiscoveredAccount.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class IpamDiscoveredPublicAddress
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamDiscoveredPublicAddress, context: context)
+        Hearth::Validator.validate_types!(input[:ipam_resource_discovery_id], ::String, context: "#{context}[:ipam_resource_discovery_id]")
+        Hearth::Validator.validate_types!(input[:address_region], ::String, context: "#{context}[:address_region]")
+        Hearth::Validator.validate_types!(input[:address], ::String, context: "#{context}[:address]")
+        Hearth::Validator.validate_types!(input[:address_owner_id], ::String, context: "#{context}[:address_owner_id]")
+        Hearth::Validator.validate_types!(input[:address_allocation_id], ::String, context: "#{context}[:address_allocation_id]")
+        Hearth::Validator.validate_types!(input[:association_status], ::String, context: "#{context}[:association_status]")
+        Hearth::Validator.validate_types!(input[:address_type], ::String, context: "#{context}[:address_type]")
+        Hearth::Validator.validate_types!(input[:service], ::String, context: "#{context}[:service]")
+        Hearth::Validator.validate_types!(input[:service_resource], ::String, context: "#{context}[:service_resource]")
+        Hearth::Validator.validate_types!(input[:vpc_id], ::String, context: "#{context}[:vpc_id]")
+        Hearth::Validator.validate_types!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
+        Hearth::Validator.validate_types!(input[:public_ipv4_pool_id], ::String, context: "#{context}[:public_ipv4_pool_id]")
+        Hearth::Validator.validate_types!(input[:network_interface_id], ::String, context: "#{context}[:network_interface_id]")
+        Hearth::Validator.validate_types!(input[:network_interface_description], ::String, context: "#{context}[:network_interface_description]")
+        Hearth::Validator.validate_types!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
+        IpamPublicAddressTags.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Hearth::Validator.validate_types!(input[:network_border_group], ::String, context: "#{context}[:network_border_group]")
+        IpamPublicAddressSecurityGroupList.validate!(input[:security_groups], context: "#{context}[:security_groups]") unless input[:security_groups].nil?
+        Hearth::Validator.validate_types!(input[:sample_time], ::Time, context: "#{context}[:sample_time]")
+      end
+    end
+
+    class IpamDiscoveredPublicAddressSet
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          IpamDiscoveredPublicAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -14081,6 +14640,7 @@ module AWS::SDK::EC2
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
         Hearth::Validator.validate_types!(input[:aws_service], ::String, context: "#{context}[:aws_service]")
         Hearth::Validator.validate_types!(input[:public_ip_source], ::String, context: "#{context}[:public_ip_source]")
+        IpamPoolSourceResource.validate!(input[:source_resource], context: "#{context}[:source_resource]") unless input[:source_resource].nil?
       end
     end
 
@@ -14094,6 +14654,15 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
         Hearth::Validator.validate_types!(input[:resource_region], ::String, context: "#{context}[:resource_region]")
         Hearth::Validator.validate_types!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
+      end
+    end
+
+    class IpamPoolAllocationAllowedCidrs
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate_types!(element, ::String, context: "#{context}[#{index}]")
+        end
       end
     end
 
@@ -14149,6 +14718,67 @@ module AWS::SDK::EC2
         input.each_with_index do |element, index|
           IpamPool.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
+      end
+    end
+
+    class IpamPoolSourceResource
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamPoolSourceResource, context: context)
+        Hearth::Validator.validate_types!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
+        Hearth::Validator.validate_types!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
+        Hearth::Validator.validate_types!(input[:resource_region], ::String, context: "#{context}[:resource_region]")
+        Hearth::Validator.validate_types!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
+      end
+    end
+
+    class IpamPoolSourceResourceRequest
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamPoolSourceResourceRequest, context: context)
+        Hearth::Validator.validate_types!(input[:resource_id], ::String, context: "#{context}[:resource_id]")
+        Hearth::Validator.validate_types!(input[:resource_type], ::String, context: "#{context}[:resource_type]")
+        Hearth::Validator.validate_types!(input[:resource_region], ::String, context: "#{context}[:resource_region]")
+        Hearth::Validator.validate_types!(input[:resource_owner], ::String, context: "#{context}[:resource_owner]")
+      end
+    end
+
+    class IpamPublicAddressSecurityGroup
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamPublicAddressSecurityGroup, context: context)
+        Hearth::Validator.validate_types!(input[:group_name], ::String, context: "#{context}[:group_name]")
+        Hearth::Validator.validate_types!(input[:group_id], ::String, context: "#{context}[:group_id]")
+      end
+    end
+
+    class IpamPublicAddressSecurityGroupList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          IpamPublicAddressSecurityGroup.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class IpamPublicAddressTag
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamPublicAddressTag, context: context)
+        Hearth::Validator.validate_types!(input[:key], ::String, context: "#{context}[:key]")
+        Hearth::Validator.validate_types!(input[:value], ::String, context: "#{context}[:value]")
+      end
+    end
+
+    class IpamPublicAddressTagList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          IpamPublicAddressTag.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class IpamPublicAddressTags
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::IpamPublicAddressTags, context: context)
+        IpamPublicAddressTagList.validate!(input[:eip_tags], context: "#{context}[:eip_tags]") unless input[:eip_tags].nil?
       end
     end
 
@@ -14745,6 +15375,21 @@ module AWS::SDK::EC2
       end
     end
 
+    class LaunchTemplateEnaSrdSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LaunchTemplateEnaSrdSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_enabled]")
+        LaunchTemplateEnaSrdUdpSpecification.validate!(input[:ena_srd_udp_specification], context: "#{context}[:ena_srd_udp_specification]") unless input[:ena_srd_udp_specification].nil?
+      end
+    end
+
+    class LaunchTemplateEnaSrdUdpSpecification
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LaunchTemplateEnaSrdUdpSpecification, context: context)
+        Hearth::Validator.validate_types!(input[:ena_srd_udp_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:ena_srd_udp_enabled]")
+      end
+    end
+
     class LaunchTemplateEnclaveOptions
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::LaunchTemplateEnclaveOptions, context: context)
@@ -14873,6 +15518,9 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:ipv4_prefix_count], ::Integer, context: "#{context}[:ipv4_prefix_count]")
         Ipv6PrefixListResponse.validate!(input[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless input[:ipv6_prefixes].nil?
         Hearth::Validator.validate_types!(input[:ipv6_prefix_count], ::Integer, context: "#{context}[:ipv6_prefix_count]")
+        Hearth::Validator.validate_types!(input[:primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:primary_ipv6]")
+        LaunchTemplateEnaSrdSpecification.validate!(input[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless input[:ena_srd_specification].nil?
+        ConnectionTrackingSpecification.validate!(input[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -14907,6 +15555,9 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:ipv4_prefix_count], ::Integer, context: "#{context}[:ipv4_prefix_count]")
         Ipv6PrefixList.validate!(input[:ipv6_prefixes], context: "#{context}[:ipv6_prefixes]") unless input[:ipv6_prefixes].nil?
         Hearth::Validator.validate_types!(input[:ipv6_prefix_count], ::Integer, context: "#{context}[:ipv6_prefix_count]")
+        Hearth::Validator.validate_types!(input[:primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:primary_ipv6]")
+        EnaSrdSpecificationRequest.validate!(input[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless input[:ena_srd_specification].nil?
+        ConnectionTrackingSpecificationRequest.validate!(input[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -15482,6 +16133,58 @@ module AWS::SDK::EC2
       end
     end
 
+    class LockSnapshotInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LockSnapshotInput, context: context)
+        Hearth::Validator.validate_required!(input[:snapshot_id], context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:lock_mode], context: "#{context}[:lock_mode]")
+        Hearth::Validator.validate_types!(input[:lock_mode], ::String, context: "#{context}[:lock_mode]")
+        Hearth::Validator.validate_types!(input[:cool_off_period], ::Integer, context: "#{context}[:cool_off_period]")
+        Hearth::Validator.validate_types!(input[:lock_duration], ::Integer, context: "#{context}[:lock_duration]")
+        Hearth::Validator.validate_types!(input[:expiration_date], ::Time, context: "#{context}[:expiration_date]")
+      end
+    end
+
+    class LockSnapshotOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LockSnapshotOutput, context: context)
+        Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:lock_state], ::String, context: "#{context}[:lock_state]")
+        Hearth::Validator.validate_types!(input[:lock_duration], ::Integer, context: "#{context}[:lock_duration]")
+        Hearth::Validator.validate_types!(input[:cool_off_period], ::Integer, context: "#{context}[:cool_off_period]")
+        Hearth::Validator.validate_types!(input[:cool_off_period_expires_on], ::Time, context: "#{context}[:cool_off_period_expires_on]")
+        Hearth::Validator.validate_types!(input[:lock_created_on], ::Time, context: "#{context}[:lock_created_on]")
+        Hearth::Validator.validate_types!(input[:lock_expires_on], ::Time, context: "#{context}[:lock_expires_on]")
+        Hearth::Validator.validate_types!(input[:lock_duration_start_time], ::Time, context: "#{context}[:lock_duration_start_time]")
+      end
+    end
+
+    class LockedSnapshotsInfo
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::LockedSnapshotsInfo, context: context)
+        Hearth::Validator.validate_types!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
+        Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:lock_state], ::String, context: "#{context}[:lock_state]")
+        Hearth::Validator.validate_types!(input[:lock_duration], ::Integer, context: "#{context}[:lock_duration]")
+        Hearth::Validator.validate_types!(input[:cool_off_period], ::Integer, context: "#{context}[:cool_off_period]")
+        Hearth::Validator.validate_types!(input[:cool_off_period_expires_on], ::Time, context: "#{context}[:cool_off_period_expires_on]")
+        Hearth::Validator.validate_types!(input[:lock_created_on], ::Time, context: "#{context}[:lock_created_on]")
+        Hearth::Validator.validate_types!(input[:lock_duration_start_time], ::Time, context: "#{context}[:lock_duration_start_time]")
+        Hearth::Validator.validate_types!(input[:lock_expires_on], ::Time, context: "#{context}[:lock_expires_on]")
+      end
+    end
+
+    class LockedSnapshotsInfoList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          LockedSnapshotsInfo.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
     class MaintenanceDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::MaintenanceDetails, context: context)
@@ -16013,6 +16716,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
         AddIpamOperatingRegionSet.validate!(input[:add_operating_regions], context: "#{context}[:add_operating_regions]") unless input[:add_operating_regions].nil?
         RemoveIpamOperatingRegionSet.validate!(input[:remove_operating_regions], context: "#{context}[:remove_operating_regions]") unless input[:remove_operating_regions].nil?
+        Hearth::Validator.validate_types!(input[:tier], ::String, context: "#{context}[:tier]")
       end
     end
 
@@ -16178,6 +16882,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:network_interface_id], ::String, context: "#{context}[:network_interface_id]")
         AttributeBooleanValue.validate!(input[:source_dest_check], context: "#{context}[:source_dest_check]") unless input[:source_dest_check].nil?
         EnaSrdSpecification.validate!(input[:ena_srd_specification], context: "#{context}[:ena_srd_specification]") unless input[:ena_srd_specification].nil?
+        Hearth::Validator.validate_types!(input[:enable_primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:enable_primary_ipv6]")
+        ConnectionTrackingSpecificationRequest.validate!(input[:connection_tracking_specification], context: "#{context}[:connection_tracking_specification]") unless input[:connection_tracking_specification].nil?
       end
     end
 
@@ -16409,6 +17115,7 @@ module AWS::SDK::EC2
         TransitGatewayCidrBlockStringList.validate!(input[:remove_transit_gateway_cidr_blocks], context: "#{context}[:remove_transit_gateway_cidr_blocks]") unless input[:remove_transit_gateway_cidr_blocks].nil?
         Hearth::Validator.validate_types!(input[:vpn_ecmp_support], ::String, context: "#{context}[:vpn_ecmp_support]")
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:auto_accept_shared_attachments], ::String, context: "#{context}[:auto_accept_shared_attachments]")
         Hearth::Validator.validate_types!(input[:default_route_table_association], ::String, context: "#{context}[:default_route_table_association]")
         Hearth::Validator.validate_types!(input[:association_default_route_table_id], ::String, context: "#{context}[:association_default_route_table_id]")
@@ -16468,6 +17175,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ModifyTransitGatewayVpcAttachmentRequestOptions, context: context)
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:ipv6_support], ::String, context: "#{context}[:ipv6_support]")
         Hearth::Validator.validate_types!(input[:appliance_mode_support], ::String, context: "#{context}[:appliance_mode_support]")
       end
@@ -16516,11 +17224,11 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessEndpointPolicyInput, context: context)
         Hearth::Validator.validate_required!(input[:verified_access_endpoint_id], context: "#{context}[:verified_access_endpoint_id]")
         Hearth::Validator.validate_types!(input[:verified_access_endpoint_id], ::String, context: "#{context}[:verified_access_endpoint_id]")
-        Hearth::Validator.validate_required!(input[:policy_enabled], context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -16529,6 +17237,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessEndpointPolicyOutput, context: context)
         Hearth::Validator.validate_types!(input[:policy_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
+        VerifiedAccessSseSpecificationResponse.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -16565,11 +17274,11 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessGroupPolicyInput, context: context)
         Hearth::Validator.validate_required!(input[:verified_access_group_id], context: "#{context}[:verified_access_group_id]")
         Hearth::Validator.validate_types!(input[:verified_access_group_id], ::String, context: "#{context}[:verified_access_group_id]")
-        Hearth::Validator.validate_required!(input[:policy_enabled], context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -16578,6 +17287,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessGroupPolicyOutput, context: context)
         Hearth::Validator.validate_types!(input[:policy_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:policy_enabled]")
         Hearth::Validator.validate_types!(input[:policy_document], ::String, context: "#{context}[:policy_document]")
+        VerifiedAccessSseSpecificationResponse.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -16618,15 +17328,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class ModifyVerifiedAccessTrustProviderDeviceOptions
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessTrustProviderDeviceOptions, context: context)
+        Hearth::Validator.validate_types!(input[:public_signing_key_url], ::String, context: "#{context}[:public_signing_key_url]")
+      end
+    end
+
     class ModifyVerifiedAccessTrustProviderInput
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ModifyVerifiedAccessTrustProviderInput, context: context)
         Hearth::Validator.validate_required!(input[:verified_access_trust_provider_id], context: "#{context}[:verified_access_trust_provider_id]")
         Hearth::Validator.validate_types!(input[:verified_access_trust_provider_id], ::String, context: "#{context}[:verified_access_trust_provider_id]")
         ModifyVerifiedAccessTrustProviderOidcOptions.validate!(input[:oidc_options], context: "#{context}[:oidc_options]") unless input[:oidc_options].nil?
+        ModifyVerifiedAccessTrustProviderDeviceOptions.validate!(input[:device_options], context: "#{context}[:device_options]") unless input[:device_options].nil?
         Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate_types!(input[:client_token], ::String, context: "#{context}[:client_token]")
+        VerifiedAccessSseSpecificationRequest.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -16739,6 +17458,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:ip_address_type], ::String, context: "#{context}[:ip_address_type]")
         DnsOptionsSpecification.validate!(input[:dns_options], context: "#{context}[:dns_options]") unless input[:dns_options].nil?
         Hearth::Validator.validate_types!(input[:private_dns_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:private_dns_enabled]")
+        SubnetConfigurationsList.validate!(input[:subnet_configurations], context: "#{context}[:subnet_configurations]") unless input[:subnet_configurations].nil?
       end
     end
 
@@ -17372,6 +18092,7 @@ module AWS::SDK::EC2
         NetworkInterfaceAssociation.validate!(input[:association], context: "#{context}[:association]") unless input[:association].nil?
         NetworkInterfaceAttachment.validate!(input[:attachment], context: "#{context}[:attachment]") unless input[:attachment].nil?
         Hearth::Validator.validate_types!(input[:availability_zone], ::String, context: "#{context}[:availability_zone]")
+        ConnectionTrackingConfiguration.validate!(input[:connection_tracking_configuration], context: "#{context}[:connection_tracking_configuration]") unless input[:connection_tracking_configuration].nil?
         Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
         GroupIdentifierList.validate!(input[:groups], context: "#{context}[:groups]") unless input[:groups].nil?
         Hearth::Validator.validate_types!(input[:interface_type], ::String, context: "#{context}[:interface_type]")
@@ -17472,6 +18193,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::NetworkInterfaceIpv6Address, context: context)
         Hearth::Validator.validate_types!(input[:ipv6_address], ::String, context: "#{context}[:ipv6_address]")
+        Hearth::Validator.validate_types!(input[:is_primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:is_primary_ipv6]")
       end
     end
 
@@ -17546,6 +18268,15 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           NetworkInterfacePrivateIpAddress.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class NetworkNodesList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate_types!(element, ::String, context: "#{context}[#{index}]")
         end
       end
     end
@@ -18364,6 +19095,7 @@ module AWS::SDK::EC2
         ArchitectureTypeList.validate!(input[:supported_architectures], context: "#{context}[:supported_architectures]") unless input[:supported_architectures].nil?
         Hearth::Validator.validate_types!(input[:sustained_clock_speed_in_ghz], ::Float, context: "#{context}[:sustained_clock_speed_in_ghz]")
         SupportedAdditionalProcessorFeatureList.validate!(input[:supported_features], context: "#{context}[:supported_features]") unless input[:supported_features].nil?
+        Hearth::Validator.validate_types!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
       end
     end
 
@@ -18447,6 +19179,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         TagSpecificationList.validate!(input[:pool_tag_specifications], context: "#{context}[:pool_tag_specifications]") unless input[:pool_tag_specifications].nil?
         Hearth::Validator.validate_types!(input[:multi_region], ::TrueClass, ::FalseClass, context: "#{context}[:multi_region]")
+        Hearth::Validator.validate_types!(input[:network_border_group], ::String, context: "#{context}[:network_border_group]")
       end
     end
 
@@ -18454,6 +19187,26 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::ProvisionByoipCidrOutput, context: context)
         ByoipCidr.validate!(input[:byoip_cidr], context: "#{context}[:byoip_cidr]") unless input[:byoip_cidr].nil?
+      end
+    end
+
+    class ProvisionIpamByoasnInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ProvisionIpamByoasnInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        Hearth::Validator.validate_required!(input[:ipam_id], context: "#{context}[:ipam_id]")
+        Hearth::Validator.validate_types!(input[:ipam_id], ::String, context: "#{context}[:ipam_id]")
+        Hearth::Validator.validate_required!(input[:asn], context: "#{context}[:asn]")
+        Hearth::Validator.validate_types!(input[:asn], ::String, context: "#{context}[:asn]")
+        Hearth::Validator.validate_required!(input[:asn_authorization_context], context: "#{context}[:asn_authorization_context]")
+        AsnAuthorizationContext.validate!(input[:asn_authorization_context], context: "#{context}[:asn_authorization_context]") unless input[:asn_authorization_context].nil?
+      end
+    end
+
+    class ProvisionIpamByoasnOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::ProvisionIpamByoasnOutput, context: context)
+        Byoasn.validate!(input[:byoasn], context: "#{context}[:byoasn]") unless input[:byoasn].nil?
       end
     end
 
@@ -18588,6 +19341,25 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:instance_family], ::String, context: "#{context}[:instance_family]")
         Hearth::Validator.validate_types!(input[:payment_option], ::String, context: "#{context}[:payment_option]")
         Hearth::Validator.validate_types!(input[:upfront_price], ::String, context: "#{context}[:upfront_price]")
+      end
+    end
+
+    class PurchaseCapacityBlockInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::PurchaseCapacityBlockInput, context: context)
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+        TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
+        Hearth::Validator.validate_required!(input[:capacity_block_offering_id], context: "#{context}[:capacity_block_offering_id]")
+        Hearth::Validator.validate_types!(input[:capacity_block_offering_id], ::String, context: "#{context}[:capacity_block_offering_id]")
+        Hearth::Validator.validate_required!(input[:instance_platform], context: "#{context}[:instance_platform]")
+        Hearth::Validator.validate_types!(input[:instance_platform], ::String, context: "#{context}[:instance_platform]")
+      end
+    end
+
+    class PurchaseCapacityBlockOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::PurchaseCapacityBlockOutput, context: context)
+        CapacityReservation.validate!(input[:capacity_reservation], context: "#{context}[:capacity_reservation]") unless input[:capacity_reservation].nil?
       end
     end
 
@@ -20280,6 +21052,7 @@ module AWS::SDK::EC2
         PrivateDnsNameOptionsRequest.validate!(input[:private_dns_name_options], context: "#{context}[:private_dns_name_options]") unless input[:private_dns_name_options].nil?
         InstanceMaintenanceOptionsRequest.validate!(input[:maintenance_options], context: "#{context}[:maintenance_options]") unless input[:maintenance_options].nil?
         Hearth::Validator.validate_types!(input[:disable_api_stop], ::TrueClass, ::FalseClass, context: "#{context}[:disable_api_stop]")
+        Hearth::Validator.validate_types!(input[:enable_primary_ipv6], ::TrueClass, ::FalseClass, context: "#{context}[:enable_primary_ipv6]")
       end
     end
 
@@ -20648,6 +21421,27 @@ module AWS::SDK::EC2
       end
     end
 
+    class SecurityGroupForVpc
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::SecurityGroupForVpc, context: context)
+        Hearth::Validator.validate_types!(input[:description], ::String, context: "#{context}[:description]")
+        Hearth::Validator.validate_types!(input[:group_name], ::String, context: "#{context}[:group_name]")
+        Hearth::Validator.validate_types!(input[:owner_id], ::String, context: "#{context}[:owner_id]")
+        Hearth::Validator.validate_types!(input[:group_id], ::String, context: "#{context}[:group_id]")
+        TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Hearth::Validator.validate_types!(input[:primary_vpc_id], ::String, context: "#{context}[:primary_vpc_id]")
+      end
+    end
+
+    class SecurityGroupForVpcList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          SecurityGroupForVpc.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
     class SecurityGroupIdList
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, ::Array, context: context)
@@ -20707,6 +21501,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:group_id], ::String, context: "#{context}[:group_id]")
         Hearth::Validator.validate_types!(input[:referencing_vpc_id], ::String, context: "#{context}[:referencing_vpc_id]")
         Hearth::Validator.validate_types!(input[:vpc_peering_connection_id], ::String, context: "#{context}[:vpc_peering_connection_id]")
+        Hearth::Validator.validate_types!(input[:transit_gateway_id], ::String, context: "#{context}[:transit_gateway_id]")
       end
     end
 
@@ -21628,6 +22423,24 @@ module AWS::SDK::EC2
       end
     end
 
+    class SubnetConfiguration
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::SubnetConfiguration, context: context)
+        Hearth::Validator.validate_types!(input[:subnet_id], ::String, context: "#{context}[:subnet_id]")
+        Hearth::Validator.validate_types!(input[:ipv4], ::String, context: "#{context}[:ipv4]")
+        Hearth::Validator.validate_types!(input[:ipv6], ::String, context: "#{context}[:ipv6]")
+      end
+    end
+
+    class SubnetConfigurationsList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          SubnetConfiguration.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
     class SubnetIdStringList
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, ::Array, context: context)
@@ -22537,6 +23350,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:propagation_default_route_table_id], ::String, context: "#{context}[:propagation_default_route_table_id]")
         Hearth::Validator.validate_types!(input[:vpn_ecmp_support], ::String, context: "#{context}[:vpn_ecmp_support]")
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:multicast_support], ::String, context: "#{context}[:multicast_support]")
       end
     end
@@ -22710,6 +23524,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:default_route_table_propagation], ::String, context: "#{context}[:default_route_table_propagation]")
         Hearth::Validator.validate_types!(input[:vpn_ecmp_support], ::String, context: "#{context}[:vpn_ecmp_support]")
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:multicast_support], ::String, context: "#{context}[:multicast_support]")
         TransitGatewayCidrBlockStringList.validate!(input[:transit_gateway_cidr_blocks], context: "#{context}[:transit_gateway_cidr_blocks]") unless input[:transit_gateway_cidr_blocks].nil?
       end
@@ -22909,6 +23724,7 @@ module AWS::SDK::EC2
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::TransitGatewayVpcAttachmentOptions, context: context)
         Hearth::Validator.validate_types!(input[:dns_support], ::String, context: "#{context}[:dns_support]")
+        Hearth::Validator.validate_types!(input[:security_group_referencing_support], ::String, context: "#{context}[:security_group_referencing_support]")
         Hearth::Validator.validate_types!(input[:ipv6_support], ::String, context: "#{context}[:ipv6_support]")
         Hearth::Validator.validate_types!(input[:appliance_mode_support], ::String, context: "#{context}[:appliance_mode_support]")
       end
@@ -23033,6 +23849,22 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input, Types::UnassignPrivateNatGatewayAddressOutput, context: context)
         Hearth::Validator.validate_types!(input[:nat_gateway_id], ::String, context: "#{context}[:nat_gateway_id]")
         NatGatewayAddressList.validate!(input[:nat_gateway_addresses], context: "#{context}[:nat_gateway_addresses]") unless input[:nat_gateway_addresses].nil?
+      end
+    end
+
+    class UnlockSnapshotInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::UnlockSnapshotInput, context: context)
+        Hearth::Validator.validate_required!(input[:snapshot_id], context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
+        Hearth::Validator.validate_types!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
+      end
+    end
+
+    class UnlockSnapshotOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::UnlockSnapshotOutput, context: context)
+        Hearth::Validator.validate_types!(input[:snapshot_id], ::String, context: "#{context}[:snapshot_id]")
       end
     end
 
@@ -23301,6 +24133,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate_types!(input[:deletion_time], ::String, context: "#{context}[:deletion_time]")
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VerifiedAccessSseSpecificationResponse.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -23370,6 +24203,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         Hearth::Validator.validate_types!(input[:deletion_time], ::String, context: "#{context}[:deletion_time]")
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VerifiedAccessSseSpecificationResponse.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -23400,6 +24234,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
         Hearth::Validator.validate_types!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        Hearth::Validator.validate_types!(input[:fips_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:fips_enabled]")
       end
     end
 
@@ -23526,6 +24361,22 @@ module AWS::SDK::EC2
       end
     end
 
+    class VerifiedAccessSseSpecificationRequest
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::VerifiedAccessSseSpecificationRequest, context: context)
+        Hearth::Validator.validate_types!(input[:customer_managed_key_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:customer_managed_key_enabled]")
+        Hearth::Validator.validate_types!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
+      end
+    end
+
+    class VerifiedAccessSseSpecificationResponse
+      def self.validate!(input, context:)
+        Hearth::Validator.validate_types!(input, Types::VerifiedAccessSseSpecificationResponse, context: context)
+        Hearth::Validator.validate_types!(input[:customer_managed_key_enabled], ::TrueClass, ::FalseClass, context: "#{context}[:customer_managed_key_enabled]")
+        Hearth::Validator.validate_types!(input[:kms_key_arn], ::String, context: "#{context}[:kms_key_arn]")
+      end
+    end
+
     class VerifiedAccessTrustProvider
       def self.validate!(input, context:)
         Hearth::Validator.validate_types!(input, Types::VerifiedAccessTrustProvider, context: context)
@@ -23540,6 +24391,7 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
         Hearth::Validator.validate_types!(input[:last_updated_time], ::String, context: "#{context}[:last_updated_time]")
         TagList.validate!(input[:tags], context: "#{context}[:tags]") unless input[:tags].nil?
+        VerifiedAccessSseSpecificationResponse.validate!(input[:sse_specification], context: "#{context}[:sse_specification]") unless input[:sse_specification].nil?
       end
     end
 
@@ -23661,6 +24513,8 @@ module AWS::SDK::EC2
         Hearth::Validator.validate_types!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate_types!(input[:volume_id], ::String, context: "#{context}[:volume_id]")
         Hearth::Validator.validate_types!(input[:delete_on_termination], ::TrueClass, ::FalseClass, context: "#{context}[:delete_on_termination]")
+        Hearth::Validator.validate_types!(input[:associated_resource], ::String, context: "#{context}[:associated_resource]")
+        Hearth::Validator.validate_types!(input[:instance_owning_service], ::String, context: "#{context}[:instance_owning_service]")
       end
     end
 

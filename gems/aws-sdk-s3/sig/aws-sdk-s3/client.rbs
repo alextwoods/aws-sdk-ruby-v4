@@ -11,106 +11,106 @@ module AWS::SDK::S3
   class Client
     include Hearth::ClientStubs
 
-    def self.middleware: () -> untyped
+    def self.plugins: () -> Hearth::PluginList
 
-    def self.plugins: () -> untyped
+    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
-    attr_reader config: untyped
+    attr_reader config: Config
 
-    def abort_multipart_upload: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def complete_multipart_upload: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def copy_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def create_bucket: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def create_multipart_upload: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_analytics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_cors: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_encryption: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_intelligent_tiering_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_inventory_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_lifecycle: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_metrics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_ownership_controls: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_policy: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_replication: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_bucket_website: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_object_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_objects: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def delete_public_access_block: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_accelerate_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_acl: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_analytics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_cors: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_encryption: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_intelligent_tiering_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_inventory_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_lifecycle_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_location: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_logging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_metrics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_notification_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_ownership_controls: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_policy: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_policy_status: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_replication: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_request_payment: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_versioning: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_bucket_website: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_acl: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_attributes: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_legal_hold: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_lock_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_retention: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_object_torrent: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def get_public_access_block: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def head_bucket: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def head_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_bucket_analytics_configurations: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_bucket_intelligent_tiering_configurations: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_bucket_inventory_configurations: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_bucket_metrics_configurations: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_buckets: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_multipart_uploads: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_object_versions: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_objects: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_objects_v2: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def list_parts: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_accelerate_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_acl: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_analytics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_cors: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_encryption: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_intelligent_tiering_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_inventory_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_lifecycle_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_logging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_metrics_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_notification_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_ownership_controls: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_policy: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_replication: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_request_payment: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_versioning: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_bucket_website: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object_acl: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object_legal_hold: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object_lock_configuration: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object_retention: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_object_tagging: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def put_public_access_block: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def restore_object: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def select_object_content: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def upload_part: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def upload_part_copy: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-    def write_get_object_response: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
-
+    def abort_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def complete_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def copy_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def create_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def create_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def create_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_lifecycle: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def delete_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_location: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_policy_status: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
+    def get_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_attributes: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_object_torrent: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
+    def get_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def head_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def head_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_bucket_analytics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_bucket_intelligent_tiering_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_bucket_inventory_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_bucket_metrics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_directory_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_multipart_uploads: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_object_versions: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_objects_v2: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def list_parts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def put_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def restore_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
+    def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def upload_part_copy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def write_get_object_response: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
   end
 end

@@ -1,22 +1,25 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.HashMap;
+import java.util.Map;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.Ec2Query;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json.AwsJson1_1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.AwsJson1_0;
 import software.amazon.smithy.aws.ruby.codegen.protocol.query.AwsQuery;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.RestJson1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
-import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.shapes.ServiceShape;
-import software.amazon.smithy.model.shapes.ShapeId;
+import software.amazon.smithy.aws.traits.auth.SigV4Trait;
+import software.amazon.smithy.model.traits.HttpBasicAuthTrait;
+import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
-import software.amazon.smithy.ruby.codegen.RubySettings;
+import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
+import software.amazon.smithy.ruby.codegen.config.ClientConfig;
 import software.amazon.smithy.utils.ListUtils;
 
 import java.util.List;
-import java.util.Set;
 
 public class AWSProtocols implements RubyIntegration {
     @Override
@@ -32,15 +35,24 @@ public class AWSProtocols implements RubyIntegration {
     }
 
     @Override
-    public Set<RubyDependency> additionalGemDependencies(
-            RubySettings rubySettings, Model finalResolvedModel,
-            ServiceShape service, ShapeId protocol) {
-        return Set.of(RubyDependency.builder()
+    public List<RubyDependency> getAdditionalGemDependencies(GenerationContext context) {
+        return List.of(RubyDependency.builder()
                 .type(RubyDependency.Type.DEPENDENCY)
                 .gemName("aws-sdk-core")
-                .addDependency(RubyDependency.HEARTH)
                 .importPath("aws-sdk-core")
                 .version("~> 4.0.0.pre1")
+                .addDependency(RubyDependency.HEARTH)
                 .build());
+    }
+
+    @Override
+    public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
+        AuthScheme authScheme = AuthScheme.builder()
+                .shapeId(SigV4Trait.ID)
+                .rubyAuthScheme("String.new")
+                .rubyIdentityType("String")
+                .build();
+
+        return List.of(authScheme);
     }
 }
