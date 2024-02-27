@@ -6,7 +6,7 @@ gem 'rake'
 
 # Use the latest hearth from Github
 gem 'hearth',
-    git: 'https://github.com/awslabs/smithy-ruby',
+    git: 'https://github.com/smithy-lang/smithy-ruby',
     glob: 'hearth/hearth.gemspec'
 
 group :test do

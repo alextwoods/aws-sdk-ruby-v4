@@ -32,7 +32,7 @@ jobs:
         java-version: ${{ env.java_version }}
     - name: Build and publish maven local smithy-ruby
       run: |
-        git clone --depth 1 https://github.com/awslabs/smithy-ruby.git
+        git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
         cd smithy-ruby/codegen
         ./gradlew clean build publishToMavenLocal
         cd ../..
