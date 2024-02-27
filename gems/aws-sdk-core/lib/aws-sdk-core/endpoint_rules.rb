@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'arn_parser'
-
 module AWS::SDK::Core
   module EndpointRules
 
@@ -29,7 +27,7 @@ module AWS::SDK::Core
 
     # aws.parseArn(value: string) Option<ARN>
     def self.parse_arn(value)
-      arn = AWS::SDK::Core::ArnParser.parse(value)
+      arn = AWS::SDK::Core::ARNParser.parse(value)
       json = arn.as_json
       # HACK: because of poor naming and also requirement of splitting
       resource = json.delete('resource')
@@ -37,22 +35,6 @@ module AWS::SDK::Core
       json
     rescue ArgumentError
       nil
-    end
-
-    # TODO: Move to an S3 customization?
-    # aws.isVirtualHostableS3Bucket(value: string, allowSubDomains: bool) bool
-    def self.virtual_hostable_s3_bucket?(value, allow_sub_domains = false)
-      return false if value.empty?
-
-      if allow_sub_domains
-        labels = value.split('.', -1)
-        return labels.all? { |l| aws_virtual_hostable_s3_bucket?(l) }
-      end
-
-      # must be between 3 and 63 characters long, no uppercase
-      value =~ /\A(?!-)[a-z0-9-]{3,63}(?<!-)\z/ &&
-        # not an IP address
-        value !~ /(\d+\.){3}\d+/
     end
   end
 end

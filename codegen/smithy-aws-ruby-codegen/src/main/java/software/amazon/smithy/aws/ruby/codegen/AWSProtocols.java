@@ -78,7 +78,6 @@ public class AWSProtocols implements RubyIntegration {
                         .builtIn(AwsBuiltIns.FIPS)
                         .fromConfig(AWSConfig.FIPS)
                         .build()
-                // TODO: Additional S3 and Auth specific should be in other customizations
         );
     }
 

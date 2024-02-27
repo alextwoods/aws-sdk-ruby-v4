@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -14,6 +14,7 @@ require_relative 'aws-sdk-sts/builders'
 require_relative 'aws-sdk-sts/client'
 require_relative 'aws-sdk-sts/config'
 require_relative 'aws-sdk-sts/errors'
+require_relative 'aws-sdk-sts/endpoint'
 require_relative 'aws-sdk-sts/paginators'
 require_relative 'aws-sdk-sts/params'
 require_relative 'aws-sdk-sts/parsers'

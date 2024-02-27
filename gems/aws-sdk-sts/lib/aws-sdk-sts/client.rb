@@ -3,7 +3,7 @@
 # WARNING ABOUT GENERATED CODE
 #
 # This file was code generated using smithy-ruby.
-# https://github.com/awslabs/smithy-ruby
+# https://github.com/smithy-lang/smithy-ruby
 #
 # WARNING ABOUT GENERATED CODE
 
@@ -229,15 +229,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRole
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :assume_role),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::AssumeRole,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -260,7 +268,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role,
@@ -483,15 +491,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithSAML
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :assume_role_with_saml),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::AssumeRoleWithSAML,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -514,7 +530,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role_with_saml,
@@ -739,15 +755,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithWebIdentity
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :assume_role_with_web_identity),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::AssumeRoleWithWebIdentity,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -770,7 +794,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role_with_web_identity,
@@ -859,15 +883,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DecodeAuthorizationMessage
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :decode_authorization_message),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DecodeAuthorizationMessage,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -890,7 +922,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :decode_authorization_message,
@@ -950,15 +982,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAccessKeyInfo
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_access_key_info),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetAccessKeyInfo,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -981,7 +1021,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_access_key_info,
@@ -1061,15 +1101,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCallerIdentity
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_caller_identity),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetCallerIdentity,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1092,7 +1140,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_caller_identity,
@@ -1277,15 +1325,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFederationToken
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_federation_token),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetFederationToken,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1308,7 +1364,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_federation_token,
@@ -1433,15 +1489,23 @@ module AWS::SDK::STS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetSessionToken
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_session_token),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetSessionToken,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
       )
       stack.use(Hearth::Middleware::Sign)
       stack.use(AWS::SDK::Core::Middleware::SignatureV4,
@@ -1464,7 +1528,7 @@ module AWS::SDK::STS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_session_token,

@@ -1,0 +1,35 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::S3
+  module Endpoint
+    class Params < ::Struct[untyped]
+      attr_accessor disable_access_points: bool
+      attr_accessor use_dual_stack: bool
+      attr_accessor use_fips: bool
+      attr_accessor prefix: ::String
+      attr_accessor force_path_style: bool
+      attr_accessor use_s3_express_control_endpoint: bool
+      attr_accessor use_object_lambda_endpoint: bool
+      attr_accessor disable_multi_region_access_points: bool
+      attr_accessor bucket: ::String
+      attr_accessor endpoint: ::String
+      attr_accessor disable_s3_express_session_auth: bool
+      attr_accessor accelerate: bool
+      attr_accessor use_arn_region: bool
+      attr_accessor region: ::String
+      attr_accessor key: ::String
+      attr_accessor use_global_endpoint: bool
+    end
+
+    class Provider
+      def resolve_endpoint: (Params params) -> Hearth::EndpointRules::Endpoint
+    end
+  end
+end
