@@ -49,8 +49,8 @@ public class AWSProtocols implements RubyIntegration {
     public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
         AuthScheme authScheme = AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)
-                .rubyAuthScheme("String.new")
-                .rubyIdentityType("String")
+                .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
+                .rubyIdentityType("AWS::SDK::Core::Identities::SigV4")
                 .build();
 
         return List.of(authScheme);
