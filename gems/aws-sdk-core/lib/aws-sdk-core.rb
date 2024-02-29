@@ -66,8 +66,6 @@ require_relative 'aws-sdk-core/process_credential_provider'
 require_relative 'aws-sdk-core/sso_credential_provider'
 require_relative 'aws-sdk-core/static_credential_provider'
 
-require_relative 'aws-sdk-core/errors'
-
 # ARNS
 require_relative 'aws-sdk-core/arn'
 require_relative 'aws-sdk-core/arn_parser'

@@ -14,7 +14,7 @@ module AWS::SDK::Core
     # @see https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
     def self.parse(arn_str)
       parts = arn_str.nil? ? [] : arn_str.split(':', 6)
-      raise Errors::InvalidARNError if parts.size < 6
+      raise ARN::InvalidARNError if parts.size < 6
 
       # part[0] is "arn"
       arn = ARN.new(
@@ -24,7 +24,7 @@ module AWS::SDK::Core
         account_id: parts[4],
         resource: parts[5]
       )
-      raise Errors::InvalidARNError unless arn.valid?
+      raise ARN::InvalidARNError unless arn.valid?
 
       arn
     end

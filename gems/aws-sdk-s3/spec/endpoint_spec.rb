@@ -534,7 +534,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:s3_disable_multiregion_access_points] = true
+          config[:disable_multiregion_access_points] = true
 
           client = Client.new(config)
           expect do
@@ -929,7 +929,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -999,7 +999,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -2684,7 +2684,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6228,7 +6228,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6255,7 +6255,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:endpoint] = "https://example.com"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6286,7 +6286,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6360,7 +6360,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -6483,7 +6483,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6523,7 +6523,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6563,7 +6563,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6603,7 +6603,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6643,7 +6643,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "s3-external-1"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6678,7 +6678,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "s3-external-1"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6709,7 +6709,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6744,7 +6744,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6770,7 +6770,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -6797,7 +6797,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:use_dualstack_endpoint] = true
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6873,7 +6873,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:use_accelerate_endpoint] = true
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6899,7 +6899,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6964,7 +6964,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = true
+          config[:use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -7048,7 +7048,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:endpoint] = "https://my-endpoint.com"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7083,7 +7083,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:s3_use_arn_region] = false
+          config[:use_arn_region] = false
 
           client = Client.new(config)
           expect do

@@ -23,6 +23,10 @@ module AWS::SDK::S3
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [Boolean] :disable_multi_region_access_points
   #     Disables this client's usage of Multi-Region Access Points.
+  #   @option args [Boolean] :disable_multiregion_access_points (false)
+  #     When set to `false` this will option will raise errors when multi-region
+  #     access point ARNs are used.  Multi-region access points can potentially
+  #     result in cross region requests.
   #   @option args [Boolean] :disable_s3_express_session_auth
   #     Disables this client's usage of Session Auth for S3Express       buckets and reverts to using conventional SigV4 for those.
   #   @option args [String] :endpoint
@@ -69,22 +73,16 @@ module AWS::SDK::S3
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
-  #   @option args [Boolean] :s3_disable_multiregion_access_points (false)
-  #     When set to `false` this will option will raise errors when multi-region
-  #     access point ARNs are used.  Multi-region access points can potentially
-  #     result in cross region requests.
-  #   @option args [Boolean] :s3_use_arn_region (true)
-  #     When set to `false` this will option will raise errors when multi-region
-  #     access point ARNs are used.  Multi-region access points can potentially
-  #     result in cross region requests.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
   #     When set to `true`, accelerated bucket endpoints will be used
   #     for all object operations. You must first enable accelerate for
   #     each bucket. [Go here for more information](http://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html).
-  #   @option args [Boolean] :use_arn_region
-  #     Enables this client to use an ARN's region when constructing an endpoint instead of the client's configured region.
+  #   @option args [Boolean] :use_arn_region (true)
+  #     For S3 ARNs passed into the `:bucket` parameter, this option will
+  #     use the region in the ARN, allowing for cross-region requests to
+  #     be made. Set to `false` to use the client's region instead.
   #   @option args [Boolean] :use_dualstack_endpoint
   #     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
   #      will be used if available.
@@ -103,6 +101,8 @@ module AWS::SDK::S3
   # @!attribute disable_host_prefix
   #   @return [Boolean]
   # @!attribute disable_multi_region_access_points
+  #   @return [Boolean]
+  # @!attribute disable_multiregion_access_points
   #   @return [Boolean]
   # @!attribute disable_s3_express_session_auth
   #   @return [Boolean]
@@ -126,10 +126,6 @@ module AWS::SDK::S3
   #   @return [String]
   # @!attribute retry_strategy
   #   @return [Hearth::Retry::Strategy]
-  # @!attribute s3_disable_multiregion_access_points
-  #   @return [Boolean]
-  # @!attribute s3_use_arn_region
-  #   @return [Boolean]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_accelerate_endpoint
@@ -148,6 +144,7 @@ module AWS::SDK::S3
     :auth_schemes,
     :disable_host_prefix,
     :disable_multi_region_access_points,
+    :disable_multiregion_access_points,
     :disable_s3_express_session_auth,
     :endpoint,
     :endpoint_provider,
@@ -159,8 +156,6 @@ module AWS::SDK::S3
     :profile,
     :region,
     :retry_strategy,
-    :s3_disable_multiregion_access_points,
-    :s3_use_arn_region,
     :stub_responses,
     :use_accelerate_endpoint,
     :use_arn_region,
@@ -178,6 +173,7 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(disable_multi_region_access_points, TrueClass, FalseClass, context: 'config[:disable_multi_region_access_points]')
+      Hearth::Validator.validate_types!(disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:disable_multiregion_access_points]')
       Hearth::Validator.validate_types!(disable_s3_express_session_auth, TrueClass, FalseClass, context: 'config[:disable_s3_express_session_auth]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
       Hearth::Validator.validate_types!(endpoint_provider, Endpoint::Provider, context: 'config[:endpoint_provider]')
@@ -189,8 +185,6 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_types!(retry_strategy, Hearth::Retry::Strategy, context: 'config[:retry_strategy]')
-      Hearth::Validator.validate_types!(s3_disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:s3_disable_multiregion_access_points]')
-      Hearth::Validator.validate_types!(s3_use_arn_region, TrueClass, FalseClass, context: 'config[:s3_use_arn_region]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')
@@ -208,6 +202,7 @@ module AWS::SDK::S3
         auth_schemes: [Auth::SCHEMES],
         disable_host_prefix: [false],
         disable_multi_region_access_points: [],
+        disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
         disable_s3_express_session_auth: [],
         endpoint: [proc { |cfg| cfg[:stub_responses] ? 'http://localhost' : nil }],
         endpoint_provider: [Endpoint::Provider.new],
@@ -219,11 +214,9 @@ module AWS::SDK::S3
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
-        s3_disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
-        s3_use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
         stub_responses: [false],
         use_accelerate_endpoint: [false],
-        use_arn_region: [],
+        use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],
         validate_input: [true]

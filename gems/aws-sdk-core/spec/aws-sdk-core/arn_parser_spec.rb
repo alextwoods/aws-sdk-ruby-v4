@@ -8,21 +8,21 @@ module AWS::SDK::Core
       it 'errors with nil input' do
         expect do
           ARNParser.parse(nil)
-        end.to raise_error(Errors::InvalidARNError)
+        end.to raise_error(ARN::InvalidARNError)
       end
 
       it 'errors with incomplete arn input' do
         input = 'arn:aws:s3'
         expect do
           ARNParser.parse(input)
-        end.to raise_error(Errors::InvalidARNError)
+        end.to raise_error(ARN::InvalidARNError)
       end
 
       it 'errors with empty arn components' do
         input = 'arn:::::'
         expect do
           ARNParser.parse(input)
-        end.to raise_error(Errors::InvalidARNError)
+        end.to raise_error(ARN::InvalidARNError)
       end
 
       it 'creates an ARN object with valid input' do

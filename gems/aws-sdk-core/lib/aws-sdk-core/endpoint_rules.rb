@@ -37,7 +37,7 @@ module AWS::SDK::Core
       resource = json.delete('resource')
       json['resourceId'] = resource.split(%r{[:/]}, -1)
       json
-    rescue AWS::SDK::Core::Errors::InvalidARNError
+    rescue ARN::InvalidARNError
       nil
     end
   end

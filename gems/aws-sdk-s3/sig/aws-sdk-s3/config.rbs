@@ -6,6 +6,7 @@ module AWS::SDK::S3
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
     attr_accessor disable_host_prefix (): bool
     attr_accessor disable_multi_region_access_points (): Boolean
+    attr_accessor disable_multiregion_access_points (): Boolean
     attr_accessor disable_s3_express_session_auth (): Boolean
     attr_accessor endpoint (): String
     attr_accessor endpoint_provider (): Endpoint::Provider
@@ -17,8 +18,6 @@ module AWS::SDK::S3
     attr_accessor profile (): String
     attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::Retry::Strategy
-    attr_accessor s3_disable_multiregion_access_points (): Boolean
-    attr_accessor s3_use_arn_region (): Boolean
     attr_accessor stub_responses (): bool
     attr_accessor use_accelerate_endpoint (): Boolean
     attr_accessor use_arn_region (): Boolean
