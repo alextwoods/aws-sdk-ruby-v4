@@ -14,11 +14,11 @@ module AWS::SDK::S3
     attr_accessor interceptors (): Hearth::InterceptorList
     attr_accessor logger (): Logger
     attr_accessor plugins (): Hearth::PluginList
+    attr_accessor profile (): String
     attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::Retry::Strategy
     attr_accessor s3_disable_multiregion_access_points (): Boolean
     attr_accessor s3_use_arn_region (): Boolean
-    attr_accessor signer (): AWS::SigV4::Signer
     attr_accessor stub_responses (): bool
     attr_accessor use_accelerate_endpoint (): Boolean
     attr_accessor use_arn_region (): Boolean

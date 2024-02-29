@@ -29,7 +29,6 @@ module AWS::SDK::Core
   #
   # @see https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
   class ARN
-
     # @param [Hash] options
     # @option options [String] :partition
     # @option options [String] :service
@@ -64,9 +63,7 @@ module AWS::SDK::Core
     #
     # @return [Boolean]
     def valid?
-      !partition.nil? && !partition.empty? &&
-        !service.nil? && !service.empty? &&
-        !resource.nil? && !resource.empty?
+      set?(partition) && set?(service) && set?(resource)
     end
 
     # Return the ARN format in string
@@ -100,6 +97,12 @@ module AWS::SDK::Core
         'accountId' => @account_id,
         'resource' => @resource
       }
+    end
+
+    private
+
+    def set?(value)
+      !value.nil? && !value.empty?
     end
   end
 end

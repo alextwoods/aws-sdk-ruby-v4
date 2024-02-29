@@ -1,5 +1,6 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.Ec2Query;
@@ -53,6 +54,11 @@ public class AWSProtocols implements RubyIntegration {
     }
 
     @Override
+    public List<ClientConfig> getAdditionalClientConfig(GenerationContext context) {
+        return List.of(AWSConfig.PROFILE);
+    }
+
+    @Override
     public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
         AuthScheme authScheme = AuthScheme.builder()
                 .shapeId(SigV4Trait.ID)
@@ -61,43 +67,5 @@ public class AWSProtocols implements RubyIntegration {
                 .build();
 
         return List.of(authScheme);
-    }
-
-    @Override
-    public List<BuiltInBinding> builtInBindings() {
-        return List.of(
-                BuiltInBinding.builder()
-                        .builtIn(AwsBuiltIns.REGION)
-                        .fromConfig(AWSConfig.REGION)
-                        .build(),
-                BuiltInBinding.builder()
-                        .builtIn(AwsBuiltIns.DUALSTACK)
-                        .fromConfig(AWSConfig.DUALSTACK)
-                        .build(),
-                BuiltInBinding.builder()
-                        .builtIn(AwsBuiltIns.FIPS)
-                        .fromConfig(AWSConfig.FIPS)
-                        .build()
-        );
-    }
-
-    @Override
-    public List<FunctionBinding> functionBindings() {
-        return List.of(
-                FunctionBinding.builder()
-                        .id(AwsPartition.ID)
-                        .rubyMethodName("AWS::SDK::Core::EndpointRules.partition")
-                        .build(),
-                FunctionBinding.builder()
-                        .id(ParseArn.ID)
-                        .rubyMethodName("AWS::SDK::Core::EndpointRules.parse_arn")
-                        .build()
-                // TODO: Move this to S3 specific Integration
-//                FunctionBinding.builder()
-//                        .id(IsVirtualHostableS3Bucket.ID)
-//                        .rubyMethodName("AWS::SDK::Core::EndpointRules.virtual_hostable_s3_bucket?")
-//                        .build()
-
-        );
     }
 }

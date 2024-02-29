@@ -1,4 +1,4 @@
-package software.amazon.smithy.aws.ruby.codegen;
+package software.amazon.smithy.aws.ruby.codegen.customizations;
 
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;

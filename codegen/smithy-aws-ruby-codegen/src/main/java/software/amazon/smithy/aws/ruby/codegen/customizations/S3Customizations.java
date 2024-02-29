@@ -1,4 +1,4 @@
-package software.amazon.smithy.aws.ruby.codegen;
+package software.amazon.smithy.aws.ruby.codegen.customizations;
 
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
@@ -25,17 +25,6 @@ public class S3Customizations implements RubyIntegration {
         return service.toShapeId().equals(ShapeId.from("com.amazonaws.s3#AmazonS3"));
     }
 
-
-    @Override
-    public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
-        AuthScheme authScheme = AuthScheme.builder()
-                .shapeId(SigV4Trait.ID)
-                .rubyAuthScheme("String.new")
-                .rubyIdentityType("String")
-                .build();
-
-        return List.of(authScheme);
-    }
 
     @Override
     public List<BuiltInBinding> builtInBindings() {

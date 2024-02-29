@@ -24,7 +24,7 @@ public class Sigv4Auth implements RubyIntegration {
 
     @Override
     public boolean includeFor(ServiceShape service, Model model) {
-       return new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
+       return false; // new ServiceIndex(model).getAuthSchemes(service).containsKey(SigV4Trait.ID);
     }
 
     @Override

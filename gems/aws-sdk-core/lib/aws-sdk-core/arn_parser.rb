@@ -1,15 +1,16 @@
 # frozen_string_literal: true
 
-
 module AWS::SDK::Core
+  # Module for parsing strings with an ARN format into
+  # {AWS::SDK::Core::ARN} objects.
   module ARNParser
-    # Parse a string with an ARN format into an {Aws::ARN} object.
-    # `InvalidARNError` would be raised when encountering a parsing error or the
+    # Parse a string with an ARN format into an {AWS::SDK::Core::ARN} object.
+    # `InvalidARNError` is raised when encountering a parsing error or the
     # ARN object contains invalid components (nil/empty).
     #
     # @param [String] arn_str
     #
-    # @return [Aws::ARN]
+    # @return [AWS::SDK::Core::ARN]
     # @see https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
     def self.parse(arn_str)
       parts = arn_str.nil? ? [] : arn_str.split(':', 6)

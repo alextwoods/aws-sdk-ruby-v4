@@ -208,7 +208,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -309,7 +309,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "https://beta.example.com"
 
           client = Client.new(config)
@@ -341,8 +341,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -382,7 +382,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -456,7 +456,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -482,7 +482,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -508,7 +508,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -534,7 +534,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:disable_multi_region_access_points] = true
+          config[:s3_disable_multiregion_access_points] = true
 
           client = Client.new(config)
           expect do
@@ -565,7 +565,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -601,7 +601,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "https://abc.com"
           config[:force_path_style] = true
 
@@ -660,7 +660,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -695,7 +695,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "http://abc.com"
 
           client = Client.new(config)
@@ -929,7 +929,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -999,7 +999,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1368,7 +1368,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -1409,7 +1409,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -1450,8 +1450,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -1574,7 +1574,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -1654,7 +1654,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1694,7 +1694,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1734,8 +1734,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1775,7 +1775,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1933,7 +1933,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -1973,7 +1973,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -2013,8 +2013,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -2054,7 +2054,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -2214,7 +2214,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -2255,7 +2255,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -2296,7 +2296,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
           client = Client.new(config)
@@ -2436,7 +2436,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -2600,7 +2600,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
           allow_any_instance_of(Params).to receive(:use_global_endpoint).and_return(true)
 
@@ -2684,7 +2684,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -3843,7 +3843,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -3883,8 +3883,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
-          config[:accelerate] = true
+          config[:use_dualstack_endpoint] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -3924,7 +3924,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -3964,7 +3964,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4004,8 +4004,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4040,8 +4040,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
-          config[:accelerate] = true
+          config[:use_fips_endpoint] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -4111,7 +4111,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4216,7 +4216,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4256,8 +4256,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_dual_stack] = true
-          config[:accelerate] = true
+          config[:use_dualstack_endpoint] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4297,7 +4297,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4337,7 +4337,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4377,8 +4377,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -4413,8 +4413,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
-          config[:accelerate] = true
+          config[:use_fips_endpoint] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -4485,7 +4485,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-gov-west-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -4522,7 +4522,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:force_path_style] = true
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -4553,7 +4553,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -4734,7 +4734,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -4762,7 +4762,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
           config[:force_path_style] = true
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -4793,7 +4793,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -4979,7 +4979,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -5016,7 +5016,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "af-south-1"
           config[:force_path_style] = true
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -5047,7 +5047,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:force_path_style] = true
 
           client = Client.new(config)
@@ -5269,7 +5269,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
 
           client = Client.new(config)
@@ -5296,7 +5296,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
 
           client = Client.new(config)
@@ -5324,7 +5324,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:endpoint] = "http://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -5484,7 +5484,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
 
           client = Client.new(config)
@@ -5645,7 +5645,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
 
           client = Client.new(config)
@@ -5672,7 +5672,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
 
           client = Client.new(config)
@@ -5700,7 +5700,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "af-south-1"
           config[:endpoint] = "https://control.vpce-1a2b3c4d-5e6f.s3.us-west-2.vpce.amazonaws.com"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -5810,7 +5810,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -5845,7 +5845,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -5876,8 +5876,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -5964,7 +5964,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "cn-north-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -6047,7 +6047,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6082,7 +6082,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -6113,8 +6113,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "af-south-1"
-          config[:use_fips] = true
-          config[:use_dual_stack] = true
+          config[:use_fips_endpoint] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6228,7 +6228,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6255,7 +6255,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:endpoint] = "https://example.com"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6286,7 +6286,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6360,7 +6360,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -6483,7 +6483,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6523,7 +6523,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6563,7 +6563,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6603,7 +6603,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6643,7 +6643,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "s3-external-1"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6678,7 +6678,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "s3-external-1"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6709,7 +6709,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -6744,7 +6744,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6770,7 +6770,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "aws-global"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -6796,8 +6796,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_dual_stack] = true
-          config[:use_arn_region] = false
+          config[:use_dualstack_endpoint] = true
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6872,8 +6872,8 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:accelerate] = true
-          config[:use_arn_region] = false
+          config[:use_accelerate_endpoint] = true
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6899,7 +6899,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -6964,7 +6964,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = true
+          config[:s3_use_arn_region] = true
 
           client = Client.new(config)
           expect do
@@ -7048,7 +7048,7 @@ module AWS::SDK::S3
           config[:endpoint] = nil
           config[:region] = "us-west-2"
           config[:endpoint] = "https://my-endpoint.com"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7083,7 +7083,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-west-2"
-          config[:use_arn_region] = false
+          config[:s3_use_arn_region] = false
 
           client = Client.new(config)
           expect do
@@ -7232,7 +7232,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7267,7 +7267,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -7626,7 +7626,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7705,7 +7705,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "ap-northeast-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7784,7 +7784,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -7863,7 +7863,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_fips] = true
+          config[:use_fips_endpoint] = true
 
           client = Client.new(config)
           proc = proc do |context|
@@ -8154,7 +8154,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:use_dual_stack] = true
+          config[:use_dualstack_endpoint] = true
 
           client = Client.new(config)
           expect do
@@ -8180,7 +8180,7 @@ module AWS::SDK::S3
           config[:stub_responses] = true
           config[:endpoint] = nil
           config[:region] = "us-east-1"
-          config[:accelerate] = true
+          config[:use_accelerate_endpoint] = true
 
           client = Client.new(config)
           expect do

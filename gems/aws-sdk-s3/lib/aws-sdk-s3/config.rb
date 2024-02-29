@@ -48,6 +48,9 @@ module AWS::SDK::S3
   #   @option args [Hearth::PluginList] :plugins (Hearth::PluginList.new)
   #     A list of Plugins to apply to the client. Plugins are callables that
   #     take {Config} as an argument. Plugins may modify the provided config.
+  #   @option args [String] :profile (default)
+  #     Used when loading credentials and configuration from the shared credentials file
+  #     at HOME/.aws/credentials.  When not specified, 'default' is used.
   #   @option args [String] :region
   #     The AWS region to connect to. The configured `:region` is
   #     used to determine the service `:endpoint`. When not passed,
@@ -74,8 +77,6 @@ module AWS::SDK::S3
   #     When set to `false` this will option will raise errors when multi-region
   #     access point ARNs are used.  Multi-region access points can potentially
   #     result in cross region requests.
-  #   @option args [AWS::SigV4::Signer] :signer
-  #     An instance of SigV4 signer used to sign requests.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
@@ -119,6 +120,8 @@ module AWS::SDK::S3
   #   @return [Logger]
   # @!attribute plugins
   #   @return [Hearth::PluginList]
+  # @!attribute profile
+  #   @return [String]
   # @!attribute region
   #   @return [String]
   # @!attribute retry_strategy
@@ -127,8 +130,6 @@ module AWS::SDK::S3
   #   @return [Boolean]
   # @!attribute s3_use_arn_region
   #   @return [Boolean]
-  # @!attribute signer
-  #   @return [AWS::SigV4::Signer]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_accelerate_endpoint
@@ -155,11 +156,11 @@ module AWS::SDK::S3
     :interceptors,
     :logger,
     :plugins,
+    :profile,
     :region,
     :retry_strategy,
     :s3_disable_multiregion_access_points,
     :s3_use_arn_region,
-    :signer,
     :stub_responses,
     :use_accelerate_endpoint,
     :use_arn_region,
@@ -185,11 +186,11 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'config[:logger]')
       Hearth::Validator.validate_types!(plugins, Hearth::PluginList, context: 'config[:plugins]')
+      Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_types!(retry_strategy, Hearth::Retry::Strategy, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(s3_disable_multiregion_access_points, TrueClass, FalseClass, context: 'config[:s3_disable_multiregion_access_points]')
       Hearth::Validator.validate_types!(s3_use_arn_region, TrueClass, FalseClass, context: 'config[:s3_use_arn_region]')
-      Hearth::Validator.validate_types!(signer, AWS::SigV4::Signer, context: 'config[:signer]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')
@@ -215,12 +216,11 @@ module AWS::SDK::S3
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
+        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         s3_disable_multiregion_access_points: [Hearth::Config::EnvProvider.new('AWS_S3_DISABLE_MULTIREGION_ACCESS_POINTS', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_disable_multiregion_access_points', type: 'Boolean'),false],
         s3_use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],
-        signer: [proc { |cfg| AWS::SigV4::Signer.new(service: 's3', region: cfg[:region], credential_provider: cfg[:credential_provider])
-         }],
         stub_responses: [false],
         use_accelerate_endpoint: [false],
         use_arn_region: [],
