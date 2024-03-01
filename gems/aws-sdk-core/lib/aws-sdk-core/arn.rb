@@ -29,10 +29,6 @@ module AWS::SDK::Core
   #
   # @see https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
   class ARN
-    # Raised when ARN string input doesn't follow the standard:
-    # https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-arns
-    class InvalidARNError < RuntimeError; end
-
     # @param [Hash] options
     # @option options [String] :partition
     # @option options [String] :service

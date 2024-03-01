@@ -35,7 +35,7 @@ module AWS::SDK::Core
       json = arn.as_json
       json['resourceId'] = json['resourceId'].split(%r{[:/]}, -1)
       json
-    rescue ARN::InvalidARNError
+    rescue ARNParser::InvalidARNError
       nil
     end
   end
