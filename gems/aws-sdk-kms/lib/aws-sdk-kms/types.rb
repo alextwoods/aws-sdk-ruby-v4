@@ -1055,7 +1055,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.bypass_policy_lockout_safety_check ||= false
+        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
       end
     end
 
@@ -1822,7 +1822,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -2935,7 +2935,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.key_rotation_enabled ||= false
+        self.key_rotation_enabled = false if self.key_rotation_enabled.nil?
       end
     end
 
@@ -3898,7 +3898,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.enabled ||= false
+        self.enabled = false if self.enabled.nil?
       end
     end
 
@@ -4084,7 +4084,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4171,7 +4171,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4246,7 +4246,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4302,7 +4302,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4382,7 +4382,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4450,7 +4450,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.truncated ||= false
+        self.truncated = false if self.truncated.nil?
       end
     end
 
@@ -4663,7 +4663,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.bypass_policy_lockout_safety_check ||= false
+        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
       end
     end
 
@@ -5018,7 +5018,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.bypass_policy_lockout_safety_check ||= false
+        self.bypass_policy_lockout_safety_check = false if self.bypass_policy_lockout_safety_check.nil?
       end
     end
 
@@ -6047,7 +6047,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.mac_valid ||= false
+        self.mac_valid = false if self.mac_valid.nil?
       end
     end
 
@@ -6080,7 +6080,7 @@ module AWS::SDK::KMS
 
       def initialize(*)
         super
-        self.signature_valid ||= false
+        self.signature_valid = false if self.signature_valid.nil?
       end
     end
 

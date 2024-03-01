@@ -1,17 +1,28 @@
 module AWS::SDK::S3
   class Config < ::Struct[untyped]
     include Hearth::Configuration
+    attr_accessor accelerate (): Boolean
     attr_accessor auth_resolver (): Auth::Resolver
     attr_accessor auth_schemes (): Array[Hearth::AuthSchemes::Base]
     attr_accessor disable_host_prefix (): bool
+    attr_accessor disable_multi_region_access_points (): Boolean
+    attr_accessor disable_multiregion_access_points (): Boolean
+    attr_accessor disable_s3_express_session_auth (): Boolean
     attr_accessor endpoint (): String
+    attr_accessor endpoint_provider (): Endpoint::Provider
+    attr_accessor force_path_style (): Boolean
     attr_accessor http_client (): Hearth::HTTP::Client
     attr_accessor interceptors (): Hearth::InterceptorList
     attr_accessor logger (): Logger
     attr_accessor plugins (): Hearth::PluginList
+    attr_accessor profile (): String
+    attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::Retry::Strategy
-    attr_accessor signer (): AWS::SigV4::Signer
     attr_accessor stub_responses (): bool
+    attr_accessor use_accelerate_endpoint (): Boolean
+    attr_accessor use_arn_region (): Boolean
+    attr_accessor use_dualstack_endpoint (): Boolean
+    attr_accessor use_fips_endpoint (): Boolean
     attr_accessor validate_input (): bool
   end
 end

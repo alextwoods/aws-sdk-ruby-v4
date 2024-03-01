@@ -149,20 +149,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchExecuteStatement
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :batch_execute_statement),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::BatchExecuteStatement,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -180,7 +185,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :batch_execute_statement,
@@ -399,20 +404,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchGetItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :batch_get_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::BatchGetItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -430,7 +440,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :batch_get_item,
@@ -681,20 +691,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchWriteItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :batch_write_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::BatchWriteItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -712,7 +727,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :batch_write_item,
@@ -793,20 +808,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateBackup
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_backup),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateBackup,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -824,7 +844,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_backup,
@@ -956,20 +976,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateGlobalTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_global_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateGlobalTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -987,7 +1012,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_global_table,
@@ -1178,20 +1203,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1209,7 +1239,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_table,
@@ -1304,20 +1334,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBackup
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_backup),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteBackup,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1335,7 +1370,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_backup,
@@ -1473,20 +1508,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1504,7 +1544,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_item,
@@ -1675,20 +1715,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1706,7 +1751,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_table,
@@ -1801,20 +1846,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeBackup
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_backup),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeBackup,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1832,7 +1882,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_backup,
@@ -1892,20 +1942,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContinuousBackups
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_continuous_backups),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeContinuousBackups,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1923,7 +1978,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_continuous_backups,
@@ -1977,20 +2032,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContributorInsights
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_contributor_insights),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeContributorInsights,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2008,7 +2068,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_contributor_insights,
@@ -2054,20 +2114,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeEndpoints
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_endpoints),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeEndpoints,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2085,7 +2150,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_endpoints,
@@ -2153,20 +2218,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeExport
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_export),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeExport,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2184,7 +2254,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_export,
@@ -2261,20 +2331,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_global_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeGlobalTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2292,7 +2367,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_global_table,
@@ -2382,20 +2457,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTableSettings
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_global_table_settings),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeGlobalTableSettings,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2413,7 +2493,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_global_table_settings,
@@ -2509,20 +2589,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeImport
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_import),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeImport,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2540,7 +2625,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_import,
@@ -2590,20 +2675,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeKinesisStreamingDestination
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeKinesisStreamingDestination,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2621,7 +2711,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_kinesis_streaming_destination,
@@ -2745,20 +2835,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeLimits
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_limits),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeLimits,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2776,7 +2871,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_limits,
@@ -2919,20 +3014,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2950,7 +3050,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_table,
@@ -3024,20 +3124,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTableReplicaAutoScaling
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeTableReplicaAutoScaling,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3055,7 +3160,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_table_replica_auto_scaling,
@@ -3101,20 +3206,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTimeToLive
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_time_to_live),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeTimeToLive,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3132,7 +3242,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_time_to_live,
@@ -3185,20 +3295,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableKinesisStreamingDestination
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisableKinesisStreamingDestination,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3216,7 +3331,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_kinesis_streaming_destination,
@@ -3271,20 +3386,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableKinesisStreamingDestination
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::EnableKinesisStreamingDestination,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3302,7 +3422,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_kinesis_streaming_destination,
@@ -3410,20 +3530,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteStatement
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :execute_statement),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ExecuteStatement,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3441,7 +3566,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :execute_statement,
@@ -3546,20 +3671,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteTransaction
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :execute_transaction),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ExecuteTransaction,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3577,7 +3707,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :execute_transaction,
@@ -3661,20 +3791,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExportTableToPointInTime
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ExportTableToPointInTime,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3692,7 +3827,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :export_table_to_point_in_time,
@@ -3824,20 +3959,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3855,7 +3995,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_item,
@@ -4002,20 +4142,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ImportTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :import_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ImportTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4033,7 +4178,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :import_table,
@@ -4103,20 +4248,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBackups
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_backups),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListBackups,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4134,7 +4284,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_backups,
@@ -4186,20 +4336,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListContributorInsights
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_contributor_insights),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListContributorInsights,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4217,7 +4372,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_contributor_insights,
@@ -4268,20 +4423,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListExports
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_exports),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListExports,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4299,7 +4459,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_exports,
@@ -4363,20 +4523,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListGlobalTables
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_global_tables),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListGlobalTables,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4394,7 +4559,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_global_tables,
@@ -4453,20 +4618,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListImports
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_imports),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListImports,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4484,7 +4654,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_imports,
@@ -4545,20 +4715,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTables
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_tables),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListTables,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4576,7 +4751,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_tables,
@@ -4628,20 +4803,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTagsOfResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_tags_of_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListTagsOfResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4659,7 +4839,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_tags_of_resource,
@@ -4812,20 +4992,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4843,7 +5028,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_item,
@@ -5034,20 +5219,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Query
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :query),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Query,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5065,7 +5255,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :query,
@@ -5251,20 +5441,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableFromBackup
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :restore_table_from_backup),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::RestoreTableFromBackup,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5282,7 +5477,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :restore_table_from_backup,
@@ -5496,20 +5691,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableToPointInTime
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::RestoreTableToPointInTime,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5527,7 +5727,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :restore_table_to_point_in_time,
@@ -5724,20 +5924,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Scan
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :scan),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Scan,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5755,7 +5960,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :scan,
@@ -5809,20 +6014,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :tag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::TagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5840,7 +6050,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :tag_resource,
@@ -5968,20 +6178,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactGetItems
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :transact_get_items),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::TransactGetItems,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5999,7 +6214,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :transact_get_items,
@@ -6195,20 +6410,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactWriteItems
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :transact_write_items),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::TransactWriteItems,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6226,7 +6446,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :transact_write_items,
@@ -6275,20 +6495,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :untag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UntagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6306,7 +6531,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :untag_resource,
@@ -6369,20 +6594,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContinuousBackups
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_continuous_backups),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateContinuousBackups,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6400,7 +6630,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_continuous_backups,
@@ -6454,20 +6684,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContributorInsights
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_contributor_insights),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateContributorInsights,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6485,7 +6720,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_contributor_insights,
@@ -6602,20 +6837,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_global_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateGlobalTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6633,7 +6873,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_global_table,
@@ -6759,20 +6999,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTableSettings
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_global_table_settings),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateGlobalTableSettings,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6790,7 +7035,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_global_table_settings,
@@ -6954,20 +7199,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateItem
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_item),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateItem,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6985,7 +7235,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_item,
@@ -7037,20 +7287,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateKinesisStreamingDestination
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateKinesisStreamingDestination,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7068,7 +7323,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_kinesis_streaming_destination,
@@ -7298,20 +7553,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTable
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_table),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateTable,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7329,7 +7589,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_table,
@@ -7434,20 +7694,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTableReplicaAutoScaling
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateTableReplicaAutoScaling,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7465,7 +7730,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_table_replica_auto_scaling,
@@ -7539,20 +7804,25 @@ module AWS::SDK::DynamoDB
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTimeToLive
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_time_to_live),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateTimeToLive,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7570,7 +7840,7 @@ module AWS::SDK::DynamoDB
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_time_to_live,

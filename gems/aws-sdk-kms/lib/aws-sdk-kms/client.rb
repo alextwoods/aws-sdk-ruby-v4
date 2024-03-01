@@ -181,20 +181,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CancelKeyDeletion
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :cancel_key_deletion),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CancelKeyDeletion,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -212,7 +217,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :cancel_key_deletion,
@@ -354,20 +359,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ConnectCustomKeyStore
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :connect_custom_key_store),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ConnectCustomKeyStore,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -385,7 +395,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :connect_custom_key_store,
@@ -497,20 +507,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateAlias
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_alias),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateAlias,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -528,7 +543,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_alias,
@@ -688,20 +703,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateCustomKeyStore
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_custom_key_store),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateCustomKeyStore,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -719,7 +739,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_custom_key_store,
@@ -859,20 +879,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateGrant
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_grant),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateGrant,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -890,7 +915,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_grant,
@@ -1148,20 +1173,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :create_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::CreateKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1179,7 +1209,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :create_key,
@@ -1362,20 +1392,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Decrypt
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :decrypt),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Decrypt,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1393,7 +1428,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :decrypt,
@@ -1494,20 +1529,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteAlias
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_alias),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteAlias,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1525,7 +1565,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_alias,
@@ -1639,20 +1679,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteCustomKeyStore
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_custom_key_store),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteCustomKeyStore,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1670,7 +1715,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_custom_key_store,
@@ -1751,20 +1796,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteImportedKeyMaterial
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :delete_imported_key_material),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DeleteImportedKeyMaterial,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1782,7 +1832,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_imported_key_material,
@@ -1916,20 +1966,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeCustomKeyStores
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_custom_key_stores),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeCustomKeyStores,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -1947,7 +2002,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_custom_key_stores,
@@ -2275,20 +2330,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :describe_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DescribeKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2306,7 +2366,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_key,
@@ -2374,20 +2434,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisableKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2405,7 +2470,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_key,
@@ -2491,20 +2556,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableKeyRotation
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disable_key_rotation),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisableKeyRotation,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2522,7 +2592,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_key_rotation,
@@ -2629,20 +2699,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisconnectCustomKeyStore
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :disconnect_custom_key_store),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::DisconnectCustomKeyStore,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2660,7 +2735,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disconnect_custom_key_store,
@@ -2724,20 +2799,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::EnableKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2755,7 +2835,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_key,
@@ -2849,20 +2929,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableKeyRotation
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :enable_key_rotation),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::EnableKeyRotation,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -2880,7 +2965,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_key_rotation,
@@ -3073,20 +3158,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Encrypt
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :encrypt),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Encrypt,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3104,7 +3194,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :encrypt,
@@ -3282,20 +3372,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateDataKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateDataKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3313,7 +3408,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_data_key,
@@ -3473,20 +3568,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateDataKeyPair
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_pair),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateDataKeyPair,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3504,7 +3604,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_data_key_pair,
@@ -3639,20 +3739,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateDataKeyPairWithoutPlaintext
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_pair_without_plaintext),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateDataKeyPairWithoutPlaintext,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3670,7 +3775,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_data_key_pair_without_plaintext,
@@ -3811,20 +3916,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateDataKeyWithoutPlaintext
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_data_key_without_plaintext),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateDataKeyWithoutPlaintext,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3842,7 +3952,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_data_key_without_plaintext,
@@ -3939,20 +4049,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateMac
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_mac),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateMac,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -3970,7 +4085,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_mac,
@@ -4053,20 +4168,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GenerateRandom
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :generate_random),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GenerateRandom,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4084,7 +4204,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :generate_random,
@@ -4150,20 +4270,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetKeyPolicy
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_key_policy),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetKeyPolicy,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4181,7 +4306,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_key_policy,
@@ -4290,20 +4415,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetKeyRotationStatus
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_key_rotation_status),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetKeyRotationStatus,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4321,7 +4451,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_key_rotation_status,
@@ -4446,20 +4576,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetParametersForImport
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_parameters_for_import),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetParametersForImport,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4477,7 +4612,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_parameters_for_import,
@@ -4599,20 +4734,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPublicKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :get_public_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::GetPublicKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4630,7 +4770,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_public_key,
@@ -4792,20 +4932,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ImportKeyMaterial
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :import_key_material),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ImportKeyMaterial,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -4823,7 +4968,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :import_key_material,
@@ -4969,20 +5114,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAliases
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_aliases),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListAliases,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5000,7 +5150,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_aliases,
@@ -5111,20 +5261,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListGrants
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_grants),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListGrants,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5142,7 +5297,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_grants,
@@ -5228,20 +5383,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListKeyPolicies
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_key_policies),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListKeyPolicies,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5259,7 +5419,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_key_policies,
@@ -5378,20 +5538,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListKeys
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_keys),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListKeys,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5409,7 +5574,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_keys,
@@ -5520,20 +5685,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListResourceTags
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_resource_tags),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListResourceTags,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5551,7 +5721,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_resource_tags,
@@ -5667,20 +5837,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListRetirableGrants
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :list_retirable_grants),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ListRetirableGrants,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5698,7 +5873,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_retirable_grants,
@@ -5769,20 +5944,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutKeyPolicy
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :put_key_policy),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::PutKeyPolicy,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -5800,7 +5980,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_key_policy,
@@ -5969,20 +6149,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ReEncrypt
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :re_encrypt),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ReEncrypt,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6000,7 +6185,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :re_encrypt,
@@ -6222,20 +6407,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ReplicateKey
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :replicate_key),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ReplicateKey,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6253,7 +6443,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :replicate_key,
@@ -6356,20 +6546,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RetireGrant
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :retire_grant),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::RetireGrant,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6387,7 +6582,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :retire_grant,
@@ -6487,20 +6682,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RevokeGrant
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :revoke_grant),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::RevokeGrant,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6518,7 +6718,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :revoke_grant,
@@ -6625,20 +6825,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ScheduleKeyDeletion
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :schedule_key_deletion),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::ScheduleKeyDeletion,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6656,7 +6861,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :schedule_key_deletion,
@@ -6793,20 +6998,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Sign
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :sign),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Sign,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6824,7 +7034,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :sign,
@@ -6936,20 +7146,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :tag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::TagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -6967,7 +7182,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :tag_resource,
@@ -7069,20 +7284,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :untag_resource),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UntagResource,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7100,7 +7320,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :untag_resource,
@@ -7218,20 +7438,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateAlias
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_alias),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateAlias,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7249,7 +7474,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_alias,
@@ -7455,20 +7680,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateCustomKeyStore
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_custom_key_store),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateCustomKeyStore,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7486,7 +7716,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_custom_key_store,
@@ -7563,20 +7793,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateKeyDescription
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_key_description),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdateKeyDescription,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7594,7 +7829,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_key_description,
@@ -7718,20 +7953,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdatePrimaryRegion
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :update_primary_region),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::UpdatePrimaryRegion,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7749,7 +7989,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :update_primary_region,
@@ -7872,20 +8112,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Verify
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :verify),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::Verify,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -7903,7 +8148,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :verify,
@@ -7994,20 +8239,25 @@ module AWS::SDK::KMS
       stack.use(Hearth::Middleware::Build,
         builder: Builders::VerifyMac
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
       stack.use(Hearth::Middleware::Auth,
         auth_params: Auth::Params.new(operation_name: :verify_mac),
         auth_resolver: config.auth_resolver,
         auth_schemes: config.auth_schemes
       )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Endpoint,
+        endpoint: config.endpoint,
+        endpoint_provider: config.endpoint_provider,
+        region: config.region,
+        param_builder: Endpoint::Parameters::VerifyMac,
+        use_dualstack_endpoint: config.use_dualstack_endpoint,
+        use_fips_endpoint: config.use_fips_endpoint
       )
+      stack.use(Hearth::Middleware::Retry,
+        retry_strategy: config.retry_strategy,
+        error_inspector_class: Hearth::HTTP::ErrorInspector
+      )
+      stack.use(Hearth::Middleware::Sign)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(
           error_module: Errors,
@@ -8025,7 +8275,7 @@ module AWS::SDK::KMS
         stubs: @stubs
       )
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :verify_mac,

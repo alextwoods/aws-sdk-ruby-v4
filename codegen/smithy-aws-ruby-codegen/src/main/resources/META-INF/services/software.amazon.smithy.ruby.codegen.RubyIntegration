@@ -1,4 +1,8 @@
 software.amazon.smithy.aws.ruby.codegen.AWSProtocols
 software.amazon.smithy.aws.ruby.codegen.RequestId
+software.amazon.smithy.aws.ruby.codegen.EndpointRules
 software.amazon.smithy.aws.ruby.codegen.Sigv4Auth
 software.amazon.smithy.aws.ruby.codegen.HttpChecksum
+software.amazon.smithy.aws.ruby.codegen.customizations.S3Customizations
+software.amazon.smithy.aws.ruby.codegen.customizations.STSCustomizations
+software.amazon.smithy.aws.ruby.codegen.customizations.S3ControlCustomizations

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.license       = 'Apache-2.0'
   spec.require_paths = ['lib']
   spec.files         = Dir[
-    'LICENSE.txt', 'CHANGELOG.md', 'VERSION', 'lib/**/*.rb'
+    'LICENSE.txt', 'CHANGELOG.md', 'VERSION', 'partitions.json', 'lib/**/*.rb'
   ]
 
   spec.add_dependency('aws-sigv4', '~> 2.0.0.pre1')
