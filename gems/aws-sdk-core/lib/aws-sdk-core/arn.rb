@@ -38,13 +38,13 @@ module AWS::SDK::Core
     # @option options [String] :service
     # @option options [String] :region
     # @option options [String] :account_id
-    # @option options [String] :resource
+    # @option options [String] :resource_id
     def initialize(options = {})
       @partition = options[:partition]
       @service = options[:service]
       @region = options[:region]
       @account_id = options[:account_id]
-      @resource = options[:resource]
+      @resource_id = options[:resource_id]
     end
 
     # @return [String]
@@ -60,21 +60,21 @@ module AWS::SDK::Core
     attr_reader :account_id
 
     # @return [String]
-    attr_reader :resource
+    attr_reader :resource_id
 
     # Validates ARN contains non-empty required components.
     # Region and account_id can be optional.
     #
     # @return [Boolean]
     def valid?
-      set?(partition) && set?(service) && set?(resource)
+      set?(partition) && set?(service) && set?(resource_id)
     end
 
     # Return the ARN format in string
     #
     # @return [String]
     def to_s
-      "arn:#{partition}:#{service}:#{region}:#{account_id}:#{resource}"
+      "arn:#{partition}:#{service}:#{region}:#{account_id}:#{resource_id}"
     end
 
     # Return the ARN as a hash
@@ -86,7 +86,7 @@ module AWS::SDK::Core
         service: @service,
         region: @region,
         account_id: @account_id,
-        resource: @resource
+        resource_id: @resource_id
       }
     end
 
@@ -99,7 +99,7 @@ module AWS::SDK::Core
         'service' => @service,
         'region' => @region,
         'accountId' => @account_id,
-        'resource' => @resource
+        'resourceId' => @resource_id
       }
     end
 

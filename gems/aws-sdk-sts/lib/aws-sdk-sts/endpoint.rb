@@ -35,7 +35,7 @@ module AWS::SDK::STS
         endpoint = params.endpoint
         use_global_endpoint = params.use_global_endpoint
 
-        if (use_global_endpoint == true) && (!endpoint != nil) && (region != nil) && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && (use_fips == false) && (use_dual_stack == false)
+        if (use_global_endpoint == true) && (endpoint.nil?) && (region != nil) && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && (use_fips == false) && (use_dual_stack == false)
           if (region == "ap-northeast-1")
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",

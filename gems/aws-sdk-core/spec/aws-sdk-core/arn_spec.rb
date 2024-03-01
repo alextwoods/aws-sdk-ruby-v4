@@ -10,7 +10,7 @@ module AWS::SDK::Core
         service: 's3',
         region: 'us-west-2',
         account_id: '123456789012',
-        resource: 'foo:bar'
+        resource_id: 'foo:bar'
       )
       expect(arn.to_s).to eq('arn:aws:s3:us-west-2:123456789012:foo:bar')
     end
@@ -36,8 +36,8 @@ module AWS::SDK::Core
     end
 
     it 'provides access to the :resource' do
-      arn = ARN.new(resource: 'endpoint:foo')
-      expect(arn.resource).to eq('endpoint:foo')
+      arn = ARN.new(resource_id: 'endpoint:foo')
+      expect(arn.resource_id).to eq('endpoint:foo')
     end
 
     describe '#valid?' do
@@ -47,7 +47,7 @@ module AWS::SDK::Core
           service: 's3',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(true)
       end
@@ -57,7 +57,7 @@ module AWS::SDK::Core
           service: 's3',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(false)
       end
@@ -68,7 +68,7 @@ module AWS::SDK::Core
           service: 's3',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(false)
       end
@@ -78,7 +78,7 @@ module AWS::SDK::Core
           partition: 'aws',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(false)
       end
@@ -89,7 +89,7 @@ module AWS::SDK::Core
           service: '',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(false)
       end
@@ -99,7 +99,7 @@ module AWS::SDK::Core
           partition: 'aws',
           service: 's3',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(true)
       end
@@ -110,7 +110,7 @@ module AWS::SDK::Core
           service: 's3',
           region: '',
           account_id: '123456789012',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(true)
       end
@@ -120,7 +120,7 @@ module AWS::SDK::Core
           partition: 'aws',
           service: 's3',
           region: 'us-west-2',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(true)
       end
@@ -131,7 +131,7 @@ module AWS::SDK::Core
           service: 's3',
           region: 'us-west-2',
           account_id: '',
-          resource: 'foo:bar'
+          resource_id: 'foo:bar'
         )
         expect(arn.valid?).to be(true)
       end
@@ -152,7 +152,7 @@ module AWS::SDK::Core
           service: 's3',
           region: 'us-west-2',
           account_id: '123456789012',
-          resource: ''
+          resource_id: ''
         )
         expect(arn.valid?).to be(false)
       end

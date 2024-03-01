@@ -22,7 +22,7 @@ module AWS::SDK::Core
         service: parts[2],
         region: parts[3],
         account_id: parts[4],
-        resource: parts[5]
+        resource_id: parts[5]
       )
       raise ARN::InvalidARNError unless arn.valid?
 

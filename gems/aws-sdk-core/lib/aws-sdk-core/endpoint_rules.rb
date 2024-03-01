@@ -33,9 +33,7 @@ module AWS::SDK::Core
     def self.parse_arn(value)
       arn = AWS::SDK::Core::ARNParser.parse(value)
       json = arn.as_json
-      # HACK: because of poor naming and also requirement of splitting
-      resource = json.delete('resource')
-      json['resourceId'] = resource.split(%r{[:/]}, -1)
+      json['resourceId'] = json['resourceId'].split(%r{[:/]}, -1)
       json
     rescue ARN::InvalidARNError
       nil

@@ -39,6 +39,9 @@ module AWS::SDK::SSO
   #   @option args [Hearth::PluginList] :plugins (Hearth::PluginList.new)
   #     A list of Plugins to apply to the client. Plugins are callables that
   #     take {Config} as an argument. Plugins may modify the provided config.
+  #   @option args [String] :profile (default)
+  #     Used when loading credentials and configuration from the shared credentials file
+  #     at HOME/.aws/credentials.  When not specified, 'default' is used.
   #   @option args [String] :region
   #     The AWS region to connect to. The configured `:region` is
   #     used to determine the service `:endpoint`. When not passed,
@@ -57,8 +60,6 @@ module AWS::SDK::SSO
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
-  #   @option args [AWS::SigV4::Signer] :signer
-  #     An instance of SigV4 signer used to sign requests.
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_dualstack_endpoint
@@ -88,12 +89,12 @@ module AWS::SDK::SSO
   #   @return [Logger]
   # @!attribute plugins
   #   @return [Hearth::PluginList]
+  # @!attribute profile
+  #   @return [String]
   # @!attribute region
   #   @return [String]
   # @!attribute retry_strategy
   #   @return [Hearth::Retry::Strategy]
-  # @!attribute signer
-  #   @return [AWS::SigV4::Signer]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_dualstack_endpoint
@@ -112,9 +113,9 @@ module AWS::SDK::SSO
     :interceptors,
     :logger,
     :plugins,
+    :profile,
     :region,
     :retry_strategy,
-    :signer,
     :stub_responses,
     :use_dualstack_endpoint,
     :use_fips_endpoint,
@@ -134,9 +135,9 @@ module AWS::SDK::SSO
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'config[:logger]')
       Hearth::Validator.validate_types!(plugins, Hearth::PluginList, context: 'config[:plugins]')
+      Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_types!(retry_strategy, Hearth::Retry::Strategy, context: 'config[:retry_strategy]')
-      Hearth::Validator.validate_types!(signer, AWS::SigV4::Signer, context: 'config[:signer]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')
@@ -156,10 +157,9 @@ module AWS::SDK::SSO
         interceptors: [Hearth::InterceptorList.new],
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
+        profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
-        signer: [proc { |cfg| AWS::SigV4::Signer.new(service: 'awsssoportal', region: cfg[:region], credential_provider: cfg[:credential_provider])
-         }],
         stub_responses: [false],
         use_dualstack_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_DUALSTACK_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_dualstack_endpoint', type: 'Boolean')],
         use_fips_endpoint: [Hearth::Config::EnvProvider.new('AWS_USE_FIPS_ENDPOINT', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('use_fips_endpoint', type: 'Boolean')],

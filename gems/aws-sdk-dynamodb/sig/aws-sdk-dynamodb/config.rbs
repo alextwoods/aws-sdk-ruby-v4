@@ -10,9 +10,9 @@ module AWS::SDK::DynamoDB
     attr_accessor interceptors (): Hearth::InterceptorList
     attr_accessor logger (): Logger
     attr_accessor plugins (): Hearth::PluginList
+    attr_accessor profile (): String
     attr_accessor region (): String
     attr_accessor retry_strategy (): Hearth::Retry::Strategy
-    attr_accessor signer (): AWS::SigV4::Signer
     attr_accessor stub_responses (): bool
     attr_accessor use_dualstack_endpoint (): Boolean
     attr_accessor use_fips_endpoint (): Boolean

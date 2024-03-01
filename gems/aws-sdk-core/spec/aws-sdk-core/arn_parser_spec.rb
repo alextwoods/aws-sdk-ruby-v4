@@ -33,7 +33,7 @@ module AWS::SDK::Core
         expect(arn.service).to eq('s3')
         expect(arn.region).to eq('us-east-1')
         expect(arn.account_id).to eq('12345678910')
-        expect(arn.resource).to eq('foo:bar')
+        expect(arn.resource_id).to eq('foo:bar')
       end
 
       it 'creates a valid ARN object with region and the account id omitted' do
@@ -44,7 +44,7 @@ module AWS::SDK::Core
         expect(arn.service).to eq('s3')
         expect(arn.region).to be_empty
         expect(arn.account_id).to be_empty
-        expect(arn.resource).to eq('foo:bar')
+        expect(arn.resource_id).to eq('foo:bar')
       end
     end
   end
