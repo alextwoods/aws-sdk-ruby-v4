@@ -17,9 +17,9 @@ module AWS::SDK::S3
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :abort_multipart_upload
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :complete_multipart_upload
@@ -210,7 +210,9 @@ module AWS::SDK::S3
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :write_get_object_response
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

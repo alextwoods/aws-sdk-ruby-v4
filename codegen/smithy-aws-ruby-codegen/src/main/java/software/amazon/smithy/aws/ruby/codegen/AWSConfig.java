@@ -24,7 +24,7 @@ public final class AWSConfig {
 
     public static final ClientConfig REGION = ClientConfig.builder()
             .name("region")
-            .type("String")
+            .documentationRbsAndValidationType("String")
             .documentation(regionDocumentation)
             .defaults(ConfigProviderChain.builder()
                     .envProvider("AWS_REGION", "String")
@@ -34,7 +34,7 @@ public final class AWSConfig {
 
     public static final ClientConfig PROFILE = ClientConfig.builder()
             .name("profile")
-            .type("String")
+            .documentationRbsAndValidationType("String")
             .documentation(profileDocumentation)
             .documentationDefaultValue("default")
             .defaults(ConfigProviderChain.builder()
@@ -45,7 +45,7 @@ public final class AWSConfig {
 
     public static final ClientConfig DUALSTACK = ClientConfig.builder()
             .name("use_dualstack_endpoint")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation("""
                     When set to `true`, dualstack enabled endpoints (with `.aws` TLD)
                      will be used if available.
@@ -58,7 +58,7 @@ public final class AWSConfig {
 
     public static final ClientConfig FIPS = ClientConfig.builder()
             .name("use_fips_endpoint")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation("""
                     When set to `true`, fips compatible endpoints will be used if available.
                     When a `fips` region is used, the region is normalized and this config

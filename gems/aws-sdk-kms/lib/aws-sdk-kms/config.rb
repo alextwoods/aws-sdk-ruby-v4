@@ -9,7 +9,7 @@
 
 module AWS::SDK::KMS
   # @!method initialize(*options)
-  #   @option args [Auth::Resolver] :auth_resolver (Auth::Resolver.new)
+  #   @option args [#resolve(params)] :auth_resolver (Auth::Resolver.new)
   #     A class that responds to a `resolve(auth_params)` method where `auth_params` is
   #     the {Auth::Params} struct. For a given operation_name, the method must return an
   #     ordered list of {Hearth::AuthOption} objects to be considered for authentication.
@@ -21,9 +21,9 @@ module AWS::SDK::KMS
   #     When `true`, does not perform host prefix injection using @endpoint trait's hostPrefix property.
   #   @option args [String] :endpoint
   #     Endpoint of the service
-  #   @option args [Endpoint::Provider] :endpoint_provider (Endpoint::Provider.new)
+  #   @option args [#resolve(params)] :endpoint_provider (Endpoint::Provider.new)
   #     The endpoint provider used to resolve endpoints. Any object that responds to
-  #     `#resolve_endpoint(parameters)`
+  #     `#resolve(parameters)`
   #   @option args [Hearth::HTTP::Client] :http_client (Hearth::HTTP::Client.new)
   #     The HTTP Client to use for request transport.
   #   @option args [Hearth::InterceptorList] :interceptors (Hearth::InterceptorList.new)
@@ -49,7 +49,7 @@ module AWS::SDK::KMS
   #
   #     * `ENV['AWS_REGION']`
   #     * `~/.aws/credentials` and `~/.aws/config`
-  #   @option args [Hearth::Retry::Strategy] :retry_strategy (Hearth::Retry::Standard.new)
+  #   @option args [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)] :retry_strategy (Hearth::Retry::Standard.new)
   #     Specifies which retry strategy class to use. Strategy classes may have additional
   #     options, such as `max_retries` and backoff strategies.
   #
@@ -72,7 +72,7 @@ module AWS::SDK::KMS
   #   @option args [Boolean] :validate_input (true)
   #     When `true`, request parameters are validated using the modeled shapes.
   # @!attribute auth_resolver
-  #   @return [Auth::Resolver]
+  #   @return [#resolve(params)]
   # @!attribute auth_schemes
   #   @return [Array<Hearth::AuthSchemes::Base>]
   # @!attribute disable_host_prefix
@@ -80,7 +80,7 @@ module AWS::SDK::KMS
   # @!attribute endpoint
   #   @return [String]
   # @!attribute endpoint_provider
-  #   @return [Endpoint::Provider]
+  #   @return [#resolve(params)]
   # @!attribute http_client
   #   @return [Hearth::HTTP::Client]
   # @!attribute interceptors
@@ -94,7 +94,7 @@ module AWS::SDK::KMS
   # @!attribute region
   #   @return [String]
   # @!attribute retry_strategy
-  #   @return [Hearth::Retry::Strategy]
+  #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_dualstack_endpoint
@@ -126,18 +126,18 @@ module AWS::SDK::KMS
 
     # Validates the configuration.
     def validate!
-      Hearth::Validator.validate_types!(auth_resolver, Auth::Resolver, context: 'config[:auth_resolver]')
+      Hearth::Validator.validate_responds_to!(auth_resolver, :resolve, context: 'config[:auth_resolver]')
       Hearth::Validator.validate_types!(auth_schemes, Array, context: 'config[:auth_schemes]')
       Hearth::Validator.validate_types!(disable_host_prefix, TrueClass, FalseClass, context: 'config[:disable_host_prefix]')
       Hearth::Validator.validate_types!(endpoint, String, context: 'config[:endpoint]')
-      Hearth::Validator.validate_types!(endpoint_provider, Endpoint::Provider, context: 'config[:endpoint_provider]')
+      Hearth::Validator.validate_responds_to!(endpoint_provider, :resolve, context: 'config[:endpoint_provider]')
       Hearth::Validator.validate_types!(http_client, Hearth::HTTP::Client, context: 'config[:http_client]')
       Hearth::Validator.validate_types!(interceptors, Hearth::InterceptorList, context: 'config[:interceptors]')
       Hearth::Validator.validate_types!(logger, Logger, context: 'config[:logger]')
       Hearth::Validator.validate_types!(plugins, Hearth::PluginList, context: 'config[:plugins]')
       Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
-      Hearth::Validator.validate_types!(retry_strategy, Hearth::Retry::Strategy, context: 'config[:retry_strategy]')
+      Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_dualstack_endpoint, TrueClass, FalseClass, context: 'config[:use_dualstack_endpoint]')
       Hearth::Validator.validate_types!(use_fips_endpoint, TrueClass, FalseClass, context: 'config[:use_fips_endpoint]')

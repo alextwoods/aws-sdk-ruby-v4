@@ -34,7 +34,7 @@ public class S3ControlCustomizations implements RubyIntegration {
                                 """;
     public static final ClientConfig USE_ARN_REGION = ClientConfig.builder()
             .name("use_arn_region")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation(USE_ARN_REGION_DOCS)
             .documentationDefaultValue("true")
             .defaults(ConfigProviderChain.builder()

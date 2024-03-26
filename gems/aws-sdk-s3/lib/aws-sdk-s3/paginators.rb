@@ -14,9 +14,9 @@ module AWS::SDK::S3
       # @param [Client] client
       # @param (see Client#list_directory_buckets)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_directory_buckets operation.
@@ -25,15 +25,15 @@ module AWS::SDK::S3
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:continuation_token]
-          response = @client.list_directory_buckets(params, @options)
-          e.yield(response)
-          output_token = response.continuation_token
+          output = @client.list_directory_buckets(params, @options)
+          e.yield(output)
+          output_token = output.data.continuation_token
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(continuation_token: output_token)
-            response = @client.list_directory_buckets(params, @options)
-            e.yield(response)
-            output_token = response.continuation_token
+            output = @client.list_directory_buckets(params, @options)
+            e.yield(output)
+            output_token = output.data.continuation_token
           end
         end
       end
@@ -43,7 +43,7 @@ module AWS::SDK::S3
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.buckets.each do |item|
+            page.data.buckets.each do |item|
               e.yield(item)
             end
           end
@@ -55,9 +55,9 @@ module AWS::SDK::S3
       # @param [Client] client
       # @param (see Client#list_objects_v2)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_objects_v2 operation.
@@ -66,15 +66,15 @@ module AWS::SDK::S3
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:continuation_token]
-          response = @client.list_objects_v2(params, @options)
-          e.yield(response)
-          output_token = response.next_continuation_token
+          output = @client.list_objects_v2(params, @options)
+          e.yield(output)
+          output_token = output.data.next_continuation_token
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(continuation_token: output_token)
-            response = @client.list_objects_v2(params, @options)
-            e.yield(response)
-            output_token = response.next_continuation_token
+            output = @client.list_objects_v2(params, @options)
+            e.yield(output)
+            output_token = output.data.next_continuation_token
           end
         end
       end
@@ -84,9 +84,9 @@ module AWS::SDK::S3
       # @param [Client] client
       # @param (see Client#list_parts)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_parts operation.
@@ -95,15 +95,15 @@ module AWS::SDK::S3
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:part_number_marker]
-          response = @client.list_parts(params, @options)
-          e.yield(response)
-          output_token = response.next_part_number_marker
+          output = @client.list_parts(params, @options)
+          e.yield(output)
+          output_token = output.data.next_part_number_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(part_number_marker: output_token)
-            response = @client.list_parts(params, @options)
-            e.yield(response)
-            output_token = response.next_part_number_marker
+            output = @client.list_parts(params, @options)
+            e.yield(output)
+            output_token = output.data.next_part_number_marker
           end
         end
       end
@@ -113,7 +113,7 @@ module AWS::SDK::S3
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.parts.each do |item|
+            page.data.parts.each do |item|
               e.yield(item)
             end
           end

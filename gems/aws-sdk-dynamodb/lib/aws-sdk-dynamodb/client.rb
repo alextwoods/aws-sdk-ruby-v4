@@ -9,8 +9,6 @@
 
 require 'stringio'
 
-require_relative 'middleware/request_id'
-
 module AWS::SDK::DynamoDB
   # <fullname>Amazon DynamoDB</fullname>
   #          <p>Amazon DynamoDB is a fully managed NoSQL database service that provides fast
@@ -63,13 +61,13 @@ module AWS::SDK::DynamoDB
     #                 succeeded. Error details for individual statements can be found under the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_BatchStatementResponse.html#DDB-Type-BatchStatementResponse-Error">Error</a> field of the <code>BatchStatementResponse</code> for each
     #                 statement.</p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::BatchExecuteStatementInput] params
     #   Request parameters for this operation.
     #   See {Types::BatchExecuteStatementInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::BatchExecuteStatementOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.batch_execute_statement(
     #     statements: [
@@ -139,51 +137,8 @@ module AWS::SDK::DynamoDB
     def batch_execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::BatchExecuteStatementInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchExecuteStatement
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :batch_execute_statement),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::BatchExecuteStatement,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]
-        ),
-        data_parser: Parsers::BatchExecuteStatement
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::RequestLimitExceeded],
-        stub_data_class: Stubs::BatchExecuteStatement,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::BatchExecuteStatement.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -248,13 +203,13 @@ module AWS::SDK::DynamoDB
     #             nonexistent items consume the minimum read capacity units according to the type of read.
     #             For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working with Tables</a> in the <i>Amazon DynamoDB Developer
     #                 Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::BatchGetItemInput] params
     #   Request parameters for this operation.
     #   See {Types::BatchGetItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::BatchGetItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.batch_get_item(
     #     request_items: {
@@ -394,51 +349,8 @@ module AWS::SDK::DynamoDB
     def batch_get_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::BatchGetItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchGetItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :batch_get_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::BatchGetItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::BatchGetItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::BatchGetItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::BatchGetItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -538,13 +450,13 @@ module AWS::SDK::DynamoDB
     #                <p>The total request size exceeds 16 MB.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::BatchWriteItemInput] params
     #   Request parameters for this operation.
     #   See {Types::BatchWriteItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::BatchWriteItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.batch_write_item(
     #     request_items: {
@@ -681,51 +593,8 @@ module AWS::SDK::DynamoDB
     def batch_write_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::BatchWriteItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchWriteItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :batch_write_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::BatchWriteItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::BatchWriteItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::BatchWriteItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::BatchWriteItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -773,13 +642,13 @@ module AWS::SDK::DynamoDB
     #                <p>Provisioned read and write capacity</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateBackupInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateBackupInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateBackupOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_backup(
     #     table_name: 'TableName', # required
@@ -798,51 +667,8 @@ module AWS::SDK::DynamoDB
     def create_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateBackupInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateBackup
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_backup),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::CreateBackup,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
-        ),
-        data_parser: Parsers::CreateBackup
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
-        stub_data_class: Stubs::CreateBackup,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::CreateBackup.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -923,13 +749,13 @@ module AWS::SDK::DynamoDB
     #                 provision equal replicated write capacity units to matching secondary indexes across
     #                 your global table. </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateGlobalTableInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateGlobalTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateGlobalTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_global_table(
     #     global_table_name: 'GlobalTableName', # required
@@ -966,51 +792,8 @@ module AWS::SDK::DynamoDB
     def create_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateGlobalTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateGlobalTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_global_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::CreateGlobalTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]
-        ),
-        data_parser: Parsers::CreateGlobalTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableNotFoundException, Stubs::GlobalTableAlreadyExistsException],
-        stub_data_class: Stubs::CreateGlobalTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::CreateGlobalTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1041,13 +824,13 @@ module AWS::SDK::DynamoDB
     #             secondary indexes on them, you must create the tables sequentially. Only one table with
     #             secondary indexes can be in the <code>CREATING</code> state at any given time.</p>
     #          <p>You can use the <code>DescribeTable</code> action to check the table status.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateTableInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_table(
     #     attribute_definitions: [
@@ -1193,51 +976,8 @@ module AWS::SDK::DynamoDB
     def create_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::CreateTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::CreateTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::CreateTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::CreateTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1258,13 +998,13 @@ module AWS::SDK::DynamoDB
     # <p>Deletes an existing backup of a table.</p>
     #          <p>You can call <code>DeleteBackup</code> at a maximum rate of 10 times per
     #             second.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBackupInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBackupInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBackupOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_backup(
     #     backup_arn: 'BackupArn' # required
@@ -1324,51 +1064,8 @@ module AWS::SDK::DynamoDB
     def delete_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBackupInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBackup
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_backup),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DeleteBackup,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]
-        ),
-        data_parser: Parsers::DeleteBackup
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::BackupInUseException],
-        stub_data_class: Stubs::DeleteBackup,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteBackup.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1397,13 +1094,13 @@ module AWS::SDK::DynamoDB
     #          <p>Conditional deletes are useful for deleting items only if specific conditions are met.
     #             If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not
     #             deleted.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteItemInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_item(
     #     table_name: 'TableName', # required
@@ -1498,51 +1195,8 @@ module AWS::SDK::DynamoDB
     def delete_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DeleteItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::DeleteItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::DeleteItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1583,13 +1237,13 @@ module AWS::SDK::DynamoDB
     #             that table goes into the <code>DISABLED</code> state, and the stream is automatically
     #             deleted after 24 hours.</p>
     #          <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteTableInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_table(
     #     table_name: 'TableName' # required
@@ -1705,51 +1359,8 @@ module AWS::SDK::DynamoDB
     def delete_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DeleteTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::DeleteTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::DeleteTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DeleteTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1770,13 +1381,13 @@ module AWS::SDK::DynamoDB
     # <p>Describes an existing backup of a table.</p>
     #          <p>You can call <code>DescribeBackup</code> at a maximum rate of 10 times per
     #             second.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeBackupInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeBackupInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeBackupOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_backup(
     #     backup_arn: 'BackupArn' # required
@@ -1836,51 +1447,8 @@ module AWS::SDK::DynamoDB
     def describe_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeBackupInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeBackup
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_backup),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeBackup,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]
-        ),
-        data_parser: Parsers::DescribeBackup
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException],
-        stub_data_class: Stubs::DescribeBackup,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeBackup.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1910,13 +1478,13 @@ module AWS::SDK::DynamoDB
     #             You can restore your table to any point in time during the last 35 days. </p>
     #          <p>You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times per
     #             second.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeContinuousBackupsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeContinuousBackupsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeContinuousBackupsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_continuous_backups(
     #     table_name: 'TableName' # required
@@ -1932,51 +1500,8 @@ module AWS::SDK::DynamoDB
     def describe_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousBackupsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeContinuousBackupsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContinuousBackups
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_continuous_backups),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeContinuousBackups,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]
-        ),
-        data_parser: Parsers::DescribeContinuousBackups
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException],
-        stub_data_class: Stubs::DescribeContinuousBackups,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContinuousBackups.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1996,13 +1521,13 @@ module AWS::SDK::DynamoDB
 
     # <p>Returns information about contributor insights for a given table or global secondary
     #             index.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeContributorInsightsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeContributorInsightsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeContributorInsightsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_contributor_insights(
     #     table_name: 'TableName', # required
@@ -2022,51 +1547,8 @@ module AWS::SDK::DynamoDB
     def describe_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContributorInsightsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeContributorInsightsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContributorInsights
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_contributor_insights),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeContributorInsights,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DescribeContributorInsights
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DescribeContributorInsights,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeContributorInsights.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2086,13 +1568,13 @@ module AWS::SDK::DynamoDB
 
     # <p>Returns the regional endpoint information. For more information
     #             on policy permissions, please see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/inter-network-traffic-privacy.html#inter-network-traffic-DescribeEndpoints">Internetwork traffic privacy</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeEndpointsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeEndpointsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeEndpointsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_endpoints()
     # @example Response structure
@@ -2104,51 +1586,8 @@ module AWS::SDK::DynamoDB
     def describe_endpoints(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeEndpointsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeEndpoints
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_endpoints),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeEndpoints,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::DescribeEndpoints
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DescribeEndpoints,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeEndpoints.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2167,13 +1606,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p>Describes an existing table export.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeExportInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeExportInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeExportOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_export(
     #     export_arn: 'ExportArn' # required
@@ -2208,51 +1647,8 @@ module AWS::SDK::DynamoDB
     def describe_export(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeExportInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeExport
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_export),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeExport,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]
-        ),
-        data_parser: Parsers::DescribeExport
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException, Stubs::ExportNotFoundException],
-        stub_data_class: Stubs::DescribeExport,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeExport.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2283,13 +1679,13 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeGlobalTableInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeGlobalTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeGlobalTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_global_table(
     #     global_table_name: 'GlobalTableName' # required
@@ -2321,51 +1717,8 @@ module AWS::SDK::DynamoDB
     def describe_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeGlobalTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_global_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeGlobalTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
-        ),
-        data_parser: Parsers::DescribeGlobalTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
-        stub_data_class: Stubs::DescribeGlobalTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2396,13 +1749,13 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeGlobalTableSettingsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeGlobalTableSettingsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeGlobalTableSettingsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_global_table_settings(
     #     global_table_name: 'GlobalTableName' # required
@@ -2447,51 +1800,8 @@ module AWS::SDK::DynamoDB
     def describe_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableSettingsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeGlobalTableSettingsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTableSettings
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_global_table_settings),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeGlobalTableSettings,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]
-        ),
-        data_parser: Parsers::DescribeGlobalTableSettings
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException],
-        stub_data_class: Stubs::DescribeGlobalTableSettings,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeGlobalTableSettings.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2510,13 +1820,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p> Represents the properties of the import. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeImportInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeImportInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeImportOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_import(
     #     import_arn: 'ImportArn' # required
@@ -2579,51 +1889,8 @@ module AWS::SDK::DynamoDB
     def describe_import(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeImportInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeImportInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeImport
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_import),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeImport,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ImportNotFoundException]
-        ),
-        data_parser: Parsers::DescribeImport
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ImportNotFoundException],
-        stub_data_class: Stubs::DescribeImport,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeImport.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2642,13 +1909,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p>Returns information about the status of Kinesis streaming.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeKinesisStreamingDestinationInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeKinesisStreamingDestinationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeKinesisStreamingDestinationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_kinesis_streaming_destination(
     #     table_name: 'TableName' # required
@@ -2665,51 +1932,8 @@ module AWS::SDK::DynamoDB
     def describe_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeKinesisStreamingDestinationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeKinesisStreamingDestination
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_kinesis_streaming_destination),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeKinesisStreamingDestination,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DescribeKinesisStreamingDestination
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DescribeKinesisStreamingDestination,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeKinesisStreamingDestination.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2797,13 +2021,13 @@ module AWS::SDK::DynamoDB
     #                 throttling errors if you call it more than once in a minute.</p>
     #          </note>
     #          <p>The <code>DescribeLimits</code> Request element has no content.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeLimitsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeLimitsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeLimitsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_limits()
     # @example Response structure
@@ -2825,51 +2049,8 @@ module AWS::SDK::DynamoDB
     def describe_limits(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeLimitsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLimits
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_limits),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeLimits,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-        ),
-        data_parser: Parsers::DescribeLimits
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
-        stub_data_class: Stubs::DescribeLimits,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeLimits.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2902,13 +2083,13 @@ module AWS::SDK::DynamoDB
     #                 for your table might not be available at that moment. Wait for a few seconds, and
     #                 then try the <code>DescribeTable</code> request again.</p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeTableInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_table(
     #     table_name: 'TableName' # required
@@ -3004,51 +2185,8 @@ module AWS::SDK::DynamoDB
     def describe_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DescribeTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DescribeTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3071,13 +2209,13 @@ module AWS::SDK::DynamoDB
     #             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21 (Current)</a>
     #             of global tables.</p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeTableReplicaAutoScalingInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeTableReplicaAutoScalingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeTableReplicaAutoScalingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_table_replica_auto_scaling(
     #     table_name: 'TableName' # required
@@ -3114,51 +2252,8 @@ module AWS::SDK::DynamoDB
     def describe_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeTableReplicaAutoScalingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTableReplicaAutoScaling
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_table_replica_auto_scaling),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeTableReplicaAutoScaling,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DescribeTableReplicaAutoScaling
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DescribeTableReplicaAutoScaling,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTableReplicaAutoScaling.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3177,13 +2272,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeTimeToLiveInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeTimeToLiveInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeTimeToLiveOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_time_to_live(
     #     table_name: 'TableName' # required
@@ -3196,51 +2291,8 @@ module AWS::SDK::DynamoDB
     def describe_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeToLiveInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeTimeToLiveInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTimeToLive
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_time_to_live),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DescribeTimeToLive,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DescribeTimeToLive
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DescribeTimeToLive,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DescribeTimeToLive.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3260,13 +2312,13 @@ module AWS::SDK::DynamoDB
 
     # <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
     #             without deleting either of the resources.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DisableKinesisStreamingDestinationInput] params
     #   Request parameters for this operation.
     #   See {Types::DisableKinesisStreamingDestinationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DisableKinesisStreamingDestinationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.disable_kinesis_streaming_destination(
     #     table_name: 'TableName', # required
@@ -3285,51 +2337,8 @@ module AWS::SDK::DynamoDB
     def disable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DisableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DisableKinesisStreamingDestinationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableKinesisStreamingDestination
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :disable_kinesis_streaming_destination),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::DisableKinesisStreamingDestination,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::DisableKinesisStreamingDestination
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::DisableKinesisStreamingDestination,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::DisableKinesisStreamingDestination.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3351,13 +2360,13 @@ module AWS::SDK::DynamoDB
     #             chosen during the enable workflow. If this operation doesn't return results immediately,
     #             use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream
     #             is ACTIVE.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::EnableKinesisStreamingDestinationInput] params
     #   Request parameters for this operation.
     #   See {Types::EnableKinesisStreamingDestinationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::EnableKinesisStreamingDestinationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.enable_kinesis_streaming_destination(
     #     table_name: 'TableName', # required
@@ -3376,51 +2385,8 @@ module AWS::SDK::DynamoDB
     def enable_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::EnableKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::EnableKinesisStreamingDestinationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableKinesisStreamingDestination
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :enable_kinesis_streaming_destination),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::EnableKinesisStreamingDestination,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::EnableKinesisStreamingDestination
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::EnableKinesisStreamingDestination,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::EnableKinesisStreamingDestination.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3451,13 +2417,13 @@ module AWS::SDK::DynamoDB
     #                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
     #             result set. If <code>NextToken</code> is present, you need to paginate the result set and include
     #             <code>NextToken</code>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ExecuteStatementInput] params
     #   Request parameters for this operation.
     #   See {Types::ExecuteStatementInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ExecuteStatementOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.execute_statement(
     #     statement: 'Statement', # required
@@ -3520,51 +2486,8 @@ module AWS::SDK::DynamoDB
     def execute_statement(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ExecuteStatementInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteStatement
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :execute_statement),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ExecuteStatement,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::ExecuteStatement
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::DuplicateItemException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::ExecuteStatement,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteStatement.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3590,13 +2513,13 @@ module AWS::SDK::DynamoDB
     #                 be used to check the condition of specific attributes of the item in a similar
     #                 manner to <code>ConditionCheck</code> in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/transaction-apis.html#transaction-apis-txwriteitems">TransactWriteItems</a> API.</p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::ExecuteTransactionInput] params
     #   Request parameters for this operation.
     #   See {Types::ExecuteTransactionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ExecuteTransactionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.execute_transaction(
     #     transact_statements: [
@@ -3661,51 +2584,8 @@ module AWS::SDK::DynamoDB
     def execute_transaction(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteTransactionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ExecuteTransactionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteTransaction
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :execute_transaction),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ExecuteTransaction,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
-        ),
-        data_parser: Parsers::ExecuteTransaction
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
-        stub_data_class: Stubs::ExecuteTransaction,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ExecuteTransaction.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3726,13 +2606,13 @@ module AWS::SDK::DynamoDB
     # <p>Exports table data to an S3 bucket. The table must have point in time recovery
     #             enabled, and you can export data from any time within the point in time recovery
     #             window.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ExportTableToPointInTimeInput] params
     #   Request parameters for this operation.
     #   See {Types::ExportTableToPointInTimeInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ExportTableToPointInTimeOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.export_table_to_point_in_time(
     #     table_arn: 'TableArn', # required
@@ -3781,51 +2661,8 @@ module AWS::SDK::DynamoDB
     def export_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ExportTableToPointInTimeInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ExportTableToPointInTimeInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportTableToPointInTime
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :export_table_to_point_in_time),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ExportTableToPointInTime,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]
-        ),
-        data_parser: Parsers::ExportTableToPointInTime
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidExportTimeException, Stubs::LimitExceededException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::ExportConflictException, Stubs::TableNotFoundException],
-        stub_data_class: Stubs::ExportTableToPointInTime,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ExportTableToPointInTime.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3851,13 +2688,13 @@ module AWS::SDK::DynamoDB
     #             application requires a strongly consistent read, set <code>ConsistentRead</code> to
     #                 <code>true</code>. Although a strongly consistent read might take more time than an
     #             eventually consistent read, it always returns the last updated value.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetItemInput] params
     #   Request parameters for this operation.
     #   See {Types::GetItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_item(
     #     table_name: 'TableName', # required
@@ -3949,51 +2786,8 @@ module AWS::SDK::DynamoDB
     def get_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::GetItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::GetItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::GetItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::GetItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4012,13 +2806,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p> Imports table data from an S3 bucket. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::ImportTableInput] params
     #   Request parameters for this operation.
     #   See {Types::ImportTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ImportTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.import_table(
     #     client_token: 'ClientToken',
@@ -4132,51 +2926,8 @@ module AWS::SDK::DynamoDB
     def import_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ImportTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ImportTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :import_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ImportTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ImportConflictException]
-        ),
-        data_parser: Parsers::ImportTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ImportConflictException],
-        stub_data_class: Stubs::ImportTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ImportTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4204,13 +2955,13 @@ module AWS::SDK::DynamoDB
     #          <p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the
     #             <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html">Amazon Web Services Backup list API.</a>
     #          </p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBackupsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBackupsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBackupsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_backups(
     #     table_name: 'TableName',
@@ -4238,51 +2989,8 @@ module AWS::SDK::DynamoDB
     def list_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBackupsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBackups
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_backups),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListBackups,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-        ),
-        data_parser: Parsers::ListBackups
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
-        stub_data_class: Stubs::ListBackups,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListBackups.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4302,13 +3010,13 @@ module AWS::SDK::DynamoDB
 
     # <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
     #             indexes.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListContributorInsightsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListContributorInsightsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListContributorInsightsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_contributor_insights(
     #     table_name: 'TableName',
@@ -4326,51 +3034,8 @@ module AWS::SDK::DynamoDB
     def list_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListContributorInsightsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListContributorInsightsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListContributorInsights
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_contributor_insights),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListContributorInsights,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::ListContributorInsights
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::ListContributorInsights,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListContributorInsights.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4389,13 +3054,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p>Lists completed exports within the past 90 days.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListExportsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListExportsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListExportsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_exports(
     #     table_arn: 'TableArn',
@@ -4413,51 +3078,8 @@ module AWS::SDK::DynamoDB
     def list_exports(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListExportsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListExports
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_exports),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListExports,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::LimitExceededException]
-        ),
-        data_parser: Parsers::ListExports
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::LimitExceededException],
-        stub_data_class: Stubs::ListExports,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListExports.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4488,13 +3110,13 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::ListGlobalTablesInput] params
     #   Request parameters for this operation.
     #   See {Types::ListGlobalTablesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListGlobalTablesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_global_tables(
     #     exclusive_start_global_table_name: 'ExclusiveStartGlobalTableName',
@@ -4513,51 +3135,8 @@ module AWS::SDK::DynamoDB
     def list_global_tables(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListGlobalTablesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListGlobalTablesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListGlobalTables
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_global_tables),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListGlobalTables,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-        ),
-        data_parser: Parsers::ListGlobalTables
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
-        stub_data_class: Stubs::ListGlobalTables,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListGlobalTables.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4576,13 +3155,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p> Lists completed imports within the past 90 days. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListImportsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListImportsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListImportsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_imports(
     #     table_arn: 'TableArn',
@@ -4608,51 +3187,8 @@ module AWS::SDK::DynamoDB
     def list_imports(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListImportsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListImportsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListImports
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_imports),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListImports,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededException]
-        ),
-        data_parser: Parsers::ListImports
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededException],
-        stub_data_class: Stubs::ListImports,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListImports.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4673,13 +3209,13 @@ module AWS::SDK::DynamoDB
     # <p>Returns an array of table names associated with the current account and endpoint. The
     #             output from <code>ListTables</code> is paginated, with each page returning a maximum of
     #             100 table names.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListTablesInput] params
     #   Request parameters for this operation.
     #   See {Types::ListTablesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListTablesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_tables(
     #     exclusive_start_table_name: 'ExclusiveStartTableName',
@@ -4705,51 +3241,8 @@ module AWS::SDK::DynamoDB
     def list_tables(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListTablesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTables
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_tables),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListTables,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException]
-        ),
-        data_parser: Parsers::ListTables
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException],
-        stub_data_class: Stubs::ListTables,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListTables.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4771,13 +3264,13 @@ module AWS::SDK::DynamoDB
     #             times per second, per account.</p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListTagsOfResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::ListTagsOfResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListTagsOfResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_tags_of_resource(
     #     resource_arn: 'ResourceArn', # required
@@ -4793,51 +3286,8 @@ module AWS::SDK::DynamoDB
     def list_tags_of_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsOfResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListTagsOfResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsOfResource
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_tags_of_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::ListTagsOfResource,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::ListTagsOfResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::ListTagsOfResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::ListTagsOfResource.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4877,13 +3327,13 @@ module AWS::SDK::DynamoDB
     #          </note>
     #          <p>For more information about <code>PutItem</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html">Working with
     #                 Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutItemInput] params
     #   Request parameters for this operation.
     #   See {Types::PutItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_item(
     #     table_name: 'TableName', # required
@@ -4982,51 +3432,8 @@ module AWS::SDK::DynamoDB
     def put_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::PutItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::PutItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::PutItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::PutItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5095,13 +3502,13 @@ module AWS::SDK::DynamoDB
     #             consistent result. Global secondary indexes support eventually consistent reads only, so
     #             do not specify <code>ConsistentRead</code> when querying a global secondary
     #             index.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::QueryInput] params
     #   Request parameters for this operation.
     #   See {Types::QueryInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::QueryOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.query(
     #     table_name: 'TableName', # required
@@ -5209,51 +3616,8 @@ module AWS::SDK::DynamoDB
     def query(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::QueryInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::Query
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :query),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::Query,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::Query
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::Query,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::Query.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5296,13 +3660,13 @@ module AWS::SDK::DynamoDB
     #                <p>Time to Live (TTL) settings</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::RestoreTableFromBackupInput] params
     #   Request parameters for this operation.
     #   See {Types::RestoreTableFromBackupInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::RestoreTableFromBackupOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.restore_table_from_backup(
     #     target_table_name: 'TargetTableName', # required
@@ -5431,51 +3795,8 @@ module AWS::SDK::DynamoDB
     def restore_table_from_backup(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromBackupInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::RestoreTableFromBackupInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableFromBackup
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :restore_table_from_backup),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::RestoreTableFromBackup,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]
-        ),
-        data_parser: Parsers::RestoreTableFromBackup
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::BackupNotFoundException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::BackupInUseException, Stubs::TableAlreadyExistsException],
-        stub_data_class: Stubs::RestoreTableFromBackup,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableFromBackup.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5543,13 +3864,13 @@ module AWS::SDK::DynamoDB
     #                <p>Point in time recovery settings</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::RestoreTableToPointInTimeInput] params
     #   Request parameters for this operation.
     #   See {Types::RestoreTableToPointInTimeInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::RestoreTableToPointInTimeOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.restore_table_to_point_in_time(
     #     source_table_arn: 'SourceTableArn',
@@ -5681,51 +4002,8 @@ module AWS::SDK::DynamoDB
     def restore_table_to_point_in_time(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableToPointInTimeInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::RestoreTableToPointInTimeInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableToPointInTime
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :restore_table_to_point_in_time),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::RestoreTableToPointInTime,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]
-        ),
-        data_parser: Parsers::RestoreTableToPointInTime
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::TableInUseException, Stubs::PointInTimeRecoveryUnavailableException, Stubs::InvalidRestoreTimeException, Stubs::TableAlreadyExistsException, Stubs::TableNotFoundException],
-        stub_data_class: Stubs::RestoreTableToPointInTime,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::RestoreTableToPointInTime.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5785,13 +4063,13 @@ module AWS::SDK::DynamoDB
     #                 see a consistent snapshot of the table when the scan operation was requested.
     #             </p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::ScanInput] params
     #   Request parameters for this operation.
     #   See {Types::ScanInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ScanOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.scan(
     #     table_name: 'TableName', # required
@@ -5914,51 +4192,8 @@ module AWS::SDK::DynamoDB
     def scan(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ScanInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ScanInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::Scan
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :scan),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::Scan,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::Scan
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::Scan,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::Scan.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5982,13 +4217,13 @@ module AWS::SDK::DynamoDB
     #             account. </p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::TagResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::TagResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::TagResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.tag_resource(
     #     resource_arn: 'ResourceArn', # required
@@ -6004,51 +4239,8 @@ module AWS::SDK::DynamoDB
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::TagResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :tag_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::TagResource,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::TagResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::TagResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::TagResource.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6093,13 +4285,13 @@ module AWS::SDK::DynamoDB
     #                <p>The aggregate size of the items in the transaction exceeded 4 MB.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::TransactGetItemsInput] params
     #   Request parameters for this operation.
     #   See {Types::TransactGetItemsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::TransactGetItemsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.transact_get_items(
     #     transact_items: [
@@ -6168,51 +4360,8 @@ module AWS::SDK::DynamoDB
     def transact_get_items(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::TransactGetItemsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::TransactGetItemsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactGetItems
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :transact_get_items),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::TransactGetItems,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::TransactGetItems
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::TransactGetItems,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::TransactGetItems.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6303,13 +4452,13 @@ module AWS::SDK::DynamoDB
     #                <p>There is a user error, such as an invalid data format.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::TransactWriteItemsInput] params
     #   Request parameters for this operation.
     #   See {Types::TransactWriteItemsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::TransactWriteItemsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.transact_write_items(
     #     transact_items: [
@@ -6400,51 +4549,8 @@ module AWS::SDK::DynamoDB
     def transact_write_items(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::TransactWriteItemsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::TransactWriteItemsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactWriteItems
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :transact_write_items),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::TransactWriteItems,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]
-        ),
-        data_parser: Parsers::TransactWriteItems
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::IdempotentParameterMismatchException, Stubs::TransactionCanceledException, Stubs::RequestLimitExceeded, Stubs::ProvisionedThroughputExceededException, Stubs::TransactionInProgressException],
-        stub_data_class: Stubs::TransactWriteItems,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::TransactWriteItems.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6466,13 +4572,13 @@ module AWS::SDK::DynamoDB
     #                 <code>UntagResource</code> up to five times per second, per account. </p>
     #          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
     #             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UntagResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::UntagResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UntagResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.untag_resource(
     #     resource_arn: 'ResourceArn', # required
@@ -6485,51 +4591,8 @@ module AWS::SDK::DynamoDB
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UntagResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :untag_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UntagResource,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::UntagResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::ResourceInUseException, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::UntagResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UntagResource.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6559,13 +4622,13 @@ module AWS::SDK::DynamoDB
     #          <p>
     #             <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
     #             You can restore your table to any point in time during the last 35 days. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateContinuousBackupsInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateContinuousBackupsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateContinuousBackupsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_continuous_backups(
     #     table_name: 'TableName', # required
@@ -6584,51 +4647,8 @@ module AWS::SDK::DynamoDB
     def update_continuous_backups(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContinuousBackupsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateContinuousBackupsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContinuousBackups
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_continuous_backups),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateContinuousBackups,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]
-        ),
-        data_parser: Parsers::UpdateContinuousBackups
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::TableNotFoundException, Stubs::ContinuousBackupsUnavailableException],
-        stub_data_class: Stubs::UpdateContinuousBackups,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContinuousBackups.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6653,13 +4673,13 @@ module AWS::SDK::DynamoDB
     #             table’s partition key and sort key data with an Amazon Web Services managed key or
     #             customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB
     #             for this table.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateContributorInsightsInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateContributorInsightsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateContributorInsightsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_contributor_insights(
     #     table_name: 'TableName', # required
@@ -6674,51 +4694,8 @@ module AWS::SDK::DynamoDB
     def update_contributor_insights(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContributorInsightsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateContributorInsightsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContributorInsights
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_contributor_insights),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateContributorInsights,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]
-        ),
-        data_parser: Parsers::UpdateContributorInsights
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException],
-        stub_data_class: Stubs::UpdateContributorInsights,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateContributorInsights.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6779,13 +4756,13 @@ module AWS::SDK::DynamoDB
     #                     capacity units. </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateGlobalTableInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateGlobalTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateGlobalTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_global_table(
     #     global_table_name: 'GlobalTableName', # required
@@ -6827,51 +4804,8 @@ module AWS::SDK::DynamoDB
     def update_global_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateGlobalTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_global_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateGlobalTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]
-        ),
-        data_parser: Parsers::UpdateGlobalTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::GlobalTableNotFoundException, Stubs::ReplicaNotFoundException, Stubs::TableNotFoundException, Stubs::ReplicaAlreadyExistsException],
-        stub_data_class: Stubs::UpdateGlobalTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6902,13 +4836,13 @@ module AWS::SDK::DynamoDB
     #                     Updating global tables</a>.
     #             </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateGlobalTableSettingsInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateGlobalTableSettingsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateGlobalTableSettingsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_global_table_settings(
     #     global_table_name: 'GlobalTableName', # required
@@ -6989,51 +4923,8 @@ module AWS::SDK::DynamoDB
     def update_global_table_settings(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableSettingsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateGlobalTableSettingsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTableSettings
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_global_table_settings),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateGlobalTableSettings,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::UpdateGlobalTableSettings
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::LimitExceededException, Stubs::GlobalTableNotFoundException, Stubs::IndexNotFoundException, Stubs::ReplicaNotFoundException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::UpdateGlobalTableSettings,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateGlobalTableSettings.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7058,13 +4949,13 @@ module AWS::SDK::DynamoDB
     #             attribute values).</p>
     #          <p>You can also return the item's attribute values in the same <code>UpdateItem</code>
     #             operation using the <code>ReturnValues</code> parameter.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateItemInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateItemInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateItemOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_item(
     #     table_name: 'TableName', # required
@@ -7189,51 +5080,8 @@ module AWS::SDK::DynamoDB
     def update_item(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateItemInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateItemInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateItem
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_item),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateItem,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]
-        ),
-        data_parser: Parsers::UpdateItem
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::RequestLimitExceeded, Stubs::TransactionConflictException, Stubs::ConditionalCheckFailedException, Stubs::ItemCollectionSizeLimitExceededException, Stubs::ProvisionedThroughputExceededException],
-        stub_data_class: Stubs::UpdateItem,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateItem.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7252,13 +5100,13 @@ module AWS::SDK::DynamoDB
     end
 
     # <p>The command to update the Kinesis stream destination.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateKinesisStreamingDestinationInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateKinesisStreamingDestinationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateKinesisStreamingDestinationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_kinesis_streaming_destination(
     #     table_name: 'TableName', # required
@@ -7277,51 +5125,8 @@ module AWS::SDK::DynamoDB
     def update_kinesis_streaming_destination(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKinesisStreamingDestinationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateKinesisStreamingDestinationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateKinesisStreamingDestination
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_kinesis_streaming_destination),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateKinesisStreamingDestination,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::UpdateKinesisStreamingDestination
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::UpdateKinesisStreamingDestination,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateKinesisStreamingDestination.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7369,13 +5174,13 @@ module AWS::SDK::DynamoDB
     #             base table nor any replicas. When the table returns to the
     #                 <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is
     #             complete.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateTableInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateTableInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateTableOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_table(
     #     attribute_definitions: [
@@ -7543,51 +5348,8 @@ module AWS::SDK::DynamoDB
     def update_table(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateTableInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTable
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_table),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateTable,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::UpdateTable
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::UpdateTable,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTable.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7611,13 +5373,13 @@ module AWS::SDK::DynamoDB
     #                 of global tables.
     #             </p>
     #          </important>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateTableReplicaAutoScalingInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateTableReplicaAutoScalingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateTableReplicaAutoScalingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_table_replica_auto_scaling(
     #     global_secondary_index_updates: [
@@ -7684,51 +5446,8 @@ module AWS::SDK::DynamoDB
     def update_table_replica_auto_scaling(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableReplicaAutoScalingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateTableReplicaAutoScalingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTableReplicaAutoScaling
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_table_replica_auto_scaling),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateTableReplicaAutoScaling,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::UpdateTableReplicaAutoScaling
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::UpdateTableReplicaAutoScaling,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTableReplicaAutoScaling.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7771,13 +5490,13 @@ module AWS::SDK::DynamoDB
     #             operation.</p>
     #          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html">Time To Live</a> in the
     #             Amazon DynamoDB Developer Guide. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::UpdateTimeToLiveInput] params
     #   Request parameters for this operation.
     #   See {Types::UpdateTimeToLiveInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UpdateTimeToLiveOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.update_time_to_live(
     #     table_name: 'TableName', # required
@@ -7794,51 +5513,8 @@ module AWS::SDK::DynamoDB
     def update_time_to_live(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimeToLiveInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UpdateTimeToLiveInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTimeToLive
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :update_time_to_live),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        endpoint: config.endpoint,
-        endpoint_provider: config.endpoint_provider,
-        region: config.region,
-        param_builder: Endpoint::Parameters::UpdateTimeToLive,
-        use_dualstack_endpoint: config.use_dualstack_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]
-        ),
-        data_parser: Parsers::UpdateTimeToLive
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServerError, Stubs::InvalidEndpointException, Stubs::ResourceNotFoundException, Stubs::LimitExceededException, Stubs::ResourceInUseException],
-        stub_data_class: Stubs::UpdateTimeToLive,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::DynamoDB::Middleware::UpdateTimeToLive.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

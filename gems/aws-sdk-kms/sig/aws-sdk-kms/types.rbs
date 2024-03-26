@@ -150,7 +150,7 @@ module AWS::SDK::KMS
       attr_accessor xks_proxy_uri_endpoint (): ::String
       attr_accessor xks_proxy_uri_path (): ::String
       attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String
-      attr_accessor xks_proxy_authentication_credential (): XksProxyAuthenticationCredentialType
+      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType
       attr_accessor xks_proxy_connectivity (): ::String
     end
 
@@ -165,7 +165,7 @@ module AWS::SDK::KMS
       attr_accessor grantee_principal (): ::String
       attr_accessor retiring_principal (): ::String
       attr_accessor operations (): ::Array[::String]
-      attr_accessor constraints (): GrantConstraints
+      attr_accessor constraints (): Types::GrantConstraints
       attr_accessor grant_tokens (): ::Array[::String]
       attr_accessor name (): ::String
       attr_accessor dry_run (): bool
@@ -187,14 +187,14 @@ module AWS::SDK::KMS
       attr_accessor origin (): ::String
       attr_accessor custom_key_store_id (): ::String
       attr_accessor bypass_policy_lockout_safety_check (): bool
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor multi_region (): bool
       attr_accessor xks_key_id (): ::String
     end
 
     class CreateKeyOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor key_metadata (): KeyMetadata
+      attr_accessor key_metadata (): Types::KeyMetadata
     end
 
     class CustomKeyStoreHasCMKsException < ::Struct[untyped]
@@ -233,7 +233,7 @@ module AWS::SDK::KMS
       attr_accessor connection_error_code (): ::String
       attr_accessor creation_date (): ::Time
       attr_accessor custom_key_store_type (): ::String
-      attr_accessor xks_proxy_configuration (): XksProxyConfigurationType
+      attr_accessor xks_proxy_configuration (): Types::XksProxyConfigurationType
     end
 
     module CustomerMasterKeySpec
@@ -295,7 +295,7 @@ module AWS::SDK::KMS
       attr_accessor grant_tokens (): ::Array[::String]
       attr_accessor key_id (): ::String
       attr_accessor encryption_algorithm (): ::String
-      attr_accessor recipient (): RecipientInfo
+      attr_accessor recipient (): Types::RecipientInfo
       attr_accessor dry_run (): bool
     end
 
@@ -349,7 +349,7 @@ module AWS::SDK::KMS
 
     class DescribeCustomKeyStoresOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor custom_key_stores (): ::Array[CustomKeyStoresListEntry]
+      attr_accessor custom_key_stores (): ::Array[Types::CustomKeyStoresListEntry]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -362,7 +362,7 @@ module AWS::SDK::KMS
 
     class DescribeKeyOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor key_metadata (): KeyMetadata
+      attr_accessor key_metadata (): Types::KeyMetadata
     end
 
     class DisableKeyInput < ::Struct[untyped]
@@ -465,7 +465,7 @@ module AWS::SDK::KMS
       attr_accessor number_of_bytes (): ::Integer
       attr_accessor key_spec (): ::String
       attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor recipient (): RecipientInfo
+      attr_accessor recipient (): Types::RecipientInfo
       attr_accessor dry_run (): bool
     end
 
@@ -483,7 +483,7 @@ module AWS::SDK::KMS
       attr_accessor key_id (): ::String
       attr_accessor key_pair_spec (): ::String
       attr_accessor grant_tokens (): ::Array[::String]
-      attr_accessor recipient (): RecipientInfo
+      attr_accessor recipient (): Types::RecipientInfo
       attr_accessor dry_run (): bool
     end
 
@@ -550,7 +550,7 @@ module AWS::SDK::KMS
       include Hearth::Structure
       attr_accessor number_of_bytes (): ::Integer
       attr_accessor custom_key_store_id (): ::String
-      attr_accessor recipient (): RecipientInfo
+      attr_accessor recipient (): Types::RecipientInfo
     end
 
     class GenerateRandomOutput < ::Struct[untyped]
@@ -628,7 +628,7 @@ module AWS::SDK::KMS
       attr_accessor retiring_principal (): ::String
       attr_accessor issuing_account (): ::String
       attr_accessor operations (): ::Array[::String]
-      attr_accessor constraints (): GrantConstraints
+      attr_accessor constraints (): Types::GrantConstraints
     end
 
     module GrantOperation
@@ -791,10 +791,10 @@ module AWS::SDK::KMS
       attr_accessor encryption_algorithms (): ::Array[::String]
       attr_accessor signing_algorithms (): ::Array[::String]
       attr_accessor multi_region (): bool
-      attr_accessor multi_region_configuration (): MultiRegionConfiguration
+      attr_accessor multi_region_configuration (): Types::MultiRegionConfiguration
       attr_accessor pending_deletion_window_in_days (): ::Integer
       attr_accessor mac_algorithms (): ::Array[::String]
-      attr_accessor xks_key_configuration (): XksKeyConfigurationType
+      attr_accessor xks_key_configuration (): Types::XksKeyConfigurationType
     end
 
     module KeySpec
@@ -870,7 +870,7 @@ module AWS::SDK::KMS
 
     class ListAliasesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor aliases (): ::Array[AliasListEntry]
+      attr_accessor aliases (): ::Array[Types::AliasListEntry]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -886,7 +886,7 @@ module AWS::SDK::KMS
 
     class ListGrantsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor grants (): ::Array[GrantListEntry]
+      attr_accessor grants (): ::Array[Types::GrantListEntry]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -913,7 +913,7 @@ module AWS::SDK::KMS
 
     class ListKeysOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor keys (): ::Array[KeyListEntry]
+      attr_accessor keys (): ::Array[Types::KeyListEntry]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -927,7 +927,7 @@ module AWS::SDK::KMS
 
     class ListResourceTagsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -941,7 +941,7 @@ module AWS::SDK::KMS
 
     class ListRetirableGrantsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor grants (): ::Array[GrantListEntry]
+      attr_accessor grants (): ::Array[Types::GrantListEntry]
       attr_accessor next_marker (): ::String
       attr_accessor truncated (): bool
     end
@@ -970,8 +970,8 @@ module AWS::SDK::KMS
     class MultiRegionConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor multi_region_key_type (): ::String
-      attr_accessor primary_key (): MultiRegionKey
-      attr_accessor replica_keys (): ::Array[MultiRegionKey]
+      attr_accessor primary_key (): Types::MultiRegionKey
+      attr_accessor replica_keys (): ::Array[Types::MultiRegionKey]
     end
 
     class MultiRegionKey < ::Struct[untyped]
@@ -1048,14 +1048,14 @@ module AWS::SDK::KMS
       attr_accessor policy (): ::String
       attr_accessor bypass_policy_lockout_safety_check (): bool
       attr_accessor description (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class ReplicateKeyOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor replica_key_metadata (): KeyMetadata
+      attr_accessor replica_key_metadata (): Types::KeyMetadata
       attr_accessor replica_policy (): ::String
-      attr_accessor replica_tags (): ::Array[Tag]
+      attr_accessor replica_tags (): ::Array[Types::Tag]
     end
 
     class RetireGrantInput < ::Struct[untyped]
@@ -1148,7 +1148,7 @@ module AWS::SDK::KMS
     class TagResourceInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor key_id (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class TagResourceOutput < ::Struct[untyped]
@@ -1189,7 +1189,7 @@ module AWS::SDK::KMS
       attr_accessor xks_proxy_uri_endpoint (): ::String
       attr_accessor xks_proxy_uri_path (): ::String
       attr_accessor xks_proxy_vpc_endpoint_service_name (): ::String
-      attr_accessor xks_proxy_authentication_credential (): XksProxyAuthenticationCredentialType
+      attr_accessor xks_proxy_authentication_credential (): Types::XksProxyAuthenticationCredentialType
       attr_accessor xks_proxy_connectivity (): ::String
     end
 

@@ -28,120 +28,120 @@ module AWS::SDK::STS
     end
 
     class Provider
-      def resolve_endpoint(params)
+      def resolve(params)
         region = params.region
         use_dual_stack = params.use_dual_stack
         use_fips = params.use_fips
         endpoint = params.endpoint
         use_global_endpoint = params.use_global_endpoint
 
-        if (use_global_endpoint == true) && (endpoint.nil?) && (region != nil) && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && (use_fips == false) && (use_dual_stack == false)
-          if (region == "ap-northeast-1")
+        if use_global_endpoint == true && endpoint.nil? && region != nil && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && use_fips == false && use_dual_stack == false
+          if region == "ap-northeast-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "ap-south-1")
+          if region == "ap-south-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "ap-southeast-1")
+          if region == "ap-southeast-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "ap-southeast-2")
+          if region == "ap-southeast-2"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "aws-global")
+          if region == "aws-global"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "ca-central-1")
+          if region == "ca-central-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "eu-central-1")
+          if region == "eu-central-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "eu-north-1")
+          if region == "eu-north-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "eu-west-1")
+          if region == "eu-west-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "eu-west-2")
+          if region == "eu-west-2"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "eu-west-3")
+          if region == "eu-west-3"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "sa-east-1")
+          if region == "sa-east-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "us-east-1")
+          if region == "us-east-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "us-east-2")
+          if region == "us-east-2"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "us-west-1")
+          if region == "us-west-1"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
               auth_schemes: []
             )
           end
-          if (region == "us-west-2")
+          if region == "us-west-2"
             return Hearth::EndpointRules::Endpoint.new(
               uri: "https://sts.amazonaws.com",
               headers: {},
@@ -154,39 +154,39 @@ module AWS::SDK::STS
             auth_schemes: []
           )
         end
-        if (endpoint != nil)
-          if (use_fips == true)
+        if endpoint != nil
+          if use_fips == true
             raise ArgumentError, "Invalid Configuration: FIPS and custom endpoint are not supported"
           end
-          if (use_dual_stack == true)
+          if use_dual_stack == true
             raise ArgumentError, "Invalid Configuration: Dualstack and custom endpoint are not supported"
           end
           return Hearth::EndpointRules::Endpoint.new(uri: endpoint)
         end
-        if (region != nil)
+        if region != nil
           if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-            if (use_fips == true) && (use_dual_stack == true)
-              if (true == partition_result['supportsFIPS']) && (true == partition_result['supportsDualStack'])
+            if use_fips == true && use_dual_stack == true
+              if true == partition_result['supportsFIPS'] && true == partition_result['supportsDualStack']
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://sts-fips.#{region}.#{partition_result['dualStackDnsSuffix']}")
               end
               raise ArgumentError, "FIPS and DualStack are enabled, but this partition does not support one or both"
             end
-            if (use_fips == true)
-              if (partition_result['supportsFIPS'] == true)
-                if (partition_result['name'] == "aws-us-gov")
+            if use_fips == true
+              if partition_result['supportsFIPS'] == true
+                if partition_result['name'] == "aws-us-gov"
                   return Hearth::EndpointRules::Endpoint.new(uri: "https://sts.#{region}.amazonaws.com")
                 end
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://sts-fips.#{region}.#{partition_result['dnsSuffix']}")
               end
               raise ArgumentError, "FIPS is enabled but this partition does not support FIPS"
             end
-            if (use_dual_stack == true)
-              if (true == partition_result['supportsDualStack'])
+            if use_dual_stack == true
+              if true == partition_result['supportsDualStack']
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://sts.#{region}.#{partition_result['dualStackDnsSuffix']}")
               end
               raise ArgumentError, "DualStack is enabled but this partition does not support DualStack"
             end
-            if (region == "aws-global")
+            if region == "aws-global"
               return Hearth::EndpointRules::Endpoint.new(
                 uri: "https://sts.amazonaws.com",
                 headers: {},

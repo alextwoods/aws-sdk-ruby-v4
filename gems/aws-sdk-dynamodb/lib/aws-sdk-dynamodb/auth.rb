@@ -17,9 +17,9 @@ module AWS::SDK::DynamoDB
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :batch_execute_statement
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :batch_get_item
@@ -128,7 +128,9 @@ module AWS::SDK::DynamoDB
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :update_time_to_live
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

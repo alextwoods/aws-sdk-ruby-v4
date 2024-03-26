@@ -140,7 +140,7 @@ module AWS::SDK::S3
           value = AnalyticsAndOperator.parse(node)
           Types::AnalyticsFilter::And.new(value) if value
         else
-          Types::AnalyticsFilter::Unknown.new({name: key, value: value})
+          Types::AnalyticsFilter::Unknown.new(name: key, value: value)
         end
       end
     end
@@ -1826,7 +1826,7 @@ module AWS::SDK::S3
           value = LifecycleRuleAndOperator.parse(node)
           Types::LifecycleRuleFilter::And.new(value) if value
         else
-          Types::LifecycleRuleFilter::Unknown.new({name: key, value: value})
+          Types::LifecycleRuleFilter::Unknown.new(name: key, value: value)
         end
       end
     end
@@ -2314,7 +2314,7 @@ module AWS::SDK::S3
           value = MetricsAndOperator.parse(node)
           Types::MetricsFilter::And.new(value) if value
         else
-          Types::MetricsFilter::Unknown.new({name: key, value: value})
+          Types::MetricsFilter::Unknown.new(name: key, value: value)
         end
       end
     end
@@ -3210,7 +3210,7 @@ module AWS::SDK::S3
           value = ReplicationRuleAndOperator.parse(node)
           Types::ReplicationRuleFilter::And.new(value) if value
         else
-          Types::ReplicationRuleFilter::Unknown.new({name: key, value: value})
+          Types::ReplicationRuleFilter::Unknown.new(name: key, value: value)
         end
       end
     end

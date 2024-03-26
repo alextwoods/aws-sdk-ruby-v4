@@ -36,8 +36,8 @@ module AWS::SDK::S3
 
     class AccessControlPolicy < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor grants (): ::Array[Grant]
-      attr_accessor owner (): Owner
+      attr_accessor grants (): ::Array[Types::Grant]
+      attr_accessor owner (): Types::Owner
     end
 
     class AccessControlTranslation < ::Struct[untyped]
@@ -48,19 +48,19 @@ module AWS::SDK::S3
     class AnalyticsAndOperator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class AnalyticsConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): AnalyticsFilter
-      attr_accessor storage_class_analysis (): StorageClassAnalysis
+      attr_accessor filter (): Types::AnalyticsFilter
+      attr_accessor storage_class_analysis (): Types::StorageClassAnalysis
     end
 
     class AnalyticsExportDestination < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor s3_bucket_destination (): AnalyticsS3BucketDestination
+      attr_accessor s3_bucket_destination (): Types::AnalyticsS3BucketDestination
     end
 
     class AnalyticsFilter < Hearth::Union
@@ -80,7 +80,7 @@ module AWS::SDK::S3
       end
 
       class Unknown < AnalyticsFilter
-        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
         def to_s: () -> String
       end
     end
@@ -141,7 +141,7 @@ module AWS::SDK::S3
 
     class BucketLifecycleConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor rules (): ::Array[LifecycleRule]
+      attr_accessor rules (): ::Array[Types::LifecycleRule]
     end
 
     module BucketLocationConstraint
@@ -204,7 +204,7 @@ module AWS::SDK::S3
 
     class BucketLoggingStatus < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor logging_enabled (): LoggingEnabled
+      attr_accessor logging_enabled (): Types::LoggingEnabled
     end
 
     module BucketLogsPermission
@@ -227,7 +227,7 @@ module AWS::SDK::S3
 
     class CORSConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor cors_rules (): ::Array[CORSRule]
+      attr_accessor cors_rules (): ::Array[Types::CORSRule]
     end
 
     class CORSRule < ::Struct[untyped]
@@ -291,7 +291,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor key (): ::String
-      attr_accessor multipart_upload (): CompletedMultipartUpload
+      attr_accessor multipart_upload (): Types::CompletedMultipartUpload
       attr_accessor upload_id (): ::String
       attr_accessor checksum_crc32 (): ::String
       attr_accessor checksum_crc32_c (): ::String
@@ -324,7 +324,7 @@ module AWS::SDK::S3
 
     class CompletedMultipartUpload < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor parts (): ::Array[CompletedPart]
+      attr_accessor parts (): ::Array[Types::CompletedPart]
     end
 
     class CompletedPart < ::Struct[untyped]
@@ -402,7 +402,7 @@ module AWS::SDK::S3
 
     class CopyObjectOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor copy_object_result (): CopyObjectResult
+      attr_accessor copy_object_result (): Types::CopyObjectResult
       attr_accessor expiration (): ::String
       attr_accessor copy_source_version_id (): ::String
       attr_accessor version_id (): ::String
@@ -438,15 +438,15 @@ module AWS::SDK::S3
     class CreateBucketConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor location_constraint (): ::String
-      attr_accessor location (): LocationInfo
-      attr_accessor bucket (): BucketInfo
+      attr_accessor location (): Types::LocationInfo
+      attr_accessor bucket (): Types::BucketInfo
     end
 
     class CreateBucketInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor acl (): ::String
       attr_accessor bucket (): ::String
-      attr_accessor create_bucket_configuration (): CreateBucketConfiguration
+      attr_accessor create_bucket_configuration (): Types::CreateBucketConfiguration
       attr_accessor grant_full_control (): ::String
       attr_accessor grant_read (): ::String
       attr_accessor grant_read_acp (): ::String
@@ -520,7 +520,7 @@ module AWS::SDK::S3
 
     class CreateSessionOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): SessionCredentials
+      attr_accessor credentials (): Types::SessionCredentials
     end
 
     module DataRedundancy
@@ -536,7 +536,7 @@ module AWS::SDK::S3
 
     class Delete < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor objects (): ::Array[ObjectIdentifier]
+      attr_accessor objects (): ::Array[Types::ObjectIdentifier]
       attr_accessor quiet (): bool
     end
 
@@ -675,7 +675,7 @@ module AWS::SDK::S3
 
     class DeleteMarkerEntry < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor owner (): Owner
+      attr_accessor owner (): Types::Owner
       attr_accessor key (): ::String
       attr_accessor version_id (): ::String
       attr_accessor is_latest (): bool
@@ -727,7 +727,7 @@ module AWS::SDK::S3
     class DeleteObjectsInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor delete (): Delete
+      attr_accessor delete (): Types::Delete
       attr_accessor mfa (): ::String
       attr_accessor request_payer (): ::String
       attr_accessor bypass_governance_retention (): bool
@@ -737,9 +737,9 @@ module AWS::SDK::S3
 
     class DeleteObjectsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor deleted (): ::Array[DeletedObject]
+      attr_accessor deleted (): ::Array[Types::DeletedObject]
       attr_accessor request_charged (): ::String
-      attr_accessor errors (): ::Array[Error]
+      attr_accessor errors (): ::Array[Types::Error]
     end
 
     class DeletePublicAccessBlockInput < ::Struct[untyped]
@@ -765,10 +765,10 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor account (): ::String
       attr_accessor storage_class (): ::String
-      attr_accessor access_control_translation (): AccessControlTranslation
-      attr_accessor encryption_configuration (): EncryptionConfiguration
-      attr_accessor replication_time (): ReplicationTime
-      attr_accessor metrics (): Metrics
+      attr_accessor access_control_translation (): Types::AccessControlTranslation
+      attr_accessor encryption_configuration (): Types::EncryptionConfiguration
+      attr_accessor replication_time (): Types::ReplicationTime
+      attr_accessor metrics (): Types::Metrics
     end
 
     module EncodingType
@@ -926,8 +926,8 @@ module AWS::SDK::S3
 
     class GetBucketAclOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor owner (): Owner
-      attr_accessor grants (): ::Array[Grant]
+      attr_accessor owner (): Types::Owner
+      attr_accessor grants (): ::Array[Types::Grant]
     end
 
     class GetBucketAnalyticsConfigurationInput < ::Struct[untyped]
@@ -939,7 +939,7 @@ module AWS::SDK::S3
 
     class GetBucketAnalyticsConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor analytics_configuration (): AnalyticsConfiguration
+      attr_accessor analytics_configuration (): Types::AnalyticsConfiguration
     end
 
     class GetBucketCorsInput < ::Struct[untyped]
@@ -950,7 +950,7 @@ module AWS::SDK::S3
 
     class GetBucketCorsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor cors_rules (): ::Array[CORSRule]
+      attr_accessor cors_rules (): ::Array[Types::CORSRule]
     end
 
     class GetBucketEncryptionInput < ::Struct[untyped]
@@ -961,7 +961,7 @@ module AWS::SDK::S3
 
     class GetBucketEncryptionOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor server_side_encryption_configuration (): ServerSideEncryptionConfiguration
+      attr_accessor server_side_encryption_configuration (): Types::ServerSideEncryptionConfiguration
     end
 
     class GetBucketIntelligentTieringConfigurationInput < ::Struct[untyped]
@@ -972,7 +972,7 @@ module AWS::SDK::S3
 
     class GetBucketIntelligentTieringConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor intelligent_tiering_configuration (): IntelligentTieringConfiguration
+      attr_accessor intelligent_tiering_configuration (): Types::IntelligentTieringConfiguration
     end
 
     class GetBucketInventoryConfigurationInput < ::Struct[untyped]
@@ -984,7 +984,7 @@ module AWS::SDK::S3
 
     class GetBucketInventoryConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor inventory_configuration (): InventoryConfiguration
+      attr_accessor inventory_configuration (): Types::InventoryConfiguration
     end
 
     class GetBucketLifecycleConfigurationInput < ::Struct[untyped]
@@ -995,7 +995,7 @@ module AWS::SDK::S3
 
     class GetBucketLifecycleConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor rules (): ::Array[LifecycleRule]
+      attr_accessor rules (): ::Array[Types::LifecycleRule]
     end
 
     class GetBucketLocationInput < ::Struct[untyped]
@@ -1017,7 +1017,7 @@ module AWS::SDK::S3
 
     class GetBucketLoggingOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor logging_enabled (): LoggingEnabled
+      attr_accessor logging_enabled (): Types::LoggingEnabled
     end
 
     class GetBucketMetricsConfigurationInput < ::Struct[untyped]
@@ -1029,7 +1029,7 @@ module AWS::SDK::S3
 
     class GetBucketMetricsConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metrics_configuration (): MetricsConfiguration
+      attr_accessor metrics_configuration (): Types::MetricsConfiguration
     end
 
     class GetBucketNotificationConfigurationInput < ::Struct[untyped]
@@ -1040,10 +1040,10 @@ module AWS::SDK::S3
 
     class GetBucketNotificationConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor topic_configurations (): ::Array[TopicConfiguration]
-      attr_accessor queue_configurations (): ::Array[QueueConfiguration]
-      attr_accessor lambda_function_configurations (): ::Array[LambdaFunctionConfiguration]
-      attr_accessor event_bridge_configuration (): EventBridgeConfiguration
+      attr_accessor topic_configurations (): ::Array[Types::TopicConfiguration]
+      attr_accessor queue_configurations (): ::Array[Types::QueueConfiguration]
+      attr_accessor lambda_function_configurations (): ::Array[Types::LambdaFunctionConfiguration]
+      attr_accessor event_bridge_configuration (): Types::EventBridgeConfiguration
     end
 
     class GetBucketOwnershipControlsInput < ::Struct[untyped]
@@ -1054,7 +1054,7 @@ module AWS::SDK::S3
 
     class GetBucketOwnershipControlsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor ownership_controls (): OwnershipControls
+      attr_accessor ownership_controls (): Types::OwnershipControls
     end
 
     class GetBucketPolicyInput < ::Struct[untyped]
@@ -1076,7 +1076,7 @@ module AWS::SDK::S3
 
     class GetBucketPolicyStatusOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor policy_status (): PolicyStatus
+      attr_accessor policy_status (): Types::PolicyStatus
     end
 
     class GetBucketReplicationInput < ::Struct[untyped]
@@ -1087,7 +1087,7 @@ module AWS::SDK::S3
 
     class GetBucketReplicationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor replication_configuration (): ReplicationConfiguration
+      attr_accessor replication_configuration (): Types::ReplicationConfiguration
     end
 
     class GetBucketRequestPaymentInput < ::Struct[untyped]
@@ -1109,7 +1109,7 @@ module AWS::SDK::S3
 
     class GetBucketTaggingOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor tag_set (): ::Array[Tag]
+      attr_accessor tag_set (): ::Array[Types::Tag]
     end
 
     class GetBucketVersioningInput < ::Struct[untyped]
@@ -1132,10 +1132,10 @@ module AWS::SDK::S3
 
     class GetBucketWebsiteOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor redirect_all_requests_to (): RedirectAllRequestsTo
-      attr_accessor index_document (): IndexDocument
-      attr_accessor error_document (): ErrorDocument
-      attr_accessor routing_rules (): ::Array[RoutingRule]
+      attr_accessor redirect_all_requests_to (): Types::RedirectAllRequestsTo
+      attr_accessor index_document (): Types::IndexDocument
+      attr_accessor error_document (): Types::ErrorDocument
+      attr_accessor routing_rules (): ::Array[Types::RoutingRule]
     end
 
     class GetObjectAclInput < ::Struct[untyped]
@@ -1149,8 +1149,8 @@ module AWS::SDK::S3
 
     class GetObjectAclOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor owner (): Owner
-      attr_accessor grants (): ::Array[Grant]
+      attr_accessor owner (): Types::Owner
+      attr_accessor grants (): ::Array[Types::Grant]
       attr_accessor request_charged (): ::String
     end
 
@@ -1176,8 +1176,8 @@ module AWS::SDK::S3
       attr_accessor version_id (): ::String
       attr_accessor request_charged (): ::String
       attr_accessor e_tag (): ::String
-      attr_accessor checksum (): Checksum
-      attr_accessor object_parts (): GetObjectAttributesParts
+      attr_accessor checksum (): Types::Checksum
+      attr_accessor object_parts (): Types::GetObjectAttributesParts
       attr_accessor storage_class (): ::String
       attr_accessor object_size (): ::Integer
     end
@@ -1189,7 +1189,7 @@ module AWS::SDK::S3
       attr_accessor next_part_number_marker (): ::String
       attr_accessor max_parts (): ::Integer
       attr_accessor is_truncated (): bool
-      attr_accessor parts (): ::Array[ObjectPart]
+      attr_accessor parts (): ::Array[Types::ObjectPart]
     end
 
     class GetObjectInput < ::Struct[untyped]
@@ -1228,7 +1228,7 @@ module AWS::SDK::S3
 
     class GetObjectLegalHoldOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor legal_hold (): ObjectLockLegalHold
+      attr_accessor legal_hold (): Types::ObjectLockLegalHold
     end
 
     class GetObjectLockConfigurationInput < ::Struct[untyped]
@@ -1239,7 +1239,7 @@ module AWS::SDK::S3
 
     class GetObjectLockConfigurationOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor object_lock_configuration (): ObjectLockConfiguration
+      attr_accessor object_lock_configuration (): Types::ObjectLockConfiguration
     end
 
     class GetObjectOutput < ::Struct[untyped]
@@ -1293,7 +1293,7 @@ module AWS::SDK::S3
 
     class GetObjectRetentionOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor retention (): ObjectLockRetention
+      attr_accessor retention (): Types::ObjectLockRetention
     end
 
     class GetObjectTaggingInput < ::Struct[untyped]
@@ -1308,7 +1308,7 @@ module AWS::SDK::S3
     class GetObjectTaggingOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor version_id (): ::String
-      attr_accessor tag_set (): ::Array[Tag]
+      attr_accessor tag_set (): ::Array[Types::Tag]
     end
 
     class GetObjectTorrentInput < ::Struct[untyped]
@@ -1333,7 +1333,7 @@ module AWS::SDK::S3
 
     class GetPublicAccessBlockOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor public_access_block_configuration (): PublicAccessBlockConfiguration
+      attr_accessor public_access_block_configuration (): Types::PublicAccessBlockConfiguration
     end
 
     class GlacierJobParameters < ::Struct[untyped]
@@ -1343,7 +1343,7 @@ module AWS::SDK::S3
 
     class Grant < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor grantee (): Grantee
+      attr_accessor grantee (): Types::Grantee
       attr_accessor permission (): ::String
     end
 
@@ -1440,10 +1440,10 @@ module AWS::SDK::S3
 
     class InputSerialization < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor csv (): CSVInput
+      attr_accessor csv (): Types::CSVInput
       attr_accessor compression_type (): ::String
-      attr_accessor json (): JSONInput
-      attr_accessor parquet (): ParquetInput
+      attr_accessor json (): Types::JSONInput
+      attr_accessor parquet (): Types::ParquetInput
     end
 
     module IntelligentTieringAccessTier
@@ -1455,22 +1455,22 @@ module AWS::SDK::S3
     class IntelligentTieringAndOperator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class IntelligentTieringConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): IntelligentTieringFilter
+      attr_accessor filter (): Types::IntelligentTieringFilter
       attr_accessor status (): ::String
-      attr_accessor tierings (): ::Array[Tiering]
+      attr_accessor tierings (): ::Array[Types::Tiering]
     end
 
     class IntelligentTieringFilter < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tag (): Tag
-      attr_accessor and (): IntelligentTieringAndOperator
+      attr_accessor tag (): Types::Tag
+      attr_accessor and (): Types::IntelligentTieringAndOperator
     end
 
     module IntelligentTieringStatus
@@ -1487,24 +1487,24 @@ module AWS::SDK::S3
 
     class InventoryConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor destination (): InventoryDestination
+      attr_accessor destination (): Types::InventoryDestination
       attr_accessor is_enabled (): bool
-      attr_accessor filter (): InventoryFilter
+      attr_accessor filter (): Types::InventoryFilter
       attr_accessor id (): ::String
       attr_accessor included_object_versions (): ::String
       attr_accessor optional_fields (): ::Array[::String]
-      attr_accessor schedule (): InventorySchedule
+      attr_accessor schedule (): Types::InventorySchedule
     end
 
     class InventoryDestination < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor s3_bucket_destination (): InventoryS3BucketDestination
+      attr_accessor s3_bucket_destination (): Types::InventoryS3BucketDestination
     end
 
     class InventoryEncryption < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor sses3 (): SSES3
-      attr_accessor ssekms (): SSEKMS
+      attr_accessor sses3 (): Types::SSES3
+      attr_accessor ssekms (): Types::SSEKMS
     end
 
     class InventoryFilter < ::Struct[untyped]
@@ -1570,7 +1570,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor format (): ::String
       attr_accessor prefix (): ::String
-      attr_accessor encryption (): InventoryEncryption
+      attr_accessor encryption (): Types::InventoryEncryption
     end
 
     class InventorySchedule < ::Struct[untyped]
@@ -1599,7 +1599,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor lambda_function_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): NotificationConfigurationFilter
+      attr_accessor filter (): Types::NotificationConfigurationFilter
     end
 
     class LifecycleExpiration < ::Struct[untyped]
@@ -1611,21 +1611,21 @@ module AWS::SDK::S3
 
     class LifecycleRule < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor expiration (): LifecycleExpiration
+      attr_accessor expiration (): Types::LifecycleExpiration
       attr_accessor id (): ::String
       attr_accessor prefix (): ::String
-      attr_accessor filter (): LifecycleRuleFilter
+      attr_accessor filter (): Types::LifecycleRuleFilter
       attr_accessor status (): ::String
-      attr_accessor transitions (): ::Array[Transition]
-      attr_accessor noncurrent_version_transitions (): ::Array[NoncurrentVersionTransition]
-      attr_accessor noncurrent_version_expiration (): NoncurrentVersionExpiration
-      attr_accessor abort_incomplete_multipart_upload (): AbortIncompleteMultipartUpload
+      attr_accessor transitions (): ::Array[Types::Transition]
+      attr_accessor noncurrent_version_transitions (): ::Array[Types::NoncurrentVersionTransition]
+      attr_accessor noncurrent_version_expiration (): Types::NoncurrentVersionExpiration
+      attr_accessor abort_incomplete_multipart_upload (): Types::AbortIncompleteMultipartUpload
     end
 
     class LifecycleRuleAndOperator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor object_size_greater_than (): ::Integer
       attr_accessor object_size_less_than (): ::Integer
     end
@@ -1657,7 +1657,7 @@ module AWS::SDK::S3
       end
 
       class Unknown < LifecycleRuleFilter
-        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
         def to_s: () -> String
       end
     end
@@ -1674,7 +1674,7 @@ module AWS::SDK::S3
       attr_accessor is_truncated (): bool
       attr_accessor continuation_token (): ::String
       attr_accessor next_continuation_token (): ::String
-      attr_accessor analytics_configuration_list (): ::Array[AnalyticsConfiguration]
+      attr_accessor analytics_configuration_list (): ::Array[Types::AnalyticsConfiguration]
     end
 
     class ListBucketIntelligentTieringConfigurationsInput < ::Struct[untyped]
@@ -1688,7 +1688,7 @@ module AWS::SDK::S3
       attr_accessor is_truncated (): bool
       attr_accessor continuation_token (): ::String
       attr_accessor next_continuation_token (): ::String
-      attr_accessor intelligent_tiering_configuration_list (): ::Array[IntelligentTieringConfiguration]
+      attr_accessor intelligent_tiering_configuration_list (): ::Array[Types::IntelligentTieringConfiguration]
     end
 
     class ListBucketInventoryConfigurationsInput < ::Struct[untyped]
@@ -1701,7 +1701,7 @@ module AWS::SDK::S3
     class ListBucketInventoryConfigurationsOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor continuation_token (): ::String
-      attr_accessor inventory_configuration_list (): ::Array[InventoryConfiguration]
+      attr_accessor inventory_configuration_list (): ::Array[Types::InventoryConfiguration]
       attr_accessor is_truncated (): bool
       attr_accessor next_continuation_token (): ::String
     end
@@ -1718,7 +1718,7 @@ module AWS::SDK::S3
       attr_accessor is_truncated (): bool
       attr_accessor continuation_token (): ::String
       attr_accessor next_continuation_token (): ::String
-      attr_accessor metrics_configuration_list (): ::Array[MetricsConfiguration]
+      attr_accessor metrics_configuration_list (): ::Array[Types::MetricsConfiguration]
     end
 
     class ListBucketsInput < ::Struct[untyped]
@@ -1727,8 +1727,8 @@ module AWS::SDK::S3
 
     class ListBucketsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor buckets (): ::Array[Bucket]
-      attr_accessor owner (): Owner
+      attr_accessor buckets (): ::Array[Types::Bucket]
+      attr_accessor owner (): Types::Owner
     end
 
     class ListDirectoryBucketsInput < ::Struct[untyped]
@@ -1739,7 +1739,7 @@ module AWS::SDK::S3
 
     class ListDirectoryBucketsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor buckets (): ::Array[Bucket]
+      attr_accessor buckets (): ::Array[Types::Bucket]
       attr_accessor continuation_token (): ::String
     end
 
@@ -1767,8 +1767,8 @@ module AWS::SDK::S3
       attr_accessor next_upload_id_marker (): ::String
       attr_accessor max_uploads (): ::Integer
       attr_accessor is_truncated (): bool
-      attr_accessor uploads (): ::Array[MultipartUpload]
-      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor uploads (): ::Array[Types::MultipartUpload]
+      attr_accessor common_prefixes (): ::Array[Types::CommonPrefix]
       attr_accessor encoding_type (): ::String
       attr_accessor request_charged (): ::String
     end
@@ -1794,13 +1794,13 @@ module AWS::SDK::S3
       attr_accessor version_id_marker (): ::String
       attr_accessor next_key_marker (): ::String
       attr_accessor next_version_id_marker (): ::String
-      attr_accessor versions (): ::Array[ObjectVersion]
-      attr_accessor delete_markers (): ::Array[DeleteMarkerEntry]
+      attr_accessor versions (): ::Array[Types::ObjectVersion]
+      attr_accessor delete_markers (): ::Array[Types::DeleteMarkerEntry]
       attr_accessor name (): ::String
       attr_accessor prefix (): ::String
       attr_accessor delimiter (): ::String
       attr_accessor max_keys (): ::Integer
-      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor common_prefixes (): ::Array[Types::CommonPrefix]
       attr_accessor encoding_type (): ::String
       attr_accessor request_charged (): ::String
     end
@@ -1823,12 +1823,12 @@ module AWS::SDK::S3
       attr_accessor is_truncated (): bool
       attr_accessor marker (): ::String
       attr_accessor next_marker (): ::String
-      attr_accessor contents (): ::Array[Object]
+      attr_accessor contents (): ::Array[Types::Object]
       attr_accessor name (): ::String
       attr_accessor prefix (): ::String
       attr_accessor delimiter (): ::String
       attr_accessor max_keys (): ::Integer
-      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor common_prefixes (): ::Array[Types::CommonPrefix]
       attr_accessor encoding_type (): ::String
       attr_accessor request_charged (): ::String
     end
@@ -1851,12 +1851,12 @@ module AWS::SDK::S3
     class ListObjectsV2Output < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor is_truncated (): bool
-      attr_accessor contents (): ::Array[Object]
+      attr_accessor contents (): ::Array[Types::Object]
       attr_accessor name (): ::String
       attr_accessor prefix (): ::String
       attr_accessor delimiter (): ::String
       attr_accessor max_keys (): ::Integer
-      attr_accessor common_prefixes (): ::Array[CommonPrefix]
+      attr_accessor common_prefixes (): ::Array[Types::CommonPrefix]
       attr_accessor encoding_type (): ::String
       attr_accessor key_count (): ::Integer
       attr_accessor continuation_token (): ::String
@@ -1890,9 +1890,9 @@ module AWS::SDK::S3
       attr_accessor next_part_number_marker (): ::String
       attr_accessor max_parts (): ::Integer
       attr_accessor is_truncated (): bool
-      attr_accessor parts (): ::Array[Part]
-      attr_accessor initiator (): Initiator
-      attr_accessor owner (): Owner
+      attr_accessor parts (): ::Array[Types::Part]
+      attr_accessor initiator (): Types::Initiator
+      attr_accessor owner (): Types::Owner
       attr_accessor storage_class (): ::String
       attr_accessor request_charged (): ::String
       attr_accessor checksum_algorithm (): ::String
@@ -1911,9 +1911,9 @@ module AWS::SDK::S3
     class LoggingEnabled < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor target_bucket (): ::String
-      attr_accessor target_grants (): ::Array[TargetGrant]
+      attr_accessor target_grants (): ::Array[Types::TargetGrant]
       attr_accessor target_prefix (): ::String
-      attr_accessor target_object_key_format (): TargetObjectKeyFormat
+      attr_accessor target_object_key_format (): Types::TargetObjectKeyFormat
     end
 
     module MFADelete
@@ -1943,20 +1943,20 @@ module AWS::SDK::S3
     class Metrics < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor status (): ::String
-      attr_accessor event_threshold (): ReplicationTimeValue
+      attr_accessor event_threshold (): Types::ReplicationTimeValue
     end
 
     class MetricsAndOperator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor access_point_arn (): ::String
     end
 
     class MetricsConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor filter (): MetricsFilter
+      attr_accessor filter (): Types::MetricsFilter
     end
 
     class MetricsFilter < Hearth::Union
@@ -1981,7 +1981,7 @@ module AWS::SDK::S3
       end
 
       class Unknown < MetricsFilter
-        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
         def to_s: () -> String
       end
     end
@@ -1998,8 +1998,8 @@ module AWS::SDK::S3
       attr_accessor key (): ::String
       attr_accessor initiated (): ::Time
       attr_accessor storage_class (): ::String
-      attr_accessor owner (): Owner
-      attr_accessor initiator (): Initiator
+      attr_accessor owner (): Types::Owner
+      attr_accessor initiator (): Types::Initiator
       attr_accessor checksum_algorithm (): ::String
     end
 
@@ -2034,15 +2034,15 @@ module AWS::SDK::S3
 
     class NotificationConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor topic_configurations (): ::Array[TopicConfiguration]
-      attr_accessor queue_configurations (): ::Array[QueueConfiguration]
-      attr_accessor lambda_function_configurations (): ::Array[LambdaFunctionConfiguration]
-      attr_accessor event_bridge_configuration (): EventBridgeConfiguration
+      attr_accessor topic_configurations (): ::Array[Types::TopicConfiguration]
+      attr_accessor queue_configurations (): ::Array[Types::QueueConfiguration]
+      attr_accessor lambda_function_configurations (): ::Array[Types::LambdaFunctionConfiguration]
+      attr_accessor event_bridge_configuration (): Types::EventBridgeConfiguration
     end
 
     class NotificationConfigurationFilter < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor key (): S3KeyFilter
+      attr_accessor key (): Types::S3KeyFilter
     end
 
     class Object < ::Struct[untyped]
@@ -2053,8 +2053,8 @@ module AWS::SDK::S3
       attr_accessor checksum_algorithm (): ::Array[::String]
       attr_accessor size (): ::Integer
       attr_accessor storage_class (): ::String
-      attr_accessor owner (): Owner
-      attr_accessor restore_status (): RestoreStatus
+      attr_accessor owner (): Types::Owner
+      attr_accessor restore_status (): Types::RestoreStatus
     end
 
     class ObjectAlreadyInActiveTierError < ::Struct[untyped]
@@ -2098,7 +2098,7 @@ module AWS::SDK::S3
     class ObjectLockConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor object_lock_enabled (): ::String
-      attr_accessor rule (): ObjectLockRule
+      attr_accessor rule (): Types::ObjectLockRule
     end
 
     module ObjectLockEnabled
@@ -2136,7 +2136,7 @@ module AWS::SDK::S3
 
     class ObjectLockRule < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor default_retention (): DefaultRetention
+      attr_accessor default_retention (): Types::DefaultRetention
     end
 
     class ObjectNotInActiveTierError < ::Struct[untyped]
@@ -2195,8 +2195,8 @@ module AWS::SDK::S3
       attr_accessor version_id (): ::String
       attr_accessor is_latest (): bool
       attr_accessor last_modified (): ::Time
-      attr_accessor owner (): Owner
-      attr_accessor restore_status (): RestoreStatus
+      attr_accessor owner (): Types::Owner
+      attr_accessor restore_status (): Types::RestoreStatus
     end
 
     module ObjectVersionStorageClass
@@ -2209,13 +2209,13 @@ module AWS::SDK::S3
 
     class OutputLocation < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor s3 (): S3Location
+      attr_accessor s3 (): Types::S3Location
     end
 
     class OutputSerialization < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor csv (): CSVOutput
-      attr_accessor json (): JSONOutput
+      attr_accessor csv (): Types::CSVOutput
+      attr_accessor json (): Types::JSONOutput
     end
 
     class Owner < ::Struct[untyped]
@@ -2230,7 +2230,7 @@ module AWS::SDK::S3
 
     class OwnershipControls < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor rules (): ::Array[OwnershipControlsRule]
+      attr_accessor rules (): ::Array[Types::OwnershipControlsRule]
     end
 
     class OwnershipControlsRule < ::Struct[untyped]
@@ -2297,7 +2297,7 @@ module AWS::SDK::S3
 
     class ProgressEvent < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor details (): Progress
+      attr_accessor details (): Types::Progress
     end
 
     module Protocol
@@ -2317,7 +2317,7 @@ module AWS::SDK::S3
     class PutBucketAccelerateConfigurationInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor accelerate_configuration (): AccelerateConfiguration
+      attr_accessor accelerate_configuration (): Types::AccelerateConfiguration
       attr_accessor expected_bucket_owner (): ::String
       attr_accessor checksum_algorithm (): ::String
     end
@@ -2329,7 +2329,7 @@ module AWS::SDK::S3
     class PutBucketAclInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor acl (): ::String
-      attr_accessor access_control_policy (): AccessControlPolicy
+      attr_accessor access_control_policy (): Types::AccessControlPolicy
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
@@ -2349,7 +2349,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor id (): ::String
-      attr_accessor analytics_configuration (): AnalyticsConfiguration
+      attr_accessor analytics_configuration (): Types::AnalyticsConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2360,7 +2360,7 @@ module AWS::SDK::S3
     class PutBucketCorsInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor cors_configuration (): CORSConfiguration
+      attr_accessor cors_configuration (): Types::CORSConfiguration
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
       attr_accessor expected_bucket_owner (): ::String
@@ -2375,7 +2375,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor server_side_encryption_configuration (): ServerSideEncryptionConfiguration
+      attr_accessor server_side_encryption_configuration (): Types::ServerSideEncryptionConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2387,7 +2387,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor id (): ::String
-      attr_accessor intelligent_tiering_configuration (): IntelligentTieringConfiguration
+      attr_accessor intelligent_tiering_configuration (): Types::IntelligentTieringConfiguration
     end
 
     class PutBucketIntelligentTieringConfigurationOutput < ::Struct[untyped]
@@ -2398,7 +2398,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor id (): ::String
-      attr_accessor inventory_configuration (): InventoryConfiguration
+      attr_accessor inventory_configuration (): Types::InventoryConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2410,7 +2410,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor lifecycle_configuration (): BucketLifecycleConfiguration
+      attr_accessor lifecycle_configuration (): Types::BucketLifecycleConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2421,7 +2421,7 @@ module AWS::SDK::S3
     class PutBucketLoggingInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor bucket_logging_status (): BucketLoggingStatus
+      attr_accessor bucket_logging_status (): Types::BucketLoggingStatus
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
       attr_accessor expected_bucket_owner (): ::String
@@ -2435,7 +2435,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor id (): ::String
-      attr_accessor metrics_configuration (): MetricsConfiguration
+      attr_accessor metrics_configuration (): Types::MetricsConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2446,7 +2446,7 @@ module AWS::SDK::S3
     class PutBucketNotificationConfigurationInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor notification_configuration (): NotificationConfiguration
+      attr_accessor notification_configuration (): Types::NotificationConfiguration
       attr_accessor expected_bucket_owner (): ::String
       attr_accessor skip_destination_validation (): bool
     end
@@ -2460,7 +2460,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor expected_bucket_owner (): ::String
-      attr_accessor ownership_controls (): OwnershipControls
+      attr_accessor ownership_controls (): Types::OwnershipControls
     end
 
     class PutBucketOwnershipControlsOutput < ::Struct[untyped]
@@ -2486,7 +2486,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor replication_configuration (): ReplicationConfiguration
+      attr_accessor replication_configuration (): Types::ReplicationConfiguration
       attr_accessor token (): ::String
       attr_accessor expected_bucket_owner (): ::String
     end
@@ -2500,7 +2500,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor request_payment_configuration (): RequestPaymentConfiguration
+      attr_accessor request_payment_configuration (): Types::RequestPaymentConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2513,7 +2513,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor tagging (): Tagging
+      attr_accessor tagging (): Types::Tagging
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2527,7 +2527,7 @@ module AWS::SDK::S3
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
       attr_accessor mfa (): ::String
-      attr_accessor versioning_configuration (): VersioningConfiguration
+      attr_accessor versioning_configuration (): Types::VersioningConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2540,7 +2540,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor website_configuration (): WebsiteConfiguration
+      attr_accessor website_configuration (): Types::WebsiteConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2551,7 +2551,7 @@ module AWS::SDK::S3
     class PutObjectAclInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor acl (): ::String
-      attr_accessor access_control_policy (): AccessControlPolicy
+      attr_accessor access_control_policy (): Types::AccessControlPolicy
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
@@ -2616,7 +2616,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor key (): ::String
-      attr_accessor legal_hold (): ObjectLockLegalHold
+      attr_accessor legal_hold (): Types::ObjectLockLegalHold
       attr_accessor request_payer (): ::String
       attr_accessor version_id (): ::String
       attr_accessor content_md5 (): ::String
@@ -2632,7 +2632,7 @@ module AWS::SDK::S3
     class PutObjectLockConfigurationInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket (): ::String
-      attr_accessor object_lock_configuration (): ObjectLockConfiguration
+      attr_accessor object_lock_configuration (): Types::ObjectLockConfiguration
       attr_accessor request_payer (): ::String
       attr_accessor token (): ::String
       attr_accessor content_md5 (): ::String
@@ -2667,7 +2667,7 @@ module AWS::SDK::S3
       include Hearth::Structure
       attr_accessor bucket (): ::String
       attr_accessor key (): ::String
-      attr_accessor retention (): ObjectLockRetention
+      attr_accessor retention (): Types::ObjectLockRetention
       attr_accessor request_payer (): ::String
       attr_accessor version_id (): ::String
       attr_accessor bypass_governance_retention (): bool
@@ -2688,7 +2688,7 @@ module AWS::SDK::S3
       attr_accessor version_id (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor tagging (): Tagging
+      attr_accessor tagging (): Types::Tagging
       attr_accessor expected_bucket_owner (): ::String
       attr_accessor request_payer (): ::String
     end
@@ -2703,7 +2703,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor content_md5 (): ::String
       attr_accessor checksum_algorithm (): ::String
-      attr_accessor public_access_block_configuration (): PublicAccessBlockConfiguration
+      attr_accessor public_access_block_configuration (): Types::PublicAccessBlockConfiguration
       attr_accessor expected_bucket_owner (): ::String
     end
 
@@ -2716,7 +2716,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor queue_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): NotificationConfigurationFilter
+      attr_accessor filter (): Types::NotificationConfigurationFilter
     end
 
     module QuoteFields
@@ -2759,7 +2759,7 @@ module AWS::SDK::S3
     class ReplicationConfiguration < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor role (): ::String
-      attr_accessor rules (): ::Array[ReplicationRule]
+      attr_accessor rules (): ::Array[Types::ReplicationRule]
     end
 
     class ReplicationRule < ::Struct[untyped]
@@ -2767,18 +2767,18 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor priority (): ::Integer
       attr_accessor prefix (): ::String
-      attr_accessor filter (): ReplicationRuleFilter
+      attr_accessor filter (): Types::ReplicationRuleFilter
       attr_accessor status (): ::String
-      attr_accessor source_selection_criteria (): SourceSelectionCriteria
-      attr_accessor existing_object_replication (): ExistingObjectReplication
-      attr_accessor destination (): Destination
-      attr_accessor delete_marker_replication (): DeleteMarkerReplication
+      attr_accessor source_selection_criteria (): Types::SourceSelectionCriteria
+      attr_accessor existing_object_replication (): Types::ExistingObjectReplication
+      attr_accessor destination (): Types::Destination
+      attr_accessor delete_marker_replication (): Types::DeleteMarkerReplication
     end
 
     class ReplicationRuleAndOperator < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor prefix (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class ReplicationRuleFilter < Hearth::Union
@@ -2798,7 +2798,7 @@ module AWS::SDK::S3
       end
 
       class Unknown < ReplicationRuleFilter
-        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
         def to_s: () -> String
       end
     end
@@ -2824,7 +2824,7 @@ module AWS::SDK::S3
     class ReplicationTime < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor status (): ::String
-      attr_accessor time (): ReplicationTimeValue
+      attr_accessor time (): Types::ReplicationTimeValue
     end
 
     module ReplicationTimeStatus
@@ -2861,7 +2861,7 @@ module AWS::SDK::S3
       attr_accessor bucket (): ::String
       attr_accessor key (): ::String
       attr_accessor version_id (): ::String
-      attr_accessor restore_request (): RestoreRequest
+      attr_accessor restore_request (): Types::RestoreRequest
       attr_accessor request_payer (): ::String
       attr_accessor checksum_algorithm (): ::String
       attr_accessor expected_bucket_owner (): ::String
@@ -2876,12 +2876,12 @@ module AWS::SDK::S3
     class RestoreRequest < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor days (): ::Integer
-      attr_accessor glacier_job_parameters (): GlacierJobParameters
+      attr_accessor glacier_job_parameters (): Types::GlacierJobParameters
       attr_accessor type (): ::String
       attr_accessor tier (): ::String
       attr_accessor description (): ::String
-      attr_accessor select_parameters (): SelectParameters
-      attr_accessor output_location (): OutputLocation
+      attr_accessor select_parameters (): Types::SelectParameters
+      attr_accessor output_location (): Types::OutputLocation
     end
 
     module RestoreRequestType
@@ -2896,24 +2896,24 @@ module AWS::SDK::S3
 
     class RoutingRule < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor condition (): Condition
-      attr_accessor redirect (): Redirect
+      attr_accessor condition (): Types::Condition
+      attr_accessor redirect (): Types::Redirect
     end
 
     class S3KeyFilter < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor filter_rules (): ::Array[FilterRule]
+      attr_accessor filter_rules (): ::Array[Types::FilterRule]
     end
 
     class S3Location < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor bucket_name (): ::String
       attr_accessor prefix (): ::String
-      attr_accessor encryption (): Encryption
+      attr_accessor encryption (): Types::Encryption
       attr_accessor canned_acl (): ::String
-      attr_accessor access_control_list (): ::Array[Grant]
-      attr_accessor tagging (): Tagging
-      attr_accessor user_metadata (): ::Array[MetadataEntry]
+      attr_accessor access_control_list (): ::Array[Types::Grant]
+      attr_accessor tagging (): Types::Tagging
+      attr_accessor user_metadata (): ::Array[Types::MetadataEntry]
       attr_accessor storage_class (): ::String
     end
 
@@ -2959,7 +2959,7 @@ module AWS::SDK::S3
       end
 
       class Unknown < SelectObjectContentEventStream
-        def to_h: () -> { unknown: { name: String, value: untyped } }
+        def to_h: () -> { unknown: { name: ::String, value: untyped } }
         def to_s: () -> String
       end
     end
@@ -2973,24 +2973,24 @@ module AWS::SDK::S3
       attr_accessor sse_customer_key_md5 (): ::String
       attr_accessor expression (): ::String
       attr_accessor expression_type (): ::String
-      attr_accessor request_progress (): RequestProgress
-      attr_accessor input_serialization (): InputSerialization
-      attr_accessor output_serialization (): OutputSerialization
-      attr_accessor scan_range (): ScanRange
+      attr_accessor request_progress (): Types::RequestProgress
+      attr_accessor input_serialization (): Types::InputSerialization
+      attr_accessor output_serialization (): Types::OutputSerialization
+      attr_accessor scan_range (): Types::ScanRange
       attr_accessor expected_bucket_owner (): ::String
     end
 
     class SelectObjectContentOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor payload (): SelectObjectContentEventStream
+      attr_accessor payload (): Types::SelectObjectContentEventStream
     end
 
     class SelectParameters < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor input_serialization (): InputSerialization
+      attr_accessor input_serialization (): Types::InputSerialization
       attr_accessor expression_type (): ::String
       attr_accessor expression (): ::String
-      attr_accessor output_serialization (): OutputSerialization
+      attr_accessor output_serialization (): Types::OutputSerialization
     end
 
     module ServerSideEncryption
@@ -3009,12 +3009,12 @@ module AWS::SDK::S3
 
     class ServerSideEncryptionConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor rules (): ::Array[ServerSideEncryptionRule]
+      attr_accessor rules (): ::Array[Types::ServerSideEncryptionRule]
     end
 
     class ServerSideEncryptionRule < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor apply_server_side_encryption_by_default (): ServerSideEncryptionByDefault
+      attr_accessor apply_server_side_encryption_by_default (): Types::ServerSideEncryptionByDefault
       attr_accessor bucket_key_enabled (): bool
     end
 
@@ -3038,8 +3038,8 @@ module AWS::SDK::S3
 
     class SourceSelectionCriteria < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor sse_kms_encrypted_objects (): SseKmsEncryptedObjects
-      attr_accessor replica_modifications (): ReplicaModifications
+      attr_accessor sse_kms_encrypted_objects (): Types::SseKmsEncryptedObjects
+      attr_accessor replica_modifications (): Types::ReplicaModifications
     end
 
     class SseKmsEncryptedObjects < ::Struct[untyped]
@@ -3062,7 +3062,7 @@ module AWS::SDK::S3
 
     class StatsEvent < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor details (): Stats
+      attr_accessor details (): Types::Stats
     end
 
     module StorageClass
@@ -3091,13 +3091,13 @@ module AWS::SDK::S3
 
     class StorageClassAnalysis < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor data_export (): StorageClassAnalysisDataExport
+      attr_accessor data_export (): Types::StorageClassAnalysisDataExport
     end
 
     class StorageClassAnalysisDataExport < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor output_schema_version (): ::String
-      attr_accessor destination (): AnalyticsExportDestination
+      attr_accessor destination (): Types::AnalyticsExportDestination
     end
 
     module StorageClassAnalysisSchemaVersion
@@ -3112,7 +3112,7 @@ module AWS::SDK::S3
 
     class Tagging < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor tag_set (): ::Array[Tag]
+      attr_accessor tag_set (): ::Array[Types::Tag]
     end
 
     module TaggingDirective
@@ -3123,14 +3123,14 @@ module AWS::SDK::S3
 
     class TargetGrant < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor grantee (): Grantee
+      attr_accessor grantee (): Types::Grantee
       attr_accessor permission (): ::String
     end
 
     class TargetObjectKeyFormat < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor simple_prefix (): SimplePrefix
-      attr_accessor partitioned_prefix (): PartitionedPrefix
+      attr_accessor simple_prefix (): Types::SimplePrefix
+      attr_accessor partitioned_prefix (): Types::PartitionedPrefix
     end
 
     module Tier
@@ -3152,7 +3152,7 @@ module AWS::SDK::S3
       attr_accessor id (): ::String
       attr_accessor topic_arn (): ::String
       attr_accessor events (): ::Array[::String]
-      attr_accessor filter (): NotificationConfigurationFilter
+      attr_accessor filter (): Types::NotificationConfigurationFilter
     end
 
     class Transition < ::Struct[untyped]
@@ -3210,7 +3210,7 @@ module AWS::SDK::S3
     class UploadPartCopyOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor copy_source_version_id (): ::String
-      attr_accessor copy_part_result (): CopyPartResult
+      attr_accessor copy_part_result (): Types::CopyPartResult
       attr_accessor server_side_encryption (): ::String
       attr_accessor sse_customer_algorithm (): ::String
       attr_accessor sse_customer_key_md5 (): ::String
@@ -3263,10 +3263,10 @@ module AWS::SDK::S3
 
     class WebsiteConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor error_document (): ErrorDocument
-      attr_accessor index_document (): IndexDocument
-      attr_accessor redirect_all_requests_to (): RedirectAllRequestsTo
-      attr_accessor routing_rules (): ::Array[RoutingRule]
+      attr_accessor error_document (): Types::ErrorDocument
+      attr_accessor index_document (): Types::IndexDocument
+      attr_accessor redirect_all_requests_to (): Types::RedirectAllRequestsTo
+      attr_accessor routing_rules (): ::Array[Types::RoutingRule]
     end
 
     class WriteGetObjectResponseInput < ::Struct[untyped]

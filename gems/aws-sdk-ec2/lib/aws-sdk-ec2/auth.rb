@@ -17,9 +17,9 @@ module AWS::SDK::EC2
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :accept_address_transfer
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :accept_reserved_instances_exchange_quote
@@ -1250,7 +1250,9 @@ module AWS::SDK::EC2
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :withdraw_byoip_cidr
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

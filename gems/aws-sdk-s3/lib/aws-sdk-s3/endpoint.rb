@@ -44,7 +44,7 @@ module AWS::SDK::S3
     end
 
     class Provider
-      def resolve_endpoint(params)
+      def resolve(params)
         bucket = params.bucket
         region = params.region
         use_fips = params.use_fips
@@ -62,32 +62,32 @@ module AWS::SDK::S3
         use_s3_express_control_endpoint = params.use_s3_express_control_endpoint
         disable_s3_express_session_auth = params.disable_s3_express_session_auth
 
-        if (region != nil)
-          if (accelerate == true) && (use_fips == true)
+        if region != nil
+          if accelerate == true && use_fips == true
             raise ArgumentError, "Accelerate cannot be used with FIPS"
           end
-          if (use_dual_stack == true) && (endpoint != nil)
+          if use_dual_stack == true && endpoint != nil
             raise ArgumentError, "Cannot set dual-stack in combination with a custom endpoint."
           end
-          if (endpoint != nil) && (use_fips == true)
+          if endpoint != nil && use_fips == true
             raise ArgumentError, "A custom endpoint cannot be combined with FIPS"
           end
-          if (endpoint != nil) && (accelerate == true)
+          if endpoint != nil && accelerate == true
             raise ArgumentError, "A custom endpoint cannot be combined with S3 Accelerate"
           end
-          if (use_fips == true) && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && (partition_result['name'] == "aws-cn")
+          if use_fips == true && (partition_result = AWS::SDK::Core::EndpointRules.partition(region)) && partition_result['name'] == "aws-cn"
             raise ArgumentError, "Partition does not support FIPS"
           end
-          if (bucket != nil) && (bucket_suffix = Hearth::EndpointRules::substring(bucket, 0, 6, true)) && (bucket_suffix == "--x-s3")
-            if (use_dual_stack == true)
+          if bucket != nil && (bucket_suffix = Hearth::EndpointRules::substring(bucket, 0, 6, true)) && bucket_suffix == "--x-s3"
+            if use_dual_stack == true
               raise ArgumentError, "S3Express does not support Dual-stack."
             end
-            if (accelerate == true)
+            if accelerate == true
               raise ArgumentError, "S3Express does not support S3 Accelerate."
             end
-            if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
-              if (disable_s3_express_session_auth != nil) && (disable_s3_express_session_auth == true)
-                if (url['isIp'] == true)
+            if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
+              if disable_s3_express_session_auth != nil && disable_s3_express_session_auth == true
+                if url['isIp'] == true
                   if (uri_encoded_bucket = Hearth::EndpointRules::uri_encode(bucket))
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}/#{uri_encoded_bucket}#{url['path']}",
@@ -96,7 +96,7 @@ module AWS::SDK::S3
                     )
                   end
                 end
-                if (AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false))
+                if AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false)
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                     headers: {},
@@ -105,7 +105,7 @@ module AWS::SDK::S3
                 end
                 raise ArgumentError, "S3Express bucket name is not a valid virtual hostable name."
               end
-              if (url['isIp'] == true)
+              if url['isIp'] == true
                 if (uri_encoded_bucket = Hearth::EndpointRules::uri_encode(bucket))
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{url['authority']}/#{uri_encoded_bucket}#{url['path']}",
@@ -114,7 +114,7 @@ module AWS::SDK::S3
                   )
                 end
               end
-              if (AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false))
+              if AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false)
                 return Hearth::EndpointRules::Endpoint.new(
                   uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                   headers: {},
@@ -123,9 +123,9 @@ module AWS::SDK::S3
               end
               raise ArgumentError, "S3Express bucket name is not a valid virtual hostable name."
             end
-            if (use_s3_express_control_endpoint != nil) && (use_s3_express_control_endpoint == true)
-              if (uri_encoded_bucket = Hearth::EndpointRules::uri_encode(bucket)) && (endpoint.nil?)
-                if (use_fips == true)
+            if use_s3_express_control_endpoint != nil && use_s3_express_control_endpoint == true
+              if (uri_encoded_bucket = Hearth::EndpointRules::uri_encode(bucket)) && endpoint.nil?
+                if use_fips == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3express-control-fips.#{region}.amazonaws.com/#{uri_encoded_bucket}",
                     headers: {},
@@ -139,10 +139,10 @@ module AWS::SDK::S3
                 )
               end
             end
-            if (AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false))
-              if (disable_s3_express_session_auth != nil) && (disable_s3_express_session_auth == true)
-                if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 14, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 14, 16, true)) && (s3express_availability_zone_delim == "--")
-                  if (use_fips == true)
+            if AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false)
+              if disable_s3_express_session_auth != nil && disable_s3_express_session_auth == true
+                if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 14, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 14, 16, true)) && s3express_availability_zone_delim == "--"
+                  if use_fips == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3express-fips-#{s3express_availability_zone_id}.#{region}.amazonaws.com",
                       headers: {},
@@ -155,8 +155,8 @@ module AWS::SDK::S3
                     auth_schemes: []
                   )
                 end
-                if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 15, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 15, 17, true)) && (s3express_availability_zone_delim == "--")
-                  if (use_fips == true)
+                if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 15, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 15, 17, true)) && s3express_availability_zone_delim == "--"
+                  if use_fips == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3express-fips-#{s3express_availability_zone_id}.#{region}.amazonaws.com",
                       headers: {},
@@ -171,8 +171,8 @@ module AWS::SDK::S3
                 end
                 raise ArgumentError, "Unrecognized S3Express bucket name format."
               end
-              if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 14, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 14, 16, true)) && (s3express_availability_zone_delim == "--")
-                if (use_fips == true)
+              if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 14, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 14, 16, true)) && s3express_availability_zone_delim == "--"
+                if use_fips == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://#{bucket}.s3express-fips-#{s3express_availability_zone_id}.#{region}.amazonaws.com",
                     headers: {},
@@ -185,8 +185,8 @@ module AWS::SDK::S3
                   auth_schemes: []
                 )
               end
-              if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 15, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 15, 17, true)) && (s3express_availability_zone_delim == "--")
-                if (use_fips == true)
+              if (s3express_availability_zone_id = Hearth::EndpointRules::substring(bucket, 6, 15, true)) && (s3express_availability_zone_delim = Hearth::EndpointRules::substring(bucket, 15, 17, true)) && s3express_availability_zone_delim == "--"
+                if use_fips == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://#{bucket}.s3express-fips-#{s3express_availability_zone_id}.#{region}.amazonaws.com",
                     headers: {},
@@ -203,15 +203,15 @@ module AWS::SDK::S3
             end
             raise ArgumentError, "S3Express bucket name is not a valid virtual hostable name."
           end
-          if (bucket.nil?) && (use_s3_express_control_endpoint != nil) && (use_s3_express_control_endpoint == true)
-            if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+          if bucket.nil? && use_s3_express_control_endpoint != nil && use_s3_express_control_endpoint == true
+            if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
               return Hearth::EndpointRules::Endpoint.new(
                 uri: "#{url['scheme']}://#{url['authority']}#{url['path']}",
                 headers: {},
                 auth_schemes: []
               )
             end
-            if (use_fips == true)
+            if use_fips == true
               return Hearth::EndpointRules::Endpoint.new(
                 uri: "https://s3express-control-fips.#{region}.amazonaws.com",
                 headers: {},
@@ -224,14 +224,14 @@ module AWS::SDK::S3
               auth_schemes: []
             )
           end
-          if (bucket != nil) && (hardware_type = Hearth::EndpointRules::substring(bucket, 49, 50, true)) && (region_prefix = Hearth::EndpointRules::substring(bucket, 8, 12, true)) && (bucket_alias_suffix = Hearth::EndpointRules::substring(bucket, 0, 7, true)) && (outpost_id = Hearth::EndpointRules::substring(bucket, 32, 49, true)) && (region_partition = AWS::SDK::Core::EndpointRules.partition(region)) && (bucket_alias_suffix == "--op-s3")
-            if (Hearth::EndpointRules::valid_host_label?(outpost_id, false))
-              if (hardware_type == "e")
-                if (region_prefix == "beta")
-                  if (endpoint.nil?)
+          if bucket != nil && (hardware_type = Hearth::EndpointRules::substring(bucket, 49, 50, true)) && (region_prefix = Hearth::EndpointRules::substring(bucket, 8, 12, true)) && (bucket_alias_suffix = Hearth::EndpointRules::substring(bucket, 0, 7, true)) && (outpost_id = Hearth::EndpointRules::substring(bucket, 32, 49, true)) && (region_partition = AWS::SDK::Core::EndpointRules.partition(region)) && bucket_alias_suffix == "--op-s3"
+            if Hearth::EndpointRules::valid_host_label?(outpost_id, false)
+              if hardware_type == "e"
+                if region_prefix == "beta"
+                  if endpoint.nil?
                     raise ArgumentError, "Expected a endpoint to be specified but no endpoint was found"
                   end
-                  if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                  if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.ec2.#{url['authority']}",
                       headers: {},
@@ -245,12 +245,12 @@ module AWS::SDK::S3
                   auth_schemes: []
                 )
               end
-              if (hardware_type == "o")
-                if (region_prefix == "beta")
-                  if (endpoint.nil?)
+              if hardware_type == "o"
+                if region_prefix == "beta"
+                  if endpoint.nil?
                     raise ArgumentError, "Expected a endpoint to be specified but no endpoint was found"
                   end
-                  if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                  if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.op-#{outpost_id}.#{url['authority']}",
                       headers: {},
@@ -268,116 +268,116 @@ module AWS::SDK::S3
             end
             raise ArgumentError, "Invalid ARN: The outpost Id must only contain a-z, A-Z, 0-9 and `-`."
           end
-          if (bucket != nil)
-            if (endpoint != nil) && (Hearth::EndpointRules::parse_url(endpoint).nil?)
+          if bucket != nil
+            if endpoint != nil && Hearth::EndpointRules::parse_url(endpoint).nil?
               raise ArgumentError, "Custom endpoint `#{endpoint}` was not a valid URI"
             end
-            if (force_path_style == false) && (AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false))
+            if force_path_style == false && AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, false)
               if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                if (Hearth::EndpointRules::valid_host_label?(region, false))
-                  if (accelerate == true) && (partition_result['name'] == "aws-cn")
+                if Hearth::EndpointRules::valid_host_label?(region, false)
+                  if accelerate == true && partition_result['name'] == "aws-cn"
                     raise ArgumentError, "S3 Accelerate cannot be used in this region"
                   end
-                  if (use_dual_stack == true) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == true && use_fips == true && accelerate == false && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.dualstack.us-east-1.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == true && use_fips == true && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == true && use_fips == true && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == false && use_fips == true && accelerate == false && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.us-east-1.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == false && use_fips == true && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == true) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && use_fips == true && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-fips.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == true && use_fips == false && accelerate == true && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-accelerate.dualstack.us-east-1.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == true && use_fips == false && accelerate == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-accelerate.dualstack.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == true && use_fips == false && accelerate == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-accelerate.dualstack.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == true && use_fips == false && accelerate == false && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3.dualstack.us-east-1.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == true && use_fips == false && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == true && use_fips == false && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == true) && (region == "aws-global")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == true && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == false) && (region == "aws-global")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == false && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == true) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == true && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{bucket}",
                         headers: {},
@@ -390,8 +390,8 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == false) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == false && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                         headers: {},
@@ -404,29 +404,29 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == true) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == true && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['isIp'] == false) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['isIp'] == false && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == false && use_fips == false && accelerate == true && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-accelerate.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && use_fips == false && accelerate == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "https://#{bucket}.s3-accelerate.#{partition_result['dnsSuffix']}",
                         headers: {},
@@ -439,22 +439,22 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && use_fips == false && accelerate == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3-accelerate.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region == "aws-global")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint.nil? && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3.#{partition_result['dnsSuffix']}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "https://#{bucket}.s3.#{partition_result['dnsSuffix']}",
                         headers: {},
@@ -467,7 +467,7 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (use_fips == false) && (accelerate == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && use_fips == false && accelerate == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://#{bucket}.s3.#{region}.#{partition_result['dnsSuffix']}",
                       headers: {},
@@ -478,9 +478,9 @@ module AWS::SDK::S3
                 raise ArgumentError, "Invalid region: region was not a valid DNS name."
               end
             end
-            if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (url['scheme'] == "http") && (AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, true)) && (force_path_style == false) && (use_fips == false) && (use_dual_stack == false) && (accelerate == false)
+            if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && url['scheme'] == "http" && AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?(bucket, true) && force_path_style == false && use_fips == false && use_dual_stack == false && accelerate == false
               if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                if (Hearth::EndpointRules::valid_host_label?(region, false))
+                if Hearth::EndpointRules::valid_host_label?(region, false)
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{bucket}.#{url['authority']}#{url['path']}",
                     headers: {},
@@ -490,42 +490,42 @@ module AWS::SDK::S3
                 raise ArgumentError, "Invalid region: region was not a valid DNS name."
               end
             end
-            if (force_path_style == false) && (bucket_arn = AWS::SDK::Core::EndpointRules.parse_arn(bucket))
-              if (arn_type = bucket_arn['resourceId'][0]) && (arn_type != "")
-                if (bucket_arn['service'] == "s3-object-lambda")
-                  if (arn_type == "accesspoint")
-                    if (access_point_name = bucket_arn['resourceId'][1]) && (access_point_name != "")
-                      if (use_dual_stack == true)
+            if force_path_style == false && (bucket_arn = AWS::SDK::Core::EndpointRules.parse_arn(bucket))
+              if (arn_type = bucket_arn['resourceId'][0]) && arn_type != ""
+                if bucket_arn['service'] == "s3-object-lambda"
+                  if arn_type == "accesspoint"
+                    if (access_point_name = bucket_arn['resourceId'][1]) && access_point_name != ""
+                      if use_dual_stack == true
                         raise ArgumentError, "S3 Object Lambda does not support Dual-stack"
                       end
-                      if (accelerate == true)
+                      if accelerate == true
                         raise ArgumentError, "S3 Object Lambda does not support S3 Accelerate"
                       end
-                      if (bucket_arn['region'] != "")
-                        if (disable_access_points != nil) && (disable_access_points == true)
+                      if bucket_arn['region'] != ""
+                        if disable_access_points != nil && disable_access_points == true
                           raise ArgumentError, "Access points are not supported for this operation"
                         end
-                        if (bucket_arn['resourceId'][2].nil?)
-                          if (use_arn_region != nil) && (use_arn_region == false) && (bucket_arn['region'] != region)
+                        if bucket_arn['resourceId'][2].nil?
+                          if use_arn_region != nil && use_arn_region == false && bucket_arn['region'] != region
                             raise ArgumentError, "Invalid configuration: region from ARN `#{bucket_arn['region']}` does not match client region `#{region}` and UseArnRegion is `false`"
                           end
                           if (bucket_partition = AWS::SDK::Core::EndpointRules.partition(bucket_arn['region']))
                             if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                              if (bucket_partition['name'] == partition_result['name'])
-                                if (Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true))
-                                  if (bucket_arn['accountId'] == "")
+                              if bucket_partition['name'] == partition_result['name']
+                                if Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true)
+                                  if bucket_arn['accountId'] == ""
                                     raise ArgumentError, "Invalid ARN: Missing account id"
                                   end
-                                  if (Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false))
-                                    if (Hearth::EndpointRules::valid_host_label?(access_point_name, false))
-                                      if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                                  if Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false)
+                                    if Hearth::EndpointRules::valid_host_label?(access_point_name, false)
+                                      if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                                         return Hearth::EndpointRules::Endpoint.new(
                                           uri: "#{url['scheme']}://#{access_point_name}-#{bucket_arn['accountId']}.#{url['authority']}#{url['path']}",
                                           headers: {},
                                           auth_schemes: []
                                         )
                                       end
-                                      if (use_fips == true)
+                                      if use_fips == true
                                         return Hearth::EndpointRules::Endpoint.new(
                                           uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.s3-object-lambda-fips.#{bucket_arn['region']}.#{bucket_partition['dnsSuffix']}",
                                           headers: {},
@@ -556,57 +556,57 @@ module AWS::SDK::S3
                   end
                   raise ArgumentError, "Invalid ARN: Object Lambda ARNs only support `accesspoint` arn types, but found: `#{arn_type}`"
                 end
-                if (arn_type == "accesspoint")
-                  if (access_point_name = bucket_arn['resourceId'][1]) && (access_point_name != "")
-                    if (bucket_arn['region'] != "")
-                      if (arn_type == "accesspoint")
-                        if (bucket_arn['region'] != "")
-                          if (disable_access_points != nil) && (disable_access_points == true)
+                if arn_type == "accesspoint"
+                  if (access_point_name = bucket_arn['resourceId'][1]) && access_point_name != ""
+                    if bucket_arn['region'] != ""
+                      if arn_type == "accesspoint"
+                        if bucket_arn['region'] != ""
+                          if disable_access_points != nil && disable_access_points == true
                             raise ArgumentError, "Access points are not supported for this operation"
                           end
-                          if (bucket_arn['resourceId'][2].nil?)
-                            if (use_arn_region != nil) && (use_arn_region == false) && (bucket_arn['region'] != region)
+                          if bucket_arn['resourceId'][2].nil?
+                            if use_arn_region != nil && use_arn_region == false && bucket_arn['region'] != region
                               raise ArgumentError, "Invalid configuration: region from ARN `#{bucket_arn['region']}` does not match client region `#{region}` and UseArnRegion is `false`"
                             end
                             if (bucket_partition = AWS::SDK::Core::EndpointRules.partition(bucket_arn['region']))
                               if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                                if (bucket_partition['name'] == partition_result['name'])
-                                  if (Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true))
-                                    if (bucket_arn['service'] == "s3")
-                                      if (Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false))
-                                        if (Hearth::EndpointRules::valid_host_label?(access_point_name, false))
-                                          if (accelerate == true)
+                                if bucket_partition['name'] == partition_result['name']
+                                  if Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true)
+                                    if bucket_arn['service'] == "s3"
+                                      if Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false)
+                                        if Hearth::EndpointRules::valid_host_label?(access_point_name, false)
+                                          if accelerate == true
                                             raise ArgumentError, "Access Points do not support S3 Accelerate"
                                           end
-                                          if (use_fips == true) && (use_dual_stack == true)
+                                          if use_fips == true && use_dual_stack == true
                                             return Hearth::EndpointRules::Endpoint.new(
                                               uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.s3-accesspoint-fips.dualstack.#{bucket_arn['region']}.#{bucket_partition['dnsSuffix']}",
                                               headers: {},
                                               auth_schemes: []
                                             )
                                           end
-                                          if (use_fips == true) && (use_dual_stack == false)
+                                          if use_fips == true && use_dual_stack == false
                                             return Hearth::EndpointRules::Endpoint.new(
                                               uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.s3-accesspoint-fips.#{bucket_arn['region']}.#{bucket_partition['dnsSuffix']}",
                                               headers: {},
                                               auth_schemes: []
                                             )
                                           end
-                                          if (use_fips == false) && (use_dual_stack == true)
+                                          if use_fips == false && use_dual_stack == true
                                             return Hearth::EndpointRules::Endpoint.new(
                                               uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.s3-accesspoint.dualstack.#{bucket_arn['region']}.#{bucket_partition['dnsSuffix']}",
                                               headers: {},
                                               auth_schemes: []
                                             )
                                           end
-                                          if (use_fips == false) && (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                                          if use_fips == false && use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                                             return Hearth::EndpointRules::Endpoint.new(
                                               uri: "#{url['scheme']}://#{access_point_name}-#{bucket_arn['accountId']}.#{url['authority']}#{url['path']}",
                                               headers: {},
                                               auth_schemes: []
                                             )
                                           end
-                                          if (use_fips == false) && (use_dual_stack == false)
+                                          if use_fips == false && use_dual_stack == false
                                             return Hearth::EndpointRules::Endpoint.new(
                                               uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.s3-accesspoint.#{bucket_arn['region']}.#{bucket_partition['dnsSuffix']}",
                                               headers: {},
@@ -630,21 +630,21 @@ module AWS::SDK::S3
                         end
                       end
                     end
-                    if (Hearth::EndpointRules::valid_host_label?(access_point_name, true))
-                      if (use_dual_stack == true)
+                    if Hearth::EndpointRules::valid_host_label?(access_point_name, true)
+                      if use_dual_stack == true
                         raise ArgumentError, "S3 MRAP does not support dual-stack"
                       end
-                      if (use_fips == true)
+                      if use_fips == true
                         raise ArgumentError, "S3 MRAP does not support FIPS"
                       end
-                      if (accelerate == true)
+                      if accelerate == true
                         raise ArgumentError, "S3 MRAP does not support S3 Accelerate"
                       end
-                      if (disable_multi_region_access_points == true)
+                      if disable_multi_region_access_points == true
                         raise ArgumentError, "Invalid configuration: Multi-Region Access Point ARNs are disabled."
                       end
                       if (mrap_partition = AWS::SDK::Core::EndpointRules.partition(region))
-                        if (mrap_partition['name'] == bucket_arn['partition'])
+                        if mrap_partition['name'] == bucket_arn['partition']
                           return Hearth::EndpointRules::Endpoint.new(
                             uri: "https://#{access_point_name}.accesspoint.s3-global.#{mrap_partition['dnsSuffix']}",
                             headers: {},
@@ -658,33 +658,33 @@ module AWS::SDK::S3
                   end
                   raise ArgumentError, "Invalid ARN: Expected a resource of the format `accesspoint:<accesspoint name>` but no name was provided"
                 end
-                if (bucket_arn['service'] == "s3-outposts")
-                  if (use_dual_stack == true)
+                if bucket_arn['service'] == "s3-outposts"
+                  if use_dual_stack == true
                     raise ArgumentError, "S3 Outposts does not support Dual-stack"
                   end
-                  if (use_fips == true)
+                  if use_fips == true
                     raise ArgumentError, "S3 Outposts does not support FIPS"
                   end
-                  if (accelerate == true)
+                  if accelerate == true
                     raise ArgumentError, "S3 Outposts does not support S3 Accelerate"
                   end
-                  if (bucket_arn['resourceId'][4] != nil)
+                  if bucket_arn['resourceId'][4] != nil
                     raise ArgumentError, "Invalid Arn: Outpost Access Point ARN contains sub resources"
                   end
                   if (outpost_id = bucket_arn['resourceId'][1])
-                    if (Hearth::EndpointRules::valid_host_label?(outpost_id, false))
-                      if (use_arn_region != nil) && (use_arn_region == false) && (bucket_arn['region'] != region)
+                    if Hearth::EndpointRules::valid_host_label?(outpost_id, false)
+                      if use_arn_region != nil && use_arn_region == false && bucket_arn['region'] != region
                         raise ArgumentError, "Invalid configuration: region from ARN `#{bucket_arn['region']}` does not match client region `#{region}` and UseArnRegion is `false`"
                       end
                       if (bucket_partition = AWS::SDK::Core::EndpointRules.partition(bucket_arn['region']))
                         if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                          if (bucket_partition['name'] == partition_result['name'])
-                            if (Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true))
-                              if (Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false))
+                          if bucket_partition['name'] == partition_result['name']
+                            if Hearth::EndpointRules::valid_host_label?(bucket_arn['region'], true)
+                              if Hearth::EndpointRules::valid_host_label?(bucket_arn['accountId'], false)
                                 if (outpost_type = bucket_arn['resourceId'][2])
                                   if (access_point_name = bucket_arn['resourceId'][3])
-                                    if (outpost_type == "accesspoint")
-                                      if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                                    if outpost_type == "accesspoint"
+                                      if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                                         return Hearth::EndpointRules::Endpoint.new(
                                           uri: "https://#{access_point_name}-#{bucket_arn['accountId']}.#{outpost_id}.#{url['authority']}",
                                           headers: {},
@@ -719,87 +719,87 @@ module AWS::SDK::S3
               end
               raise ArgumentError, "Invalid ARN: No ARN type specified"
             end
-            if (arn_prefix = Hearth::EndpointRules::substring(bucket, 0, 4, false)) && (arn_prefix == "arn:") && (AWS::SDK::Core::EndpointRules.parse_arn(bucket).nil?)
+            if (arn_prefix = Hearth::EndpointRules::substring(bucket, 0, 4, false)) && arn_prefix == "arn:" && AWS::SDK::Core::EndpointRules.parse_arn(bucket).nil?
               raise ArgumentError, "Invalid ARN: `#{bucket}` was not a valid ARN"
             end
-            if (force_path_style == true) && (AWS::SDK::Core::EndpointRules.parse_arn(bucket))
+            if force_path_style == true && AWS::SDK::Core::EndpointRules.parse_arn(bucket)
               raise ArgumentError, "Path-style addressing cannot be used with ARN buckets"
             end
             if (uri_encoded_bucket = Hearth::EndpointRules::uri_encode(bucket))
               if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-                if (accelerate == false)
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == true) && (region == "aws-global")
+                if accelerate == false
+                  if use_dual_stack == true && endpoint.nil? && use_fips == true && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.dualstack.us-east-1.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == true) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == true && endpoint.nil? && use_fips == true && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == true) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == true && endpoint.nil? && use_fips == true && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == true) && (region == "aws-global")
+                  if use_dual_stack == false && endpoint.nil? && use_fips == true && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.us-east-1.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == true) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == false && endpoint.nil? && use_fips == true && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == true) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && endpoint.nil? && use_fips == true && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3-fips.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == false) && (region == "aws-global")
+                  if use_dual_stack == true && endpoint.nil? && use_fips == false && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.dualstack.us-east-1.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == true)
+                  if use_dual_stack == true && endpoint.nil? && use_fips == false && region != "aws-global" && use_global_endpoint == true
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.dualstack.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == true) && (endpoint.nil?) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == true && endpoint.nil? && use_fips == false && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.dualstack.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (use_fips == false) && (region == "aws-global")
+                  if use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && use_fips == false && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && use_fips == false && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{uri_encoded_bucket}",
                         headers: {},
@@ -812,22 +812,22 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && use_fips == false && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}#{url['normalizedPath']}#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == false) && (region == "aws-global")
+                  if use_dual_stack == false && endpoint.nil? && use_fips == false && region == "aws-global"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == true)
-                    if (region == "us-east-1")
+                  if use_dual_stack == false && endpoint.nil? && use_fips == false && region != "aws-global" && use_global_endpoint == true
+                    if region == "us-east-1"
                       return Hearth::EndpointRules::Endpoint.new(
                         uri: "https://s3.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                         headers: {},
@@ -840,7 +840,7 @@ module AWS::SDK::S3
                       auth_schemes: []
                     )
                   end
-                  if (use_dual_stack == false) && (endpoint.nil?) && (use_fips == false) && (region != "aws-global") && (use_global_endpoint == false)
+                  if use_dual_stack == false && endpoint.nil? && use_fips == false && region != "aws-global" && use_global_endpoint == false
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.#{region}.#{partition_result['dnsSuffix']}/#{uri_encoded_bucket}",
                       headers: {},
@@ -852,23 +852,23 @@ module AWS::SDK::S3
               end
             end
           end
-          if (use_object_lambda_endpoint != nil) && (use_object_lambda_endpoint == true)
+          if use_object_lambda_endpoint != nil && use_object_lambda_endpoint == true
             if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-              if (Hearth::EndpointRules::valid_host_label?(region, true))
-                if (use_dual_stack == true)
+              if Hearth::EndpointRules::valid_host_label?(region, true)
+                if use_dual_stack == true
                   raise ArgumentError, "S3 Object Lambda does not support Dual-stack"
                 end
-                if (accelerate == true)
+                if accelerate == true
                   raise ArgumentError, "S3 Object Lambda does not support S3 Accelerate"
                 end
-                if (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint))
+                if endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint))
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{url['authority']}#{url['path']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true)
+                if use_fips == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-object-lambda-fips.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
@@ -884,81 +884,81 @@ module AWS::SDK::S3
               raise ArgumentError, "Invalid region: region was not a valid DNS name."
             end
           end
-          if (bucket.nil?)
+          if bucket.nil?
             if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-              if (Hearth::EndpointRules::valid_host_label?(region, true))
-                if (use_fips == true) && (use_dual_stack == true) && (endpoint.nil?) && (region == "aws-global")
+              if Hearth::EndpointRules::valid_host_label?(region, true)
+                if use_fips == true && use_dual_stack == true && endpoint.nil? && region == "aws-global"
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.dualstack.us-east-1.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true) && (use_dual_stack == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                if use_fips == true && use_dual_stack == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true) && (use_dual_stack == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                if use_fips == true && use_dual_stack == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true) && (use_dual_stack == false) && (endpoint.nil?) && (region == "aws-global")
+                if use_fips == true && use_dual_stack == false && endpoint.nil? && region == "aws-global"
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.us-east-1.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true) && (use_dual_stack == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                if use_fips == true && use_dual_stack == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == true) && (use_dual_stack == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                if use_fips == true && use_dual_stack == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3-fips.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == true) && (endpoint.nil?) && (region == "aws-global")
+                if use_fips == false && use_dual_stack == true && endpoint.nil? && region == "aws-global"
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3.dualstack.us-east-1.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
+                if use_fips == false && use_dual_stack == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == true) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                if use_fips == false && use_dual_stack == true && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3.dualstack.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (region == "aws-global")
+                if use_fips == false && use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && region == "aws-global"
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{url['authority']}#{url['path']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (region != "aws-global") && (use_global_endpoint == true)
-                  if (region == "us-east-1")
+                if use_fips == false && use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && region != "aws-global" && use_global_endpoint == true
+                  if region == "us-east-1"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "#{url['scheme']}://#{url['authority']}#{url['path']}",
                       headers: {},
@@ -971,22 +971,22 @@ module AWS::SDK::S3
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint != nil) && (url = Hearth::EndpointRules::parse_url(endpoint)) && (region != "aws-global") && (use_global_endpoint == false)
+                if use_fips == false && use_dual_stack == false && endpoint != nil && (url = Hearth::EndpointRules::parse_url(endpoint)) && region != "aws-global" && use_global_endpoint == false
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "#{url['scheme']}://#{url['authority']}#{url['path']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint.nil?) && (region == "aws-global")
+                if use_fips == false && use_dual_stack == false && endpoint.nil? && region == "aws-global"
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3.#{partition_result['dnsSuffix']}",
                     headers: {},
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == true)
-                  if (region == "us-east-1")
+                if use_fips == false && use_dual_stack == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == true
+                  if region == "us-east-1"
                     return Hearth::EndpointRules::Endpoint.new(
                       uri: "https://s3.#{partition_result['dnsSuffix']}",
                       headers: {},
@@ -999,7 +999,7 @@ module AWS::SDK::S3
                     auth_schemes: []
                   )
                 end
-                if (use_fips == false) && (use_dual_stack == false) && (endpoint.nil?) && (region != "aws-global") && (use_global_endpoint == false)
+                if use_fips == false && use_dual_stack == false && endpoint.nil? && region != "aws-global" && use_global_endpoint == false
                   return Hearth::EndpointRules::Endpoint.new(
                     uri: "https://s3.#{region}.#{partition_result['dnsSuffix']}",
                     headers: {},

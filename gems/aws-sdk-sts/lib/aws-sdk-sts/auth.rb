@@ -17,9 +17,9 @@ module AWS::SDK::STS
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :assume_role
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :assume_role_with_saml
@@ -36,7 +36,9 @@ module AWS::SDK::STS
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :get_session_token
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

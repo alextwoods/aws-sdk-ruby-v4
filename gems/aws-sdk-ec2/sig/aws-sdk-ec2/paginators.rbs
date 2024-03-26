@@ -13,973 +13,973 @@ module AWS::SDK::EC2
     class DescribeAddressesAttribute
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAddressesAttributeOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::AddressAttribute], void]
     end
 
     class DescribeAddressTransfers
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAddressTransfersOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::AddressTransfer], void]
     end
 
     class DescribeAwsNetworkPerformanceMetricSubscriptions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAwsNetworkPerformanceMetricSubscriptionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Subscription], void]
     end
 
     class DescribeByoipCidrs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeByoipCidrsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ByoipCidr], void]
     end
 
     class DescribeCapacityBlockOfferings
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCapacityBlockOfferingsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CapacityBlockOffering], void]
     end
 
     class DescribeCapacityReservationFleets
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCapacityReservationFleetsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CapacityReservationFleet], void]
     end
 
     class DescribeCapacityReservations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCapacityReservationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CapacityReservation], void]
     end
 
     class DescribeCarrierGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCarrierGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CarrierGateway], void]
     end
 
     class DescribeClassicLinkInstances
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClassicLinkInstancesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ClassicLinkInstance], void]
     end
 
     class DescribeClientVpnAuthorizationRules
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClientVpnAuthorizationRulesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::AuthorizationRule], void]
     end
 
     class DescribeClientVpnConnections
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClientVpnConnectionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ClientVpnConnection], void]
     end
 
     class DescribeClientVpnEndpoints
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClientVpnEndpointsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ClientVpnEndpoint], void]
     end
 
     class DescribeClientVpnRoutes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClientVpnRoutesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ClientVpnRoute], void]
     end
 
     class DescribeClientVpnTargetNetworks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeClientVpnTargetNetworksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TargetNetwork], void]
     end
 
     class DescribeCoipPools
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCoipPoolsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CoipPool], void]
     end
 
     class DescribeDhcpOptions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeDhcpOptionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::DhcpOptions], void]
     end
 
     class DescribeEgressOnlyInternetGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeEgressOnlyInternetGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::EgressOnlyInternetGateway], void]
     end
 
     class DescribeExportImageTasks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeExportImageTasksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ExportImageTask], void]
     end
 
     class DescribeFastLaunchImages
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeFastLaunchImagesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::DescribeFastLaunchImagesSuccessItem], void]
     end
 
     class DescribeFastSnapshotRestores
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeFastSnapshotRestoresOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::DescribeFastSnapshotRestoreSuccessItem], void]
     end
 
     class DescribeFleets
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeFleetsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::FleetData], void]
     end
 
     class DescribeFlowLogs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeFlowLogsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::FlowLog], void]
     end
 
     class DescribeFpgaImages
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeFpgaImagesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::FpgaImage], void]
     end
 
     class DescribeHostReservationOfferings
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeHostReservationOfferingsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::HostOffering], void]
     end
 
     class DescribeHostReservations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeHostReservationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::HostReservation], void]
     end
 
     class DescribeHosts
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeHostsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Host], void]
     end
 
     class DescribeIamInstanceProfileAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIamInstanceProfileAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IamInstanceProfileAssociation], void]
     end
 
     class DescribeImages
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeImagesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Image], void]
     end
 
     class DescribeImportImageTasks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeImportImageTasksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ImportImageTask], void]
     end
 
     class DescribeImportSnapshotTasks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeImportSnapshotTasksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ImportSnapshotTask], void]
     end
 
     class DescribeInstanceConnectEndpoints
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceConnectEndpointsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Ec2InstanceConnectEndpoint], void]
     end
 
     class DescribeInstanceCreditSpecifications
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceCreditSpecificationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceCreditSpecification], void]
     end
 
     class DescribeInstanceEventWindows
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceEventWindowsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceEventWindow], void]
     end
 
     class DescribeInstances
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstancesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Reservation], void]
     end
 
     class DescribeInstanceStatus
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceStatusOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceStatus], void]
     end
 
     class DescribeInstanceTopology
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceTopologyOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceTopology], void]
     end
 
     class DescribeInstanceTypeOfferings
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceTypeOfferingsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceTypeOffering], void]
     end
 
     class DescribeInstanceTypes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInstanceTypesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceTypeInfo], void]
     end
 
     class DescribeInternetGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInternetGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InternetGateway], void]
     end
 
     class DescribeIpamPools
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpamPoolsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamPool], void]
     end
 
     class DescribeIpamResourceDiscoveries
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpamResourceDiscoveriesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamResourceDiscovery], void]
     end
 
     class DescribeIpamResourceDiscoveryAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpamResourceDiscoveryAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamResourceDiscoveryAssociation], void]
     end
 
     class DescribeIpams
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpamsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Ipam], void]
     end
 
     class DescribeIpamScopes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpamScopesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamScope], void]
     end
 
     class DescribeIpv6Pools
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeIpv6PoolsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Ipv6Pool], void]
     end
 
     class DescribeLaunchTemplates
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLaunchTemplatesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LaunchTemplate], void]
     end
 
     class DescribeLaunchTemplateVersions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLaunchTemplateVersionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LaunchTemplateVersion], void]
     end
 
     class DescribeLocalGatewayRouteTables
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewayRouteTablesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayRouteTable], void]
     end
 
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayRouteTableVirtualInterfaceGroupAssociation], void]
     end
 
     class DescribeLocalGatewayRouteTableVpcAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewayRouteTableVpcAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayRouteTableVpcAssociation], void]
     end
 
     class DescribeLocalGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGateway], void]
     end
 
     class DescribeLocalGatewayVirtualInterfaceGroups
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewayVirtualInterfaceGroupsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayVirtualInterfaceGroup], void]
     end
 
     class DescribeLocalGatewayVirtualInterfaces
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeLocalGatewayVirtualInterfacesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayVirtualInterface], void]
     end
 
     class DescribeManagedPrefixLists
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeManagedPrefixListsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ManagedPrefixList], void]
     end
 
     class DescribeMovingAddresses
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeMovingAddressesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::MovingAddressStatus], void]
     end
 
     class DescribeNatGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNatGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NatGateway], void]
     end
 
     class DescribeNetworkAcls
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkAclsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkAcl], void]
     end
 
     class DescribeNetworkInsightsAccessScopeAnalyses
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInsightsAccessScopeAnalysesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInsightsAccessScopeAnalysis], void]
     end
 
     class DescribeNetworkInsightsAccessScopes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInsightsAccessScopesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInsightsAccessScope], void]
     end
 
     class DescribeNetworkInsightsAnalyses
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInsightsAnalysesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInsightsAnalysis], void]
     end
 
     class DescribeNetworkInsightsPaths
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInsightsPathsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInsightsPath], void]
     end
 
     class DescribeNetworkInterfacePermissions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInterfacePermissionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInterfacePermission], void]
     end
 
     class DescribeNetworkInterfaces
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeNetworkInterfacesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::NetworkInterface], void]
     end
 
     class DescribePrefixLists
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribePrefixListsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::PrefixList], void]
     end
 
     class DescribePrincipalIdFormat
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribePrincipalIdFormatOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::PrincipalIdFormat], void]
     end
 
     class DescribePublicIpv4Pools
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribePublicIpv4PoolsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::PublicIpv4Pool], void]
     end
 
     class DescribeReplaceRootVolumeTasks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeReplaceRootVolumeTasksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ReplaceRootVolumeTask], void]
     end
 
     class DescribeReservedInstancesModifications
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeReservedInstancesModificationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ReservedInstancesModification], void]
     end
 
     class DescribeReservedInstancesOfferings
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeReservedInstancesOfferingsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ReservedInstancesOffering], void]
     end
 
     class DescribeRouteTables
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeRouteTablesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::RouteTable], void]
     end
 
     class DescribeScheduledInstanceAvailability
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeScheduledInstanceAvailabilityOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ScheduledInstanceAvailability], void]
     end
 
     class DescribeScheduledInstances
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeScheduledInstancesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ScheduledInstance], void]
     end
 
     class DescribeSecurityGroupRules
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSecurityGroupRulesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SecurityGroupRule], void]
     end
 
     class DescribeSecurityGroups
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSecurityGroupsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SecurityGroup], void]
     end
 
     class DescribeSnapshots
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSnapshotsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Snapshot], void]
     end
 
     class DescribeSnapshotTierStatus
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSnapshotTierStatusOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SnapshotTierStatus], void]
     end
 
     class DescribeSpotFleetRequests
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSpotFleetRequestsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SpotFleetRequestConfig], void]
     end
 
     class DescribeSpotInstanceRequests
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSpotInstanceRequestsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SpotInstanceRequest], void]
     end
 
     class DescribeSpotPriceHistory
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSpotPriceHistoryOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SpotPrice], void]
     end
 
     class DescribeStaleSecurityGroups
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeStaleSecurityGroupsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::StaleSecurityGroup], void]
     end
 
     class DescribeStoreImageTasks
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeStoreImageTasksOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::StoreImageTaskResult], void]
     end
 
     class DescribeSubnets
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeSubnetsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Subnet], void]
     end
 
     class DescribeTags
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTagsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TagDescription], void]
     end
 
     class DescribeTrafficMirrorFilters
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTrafficMirrorFiltersOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TrafficMirrorFilter], void]
     end
 
     class DescribeTrafficMirrorSessions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTrafficMirrorSessionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TrafficMirrorSession], void]
     end
 
     class DescribeTrafficMirrorTargets
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTrafficMirrorTargetsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TrafficMirrorTarget], void]
     end
 
     class DescribeTransitGatewayAttachments
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayAttachmentsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayAttachment], void]
     end
 
     class DescribeTransitGatewayConnectPeers
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayConnectPeersOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayConnectPeer], void]
     end
 
     class DescribeTransitGatewayConnects
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayConnectsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayConnect], void]
     end
 
     class DescribeTransitGatewayMulticastDomains
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayMulticastDomainsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayMulticastDomain], void]
     end
 
     class DescribeTransitGatewayPeeringAttachments
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayPeeringAttachmentsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayPeeringAttachment], void]
     end
 
     class DescribeTransitGatewayPolicyTables
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayPolicyTablesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayPolicyTable], void]
     end
 
     class DescribeTransitGatewayRouteTableAnnouncements
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayRouteTableAnnouncementsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayRouteTableAnnouncement], void]
     end
 
     class DescribeTransitGatewayRouteTables
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayRouteTablesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayRouteTable], void]
     end
 
     class DescribeTransitGateways
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewaysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGateway], void]
     end
 
     class DescribeTransitGatewayVpcAttachments
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTransitGatewayVpcAttachmentsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayVpcAttachment], void]
     end
 
     class DescribeTrunkInterfaceAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeTrunkInterfaceAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TrunkInterfaceAssociation], void]
     end
 
     class DescribeVerifiedAccessEndpoints
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVerifiedAccessEndpointsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VerifiedAccessEndpoint], void]
     end
 
     class DescribeVerifiedAccessGroups
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVerifiedAccessGroupsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VerifiedAccessGroup], void]
     end
 
     class DescribeVerifiedAccessInstanceLoggingConfigurations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVerifiedAccessInstanceLoggingConfigurationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VerifiedAccessInstanceLoggingConfiguration], void]
     end
 
     class DescribeVerifiedAccessInstances
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVerifiedAccessInstancesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VerifiedAccessInstance], void]
     end
 
     class DescribeVerifiedAccessTrustProviders
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVerifiedAccessTrustProvidersOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VerifiedAccessTrustProvider], void]
     end
 
     class DescribeVolumes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVolumesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Volume], void]
     end
 
     class DescribeVolumesModifications
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVolumesModificationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VolumeModification], void]
     end
 
     class DescribeVolumeStatus
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVolumeStatusOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VolumeStatusItem], void]
     end
 
     class DescribeVpcClassicLinkDnsSupport
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcClassicLinkDnsSupportOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ClassicLinkDnsSupport], void]
     end
 
     class DescribeVpcEndpointConnectionNotifications
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcEndpointConnectionNotificationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ConnectionNotification], void]
     end
 
     class DescribeVpcEndpointConnections
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcEndpointConnectionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VpcEndpointConnection], void]
     end
 
     class DescribeVpcEndpoints
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcEndpointsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VpcEndpoint], void]
     end
 
     class DescribeVpcEndpointServiceConfigurations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcEndpointServiceConfigurationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ServiceConfiguration], void]
     end
 
     class DescribeVpcEndpointServicePermissions
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcEndpointServicePermissionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::AllowedPrincipal], void]
     end
 
     class DescribeVpcPeeringConnections
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcPeeringConnectionsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VpcPeeringConnection], void]
     end
 
     class DescribeVpcs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeVpcsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Vpc], void]
     end
 
     class GetAssociatedIpv6PoolCidrs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetAssociatedIpv6PoolCidrsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::Ipv6CidrAssociation], void]
     end
 
     class GetAwsNetworkPerformanceData
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetAwsNetworkPerformanceDataOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::DataResponse], void]
     end
 
     class GetGroupsForCapacityReservation
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetGroupsForCapacityReservationOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::CapacityReservationGroup], void]
     end
 
     class GetInstanceTypesFromInstanceRequirements
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetInstanceTypesFromInstanceRequirementsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::InstanceTypeInfoFromInstanceRequirements], void]
     end
 
     class GetIpamAddressHistory
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamAddressHistoryOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamAddressHistoryRecord], void]
     end
 
     class GetIpamDiscoveredAccounts
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamDiscoveredAccountsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamDiscoveredAccount], void]
     end
 
     class GetIpamDiscoveredResourceCidrs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamDiscoveredResourceCidrsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamDiscoveredResourceCidr], void]
     end
 
     class GetIpamPoolAllocations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamPoolAllocationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamPoolAllocation], void]
     end
 
     class GetIpamPoolCidrs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamPoolCidrsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamPoolCidr], void]
     end
 
     class GetIpamResourceCidrs
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetIpamResourceCidrsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::IpamResourceCidr], void]
     end
 
     class GetManagedPrefixListAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetManagedPrefixListAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::PrefixListAssociation], void]
     end
 
     class GetManagedPrefixListEntries
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetManagedPrefixListEntriesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::PrefixListEntry], void]
     end
 
     class GetNetworkInsightsAccessScopeAnalysisFindings
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetNetworkInsightsAccessScopeAnalysisFindingsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::AccessScopeAnalysisFinding], void]
     end
 
     class GetSecurityGroupsForVpc
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetSecurityGroupsForVpcOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SecurityGroupForVpc], void]
     end
 
     class GetSpotPlacementScores
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetSpotPlacementScoresOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SpotPlacementScore], void]
     end
 
     class GetTransitGatewayAttachmentPropagations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayAttachmentPropagationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayAttachmentPropagation], void]
     end
 
     class GetTransitGatewayMulticastDomainAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayMulticastDomainAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayMulticastDomainAssociation], void]
     end
 
     class GetTransitGatewayPolicyTableAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayPolicyTableAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayPolicyTableAssociation], void]
     end
 
     class GetTransitGatewayPrefixListReferences
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayPrefixListReferencesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayPrefixListReference], void]
     end
 
     class GetTransitGatewayRouteTableAssociations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayRouteTableAssociationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayRouteTableAssociation], void]
     end
 
     class GetTransitGatewayRouteTablePropagations
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetTransitGatewayRouteTablePropagationsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayRouteTablePropagation], void]
     end
 
     class GetVpnConnectionDeviceTypes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetVpnConnectionDeviceTypesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::VpnConnectionDeviceType], void]
     end
 
     class ListImagesInRecycleBin
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListImagesInRecycleBinOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::ImageRecycleBinInfo], void]
     end
 
     class ListSnapshotsInRecycleBin
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListSnapshotsInRecycleBinOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::SnapshotRecycleBinInfo], void]
     end
 
     class SearchLocalGatewayRoutes
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::SearchLocalGatewayRoutesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::LocalGatewayRoute], void]
     end
 
     class SearchTransitGatewayMulticastGroups
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::SearchTransitGatewayMulticastGroupsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::EC2::Types::TransitGatewayMulticastGroup], void]
     end
 

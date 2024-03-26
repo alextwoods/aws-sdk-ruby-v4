@@ -53,7 +53,7 @@ public class S3Customizations implements RubyIntegration {
                 FunctionBinding.builder()
                         .id(IsVirtualHostableS3Bucket.ID)
                         .rubyMethodName("AWS::SDK::S3::Endpoints.virtual_hostable_s3_bucket?")
-                        .rubySource("smithy-aws-ruby-codegen/customizations/s3/endpoint_rules.rb")
+                        .rubySource("customizations/s3/endpoint_rules.rb")
                         .build()
 
         );
@@ -67,7 +67,7 @@ public class S3Customizations implements RubyIntegration {
             """;
     public static final ClientConfig USE_ACCELERATE_ENDPOINT = ClientConfig.builder()
             .name("use_accelerate_endpoint")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation(ACCELERATE_DOCS)
             .defaultValue("false")
             .build();
@@ -79,7 +79,7 @@ public class S3Customizations implements RubyIntegration {
                                 """;
     public static final ClientConfig DISABLE_MRAP = ClientConfig.builder()
             .name("disable_multiregion_access_points")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation(DISABLE_MRAP_DOCS)
             .documentationDefaultValue("false")
             .defaults(ConfigProviderChain.builder()
@@ -95,7 +95,7 @@ public class S3Customizations implements RubyIntegration {
                                 """;
     public static final ClientConfig FORCE_PATH_STYLE = ClientConfig.builder()
             .name("force_path_style")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation(PATH_STYLE_DOCS)
             .defaultValue("false")
             .build();
@@ -108,7 +108,7 @@ public class S3Customizations implements RubyIntegration {
 
     public static final ClientConfig USE_ARN_REGION = ClientConfig.builder()
             .name("use_arn_region")
-            .type("Boolean")
+            .documentationRbsAndValidationType("Boolean")
             .documentation(USE_ARN_REGION_DOCS)
             .documentationDefaultValue("true")
             .defaults(ConfigProviderChain.builder()

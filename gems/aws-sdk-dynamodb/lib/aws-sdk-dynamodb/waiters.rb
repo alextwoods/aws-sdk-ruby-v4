@@ -24,8 +24,8 @@ module AWS::SDK::DynamoDB
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 20 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 20,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_table,
             acceptors: [
@@ -78,8 +78,8 @@ module AWS::SDK::DynamoDB
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 20 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 20,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_table,
             acceptors: [

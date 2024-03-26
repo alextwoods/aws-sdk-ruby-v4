@@ -254,6 +254,10 @@ module AWS::SDK::DynamoDB
       end
 
       class Unknown < AttributeValue
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end

@@ -14,9 +14,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#describe_custom_key_stores)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the describe_custom_key_stores operation.
@@ -25,15 +25,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.describe_custom_key_stores(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.describe_custom_key_stores(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.describe_custom_key_stores(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.describe_custom_key_stores(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -43,7 +43,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.custom_key_stores.each do |item|
+            page.data.custom_key_stores.each do |item|
               e.yield(item)
             end
           end
@@ -55,9 +55,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_aliases)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_aliases operation.
@@ -66,15 +66,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_aliases(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_aliases(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_aliases(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_aliases(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -84,7 +84,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.aliases.each do |item|
+            page.data.aliases.each do |item|
               e.yield(item)
             end
           end
@@ -96,9 +96,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_grants)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_grants operation.
@@ -107,15 +107,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_grants(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_grants(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_grants(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_grants(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -125,7 +125,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.grants.each do |item|
+            page.data.grants.each do |item|
               e.yield(item)
             end
           end
@@ -137,9 +137,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_key_policies)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_key_policies operation.
@@ -148,15 +148,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_key_policies(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_key_policies(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_key_policies(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_key_policies(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -166,7 +166,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.policy_names.each do |item|
+            page.data.policy_names.each do |item|
               e.yield(item)
             end
           end
@@ -178,9 +178,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_keys)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_keys operation.
@@ -189,15 +189,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_keys(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_keys(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_keys(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_keys(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -207,7 +207,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.keys.each do |item|
+            page.data.keys.each do |item|
               e.yield(item)
             end
           end
@@ -219,9 +219,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_resource_tags)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_resource_tags operation.
@@ -230,15 +230,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_resource_tags(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_resource_tags(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_resource_tags(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_resource_tags(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -248,7 +248,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.tags.each do |item|
+            page.data.tags.each do |item|
               e.yield(item)
             end
           end
@@ -260,9 +260,9 @@ module AWS::SDK::KMS
       # @param [Client] client
       # @param (see Client#list_retirable_grants)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_retirable_grants operation.
@@ -271,15 +271,15 @@ module AWS::SDK::KMS
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:marker]
-          response = @client.list_retirable_grants(params, @options)
-          e.yield(response)
-          output_token = response.next_marker
+          output = @client.list_retirable_grants(params, @options)
+          e.yield(output)
+          output_token = output.data.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
-            response = @client.list_retirable_grants(params, @options)
-            e.yield(response)
-            output_token = response.next_marker
+            output = @client.list_retirable_grants(params, @options)
+            e.yield(output)
+            output_token = output.data.next_marker
           end
         end
       end
@@ -289,7 +289,7 @@ module AWS::SDK::KMS
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.grants.each do |item|
+            page.data.grants.each do |item|
               e.yield(item)
             end
           end

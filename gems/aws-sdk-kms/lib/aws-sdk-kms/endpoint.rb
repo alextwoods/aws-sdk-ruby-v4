@@ -26,37 +26,37 @@ module AWS::SDK::KMS
     end
 
     class Provider
-      def resolve_endpoint(params)
+      def resolve(params)
         region = params.region
         use_dual_stack = params.use_dual_stack
         use_fips = params.use_fips
         endpoint = params.endpoint
 
-        if (endpoint != nil)
-          if (use_fips == true)
+        if endpoint != nil
+          if use_fips == true
             raise ArgumentError, "Invalid Configuration: FIPS and custom endpoint are not supported"
           end
-          if (use_dual_stack == true)
+          if use_dual_stack == true
             raise ArgumentError, "Invalid Configuration: Dualstack and custom endpoint are not supported"
           end
           return Hearth::EndpointRules::Endpoint.new(uri: endpoint)
         end
-        if (region != nil)
+        if region != nil
           if (partition_result = AWS::SDK::Core::EndpointRules.partition(region))
-            if (use_fips == true) && (use_dual_stack == true)
-              if (true == partition_result['supportsFIPS']) && (true == partition_result['supportsDualStack'])
+            if use_fips == true && use_dual_stack == true
+              if true == partition_result['supportsFIPS'] && true == partition_result['supportsDualStack']
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://kms-fips.#{region}.#{partition_result['dualStackDnsSuffix']}")
               end
               raise ArgumentError, "FIPS and DualStack are enabled, but this partition does not support one or both"
             end
-            if (use_fips == true)
-              if (partition_result['supportsFIPS'] == true)
+            if use_fips == true
+              if partition_result['supportsFIPS'] == true
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://kms-fips.#{region}.#{partition_result['dnsSuffix']}")
               end
               raise ArgumentError, "FIPS is enabled but this partition does not support FIPS"
             end
-            if (use_dual_stack == true)
-              if (true == partition_result['supportsDualStack'])
+            if use_dual_stack == true
+              if true == partition_result['supportsDualStack']
                 return Hearth::EndpointRules::Endpoint.new(uri: "https://kms.#{region}.#{partition_result['dualStackDnsSuffix']}")
               end
               raise ArgumentError, "DualStack is enabled but this partition does not support DualStack"

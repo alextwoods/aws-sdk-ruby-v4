@@ -9,8 +9,6 @@
 
 require 'stringio'
 
-require_relative 'middleware/request_id'
-
 module AWS::SDK::S3
   # <p></p>
   class Client
@@ -105,13 +103,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::AbortMultipartUploadInput] params
     #   Request parameters for this operation.
     #   See {Types::AbortMultipartUploadInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::AbortMultipartUploadOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.abort_multipart_upload(
     #     bucket: 'Bucket', # required
@@ -138,58 +136,8 @@ module AWS::SDK::S3
     def abort_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::AbortMultipartUploadInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::AbortMultipartUploadInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::AbortMultipartUpload
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :abort_multipart_upload),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::AbortMultipartUpload,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: [Errors::NoSuchUpload]
-        ),
-        data_parser: Parsers::AbortMultipartUpload
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchUpload],
-        stub_data_class: Stubs::AbortMultipartUpload,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::AbortMultipartUpload.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -362,13 +310,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::CompleteMultipartUploadInput] params
     #   Request parameters for this operation.
     #   See {Types::CompleteMultipartUploadInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CompleteMultipartUploadOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.complete_multipart_upload(
     #     bucket: 'Bucket', # required
@@ -415,58 +363,8 @@ module AWS::SDK::S3
     def complete_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CompleteMultipartUploadInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CompleteMultipartUploadInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CompleteMultipartUpload
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :complete_multipart_upload),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::CompleteMultipartUpload,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::CompleteMultipartUpload
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::CompleteMultipartUpload,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::CompleteMultipartUpload.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -642,13 +540,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::CopyObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::CopyObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CopyObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.copy_object(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
@@ -732,58 +630,8 @@ module AWS::SDK::S3
     def copy_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CopyObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CopyObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CopyObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :copy_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::CopyObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ObjectNotInActiveTierError]
-        ),
-        data_parser: Parsers::CopyObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ObjectNotInActiveTierError],
-        stub_data_class: Stubs::CopyObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::CopyObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -925,13 +773,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateBucketInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateBucketInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateBucketOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_bucket(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read"]
@@ -984,58 +832,8 @@ module AWS::SDK::S3
     def create_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateBucketInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateBucketInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateBucket
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_bucket),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::CreateBucket,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::BucketAlreadyExists, Errors::BucketAlreadyOwnedByYou]
-        ),
-        data_parser: Parsers::CreateBucket
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::BucketAlreadyExists, Stubs::BucketAlreadyOwnedByYou],
-        stub_data_class: Stubs::CreateBucket,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::CreateBucket.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1270,13 +1068,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateMultipartUploadInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateMultipartUploadInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateMultipartUploadOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_multipart_upload(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
@@ -1343,58 +1141,8 @@ module AWS::SDK::S3
     def create_multipart_upload(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateMultipartUploadInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateMultipartUploadInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateMultipartUpload
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_multipart_upload),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::CreateMultipartUpload,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::CreateMultipartUpload
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::CreateMultipartUpload,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::CreateMultipartUpload.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1476,13 +1224,13 @@ module AWS::SDK::S3
     #                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
     #             </dd>
     #          </dl>
-    # @param [Hash] params
+    # @param [Hash | Types::CreateSessionInput] params
     #   Request parameters for this operation.
     #   See {Types::CreateSessionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::CreateSessionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.create_session(
     #     session_mode: 'ReadOnly', # accepts ["ReadOnly", "ReadWrite"]
@@ -1498,58 +1246,8 @@ module AWS::SDK::S3
     def create_session(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::CreateSessionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::CreateSessionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSession
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :create_session),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::CreateSession,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchBucket]
-        ),
-        data_parser: Parsers::CreateSession
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchBucket],
-        stub_data_class: Stubs::CreateSession,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::CreateSession.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1617,13 +1315,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket(
     #     bucket: 'Bucket', # required
@@ -1642,58 +1340,8 @@ module AWS::SDK::S3
     def delete_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucket
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucket,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucket
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucket,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucket.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1742,13 +1390,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketAnalyticsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketAnalyticsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketAnalyticsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_analytics_configuration(
     #     bucket: 'Bucket', # required
@@ -1760,58 +1408,8 @@ module AWS::SDK::S3
     def delete_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketAnalyticsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketAnalyticsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_analytics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketAnalyticsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketAnalyticsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketAnalyticsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketAnalyticsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1853,13 +1451,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketCorsInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketCorsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketCorsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_cors(
     #     bucket: 'Bucket', # required
@@ -1878,58 +1476,8 @@ module AWS::SDK::S3
     def delete_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketCorsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketCorsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketCors
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_cors),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketCors,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketCors
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketCors,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketCors.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -1973,13 +1521,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketEncryptionInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketEncryptionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketEncryptionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_encryption(
     #     bucket: 'Bucket', # required
@@ -1990,58 +1538,8 @@ module AWS::SDK::S3
     def delete_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketEncryptionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketEncryptionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketEncryption
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_encryption),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketEncryption,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketEncryption
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketEncryption,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketEncryption.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2084,13 +1582,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketIntelligentTieringConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketIntelligentTieringConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketIntelligentTieringConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_intelligent_tiering_configuration(
     #     bucket: 'Bucket', # required
@@ -2101,58 +1599,8 @@ module AWS::SDK::S3
     def delete_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketIntelligentTieringConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketIntelligentTieringConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_intelligent_tiering_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketIntelligentTieringConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketIntelligentTieringConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketIntelligentTieringConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketIntelligentTieringConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2199,13 +1647,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketInventoryConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketInventoryConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketInventoryConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_inventory_configuration(
     #     bucket: 'Bucket', # required
@@ -2217,58 +1665,8 @@ module AWS::SDK::S3
     def delete_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketInventoryConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketInventoryConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_inventory_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketInventoryConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketInventoryConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketInventoryConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketInventoryConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2312,13 +1710,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketLifecycleInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketLifecycleInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketLifecycleOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_lifecycle(
     #     bucket: 'Bucket', # required
@@ -2337,58 +1735,8 @@ module AWS::SDK::S3
     def delete_bucket_lifecycle(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketLifecycleInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketLifecycleInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketLifecycle
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_lifecycle),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketLifecycle,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketLifecycle
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketLifecycle,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketLifecycle.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2443,13 +1791,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketMetricsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketMetricsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketMetricsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_metrics_configuration(
     #     bucket: 'Bucket', # required
@@ -2461,58 +1809,8 @@ module AWS::SDK::S3
     def delete_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketMetricsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketMetricsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_metrics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketMetricsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketMetricsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketMetricsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketMetricsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2552,13 +1850,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketOwnershipControlsInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketOwnershipControlsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketOwnershipControlsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_ownership_controls(
     #     bucket: 'Bucket', # required
@@ -2569,58 +1867,8 @@ module AWS::SDK::S3
     def delete_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketOwnershipControlsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketOwnershipControlsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketOwnershipControls
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_ownership_controls),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketOwnershipControls,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketOwnershipControls
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketOwnershipControls,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketOwnershipControls.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2700,13 +1948,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketPolicyInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketPolicyInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketPolicyOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_policy(
     #     bucket: 'Bucket', # required
@@ -2725,58 +1973,8 @@ module AWS::SDK::S3
     def delete_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketPolicyInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketPolicyInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketPolicy
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_policy),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketPolicy,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketPolicy
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketPolicy,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketPolicy.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2822,13 +2020,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketReplicationInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketReplicationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketReplicationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_replication(
     #     bucket: 'Bucket', # required
@@ -2847,58 +2045,8 @@ module AWS::SDK::S3
     def delete_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketReplicationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketReplicationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketReplication
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_replication),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketReplication,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketReplication
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketReplication,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketReplication.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -2936,13 +2084,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_tagging(
     #     bucket: 'Bucket', # required
@@ -2961,58 +2109,8 @@ module AWS::SDK::S3
     def delete_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3057,13 +2155,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteBucketWebsiteInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteBucketWebsiteInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteBucketWebsiteOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_bucket_website(
     #     bucket: 'Bucket', # required
@@ -3082,58 +2180,8 @@ module AWS::SDK::S3
     def delete_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBucketWebsiteInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteBucketWebsiteInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBucketWebsite
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_bucket_website),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteBucketWebsite,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteBucketWebsite
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteBucketWebsite,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteBucketWebsite.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3249,13 +2297,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_object(
     #     bucket: 'Bucket', # required
@@ -3294,58 +2342,8 @@ module AWS::SDK::S3
     def delete_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3386,13 +2384,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteObjectTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteObjectTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteObjectTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_object_tagging(
     #     bucket: 'Bucket', # required
@@ -3429,58 +2427,8 @@ module AWS::SDK::S3
     def delete_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteObjectTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteObjectTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_object_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteObjectTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteObjectTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteObjectTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteObjectTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3624,13 +2572,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteObjectsInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteObjectsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteObjectsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_objects(
     #     bucket: 'Bucket', # required
@@ -3699,62 +2647,8 @@ module AWS::SDK::S3
     def delete_objects(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteObjectsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteObjectsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteObjects
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_objects),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeleteObjects,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::DeleteObjects
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeleteObjects,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeleteObjects.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3803,13 +2697,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DeletePublicAccessBlockInput] params
     #   Request parameters for this operation.
     #   See {Types::DeletePublicAccessBlockInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeletePublicAccessBlockOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_public_access_block(
     #     bucket: 'Bucket', # required
@@ -3820,58 +2714,8 @@ module AWS::SDK::S3
     def delete_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicAccessBlockInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeletePublicAccessBlockInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeletePublicAccessBlock
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_public_access_block),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::DeletePublicAccessBlock,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 204,
-          errors: []
-        ),
-        data_parser: Parsers::DeletePublicAccessBlock
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DeletePublicAccessBlock,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::DeletePublicAccessBlock.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -3918,13 +2762,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketAccelerateConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketAccelerateConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketAccelerateConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_accelerate_configuration(
     #     bucket: 'Bucket', # required
@@ -3938,58 +2782,8 @@ module AWS::SDK::S3
     def get_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketAccelerateConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketAccelerateConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_accelerate_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketAccelerateConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketAccelerateConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketAccelerateConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketAccelerateConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4036,13 +2830,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketAclInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketAclInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketAclOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_acl(
     #     bucket: 'Bucket', # required
@@ -4065,58 +2859,8 @@ module AWS::SDK::S3
     def get_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketAclInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketAclInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketAcl
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_acl),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketAcl,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketAcl
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketAcl,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketAcl.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4166,13 +2910,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketAnalyticsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketAnalyticsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketAnalyticsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_analytics_configuration(
     #     bucket: 'Bucket', # required
@@ -4203,58 +2947,8 @@ module AWS::SDK::S3
     def get_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketAnalyticsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketAnalyticsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_analytics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketAnalyticsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketAnalyticsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketAnalyticsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketAnalyticsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4300,13 +2994,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketCorsInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketCorsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketCorsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_cors(
     #     bucket: 'Bucket', # required
@@ -4352,58 +3046,8 @@ module AWS::SDK::S3
     def get_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketCorsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketCorsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketCors
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_cors),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketCors,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketCors
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketCors,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketCors.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4446,13 +3090,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketEncryptionInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketEncryptionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketEncryptionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_encryption(
     #     bucket: 'Bucket', # required
@@ -4470,58 +3114,8 @@ module AWS::SDK::S3
     def get_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketEncryptionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketEncryptionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketEncryption
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_encryption),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketEncryption,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketEncryption
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketEncryption,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketEncryption.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4564,13 +3158,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketIntelligentTieringConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketIntelligentTieringConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketIntelligentTieringConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_intelligent_tiering_configuration(
     #     bucket: 'Bucket', # required
@@ -4596,58 +3190,8 @@ module AWS::SDK::S3
     def get_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketIntelligentTieringConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketIntelligentTieringConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_intelligent_tiering_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketIntelligentTieringConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketIntelligentTieringConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketIntelligentTieringConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketIntelligentTieringConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4695,13 +3239,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketInventoryConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketInventoryConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketInventoryConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_inventory_configuration(
     #     bucket: 'Bucket', # required
@@ -4733,58 +3277,8 @@ module AWS::SDK::S3
     def get_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketInventoryConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketInventoryConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_inventory_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketInventoryConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketInventoryConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketInventoryConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketInventoryConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -4859,13 +3353,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketLifecycleConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketLifecycleConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketLifecycleConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_lifecycle_configuration(
     #     bucket: 'Bucket', # required
@@ -4934,58 +3428,8 @@ module AWS::SDK::S3
     def get_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketLifecycleConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketLifecycleConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_lifecycle_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketLifecycleConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketLifecycleConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketLifecycleConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketLifecycleConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5032,13 +3476,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketLocationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketLocationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketLocationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_location(
     #     bucket: 'Bucket', # required
@@ -5060,58 +3504,8 @@ module AWS::SDK::S3
     def get_bucket_location(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketLocationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketLocationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketLocation
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_location),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketLocation,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketLocation
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketLocation,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketLocation.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5147,13 +3541,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketLoggingInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketLoggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketLoggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_logging(
     #     bucket: 'Bucket', # required
@@ -5180,58 +3574,8 @@ module AWS::SDK::S3
     def get_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketLoggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketLoggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketLogging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_logging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketLogging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketLogging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketLogging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketLogging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5285,13 +3629,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketMetricsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketMetricsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketMetricsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_metrics_configuration(
     #     bucket: 'Bucket', # required
@@ -5315,58 +3659,8 @@ module AWS::SDK::S3
     def get_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketMetricsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketMetricsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_metrics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketMetricsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketMetricsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketMetricsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketMetricsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5410,13 +3704,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketNotificationConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketNotificationConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketNotificationConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_notification_configuration(
     #     bucket: 'Bucket', # required
@@ -5452,58 +3746,8 @@ module AWS::SDK::S3
     def get_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketNotificationConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketNotificationConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_notification_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketNotificationConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketNotificationConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketNotificationConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketNotificationConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5543,13 +3787,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketOwnershipControlsInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketOwnershipControlsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketOwnershipControlsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_ownership_controls(
     #     bucket: 'Bucket', # required
@@ -5564,58 +3808,8 @@ module AWS::SDK::S3
     def get_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketOwnershipControlsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketOwnershipControlsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketOwnershipControls
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_ownership_controls),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketOwnershipControls,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketOwnershipControls
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketOwnershipControls,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketOwnershipControls.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5695,13 +3889,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketPolicyInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketPolicyInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketPolicyOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_policy(
     #     bucket: 'Bucket', # required
@@ -5723,58 +3917,8 @@ module AWS::SDK::S3
     def get_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketPolicyInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketPolicyInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketPolicy
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_policy),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketPolicy,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketPolicy
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketPolicy,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicy.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5824,13 +3968,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketPolicyStatusInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketPolicyStatusInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketPolicyStatusOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_policy_status(
     #     bucket: 'Bucket', # required
@@ -5843,58 +3987,8 @@ module AWS::SDK::S3
     def get_bucket_policy_status(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketPolicyStatusInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketPolicyStatusInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketPolicyStatus
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_policy_status),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketPolicyStatus,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketPolicyStatus
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketPolicyStatus,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketPolicyStatus.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -5945,13 +4039,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketReplicationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketReplicationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketReplicationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_replication(
     #     bucket: 'Bucket', # required
@@ -6024,58 +4118,8 @@ module AWS::SDK::S3
     def get_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketReplicationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketReplicationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketReplication
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_replication),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketReplication,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketReplication
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketReplication,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketReplication.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6107,13 +4151,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketRequestPaymentInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketRequestPaymentInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketRequestPaymentOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_request_payment(
     #     bucket: 'Bucket', # required
@@ -6135,58 +4179,8 @@ module AWS::SDK::S3
     def get_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketRequestPaymentInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketRequestPaymentInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketRequestPayment
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_request_payment),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketRequestPayment,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketRequestPayment
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketRequestPayment,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketRequestPayment.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6237,13 +4231,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_tagging(
     #     bucket: 'Bucket', # required
@@ -6277,58 +4271,8 @@ module AWS::SDK::S3
     def get_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6372,13 +4316,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketVersioningInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketVersioningInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketVersioningOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_versioning(
     #     bucket: 'Bucket', # required
@@ -6402,58 +4346,8 @@ module AWS::SDK::S3
     def get_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketVersioningInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketVersioningInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketVersioning
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_versioning),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketVersioning,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketVersioning
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketVersioning,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketVersioning.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6494,13 +4388,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetBucketWebsiteInput] params
     #   Request parameters for this operation.
     #   See {Types::GetBucketWebsiteInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetBucketWebsiteOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_bucket_website(
     #     bucket: 'Bucket', # required
@@ -6544,58 +4438,8 @@ module AWS::SDK::S3
     def get_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetBucketWebsiteInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetBucketWebsiteInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetBucketWebsite
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_bucket_website),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetBucketWebsite,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetBucketWebsite
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetBucketWebsite,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetBucketWebsite.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6763,13 +4607,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object(
     #     bucket: 'Bucket', # required
@@ -6836,63 +4680,8 @@ module AWS::SDK::S3
     def get_object(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        response_algorithms: ['CRC32', 'CRC32C', 'SHA256', 'SHA1'],
-        request_validation_mode_member: :checksum_mode,
-        request_checksum_required: false
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidObjectState, Errors::NoSuchKey]
-        ),
-        data_parser: Parsers::GetObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidObjectState, Stubs::NoSuchKey],
-        stub_data_class: Stubs::GetObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -6952,13 +4741,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectAclInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectAclInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectAclOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_acl(
     #     bucket: 'Bucket', # required
@@ -7033,58 +4822,8 @@ module AWS::SDK::S3
     def get_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectAclInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectAclInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectAcl
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_acl),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectAcl,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchKey]
-        ),
-        data_parser: Parsers::GetObjectAcl
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchKey],
-        stub_data_class: Stubs::GetObjectAcl,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectAcl.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7289,13 +5028,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectAttributesInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectAttributesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectAttributesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_attributes(
     #     bucket: 'Bucket', # required
@@ -7343,58 +5082,8 @@ module AWS::SDK::S3
     def get_object_attributes(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectAttributesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectAttributesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectAttributes
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_attributes),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectAttributes,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchKey]
-        ),
-        data_parser: Parsers::GetObjectAttributes
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchKey],
-        stub_data_class: Stubs::GetObjectAttributes,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectAttributes.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7426,13 +5115,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectLegalHoldInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectLegalHoldInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectLegalHoldOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_legal_hold(
     #     bucket: 'Bucket', # required
@@ -7448,58 +5137,8 @@ module AWS::SDK::S3
     def get_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectLegalHoldInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectLegalHoldInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectLegalHold
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_legal_hold),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectLegalHold,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetObjectLegalHold
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetObjectLegalHold,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectLegalHold.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7531,13 +5170,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectLockConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectLockConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectLockConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_lock_configuration(
     #     bucket: 'Bucket', # required
@@ -7555,58 +5194,8 @@ module AWS::SDK::S3
     def get_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectLockConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectLockConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectLockConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_lock_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectLockConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetObjectLockConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetObjectLockConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectLockConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7638,13 +5227,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectRetentionInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectRetentionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectRetentionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_retention(
     #     bucket: 'Bucket', # required
@@ -7661,58 +5250,8 @@ module AWS::SDK::S3
     def get_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectRetentionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectRetentionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectRetention
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_retention),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectRetention,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetObjectRetention
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetObjectRetention,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectRetention.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7762,13 +5301,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_tagging(
     #     bucket: 'Bucket', # required
@@ -7826,58 +5365,8 @@ module AWS::SDK::S3
     def get_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetObjectTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetObjectTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -7915,13 +5404,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetObjectTorrentInput] params
     #   Request parameters for this operation.
     #   See {Types::GetObjectTorrentInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetObjectTorrentOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_object_torrent(
     #     bucket: 'Bucket', # required
@@ -7947,58 +5436,8 @@ module AWS::SDK::S3
     def get_object_torrent(params = {}, options = {}, &block)
       response_body = output_stream(options, &block)
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetObjectTorrentInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetObjectTorrentInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetObjectTorrent
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_object_torrent),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetObjectTorrent,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetObjectTorrent
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetObjectTorrent,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetObjectTorrent.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8056,13 +5495,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetPublicAccessBlockInput] params
     #   Request parameters for this operation.
     #   See {Types::GetPublicAccessBlockInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetPublicAccessBlockOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_public_access_block(
     #     bucket: 'Bucket', # required
@@ -8078,58 +5517,8 @@ module AWS::SDK::S3
     def get_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicAccessBlockInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetPublicAccessBlockInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPublicAccessBlock
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_public_access_block),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::GetPublicAccessBlock,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetPublicAccessBlock
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetPublicAccessBlock,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::GetPublicAccessBlock.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8197,13 +5586,13 @@ module AWS::SDK::S3
     #                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
     #             </dd>
     #          </dl>
-    # @param [Hash] params
+    # @param [Hash | Types::HeadBucketInput] params
     #   Request parameters for this operation.
     #   See {Types::HeadBucketInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::HeadBucketOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.head_bucket(
     #     bucket: 'Bucket', # required
@@ -8226,58 +5615,8 @@ module AWS::SDK::S3
     def head_bucket(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::HeadBucketInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::HeadBucketInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::HeadBucket
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :head_bucket),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::HeadBucket,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NotFound]
-        ),
-        data_parser: Parsers::HeadBucket
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NotFound],
-        stub_data_class: Stubs::HeadBucket,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::HeadBucket.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8430,13 +5769,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::HeadObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::HeadObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::HeadObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.head_object(
     #     bucket: 'Bucket', # required
@@ -8495,58 +5834,8 @@ module AWS::SDK::S3
     def head_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::HeadObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::HeadObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::HeadObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :head_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::HeadObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NotFound]
-        ),
-        data_parser: Parsers::HeadObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NotFound],
-        stub_data_class: Stubs::HeadObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::HeadObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8603,13 +5892,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBucketAnalyticsConfigurationsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBucketAnalyticsConfigurationsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBucketAnalyticsConfigurationsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_bucket_analytics_configurations(
     #     bucket: 'Bucket', # required
@@ -8644,58 +5933,8 @@ module AWS::SDK::S3
     def list_bucket_analytics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBucketAnalyticsConfigurationsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBucketAnalyticsConfigurationsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBucketAnalyticsConfigurations
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_bucket_analytics_configurations),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListBucketAnalyticsConfigurations,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListBucketAnalyticsConfigurations
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListBucketAnalyticsConfigurations,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListBucketAnalyticsConfigurations.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8738,13 +5977,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBucketIntelligentTieringConfigurationsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBucketIntelligentTieringConfigurationsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBucketIntelligentTieringConfigurationsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_bucket_intelligent_tiering_configurations(
     #     bucket: 'Bucket', # required
@@ -8774,58 +6013,8 @@ module AWS::SDK::S3
     def list_bucket_intelligent_tiering_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBucketIntelligentTieringConfigurationsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBucketIntelligentTieringConfigurationsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBucketIntelligentTieringConfigurations
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_bucket_intelligent_tiering_configurations),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListBucketIntelligentTieringConfigurations,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListBucketIntelligentTieringConfigurations
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListBucketIntelligentTieringConfigurations,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListBucketIntelligentTieringConfigurations.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -8881,13 +6070,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBucketInventoryConfigurationsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBucketInventoryConfigurationsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBucketInventoryConfigurationsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_bucket_inventory_configurations(
     #     bucket: 'Bucket', # required
@@ -8923,58 +6112,8 @@ module AWS::SDK::S3
     def list_bucket_inventory_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBucketInventoryConfigurationsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBucketInventoryConfigurationsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBucketInventoryConfigurations
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_bucket_inventory_configurations),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListBucketInventoryConfigurations,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListBucketInventoryConfigurations
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListBucketInventoryConfigurations,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListBucketInventoryConfigurations.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9031,13 +6170,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBucketMetricsConfigurationsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBucketMetricsConfigurationsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBucketMetricsConfigurationsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_bucket_metrics_configurations(
     #     bucket: 'Bucket', # required
@@ -9065,58 +6204,8 @@ module AWS::SDK::S3
     def list_bucket_metrics_configurations(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBucketMetricsConfigurationsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBucketMetricsConfigurationsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBucketMetricsConfigurations
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_bucket_metrics_configurations),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListBucketMetricsConfigurations,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListBucketMetricsConfigurations
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListBucketMetricsConfigurations,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListBucketMetricsConfigurations.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9141,13 +6230,13 @@ module AWS::SDK::S3
     #          this operation, you must have the <code>s3:ListAllMyBuckets</code> permission. </p>
     #          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
     #             working with Amazon S3 buckets</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListBucketsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListBucketsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListBucketsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_buckets()
     # @example Response structure
@@ -9186,58 +6275,8 @@ module AWS::SDK::S3
     def list_buckets(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListBucketsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListBucketsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBuckets
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_buckets),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListBuckets,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListBuckets
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListBuckets,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListBuckets.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9274,13 +6313,13 @@ module AWS::SDK::S3
     #                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
     #             </dd>
     #          </dl>
-    # @param [Hash] params
+    # @param [Hash | Types::ListDirectoryBucketsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListDirectoryBucketsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListDirectoryBucketsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_directory_buckets(
     #     continuation_token: 'ContinuationToken',
@@ -9296,58 +6335,8 @@ module AWS::SDK::S3
     def list_directory_buckets(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListDirectoryBucketsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListDirectoryBucketsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDirectoryBuckets
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_directory_buckets),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListDirectoryBuckets,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListDirectoryBuckets
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListDirectoryBuckets,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListDirectoryBuckets.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9479,13 +6468,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListMultipartUploadsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListMultipartUploadsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListMultipartUploadsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_multipart_uploads(
     #     bucket: 'Bucket', # required
@@ -9569,58 +6558,8 @@ module AWS::SDK::S3
     def list_multipart_uploads(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListMultipartUploadsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListMultipartUploadsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListMultipartUploads
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_multipart_uploads),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListMultipartUploads,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListMultipartUploads
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListMultipartUploads,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListMultipartUploads.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9677,13 +6616,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListObjectVersionsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListObjectVersionsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListObjectVersionsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_object_versions(
     #     bucket: 'Bucket', # required
@@ -9780,58 +6719,8 @@ module AWS::SDK::S3
     def list_object_versions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectVersionsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListObjectVersionsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListObjectVersions
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_object_versions),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListObjectVersions,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListObjectVersions
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListObjectVersions,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListObjectVersions.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -9888,13 +6777,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListObjectsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListObjectsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListObjectsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_objects(
     #     bucket: 'Bucket', # required
@@ -9941,58 +6830,8 @@ module AWS::SDK::S3
     def list_objects(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListObjectsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListObjects
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_objects),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListObjects,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchBucket]
-        ),
-        data_parser: Parsers::ListObjects
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchBucket],
-        stub_data_class: Stubs::ListObjects,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListObjects.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10089,13 +6928,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListObjectsV2Input] params
     #   Request parameters for this operation.
     #   See {Types::ListObjectsV2Input#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListObjectsV2Output]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_objects_v2(
     #     bucket: 'Bucket', # required
@@ -10146,58 +6985,8 @@ module AWS::SDK::S3
     def list_objects_v2(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListObjectsV2Input.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListObjectsV2Input,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListObjectsV2
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_objects_v2),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListObjectsV2,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchBucket]
-        ),
-        data_parser: Parsers::ListObjectsV2
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchBucket],
-        stub_data_class: Stubs::ListObjectsV2,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListObjectsV2.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10297,13 +7086,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::ListPartsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListPartsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListPartsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_parts(
     #     bucket: 'Bucket', # required
@@ -10350,58 +7139,8 @@ module AWS::SDK::S3
     def list_parts(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListPartsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListPartsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListParts
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_parts),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::ListParts,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::ListParts
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::ListParts,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::ListParts.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10461,13 +7200,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketAccelerateConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketAccelerateConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketAccelerateConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_accelerate_configuration(
     #     bucket: 'Bucket', # required
@@ -10482,62 +7221,8 @@ module AWS::SDK::S3
     def put_bucket_accelerate_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketAccelerateConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketAccelerateConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketAccelerateConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_accelerate_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: false
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketAccelerateConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketAccelerateConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketAccelerateConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketAccelerateConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10756,13 +7441,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketAclInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketAclInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketAclOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_acl(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read"]
@@ -10809,62 +7494,8 @@ module AWS::SDK::S3
     def put_bucket_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketAclInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketAclInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketAcl
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_acl),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketAcl,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketAcl
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketAcl,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketAcl.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -10988,13 +7619,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketAnalyticsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketAnalyticsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketAnalyticsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_analytics_configuration(
     #     bucket: 'Bucket', # required
@@ -11033,58 +7664,8 @@ module AWS::SDK::S3
     def put_bucket_analytics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketAnalyticsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketAnalyticsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketAnalyticsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_analytics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketAnalyticsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketAnalyticsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketAnalyticsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketAnalyticsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11159,13 +7740,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketCorsInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketCorsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketCorsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_cors(
     #     bucket: 'Bucket', # required
@@ -11240,62 +7821,8 @@ module AWS::SDK::S3
     def put_bucket_cors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketCorsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketCorsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketCors
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_cors),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketCors,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketCors
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketCors,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketCors.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11347,13 +7874,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketEncryptionInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketEncryptionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketEncryptionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_encryption(
     #     bucket: 'Bucket', # required
@@ -11377,62 +7904,8 @@ module AWS::SDK::S3
     def put_bucket_encryption(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketEncryptionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketEncryptionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketEncryption
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_encryption),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketEncryption,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketEncryption
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketEncryption,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketEncryption.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11508,13 +7981,13 @@ module AWS::SDK::S3
     #                   permission to set the configuration on the bucket. </p>
     #             </dd>
     #          </dl>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketIntelligentTieringConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketIntelligentTieringConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketIntelligentTieringConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_intelligent_tiering_configuration(
     #     bucket: 'Bucket', # required
@@ -11545,58 +8018,8 @@ module AWS::SDK::S3
     def put_bucket_intelligent_tiering_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketIntelligentTieringConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketIntelligentTieringConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketIntelligentTieringConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_intelligent_tiering_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketIntelligentTieringConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketIntelligentTieringConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketIntelligentTieringConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketIntelligentTieringConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11701,13 +8124,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketInventoryConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketInventoryConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketInventoryConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_inventory_configuration(
     #     bucket: 'Bucket', # required
@@ -11747,58 +8170,8 @@ module AWS::SDK::S3
     def put_bucket_inventory_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketInventoryConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketInventoryConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketInventoryConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_inventory_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketInventoryConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketInventoryConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketInventoryConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketInventoryConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -11913,13 +8286,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketLifecycleConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketLifecycleConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketLifecycleConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_lifecycle_configuration(
     #     bucket: 'Bucket', # required
@@ -12009,62 +8382,8 @@ module AWS::SDK::S3
     def put_bucket_lifecycle_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketLifecycleConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketLifecycleConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketLifecycleConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_lifecycle_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketLifecycleConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketLifecycleConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketLifecycleConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketLifecycleConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12170,13 +8489,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketLoggingInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketLoggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketLoggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_logging(
     #     bucket: 'Bucket', # required
@@ -12236,62 +8555,8 @@ module AWS::SDK::S3
     def put_bucket_logging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketLoggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketLoggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketLogging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_logging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketLogging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketLogging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketLogging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketLogging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12359,13 +8624,13 @@ module AWS::SDK::S3
     #                </ul>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketMetricsConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketMetricsConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketMetricsConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_metrics_configuration(
     #     bucket: 'Bucket', # required
@@ -12393,58 +8658,8 @@ module AWS::SDK::S3
     def put_bucket_metrics_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketMetricsConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketMetricsConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketMetricsConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_metrics_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketMetricsConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketMetricsConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketMetricsConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketMetricsConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12517,13 +8732,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketNotificationConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketNotificationConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketNotificationConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_notification_configuration(
     #     bucket: 'Bucket', # required
@@ -12587,58 +8802,8 @@ module AWS::SDK::S3
     def put_bucket_notification_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketNotificationConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketNotificationConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketNotificationConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_notification_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketNotificationConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketNotificationConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketNotificationConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketNotificationConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12678,13 +8843,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketOwnershipControlsInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketOwnershipControlsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketOwnershipControlsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_ownership_controls(
     #     bucket: 'Bucket', # required
@@ -12703,61 +8868,8 @@ module AWS::SDK::S3
     def put_bucket_ownership_controls(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketOwnershipControlsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketOwnershipControlsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketOwnershipControls
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_ownership_controls),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketOwnershipControls,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketOwnershipControls
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketOwnershipControls,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketOwnershipControls.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -12842,13 +8954,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketPolicyInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketPolicyInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketPolicyOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_policy(
     #     bucket: 'Bucket', # required
@@ -12872,62 +8984,8 @@ module AWS::SDK::S3
     def put_bucket_policy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketPolicyInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketPolicyInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketPolicy
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_policy),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketPolicy,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketPolicy
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketPolicy,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketPolicy.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13019,13 +9077,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketReplicationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketReplicationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketReplicationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_replication(
     #     bucket: 'Bucket', # required
@@ -13116,62 +9174,8 @@ module AWS::SDK::S3
     def put_bucket_replication(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketReplicationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketReplicationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketReplication
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_replication),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketReplication,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketReplication
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketReplication,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketReplication.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13210,13 +9214,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketRequestPaymentInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketRequestPaymentInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketRequestPaymentOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_request_payment(
     #     bucket: 'Bucket', # required
@@ -13243,62 +9247,8 @@ module AWS::SDK::S3
     def put_bucket_request_payment(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketRequestPaymentInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketRequestPaymentInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketRequestPayment
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_request_payment),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketRequestPayment,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketRequestPayment
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketRequestPayment,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketRequestPayment.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13377,13 +9327,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_tagging(
     #     bucket: 'Bucket', # required
@@ -13424,62 +9374,8 @@ module AWS::SDK::S3
     def put_bucket_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13541,13 +9437,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketVersioningInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketVersioningInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketVersioningOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_versioning(
     #     bucket: 'Bucket', # required
@@ -13577,62 +9473,8 @@ module AWS::SDK::S3
     def put_bucket_versioning(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketVersioningInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketVersioningInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketVersioning
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_versioning),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketVersioning,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketVersioning
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketVersioning,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketVersioning.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -13776,13 +9618,13 @@ module AWS::SDK::S3
     #          than 50 routing rules, you can use object redirect. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">Configuring an
     #             Object Redirect</a> in the <i>Amazon S3 User Guide</i>.</p>
     #          <p>The maximum request length is limited to 128 KB.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutBucketWebsiteInput] params
     #   Request parameters for this operation.
     #   See {Types::PutBucketWebsiteInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutBucketWebsiteOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_bucket_website(
     #     bucket: 'Bucket', # required
@@ -13839,62 +9681,8 @@ module AWS::SDK::S3
     def put_bucket_website(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutBucketWebsiteInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutBucketWebsiteInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutBucketWebsite
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_bucket_website),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutBucketWebsite,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutBucketWebsite
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutBucketWebsite,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutBucketWebsite.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14040,13 +9828,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
@@ -14211,64 +9999,8 @@ module AWS::SDK::S3
     def put_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        streaming: true,
-        request_checksum_required: false,
-        signed_streaming: true,
-        require_decoded_content_length: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14475,13 +10207,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectAclInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectAclInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectAclOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object_acl(
     #     acl: 'private', # accepts ["private", "public-read", "public-read-write", "authenticated-read", "aws-exec-read", "bucket-owner-read", "bucket-owner-full-control"]
@@ -14538,62 +10270,8 @@ module AWS::SDK::S3
     def put_object_acl(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectAclInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectAclInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObjectAcl
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object_acl),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObjectAcl,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::NoSuchKey]
-        ),
-        data_parser: Parsers::PutObjectAcl
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::NoSuchKey],
-        stub_data_class: Stubs::PutObjectAcl,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObjectAcl.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14618,13 +10296,13 @@ module AWS::SDK::S3
     #             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
     #             Objects</a>.</p>
     #          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectLegalHoldInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectLegalHoldInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectLegalHoldOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object_legal_hold(
     #     bucket: 'Bucket', # required
@@ -14644,62 +10322,8 @@ module AWS::SDK::S3
     def put_object_legal_hold(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectLegalHoldInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectLegalHoldInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObjectLegalHold
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object_legal_hold),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObjectLegalHold,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutObjectLegalHold
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutObjectLegalHold,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObjectLegalHold.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14741,13 +10365,13 @@ module AWS::SDK::S3
     #                </li>
     #             </ul>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectLockConfigurationInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectLockConfigurationInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectLockConfigurationOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object_lock_configuration(
     #     bucket: 'Bucket', # required
@@ -14773,62 +10397,8 @@ module AWS::SDK::S3
     def put_object_lock_configuration(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectLockConfigurationInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectLockConfigurationInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObjectLockConfiguration
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object_lock_configuration),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObjectLockConfiguration,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutObjectLockConfiguration
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutObjectLockConfiguration,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObjectLockConfiguration.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -14854,13 +10424,13 @@ module AWS::SDK::S3
     #          place an Object Retention configuration on objects. Bypassing a Governance Retention
     #          configuration requires the <code>s3:BypassGovernanceRetention</code> permission. </p>
     #          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectRetentionInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectRetentionInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectRetentionOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object_retention(
     #     bucket: 'Bucket', # required
@@ -14882,62 +10452,8 @@ module AWS::SDK::S3
     def put_object_retention(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectRetentionInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectRetentionInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObjectRetention
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object_retention),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObjectRetention,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutObjectRetention
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutObjectRetention,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObjectRetention.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15011,13 +10527,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutObjectTaggingInput] params
     #   Request parameters for this operation.
     #   See {Types::PutObjectTaggingInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutObjectTaggingOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_object_tagging(
     #     bucket: 'Bucket', # required
@@ -15065,62 +10581,8 @@ module AWS::SDK::S3
     def put_object_tagging(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutObjectTaggingInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutObjectTaggingInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutObjectTagging
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_object_tagging),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutObjectTagging,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutObjectTagging
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutObjectTagging,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutObjectTagging.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15178,13 +10640,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutPublicAccessBlockInput] params
     #   Request parameters for this operation.
     #   See {Types::PutPublicAccessBlockInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutPublicAccessBlockOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_public_access_block(
     #     bucket: 'Bucket', # required
@@ -15203,62 +10665,8 @@ module AWS::SDK::S3
     def put_public_access_block(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutPublicAccessBlockInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutPublicAccessBlockInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutPublicAccessBlock
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_public_access_block),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::PutPublicAccessBlock,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::PutPublicAccessBlock
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::PutPublicAccessBlock,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::PutPublicAccessBlock.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15541,13 +10949,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::RestoreObjectInput] params
     #   Request parameters for this operation.
     #   See {Types::RestoreObjectInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::RestoreObjectOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.restore_object(
     #     bucket: 'Bucket', # required
@@ -15661,62 +11069,8 @@ module AWS::SDK::S3
     def restore_object(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::RestoreObjectInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::RestoreObjectInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreObject
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :restore_object),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        request_checksum_required: false
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::RestoreObject,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ObjectAlreadyInActiveTierError]
-        ),
-        data_parser: Parsers::RestoreObject
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ObjectAlreadyInActiveTierError],
-        stub_data_class: Stubs::RestoreObject,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::RestoreObject.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -15897,13 +11251,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::UploadPartInput] params
     #   Request parameters for this operation.
     #   See {Types::UploadPartInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UploadPartOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.upload_part(
     #     body: 'Body',
@@ -15940,64 +11294,8 @@ module AWS::SDK::S3
     def upload_part(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UploadPartInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UploadPartInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UploadPart
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :upload_part),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(AWS::SDK::Core::Middleware::Checksum,
-        request_algorithm_member: :checksum_algorithm,
-        streaming: true,
-        request_checksum_required: false,
-        signed_streaming: true,
-        require_decoded_content_length: true
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::UploadPart,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::UploadPart
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::UploadPart,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::UploadPart.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16193,13 +11491,13 @@ module AWS::SDK::S3
     #                </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::UploadPartCopyInput] params
     #   Request parameters for this operation.
     #   See {Types::UploadPartCopyInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UploadPartCopyOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.upload_part_copy(
     #     bucket: 'Bucket', # required
@@ -16241,58 +11539,8 @@ module AWS::SDK::S3
     def upload_part_copy(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UploadPartCopyInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UploadPartCopyInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UploadPartCopy
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :upload_part_copy),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::UploadPartCopy,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::UploadPartCopy
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::UploadPartCopy,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::UploadPartCopy.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
@@ -16347,13 +11595,13 @@ module AWS::SDK::S3
     #          bzip2, gzip, snappy, zlib, zstandard and ZIP. </p>
     #          <p>For information on how to view and use these functions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-examples.html">Using Amazon Web Services built Lambda
     #             functions</a> in the <i>Amazon S3 User Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::WriteGetObjectResponseInput] params
     #   Request parameters for this operation.
     #   See {Types::WriteGetObjectResponseInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::WriteGetObjectResponseOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.write_get_object_response(
     #     request_route: 'RequestRoute', # required
@@ -16404,61 +11652,8 @@ module AWS::SDK::S3
     def write_get_object_response(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::WriteGetObjectResponseInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::WriteGetObjectResponseInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::WriteGetObjectResponse
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :write_get_object_response),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Endpoint,
-        use_accelerate_endpoint: config.use_accelerate_endpoint,
-        use_fips_endpoint: config.use_fips_endpoint,
-        force_path_style: config.force_path_style,
-        endpoint_provider: config.endpoint_provider,
-        disable_multiregion_access_points: config.disable_multiregion_access_points,
-        disable_multi_region_access_points: config.disable_multi_region_access_points,
-        param_builder: Endpoint::Parameters::WriteGetObjectResponse,
-        endpoint: config.endpoint,
-        disable_s3_express_session_auth: config.disable_s3_express_session_auth,
-        accelerate: config.accelerate,
-        use_arn_region: config.use_arn_region,
-        region: config.region,
-        use_dualstack_endpoint: config.use_dualstack_endpoint
-      )
-      stack.use(Hearth::Middleware::HostPrefix,
-        host_prefix: "{request_route}.",
-        disable_host_prefix: config.disable_host_prefix
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::WriteGetObjectResponse
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::WriteGetObjectResponse,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::S3::Middleware::WriteGetObjectResponse.build(config, @stubs)
       context = Hearth::Context.new(
         request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),

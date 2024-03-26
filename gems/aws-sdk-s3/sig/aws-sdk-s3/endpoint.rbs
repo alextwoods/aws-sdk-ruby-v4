@@ -29,7 +29,7 @@ module AWS::SDK::S3
     end
 
     class Provider
-      def resolve_endpoint: (Params params) -> Hearth::EndpointRules::Endpoint
+      def resolve: (Params params) -> Hearth::EndpointRules::Endpoint
     end
   end
 end

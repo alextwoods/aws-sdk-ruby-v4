@@ -13,20 +13,20 @@ module AWS::SDK::S3
     class ListDirectoryBuckets
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListDirectoryBucketsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::S3::Types::Bucket], void]
     end
 
     class ListObjectsV2
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListObjectsV2Output], void]
     end
 
     class ListParts
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListPartsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::S3::Types::Part], void]
     end
 

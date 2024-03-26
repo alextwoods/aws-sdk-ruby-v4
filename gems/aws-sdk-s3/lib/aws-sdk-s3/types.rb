@@ -258,6 +258,10 @@ module AWS::SDK::S3
       end
 
       class Unknown < AnalyticsFilter
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end
@@ -9815,6 +9819,10 @@ module AWS::SDK::S3
       end
 
       class Unknown < LifecycleRuleFilter
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end
@@ -11483,6 +11491,10 @@ module AWS::SDK::S3
       end
 
       class Unknown < MetricsFilter
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end
@@ -15054,6 +15066,10 @@ module AWS::SDK::S3
       end
 
       class Unknown < ReplicationRuleFilter
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end
@@ -15578,6 +15594,10 @@ module AWS::SDK::S3
       end
 
       class Unknown < SelectObjectContentEventStream
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end

@@ -11,61 +11,499 @@ module AWS::SDK::KMS
   class Client
     include Hearth::ClientStubs
 
-    def self.plugins: () -> Hearth::PluginList
+    def self.plugins: () -> Hearth::PluginList[Config]
 
-    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_provider: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
 
     attr_reader config: Config
 
-    def cancel_key_deletion: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def connect_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def decrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_imported_key_material: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_custom_key_stores: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def disable_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def disable_key_rotation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def disconnect_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def enable_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def enable_key_rotation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def encrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_data_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_data_key_pair: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_data_key_pair_without_plaintext: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_data_key_without_plaintext: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_mac: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def generate_random: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_key_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_key_rotation_status: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_parameters_for_import: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_public_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def import_key_material: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_aliases: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_grants: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_key_policies: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_keys: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_resource_tags: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_retirable_grants: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_key_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def re_encrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def replicate_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def retire_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def revoke_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def schedule_key_deletion: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def sign: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def tag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def untag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_key_description: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_primary_region: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def verify: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def verify_mac: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def cancel_key_deletion: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CancelKeyDeletionOutput] |
+      (?Types::CancelKeyDeletionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CancelKeyDeletionOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::CancelKeyDeletionOutput]
+
+    def connect_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ConnectCustomKeyStoreOutput] |
+      (?Types::ConnectCustomKeyStoreInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ConnectCustomKeyStoreOutput] |
+      (
+        custom_key_store_id: ::String
+      ) -> Hearth::Output[Types::ConnectCustomKeyStoreOutput]
+
+    def create_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateAliasOutput] |
+      (?Types::CreateAliasInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateAliasOutput] |
+      (
+        alias_name: ::String,
+        target_key_id: ::String
+      ) -> Hearth::Output[Types::CreateAliasOutput]
+
+    def create_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateCustomKeyStoreOutput] |
+      (?Types::CreateCustomKeyStoreInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateCustomKeyStoreOutput] |
+      (
+        custom_key_store_name: ::String,
+        ?cloud_hsm_cluster_id: ::String,
+        ?trust_anchor_certificate: ::String,
+        ?key_store_password: ::String,
+        ?custom_key_store_type: ("AWS_CLOUDHSM" | "EXTERNAL_KEY_STORE"),
+        ?xks_proxy_uri_endpoint: ::String,
+        ?xks_proxy_uri_path: ::String,
+        ?xks_proxy_vpc_endpoint_service_name: ::String,
+        ?xks_proxy_authentication_credential: {
+          access_key_id: ::String,
+          raw_secret_access_key: ::String
+        },
+        ?xks_proxy_connectivity: ("PUBLIC_ENDPOINT" | "VPC_ENDPOINT_SERVICE")
+      ) -> Hearth::Output[Types::CreateCustomKeyStoreOutput]
+
+    def create_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateGrantOutput] |
+      (?Types::CreateGrantInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateGrantOutput] |
+      (
+        key_id: ::String,
+        grantee_principal: ::String,
+        ?retiring_principal: ::String,
+        operations: ::Array[("Decrypt" | "Encrypt" | "GenerateDataKey" | "GenerateDataKeyWithoutPlaintext" | "ReEncryptFrom" | "ReEncryptTo" | "Sign" | "Verify" | "GetPublicKey" | "CreateGrant" | "RetireGrant" | "DescribeKey" | "GenerateDataKeyPair" | "GenerateDataKeyPairWithoutPlaintext" | "GenerateMac" | "VerifyMac")],
+        ?constraints: {
+          encryption_context_subset: ::Hash[::String, ::String],
+          encryption_context_equals: ::Hash[::String, ::String]
+        },
+        ?grant_tokens: ::Array[::String],
+        ?name: ::String,
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::CreateGrantOutput]
+
+    def create_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateKeyOutput] |
+      (?Types::CreateKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateKeyOutput] |
+      (
+        ?policy: ::String,
+        ?description: ::String,
+        ?key_usage: ("SIGN_VERIFY" | "ENCRYPT_DECRYPT" | "GENERATE_VERIFY_MAC"),
+        ?customer_master_key_spec: ("RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SYMMETRIC_DEFAULT" | "HMAC_224" | "HMAC_256" | "HMAC_384" | "HMAC_512" | "SM2"),
+        ?key_spec: ("RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SYMMETRIC_DEFAULT" | "HMAC_224" | "HMAC_256" | "HMAC_384" | "HMAC_512" | "SM2"),
+        ?origin: ("AWS_KMS" | "EXTERNAL" | "AWS_CLOUDHSM" | "EXTERNAL_KEY_STORE"),
+        ?custom_key_store_id: ::String,
+        ?bypass_policy_lockout_safety_check: bool,
+        ?tags: ::Array[{
+          tag_key: ::String,
+          tag_value: ::String
+        }],
+        ?multi_region: bool,
+        ?xks_key_id: ::String
+      ) -> Hearth::Output[Types::CreateKeyOutput]
+
+    def decrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecryptOutput] |
+      (?Types::DecryptInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecryptOutput] |
+      (
+        ciphertext_blob: ::String,
+        ?encryption_context: ::Hash[::String, ::String],
+        ?grant_tokens: ::Array[::String],
+        ?key_id: ::String,
+        ?encryption_algorithm: ("SYMMETRIC_DEFAULT" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "SM2PKE"),
+        ?recipient: {
+          key_encryption_algorithm: ("RSAES_OAEP_SHA_256"),
+          attestation_document: ::String
+        },
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::DecryptOutput]
+
+    def delete_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteAliasOutput] |
+      (?Types::DeleteAliasInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteAliasOutput] |
+      (
+        alias_name: ::String
+      ) -> Hearth::Output[Types::DeleteAliasOutput]
+
+    def delete_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteCustomKeyStoreOutput] |
+      (?Types::DeleteCustomKeyStoreInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteCustomKeyStoreOutput] |
+      (
+        custom_key_store_id: ::String
+      ) -> Hearth::Output[Types::DeleteCustomKeyStoreOutput]
+
+    def delete_imported_key_material: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteImportedKeyMaterialOutput] |
+      (?Types::DeleteImportedKeyMaterialInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteImportedKeyMaterialOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::DeleteImportedKeyMaterialOutput]
+
+    def describe_custom_key_stores: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeCustomKeyStoresOutput] |
+      (?Types::DescribeCustomKeyStoresInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeCustomKeyStoresOutput] |
+      (
+        ?custom_key_store_id: ::String,
+        ?custom_key_store_name: ::String,
+        ?limit: ::Integer,
+        ?marker: ::String
+      ) -> Hearth::Output[Types::DescribeCustomKeyStoresOutput]
+
+    def describe_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeKeyOutput] |
+      (?Types::DescribeKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeKeyOutput] |
+      (
+        key_id: ::String,
+        ?grant_tokens: ::Array[::String]
+      ) -> Hearth::Output[Types::DescribeKeyOutput]
+
+    def disable_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKeyOutput] |
+      (?Types::DisableKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKeyOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::DisableKeyOutput]
+
+    def disable_key_rotation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKeyRotationOutput] |
+      (?Types::DisableKeyRotationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKeyRotationOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::DisableKeyRotationOutput]
+
+    def disconnect_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisconnectCustomKeyStoreOutput] |
+      (?Types::DisconnectCustomKeyStoreInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisconnectCustomKeyStoreOutput] |
+      (
+        custom_key_store_id: ::String
+      ) -> Hearth::Output[Types::DisconnectCustomKeyStoreOutput]
+
+    def enable_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKeyOutput] |
+      (?Types::EnableKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKeyOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::EnableKeyOutput]
+
+    def enable_key_rotation: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKeyRotationOutput] |
+      (?Types::EnableKeyRotationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKeyRotationOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::EnableKeyRotationOutput]
+
+    def encrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EncryptOutput] |
+      (?Types::EncryptInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EncryptOutput] |
+      (
+        key_id: ::String,
+        plaintext: ::String,
+        ?encryption_context: ::Hash[::String, ::String],
+        ?grant_tokens: ::Array[::String],
+        ?encryption_algorithm: ("SYMMETRIC_DEFAULT" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "SM2PKE"),
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::EncryptOutput]
+
+    def generate_data_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyOutput] |
+      (?Types::GenerateDataKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyOutput] |
+      (
+        key_id: ::String,
+        ?encryption_context: ::Hash[::String, ::String],
+        ?number_of_bytes: ::Integer,
+        ?key_spec: ("AES_256" | "AES_128"),
+        ?grant_tokens: ::Array[::String],
+        ?recipient: {
+          key_encryption_algorithm: ("RSAES_OAEP_SHA_256"),
+          attestation_document: ::String
+        },
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::GenerateDataKeyOutput]
+
+    def generate_data_key_pair: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyPairOutput] |
+      (?Types::GenerateDataKeyPairInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyPairOutput] |
+      (
+        ?encryption_context: ::Hash[::String, ::String],
+        key_id: ::String,
+        key_pair_spec: ("RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SM2"),
+        ?grant_tokens: ::Array[::String],
+        ?recipient: {
+          key_encryption_algorithm: ("RSAES_OAEP_SHA_256"),
+          attestation_document: ::String
+        },
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::GenerateDataKeyPairOutput]
+
+    def generate_data_key_pair_without_plaintext: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyPairWithoutPlaintextOutput] |
+      (?Types::GenerateDataKeyPairWithoutPlaintextInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyPairWithoutPlaintextOutput] |
+      (
+        ?encryption_context: ::Hash[::String, ::String],
+        key_id: ::String,
+        key_pair_spec: ("RSA_2048" | "RSA_3072" | "RSA_4096" | "ECC_NIST_P256" | "ECC_NIST_P384" | "ECC_NIST_P521" | "ECC_SECG_P256K1" | "SM2"),
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::GenerateDataKeyPairWithoutPlaintextOutput]
+
+    def generate_data_key_without_plaintext: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyWithoutPlaintextOutput] |
+      (?Types::GenerateDataKeyWithoutPlaintextInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateDataKeyWithoutPlaintextOutput] |
+      (
+        key_id: ::String,
+        ?encryption_context: ::Hash[::String, ::String],
+        ?key_spec: ("AES_256" | "AES_128"),
+        ?number_of_bytes: ::Integer,
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::GenerateDataKeyWithoutPlaintextOutput]
+
+    def generate_mac: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateMacOutput] |
+      (?Types::GenerateMacInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateMacOutput] |
+      (
+        message: ::String,
+        key_id: ::String,
+        mac_algorithm: ("HMAC_SHA_224" | "HMAC_SHA_256" | "HMAC_SHA_384" | "HMAC_SHA_512"),
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::GenerateMacOutput]
+
+    def generate_random: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateRandomOutput] |
+      (?Types::GenerateRandomInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GenerateRandomOutput] |
+      (
+        ?number_of_bytes: ::Integer,
+        ?custom_key_store_id: ::String,
+        ?recipient: {
+          key_encryption_algorithm: ("RSAES_OAEP_SHA_256"),
+          attestation_document: ::String
+        }
+      ) -> Hearth::Output[Types::GenerateRandomOutput]
+
+    def get_key_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetKeyPolicyOutput] |
+      (?Types::GetKeyPolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetKeyPolicyOutput] |
+      (
+        key_id: ::String,
+        policy_name: ::String
+      ) -> Hearth::Output[Types::GetKeyPolicyOutput]
+
+    def get_key_rotation_status: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetKeyRotationStatusOutput] |
+      (?Types::GetKeyRotationStatusInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetKeyRotationStatusOutput] |
+      (
+        key_id: ::String
+      ) -> Hearth::Output[Types::GetKeyRotationStatusOutput]
+
+    def get_parameters_for_import: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetParametersForImportOutput] |
+      (?Types::GetParametersForImportInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetParametersForImportOutput] |
+      (
+        key_id: ::String,
+        wrapping_algorithm: ("RSAES_PKCS1_V1_5" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "RSA_AES_KEY_WRAP_SHA_1" | "RSA_AES_KEY_WRAP_SHA_256"),
+        wrapping_key_spec: ("RSA_2048" | "RSA_3072" | "RSA_4096")
+      ) -> Hearth::Output[Types::GetParametersForImportOutput]
+
+    def get_public_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetPublicKeyOutput] |
+      (?Types::GetPublicKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetPublicKeyOutput] |
+      (
+        key_id: ::String,
+        ?grant_tokens: ::Array[::String]
+      ) -> Hearth::Output[Types::GetPublicKeyOutput]
+
+    def import_key_material: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ImportKeyMaterialOutput] |
+      (?Types::ImportKeyMaterialInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ImportKeyMaterialOutput] |
+      (
+        key_id: ::String,
+        import_token: ::String,
+        encrypted_key_material: ::String,
+        ?valid_to: ::Time,
+        ?expiration_model: ("KEY_MATERIAL_EXPIRES" | "KEY_MATERIAL_DOES_NOT_EXPIRE")
+      ) -> Hearth::Output[Types::ImportKeyMaterialOutput]
+
+    def list_aliases: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAliasesOutput] |
+      (?Types::ListAliasesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAliasesOutput] |
+      (
+        ?key_id: ::String,
+        ?limit: ::Integer,
+        ?marker: ::String
+      ) -> Hearth::Output[Types::ListAliasesOutput]
+
+    def list_grants: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListGrantsOutput] |
+      (?Types::ListGrantsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListGrantsOutput] |
+      (
+        ?limit: ::Integer,
+        ?marker: ::String,
+        key_id: ::String,
+        ?grant_id: ::String,
+        ?grantee_principal: ::String
+      ) -> Hearth::Output[Types::ListGrantsOutput]
+
+    def list_key_policies: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListKeyPoliciesOutput] |
+      (?Types::ListKeyPoliciesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListKeyPoliciesOutput] |
+      (
+        key_id: ::String,
+        ?limit: ::Integer,
+        ?marker: ::String
+      ) -> Hearth::Output[Types::ListKeyPoliciesOutput]
+
+    def list_keys: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListKeysOutput] |
+      (?Types::ListKeysInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListKeysOutput] |
+      (
+        ?limit: ::Integer,
+        ?marker: ::String
+      ) -> Hearth::Output[Types::ListKeysOutput]
+
+    def list_resource_tags: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListResourceTagsOutput] |
+      (?Types::ListResourceTagsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListResourceTagsOutput] |
+      (
+        key_id: ::String,
+        ?limit: ::Integer,
+        ?marker: ::String
+      ) -> Hearth::Output[Types::ListResourceTagsOutput]
+
+    def list_retirable_grants: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListRetirableGrantsOutput] |
+      (?Types::ListRetirableGrantsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListRetirableGrantsOutput] |
+      (
+        ?limit: ::Integer,
+        ?marker: ::String,
+        retiring_principal: ::String
+      ) -> Hearth::Output[Types::ListRetirableGrantsOutput]
+
+    def put_key_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutKeyPolicyOutput] |
+      (?Types::PutKeyPolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutKeyPolicyOutput] |
+      (
+        key_id: ::String,
+        policy_name: ::String,
+        policy: ::String,
+        ?bypass_policy_lockout_safety_check: bool
+      ) -> Hearth::Output[Types::PutKeyPolicyOutput]
+
+    def re_encrypt: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ReEncryptOutput] |
+      (?Types::ReEncryptInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ReEncryptOutput] |
+      (
+        ciphertext_blob: ::String,
+        ?source_encryption_context: ::Hash[::String, ::String],
+        ?source_key_id: ::String,
+        destination_key_id: ::String,
+        ?destination_encryption_context: ::Hash[::String, ::String],
+        ?source_encryption_algorithm: ("SYMMETRIC_DEFAULT" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "SM2PKE"),
+        ?destination_encryption_algorithm: ("SYMMETRIC_DEFAULT" | "RSAES_OAEP_SHA_1" | "RSAES_OAEP_SHA_256" | "SM2PKE"),
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::ReEncryptOutput]
+
+    def replicate_key: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ReplicateKeyOutput] |
+      (?Types::ReplicateKeyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ReplicateKeyOutput] |
+      (
+        key_id: ::String,
+        replica_region: ::String,
+        ?policy: ::String,
+        ?bypass_policy_lockout_safety_check: bool,
+        ?description: ::String,
+        ?tags: ::Array[{
+          tag_key: ::String,
+          tag_value: ::String
+        }]
+      ) -> Hearth::Output[Types::ReplicateKeyOutput]
+
+    def retire_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RetireGrantOutput] |
+      (?Types::RetireGrantInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RetireGrantOutput] |
+      (
+        ?grant_token: ::String,
+        ?key_id: ::String,
+        ?grant_id: ::String,
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::RetireGrantOutput]
+
+    def revoke_grant: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RevokeGrantOutput] |
+      (?Types::RevokeGrantInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RevokeGrantOutput] |
+      (
+        key_id: ::String,
+        grant_id: ::String,
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::RevokeGrantOutput]
+
+    def schedule_key_deletion: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ScheduleKeyDeletionOutput] |
+      (?Types::ScheduleKeyDeletionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ScheduleKeyDeletionOutput] |
+      (
+        key_id: ::String,
+        ?pending_window_in_days: ::Integer
+      ) -> Hearth::Output[Types::ScheduleKeyDeletionOutput]
+
+    def sign: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::SignOutput] |
+      (?Types::SignInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::SignOutput] |
+      (
+        key_id: ::String,
+        message: ::String,
+        ?message_type: ("RAW" | "DIGEST"),
+        ?grant_tokens: ::Array[::String],
+        signing_algorithm: ("RSASSA_PSS_SHA_256" | "RSASSA_PSS_SHA_384" | "RSASSA_PSS_SHA_512" | "RSASSA_PKCS1_V1_5_SHA_256" | "RSASSA_PKCS1_V1_5_SHA_384" | "RSASSA_PKCS1_V1_5_SHA_512" | "ECDSA_SHA_256" | "ECDSA_SHA_384" | "ECDSA_SHA_512" | "SM2DSA"),
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::SignOutput]
+
+    def tag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TagResourceOutput] |
+      (?Types::TagResourceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TagResourceOutput] |
+      (
+        key_id: ::String,
+        tags: ::Array[{
+          tag_key: ::String,
+          tag_value: ::String
+        }]
+      ) -> Hearth::Output[Types::TagResourceOutput]
+
+    def untag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UntagResourceOutput] |
+      (?Types::UntagResourceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UntagResourceOutput] |
+      (
+        key_id: ::String,
+        tag_keys: ::Array[::String]
+      ) -> Hearth::Output[Types::UntagResourceOutput]
+
+    def update_alias: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateAliasOutput] |
+      (?Types::UpdateAliasInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateAliasOutput] |
+      (
+        alias_name: ::String,
+        target_key_id: ::String
+      ) -> Hearth::Output[Types::UpdateAliasOutput]
+
+    def update_custom_key_store: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateCustomKeyStoreOutput] |
+      (?Types::UpdateCustomKeyStoreInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateCustomKeyStoreOutput] |
+      (
+        custom_key_store_id: ::String,
+        ?new_custom_key_store_name: ::String,
+        ?key_store_password: ::String,
+        ?cloud_hsm_cluster_id: ::String,
+        ?xks_proxy_uri_endpoint: ::String,
+        ?xks_proxy_uri_path: ::String,
+        ?xks_proxy_vpc_endpoint_service_name: ::String,
+        ?xks_proxy_authentication_credential: {
+          access_key_id: ::String,
+          raw_secret_access_key: ::String
+        },
+        ?xks_proxy_connectivity: ("PUBLIC_ENDPOINT" | "VPC_ENDPOINT_SERVICE")
+      ) -> Hearth::Output[Types::UpdateCustomKeyStoreOutput]
+
+    def update_key_description: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateKeyDescriptionOutput] |
+      (?Types::UpdateKeyDescriptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateKeyDescriptionOutput] |
+      (
+        key_id: ::String,
+        description: ::String
+      ) -> Hearth::Output[Types::UpdateKeyDescriptionOutput]
+
+    def update_primary_region: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdatePrimaryRegionOutput] |
+      (?Types::UpdatePrimaryRegionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdatePrimaryRegionOutput] |
+      (
+        key_id: ::String,
+        primary_region: ::String
+      ) -> Hearth::Output[Types::UpdatePrimaryRegionOutput]
+
+    def verify: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifyOutput] |
+      (?Types::VerifyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifyOutput] |
+      (
+        key_id: ::String,
+        message: ::String,
+        ?message_type: ("RAW" | "DIGEST"),
+        signature: ::String,
+        signing_algorithm: ("RSASSA_PSS_SHA_256" | "RSASSA_PSS_SHA_384" | "RSASSA_PSS_SHA_512" | "RSASSA_PKCS1_V1_5_SHA_256" | "RSASSA_PKCS1_V1_5_SHA_384" | "RSASSA_PKCS1_V1_5_SHA_512" | "ECDSA_SHA_256" | "ECDSA_SHA_384" | "ECDSA_SHA_512" | "SM2DSA"),
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::VerifyOutput]
+
+    def verify_mac: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifyMacOutput] |
+      (?Types::VerifyMacInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::VerifyMacOutput] |
+      (
+        message: ::String,
+        key_id: ::String,
+        mac_algorithm: ("HMAC_SHA_224" | "HMAC_SHA_256" | "HMAC_SHA_384" | "HMAC_SHA_512"),
+        mac: ::String,
+        ?grant_tokens: ::Array[::String],
+        ?dry_run: bool
+      ) -> Hearth::Output[Types::VerifyMacOutput]
+
   end
 end

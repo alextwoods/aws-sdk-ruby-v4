@@ -11,65 +11,863 @@ module AWS::SDK::DynamoDB
   class Client
     include Hearth::ClientStubs
 
-    def self.plugins: () -> Hearth::PluginList
+    def self.plugins: () -> Hearth::PluginList[Config]
 
-    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_provider: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
 
     attr_reader config: Config
 
-    def batch_execute_statement: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def batch_get_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def batch_write_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_continuous_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_endpoints: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_export: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_global_table_settings: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_import: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_limits: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_table_replica_auto_scaling: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def describe_time_to_live: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def disable_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def enable_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def execute_statement: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def execute_transaction: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def export_table_to_point_in_time: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def import_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_exports: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_global_tables: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_imports: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_tables: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_tags_of_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def query: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def restore_table_from_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def restore_table_to_point_in_time: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def scan: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def tag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def transact_get_items: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def transact_write_items: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def untag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_continuous_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_global_table_settings: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_table_replica_auto_scaling: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def update_time_to_live: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def batch_execute_statement: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchExecuteStatementOutput] |
+      (?Types::BatchExecuteStatementInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchExecuteStatementOutput] |
+      (
+        statements: ::Array[{
+          statement: ::String,
+          parameters: ::Array[Types::AttributeValue],
+          consistent_read: bool,
+          return_values_on_condition_check_failure: ::String
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE")
+      ) -> Hearth::Output[Types::BatchExecuteStatementOutput]
+
+    def batch_get_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchGetItemOutput] |
+      (?Types::BatchGetItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchGetItemOutput] |
+      (
+        request_items: ::Hash[::String, {
+          keys: ::Array[::Hash[::String, Types::AttributeValue]],
+          attributes_to_get: ::Array[::String],
+          consistent_read: bool,
+          projection_expression: ::String,
+          expression_attribute_names: ::Hash[::String, ::String]
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE")
+      ) -> Hearth::Output[Types::BatchGetItemOutput]
+
+    def batch_write_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchWriteItemOutput] |
+      (?Types::BatchWriteItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::BatchWriteItemOutput] |
+      (
+        request_items: ::Hash[::String, ::Array[Types::WriteRequest]],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?return_item_collection_metrics: ("SIZE" | "NONE")
+      ) -> Hearth::Output[Types::BatchWriteItemOutput]
+
+    def create_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateBackupOutput] |
+      (?Types::CreateBackupInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateBackupOutput] |
+      (
+        table_name: ::String,
+        backup_name: ::String
+      ) -> Hearth::Output[Types::CreateBackupOutput]
+
+    def create_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateGlobalTableOutput] |
+      (?Types::CreateGlobalTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateGlobalTableOutput] |
+      (
+        global_table_name: ::String,
+        replication_group: ::Array[{
+          region_name: ::String
+        }]
+      ) -> Hearth::Output[Types::CreateGlobalTableOutput]
+
+    def create_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTableOutput] |
+      (?Types::CreateTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateTableOutput] |
+      (
+        attribute_definitions: ::Array[{
+          attribute_name: ::String,
+          attribute_type: ::String
+        }],
+        table_name: ::String,
+        key_schema: ::Array[{
+          attribute_name: ::String,
+          key_type: ::String
+        }],
+        ?local_secondary_indexes: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection
+        }],
+        ?global_secondary_indexes: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection,
+          provisioned_throughput: Types::ProvisionedThroughput
+        }],
+        ?billing_mode: ("PROVISIONED" | "PAY_PER_REQUEST"),
+        ?provisioned_throughput: {
+          read_capacity_units: ::Integer,
+          write_capacity_units: ::Integer
+        },
+        ?stream_specification: {
+          stream_enabled: bool,
+          stream_view_type: ("NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES" | "KEYS_ONLY")
+        },
+        ?sse_specification: {
+          enabled: bool,
+          sse_type: ("AES256" | "KMS"),
+          kms_master_key_id: ::String
+        },
+        ?tags: ::Array[{
+          key: ::String,
+          value: ::String
+        }],
+        ?table_class: ("STANDARD" | "STANDARD_INFREQUENT_ACCESS"),
+        ?deletion_protection_enabled: bool
+      ) -> Hearth::Output[Types::CreateTableOutput]
+
+    def delete_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBackupOutput] |
+      (?Types::DeleteBackupInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBackupOutput] |
+      (
+        backup_arn: ::String
+      ) -> Hearth::Output[Types::DeleteBackupOutput]
+
+    def delete_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteItemOutput] |
+      (?Types::DeleteItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteItemOutput] |
+      (
+        table_name: ::String,
+        key: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?expected: ::Hash[::String, {
+          value: Types::AttributeValue,
+          exists: bool,
+          comparison_operator: ::String,
+          attribute_value_list: ::Array[Types::AttributeValue]
+        }],
+        ?conditional_operator: ("AND" | "OR"),
+        ?return_values: ("NONE" | "ALL_OLD" | "UPDATED_OLD" | "ALL_NEW" | "UPDATED_NEW"),
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?return_item_collection_metrics: ("SIZE" | "NONE"),
+        ?condition_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String],
+        ?expression_attribute_values: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?return_values_on_condition_check_failure: ("ALL_OLD" | "NONE")
+      ) -> Hearth::Output[Types::DeleteItemOutput]
+
+    def delete_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteTableOutput] |
+      (?Types::DeleteTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteTableOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DeleteTableOutput]
+
+    def describe_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeBackupOutput] |
+      (?Types::DescribeBackupInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeBackupOutput] |
+      (
+        backup_arn: ::String
+      ) -> Hearth::Output[Types::DescribeBackupOutput]
+
+    def describe_continuous_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeContinuousBackupsOutput] |
+      (?Types::DescribeContinuousBackupsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeContinuousBackupsOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DescribeContinuousBackupsOutput]
+
+    def describe_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeContributorInsightsOutput] |
+      (?Types::DescribeContributorInsightsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeContributorInsightsOutput] |
+      (
+        table_name: ::String,
+        ?index_name: ::String
+      ) -> Hearth::Output[Types::DescribeContributorInsightsOutput]
+
+    def describe_endpoints: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeEndpointsOutput] |
+      (?Types::DescribeEndpointsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeEndpointsOutput]
+    def describe_export: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeExportOutput] |
+      (?Types::DescribeExportInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeExportOutput] |
+      (
+        export_arn: ::String
+      ) -> Hearth::Output[Types::DescribeExportOutput]
+
+    def describe_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeGlobalTableOutput] |
+      (?Types::DescribeGlobalTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeGlobalTableOutput] |
+      (
+        global_table_name: ::String
+      ) -> Hearth::Output[Types::DescribeGlobalTableOutput]
+
+    def describe_global_table_settings: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeGlobalTableSettingsOutput] |
+      (?Types::DescribeGlobalTableSettingsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeGlobalTableSettingsOutput] |
+      (
+        global_table_name: ::String
+      ) -> Hearth::Output[Types::DescribeGlobalTableSettingsOutput]
+
+    def describe_import: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeImportOutput] |
+      (?Types::DescribeImportInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeImportOutput] |
+      (
+        import_arn: ::String
+      ) -> Hearth::Output[Types::DescribeImportOutput]
+
+    def describe_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeKinesisStreamingDestinationOutput] |
+      (?Types::DescribeKinesisStreamingDestinationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeKinesisStreamingDestinationOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DescribeKinesisStreamingDestinationOutput]
+
+    def describe_limits: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeLimitsOutput] |
+      (?Types::DescribeLimitsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeLimitsOutput]
+    def describe_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTableOutput] |
+      (?Types::DescribeTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTableOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DescribeTableOutput]
+
+    def describe_table_replica_auto_scaling: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTableReplicaAutoScalingOutput] |
+      (?Types::DescribeTableReplicaAutoScalingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTableReplicaAutoScalingOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DescribeTableReplicaAutoScalingOutput]
+
+    def describe_time_to_live: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTimeToLiveOutput] |
+      (?Types::DescribeTimeToLiveInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DescribeTimeToLiveOutput] |
+      (
+        table_name: ::String
+      ) -> Hearth::Output[Types::DescribeTimeToLiveOutput]
+
+    def disable_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKinesisStreamingDestinationOutput] |
+      (?Types::DisableKinesisStreamingDestinationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DisableKinesisStreamingDestinationOutput] |
+      (
+        table_name: ::String,
+        stream_arn: ::String,
+        ?enable_kinesis_streaming_configuration: {
+          approximate_creation_date_time_precision: ("MILLISECOND" | "MICROSECOND")
+        }
+      ) -> Hearth::Output[Types::DisableKinesisStreamingDestinationOutput]
+
+    def enable_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKinesisStreamingDestinationOutput] |
+      (?Types::EnableKinesisStreamingDestinationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::EnableKinesisStreamingDestinationOutput] |
+      (
+        table_name: ::String,
+        stream_arn: ::String,
+        ?enable_kinesis_streaming_configuration: {
+          approximate_creation_date_time_precision: ("MILLISECOND" | "MICROSECOND")
+        }
+      ) -> Hearth::Output[Types::EnableKinesisStreamingDestinationOutput]
+
+    def execute_statement: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExecuteStatementOutput] |
+      (?Types::ExecuteStatementInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExecuteStatementOutput] |
+      (
+        statement: ::String,
+        ?parameters: ::Array[{
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?consistent_read: bool,
+        ?next_token: ::String,
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?limit: ::Integer,
+        ?return_values_on_condition_check_failure: ("ALL_OLD" | "NONE")
+      ) -> Hearth::Output[Types::ExecuteStatementOutput]
+
+    def execute_transaction: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExecuteTransactionOutput] |
+      (?Types::ExecuteTransactionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExecuteTransactionOutput] |
+      (
+        transact_statements: ::Array[{
+          statement: ::String,
+          parameters: ::Array[Types::AttributeValue],
+          return_values_on_condition_check_failure: ::String
+        }],
+        ?client_request_token: ::String,
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE")
+      ) -> Hearth::Output[Types::ExecuteTransactionOutput]
+
+    def export_table_to_point_in_time: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExportTableToPointInTimeOutput] |
+      (?Types::ExportTableToPointInTimeInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ExportTableToPointInTimeOutput] |
+      (
+        table_arn: ::String,
+        ?export_time: ::Time,
+        ?client_token: ::String,
+        s3_bucket: ::String,
+        ?s3_bucket_owner: ::String,
+        ?s3_prefix: ::String,
+        ?s3_sse_algorithm: ("AES256" | "KMS"),
+        ?s3_sse_kms_key_id: ::String,
+        ?export_format: ("DYNAMODB_JSON" | "ION"),
+        ?export_type: ("FULL_EXPORT" | "INCREMENTAL_EXPORT"),
+        ?incremental_export_specification: {
+          export_from_time: ::Time,
+          export_to_time: ::Time,
+          export_view_type: ("NEW_IMAGE" | "NEW_AND_OLD_IMAGES")
+        }
+      ) -> Hearth::Output[Types::ExportTableToPointInTimeOutput]
+
+    def get_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetItemOutput] |
+      (?Types::GetItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetItemOutput] |
+      (
+        table_name: ::String,
+        key: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?attributes_to_get: ::Array[::String],
+        ?consistent_read: bool,
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?projection_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String]
+      ) -> Hearth::Output[Types::GetItemOutput]
+
+    def import_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ImportTableOutput] |
+      (?Types::ImportTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ImportTableOutput] |
+      (
+        ?client_token: ::String,
+        s3_bucket_source: {
+          s3_bucket_owner: ::String,
+          s3_bucket: ::String,
+          s3_key_prefix: ::String
+        },
+        input_format: ("DYNAMODB_JSON" | "ION" | "CSV"),
+        ?input_format_options: {
+          csv: {
+            delimiter: ::String,
+            header_list: ::Array[::String]
+          }
+        },
+        ?input_compression_type: ("GZIP" | "ZSTD" | "NONE"),
+        table_creation_parameters: {
+          table_name: ::String,
+          attribute_definitions: ::Array[Types::AttributeDefinition],
+          key_schema: ::Array[Types::KeySchemaElement],
+          billing_mode: ("PROVISIONED" | "PAY_PER_REQUEST"),
+          provisioned_throughput: {
+            read_capacity_units: ::Integer,
+            write_capacity_units: ::Integer
+          },
+          sse_specification: {
+            enabled: bool,
+            sse_type: ::String,
+            kms_master_key_id: ::String
+          },
+          global_secondary_indexes: ::Array[Types::GlobalSecondaryIndex]
+        }
+      ) -> Hearth::Output[Types::ImportTableOutput]
+
+    def list_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBackupsOutput] |
+      (?Types::ListBackupsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBackupsOutput] |
+      (
+        ?table_name: ::String,
+        ?limit: ::Integer,
+        ?time_range_lower_bound: ::Time,
+        ?time_range_upper_bound: ::Time,
+        ?exclusive_start_backup_arn: ::String,
+        ?backup_type: ("USER" | "SYSTEM" | "AWS_BACKUP" | "ALL")
+      ) -> Hearth::Output[Types::ListBackupsOutput]
+
+    def list_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListContributorInsightsOutput] |
+      (?Types::ListContributorInsightsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListContributorInsightsOutput] |
+      (
+        ?table_name: ::String,
+        ?next_token: ::String,
+        ?max_results: ::Integer
+      ) -> Hearth::Output[Types::ListContributorInsightsOutput]
+
+    def list_exports: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListExportsOutput] |
+      (?Types::ListExportsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListExportsOutput] |
+      (
+        ?table_arn: ::String,
+        ?max_results: ::Integer,
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListExportsOutput]
+
+    def list_global_tables: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListGlobalTablesOutput] |
+      (?Types::ListGlobalTablesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListGlobalTablesOutput] |
+      (
+        ?exclusive_start_global_table_name: ::String,
+        ?limit: ::Integer,
+        ?region_name: ::String
+      ) -> Hearth::Output[Types::ListGlobalTablesOutput]
+
+    def list_imports: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListImportsOutput] |
+      (?Types::ListImportsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListImportsOutput] |
+      (
+        ?table_arn: ::String,
+        ?page_size: ::Integer,
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListImportsOutput]
+
+    def list_tables: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTablesOutput] |
+      (?Types::ListTablesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTablesOutput] |
+      (
+        ?exclusive_start_table_name: ::String,
+        ?limit: ::Integer
+      ) -> Hearth::Output[Types::ListTablesOutput]
+
+    def list_tags_of_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTagsOfResourceOutput] |
+      (?Types::ListTagsOfResourceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListTagsOfResourceOutput] |
+      (
+        resource_arn: ::String,
+        ?next_token: ::String
+      ) -> Hearth::Output[Types::ListTagsOfResourceOutput]
+
+    def put_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutItemOutput] |
+      (?Types::PutItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutItemOutput] |
+      (
+        table_name: ::String,
+        item: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?expected: ::Hash[::String, {
+          value: Types::AttributeValue,
+          exists: bool,
+          comparison_operator: ::String,
+          attribute_value_list: ::Array[Types::AttributeValue]
+        }],
+        ?return_values: ("NONE" | "ALL_OLD" | "UPDATED_OLD" | "ALL_NEW" | "UPDATED_NEW"),
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?return_item_collection_metrics: ("SIZE" | "NONE"),
+        ?conditional_operator: ("AND" | "OR"),
+        ?condition_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String],
+        ?expression_attribute_values: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?return_values_on_condition_check_failure: ("ALL_OLD" | "NONE")
+      ) -> Hearth::Output[Types::PutItemOutput]
+
+    def query: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::QueryOutput] |
+      (?Types::QueryInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::QueryOutput] |
+      (
+        table_name: ::String,
+        ?index_name: ::String,
+        ?select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
+        ?attributes_to_get: ::Array[::String],
+        ?limit: ::Integer,
+        ?consistent_read: bool,
+        ?key_conditions: ::Hash[::String, {
+          attribute_value_list: ::Array[Types::AttributeValue],
+          comparison_operator: ::String
+        }],
+        ?query_filter: ::Hash[::String, {
+          attribute_value_list: ::Array[Types::AttributeValue],
+          comparison_operator: ::String
+        }],
+        ?conditional_operator: ("AND" | "OR"),
+        ?scan_index_forward: bool,
+        ?exclusive_start_key: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?projection_expression: ::String,
+        ?filter_expression: ::String,
+        ?key_condition_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String],
+        ?expression_attribute_values: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }]
+      ) -> Hearth::Output[Types::QueryOutput]
+
+    def restore_table_from_backup: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreTableFromBackupOutput] |
+      (?Types::RestoreTableFromBackupInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreTableFromBackupOutput] |
+      (
+        target_table_name: ::String,
+        backup_arn: ::String,
+        ?billing_mode_override: ("PROVISIONED" | "PAY_PER_REQUEST"),
+        ?global_secondary_index_override: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection,
+          provisioned_throughput: Types::ProvisionedThroughput
+        }],
+        ?local_secondary_index_override: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection
+        }],
+        ?provisioned_throughput_override: {
+          read_capacity_units: ::Integer,
+          write_capacity_units: ::Integer
+        },
+        ?sse_specification_override: {
+          enabled: bool,
+          sse_type: ("AES256" | "KMS"),
+          kms_master_key_id: ::String
+        }
+      ) -> Hearth::Output[Types::RestoreTableFromBackupOutput]
+
+    def restore_table_to_point_in_time: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreTableToPointInTimeOutput] |
+      (?Types::RestoreTableToPointInTimeInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreTableToPointInTimeOutput] |
+      (
+        ?source_table_arn: ::String,
+        ?source_table_name: ::String,
+        target_table_name: ::String,
+        ?use_latest_restorable_time: bool,
+        ?restore_date_time: ::Time,
+        ?billing_mode_override: ("PROVISIONED" | "PAY_PER_REQUEST"),
+        ?global_secondary_index_override: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection,
+          provisioned_throughput: Types::ProvisionedThroughput
+        }],
+        ?local_secondary_index_override: ::Array[{
+          index_name: ::String,
+          key_schema: ::Array[Types::KeySchemaElement],
+          projection: Types::Projection
+        }],
+        ?provisioned_throughput_override: {
+          read_capacity_units: ::Integer,
+          write_capacity_units: ::Integer
+        },
+        ?sse_specification_override: {
+          enabled: bool,
+          sse_type: ("AES256" | "KMS"),
+          kms_master_key_id: ::String
+        }
+      ) -> Hearth::Output[Types::RestoreTableToPointInTimeOutput]
+
+    def scan: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ScanOutput] |
+      (?Types::ScanInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ScanOutput] |
+      (
+        table_name: ::String,
+        ?index_name: ::String,
+        ?attributes_to_get: ::Array[::String],
+        ?limit: ::Integer,
+        ?select: ("ALL_ATTRIBUTES" | "ALL_PROJECTED_ATTRIBUTES" | "SPECIFIC_ATTRIBUTES" | "COUNT"),
+        ?scan_filter: ::Hash[::String, {
+          attribute_value_list: ::Array[Types::AttributeValue],
+          comparison_operator: ::String
+        }],
+        ?conditional_operator: ("AND" | "OR"),
+        ?exclusive_start_key: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?total_segments: ::Integer,
+        ?segment: ::Integer,
+        ?projection_expression: ::String,
+        ?filter_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String],
+        ?expression_attribute_values: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?consistent_read: bool
+      ) -> Hearth::Output[Types::ScanOutput]
+
+    def tag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TagResourceOutput] |
+      (?Types::TagResourceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TagResourceOutput] |
+      (
+        resource_arn: ::String,
+        tags: ::Array[{
+          key: ::String,
+          value: ::String
+        }]
+      ) -> Hearth::Output[Types::TagResourceOutput]
+
+    def transact_get_items: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TransactGetItemsOutput] |
+      (?Types::TransactGetItemsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TransactGetItemsOutput] |
+      (
+        transact_items: ::Array[{
+          get: Types::Get
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE")
+      ) -> Hearth::Output[Types::TransactGetItemsOutput]
+
+    def transact_write_items: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TransactWriteItemsOutput] |
+      (?Types::TransactWriteItemsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::TransactWriteItemsOutput] |
+      (
+        transact_items: ::Array[{
+          condition_check: Types::ConditionCheck,
+          put: Types::Put,
+          delete: Types::Delete,
+          update: Types::Update
+        }],
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?return_item_collection_metrics: ("SIZE" | "NONE"),
+        ?client_request_token: ::String
+      ) -> Hearth::Output[Types::TransactWriteItemsOutput]
+
+    def untag_resource: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UntagResourceOutput] |
+      (?Types::UntagResourceInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UntagResourceOutput] |
+      (
+        resource_arn: ::String,
+        tag_keys: ::Array[::String]
+      ) -> Hearth::Output[Types::UntagResourceOutput]
+
+    def update_continuous_backups: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateContinuousBackupsOutput] |
+      (?Types::UpdateContinuousBackupsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateContinuousBackupsOutput] |
+      (
+        table_name: ::String,
+        point_in_time_recovery_specification: {
+          point_in_time_recovery_enabled: bool
+        }
+      ) -> Hearth::Output[Types::UpdateContinuousBackupsOutput]
+
+    def update_contributor_insights: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateContributorInsightsOutput] |
+      (?Types::UpdateContributorInsightsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateContributorInsightsOutput] |
+      (
+        table_name: ::String,
+        ?index_name: ::String,
+        contributor_insights_action: ("ENABLE" | "DISABLE")
+      ) -> Hearth::Output[Types::UpdateContributorInsightsOutput]
+
+    def update_global_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateGlobalTableOutput] |
+      (?Types::UpdateGlobalTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateGlobalTableOutput] |
+      (
+        global_table_name: ::String,
+        replica_updates: ::Array[{
+          create: Types::CreateReplicaAction,
+          delete: Types::DeleteReplicaAction
+        }]
+      ) -> Hearth::Output[Types::UpdateGlobalTableOutput]
+
+    def update_global_table_settings: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateGlobalTableSettingsOutput] |
+      (?Types::UpdateGlobalTableSettingsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateGlobalTableSettingsOutput] |
+      (
+        global_table_name: ::String,
+        ?global_table_billing_mode: ("PROVISIONED" | "PAY_PER_REQUEST"),
+        ?global_table_provisioned_write_capacity_units: ::Integer,
+        ?global_table_provisioned_write_capacity_auto_scaling_settings_update: {
+          minimum_units: ::Integer,
+          maximum_units: ::Integer,
+          auto_scaling_disabled: bool,
+          auto_scaling_role_arn: ::String,
+          scaling_policy_update: {
+            policy_name: ::String,
+            target_tracking_scaling_policy_configuration: Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+          }
+        },
+        ?global_table_global_secondary_index_settings_update: ::Array[{
+          index_name: ::String,
+          provisioned_write_capacity_units: ::Integer,
+          provisioned_write_capacity_auto_scaling_settings_update: Types::AutoScalingSettingsUpdate
+        }],
+        ?replica_settings_update: ::Array[{
+          region_name: ::String,
+          replica_provisioned_read_capacity_units: ::Integer,
+          replica_provisioned_read_capacity_auto_scaling_settings_update: Types::AutoScalingSettingsUpdate,
+          replica_global_secondary_index_settings_update: ::Array[Types::ReplicaGlobalSecondaryIndexSettingsUpdate],
+          replica_table_class: ::String
+        }]
+      ) -> Hearth::Output[Types::UpdateGlobalTableSettingsOutput]
+
+    def update_item: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateItemOutput] |
+      (?Types::UpdateItemInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateItemOutput] |
+      (
+        table_name: ::String,
+        key: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?attribute_updates: ::Hash[::String, {
+          value: Types::AttributeValue,
+          action: ::String
+        }],
+        ?expected: ::Hash[::String, {
+          value: Types::AttributeValue,
+          exists: bool,
+          comparison_operator: ::String,
+          attribute_value_list: ::Array[Types::AttributeValue]
+        }],
+        ?conditional_operator: ("AND" | "OR"),
+        ?return_values: ("NONE" | "ALL_OLD" | "UPDATED_OLD" | "ALL_NEW" | "UPDATED_NEW"),
+        ?return_consumed_capacity: ("INDEXES" | "TOTAL" | "NONE"),
+        ?return_item_collection_metrics: ("SIZE" | "NONE"),
+        ?update_expression: ::String,
+        ?condition_expression: ::String,
+        ?expression_attribute_names: ::Hash[::String, ::String],
+        ?expression_attribute_values: ::Hash[::String, {
+          S: ::String,
+          N: ::String,
+          B: ::String,
+          Ss: ::Array[::String],
+          Ns: ::Array[::String],
+          Bs: ::Array[::String],
+          M: ::Hash[::String, Types::AttributeValue],
+          L: ::Array[Types::AttributeValue],
+          Null: bool,
+          Bool: bool
+        }],
+        ?return_values_on_condition_check_failure: ("ALL_OLD" | "NONE")
+      ) -> Hearth::Output[Types::UpdateItemOutput]
+
+    def update_kinesis_streaming_destination: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateKinesisStreamingDestinationOutput] |
+      (?Types::UpdateKinesisStreamingDestinationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateKinesisStreamingDestinationOutput] |
+      (
+        table_name: ::String,
+        stream_arn: ::String,
+        ?update_kinesis_streaming_configuration: {
+          approximate_creation_date_time_precision: ("MILLISECOND" | "MICROSECOND")
+        }
+      ) -> Hearth::Output[Types::UpdateKinesisStreamingDestinationOutput]
+
+    def update_table: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTableOutput] |
+      (?Types::UpdateTableInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTableOutput] |
+      (
+        ?attribute_definitions: ::Array[{
+          attribute_name: ::String,
+          attribute_type: ::String
+        }],
+        table_name: ::String,
+        ?billing_mode: ("PROVISIONED" | "PAY_PER_REQUEST"),
+        ?provisioned_throughput: {
+          read_capacity_units: ::Integer,
+          write_capacity_units: ::Integer
+        },
+        ?global_secondary_index_updates: ::Array[{
+          update: Types::UpdateGlobalSecondaryIndexAction,
+          create: Types::CreateGlobalSecondaryIndexAction,
+          delete: Types::DeleteGlobalSecondaryIndexAction
+        }],
+        ?stream_specification: {
+          stream_enabled: bool,
+          stream_view_type: ("NEW_IMAGE" | "OLD_IMAGE" | "NEW_AND_OLD_IMAGES" | "KEYS_ONLY")
+        },
+        ?sse_specification: {
+          enabled: bool,
+          sse_type: ("AES256" | "KMS"),
+          kms_master_key_id: ::String
+        },
+        ?replica_updates: ::Array[{
+          create: Types::CreateReplicationGroupMemberAction,
+          update: Types::UpdateReplicationGroupMemberAction,
+          delete: Types::DeleteReplicationGroupMemberAction
+        }],
+        ?table_class: ("STANDARD" | "STANDARD_INFREQUENT_ACCESS"),
+        ?deletion_protection_enabled: bool
+      ) -> Hearth::Output[Types::UpdateTableOutput]
+
+    def update_table_replica_auto_scaling: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTableReplicaAutoScalingOutput] |
+      (?Types::UpdateTableReplicaAutoScalingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTableReplicaAutoScalingOutput] |
+      (
+        ?global_secondary_index_updates: ::Array[{
+          index_name: ::String,
+          provisioned_write_capacity_auto_scaling_update: Types::AutoScalingSettingsUpdate
+        }],
+        table_name: ::String,
+        ?provisioned_write_capacity_auto_scaling_update: {
+          minimum_units: ::Integer,
+          maximum_units: ::Integer,
+          auto_scaling_disabled: bool,
+          auto_scaling_role_arn: ::String,
+          scaling_policy_update: {
+            policy_name: ::String,
+            target_tracking_scaling_policy_configuration: Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+          }
+        },
+        ?replica_updates: ::Array[{
+          region_name: ::String,
+          replica_global_secondary_index_updates: ::Array[Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate],
+          replica_provisioned_read_capacity_auto_scaling_update: Types::AutoScalingSettingsUpdate
+        }]
+      ) -> Hearth::Output[Types::UpdateTableReplicaAutoScalingOutput]
+
+    def update_time_to_live: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTimeToLiveOutput] |
+      (?Types::UpdateTimeToLiveInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UpdateTimeToLiveOutput] |
+      (
+        table_name: ::String,
+        time_to_live_specification: {
+          enabled: bool,
+          attribute_name: ::String
+        }
+      ) -> Hearth::Output[Types::UpdateTimeToLiveOutput]
+
   end
 end

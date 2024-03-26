@@ -25,7 +25,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "af-south-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -43,7 +43,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "af-south-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -61,7 +61,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -79,7 +79,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -97,7 +97,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -115,7 +115,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -133,7 +133,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-2", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -151,7 +151,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-2", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -169,7 +169,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-3", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -187,7 +187,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-northeast-3", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -205,7 +205,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-south-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -223,7 +223,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-south-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -241,7 +241,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -259,7 +259,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -277,7 +277,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-2", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -295,7 +295,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-2", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -313,7 +313,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-3", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -331,7 +331,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ap-southeast-3", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -349,7 +349,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ca-central-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -367,7 +367,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "ca-central-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -385,7 +385,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-central-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -403,7 +403,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-central-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -421,7 +421,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-north-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -439,7 +439,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-north-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -457,7 +457,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-south-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -475,7 +475,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-south-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -493,7 +493,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -511,7 +511,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -529,7 +529,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-2", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -547,7 +547,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-2", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -565,7 +565,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-3", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -583,7 +583,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "eu-west-3", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -601,7 +601,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "me-south-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -619,7 +619,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "me-south-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -637,7 +637,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "sa-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -655,7 +655,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "sa-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -673,7 +673,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -691,7 +691,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -709,7 +709,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-2", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -727,7 +727,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-2", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -745,7 +745,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-west-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -763,7 +763,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-west-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -781,7 +781,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-west-2", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -799,7 +799,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-west-2", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -817,7 +817,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -835,7 +835,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -853,7 +853,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "cn-north-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -871,7 +871,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "cn-northwest-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -889,7 +889,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -907,7 +907,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "cn-north-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -925,7 +925,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "cn-north-1", use_fips: false, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -943,7 +943,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -961,7 +961,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -979,7 +979,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-west-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -997,7 +997,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-west-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1015,7 +1015,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-east-1", use_fips: true, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1033,7 +1033,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-gov-east-1", use_fips: false, use_dual_stack: true)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1051,7 +1051,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1069,7 +1069,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1087,7 +1087,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-west-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1105,7 +1105,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-west-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1120,7 +1120,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-east-1", use_fips: true, use_dual_stack: true)
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1133,7 +1133,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-iso-east-1", use_fips: false, use_dual_stack: true)
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1149,7 +1149,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-isob-east-1", use_fips: false, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1167,7 +1167,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-isob-east-1", use_fips: true, use_dual_stack: false)
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1182,7 +1182,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-isob-east-1", use_fips: true, use_dual_stack: true)
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1195,7 +1195,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-isob-east-1", use_fips: false, use_dual_stack: true)
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1211,7 +1211,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: false, endpoint: "https://example.com")
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1229,7 +1229,7 @@ module AWS::SDK::KMS
 
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(use_fips: false, use_dual_stack: false, endpoint: "https://example.com")
-          endpoint = subject.resolve_endpoint(params)
+          endpoint = subject.resolve(params)
           expect(endpoint.uri).to eq(expected[:url])
           expect(endpoint.headers).to eq(expected[:headers])
           expect(endpoint.auth_schemes).to eq(expected[:auth_schemes])
@@ -1244,7 +1244,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: true, use_dual_stack: false, endpoint: "https://example.com")
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1257,7 +1257,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new(region: "us-east-1", use_fips: false, use_dual_stack: true, endpoint: "https://example.com")
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end
@@ -1270,7 +1270,7 @@ module AWS::SDK::KMS
         it 'produces the expected output from the EndpointProvider' do
           params = Params.new()
           expect do
-            subject.resolve_endpoint(params)
+            subject.resolve(params)
           end.to raise_error(ArgumentError, expected[:error])
         end
       end

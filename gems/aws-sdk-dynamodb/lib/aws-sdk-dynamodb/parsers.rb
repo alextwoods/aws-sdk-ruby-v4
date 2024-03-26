@@ -93,7 +93,7 @@ module AWS::SDK::DynamoDB
           value = value
           Types::AttributeValue::Bool.new(value) if value
         else
-          Types::AttributeValue::Unknown.new({name: key, value: value})
+          Types::AttributeValue::Unknown.new(name: key, value: value)
         end
       end
     end

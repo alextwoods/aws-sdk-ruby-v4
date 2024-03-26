@@ -13,39 +13,39 @@ module AWS::SDK::DynamoDB
     class ListContributorInsights
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListContributorInsightsOutput], void]
     end
 
     class ListExports
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListExportsOutput], void]
     end
 
     class ListImports
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListImportsOutput], void]
     end
 
     class ListTables
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListTablesOutput], void]
       def items: () -> Enumerator[Array[TableName], void]
     end
 
     class Query
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::QueryOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::DynamoDB::Types::AttributeMap], void]
     end
 
     class Scan
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ScanOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::DynamoDB::Types::AttributeMap], void]
     end
 

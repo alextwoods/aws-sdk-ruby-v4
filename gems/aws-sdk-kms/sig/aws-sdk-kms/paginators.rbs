@@ -13,49 +13,49 @@ module AWS::SDK::KMS
     class DescribeCustomKeyStores
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeCustomKeyStoresOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::CustomKeyStoresListEntry], void]
     end
 
     class ListAliases
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListAliasesOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::AliasListEntry], void]
     end
 
     class ListGrants
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListGrantsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::GrantListEntry], void]
     end
 
     class ListKeyPolicies
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListKeyPoliciesOutput], void]
       def items: () -> Enumerator[Array[PolicyNameType], void]
     end
 
     class ListKeys
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListKeysOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::KeyListEntry], void]
     end
 
     class ListResourceTags
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListResourceTagsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::Tag], void]
     end
 
     class ListRetirableGrants
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListRetirableGrantsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::KMS::Types::GrantListEntry], void]
     end
 
