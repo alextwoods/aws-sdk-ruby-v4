@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   ]
 
   spec.add_dependency('aws-sigv4', '~> 2.0.0.pre1')
-  spec.add_dependency('hearth', '~> 1.0.0.pre1')
+  spec.add_dependency('hearth', '~> 1.0.0.pre2')
 
   spec.metadata = {
     'source_code_uri' => 'https://github.com/aws/aws-sdk-ruby/tree/version-4/gems/aws-sdk-core',
