@@ -64,7 +64,6 @@ task 'test' do
 end
 
 namespace :test do
-
   desc 'Run rspec for fully hand maintained gems (core and sigv4)'
   task 'core' do
     sh('rspec gems/aws-sdk-core gems/aws-sigv4')
@@ -96,7 +95,23 @@ namespace :test do
 end
 
 namespace :rubocop do
+  desc 'Runs rubocop on hand coded gems'
+  task 'core' do
+    Dir.chdir('gems/aws-sdk-core') do
+      sh('rubocop -E -S')
+    end
 
+    Dir.chdir('gems/aws-sigv4') do
+      sh('rubocop -E -S')
+    end
+  end
+
+  desc 'Runs rubocop on the hand coded ruby files (tests and middleware/plugins/ect) in codegen'
+  task 'codegen' do
+    Dir.chdir('codegen') do
+      sh('rubocop -E -S')
+    end
+  end
 end
 
 namespace :steep do

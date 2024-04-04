@@ -40,7 +40,7 @@ module AWS::SDK::Core
     #
     # @return [Boolean]
     def self.arn?(str)
-      !str.nil? && str.start_with?('arn:') && str.scan(/:/).length >= 5
+      !str.nil? && str.start_with?('arn:') && str.scan(':').length >= 5
     end
   end
 end

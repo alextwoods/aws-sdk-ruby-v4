@@ -9,6 +9,10 @@ on:
     branches:
       - main
 
+env:
+  java_version: 17
+  ruby_version: 3.2
+
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -25,28 +29,53 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.java_version }}
+
+      - name: Build and publish maven local smithy-ruby
+        run: |
+          git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
+          cd smithy-ruby/codegen
+          ./gradlew clean build publishToMavenLocal
+      
       - name: Install gems
-        run: bundle install
+        run: |
+          bundle config set --local without 'repl'
+          bundle install
+          
+      - name: Build gems
+        run: bundle exec rake codegen:build
 
       - name: Unit tests
-        # TODO - run all when possible
-        run: bundle exec rspec -I gems/aws-sdk-core/lib -I gems/aws-sigv4/lib gems/aws-sdk-core gems/aws-sigv4
+        run: bundle exec rake test
 
   rubocop:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Ruby 3.1
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1
+          ruby-version: ${{ env.ruby_version }}
 
       - uses: actions/checkout@v2
 
       - name: Install gems
         run: bundle install
-        working-directory: gems/aws-sdk-core
 
-      - name: Rubocop
-        run: bundle exec rubocop -E -S
-        working-directory: gems/aws-sdk-core
+      - name: Rubocop Core
+        run: bundle exec rake rubocop:core
+
+      - name: Rubocop Codegen
+        run: bundle exec rake rubocop:codegen

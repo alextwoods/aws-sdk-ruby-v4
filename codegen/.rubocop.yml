@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - '**/build/**/*'
+
+Metrics:
+  Exclude:
+    - '**/*_spec.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*_spec.rb'
+
+Style/Documentation:
+  Exclude:
+    - '**/*_spec.rb'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

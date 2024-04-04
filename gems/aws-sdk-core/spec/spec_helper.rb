@@ -2,8 +2,7 @@
 
 $LOAD_PATH.unshift(File.expand_path('../../aws-sigv4/lib', __dir__))
 # $LOAD_PATH.unshift(File.expand_path('../../aws-eventstream/lib',  __FILE__))
-$LOAD_PATH.unshift(File.expand_path('../../lib',  __FILE__))
-
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'simplecov'
 SimpleCov.start do

@@ -20,6 +20,7 @@ end
 group :development do
   gem 'rbs'
   gem 'rubocop'
+  gem 'racc'
   gem 'steep'
 end
 
