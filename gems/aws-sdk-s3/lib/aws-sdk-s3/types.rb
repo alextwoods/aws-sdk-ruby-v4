@@ -345,10 +345,10 @@ module AWS::SDK::S3
     # Includes enum constants for BucketAccelerateStatus
     module BucketAccelerateStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Suspended = "Suspended"
+      SUSPENDED = "Suspended"
     end
 
     # <p>The requested bucket name is not available. The bucket namespace is shared by all users
@@ -378,16 +378,16 @@ module AWS::SDK::S3
     # Includes enum constants for BucketCannedACL
     module BucketCannedACL
       # No documentation available.
-      private = "private"
+      PRIVATE = "private"
 
       # No documentation available.
-      public_read = "public-read"
+      PUBLIC_READ = "public-read"
 
       # No documentation available.
-      public_read_write = "public-read-write"
+      PUBLIC_READ_WRITE = "public-read-write"
 
       # No documentation available.
-      authenticated_read = "authenticated-read"
+      AUTHENTICATED_READ = "authenticated-read"
     end
 
     # <p>Specifies the information about the bucket that will be created. For more information about directory buckets, see
@@ -434,88 +434,88 @@ module AWS::SDK::S3
     # Includes enum constants for BucketLocationConstraint
     module BucketLocationConstraint
       # No documentation available.
-      af_south_1 = "af-south-1"
+      AF_SOUTH_1 = "af-south-1"
 
       # No documentation available.
-      ap_east_1 = "ap-east-1"
+      AP_EAST_1 = "ap-east-1"
 
       # No documentation available.
-      ap_northeast_1 = "ap-northeast-1"
+      AP_NORTHEAST_1 = "ap-northeast-1"
 
       # No documentation available.
-      ap_northeast_2 = "ap-northeast-2"
+      AP_NORTHEAST_2 = "ap-northeast-2"
 
       # No documentation available.
-      ap_northeast_3 = "ap-northeast-3"
+      AP_NORTHEAST_3 = "ap-northeast-3"
 
       # No documentation available.
-      ap_south_1 = "ap-south-1"
+      AP_SOUTH_1 = "ap-south-1"
 
       # No documentation available.
-      ap_south_2 = "ap-south-2"
+      AP_SOUTH_2 = "ap-south-2"
 
       # No documentation available.
-      ap_southeast_1 = "ap-southeast-1"
+      AP_SOUTHEAST_1 = "ap-southeast-1"
 
       # No documentation available.
-      ap_southeast_2 = "ap-southeast-2"
+      AP_SOUTHEAST_2 = "ap-southeast-2"
 
       # No documentation available.
-      ap_southeast_3 = "ap-southeast-3"
+      AP_SOUTHEAST_3 = "ap-southeast-3"
 
       # No documentation available.
-      ca_central_1 = "ca-central-1"
+      CA_CENTRAL_1 = "ca-central-1"
 
       # No documentation available.
-      cn_north_1 = "cn-north-1"
+      CN_NORTH_1 = "cn-north-1"
 
       # No documentation available.
-      cn_northwest_1 = "cn-northwest-1"
+      CN_NORTHWEST_1 = "cn-northwest-1"
 
       # No documentation available.
       EU = "EU"
 
       # No documentation available.
-      eu_central_1 = "eu-central-1"
+      EU_CENTRAL_1 = "eu-central-1"
 
       # No documentation available.
-      eu_north_1 = "eu-north-1"
+      EU_NORTH_1 = "eu-north-1"
 
       # No documentation available.
-      eu_south_1 = "eu-south-1"
+      EU_SOUTH_1 = "eu-south-1"
 
       # No documentation available.
-      eu_south_2 = "eu-south-2"
+      EU_SOUTH_2 = "eu-south-2"
 
       # No documentation available.
-      eu_west_1 = "eu-west-1"
+      EU_WEST_1 = "eu-west-1"
 
       # No documentation available.
-      eu_west_2 = "eu-west-2"
+      EU_WEST_2 = "eu-west-2"
 
       # No documentation available.
-      eu_west_3 = "eu-west-3"
+      EU_WEST_3 = "eu-west-3"
 
       # No documentation available.
-      me_south_1 = "me-south-1"
+      ME_SOUTH_1 = "me-south-1"
 
       # No documentation available.
-      sa_east_1 = "sa-east-1"
+      SA_EAST_1 = "sa-east-1"
 
       # No documentation available.
-      us_east_2 = "us-east-2"
+      US_EAST_2 = "us-east-2"
 
       # No documentation available.
-      us_gov_east_1 = "us-gov-east-1"
+      US_GOV_EAST_1 = "us-gov-east-1"
 
       # No documentation available.
-      us_gov_west_1 = "us-gov-west-1"
+      US_GOV_WEST_1 = "us-gov-west-1"
 
       # No documentation available.
-      us_west_1 = "us-west-1"
+      US_WEST_1 = "us-west-1"
 
       # No documentation available.
-      us_west_2 = "us-west-2"
+      US_WEST_2 = "us-west-2"
     end
 
     # <p>Container for logging status information.</p>
@@ -549,16 +549,16 @@ module AWS::SDK::S3
     # Includes enum constants for BucketType
     module BucketType
       # No documentation available.
-      Directory = "Directory"
+      DIRECTORY = "Directory"
     end
 
     # Includes enum constants for BucketVersioningStatus
     module BucketVersioningStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Suspended = "Suspended"
+      SUSPENDED = "Suspended"
     end
 
     # <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more
@@ -802,7 +802,7 @@ module AWS::SDK::S3
       CRC32 = "CRC32"
 
       # No documentation available.
-      CRC32C = "CRC32C"
+      CRC32_C = "CRC32C"
 
       # No documentation available.
       SHA1 = "SHA1"
@@ -3144,7 +3144,7 @@ module AWS::SDK::S3
     # Includes enum constants for DataRedundancy
     module DataRedundancy
       # No documentation available.
-      SingleAvailabilityZone = "SingleAvailabilityZone"
+      SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
     end
 
     # <p>The container element for specifying the default Object Lock retention settings for new
@@ -3670,10 +3670,10 @@ module AWS::SDK::S3
     # Includes enum constants for DeleteMarkerReplicationStatus
     module DeleteMarkerReplicationStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # @!method initialize(params = {})
@@ -4120,7 +4120,7 @@ module AWS::SDK::S3
     # Includes enum constants for EncodingType
     module EncodingType
       # No documentation available.
-      url = "url"
+      URL = "url"
     end
 
     # <p>Contains the type of server-side encryption used.</p>
@@ -6113,85 +6113,85 @@ module AWS::SDK::S3
     # Includes enum constants for Event
     module Event
       # No documentation available.
-      s3_ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
+      S3_REDUCED_REDUNDANCY_LOST_OBJECT = "s3:ReducedRedundancyLostObject"
 
       # No documentation available.
-      s3_ObjectCreated_ = "s3:ObjectCreated:*"
+      S3_OBJECT_CREATED_ = "s3:ObjectCreated:*"
 
       # No documentation available.
-      s3_ObjectCreated_Put = "s3:ObjectCreated:Put"
+      S3_OBJECT_CREATED_PUT = "s3:ObjectCreated:Put"
 
       # No documentation available.
-      s3_ObjectCreated_Post = "s3:ObjectCreated:Post"
+      S3_OBJECT_CREATED_POST = "s3:ObjectCreated:Post"
 
       # No documentation available.
-      s3_ObjectCreated_Copy = "s3:ObjectCreated:Copy"
+      S3_OBJECT_CREATED_COPY = "s3:ObjectCreated:Copy"
 
       # No documentation available.
-      s3_ObjectCreated_CompleteMultipartUpload = "s3:ObjectCreated:CompleteMultipartUpload"
+      S3_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD = "s3:ObjectCreated:CompleteMultipartUpload"
 
       # No documentation available.
-      s3_ObjectRemoved_ = "s3:ObjectRemoved:*"
+      S3_OBJECT_REMOVED_ = "s3:ObjectRemoved:*"
 
       # No documentation available.
-      s3_ObjectRemoved_Delete = "s3:ObjectRemoved:Delete"
+      S3_OBJECT_REMOVED_DELETE = "s3:ObjectRemoved:Delete"
 
       # No documentation available.
-      s3_ObjectRemoved_DeleteMarkerCreated = "s3:ObjectRemoved:DeleteMarkerCreated"
+      S3_OBJECT_REMOVED_DELETE_MARKER_CREATED = "s3:ObjectRemoved:DeleteMarkerCreated"
 
       # No documentation available.
-      s3_ObjectRestore_ = "s3:ObjectRestore:*"
+      S3_OBJECT_RESTORE_ = "s3:ObjectRestore:*"
 
       # No documentation available.
-      s3_ObjectRestore_Post = "s3:ObjectRestore:Post"
+      S3_OBJECT_RESTORE_POST = "s3:ObjectRestore:Post"
 
       # No documentation available.
-      s3_ObjectRestore_Completed = "s3:ObjectRestore:Completed"
+      S3_OBJECT_RESTORE_COMPLETED = "s3:ObjectRestore:Completed"
 
       # No documentation available.
-      s3_Replication_ = "s3:Replication:*"
+      S3_REPLICATION_ = "s3:Replication:*"
 
       # No documentation available.
-      s3_Replication_OperationFailedReplication = "s3:Replication:OperationFailedReplication"
+      S3_REPLICATION_OPERATION_FAILED_REPLICATION = "s3:Replication:OperationFailedReplication"
 
       # No documentation available.
-      s3_Replication_OperationNotTracked = "s3:Replication:OperationNotTracked"
+      S3_REPLICATION_OPERATION_NOT_TRACKED = "s3:Replication:OperationNotTracked"
 
       # No documentation available.
-      s3_Replication_OperationMissedThreshold = "s3:Replication:OperationMissedThreshold"
+      S3_REPLICATION_OPERATION_MISSED_THRESHOLD = "s3:Replication:OperationMissedThreshold"
 
       # No documentation available.
-      s3_Replication_OperationReplicatedAfterThreshold = "s3:Replication:OperationReplicatedAfterThreshold"
+      S3_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD = "s3:Replication:OperationReplicatedAfterThreshold"
 
       # No documentation available.
-      s3_ObjectRestore_Delete = "s3:ObjectRestore:Delete"
+      S3_OBJECT_RESTORE_DELETE = "s3:ObjectRestore:Delete"
 
       # No documentation available.
-      s3_LifecycleTransition = "s3:LifecycleTransition"
+      S3_LIFECYCLE_TRANSITION = "s3:LifecycleTransition"
 
       # No documentation available.
-      s3_IntelligentTiering = "s3:IntelligentTiering"
+      S3_INTELLIGENT_TIERING = "s3:IntelligentTiering"
 
       # No documentation available.
-      s3_ObjectAcl_Put = "s3:ObjectAcl:Put"
+      S3_OBJECT_ACL_PUT = "s3:ObjectAcl:Put"
 
       # No documentation available.
-      s3_LifecycleExpiration_ = "s3:LifecycleExpiration:*"
+      S3_LIFECYCLE_EXPIRATION_ = "s3:LifecycleExpiration:*"
 
       # No documentation available.
-      s3_LifecycleExpiration_Delete = "s3:LifecycleExpiration:Delete"
+      S3_LIFECYCLE_EXPIRATION_DELETE = "s3:LifecycleExpiration:Delete"
 
       # No documentation available.
-      s3_LifecycleExpiration_DeleteMarkerCreated = "s3:LifecycleExpiration:DeleteMarkerCreated"
+      S3_LIFECYCLE_EXPIRATION_DELETE_MARKER_CREATED = "s3:LifecycleExpiration:DeleteMarkerCreated"
 
       # No documentation available.
-      s3_ObjectTagging_ = "s3:ObjectTagging:*"
+      S3_OBJECT_TAGGING_ = "s3:ObjectTagging:*"
 
       # No documentation available.
-      s3_ObjectTagging_Put = "s3:ObjectTagging:Put"
+      S3_OBJECT_TAGGING_PUT = "s3:ObjectTagging:Put"
 
       # No documentation available.
-      s3_ObjectTagging_Delete = "s3:ObjectTagging:Delete"
+      S3_OBJECT_TAGGING_DELETE = "s3:ObjectTagging:Delete"
     end
 
     # <p>A container for specifying the configuration for Amazon EventBridge.</p>
@@ -6224,19 +6224,19 @@ module AWS::SDK::S3
     # Includes enum constants for ExistingObjectReplicationStatus
     module ExistingObjectReplicationStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for ExpirationStatus
     module ExpirationStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for ExpressionType
@@ -6284,10 +6284,10 @@ module AWS::SDK::S3
     # Includes enum constants for FilterRuleName
     module FilterRuleName
       # No documentation available.
-      prefix = "prefix"
+      PREFIX = "prefix"
 
       # No documentation available.
-      suffix = "suffix"
+      SUFFIX = "suffix"
     end
 
     # @!method initialize(params = {})
@@ -9265,10 +9265,10 @@ module AWS::SDK::S3
     # Includes enum constants for IntelligentTieringStatus
     module IntelligentTieringStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # <p>Object is archived and inaccessible until restored.</p>
@@ -9409,73 +9409,73 @@ module AWS::SDK::S3
       ORC = "ORC"
 
       # No documentation available.
-      Parquet = "Parquet"
+      PARQUET = "Parquet"
     end
 
     # Includes enum constants for InventoryFrequency
     module InventoryFrequency
       # No documentation available.
-      Daily = "Daily"
+      DAILY = "Daily"
 
       # No documentation available.
-      Weekly = "Weekly"
+      WEEKLY = "Weekly"
     end
 
     # Includes enum constants for InventoryIncludedObjectVersions
     module InventoryIncludedObjectVersions
       # No documentation available.
-      All = "All"
+      ALL = "All"
 
       # No documentation available.
-      Current = "Current"
+      CURRENT = "Current"
     end
 
     # Includes enum constants for InventoryOptionalField
     module InventoryOptionalField
       # No documentation available.
-      Size = "Size"
+      SIZE = "Size"
 
       # No documentation available.
-      LastModifiedDate = "LastModifiedDate"
+      LAST_MODIFIED_DATE = "LastModifiedDate"
 
       # No documentation available.
-      StorageClass = "StorageClass"
+      STORAGE_CLASS = "StorageClass"
 
       # No documentation available.
-      ETag = "ETag"
+      E_TAG = "ETag"
 
       # No documentation available.
-      IsMultipartUploaded = "IsMultipartUploaded"
+      IS_MULTIPART_UPLOADED = "IsMultipartUploaded"
 
       # No documentation available.
-      ReplicationStatus = "ReplicationStatus"
+      REPLICATION_STATUS = "ReplicationStatus"
 
       # No documentation available.
-      EncryptionStatus = "EncryptionStatus"
+      ENCRYPTION_STATUS = "EncryptionStatus"
 
       # No documentation available.
-      ObjectLockRetainUntilDate = "ObjectLockRetainUntilDate"
+      OBJECT_LOCK_RETAIN_UNTIL_DATE = "ObjectLockRetainUntilDate"
 
       # No documentation available.
-      ObjectLockMode = "ObjectLockMode"
+      OBJECT_LOCK_MODE = "ObjectLockMode"
 
       # No documentation available.
-      ObjectLockLegalHoldStatus = "ObjectLockLegalHoldStatus"
+      OBJECT_LOCK_LEGAL_HOLD_STATUS = "ObjectLockLegalHoldStatus"
 
       # No documentation available.
-      IntelligentTieringAccessTier = "IntelligentTieringAccessTier"
+      INTELLIGENT_TIERING_ACCESS_TIER = "IntelligentTieringAccessTier"
 
       # No documentation available.
-      BucketKeyStatus = "BucketKeyStatus"
+      BUCKET_KEY_STATUS = "BucketKeyStatus"
 
       # No documentation available.
-      ChecksumAlgorithm = "ChecksumAlgorithm"
+      CHECKSUM_ALGORITHM = "ChecksumAlgorithm"
 
       # No documentation available.
-      ObjectAccessControlList = "ObjectAccessControlList"
+      OBJECT_ACCESS_CONTROL_LIST = "ObjectAccessControlList"
 
       # No documentation available.
-      ObjectOwner = "ObjectOwner"
+      OBJECT_OWNER = "ObjectOwner"
     end
 
     # <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional)
@@ -11277,7 +11277,7 @@ module AWS::SDK::S3
     # Includes enum constants for LocationType
     module LocationType
       # No documentation available.
-      AvailabilityZone = "AvailabilityZone"
+      AVAILABILITY_ZONE = "AvailabilityZone"
     end
 
     # <p>Describes where logs are stored and the prefix that Amazon S3 assigns to all log object keys
@@ -11323,19 +11323,19 @@ module AWS::SDK::S3
     # Includes enum constants for MFADelete
     module MFADelete
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for MFADeleteStatus
     module MFADeleteStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for MetadataDirective
@@ -11508,10 +11508,10 @@ module AWS::SDK::S3
     # Includes enum constants for MetricsStatus
     module MetricsStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # <p>Container for the <code>MultipartUpload</code> for the Amazon S3 object.</p>
@@ -11848,25 +11848,25 @@ module AWS::SDK::S3
     # Includes enum constants for ObjectCannedACL
     module ObjectCannedACL
       # No documentation available.
-      private = "private"
+      PRIVATE = "private"
 
       # No documentation available.
-      public_read = "public-read"
+      PUBLIC_READ = "public-read"
 
       # No documentation available.
-      public_read_write = "public-read-write"
+      PUBLIC_READ_WRITE = "public-read-write"
 
       # No documentation available.
-      authenticated_read = "authenticated-read"
+      AUTHENTICATED_READ = "authenticated-read"
 
       # No documentation available.
-      aws_exec_read = "aws-exec-read"
+      AWS_EXEC_READ = "aws-exec-read"
 
       # No documentation available.
-      bucket_owner_read = "bucket-owner-read"
+      BUCKET_OWNER_READ = "bucket-owner-read"
 
       # No documentation available.
-      bucket_owner_full_control = "bucket-owner-full-control"
+      BUCKET_OWNER_FULL_CONTROL = "bucket-owner-full-control"
     end
 
     # <p>Object Identifier is unique value to identify objects.</p>
@@ -11925,7 +11925,7 @@ module AWS::SDK::S3
     # Includes enum constants for ObjectLockEnabled
     module ObjectLockEnabled
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
     end
 
     # <p>A legal hold configuration for an object.</p>
@@ -12021,13 +12021,13 @@ module AWS::SDK::S3
     # Includes enum constants for ObjectOwnership
     module ObjectOwnership
       # No documentation available.
-      BucketOwnerPreferred = "BucketOwnerPreferred"
+      BUCKET_OWNER_PREFERRED = "BucketOwnerPreferred"
 
       # No documentation available.
-      ObjectWriter = "ObjectWriter"
+      OBJECT_WRITER = "ObjectWriter"
 
       # No documentation available.
-      BucketOwnerEnforced = "BucketOwnerEnforced"
+      BUCKET_OWNER_ENFORCED = "BucketOwnerEnforced"
     end
 
     # <p>A container for elements related to an individual part.</p>
@@ -12279,7 +12279,7 @@ module AWS::SDK::S3
     # Includes enum constants for OwnerOverride
     module OwnerOverride
       # No documentation available.
-      Destination = "Destination"
+      DESTINATION = "Destination"
     end
 
     # <p>The container element for a bucket's ownership controls.</p>
@@ -12406,10 +12406,10 @@ module AWS::SDK::S3
     # Includes enum constants for PartitionDateSource
     module PartitionDateSource
       # No documentation available.
-      EventTime = "EventTime"
+      EVENT_TIME = "EventTime"
 
       # No documentation available.
-      DeliveryTime = "DeliveryTime"
+      DELIVERY_TIME = "DeliveryTime"
     end
 
     # <p>Amazon S3 keys for log objects are partitioned in the following format:</p>
@@ -12434,10 +12434,10 @@ module AWS::SDK::S3
     # Includes enum constants for Payer
     module Payer
       # No documentation available.
-      Requester = "Requester"
+      REQUESTER = "Requester"
 
       # No documentation available.
-      BucketOwner = "BucketOwner"
+      BUCKET_OWNER = "BucketOwner"
     end
 
     # Includes enum constants for Permission
@@ -12514,10 +12514,10 @@ module AWS::SDK::S3
     # Includes enum constants for Protocol
     module Protocol
       # No documentation available.
-      http = "http"
+      HTTP = "http"
 
       # No documentation available.
-      https = "https"
+      HTTPS = "https"
     end
 
     # <p>The PublicAccessBlock configuration that you want to apply to this Amazon S3 bucket. You can
@@ -14859,10 +14859,10 @@ module AWS::SDK::S3
     # Includes enum constants for ReplicaModificationsStatus
     module ReplicaModificationsStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a
@@ -15083,10 +15083,10 @@ module AWS::SDK::S3
     # Includes enum constants for ReplicationRuleStatus
     module ReplicationRuleStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for ReplicationStatus
@@ -15133,10 +15133,10 @@ module AWS::SDK::S3
     # Includes enum constants for ReplicationTimeStatus
     module ReplicationTimeStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # <p> A container specifying the time value for S3 Replication Time Control (S3 RTC) and replication metrics
@@ -15158,13 +15158,13 @@ module AWS::SDK::S3
     # Includes enum constants for RequestCharged
     module RequestCharged
       # No documentation available.
-      requester = "requester"
+      REQUESTER = "requester"
     end
 
     # Includes enum constants for RequestPayer
     module RequestPayer
       # No documentation available.
-      requester = "requester"
+      REQUESTER = "requester"
     end
 
     # <p>Container for Payer.</p>
@@ -15780,10 +15780,10 @@ module AWS::SDK::S3
       AES256 = "AES256"
 
       # No documentation available.
-      aws_kms = "aws:kms"
+      AWS_KMS = "aws:kms"
 
       # No documentation available.
-      aws_kms_dsse = "aws:kms:dsse"
+      AWS_KMS_DSSE = "aws:kms:dsse"
     end
 
     # <p>Describes the default server-side encryption to apply to new objects in the bucket. If a
@@ -15932,10 +15932,10 @@ module AWS::SDK::S3
     # Includes enum constants for SessionMode
     module SessionMode
       # No documentation available.
-      ReadOnly = "ReadOnly"
+      READ_ONLY = "ReadOnly"
 
       # No documentation available.
-      ReadWrite = "ReadWrite"
+      READ_WRITE = "ReadWrite"
     end
 
     # <p>To use simple format for S3 keys for log objects, set SimplePrefix to an empty object.</p>
@@ -16004,10 +16004,10 @@ module AWS::SDK::S3
     # Includes enum constants for SseKmsEncryptedObjectsStatus
     module SseKmsEncryptedObjectsStatus
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # <p>Container for the stats details.</p>
@@ -16215,13 +16215,13 @@ module AWS::SDK::S3
     # Includes enum constants for Tier
     module Tier
       # No documentation available.
-      Standard = "Standard"
+      STANDARD = "Standard"
 
       # No documentation available.
-      Bulk = "Bulk"
+      BULK = "Bulk"
 
       # No documentation available.
-      Expedited = "Expedited"
+      EXPEDITED = "Expedited"
     end
 
     # <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by
@@ -16341,13 +16341,13 @@ module AWS::SDK::S3
     # Includes enum constants for Type
     module Type
       # No documentation available.
-      CanonicalUser = "CanonicalUser"
+      CANONICAL_USER = "CanonicalUser"
 
       # No documentation available.
-      AmazonCustomerByEmail = "AmazonCustomerByEmail"
+      AMAZON_CUSTOMER_BY_EMAIL = "AmazonCustomerByEmail"
 
       # No documentation available.
-      Group = "Group"
+      GROUP = "Group"
     end
 
     # @!method initialize(params = {})

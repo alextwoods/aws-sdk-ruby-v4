@@ -1,11 +1,6 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require 'simplecov'
-SimpleCov.start do
-  add_filter %r{^/spec/}
-end
-
 require 'aws-sigv4'
 
 module AWS::SigV4

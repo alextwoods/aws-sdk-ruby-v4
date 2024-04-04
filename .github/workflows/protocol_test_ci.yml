@@ -13,86 +13,7 @@ env:
   java_version: 17
 
 jobs:
-  generate-test-sdks:
-    name: Generate the test sdk
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/cache@v2
-      with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-
-    - name: Set up JDK
-      uses: actions/setup-java@v1
-      with:
-        java-version: ${{ env.java_version }}
-    - name: Build and publish maven local smithy-ruby
-      run: |
-        git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
-        cd smithy-ruby/codegen
-        ./gradlew clean build publishToMavenLocal
-        cd ../..
-    - name: Run generator
-      working-directory: codegen
-      run:
-        ./gradlew :protocol-test-codegen:build
-    - name: Upload AWS Query Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: aws_query
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-query/ruby-codegen/aws_query
-    - name: Upload AWS EC2 Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: aws_ec2
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-ec2/ruby-codegen/aws_ec2
-    - name: Upload JSON 1.0 Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: json_rpc_10
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-json10/ruby-codegen/json_rpc_10
-    - name: Upload JSON 1.1 Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: json_protocol
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-json/ruby-codegen/json_protocol
-    - name: Upload Rest XML Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: rest_xml
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restxml/ruby-codegen/rest_xml
-    - name: Upload Rest JSON Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: rest_json
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restjson/ruby-codegen/rest_json
-    - name: Upload Rest JSON Extras Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: rest_json_extras
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restjson-extras/ruby-codegen/rest_json_extras
-    - name: Upload Rest XML Extras Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: rest_xml_extras
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restxml-extras/ruby-codegen/rest_xml_extras
-    - name: Upload EC2 Query Extras Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: aws_ec2_extras
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-ec2-extras/ruby-codegen/aws_ec2_extras
-    - name: Upload Query Extras Protocol Test SDK
-      uses: actions/upload-artifact@v2
-      with:
-        name: aws_query_extras
-        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-query-extras/ruby-codegen/aws_query_extras
-
   protocol-specs:
-    needs: [generate-test-sdks]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -108,22 +29,36 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: Download generated test sdk
-        uses: actions/download-artifact@v2
+      - uses: actions/cache@v2
         with:
-          name: ${{ matrix.protocol }}
-          path: ${{ matrix.protocol }}
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
 
-      - name: Copy Gemfile
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.java_version }}
+
+      - name: Build and publish maven local smithy-ruby
         run: |
-          cp Gemfile ${{ matrix.protocol }}
+          git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
+          cd smithy-ruby/codegen
+          ./gradlew clean build publishToMavenLocal
+          cd ../..
+          
+      - name: Build test sdks
+        working-directory: codegen
+        run:
+          ./gradlew :protocol-test-codegen:build
 
       - name: Install gems
         run: |
           bundle config set --local without 'repl'
           bundle install
-        working-directory: ./${{ matrix.protocol }}
 
-      - name: Tests
-        run: bundle exec rspec -I ../gems/aws-sdk-core/lib -I ../gems/aws-sigv4/lib
-        working-directory: ./${{ matrix.protocol }}
+      - name: Run Protocol Tests
+        run: bundle exec rake test:protocol:${{ matrix.protocol }}

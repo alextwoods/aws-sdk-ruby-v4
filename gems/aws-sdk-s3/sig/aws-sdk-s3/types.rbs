@@ -110,9 +110,9 @@ module AWS::SDK::S3
     end
 
     module BucketAccelerateStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Suspended: ::String
+      SUSPENDED: ::String
     end
 
     class BucketAlreadyExists < ::Struct[untyped]
@@ -124,13 +124,13 @@ module AWS::SDK::S3
     end
 
     module BucketCannedACL
-      private: ::String
+      PRIVATE: ::String
 
-      public_read: ::String
+      PUBLIC_READ: ::String
 
-      public_read_write: ::String
+      PUBLIC_READ_WRITE: ::String
 
-      authenticated_read: ::String
+      AUTHENTICATED_READ: ::String
     end
 
     class BucketInfo < ::Struct[untyped]
@@ -145,61 +145,61 @@ module AWS::SDK::S3
     end
 
     module BucketLocationConstraint
-      af_south_1: ::String
+      AF_SOUTH_1: ::String
 
-      ap_east_1: ::String
+      AP_EAST_1: ::String
 
-      ap_northeast_1: ::String
+      AP_NORTHEAST_1: ::String
 
-      ap_northeast_2: ::String
+      AP_NORTHEAST_2: ::String
 
-      ap_northeast_3: ::String
+      AP_NORTHEAST_3: ::String
 
-      ap_south_1: ::String
+      AP_SOUTH_1: ::String
 
-      ap_south_2: ::String
+      AP_SOUTH_2: ::String
 
-      ap_southeast_1: ::String
+      AP_SOUTHEAST_1: ::String
 
-      ap_southeast_2: ::String
+      AP_SOUTHEAST_2: ::String
 
-      ap_southeast_3: ::String
+      AP_SOUTHEAST_3: ::String
 
-      ca_central_1: ::String
+      CA_CENTRAL_1: ::String
 
-      cn_north_1: ::String
+      CN_NORTH_1: ::String
 
-      cn_northwest_1: ::String
+      CN_NORTHWEST_1: ::String
 
       EU: ::String
 
-      eu_central_1: ::String
+      EU_CENTRAL_1: ::String
 
-      eu_north_1: ::String
+      EU_NORTH_1: ::String
 
-      eu_south_1: ::String
+      EU_SOUTH_1: ::String
 
-      eu_south_2: ::String
+      EU_SOUTH_2: ::String
 
-      eu_west_1: ::String
+      EU_WEST_1: ::String
 
-      eu_west_2: ::String
+      EU_WEST_2: ::String
 
-      eu_west_3: ::String
+      EU_WEST_3: ::String
 
-      me_south_1: ::String
+      ME_SOUTH_1: ::String
 
-      sa_east_1: ::String
+      SA_EAST_1: ::String
 
-      us_east_2: ::String
+      US_EAST_2: ::String
 
-      us_gov_east_1: ::String
+      US_GOV_EAST_1: ::String
 
-      us_gov_west_1: ::String
+      US_GOV_WEST_1: ::String
 
-      us_west_1: ::String
+      US_WEST_1: ::String
 
-      us_west_2: ::String
+      US_WEST_2: ::String
     end
 
     class BucketLoggingStatus < ::Struct[untyped]
@@ -216,13 +216,13 @@ module AWS::SDK::S3
     end
 
     module BucketType
-      Directory: ::String
+      DIRECTORY: ::String
     end
 
     module BucketVersioningStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Suspended: ::String
+      SUSPENDED: ::String
     end
 
     class CORSConfiguration < ::Struct[untyped]
@@ -271,7 +271,7 @@ module AWS::SDK::S3
     module ChecksumAlgorithm
       CRC32: ::String
 
-      CRC32C: ::String
+      CRC32_C: ::String
 
       SHA1: ::String
 
@@ -524,7 +524,7 @@ module AWS::SDK::S3
     end
 
     module DataRedundancy
-      SingleAvailabilityZone: ::String
+      SINGLE_AVAILABILITY_ZONE: ::String
     end
 
     class DefaultRetention < ::Struct[untyped]
@@ -688,9 +688,9 @@ module AWS::SDK::S3
     end
 
     module DeleteMarkerReplicationStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class DeleteObjectInput < ::Struct[untyped]
@@ -772,7 +772,7 @@ module AWS::SDK::S3
     end
 
     module EncodingType
-      url: ::String
+      URL: ::String
     end
 
     class Encryption < ::Struct[untyped]
@@ -805,59 +805,59 @@ module AWS::SDK::S3
     end
 
     module Event
-      s3_ReducedRedundancyLostObject: ::String
+      S3_REDUCED_REDUNDANCY_LOST_OBJECT: ::String
 
-      s3_ObjectCreated_: ::String
+      S3_OBJECT_CREATED_: ::String
 
-      s3_ObjectCreated_Put: ::String
+      S3_OBJECT_CREATED_PUT: ::String
 
-      s3_ObjectCreated_Post: ::String
+      S3_OBJECT_CREATED_POST: ::String
 
-      s3_ObjectCreated_Copy: ::String
+      S3_OBJECT_CREATED_COPY: ::String
 
-      s3_ObjectCreated_CompleteMultipartUpload: ::String
+      S3_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD: ::String
 
-      s3_ObjectRemoved_: ::String
+      S3_OBJECT_REMOVED_: ::String
 
-      s3_ObjectRemoved_Delete: ::String
+      S3_OBJECT_REMOVED_DELETE: ::String
 
-      s3_ObjectRemoved_DeleteMarkerCreated: ::String
+      S3_OBJECT_REMOVED_DELETE_MARKER_CREATED: ::String
 
-      s3_ObjectRestore_: ::String
+      S3_OBJECT_RESTORE_: ::String
 
-      s3_ObjectRestore_Post: ::String
+      S3_OBJECT_RESTORE_POST: ::String
 
-      s3_ObjectRestore_Completed: ::String
+      S3_OBJECT_RESTORE_COMPLETED: ::String
 
-      s3_Replication_: ::String
+      S3_REPLICATION_: ::String
 
-      s3_Replication_OperationFailedReplication: ::String
+      S3_REPLICATION_OPERATION_FAILED_REPLICATION: ::String
 
-      s3_Replication_OperationNotTracked: ::String
+      S3_REPLICATION_OPERATION_NOT_TRACKED: ::String
 
-      s3_Replication_OperationMissedThreshold: ::String
+      S3_REPLICATION_OPERATION_MISSED_THRESHOLD: ::String
 
-      s3_Replication_OperationReplicatedAfterThreshold: ::String
+      S3_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD: ::String
 
-      s3_ObjectRestore_Delete: ::String
+      S3_OBJECT_RESTORE_DELETE: ::String
 
-      s3_LifecycleTransition: ::String
+      S3_LIFECYCLE_TRANSITION: ::String
 
-      s3_IntelligentTiering: ::String
+      S3_INTELLIGENT_TIERING: ::String
 
-      s3_ObjectAcl_Put: ::String
+      S3_OBJECT_ACL_PUT: ::String
 
-      s3_LifecycleExpiration_: ::String
+      S3_LIFECYCLE_EXPIRATION_: ::String
 
-      s3_LifecycleExpiration_Delete: ::String
+      S3_LIFECYCLE_EXPIRATION_DELETE: ::String
 
-      s3_LifecycleExpiration_DeleteMarkerCreated: ::String
+      S3_LIFECYCLE_EXPIRATION_DELETE_MARKER_CREATED: ::String
 
-      s3_ObjectTagging_: ::String
+      S3_OBJECT_TAGGING_: ::String
 
-      s3_ObjectTagging_Put: ::String
+      S3_OBJECT_TAGGING_PUT: ::String
 
-      s3_ObjectTagging_Delete: ::String
+      S3_OBJECT_TAGGING_DELETE: ::String
     end
 
     class EventBridgeConfiguration < ::Struct[untyped]
@@ -870,15 +870,15 @@ module AWS::SDK::S3
     end
 
     module ExistingObjectReplicationStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     module ExpirationStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     module ExpressionType
@@ -900,9 +900,9 @@ module AWS::SDK::S3
     end
 
     module FilterRuleName
-      prefix: ::String
+      PREFIX: ::String
 
-      suffix: ::String
+      SUFFIX: ::String
     end
 
     class GetBucketAccelerateConfigurationInput < ::Struct[untyped]
@@ -1474,9 +1474,9 @@ module AWS::SDK::S3
     end
 
     module IntelligentTieringStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class InvalidObjectState < ::Struct[untyped]
@@ -1517,51 +1517,51 @@ module AWS::SDK::S3
 
       ORC: ::String
 
-      Parquet: ::String
+      PARQUET: ::String
     end
 
     module InventoryFrequency
-      Daily: ::String
+      DAILY: ::String
 
-      Weekly: ::String
+      WEEKLY: ::String
     end
 
     module InventoryIncludedObjectVersions
-      All: ::String
+      ALL: ::String
 
-      Current: ::String
+      CURRENT: ::String
     end
 
     module InventoryOptionalField
-      Size: ::String
+      SIZE: ::String
 
-      LastModifiedDate: ::String
+      LAST_MODIFIED_DATE: ::String
 
-      StorageClass: ::String
+      STORAGE_CLASS: ::String
 
-      ETag: ::String
+      E_TAG: ::String
 
-      IsMultipartUploaded: ::String
+      IS_MULTIPART_UPLOADED: ::String
 
-      ReplicationStatus: ::String
+      REPLICATION_STATUS: ::String
 
-      EncryptionStatus: ::String
+      ENCRYPTION_STATUS: ::String
 
-      ObjectLockRetainUntilDate: ::String
+      OBJECT_LOCK_RETAIN_UNTIL_DATE: ::String
 
-      ObjectLockMode: ::String
+      OBJECT_LOCK_MODE: ::String
 
-      ObjectLockLegalHoldStatus: ::String
+      OBJECT_LOCK_LEGAL_HOLD_STATUS: ::String
 
-      IntelligentTieringAccessTier: ::String
+      INTELLIGENT_TIERING_ACCESS_TIER: ::String
 
-      BucketKeyStatus: ::String
+      BUCKET_KEY_STATUS: ::String
 
-      ChecksumAlgorithm: ::String
+      CHECKSUM_ALGORITHM: ::String
 
-      ObjectAccessControlList: ::String
+      OBJECT_ACCESS_CONTROL_LIST: ::String
 
-      ObjectOwner: ::String
+      OBJECT_OWNER: ::String
     end
 
     class InventoryS3BucketDestination < ::Struct[untyped]
@@ -1905,7 +1905,7 @@ module AWS::SDK::S3
     end
 
     module LocationType
-      AvailabilityZone: ::String
+      AVAILABILITY_ZONE: ::String
     end
 
     class LoggingEnabled < ::Struct[untyped]
@@ -1917,15 +1917,15 @@ module AWS::SDK::S3
     end
 
     module MFADelete
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     module MFADeleteStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     module MetadataDirective
@@ -1987,9 +1987,9 @@ module AWS::SDK::S3
     end
 
     module MetricsStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class MultipartUpload < ::Struct[untyped]
@@ -2074,19 +2074,19 @@ module AWS::SDK::S3
     end
 
     module ObjectCannedACL
-      private: ::String
+      PRIVATE: ::String
 
-      public_read: ::String
+      PUBLIC_READ: ::String
 
-      public_read_write: ::String
+      PUBLIC_READ_WRITE: ::String
 
-      authenticated_read: ::String
+      AUTHENTICATED_READ: ::String
 
-      aws_exec_read: ::String
+      AWS_EXEC_READ: ::String
 
-      bucket_owner_read: ::String
+      BUCKET_OWNER_READ: ::String
 
-      bucket_owner_full_control: ::String
+      BUCKET_OWNER_FULL_CONTROL: ::String
     end
 
     class ObjectIdentifier < ::Struct[untyped]
@@ -2102,7 +2102,7 @@ module AWS::SDK::S3
     end
 
     module ObjectLockEnabled
-      Enabled: ::String
+      ENABLED: ::String
     end
 
     class ObjectLockLegalHold < ::Struct[untyped]
@@ -2144,11 +2144,11 @@ module AWS::SDK::S3
     end
 
     module ObjectOwnership
-      BucketOwnerPreferred: ::String
+      BUCKET_OWNER_PREFERRED: ::String
 
-      ObjectWriter: ::String
+      OBJECT_WRITER: ::String
 
-      BucketOwnerEnforced: ::String
+      BUCKET_OWNER_ENFORCED: ::String
     end
 
     class ObjectPart < ::Struct[untyped]
@@ -2225,7 +2225,7 @@ module AWS::SDK::S3
     end
 
     module OwnerOverride
-      Destination: ::String
+      DESTINATION: ::String
     end
 
     class OwnershipControls < ::Struct[untyped]
@@ -2255,9 +2255,9 @@ module AWS::SDK::S3
     end
 
     module PartitionDateSource
-      EventTime: ::String
+      EVENT_TIME: ::String
 
-      DeliveryTime: ::String
+      DELIVERY_TIME: ::String
     end
 
     class PartitionedPrefix < ::Struct[untyped]
@@ -2266,9 +2266,9 @@ module AWS::SDK::S3
     end
 
     module Payer
-      Requester: ::String
+      REQUESTER: ::String
 
-      BucketOwner: ::String
+      BUCKET_OWNER: ::String
     end
 
     module Permission
@@ -2301,9 +2301,9 @@ module AWS::SDK::S3
     end
 
     module Protocol
-      http: ::String
+      HTTP: ::String
 
-      https: ::String
+      HTTPS: ::String
     end
 
     class PublicAccessBlockConfiguration < ::Struct[untyped]
@@ -2751,9 +2751,9 @@ module AWS::SDK::S3
     end
 
     module ReplicaModificationsStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class ReplicationConfiguration < ::Struct[untyped]
@@ -2804,9 +2804,9 @@ module AWS::SDK::S3
     end
 
     module ReplicationRuleStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     module ReplicationStatus
@@ -2828,9 +2828,9 @@ module AWS::SDK::S3
     end
 
     module ReplicationTimeStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class ReplicationTimeValue < ::Struct[untyped]
@@ -2839,11 +2839,11 @@ module AWS::SDK::S3
     end
 
     module RequestCharged
-      requester: ::String
+      REQUESTER: ::String
     end
 
     module RequestPayer
-      requester: ::String
+      REQUESTER: ::String
     end
 
     class RequestPaymentConfiguration < ::Struct[untyped]
@@ -2996,9 +2996,9 @@ module AWS::SDK::S3
     module ServerSideEncryption
       AES256: ::String
 
-      aws_kms: ::String
+      AWS_KMS: ::String
 
-      aws_kms_dsse: ::String
+      AWS_KMS_DSSE: ::String
     end
 
     class ServerSideEncryptionByDefault < ::Struct[untyped]
@@ -3027,9 +3027,9 @@ module AWS::SDK::S3
     end
 
     module SessionMode
-      ReadOnly: ::String
+      READ_ONLY: ::String
 
-      ReadWrite: ::String
+      READ_WRITE: ::String
     end
 
     class SimplePrefix < ::Struct[untyped]
@@ -3048,9 +3048,9 @@ module AWS::SDK::S3
     end
 
     module SseKmsEncryptedObjectsStatus
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
     end
 
     class Stats < ::Struct[untyped]
@@ -3134,11 +3134,11 @@ module AWS::SDK::S3
     end
 
     module Tier
-      Standard: ::String
+      STANDARD: ::String
 
-      Bulk: ::String
+      BULK: ::String
 
-      Expedited: ::String
+      EXPEDITED: ::String
     end
 
     class Tiering < ::Struct[untyped]
@@ -3177,11 +3177,11 @@ module AWS::SDK::S3
     end
 
     module Type
-      CanonicalUser: ::String
+      CANONICAL_USER: ::String
 
-      AmazonCustomerByEmail: ::String
+      AMAZON_CUSTOMER_BY_EMAIL: ::String
 
-      Group: ::String
+      GROUP: ::String
     end
 
     class UploadPartCopyInput < ::Struct[untyped]

@@ -13,13 +13,13 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for ActionsSuppressedBy
     module ActionsSuppressedBy
       # No documentation available.
-      WaitPeriod = "WaitPeriod"
+      WAIT_PERIOD = "WaitPeriod"
 
       # No documentation available.
-      ExtensionPeriod = "ExtensionPeriod"
+      EXTENSION_PERIOD = "ExtensionPeriod"
 
       # No documentation available.
-      Alarm = "Alarm"
+      ALARM = "Alarm"
     end
 
     # <p>Represents the history of a specific alarm.</p>
@@ -66,10 +66,10 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for AlarmType
     module AlarmType
       # No documentation available.
-      CompositeAlarm = "CompositeAlarm"
+      COMPOSITE_ALARM = "CompositeAlarm"
 
       # No documentation available.
-      MetricAlarm = "MetricAlarm"
+      METRIC_ALARM = "MetricAlarm"
     end
 
     # <p>An anomaly detection model associated with a particular CloudWatch metric, statistic, or metric math expression.
@@ -187,25 +187,25 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for ComparisonOperator
     module ComparisonOperator
       # No documentation available.
-      GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold"
+      GREATER_THAN_OR_EQUAL_TO_THRESHOLD = "GreaterThanOrEqualToThreshold"
 
       # No documentation available.
-      GreaterThanThreshold = "GreaterThanThreshold"
+      GREATER_THAN_THRESHOLD = "GreaterThanThreshold"
 
       # No documentation available.
-      LessThanThreshold = "LessThanThreshold"
+      LESS_THAN_THRESHOLD = "LessThanThreshold"
 
       # No documentation available.
-      LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold"
+      LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
 
       # No documentation available.
-      LessThanLowerOrGreaterThanUpperThreshold = "LessThanLowerOrGreaterThanUpperThreshold"
+      LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD = "LessThanLowerOrGreaterThanUpperThreshold"
 
       # No documentation available.
-      LessThanLowerThreshold = "LessThanLowerThreshold"
+      LESS_THAN_LOWER_THRESHOLD = "LessThanLowerThreshold"
 
       # No documentation available.
-      GreaterThanUpperThreshold = "GreaterThanUpperThreshold"
+      GREATER_THAN_UPPER_THRESHOLD = "GreaterThanUpperThreshold"
     end
 
     # <p>The details about a composite alarm.</p>
@@ -1813,13 +1813,13 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for HistoryItemType
     module HistoryItemType
       # No documentation available.
-      ConfigurationUpdate = "ConfigurationUpdate"
+      CONFIGURATION_UPDATE = "ConfigurationUpdate"
 
       # No documentation available.
-      StateUpdate = "StateUpdate"
+      STATE_UPDATE = "StateUpdate"
 
       # No documentation available.
-      Action = "Action"
+      ACTION = "Action"
     end
 
     # <p>This structure contains the definition
@@ -4381,7 +4381,7 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for RecentlyActive
     module RecentlyActive
       # No documentation available.
-      PT3H = "PT3H"
+      PT3_H = "PT3H"
     end
 
     # <p>The named resource does not exist.</p>
@@ -4501,85 +4501,85 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for StandardUnit
     module StandardUnit
       # No documentation available.
-      Seconds = "Seconds"
+      SECONDS = "Seconds"
 
       # No documentation available.
-      Microseconds = "Microseconds"
+      MICROSECONDS = "Microseconds"
 
       # No documentation available.
-      Milliseconds = "Milliseconds"
+      MILLISECONDS = "Milliseconds"
 
       # No documentation available.
-      Bytes = "Bytes"
+      BYTES = "Bytes"
 
       # No documentation available.
-      Kilobytes = "Kilobytes"
+      KILOBYTES = "Kilobytes"
 
       # No documentation available.
-      Megabytes = "Megabytes"
+      MEGABYTES = "Megabytes"
 
       # No documentation available.
-      Gigabytes = "Gigabytes"
+      GIGABYTES = "Gigabytes"
 
       # No documentation available.
-      Terabytes = "Terabytes"
+      TERABYTES = "Terabytes"
 
       # No documentation available.
-      Bits = "Bits"
+      BITS = "Bits"
 
       # No documentation available.
-      Kilobits = "Kilobits"
+      KILOBITS = "Kilobits"
 
       # No documentation available.
-      Megabits = "Megabits"
+      MEGABITS = "Megabits"
 
       # No documentation available.
-      Gigabits = "Gigabits"
+      GIGABITS = "Gigabits"
 
       # No documentation available.
-      Terabits = "Terabits"
+      TERABITS = "Terabits"
 
       # No documentation available.
-      Percent = "Percent"
+      PERCENT = "Percent"
 
       # No documentation available.
-      Count = "Count"
+      COUNT = "Count"
 
       # No documentation available.
-      Bytes_Second = "Bytes/Second"
+      BYTES_SECOND = "Bytes/Second"
 
       # No documentation available.
-      Kilobytes_Second = "Kilobytes/Second"
+      KILOBYTES_SECOND = "Kilobytes/Second"
 
       # No documentation available.
-      Megabytes_Second = "Megabytes/Second"
+      MEGABYTES_SECOND = "Megabytes/Second"
 
       # No documentation available.
-      Gigabytes_Second = "Gigabytes/Second"
+      GIGABYTES_SECOND = "Gigabytes/Second"
 
       # No documentation available.
-      Terabytes_Second = "Terabytes/Second"
+      TERABYTES_SECOND = "Terabytes/Second"
 
       # No documentation available.
-      Bits_Second = "Bits/Second"
+      BITS_SECOND = "Bits/Second"
 
       # No documentation available.
-      Kilobits_Second = "Kilobits/Second"
+      KILOBITS_SECOND = "Kilobits/Second"
 
       # No documentation available.
-      Megabits_Second = "Megabits/Second"
+      MEGABITS_SECOND = "Megabits/Second"
 
       # No documentation available.
-      Gigabits_Second = "Gigabits/Second"
+      GIGABITS_SECOND = "Gigabits/Second"
 
       # No documentation available.
-      Terabits_Second = "Terabits/Second"
+      TERABITS_SECOND = "Terabits/Second"
 
       # No documentation available.
-      Count_Second = "Count/Second"
+      COUNT_SECOND = "Count/Second"
 
       # No documentation available.
-      None = "None"
+      NONE = "None"
     end
 
     # @!method initialize(params = {})
@@ -4622,19 +4622,19 @@ module AWS::SDK::CloudWatch
     # Includes enum constants for Statistic
     module Statistic
       # No documentation available.
-      SampleCount = "SampleCount"
+      SAMPLE_COUNT = "SampleCount"
 
       # No documentation available.
-      Average = "Average"
+      AVERAGE = "Average"
 
       # No documentation available.
-      Sum = "Sum"
+      SUM = "Sum"
 
       # No documentation available.
-      Minimum = "Minimum"
+      MINIMUM = "Minimum"
 
       # No documentation available.
-      Maximum = "Maximum"
+      MAXIMUM = "Maximum"
     end
 
     # <p>Represents a set of statistics that describes a specific metric. </p>
