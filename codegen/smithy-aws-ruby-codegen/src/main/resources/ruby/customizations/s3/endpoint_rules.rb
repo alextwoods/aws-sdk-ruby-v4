@@ -1,5 +1,7 @@
+# S3 Endpoint custom functions
 module Endpoints
   # aws.isVirtualHostableS3Bucket(value: string, allowSubDomains: bool) bool
+  # rubocop:disable Style/OptionalBooleanParameter
   def self.virtual_hostable_s3_bucket?(value, allow_sub_domains = false)
     return false if value.empty?
 
@@ -13,4 +15,5 @@ module Endpoints
       # not an IP address
       value !~ /(\d+\.){3}\d+/
   end
+  # rubocop:enable Style/OptionalBooleanParameter
 end
