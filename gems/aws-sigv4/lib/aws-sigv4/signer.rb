@@ -79,6 +79,7 @@ module AWS
     #   )
     #
     class Signer
+      # rubocop:disable Style/ClassVars
       @@use_crt =
         begin
           require 'aws-crt'
@@ -86,6 +87,7 @@ module AWS
         rescue LoadError
           false
         end
+      # rubocop:enable Style/ClassVars
 
       # @option options [String] :service The service signing name, e.g. 's3'.
       #
@@ -803,9 +805,9 @@ module AWS
 
         if signing_algorithm == :sigv4a && !Signer.use_crt?
           raise ArgumentError,
-                'You are attempting to use a Signer for sigv4a which requires '\
-                'the `aws-crt` gem. Please install the gem or add it to your '\
-                'gemfile.'
+                'You are attempting to use a Signer for sigv4a which ' \
+                'requires the `aws-crt` gem. Please install the gem or ' \
+                'add it to your gemfile.'
         end
 
         signing_algorithm
