@@ -20,7 +20,7 @@ end
 group :development do
   gem 'rbs'
   gem 'rubocop'
-  gem 'racc'
+  gem 'racc' # required still by rubocop but moved to bundled gem in 3.3
   gem 'steep'
 end
 
