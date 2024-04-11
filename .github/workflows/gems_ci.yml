@@ -43,11 +43,12 @@ jobs:
         with:
           java-version: ${{ env.java_version }}
 
-      - name: Build and publish maven local smithy-ruby
+      - name: Build and publish latest smithy-ruby from github to maven local
         run: |
           git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
-          cd smithy-ruby/codegen
-          ./gradlew clean build publishToMavenLocal
+          cd smithy-ruby
+          bundle install
+          bundle exec rake codegen:publish-local
       
       - name: Install gems
         run: |

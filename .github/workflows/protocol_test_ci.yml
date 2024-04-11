@@ -43,22 +43,20 @@ jobs:
         with:
           java-version: ${{ env.java_version }}
 
-      - name: Build and publish maven local smithy-ruby
+      - name: Build and publish latest smithy-ruby from github to maven local
         run: |
           git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
-          cd smithy-ruby/codegen
-          ./gradlew clean build publishToMavenLocal
-          cd ../..
-          
-      - name: Build test sdks
-        working-directory: codegen
-        run:
-          ./gradlew :protocol-test-codegen:build
-
+          cd smithy-ruby
+          bundle install
+          bundle exec rake codegen:publish-local
+      
       - name: Install gems
         run: |
           bundle config set --local without 'repl'
           bundle install
+          
+      - name: Build test sdks
+        run: bundle exec rake codegen:build:protocol-test-codegen
 
       - name: Run Protocol Tests
         run: bundle exec rake test:protocol:${{ matrix.protocol }}
