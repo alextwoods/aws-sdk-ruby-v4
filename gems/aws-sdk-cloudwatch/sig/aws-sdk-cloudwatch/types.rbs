@@ -11,11 +11,11 @@ module AWS::SDK::CloudWatch
   module Types
 
     module ActionsSuppressedBy
-      WaitPeriod: ::String
+      WAIT_PERIOD: ::String
 
-      ExtensionPeriod: ::String
+      EXTENSION_PERIOD: ::String
 
-      Alarm: ::String
+      ALARM: ::String
     end
 
     class AlarmHistoryItem < ::Struct[untyped]
@@ -29,9 +29,9 @@ module AWS::SDK::CloudWatch
     end
 
     module AlarmType
-      CompositeAlarm: ::String
+      COMPOSITE_ALARM: ::String
 
-      MetricAlarm: ::String
+      METRIC_ALARM: ::String
     end
 
     class AnomalyDetector < ::Struct[untyped]
@@ -67,19 +67,19 @@ module AWS::SDK::CloudWatch
     end
 
     module ComparisonOperator
-      GreaterThanOrEqualToThreshold: ::String
+      GREATER_THAN_OR_EQUAL_TO_THRESHOLD: ::String
 
-      GreaterThanThreshold: ::String
+      GREATER_THAN_THRESHOLD: ::String
 
-      LessThanThreshold: ::String
+      LESS_THAN_THRESHOLD: ::String
 
-      LessThanOrEqualToThreshold: ::String
+      LESS_THAN_OR_EQUAL_TO_THRESHOLD: ::String
 
-      LessThanLowerOrGreaterThanUpperThreshold: ::String
+      LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD: ::String
 
-      LessThanLowerThreshold: ::String
+      LESS_THAN_LOWER_THRESHOLD: ::String
 
-      GreaterThanUpperThreshold: ::String
+      GREATER_THAN_UPPER_THRESHOLD: ::String
     end
 
     class CompositeAlarm < ::Struct[untyped]
@@ -437,11 +437,11 @@ module AWS::SDK::CloudWatch
     end
 
     module HistoryItemType
-      ConfigurationUpdate: ::String
+      CONFIGURATION_UPDATE: ::String
 
-      StateUpdate: ::String
+      STATE_UPDATE: ::String
 
-      Action: ::String
+      ACTION: ::String
     end
 
     class InsightRule < ::Struct[untyped]
@@ -878,7 +878,7 @@ module AWS::SDK::CloudWatch
     end
 
     module RecentlyActive
-      PT3H: ::String
+      PT3_H: ::String
     end
 
     class ResourceNotFound < ::Struct[untyped]
@@ -920,59 +920,59 @@ module AWS::SDK::CloudWatch
     end
 
     module StandardUnit
-      Seconds: ::String
+      SECONDS: ::String
 
-      Microseconds: ::String
+      MICROSECONDS: ::String
 
-      Milliseconds: ::String
+      MILLISECONDS: ::String
 
-      Bytes: ::String
+      BYTES: ::String
 
-      Kilobytes: ::String
+      KILOBYTES: ::String
 
-      Megabytes: ::String
+      MEGABYTES: ::String
 
-      Gigabytes: ::String
+      GIGABYTES: ::String
 
-      Terabytes: ::String
+      TERABYTES: ::String
 
-      Bits: ::String
+      BITS: ::String
 
-      Kilobits: ::String
+      KILOBITS: ::String
 
-      Megabits: ::String
+      MEGABITS: ::String
 
-      Gigabits: ::String
+      GIGABITS: ::String
 
-      Terabits: ::String
+      TERABITS: ::String
 
-      Percent: ::String
+      PERCENT: ::String
 
-      Count: ::String
+      COUNT: ::String
 
-      Bytes_Second: ::String
+      BYTES_SECOND: ::String
 
-      Kilobytes_Second: ::String
+      KILOBYTES_SECOND: ::String
 
-      Megabytes_Second: ::String
+      MEGABYTES_SECOND: ::String
 
-      Gigabytes_Second: ::String
+      GIGABYTES_SECOND: ::String
 
-      Terabytes_Second: ::String
+      TERABYTES_SECOND: ::String
 
-      Bits_Second: ::String
+      BITS_SECOND: ::String
 
-      Kilobits_Second: ::String
+      KILOBITS_SECOND: ::String
 
-      Megabits_Second: ::String
+      MEGABITS_SECOND: ::String
 
-      Gigabits_Second: ::String
+      GIGABITS_SECOND: ::String
 
-      Terabits_Second: ::String
+      TERABITS_SECOND: ::String
 
-      Count_Second: ::String
+      COUNT_SECOND: ::String
 
-      None: ::String
+      NONE: ::String
     end
 
     class StartMetricStreamsInput < ::Struct[untyped]
@@ -993,15 +993,15 @@ module AWS::SDK::CloudWatch
     end
 
     module Statistic
-      SampleCount: ::String
+      SAMPLE_COUNT: ::String
 
-      Average: ::String
+      AVERAGE: ::String
 
-      Sum: ::String
+      SUM: ::String
 
-      Minimum: ::String
+      MINIMUM: ::String
 
-      Maximum: ::String
+      MAXIMUM: ::String
     end
 
     class StatisticSet < ::Struct[untyped]

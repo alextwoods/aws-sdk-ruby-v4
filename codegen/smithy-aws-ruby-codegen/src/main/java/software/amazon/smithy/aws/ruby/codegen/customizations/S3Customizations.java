@@ -59,7 +59,6 @@ public class S3Customizations implements RubyIntegration {
         );
     }
 
-
     private static final String ACCELERATE_DOCS = """
             When set to `true`, accelerated bucket endpoints will be used
             for all object operations. You must first enable accelerate for

@@ -1128,37 +1128,37 @@ module AWS::SDK::DynamoDB
     # Includes enum constants for BatchStatementErrorCodeEnum
     module BatchStatementErrorCodeEnum
       # No documentation available.
-      ConditionalCheckFailed = "ConditionalCheckFailed"
+      CONDITIONAL_CHECK_FAILED = "ConditionalCheckFailed"
 
       # No documentation available.
-      ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded"
+      ITEM_COLLECTION_SIZE_LIMIT_EXCEEDED = "ItemCollectionSizeLimitExceeded"
 
       # No documentation available.
-      RequestLimitExceeded = "RequestLimitExceeded"
+      REQUEST_LIMIT_EXCEEDED = "RequestLimitExceeded"
 
       # No documentation available.
-      ValidationError = "ValidationError"
+      VALIDATION_ERROR = "ValidationError"
 
       # No documentation available.
-      ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded"
+      PROVISIONED_THROUGHPUT_EXCEEDED = "ProvisionedThroughputExceeded"
 
       # No documentation available.
-      TransactionConflict = "TransactionConflict"
+      TRANSACTION_CONFLICT = "TransactionConflict"
 
       # No documentation available.
-      ThrottlingError = "ThrottlingError"
+      THROTTLING_ERROR = "ThrottlingError"
 
       # No documentation available.
-      InternalServerError = "InternalServerError"
+      INTERNAL_SERVER_ERROR = "InternalServerError"
 
       # No documentation available.
-      ResourceNotFound = "ResourceNotFound"
+      RESOURCE_NOT_FOUND = "ResourceNotFound"
 
       # No documentation available.
-      AccessDenied = "AccessDenied"
+      ACCESS_DENIED = "AccessDenied"
 
       # No documentation available.
-      DuplicateItem = "DuplicateItem"
+      DUPLICATE_ITEM = "DuplicateItem"
     end
 
     # <p> A PartiQL batch statement request. </p>

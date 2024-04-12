@@ -249,7 +249,7 @@ module AWS::SDK::KMS
 
       ECC_NIST_P521: ::String
 
-      ECC_SECG_P256K1: ::String
+      ECC_SECG_P256_K1: ::String
 
       SYMMETRIC_DEFAULT: ::String
 
@@ -277,7 +277,7 @@ module AWS::SDK::KMS
 
       ECC_NIST_P521: ::String
 
-      ECC_SECG_P256K1: ::String
+      ECC_SECG_P256_K1: ::String
 
       SM2: ::String
     end
@@ -444,7 +444,7 @@ module AWS::SDK::KMS
 
       RSAES_OAEP_SHA_256: ::String
 
-      SM2PKE: ::String
+      SM2_PKE: ::String
     end
 
     module ExpirationModelType
@@ -632,37 +632,37 @@ module AWS::SDK::KMS
     end
 
     module GrantOperation
-      Decrypt: ::String
+      DECRYPT: ::String
 
-      Encrypt: ::String
+      ENCRYPT: ::String
 
-      GenerateDataKey: ::String
+      GENERATE_DATA_KEY: ::String
 
-      GenerateDataKeyWithoutPlaintext: ::String
+      GENERATE_DATA_KEY_WITHOUT_PLAINTEXT: ::String
 
-      ReEncryptFrom: ::String
+      RE_ENCRYPT_FROM: ::String
 
-      ReEncryptTo: ::String
+      RE_ENCRYPT_TO: ::String
 
-      Sign: ::String
+      SIGN: ::String
 
-      Verify: ::String
+      VERIFY: ::String
 
-      GetPublicKey: ::String
+      GET_PUBLIC_KEY: ::String
 
-      CreateGrant: ::String
+      CREATE_GRANT: ::String
 
-      RetireGrant: ::String
+      RETIRE_GRANT: ::String
 
-      DescribeKey: ::String
+      DESCRIBE_KEY: ::String
 
-      GenerateDataKeyPair: ::String
+      GENERATE_DATA_KEY_PAIR: ::String
 
-      GenerateDataKeyPairWithoutPlaintext: ::String
+      GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT: ::String
 
-      GenerateMac: ::String
+      GENERATE_MAC: ::String
 
-      VerifyMac: ::String
+      VERIFY_MAC: ::String
     end
 
     class ImportKeyMaterialInput < ::Struct[untyped]
@@ -810,7 +810,7 @@ module AWS::SDK::KMS
 
       ECC_NIST_P521: ::String
 
-      ECC_SECG_P256K1: ::String
+      ECC_SECG_P256_K1: ::String
 
       SYMMETRIC_DEFAULT: ::String
 
@@ -826,21 +826,21 @@ module AWS::SDK::KMS
     end
 
     module KeyState
-      Creating: ::String
+      CREATING: ::String
 
-      Enabled: ::String
+      ENABLED: ::String
 
-      Disabled: ::String
+      DISABLED: ::String
 
-      PendingDeletion: ::String
+      PENDING_DELETION: ::String
 
-      PendingImport: ::String
+      PENDING_IMPORT: ::String
 
-      PendingReplicaDeletion: ::String
+      PENDING_REPLICA_DELETION: ::String
 
-      Unavailable: ::String
+      UNAVAILABLE: ::String
 
-      Updating: ::String
+      UPDATING: ::String
     end
 
     class KeyUnavailableException < ::Struct[untyped]
@@ -1131,7 +1131,7 @@ module AWS::SDK::KMS
 
       ECDSA_SHA_512: ::String
 
-      SM2DSA: ::String
+      SM2_DSA: ::String
     end
 
     class Tag < ::Struct[untyped]

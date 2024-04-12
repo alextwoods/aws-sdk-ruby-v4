@@ -69,7 +69,7 @@ module AWS::SDK::DynamoDB
       end
 
       class M < AttributeValue
-        def to_h: () -> { m: ::Hash[::Symbol, ::Hash[::Symbol, untyped]] }
+        def to_h: () -> { m: ::Hash[::String, ::Hash[::Symbol, untyped]] }
         def to_s: () -> String
       end
 
@@ -247,27 +247,27 @@ module AWS::SDK::DynamoDB
     end
 
     module BatchStatementErrorCodeEnum
-      ConditionalCheckFailed: ::String
+      CONDITIONAL_CHECK_FAILED: ::String
 
-      ItemCollectionSizeLimitExceeded: ::String
+      ITEM_COLLECTION_SIZE_LIMIT_EXCEEDED: ::String
 
-      RequestLimitExceeded: ::String
+      REQUEST_LIMIT_EXCEEDED: ::String
 
-      ValidationError: ::String
+      VALIDATION_ERROR: ::String
 
-      ProvisionedThroughputExceeded: ::String
+      PROVISIONED_THROUGHPUT_EXCEEDED: ::String
 
-      TransactionConflict: ::String
+      TRANSACTION_CONFLICT: ::String
 
-      ThrottlingError: ::String
+      THROTTLING_ERROR: ::String
 
-      InternalServerError: ::String
+      INTERNAL_SERVER_ERROR: ::String
 
-      ResourceNotFound: ::String
+      RESOURCE_NOT_FOUND: ::String
 
-      AccessDenied: ::String
+      ACCESS_DENIED: ::String
 
-      DuplicateItem: ::String
+      DUPLICATE_ITEM: ::String
     end
 
     class BatchStatementRequest < ::Struct[untyped]

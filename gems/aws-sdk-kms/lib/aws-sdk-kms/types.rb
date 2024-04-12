@@ -1463,7 +1463,7 @@ module AWS::SDK::KMS
       ECC_NIST_P521 = "ECC_NIST_P521"
 
       # No documentation available.
-      ECC_SECG_P256K1 = "ECC_SECG_P256K1"
+      ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
       # No documentation available.
       SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
@@ -1505,7 +1505,7 @@ module AWS::SDK::KMS
       ECC_NIST_P521 = "ECC_NIST_P521"
 
       # No documentation available.
-      ECC_SECG_P256K1 = "ECC_SECG_P256K1"
+      ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
       # No documentation available.
       SM2 = "SM2"
@@ -2199,7 +2199,7 @@ module AWS::SDK::KMS
       RSAES_OAEP_SHA_256 = "RSAES_OAEP_SHA_256"
 
       # No documentation available.
-      SM2PKE = "SM2PKE"
+      SM2_PKE = "SM2PKE"
     end
 
     # Includes enum constants for ExpirationModelType
@@ -3272,52 +3272,52 @@ module AWS::SDK::KMS
     # Includes enum constants for GrantOperation
     module GrantOperation
       # No documentation available.
-      Decrypt = "Decrypt"
+      DECRYPT = "Decrypt"
 
       # No documentation available.
-      Encrypt = "Encrypt"
+      ENCRYPT = "Encrypt"
 
       # No documentation available.
-      GenerateDataKey = "GenerateDataKey"
+      GENERATE_DATA_KEY = "GenerateDataKey"
 
       # No documentation available.
-      GenerateDataKeyWithoutPlaintext = "GenerateDataKeyWithoutPlaintext"
+      GENERATE_DATA_KEY_WITHOUT_PLAINTEXT = "GenerateDataKeyWithoutPlaintext"
 
       # No documentation available.
-      ReEncryptFrom = "ReEncryptFrom"
+      RE_ENCRYPT_FROM = "ReEncryptFrom"
 
       # No documentation available.
-      ReEncryptTo = "ReEncryptTo"
+      RE_ENCRYPT_TO = "ReEncryptTo"
 
       # No documentation available.
-      Sign = "Sign"
+      SIGN = "Sign"
 
       # No documentation available.
-      Verify = "Verify"
+      VERIFY = "Verify"
 
       # No documentation available.
-      GetPublicKey = "GetPublicKey"
+      GET_PUBLIC_KEY = "GetPublicKey"
 
       # No documentation available.
-      CreateGrant = "CreateGrant"
+      CREATE_GRANT = "CreateGrant"
 
       # No documentation available.
-      RetireGrant = "RetireGrant"
+      RETIRE_GRANT = "RetireGrant"
 
       # No documentation available.
-      DescribeKey = "DescribeKey"
+      DESCRIBE_KEY = "DescribeKey"
 
       # No documentation available.
-      GenerateDataKeyPair = "GenerateDataKeyPair"
+      GENERATE_DATA_KEY_PAIR = "GenerateDataKeyPair"
 
       # No documentation available.
-      GenerateDataKeyPairWithoutPlaintext = "GenerateDataKeyPairWithoutPlaintext"
+      GENERATE_DATA_KEY_PAIR_WITHOUT_PLAINTEXT = "GenerateDataKeyPairWithoutPlaintext"
 
       # No documentation available.
-      GenerateMac = "GenerateMac"
+      GENERATE_MAC = "GenerateMac"
 
       # No documentation available.
-      VerifyMac = "VerifyMac"
+      VERIFY_MAC = "VerifyMac"
     end
 
     # @!method initialize(params = {})
@@ -3923,7 +3923,7 @@ module AWS::SDK::KMS
       ECC_NIST_P521 = "ECC_NIST_P521"
 
       # No documentation available.
-      ECC_SECG_P256K1 = "ECC_SECG_P256K1"
+      ECC_SECG_P256_K1 = "ECC_SECG_P256K1"
 
       # No documentation available.
       SYMMETRIC_DEFAULT = "SYMMETRIC_DEFAULT"
@@ -3947,28 +3947,28 @@ module AWS::SDK::KMS
     # Includes enum constants for KeyState
     module KeyState
       # No documentation available.
-      Creating = "Creating"
+      CREATING = "Creating"
 
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
 
       # No documentation available.
-      PendingDeletion = "PendingDeletion"
+      PENDING_DELETION = "PendingDeletion"
 
       # No documentation available.
-      PendingImport = "PendingImport"
+      PENDING_IMPORT = "PendingImport"
 
       # No documentation available.
-      PendingReplicaDeletion = "PendingReplicaDeletion"
+      PENDING_REPLICA_DELETION = "PendingReplicaDeletion"
 
       # No documentation available.
-      Unavailable = "Unavailable"
+      UNAVAILABLE = "Unavailable"
 
       # No documentation available.
-      Updating = "Updating"
+      UPDATING = "Updating"
     end
 
     # <p>The request was rejected because the specified KMS key was not available. You can retry
@@ -5411,7 +5411,7 @@ module AWS::SDK::KMS
       ECDSA_SHA_512 = "ECDSA_SHA_512"
 
       # No documentation available.
-      SM2DSA = "SM2DSA"
+      SM2_DSA = "SM2DSA"
     end
 
     # <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are
