@@ -2,6 +2,7 @@
 
 require 'rspec'
 require 'aws-sigv4'
+require 'simplecov'
 
 module AWS::SigV4
   module SpecHelper
