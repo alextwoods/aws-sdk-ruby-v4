@@ -17,9 +17,9 @@ module AWS::SDK::CloudWatch
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :delete_alarms
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :delete_anomaly_detector
@@ -96,7 +96,9 @@ module AWS::SDK::CloudWatch
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :untag_resource
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

@@ -9,6 +9,10 @@ on:
     branches:
       - main
 
+env:
+  java_version: 17
+  ruby_version: 3.2
+
 jobs:
   rspec:
     runs-on: ubuntu-latest
@@ -25,31 +29,69 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ env.java_version }}
+
+      - name: Build and publish latest smithy-ruby from github to maven local
+        run: |
+          git clone --depth 1 https://github.com/smithy-lang/smithy-ruby.git
+          cd smithy-ruby
+          bundle install
+          bundle exec rake codegen:publish-local
+      
       - name: Install gems
-        run: bundle install
+        run: |
+          bundle config set --local without 'repl'
+          bundle install
+          
+      - name: Build gems
+        run: bundle exec rake codegen:build
 
-      - name: SigV4 Unit tests
-        run: bundle exec rspec gems/aws-sigv4
+      - name: Unit tests
+        run: bundle exec rake test
 
-      - name: Core Unit tests
-        run: bundle exec rspec gems/aws-sdk-core
-
-      - name: Gem Unit tests
-        run: bundle exec rspec gems/ --exclude-pattern "gems/aws-sdk-core" --exclude-pattern "gems/aws-sigv4"
-
-  rubocop:
+  rubocop-core:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up Ruby 3.3
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: ${{ env.ruby_version }}
 
       - uses: actions/checkout@v2
 
       - name: Install gems
         run: bundle install
 
-      - name: Rubocop
-        run: bundle exec rubocop -E -S gems/aws-sdk-core gems/aws-sigv4
+      - name: Unit tests
+        # TODO - run all when possible
+        run: bundle exec rspec -I gems/aws-sdk-core/lib -I gems/aws-sigv4/lib gems/aws-sdk-core gems/aws-sigv4
+
+  rubocop-codegen:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.ruby_version }}
+
+      - uses: actions/checkout@v2
+
+      - name: Install gems
+        run: bundle install
+
+      - name: Rubocop Codegen
+        run: bundle exec rake rubocop:codegen

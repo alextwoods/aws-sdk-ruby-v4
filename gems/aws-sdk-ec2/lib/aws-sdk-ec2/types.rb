@@ -98,19 +98,19 @@ module AWS::SDK::EC2
       T4 = "t4"
 
       # No documentation available.
-      VU9P = "vu9p"
+      VU9_P = "vu9p"
 
       # No documentation available.
       V100 = "v100"
 
       # No documentation available.
-      A10G = "a10g"
+      A10_G = "a10g"
 
       # No documentation available.
       H100 = "h100"
 
       # No documentation available.
-      T4G = "t4g"
+      T4_G = "t4g"
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -530,10 +530,10 @@ module AWS::SDK::EC2
     # Includes enum constants for AccountAttributeName
     module AccountAttributeName
       # No documentation available.
-      supported_platforms = "supported-platforms"
+      SUPPORTED_PLATFORMS = "supported-platforms"
 
       # No documentation available.
-      default_vpc = "default-vpc"
+      DEFAULT_VPC = "default-vpc"
     end
 
     # <p>Describes a value of an account attribute.</p>
@@ -826,16 +826,16 @@ module AWS::SDK::EC2
     # Includes enum constants for AddressAttributeName
     module AddressAttributeName
       # No documentation available.
-      domain_name = "domain-name"
+      DOMAIN_NAME = "domain-name"
     end
 
     # Includes enum constants for AddressFamily
     module AddressFamily
       # No documentation available.
-      ipv4 = "ipv4"
+      IPV4 = "ipv4"
 
       # No documentation available.
-      ipv6 = "ipv6"
+      IPV6 = "ipv6"
     end
 
     # <p>Details on the Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
@@ -883,13 +883,13 @@ module AWS::SDK::EC2
     # Includes enum constants for AddressTransferStatus
     module AddressTransferStatus
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      accepted = "accepted"
+      ACCEPTED = "accepted"
     end
 
     # @!method initialize(params = {})
@@ -954,10 +954,10 @@ module AWS::SDK::EC2
     # Includes enum constants for Affinity
     module Affinity
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
 
       # No documentation available.
-      host = "host"
+      HOST = "host"
     end
 
     # @!method initialize(params = {})
@@ -1278,22 +1278,22 @@ module AWS::SDK::EC2
     # Includes enum constants for AllocationState
     module AllocationState
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      under_assessment = "under-assessment"
+      UNDER_ASSESSMENT = "under-assessment"
 
       # No documentation available.
-      permanent_failure = "permanent-failure"
+      PERMANENT_FAILURE = "permanent-failure"
 
       # No documentation available.
-      released = "released"
+      RELEASED = "released"
 
       # No documentation available.
-      released_permanent_failure = "released-permanent-failure"
+      RELEASED_PERMANENT_FAILURE = "released-permanent-failure"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
     end
 
     # Includes enum constants for AllocationStrategy
@@ -1317,7 +1317,7 @@ module AWS::SDK::EC2
     # Includes enum constants for AllocationType
     module AllocationType
       # No documentation available.
-      used = "used"
+      USED = "used"
     end
 
     # <p>Describes a principal.</p>
@@ -1358,10 +1358,10 @@ module AWS::SDK::EC2
     # Includes enum constants for AllowsMultipleInstanceTypes
     module AllowsMultipleInstanceTypes
       # No documentation available.
-      on = "on"
+      ON = "on"
 
       # No documentation available.
-      off = "off"
+      OFF = "off"
     end
 
     # <p>Describes an potential intermediate component of a feasible path.</p>
@@ -1386,10 +1386,10 @@ module AWS::SDK::EC2
     # Includes enum constants for AmdSevSnpSpecification
     module AmdSevSnpSpecification
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # <p>Describes a network access control (ACL) rule.</p>
@@ -1686,22 +1686,22 @@ module AWS::SDK::EC2
     # Includes enum constants for AnalysisStatus
     module AnalysisStatus
       # No documentation available.
-      running = "running"
+      RUNNING = "running"
 
       # No documentation available.
-      succeeded = "succeeded"
+      SUCCEEDED = "succeeded"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # Includes enum constants for ApplianceModeSupportValue
     module ApplianceModeSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # @!method initialize(params = {})
@@ -1749,37 +1749,37 @@ module AWS::SDK::EC2
     # Includes enum constants for ArchitectureType
     module ArchitectureType
       # No documentation available.
-      i386 = "i386"
+      I386 = "i386"
 
       # No documentation available.
-      x86_64 = "x86_64"
+      X86_64 = "x86_64"
 
       # No documentation available.
-      arm64 = "arm64"
+      ARM64 = "arm64"
 
       # No documentation available.
-      x86_64_mac = "x86_64_mac"
+      X86_64_MAC = "x86_64_mac"
 
       # No documentation available.
-      arm64_mac = "arm64_mac"
+      ARM64_MAC = "arm64_mac"
     end
 
     # Includes enum constants for ArchitectureValues
     module ArchitectureValues
       # No documentation available.
-      i386 = "i386"
+      I386 = "i386"
 
       # No documentation available.
-      x86_64 = "x86_64"
+      X86_64 = "x86_64"
 
       # No documentation available.
-      arm64 = "arm64"
+      ARM64 = "arm64"
 
       # No documentation available.
-      x86_64_mac = "x86_64_mac"
+      X86_64_MAC = "x86_64_mac"
 
       # No documentation available.
-      arm64_mac = "arm64_mac"
+      ARM64_MAC = "arm64_mac"
     end
 
     # <p>An Autonomous System Number (ASN) and BYOIP CIDR association.</p>
@@ -1815,22 +1815,22 @@ module AWS::SDK::EC2
     # Includes enum constants for AsnAssociationState
     module AsnAssociationState
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
 
       # No documentation available.
-      failed_disassociation = "failed-disassociation"
+      FAILED_DISASSOCIATION = "failed-disassociation"
 
       # No documentation available.
-      failed_association = "failed-association"
+      FAILED_ASSOCIATION = "failed-association"
 
       # No documentation available.
-      pending_disassociation = "pending-disassociation"
+      PENDING_DISASSOCIATION = "pending-disassociation"
 
       # No documentation available.
-      pending_association = "pending-association"
+      PENDING_ASSOCIATION = "pending-association"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
     end
 
     # <p>Provides authorization for Amazon to bring an Autonomous System Number (ASN) to a specific Amazon Web Services account using bring your own ASN (BYOASN).
@@ -1856,22 +1856,22 @@ module AWS::SDK::EC2
     # Includes enum constants for AsnState
     module AsnState
       # No documentation available.
-      deprovisioned = "deprovisioned"
+      DEPROVISIONED = "deprovisioned"
 
       # No documentation available.
-      failed_deprovision = "failed-deprovision"
+      FAILED_DEPROVISION = "failed-deprovision"
 
       # No documentation available.
-      failed_provision = "failed-provision"
+      FAILED_PROVISION = "failed-provision"
 
       # No documentation available.
-      pending_deprovision = "pending-deprovision"
+      PENDING_DEPROVISION = "pending-deprovision"
 
       # No documentation available.
-      pending_provision = "pending-provision"
+      PENDING_PROVISION = "pending-provision"
 
       # No documentation available.
-      provisioned = "provisioned"
+      PROVISIONED = "provisioned"
     end
 
     # @!method initialize(params = {})
@@ -2820,7 +2820,7 @@ module AWS::SDK::EC2
     # Includes enum constants for AssociatedNetworkType
     module AssociatedNetworkType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
     end
 
     # <p>Information about the associated IAM roles.</p>
@@ -2897,19 +2897,19 @@ module AWS::SDK::EC2
     # Includes enum constants for AssociationStatusCode
     module AssociationStatusCode
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      association_failed = "association-failed"
+      ASSOCIATION_FAILED = "association-failed"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
     end
 
     # <p>Describes integration options for Amazon Athena.</p>
@@ -3308,16 +3308,16 @@ module AWS::SDK::EC2
     # Includes enum constants for AttachmentStatus
     module AttachmentStatus
       # No documentation available.
-      attaching = "attaching"
+      ATTACHING = "attaching"
 
       # No documentation available.
-      attached = "attached"
+      ATTACHED = "attached"
 
       # No documentation available.
-      detaching = "detaching"
+      DETACHING = "detaching"
 
       # No documentation available.
-      detached = "detached"
+      DETACHED = "detached"
     end
 
     # <p>Describes a value for a resource attribute that is a Boolean value.</p>
@@ -3638,28 +3638,28 @@ module AWS::SDK::EC2
     # Includes enum constants for AutoAcceptSharedAssociationsValue
     module AutoAcceptSharedAssociationsValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for AutoAcceptSharedAttachmentsValue
     module AutoAcceptSharedAttachmentsValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for AutoPlacement
     module AutoPlacement
       # No documentation available.
-      on = "on"
+      ON = "on"
 
       # No documentation available.
-      off = "off"
+      OFF = "off"
     end
 
     # <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
@@ -3756,31 +3756,31 @@ module AWS::SDK::EC2
     # Includes enum constants for AvailabilityZoneOptInStatus
     module AvailabilityZoneOptInStatus
       # No documentation available.
-      opt_in_not_required = "opt-in-not-required"
+      OPT_IN_NOT_REQUIRED = "opt-in-not-required"
 
       # No documentation available.
-      opted_in = "opted-in"
+      OPTED_IN = "opted-in"
 
       # No documentation available.
-      not_opted_in = "not-opted-in"
+      NOT_OPTED_IN = "not-opted-in"
     end
 
     # Includes enum constants for AvailabilityZoneState
     module AvailabilityZoneState
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      information = "information"
+      INFORMATION = "information"
 
       # No documentation available.
-      impaired = "impaired"
+      IMPAIRED = "impaired"
 
       # No documentation available.
-      unavailable = "unavailable"
+      UNAVAILABLE = "unavailable"
 
       # No documentation available.
-      constrained = "constrained"
+      CONSTRAINED = "constrained"
     end
 
     # <p>The capacity information for instances that can be launched onto the Dedicated Host.
@@ -3891,10 +3891,10 @@ module AWS::SDK::EC2
     # Includes enum constants for BgpStatus
     module BgpStatus
       # No documentation available.
-      up = "up"
+      UP = "up"
 
       # No documentation available.
-      down = "down"
+      DOWN = "down"
     end
 
     # @!method initialize(params = {})
@@ -3954,22 +3954,22 @@ module AWS::SDK::EC2
     # Includes enum constants for BootModeType
     module BootModeType
       # No documentation available.
-      legacy_bios = "legacy-bios"
+      LEGACY_BIOS = "legacy-bios"
 
       # No documentation available.
-      uefi = "uefi"
+      UEFI = "uefi"
     end
 
     # Includes enum constants for BootModeValues
     module BootModeValues
       # No documentation available.
-      legacy_bios = "legacy-bios"
+      LEGACY_BIOS = "legacy-bios"
 
       # No documentation available.
-      uefi = "uefi"
+      UEFI = "uefi"
 
       # No documentation available.
-      uefi_preferred = "uefi-preferred"
+      UEFI_PREFERRED = "uefi-preferred"
     end
 
     # <p>Contains the parameters for BundleInstance.</p>
@@ -4087,25 +4087,25 @@ module AWS::SDK::EC2
     # Includes enum constants for BundleTaskState
     module BundleTaskState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      waiting_for_shutdown = "waiting-for-shutdown"
+      WAITING_FOR_SHUTDOWN = "waiting-for-shutdown"
 
       # No documentation available.
-      bundling = "bundling"
+      BUNDLING = "bundling"
 
       # No documentation available.
-      storing = "storing"
+      STORING = "storing"
 
       # No documentation available.
-      cancelling = "cancelling"
+      CANCELLING = "cancelling"
 
       # No documentation available.
-      complete = "complete"
+      COMPLETE = "complete"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # Includes enum constants for BurstablePerformance
@@ -4209,28 +4209,28 @@ module AWS::SDK::EC2
     # Includes enum constants for ByoipCidrState
     module ByoipCidrState
       # No documentation available.
-      advertised = "advertised"
+      ADVERTISED = "advertised"
 
       # No documentation available.
-      deprovisioned = "deprovisioned"
+      DEPROVISIONED = "deprovisioned"
 
       # No documentation available.
-      failed_deprovision = "failed-deprovision"
+      FAILED_DEPROVISION = "failed-deprovision"
 
       # No documentation available.
-      failed_provision = "failed-provision"
+      FAILED_PROVISION = "failed-provision"
 
       # No documentation available.
-      pending_deprovision = "pending-deprovision"
+      PENDING_DEPROVISION = "pending-deprovision"
 
       # No documentation available.
-      pending_provision = "pending-provision"
+      PENDING_PROVISION = "pending-provision"
 
       # No documentation available.
-      provisioned = "provisioned"
+      PROVISIONED = "provisioned"
 
       # No documentation available.
-      provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable"
+      PROVISIONED_NOT_PUBLICLY_ADVERTISABLE = "provisioned-not-publicly-advertisable"
     end
 
     # Includes enum constants for CancelBatchErrorCode
@@ -4651,19 +4651,19 @@ module AWS::SDK::EC2
     # Includes enum constants for CancelSpotInstanceRequestState
     module CancelSpotInstanceRequestState
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      open = "open"
+      OPEN = "open"
 
       # No documentation available.
-      closed = "closed"
+      CLOSED = "closed"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      completed = "completed"
+      COMPLETED = "completed"
     end
 
     # <p>Contains the parameters for CancelSpotInstanceRequests.</p>
@@ -5362,10 +5362,10 @@ module AWS::SDK::EC2
     # Includes enum constants for CapacityReservationPreference
     module CapacityReservationPreference
       # No documentation available.
-      open = "open"
+      OPEN = "open"
 
       # No documentation available.
-      none = "none"
+      NONE = "none"
     end
 
     # <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
@@ -5447,28 +5447,28 @@ module AWS::SDK::EC2
     # Includes enum constants for CapacityReservationState
     module CapacityReservationState
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      expired = "expired"
+      EXPIRED = "expired"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      scheduled = "scheduled"
+      SCHEDULED = "scheduled"
 
       # No documentation available.
-      payment_pending = "payment-pending"
+      PAYMENT_PENDING = "payment-pending"
 
       # No documentation available.
-      payment_failed = "payment-failed"
+      PAYMENT_FAILED = "payment-failed"
     end
 
     # <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -5512,10 +5512,10 @@ module AWS::SDK::EC2
     # Includes enum constants for CapacityReservationTenancy
     module CapacityReservationTenancy
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
 
       # No documentation available.
-      dedicated = "dedicated"
+      DEDICATED = "dedicated"
     end
 
     # Includes enum constants for CapacityReservationType
@@ -5565,16 +5565,16 @@ module AWS::SDK::EC2
     # Includes enum constants for CarrierGatewayState
     module CarrierGatewayState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Information about the client certificate used for authentication.</p>
@@ -5746,10 +5746,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientCertificateRevocationListStatusCode
     module ClientCertificateRevocationListStatusCode
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -5940,13 +5940,13 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnAuthenticationType
     module ClientVpnAuthenticationType
       # No documentation available.
-      certificate_authentication = "certificate-authentication"
+      CERTIFICATE_AUTHENTICATION = "certificate-authentication"
 
       # No documentation available.
-      directory_service_authentication = "directory-service-authentication"
+      DIRECTORY_SERVICE_AUTHENTICATION = "directory-service-authentication"
 
       # No documentation available.
-      federated_authentication = "federated-authentication"
+      FEDERATED_AUTHENTICATION = "federated-authentication"
     end
 
     # <p>Describes the state of an authorization rule.</p>
@@ -5972,16 +5972,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnAuthorizationRuleStatusCode
     module ClientVpnAuthorizationRuleStatusCode
       # No documentation available.
-      authorizing = "authorizing"
+      AUTHORIZING = "authorizing"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      revoking = "revoking"
+      REVOKING = "revoking"
     end
 
     # <p>Describes a client connection.</p>
@@ -6088,16 +6088,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnConnectionStatusCode
     module ClientVpnConnectionStatusCode
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      failed_to_terminate = "failed-to-terminate"
+      FAILED_TO_TERMINATE = "failed-to-terminate"
 
       # No documentation available.
-      terminating = "terminating"
+      TERMINATING = "terminating"
 
       # No documentation available.
-      terminated = "terminated"
+      TERMINATED = "terminated"
     end
 
     # <p>Describes a Client VPN endpoint.</p>
@@ -6258,10 +6258,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnEndpointAttributeStatusCode
     module ClientVpnEndpointAttributeStatusCode
       # No documentation available.
-      applying = "applying"
+      APPLYING = "applying"
 
       # No documentation available.
-      applied = "applied"
+      APPLIED = "applied"
     end
 
     # <p>Describes the state of a Client VPN endpoint.</p>
@@ -6309,16 +6309,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnEndpointStatusCode
     module ClientVpnEndpointStatusCode
       # No documentation available.
-      pending_associate = "pending-associate"
+      PENDING_ASSOCIATE = "pending-associate"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Information about a Client VPN endpoint route.</p>
@@ -6391,16 +6391,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ClientVpnRouteStatusCode
     module ClientVpnRouteStatusCode
       # No documentation available.
-      creating = "creating"
+      CREATING = "creating"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
     end
 
     # <p>Options for sending VPN tunnel logs to CloudWatch.</p>
@@ -6698,16 +6698,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ConnectionNotificationState
     module ConnectionNotificationState
       # No documentation available.
-      Enabled = "Enabled"
+      ENABLED = "Enabled"
 
       # No documentation available.
-      Disabled = "Disabled"
+      DISABLED = "Disabled"
     end
 
     # Includes enum constants for ConnectionNotificationType
     module ConnectionNotificationType
       # No documentation available.
-      Topic = "Topic"
+      TOPIC = "Topic"
     end
 
     # <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -6846,7 +6846,7 @@ module AWS::SDK::EC2
     # Includes enum constants for ContainerFormat
     module ContainerFormat
       # No documentation available.
-      ova = "ova"
+      OVA = "ova"
     end
 
     # <p>Describes a conversion task.</p>
@@ -6898,16 +6898,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ConversionTaskState
     module ConversionTaskState
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      cancelling = "cancelling"
+      CANCELLING = "cancelling"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      completed = "completed"
+      COMPLETED = "completed"
     end
 
     # @!method initialize(params = {})
@@ -7226,7 +7226,7 @@ module AWS::SDK::EC2
     # Includes enum constants for CopyTagsFromSource
     module CopyTagsFromSource
       # No documentation available.
-      volume = "volume"
+      VOLUME = "volume"
     end
 
     # Includes enum constants for CpuManufacturer
@@ -13755,28 +13755,28 @@ module AWS::SDK::EC2
     # Includes enum constants for DatafeedSubscriptionState
     module DatafeedSubscriptionState
       # No documentation available.
-      Active = "Active"
+      ACTIVE = "Active"
 
       # No documentation available.
-      Inactive = "Inactive"
+      INACTIVE = "Inactive"
     end
 
     # Includes enum constants for DefaultRouteTableAssociationValue
     module DefaultRouteTableAssociationValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for DefaultRouteTablePropagationValue
     module DefaultRouteTablePropagationValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for DefaultTargetCapacityType
@@ -30074,10 +30074,10 @@ module AWS::SDK::EC2
     # Includes enum constants for DestinationFileFormat
     module DestinationFileFormat
       # No documentation available.
-      plain_text = "plain-text"
+      PLAIN_TEXT = "plain-text"
 
       # No documentation available.
-      parquet = "parquet"
+      PARQUET = "parquet"
     end
 
     # <p>Describes the destination options for a flow log.</p>
@@ -30463,22 +30463,22 @@ module AWS::SDK::EC2
     # Includes enum constants for DeviceTrustProviderType
     module DeviceTrustProviderType
       # No documentation available.
-      jamf = "jamf"
+      JAMF = "jamf"
 
       # No documentation available.
-      crowdstrike = "crowdstrike"
+      CROWDSTRIKE = "crowdstrike"
 
       # No documentation available.
-      jumpcloud = "jumpcloud"
+      JUMPCLOUD = "jumpcloud"
     end
 
     # Includes enum constants for DeviceType
     module DeviceType
       # No documentation available.
-      ebs = "ebs"
+      EBS = "ebs"
 
       # No documentation available.
-      instance_store = "instance-store"
+      INSTANCE_STORE = "instance-store"
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -31969,10 +31969,10 @@ module AWS::SDK::EC2
     # Includes enum constants for DiskType
     module DiskType
       # No documentation available.
-      hdd = "hdd"
+      HDD = "hdd"
 
       # No documentation available.
-      ssd = "ssd"
+      SSD = "ssd"
     end
 
     # <p>Describes a DNS entry.</p>
@@ -31997,13 +31997,13 @@ module AWS::SDK::EC2
     # Includes enum constants for DnsNameState
     module DnsNameState
       # No documentation available.
-      PendingVerification = "pendingVerification"
+      PENDING_VERIFICATION = "pendingVerification"
 
       # No documentation available.
-      Verified = "verified"
+      VERIFIED = "verified"
 
       # No documentation available.
-      Failed = "failed"
+      FAILED = "failed"
     end
 
     # <p>Describes the DNS options for an endpoint.</p>
@@ -32052,16 +32052,16 @@ module AWS::SDK::EC2
     # Includes enum constants for DnsRecordIpType
     module DnsRecordIpType
       # No documentation available.
-      ipv4 = "ipv4"
+      IPV4 = "ipv4"
 
       # No documentation available.
-      dualstack = "dualstack"
+      DUALSTACK = "dualstack"
 
       # No documentation available.
-      ipv6 = "ipv6"
+      IPV6 = "ipv6"
 
       # No documentation available.
-      service_defined = "service-defined"
+      SERVICE_DEFINED = "service-defined"
     end
 
     # <p>Information about the DNS server to be used.</p>
@@ -32089,28 +32089,28 @@ module AWS::SDK::EC2
     # Includes enum constants for DnsSupportValue
     module DnsSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for DomainType
     module DomainType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      standard = "standard"
+      STANDARD = "standard"
     end
 
     # Includes enum constants for DynamicRoutingValue
     module DynamicRoutingValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -32265,10 +32265,10 @@ module AWS::SDK::EC2
     # Includes enum constants for EbsEncryptionSupport
     module EbsEncryptionSupport
       # No documentation available.
-      unsupported = "unsupported"
+      UNSUPPORTED = "unsupported"
 
       # No documentation available.
-      supported = "supported"
+      SUPPORTED = "supported"
     end
 
     # <p>Describes the Amazon EBS features supported by the instance type.</p>
@@ -32421,13 +32421,13 @@ module AWS::SDK::EC2
     # Includes enum constants for EbsOptimizedSupport
     module EbsOptimizedSupport
       # No documentation available.
-      unsupported = "unsupported"
+      UNSUPPORTED = "unsupported"
 
       # No documentation available.
-      supported = "supported"
+      SUPPORTED = "supported"
 
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
     end
 
     # <p>The EC2 Instance Connect Endpoint.</p>
@@ -32531,22 +32531,22 @@ module AWS::SDK::EC2
     # Includes enum constants for Ec2InstanceConnectEndpointState
     module Ec2InstanceConnectEndpointState
       # No documentation available.
-      create_in_progress = "create-in-progress"
+      CREATE_IN_PROGRESS = "create-in-progress"
 
       # No documentation available.
-      create_complete = "create-complete"
+      CREATE_COMPLETE = "create-complete"
 
       # No documentation available.
-      create_failed = "create-failed"
+      CREATE_FAILED = "create-failed"
 
       # No documentation available.
-      delete_in_progress = "delete-in-progress"
+      DELETE_IN_PROGRESS = "delete-in-progress"
 
       # No documentation available.
-      delete_complete = "delete-complete"
+      DELETE_COMPLETE = "delete-complete"
 
       # No documentation available.
-      delete_failed = "delete-failed"
+      DELETE_FAILED = "delete-failed"
     end
 
     # <p>Describes the Elastic Fabric Adapters for the instance type.</p>
@@ -32690,16 +32690,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ElasticGpuState
     module ElasticGpuState
       # No documentation available.
-      Attached = "ATTACHED"
+      ATTACHED = "ATTACHED"
     end
 
     # Includes enum constants for ElasticGpuStatus
     module ElasticGpuStatus
       # No documentation available.
-      Ok = "OK"
+      OK = "OK"
 
       # No documentation available.
-      Impaired = "IMPAIRED"
+      IMPAIRED = "IMPAIRED"
     end
 
     # <note>
@@ -32903,13 +32903,13 @@ module AWS::SDK::EC2
     # Includes enum constants for EnaSupport
     module EnaSupport
       # No documentation available.
-      unsupported = "unsupported"
+      UNSUPPORTED = "unsupported"
 
       # No documentation available.
-      supported = "supported"
+      SUPPORTED = "supported"
 
       # No documentation available.
-      required = "required"
+      REQUIRED = "required"
     end
 
     # @!method initialize(params = {})
@@ -33784,10 +33784,10 @@ module AWS::SDK::EC2
     # Includes enum constants for EndDateType
     module EndDateType
       # No documentation available.
-      unlimited = "unlimited"
+      UNLIMITED = "unlimited"
 
       # No documentation available.
-      limited = "limited"
+      LIMITED = "limited"
     end
 
     # Includes enum constants for EphemeralNvmeSupport
@@ -33805,19 +33805,19 @@ module AWS::SDK::EC2
     # Includes enum constants for EventCode
     module EventCode
       # No documentation available.
-      instance_reboot = "instance-reboot"
+      INSTANCE_REBOOT = "instance-reboot"
 
       # No documentation available.
-      system_reboot = "system-reboot"
+      SYSTEM_REBOOT = "system-reboot"
 
       # No documentation available.
-      system_maintenance = "system-maintenance"
+      SYSTEM_MAINTENANCE = "system-maintenance"
 
       # No documentation available.
-      instance_retirement = "instance-retirement"
+      INSTANCE_RETIREMENT = "instance-retirement"
 
       # No documentation available.
-      instance_stop = "instance-stop"
+      INSTANCE_STOP = "instance-stop"
     end
 
     # <p>Describes an EC2 Fleet or Spot Fleet event.</p>
@@ -34347,13 +34347,13 @@ module AWS::SDK::EC2
     # Includes enum constants for ExportEnvironment
     module ExportEnvironment
       # No documentation available.
-      citrix = "citrix"
+      CITRIX = "citrix"
 
       # No documentation available.
-      vmware = "vmware"
+      VMWARE = "vmware"
 
       # No documentation available.
-      microsoft = "microsoft"
+      MICROSOFT = "microsoft"
     end
 
     # @!method initialize(params = {})
@@ -34605,16 +34605,16 @@ module AWS::SDK::EC2
     # Includes enum constants for ExportTaskState
     module ExportTaskState
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      cancelling = "cancelling"
+      CANCELLING = "cancelling"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      completed = "completed"
+      COMPLETED = "completed"
     end
 
     # <p>Describes the format and location for the export task.</p>
@@ -34900,40 +34900,40 @@ module AWS::SDK::EC2
     # Includes enum constants for FastLaunchStateCode
     module FastLaunchStateCode
       # No documentation available.
-      enabling = "enabling"
+      ENABLING = "enabling"
 
       # No documentation available.
-      enabling_failed = "enabling-failed"
+      ENABLING_FAILED = "enabling-failed"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      enabled_failed = "enabled-failed"
+      ENABLED_FAILED = "enabled-failed"
 
       # No documentation available.
-      disabling = "disabling"
+      DISABLING = "disabling"
 
       # No documentation available.
-      disabling_failed = "disabling-failed"
+      DISABLING_FAILED = "disabling-failed"
     end
 
     # Includes enum constants for FastSnapshotRestoreStateCode
     module FastSnapshotRestoreStateCode
       # No documentation available.
-      enabling = "enabling"
+      ENABLING = "enabling"
 
       # No documentation available.
-      optimizing = "optimizing"
+      OPTIMIZING = "optimizing"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      disabling = "disabling"
+      DISABLING = "disabling"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # <p>Describes the IAM SAML identity providers used for federated authentication.</p>
@@ -35020,13 +35020,13 @@ module AWS::SDK::EC2
     # Includes enum constants for FindingsFound
     module FindingsFound
       # No documentation available.
-      true = "true"
+      TRUE = "true"
 
       # No documentation available.
-      false = "false"
+      FALSE = "false"
 
       # No documentation available.
-      unknown = "unknown"
+      UNKNOWN = "unknown"
     end
 
     # <p>Describes a stateful rule.</p>
@@ -35219,7 +35219,7 @@ module AWS::SDK::EC2
     # Includes enum constants for FleetCapacityReservationTenancy
     module FleetCapacityReservationTenancy
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
     end
 
     # Includes enum constants for FleetCapacityReservationUsageStrategy
@@ -35399,7 +35399,7 @@ module AWS::SDK::EC2
     # Includes enum constants for FleetInstanceMatchCriteria
     module FleetInstanceMatchCriteria
       # No documentation available.
-      open = "open"
+      OPEN = "open"
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -35945,16 +35945,16 @@ module AWS::SDK::EC2
       VPC = "VPC"
 
       # No documentation available.
-      Subnet = "Subnet"
+      SUBNET = "Subnet"
 
       # No documentation available.
-      NetworkInterface = "NetworkInterface"
+      NETWORK_INTERFACE = "NetworkInterface"
 
       # No documentation available.
-      TransitGateway = "TransitGateway"
+      TRANSIT_GATEWAY = "TransitGateway"
 
       # No documentation available.
-      TransitGatewayAttachment = "TransitGatewayAttachment"
+      TRANSIT_GATEWAY_ATTACHMENT = "TransitGatewayAttachment"
     end
 
     # <p>Describes the FPGA accelerator for the instance type.</p>
@@ -36126,16 +36126,16 @@ module AWS::SDK::EC2
     # Includes enum constants for FpgaImageAttributeName
     module FpgaImageAttributeName
       # No documentation available.
-      description = "description"
+      DESCRIPTION = "description"
 
       # No documentation available.
-      name = "name"
+      NAME = "name"
 
       # No documentation available.
-      loadPermission = "loadPermission"
+      LOAD_PERMISSION = "loadPermission"
 
       # No documentation available.
-      productCodes = "productCodes"
+      PRODUCT_CODES = "productCodes"
     end
 
     # <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
@@ -36179,16 +36179,16 @@ module AWS::SDK::EC2
     # Includes enum constants for FpgaImageStateCode
     module FpgaImageStateCode
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      unavailable = "unavailable"
+      UNAVAILABLE = "unavailable"
     end
 
     # <p>Describes the FPGAs for the instance type.</p>
@@ -36213,22 +36213,22 @@ module AWS::SDK::EC2
     # Includes enum constants for GatewayAssociationState
     module GatewayAssociationState
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      not_associated = "not-associated"
+      NOT_ASSOCIATED = "not-associated"
 
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
     end
 
     # Includes enum constants for GatewayType
     module GatewayType
       # No documentation available.
-      ipsec_1 = "ipsec.1"
+      IPSEC_1 = "ipsec.1"
     end
 
     # @!method initialize(params = {})
@@ -39231,10 +39231,10 @@ module AWS::SDK::EC2
     # Includes enum constants for HostMaintenance
     module HostMaintenance
       # No documentation available.
-      on = "on"
+      ON = "on"
 
       # No documentation available.
-      off = "off"
+      OFF = "off"
     end
 
     # <p>Details about the Dedicated Host Reservation offering.</p>
@@ -39322,10 +39322,10 @@ module AWS::SDK::EC2
     # Includes enum constants for HostRecovery
     module HostRecovery
       # No documentation available.
-      on = "on"
+      ON = "on"
 
       # No documentation available.
-      off = "off"
+      OFF = "off"
     end
 
     # <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
@@ -39418,37 +39418,37 @@ module AWS::SDK::EC2
     # Includes enum constants for HostTenancy
     module HostTenancy
       # No documentation available.
-      dedicated = "dedicated"
+      DEDICATED = "dedicated"
 
       # No documentation available.
-      host = "host"
+      HOST = "host"
     end
 
     # Includes enum constants for HostnameType
     module HostnameType
       # No documentation available.
-      ip_name = "ip-name"
+      IP_NAME = "ip-name"
 
       # No documentation available.
-      resource_name = "resource-name"
+      RESOURCE_NAME = "resource-name"
     end
 
     # Includes enum constants for HttpTokensState
     module HttpTokensState
       # No documentation available.
-      optional = "optional"
+      OPTIONAL = "optional"
 
       # No documentation available.
-      required = "required"
+      REQUIRED = "required"
     end
 
     # Includes enum constants for HypervisorType
     module HypervisorType
       # No documentation available.
-      ovm = "ovm"
+      OVM = "ovm"
 
       # No documentation available.
-      xen = "xen"
+      XEN = "xen"
     end
 
     # <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
@@ -39613,10 +39613,10 @@ module AWS::SDK::EC2
     # Includes enum constants for Igmpv2SupportValue
     module Igmpv2SupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # <p>Describes an image.</p>
@@ -39820,52 +39820,52 @@ module AWS::SDK::EC2
     # Includes enum constants for ImageAttributeName
     module ImageAttributeName
       # No documentation available.
-      description = "description"
+      DESCRIPTION = "description"
 
       # No documentation available.
-      kernel = "kernel"
+      KERNEL = "kernel"
 
       # No documentation available.
-      ramdisk = "ramdisk"
+      RAMDISK = "ramdisk"
 
       # No documentation available.
-      launchPermission = "launchPermission"
+      LAUNCH_PERMISSION = "launchPermission"
 
       # No documentation available.
-      productCodes = "productCodes"
+      PRODUCT_CODES = "productCodes"
 
       # No documentation available.
-      blockDeviceMapping = "blockDeviceMapping"
+      BLOCK_DEVICE_MAPPING = "blockDeviceMapping"
 
       # No documentation available.
-      sriovNetSupport = "sriovNetSupport"
+      SRIOV_NET_SUPPORT = "sriovNetSupport"
 
       # No documentation available.
-      bootMode = "bootMode"
+      BOOT_MODE = "bootMode"
 
       # No documentation available.
-      tpmSupport = "tpmSupport"
+      TPM_SUPPORT = "tpmSupport"
 
       # No documentation available.
-      uefiData = "uefiData"
+      UEFI_DATA = "uefiData"
 
       # No documentation available.
-      lastLaunchedTime = "lastLaunchedTime"
+      LAST_LAUNCHED_TIME = "lastLaunchedTime"
 
       # No documentation available.
-      imdsSupport = "imdsSupport"
+      IMDS_SUPPORT = "imdsSupport"
     end
 
     # Includes enum constants for ImageBlockPublicAccessDisabledState
     module ImageBlockPublicAccessDisabledState
       # No documentation available.
-      unblocked = "unblocked"
+      UNBLOCKED = "unblocked"
     end
 
     # Includes enum constants for ImageBlockPublicAccessEnabledState
     module ImageBlockPublicAccessEnabledState
       # No documentation available.
-      block_new_sharing = "block-new-sharing"
+      BLOCK_NEW_SHARING = "block-new-sharing"
     end
 
     # <p>Describes the disk container object for an import image task.</p>
@@ -39957,46 +39957,46 @@ module AWS::SDK::EC2
     # Includes enum constants for ImageState
     module ImageState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      invalid = "invalid"
+      INVALID = "invalid"
 
       # No documentation available.
-      deregistered = "deregistered"
+      DEREGISTERED = "deregistered"
 
       # No documentation available.
-      transient = "transient"
+      TRANSIENT = "transient"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      error = "error"
+      ERROR = "error"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # Includes enum constants for ImageTypeValues
     module ImageTypeValues
       # No documentation available.
-      machine = "machine"
+      MACHINE = "machine"
 
       # No documentation available.
-      kernel = "kernel"
+      KERNEL = "kernel"
 
       # No documentation available.
-      ramdisk = "ramdisk"
+      RAMDISK = "ramdisk"
     end
 
     # Includes enum constants for ImdsSupportValues
     module ImdsSupportValues
       # No documentation available.
-      v2_0 = "v2.0"
+      V2_0 = "v2.0"
     end
 
     # @!method initialize(params = {})
@@ -41332,61 +41332,61 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceAttributeName
     module InstanceAttributeName
       # No documentation available.
-      instanceType = "instanceType"
+      INSTANCE_TYPE = "instanceType"
 
       # No documentation available.
-      kernel = "kernel"
+      KERNEL = "kernel"
 
       # No documentation available.
-      ramdisk = "ramdisk"
+      RAMDISK = "ramdisk"
 
       # No documentation available.
-      userData = "userData"
+      USER_DATA = "userData"
 
       # No documentation available.
-      disableApiTermination = "disableApiTermination"
+      DISABLE_API_TERMINATION = "disableApiTermination"
 
       # No documentation available.
-      instanceInitiatedShutdownBehavior = "instanceInitiatedShutdownBehavior"
+      INSTANCE_INITIATED_SHUTDOWN_BEHAVIOR = "instanceInitiatedShutdownBehavior"
 
       # No documentation available.
-      rootDeviceName = "rootDeviceName"
+      ROOT_DEVICE_NAME = "rootDeviceName"
 
       # No documentation available.
-      blockDeviceMapping = "blockDeviceMapping"
+      BLOCK_DEVICE_MAPPING = "blockDeviceMapping"
 
       # No documentation available.
-      productCodes = "productCodes"
+      PRODUCT_CODES = "productCodes"
 
       # No documentation available.
-      sourceDestCheck = "sourceDestCheck"
+      SOURCE_DEST_CHECK = "sourceDestCheck"
 
       # No documentation available.
-      groupSet = "groupSet"
+      GROUP_SET = "groupSet"
 
       # No documentation available.
-      ebsOptimized = "ebsOptimized"
+      EBS_OPTIMIZED = "ebsOptimized"
 
       # No documentation available.
-      sriovNetSupport = "sriovNetSupport"
+      SRIOV_NET_SUPPORT = "sriovNetSupport"
 
       # No documentation available.
-      enaSupport = "enaSupport"
+      ENA_SUPPORT = "enaSupport"
 
       # No documentation available.
-      enclaveOptions = "enclaveOptions"
+      ENCLAVE_OPTIONS = "enclaveOptions"
 
       # No documentation available.
-      disableApiStop = "disableApiStop"
+      DISABLE_API_STOP = "disableApiStop"
     end
 
     # Includes enum constants for InstanceAutoRecoveryState
     module InstanceAutoRecoveryState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
     end
 
     # <p>Describes a block device mapping.</p>
@@ -41442,10 +41442,10 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceBootModeValues
     module InstanceBootModeValues
       # No documentation available.
-      legacy_bios = "legacy-bios"
+      LEGACY_BIOS = "legacy-bios"
 
       # No documentation available.
-      uefi = "uefi"
+      UEFI = "uefi"
     end
 
     # <p>Information about the number of instances that can be launched onto the Dedicated
@@ -41666,16 +41666,16 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceEventWindowState
     module InstanceEventWindowState
       # No documentation available.
-      creating = "creating"
+      CREATING = "creating"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>The state of the event window.</p>
@@ -41823,13 +41823,13 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceInterruptionBehavior
     module InstanceInterruptionBehavior
       # No documentation available.
-      hibernate = "hibernate"
+      HIBERNATE = "hibernate"
 
       # No documentation available.
-      stop = "stop"
+      STOP = "stop"
 
       # No documentation available.
-      terminate = "terminate"
+      TERMINATE = "terminate"
     end
 
     # <p>Information about an IPv4 prefix.</p>
@@ -41906,13 +41906,13 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceLifecycleType
     module InstanceLifecycleType
       # No documentation available.
-      spot = "spot"
+      SPOT = "spot"
 
       # No documentation available.
-      scheduled = "scheduled"
+      SCHEDULED = "scheduled"
 
       # No documentation available.
-      capacity_block = "capacity-block"
+      CAPACITY_BLOCK = "capacity-block"
     end
 
     # <p>The maintenance options for the instance.</p>
@@ -41970,19 +41970,19 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceMatchCriteria
     module InstanceMatchCriteria
       # No documentation available.
-      open = "open"
+      OPEN = "open"
 
       # No documentation available.
-      targeted = "targeted"
+      TARGETED = "targeted"
     end
 
     # Includes enum constants for InstanceMetadataEndpointState
     module InstanceMetadataEndpointState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # <p>The metadata options for the instance.</p>
@@ -42133,28 +42133,28 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceMetadataOptionsState
     module InstanceMetadataOptionsState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      applied = "applied"
+      APPLIED = "applied"
     end
 
     # Includes enum constants for InstanceMetadataProtocolState
     module InstanceMetadataProtocolState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # Includes enum constants for InstanceMetadataTagsState
     module InstanceMetadataTagsState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -43508,22 +43508,22 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceStateName
     module InstanceStateName
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      running = "running"
+      RUNNING = "running"
 
       # No documentation available.
-      shutting_down = "shutting-down"
+      SHUTTING_DOWN = "shutting-down"
 
       # No documentation available.
-      terminated = "terminated"
+      TERMINATED = "terminated"
 
       # No documentation available.
-      stopping = "stopping"
+      STOPPING = "stopping"
 
       # No documentation available.
-      stopped = "stopped"
+      STOPPED = "stopped"
     end
 
     # <p>Describes the status of an instance.</p>
@@ -43666,10 +43666,10 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceStorageEncryptionSupport
     module InstanceStorageEncryptionSupport
       # No documentation available.
-      unsupported = "unsupported"
+      UNSUPPORTED = "unsupported"
 
       # No documentation available.
-      required = "required"
+      REQUIRED = "required"
     end
 
     # <p>Describes the instance store features that are supported by the instance type.</p>
@@ -43767,2353 +43767,2353 @@ module AWS::SDK::EC2
     # Includes enum constants for InstanceType
     module InstanceType
       # No documentation available.
-      a1_medium = "a1.medium"
+      A1_MEDIUM = "a1.medium"
 
       # No documentation available.
-      a1_large = "a1.large"
+      A1_LARGE = "a1.large"
 
       # No documentation available.
-      a1_xlarge = "a1.xlarge"
+      A1_XLARGE = "a1.xlarge"
 
       # No documentation available.
-      a1_2xlarge = "a1.2xlarge"
+      A1_2XLARGE = "a1.2xlarge"
 
       # No documentation available.
-      a1_4xlarge = "a1.4xlarge"
+      A1_4XLARGE = "a1.4xlarge"
 
       # No documentation available.
-      a1_metal = "a1.metal"
+      A1_METAL = "a1.metal"
 
       # No documentation available.
-      c1_medium = "c1.medium"
+      C1_MEDIUM = "c1.medium"
 
       # No documentation available.
-      c1_xlarge = "c1.xlarge"
+      C1_XLARGE = "c1.xlarge"
 
       # No documentation available.
-      c3_large = "c3.large"
+      C3_LARGE = "c3.large"
 
       # No documentation available.
-      c3_xlarge = "c3.xlarge"
+      C3_XLARGE = "c3.xlarge"
 
       # No documentation available.
-      c3_2xlarge = "c3.2xlarge"
+      C3_2XLARGE = "c3.2xlarge"
 
       # No documentation available.
-      c3_4xlarge = "c3.4xlarge"
+      C3_4XLARGE = "c3.4xlarge"
 
       # No documentation available.
-      c3_8xlarge = "c3.8xlarge"
+      C3_8XLARGE = "c3.8xlarge"
 
       # No documentation available.
-      c4_large = "c4.large"
+      C4_LARGE = "c4.large"
 
       # No documentation available.
-      c4_xlarge = "c4.xlarge"
+      C4_XLARGE = "c4.xlarge"
 
       # No documentation available.
-      c4_2xlarge = "c4.2xlarge"
+      C4_2XLARGE = "c4.2xlarge"
 
       # No documentation available.
-      c4_4xlarge = "c4.4xlarge"
+      C4_4XLARGE = "c4.4xlarge"
 
       # No documentation available.
-      c4_8xlarge = "c4.8xlarge"
+      C4_8XLARGE = "c4.8xlarge"
 
       # No documentation available.
-      c5_large = "c5.large"
+      C5_LARGE = "c5.large"
 
       # No documentation available.
-      c5_xlarge = "c5.xlarge"
+      C5_XLARGE = "c5.xlarge"
 
       # No documentation available.
-      c5_2xlarge = "c5.2xlarge"
+      C5_2XLARGE = "c5.2xlarge"
 
       # No documentation available.
-      c5_4xlarge = "c5.4xlarge"
+      C5_4XLARGE = "c5.4xlarge"
 
       # No documentation available.
-      c5_9xlarge = "c5.9xlarge"
+      C5_9XLARGE = "c5.9xlarge"
 
       # No documentation available.
-      c5_12xlarge = "c5.12xlarge"
+      C5_12XLARGE = "c5.12xlarge"
 
       # No documentation available.
-      c5_18xlarge = "c5.18xlarge"
+      C5_18XLARGE = "c5.18xlarge"
 
       # No documentation available.
-      c5_24xlarge = "c5.24xlarge"
+      C5_24XLARGE = "c5.24xlarge"
 
       # No documentation available.
-      c5_metal = "c5.metal"
+      C5_METAL = "c5.metal"
 
       # No documentation available.
-      c5a_large = "c5a.large"
+      C5A_LARGE = "c5a.large"
 
       # No documentation available.
-      c5a_xlarge = "c5a.xlarge"
+      C5A_XLARGE = "c5a.xlarge"
 
       # No documentation available.
-      c5a_2xlarge = "c5a.2xlarge"
+      C5A_2XLARGE = "c5a.2xlarge"
 
       # No documentation available.
-      c5a_4xlarge = "c5a.4xlarge"
+      C5A_4XLARGE = "c5a.4xlarge"
 
       # No documentation available.
-      c5a_8xlarge = "c5a.8xlarge"
+      C5A_8XLARGE = "c5a.8xlarge"
 
       # No documentation available.
-      c5a_12xlarge = "c5a.12xlarge"
+      C5A_12XLARGE = "c5a.12xlarge"
 
       # No documentation available.
-      c5a_16xlarge = "c5a.16xlarge"
+      C5A_16XLARGE = "c5a.16xlarge"
 
       # No documentation available.
-      c5a_24xlarge = "c5a.24xlarge"
+      C5A_24XLARGE = "c5a.24xlarge"
 
       # No documentation available.
-      c5ad_large = "c5ad.large"
+      C5AD_LARGE = "c5ad.large"
 
       # No documentation available.
-      c5ad_xlarge = "c5ad.xlarge"
+      C5AD_XLARGE = "c5ad.xlarge"
 
       # No documentation available.
-      c5ad_2xlarge = "c5ad.2xlarge"
+      C5AD_2XLARGE = "c5ad.2xlarge"
 
       # No documentation available.
-      c5ad_4xlarge = "c5ad.4xlarge"
+      C5AD_4XLARGE = "c5ad.4xlarge"
 
       # No documentation available.
-      c5ad_8xlarge = "c5ad.8xlarge"
+      C5AD_8XLARGE = "c5ad.8xlarge"
 
       # No documentation available.
-      c5ad_12xlarge = "c5ad.12xlarge"
+      C5AD_12XLARGE = "c5ad.12xlarge"
 
       # No documentation available.
-      c5ad_16xlarge = "c5ad.16xlarge"
+      C5AD_16XLARGE = "c5ad.16xlarge"
 
       # No documentation available.
-      c5ad_24xlarge = "c5ad.24xlarge"
+      C5AD_24XLARGE = "c5ad.24xlarge"
 
       # No documentation available.
-      c5d_large = "c5d.large"
+      C5D_LARGE = "c5d.large"
 
       # No documentation available.
-      c5d_xlarge = "c5d.xlarge"
+      C5D_XLARGE = "c5d.xlarge"
 
       # No documentation available.
-      c5d_2xlarge = "c5d.2xlarge"
+      C5D_2XLARGE = "c5d.2xlarge"
 
       # No documentation available.
-      c5d_4xlarge = "c5d.4xlarge"
+      C5D_4XLARGE = "c5d.4xlarge"
 
       # No documentation available.
-      c5d_9xlarge = "c5d.9xlarge"
+      C5D_9XLARGE = "c5d.9xlarge"
 
       # No documentation available.
-      c5d_12xlarge = "c5d.12xlarge"
+      C5D_12XLARGE = "c5d.12xlarge"
 
       # No documentation available.
-      c5d_18xlarge = "c5d.18xlarge"
+      C5D_18XLARGE = "c5d.18xlarge"
 
       # No documentation available.
-      c5d_24xlarge = "c5d.24xlarge"
+      C5D_24XLARGE = "c5d.24xlarge"
 
       # No documentation available.
-      c5d_metal = "c5d.metal"
+      C5D_METAL = "c5d.metal"
 
       # No documentation available.
-      c5n_large = "c5n.large"
+      C5N_LARGE = "c5n.large"
 
       # No documentation available.
-      c5n_xlarge = "c5n.xlarge"
+      C5N_XLARGE = "c5n.xlarge"
 
       # No documentation available.
-      c5n_2xlarge = "c5n.2xlarge"
+      C5N_2XLARGE = "c5n.2xlarge"
 
       # No documentation available.
-      c5n_4xlarge = "c5n.4xlarge"
+      C5N_4XLARGE = "c5n.4xlarge"
 
       # No documentation available.
-      c5n_9xlarge = "c5n.9xlarge"
+      C5N_9XLARGE = "c5n.9xlarge"
 
       # No documentation available.
-      c5n_18xlarge = "c5n.18xlarge"
+      C5N_18XLARGE = "c5n.18xlarge"
 
       # No documentation available.
-      c5n_metal = "c5n.metal"
+      C5N_METAL = "c5n.metal"
 
       # No documentation available.
-      c6g_medium = "c6g.medium"
+      C6G_MEDIUM = "c6g.medium"
 
       # No documentation available.
-      c6g_large = "c6g.large"
+      C6G_LARGE = "c6g.large"
 
       # No documentation available.
-      c6g_xlarge = "c6g.xlarge"
+      C6G_XLARGE = "c6g.xlarge"
 
       # No documentation available.
-      c6g_2xlarge = "c6g.2xlarge"
+      C6G_2XLARGE = "c6g.2xlarge"
 
       # No documentation available.
-      c6g_4xlarge = "c6g.4xlarge"
+      C6G_4XLARGE = "c6g.4xlarge"
 
       # No documentation available.
-      c6g_8xlarge = "c6g.8xlarge"
+      C6G_8XLARGE = "c6g.8xlarge"
 
       # No documentation available.
-      c6g_12xlarge = "c6g.12xlarge"
+      C6G_12XLARGE = "c6g.12xlarge"
 
       # No documentation available.
-      c6g_16xlarge = "c6g.16xlarge"
+      C6G_16XLARGE = "c6g.16xlarge"
 
       # No documentation available.
-      c6g_metal = "c6g.metal"
+      C6G_METAL = "c6g.metal"
 
       # No documentation available.
-      c6gd_medium = "c6gd.medium"
+      C6GD_MEDIUM = "c6gd.medium"
 
       # No documentation available.
-      c6gd_large = "c6gd.large"
+      C6GD_LARGE = "c6gd.large"
 
       # No documentation available.
-      c6gd_xlarge = "c6gd.xlarge"
+      C6GD_XLARGE = "c6gd.xlarge"
 
       # No documentation available.
-      c6gd_2xlarge = "c6gd.2xlarge"
+      C6GD_2XLARGE = "c6gd.2xlarge"
 
       # No documentation available.
-      c6gd_4xlarge = "c6gd.4xlarge"
+      C6GD_4XLARGE = "c6gd.4xlarge"
 
       # No documentation available.
-      c6gd_8xlarge = "c6gd.8xlarge"
+      C6GD_8XLARGE = "c6gd.8xlarge"
 
       # No documentation available.
-      c6gd_12xlarge = "c6gd.12xlarge"
+      C6GD_12XLARGE = "c6gd.12xlarge"
 
       # No documentation available.
-      c6gd_16xlarge = "c6gd.16xlarge"
+      C6GD_16XLARGE = "c6gd.16xlarge"
 
       # No documentation available.
-      c6gd_metal = "c6gd.metal"
+      C6GD_METAL = "c6gd.metal"
 
       # No documentation available.
-      c6gn_medium = "c6gn.medium"
+      C6GN_MEDIUM = "c6gn.medium"
 
       # No documentation available.
-      c6gn_large = "c6gn.large"
+      C6GN_LARGE = "c6gn.large"
 
       # No documentation available.
-      c6gn_xlarge = "c6gn.xlarge"
+      C6GN_XLARGE = "c6gn.xlarge"
 
       # No documentation available.
-      c6gn_2xlarge = "c6gn.2xlarge"
+      C6GN_2XLARGE = "c6gn.2xlarge"
 
       # No documentation available.
-      c6gn_4xlarge = "c6gn.4xlarge"
+      C6GN_4XLARGE = "c6gn.4xlarge"
 
       # No documentation available.
-      c6gn_8xlarge = "c6gn.8xlarge"
+      C6GN_8XLARGE = "c6gn.8xlarge"
 
       # No documentation available.
-      c6gn_12xlarge = "c6gn.12xlarge"
+      C6GN_12XLARGE = "c6gn.12xlarge"
 
       # No documentation available.
-      c6gn_16xlarge = "c6gn.16xlarge"
+      C6GN_16XLARGE = "c6gn.16xlarge"
 
       # No documentation available.
-      c6i_large = "c6i.large"
+      C6I_LARGE = "c6i.large"
 
       # No documentation available.
-      c6i_xlarge = "c6i.xlarge"
+      C6I_XLARGE = "c6i.xlarge"
 
       # No documentation available.
-      c6i_2xlarge = "c6i.2xlarge"
+      C6I_2XLARGE = "c6i.2xlarge"
 
       # No documentation available.
-      c6i_4xlarge = "c6i.4xlarge"
+      C6I_4XLARGE = "c6i.4xlarge"
 
       # No documentation available.
-      c6i_8xlarge = "c6i.8xlarge"
+      C6I_8XLARGE = "c6i.8xlarge"
 
       # No documentation available.
-      c6i_12xlarge = "c6i.12xlarge"
+      C6I_12XLARGE = "c6i.12xlarge"
 
       # No documentation available.
-      c6i_16xlarge = "c6i.16xlarge"
+      C6I_16XLARGE = "c6i.16xlarge"
 
       # No documentation available.
-      c6i_24xlarge = "c6i.24xlarge"
+      C6I_24XLARGE = "c6i.24xlarge"
 
       # No documentation available.
-      c6i_32xlarge = "c6i.32xlarge"
+      C6I_32XLARGE = "c6i.32xlarge"
 
       # No documentation available.
-      c6i_metal = "c6i.metal"
+      C6I_METAL = "c6i.metal"
 
       # No documentation available.
-      cc1_4xlarge = "cc1.4xlarge"
+      CC1_4XLARGE = "cc1.4xlarge"
 
       # No documentation available.
-      cc2_8xlarge = "cc2.8xlarge"
+      CC2_8XLARGE = "cc2.8xlarge"
 
       # No documentation available.
-      cg1_4xlarge = "cg1.4xlarge"
+      CG1_4XLARGE = "cg1.4xlarge"
 
       # No documentation available.
-      cr1_8xlarge = "cr1.8xlarge"
+      CR1_8XLARGE = "cr1.8xlarge"
 
       # No documentation available.
-      d2_xlarge = "d2.xlarge"
+      D2_XLARGE = "d2.xlarge"
 
       # No documentation available.
-      d2_2xlarge = "d2.2xlarge"
+      D2_2XLARGE = "d2.2xlarge"
 
       # No documentation available.
-      d2_4xlarge = "d2.4xlarge"
+      D2_4XLARGE = "d2.4xlarge"
 
       # No documentation available.
-      d2_8xlarge = "d2.8xlarge"
+      D2_8XLARGE = "d2.8xlarge"
 
       # No documentation available.
-      d3_xlarge = "d3.xlarge"
+      D3_XLARGE = "d3.xlarge"
 
       # No documentation available.
-      d3_2xlarge = "d3.2xlarge"
+      D3_2XLARGE = "d3.2xlarge"
 
       # No documentation available.
-      d3_4xlarge = "d3.4xlarge"
+      D3_4XLARGE = "d3.4xlarge"
 
       # No documentation available.
-      d3_8xlarge = "d3.8xlarge"
+      D3_8XLARGE = "d3.8xlarge"
 
       # No documentation available.
-      d3en_xlarge = "d3en.xlarge"
+      D3EN_XLARGE = "d3en.xlarge"
 
       # No documentation available.
-      d3en_2xlarge = "d3en.2xlarge"
+      D3EN_2XLARGE = "d3en.2xlarge"
 
       # No documentation available.
-      d3en_4xlarge = "d3en.4xlarge"
+      D3EN_4XLARGE = "d3en.4xlarge"
 
       # No documentation available.
-      d3en_6xlarge = "d3en.6xlarge"
+      D3EN_6XLARGE = "d3en.6xlarge"
 
       # No documentation available.
-      d3en_8xlarge = "d3en.8xlarge"
+      D3EN_8XLARGE = "d3en.8xlarge"
 
       # No documentation available.
-      d3en_12xlarge = "d3en.12xlarge"
+      D3EN_12XLARGE = "d3en.12xlarge"
 
       # No documentation available.
-      dl1_24xlarge = "dl1.24xlarge"
+      DL1_24XLARGE = "dl1.24xlarge"
 
       # No documentation available.
-      f1_2xlarge = "f1.2xlarge"
+      F1_2XLARGE = "f1.2xlarge"
 
       # No documentation available.
-      f1_4xlarge = "f1.4xlarge"
+      F1_4XLARGE = "f1.4xlarge"
 
       # No documentation available.
-      f1_16xlarge = "f1.16xlarge"
+      F1_16XLARGE = "f1.16xlarge"
 
       # No documentation available.
-      g2_2xlarge = "g2.2xlarge"
+      G2_2XLARGE = "g2.2xlarge"
 
       # No documentation available.
-      g2_8xlarge = "g2.8xlarge"
+      G2_8XLARGE = "g2.8xlarge"
 
       # No documentation available.
-      g3_4xlarge = "g3.4xlarge"
+      G3_4XLARGE = "g3.4xlarge"
 
       # No documentation available.
-      g3_8xlarge = "g3.8xlarge"
+      G3_8XLARGE = "g3.8xlarge"
 
       # No documentation available.
-      g3_16xlarge = "g3.16xlarge"
+      G3_16XLARGE = "g3.16xlarge"
 
       # No documentation available.
-      g3s_xlarge = "g3s.xlarge"
+      G3S_XLARGE = "g3s.xlarge"
 
       # No documentation available.
-      g4ad_xlarge = "g4ad.xlarge"
+      G4AD_XLARGE = "g4ad.xlarge"
 
       # No documentation available.
-      g4ad_2xlarge = "g4ad.2xlarge"
+      G4AD_2XLARGE = "g4ad.2xlarge"
 
       # No documentation available.
-      g4ad_4xlarge = "g4ad.4xlarge"
+      G4AD_4XLARGE = "g4ad.4xlarge"
 
       # No documentation available.
-      g4ad_8xlarge = "g4ad.8xlarge"
+      G4AD_8XLARGE = "g4ad.8xlarge"
 
       # No documentation available.
-      g4ad_16xlarge = "g4ad.16xlarge"
+      G4AD_16XLARGE = "g4ad.16xlarge"
 
       # No documentation available.
-      g4dn_xlarge = "g4dn.xlarge"
+      G4DN_XLARGE = "g4dn.xlarge"
 
       # No documentation available.
-      g4dn_2xlarge = "g4dn.2xlarge"
+      G4DN_2XLARGE = "g4dn.2xlarge"
 
       # No documentation available.
-      g4dn_4xlarge = "g4dn.4xlarge"
+      G4DN_4XLARGE = "g4dn.4xlarge"
 
       # No documentation available.
-      g4dn_8xlarge = "g4dn.8xlarge"
+      G4DN_8XLARGE = "g4dn.8xlarge"
 
       # No documentation available.
-      g4dn_12xlarge = "g4dn.12xlarge"
+      G4DN_12XLARGE = "g4dn.12xlarge"
 
       # No documentation available.
-      g4dn_16xlarge = "g4dn.16xlarge"
+      G4DN_16XLARGE = "g4dn.16xlarge"
 
       # No documentation available.
-      g4dn_metal = "g4dn.metal"
+      G4DN_METAL = "g4dn.metal"
 
       # No documentation available.
-      g5_xlarge = "g5.xlarge"
+      G5_XLARGE = "g5.xlarge"
 
       # No documentation available.
-      g5_2xlarge = "g5.2xlarge"
+      G5_2XLARGE = "g5.2xlarge"
 
       # No documentation available.
-      g5_4xlarge = "g5.4xlarge"
+      G5_4XLARGE = "g5.4xlarge"
 
       # No documentation available.
-      g5_8xlarge = "g5.8xlarge"
+      G5_8XLARGE = "g5.8xlarge"
 
       # No documentation available.
-      g5_12xlarge = "g5.12xlarge"
+      G5_12XLARGE = "g5.12xlarge"
 
       # No documentation available.
-      g5_16xlarge = "g5.16xlarge"
+      G5_16XLARGE = "g5.16xlarge"
 
       # No documentation available.
-      g5_24xlarge = "g5.24xlarge"
+      G5_24XLARGE = "g5.24xlarge"
 
       # No documentation available.
-      g5_48xlarge = "g5.48xlarge"
+      G5_48XLARGE = "g5.48xlarge"
 
       # No documentation available.
-      g5g_xlarge = "g5g.xlarge"
+      G5G_XLARGE = "g5g.xlarge"
 
       # No documentation available.
-      g5g_2xlarge = "g5g.2xlarge"
+      G5G_2XLARGE = "g5g.2xlarge"
 
       # No documentation available.
-      g5g_4xlarge = "g5g.4xlarge"
+      G5G_4XLARGE = "g5g.4xlarge"
 
       # No documentation available.
-      g5g_8xlarge = "g5g.8xlarge"
+      G5G_8XLARGE = "g5g.8xlarge"
 
       # No documentation available.
-      g5g_16xlarge = "g5g.16xlarge"
+      G5G_16XLARGE = "g5g.16xlarge"
 
       # No documentation available.
-      g5g_metal = "g5g.metal"
+      G5G_METAL = "g5g.metal"
 
       # No documentation available.
-      hi1_4xlarge = "hi1.4xlarge"
+      HI1_4XLARGE = "hi1.4xlarge"
 
       # No documentation available.
-      hpc6a_48xlarge = "hpc6a.48xlarge"
+      HPC6A_48XLARGE = "hpc6a.48xlarge"
 
       # No documentation available.
-      hs1_8xlarge = "hs1.8xlarge"
+      HS1_8XLARGE = "hs1.8xlarge"
 
       # No documentation available.
-      h1_2xlarge = "h1.2xlarge"
+      H1_2XLARGE = "h1.2xlarge"
 
       # No documentation available.
-      h1_4xlarge = "h1.4xlarge"
+      H1_4XLARGE = "h1.4xlarge"
 
       # No documentation available.
-      h1_8xlarge = "h1.8xlarge"
+      H1_8XLARGE = "h1.8xlarge"
 
       # No documentation available.
-      h1_16xlarge = "h1.16xlarge"
+      H1_16XLARGE = "h1.16xlarge"
 
       # No documentation available.
-      i2_xlarge = "i2.xlarge"
+      I2_XLARGE = "i2.xlarge"
 
       # No documentation available.
-      i2_2xlarge = "i2.2xlarge"
+      I2_2XLARGE = "i2.2xlarge"
 
       # No documentation available.
-      i2_4xlarge = "i2.4xlarge"
+      I2_4XLARGE = "i2.4xlarge"
 
       # No documentation available.
-      i2_8xlarge = "i2.8xlarge"
+      I2_8XLARGE = "i2.8xlarge"
 
       # No documentation available.
-      i3_large = "i3.large"
+      I3_LARGE = "i3.large"
 
       # No documentation available.
-      i3_xlarge = "i3.xlarge"
+      I3_XLARGE = "i3.xlarge"
 
       # No documentation available.
-      i3_2xlarge = "i3.2xlarge"
+      I3_2XLARGE = "i3.2xlarge"
 
       # No documentation available.
-      i3_4xlarge = "i3.4xlarge"
+      I3_4XLARGE = "i3.4xlarge"
 
       # No documentation available.
-      i3_8xlarge = "i3.8xlarge"
+      I3_8XLARGE = "i3.8xlarge"
 
       # No documentation available.
-      i3_16xlarge = "i3.16xlarge"
+      I3_16XLARGE = "i3.16xlarge"
 
       # No documentation available.
-      i3_metal = "i3.metal"
+      I3_METAL = "i3.metal"
 
       # No documentation available.
-      i3en_large = "i3en.large"
+      I3EN_LARGE = "i3en.large"
 
       # No documentation available.
-      i3en_xlarge = "i3en.xlarge"
+      I3EN_XLARGE = "i3en.xlarge"
 
       # No documentation available.
-      i3en_2xlarge = "i3en.2xlarge"
+      I3EN_2XLARGE = "i3en.2xlarge"
 
       # No documentation available.
-      i3en_3xlarge = "i3en.3xlarge"
+      I3EN_3XLARGE = "i3en.3xlarge"
 
       # No documentation available.
-      i3en_6xlarge = "i3en.6xlarge"
+      I3EN_6XLARGE = "i3en.6xlarge"
 
       # No documentation available.
-      i3en_12xlarge = "i3en.12xlarge"
+      I3EN_12XLARGE = "i3en.12xlarge"
 
       # No documentation available.
-      i3en_24xlarge = "i3en.24xlarge"
+      I3EN_24XLARGE = "i3en.24xlarge"
 
       # No documentation available.
-      i3en_metal = "i3en.metal"
+      I3EN_METAL = "i3en.metal"
 
       # No documentation available.
-      im4gn_large = "im4gn.large"
+      IM4GN_LARGE = "im4gn.large"
 
       # No documentation available.
-      im4gn_xlarge = "im4gn.xlarge"
+      IM4GN_XLARGE = "im4gn.xlarge"
 
       # No documentation available.
-      im4gn_2xlarge = "im4gn.2xlarge"
+      IM4GN_2XLARGE = "im4gn.2xlarge"
 
       # No documentation available.
-      im4gn_4xlarge = "im4gn.4xlarge"
+      IM4GN_4XLARGE = "im4gn.4xlarge"
 
       # No documentation available.
-      im4gn_8xlarge = "im4gn.8xlarge"
+      IM4GN_8XLARGE = "im4gn.8xlarge"
 
       # No documentation available.
-      im4gn_16xlarge = "im4gn.16xlarge"
+      IM4GN_16XLARGE = "im4gn.16xlarge"
 
       # No documentation available.
-      inf1_xlarge = "inf1.xlarge"
+      INF1_XLARGE = "inf1.xlarge"
 
       # No documentation available.
-      inf1_2xlarge = "inf1.2xlarge"
+      INF1_2XLARGE = "inf1.2xlarge"
 
       # No documentation available.
-      inf1_6xlarge = "inf1.6xlarge"
+      INF1_6XLARGE = "inf1.6xlarge"
 
       # No documentation available.
-      inf1_24xlarge = "inf1.24xlarge"
+      INF1_24XLARGE = "inf1.24xlarge"
 
       # No documentation available.
-      is4gen_medium = "is4gen.medium"
+      IS4GEN_MEDIUM = "is4gen.medium"
 
       # No documentation available.
-      is4gen_large = "is4gen.large"
+      IS4GEN_LARGE = "is4gen.large"
 
       # No documentation available.
-      is4gen_xlarge = "is4gen.xlarge"
+      IS4GEN_XLARGE = "is4gen.xlarge"
 
       # No documentation available.
-      is4gen_2xlarge = "is4gen.2xlarge"
+      IS4GEN_2XLARGE = "is4gen.2xlarge"
 
       # No documentation available.
-      is4gen_4xlarge = "is4gen.4xlarge"
+      IS4GEN_4XLARGE = "is4gen.4xlarge"
 
       # No documentation available.
-      is4gen_8xlarge = "is4gen.8xlarge"
+      IS4GEN_8XLARGE = "is4gen.8xlarge"
 
       # No documentation available.
-      m1_small = "m1.small"
+      M1_SMALL = "m1.small"
 
       # No documentation available.
-      m1_medium = "m1.medium"
+      M1_MEDIUM = "m1.medium"
 
       # No documentation available.
-      m1_large = "m1.large"
+      M1_LARGE = "m1.large"
 
       # No documentation available.
-      m1_xlarge = "m1.xlarge"
+      M1_XLARGE = "m1.xlarge"
 
       # No documentation available.
-      m2_xlarge = "m2.xlarge"
+      M2_XLARGE = "m2.xlarge"
 
       # No documentation available.
-      m2_2xlarge = "m2.2xlarge"
+      M2_2XLARGE = "m2.2xlarge"
 
       # No documentation available.
-      m2_4xlarge = "m2.4xlarge"
+      M2_4XLARGE = "m2.4xlarge"
 
       # No documentation available.
-      m3_medium = "m3.medium"
+      M3_MEDIUM = "m3.medium"
 
       # No documentation available.
-      m3_large = "m3.large"
+      M3_LARGE = "m3.large"
 
       # No documentation available.
-      m3_xlarge = "m3.xlarge"
+      M3_XLARGE = "m3.xlarge"
 
       # No documentation available.
-      m3_2xlarge = "m3.2xlarge"
+      M3_2XLARGE = "m3.2xlarge"
 
       # No documentation available.
-      m4_large = "m4.large"
+      M4_LARGE = "m4.large"
 
       # No documentation available.
-      m4_xlarge = "m4.xlarge"
+      M4_XLARGE = "m4.xlarge"
 
       # No documentation available.
-      m4_2xlarge = "m4.2xlarge"
+      M4_2XLARGE = "m4.2xlarge"
 
       # No documentation available.
-      m4_4xlarge = "m4.4xlarge"
+      M4_4XLARGE = "m4.4xlarge"
 
       # No documentation available.
-      m4_10xlarge = "m4.10xlarge"
+      M4_10XLARGE = "m4.10xlarge"
 
       # No documentation available.
-      m4_16xlarge = "m4.16xlarge"
+      M4_16XLARGE = "m4.16xlarge"
 
       # No documentation available.
-      m5_large = "m5.large"
+      M5_LARGE = "m5.large"
 
       # No documentation available.
-      m5_xlarge = "m5.xlarge"
+      M5_XLARGE = "m5.xlarge"
 
       # No documentation available.
-      m5_2xlarge = "m5.2xlarge"
+      M5_2XLARGE = "m5.2xlarge"
 
       # No documentation available.
-      m5_4xlarge = "m5.4xlarge"
+      M5_4XLARGE = "m5.4xlarge"
 
       # No documentation available.
-      m5_8xlarge = "m5.8xlarge"
+      M5_8XLARGE = "m5.8xlarge"
 
       # No documentation available.
-      m5_12xlarge = "m5.12xlarge"
+      M5_12XLARGE = "m5.12xlarge"
 
       # No documentation available.
-      m5_16xlarge = "m5.16xlarge"
+      M5_16XLARGE = "m5.16xlarge"
 
       # No documentation available.
-      m5_24xlarge = "m5.24xlarge"
+      M5_24XLARGE = "m5.24xlarge"
 
       # No documentation available.
-      m5_metal = "m5.metal"
+      M5_METAL = "m5.metal"
 
       # No documentation available.
-      m5a_large = "m5a.large"
+      M5A_LARGE = "m5a.large"
 
       # No documentation available.
-      m5a_xlarge = "m5a.xlarge"
+      M5A_XLARGE = "m5a.xlarge"
 
       # No documentation available.
-      m5a_2xlarge = "m5a.2xlarge"
+      M5A_2XLARGE = "m5a.2xlarge"
 
       # No documentation available.
-      m5a_4xlarge = "m5a.4xlarge"
+      M5A_4XLARGE = "m5a.4xlarge"
 
       # No documentation available.
-      m5a_8xlarge = "m5a.8xlarge"
+      M5A_8XLARGE = "m5a.8xlarge"
 
       # No documentation available.
-      m5a_12xlarge = "m5a.12xlarge"
+      M5A_12XLARGE = "m5a.12xlarge"
 
       # No documentation available.
-      m5a_16xlarge = "m5a.16xlarge"
+      M5A_16XLARGE = "m5a.16xlarge"
 
       # No documentation available.
-      m5a_24xlarge = "m5a.24xlarge"
+      M5A_24XLARGE = "m5a.24xlarge"
 
       # No documentation available.
-      m5ad_large = "m5ad.large"
+      M5AD_LARGE = "m5ad.large"
 
       # No documentation available.
-      m5ad_xlarge = "m5ad.xlarge"
+      M5AD_XLARGE = "m5ad.xlarge"
 
       # No documentation available.
-      m5ad_2xlarge = "m5ad.2xlarge"
+      M5AD_2XLARGE = "m5ad.2xlarge"
 
       # No documentation available.
-      m5ad_4xlarge = "m5ad.4xlarge"
+      M5AD_4XLARGE = "m5ad.4xlarge"
 
       # No documentation available.
-      m5ad_8xlarge = "m5ad.8xlarge"
+      M5AD_8XLARGE = "m5ad.8xlarge"
 
       # No documentation available.
-      m5ad_12xlarge = "m5ad.12xlarge"
+      M5AD_12XLARGE = "m5ad.12xlarge"
 
       # No documentation available.
-      m5ad_16xlarge = "m5ad.16xlarge"
+      M5AD_16XLARGE = "m5ad.16xlarge"
 
       # No documentation available.
-      m5ad_24xlarge = "m5ad.24xlarge"
+      M5AD_24XLARGE = "m5ad.24xlarge"
 
       # No documentation available.
-      m5d_large = "m5d.large"
+      M5D_LARGE = "m5d.large"
 
       # No documentation available.
-      m5d_xlarge = "m5d.xlarge"
+      M5D_XLARGE = "m5d.xlarge"
 
       # No documentation available.
-      m5d_2xlarge = "m5d.2xlarge"
+      M5D_2XLARGE = "m5d.2xlarge"
 
       # No documentation available.
-      m5d_4xlarge = "m5d.4xlarge"
+      M5D_4XLARGE = "m5d.4xlarge"
 
       # No documentation available.
-      m5d_8xlarge = "m5d.8xlarge"
+      M5D_8XLARGE = "m5d.8xlarge"
 
       # No documentation available.
-      m5d_12xlarge = "m5d.12xlarge"
+      M5D_12XLARGE = "m5d.12xlarge"
 
       # No documentation available.
-      m5d_16xlarge = "m5d.16xlarge"
+      M5D_16XLARGE = "m5d.16xlarge"
 
       # No documentation available.
-      m5d_24xlarge = "m5d.24xlarge"
+      M5D_24XLARGE = "m5d.24xlarge"
 
       # No documentation available.
-      m5d_metal = "m5d.metal"
+      M5D_METAL = "m5d.metal"
 
       # No documentation available.
-      m5dn_large = "m5dn.large"
+      M5DN_LARGE = "m5dn.large"
 
       # No documentation available.
-      m5dn_xlarge = "m5dn.xlarge"
+      M5DN_XLARGE = "m5dn.xlarge"
 
       # No documentation available.
-      m5dn_2xlarge = "m5dn.2xlarge"
+      M5DN_2XLARGE = "m5dn.2xlarge"
 
       # No documentation available.
-      m5dn_4xlarge = "m5dn.4xlarge"
+      M5DN_4XLARGE = "m5dn.4xlarge"
 
       # No documentation available.
-      m5dn_8xlarge = "m5dn.8xlarge"
+      M5DN_8XLARGE = "m5dn.8xlarge"
 
       # No documentation available.
-      m5dn_12xlarge = "m5dn.12xlarge"
+      M5DN_12XLARGE = "m5dn.12xlarge"
 
       # No documentation available.
-      m5dn_16xlarge = "m5dn.16xlarge"
+      M5DN_16XLARGE = "m5dn.16xlarge"
 
       # No documentation available.
-      m5dn_24xlarge = "m5dn.24xlarge"
+      M5DN_24XLARGE = "m5dn.24xlarge"
 
       # No documentation available.
-      m5dn_metal = "m5dn.metal"
+      M5DN_METAL = "m5dn.metal"
 
       # No documentation available.
-      m5n_large = "m5n.large"
+      M5N_LARGE = "m5n.large"
 
       # No documentation available.
-      m5n_xlarge = "m5n.xlarge"
+      M5N_XLARGE = "m5n.xlarge"
 
       # No documentation available.
-      m5n_2xlarge = "m5n.2xlarge"
+      M5N_2XLARGE = "m5n.2xlarge"
 
       # No documentation available.
-      m5n_4xlarge = "m5n.4xlarge"
+      M5N_4XLARGE = "m5n.4xlarge"
 
       # No documentation available.
-      m5n_8xlarge = "m5n.8xlarge"
+      M5N_8XLARGE = "m5n.8xlarge"
 
       # No documentation available.
-      m5n_12xlarge = "m5n.12xlarge"
+      M5N_12XLARGE = "m5n.12xlarge"
 
       # No documentation available.
-      m5n_16xlarge = "m5n.16xlarge"
+      M5N_16XLARGE = "m5n.16xlarge"
 
       # No documentation available.
-      m5n_24xlarge = "m5n.24xlarge"
+      M5N_24XLARGE = "m5n.24xlarge"
 
       # No documentation available.
-      m5n_metal = "m5n.metal"
+      M5N_METAL = "m5n.metal"
 
       # No documentation available.
-      m5zn_large = "m5zn.large"
+      M5ZN_LARGE = "m5zn.large"
 
       # No documentation available.
-      m5zn_xlarge = "m5zn.xlarge"
+      M5ZN_XLARGE = "m5zn.xlarge"
 
       # No documentation available.
-      m5zn_2xlarge = "m5zn.2xlarge"
+      M5ZN_2XLARGE = "m5zn.2xlarge"
 
       # No documentation available.
-      m5zn_3xlarge = "m5zn.3xlarge"
+      M5ZN_3XLARGE = "m5zn.3xlarge"
 
       # No documentation available.
-      m5zn_6xlarge = "m5zn.6xlarge"
+      M5ZN_6XLARGE = "m5zn.6xlarge"
 
       # No documentation available.
-      m5zn_12xlarge = "m5zn.12xlarge"
+      M5ZN_12XLARGE = "m5zn.12xlarge"
 
       # No documentation available.
-      m5zn_metal = "m5zn.metal"
+      M5ZN_METAL = "m5zn.metal"
 
       # No documentation available.
-      m6a_large = "m6a.large"
+      M6A_LARGE = "m6a.large"
 
       # No documentation available.
-      m6a_xlarge = "m6a.xlarge"
+      M6A_XLARGE = "m6a.xlarge"
 
       # No documentation available.
-      m6a_2xlarge = "m6a.2xlarge"
+      M6A_2XLARGE = "m6a.2xlarge"
 
       # No documentation available.
-      m6a_4xlarge = "m6a.4xlarge"
+      M6A_4XLARGE = "m6a.4xlarge"
 
       # No documentation available.
-      m6a_8xlarge = "m6a.8xlarge"
+      M6A_8XLARGE = "m6a.8xlarge"
 
       # No documentation available.
-      m6a_12xlarge = "m6a.12xlarge"
+      M6A_12XLARGE = "m6a.12xlarge"
 
       # No documentation available.
-      m6a_16xlarge = "m6a.16xlarge"
+      M6A_16XLARGE = "m6a.16xlarge"
 
       # No documentation available.
-      m6a_24xlarge = "m6a.24xlarge"
+      M6A_24XLARGE = "m6a.24xlarge"
 
       # No documentation available.
-      m6a_32xlarge = "m6a.32xlarge"
+      M6A_32XLARGE = "m6a.32xlarge"
 
       # No documentation available.
-      m6a_48xlarge = "m6a.48xlarge"
+      M6A_48XLARGE = "m6a.48xlarge"
 
       # No documentation available.
-      m6g_metal = "m6g.metal"
+      M6G_METAL = "m6g.metal"
 
       # No documentation available.
-      m6g_medium = "m6g.medium"
+      M6G_MEDIUM = "m6g.medium"
 
       # No documentation available.
-      m6g_large = "m6g.large"
+      M6G_LARGE = "m6g.large"
 
       # No documentation available.
-      m6g_xlarge = "m6g.xlarge"
+      M6G_XLARGE = "m6g.xlarge"
 
       # No documentation available.
-      m6g_2xlarge = "m6g.2xlarge"
+      M6G_2XLARGE = "m6g.2xlarge"
 
       # No documentation available.
-      m6g_4xlarge = "m6g.4xlarge"
+      M6G_4XLARGE = "m6g.4xlarge"
 
       # No documentation available.
-      m6g_8xlarge = "m6g.8xlarge"
+      M6G_8XLARGE = "m6g.8xlarge"
 
       # No documentation available.
-      m6g_12xlarge = "m6g.12xlarge"
+      M6G_12XLARGE = "m6g.12xlarge"
 
       # No documentation available.
-      m6g_16xlarge = "m6g.16xlarge"
+      M6G_16XLARGE = "m6g.16xlarge"
 
       # No documentation available.
-      m6gd_metal = "m6gd.metal"
+      M6GD_METAL = "m6gd.metal"
 
       # No documentation available.
-      m6gd_medium = "m6gd.medium"
+      M6GD_MEDIUM = "m6gd.medium"
 
       # No documentation available.
-      m6gd_large = "m6gd.large"
+      M6GD_LARGE = "m6gd.large"
 
       # No documentation available.
-      m6gd_xlarge = "m6gd.xlarge"
+      M6GD_XLARGE = "m6gd.xlarge"
 
       # No documentation available.
-      m6gd_2xlarge = "m6gd.2xlarge"
+      M6GD_2XLARGE = "m6gd.2xlarge"
 
       # No documentation available.
-      m6gd_4xlarge = "m6gd.4xlarge"
+      M6GD_4XLARGE = "m6gd.4xlarge"
 
       # No documentation available.
-      m6gd_8xlarge = "m6gd.8xlarge"
+      M6GD_8XLARGE = "m6gd.8xlarge"
 
       # No documentation available.
-      m6gd_12xlarge = "m6gd.12xlarge"
+      M6GD_12XLARGE = "m6gd.12xlarge"
 
       # No documentation available.
-      m6gd_16xlarge = "m6gd.16xlarge"
+      M6GD_16XLARGE = "m6gd.16xlarge"
 
       # No documentation available.
-      m6i_large = "m6i.large"
+      M6I_LARGE = "m6i.large"
 
       # No documentation available.
-      m6i_xlarge = "m6i.xlarge"
+      M6I_XLARGE = "m6i.xlarge"
 
       # No documentation available.
-      m6i_2xlarge = "m6i.2xlarge"
+      M6I_2XLARGE = "m6i.2xlarge"
 
       # No documentation available.
-      m6i_4xlarge = "m6i.4xlarge"
+      M6I_4XLARGE = "m6i.4xlarge"
 
       # No documentation available.
-      m6i_8xlarge = "m6i.8xlarge"
+      M6I_8XLARGE = "m6i.8xlarge"
 
       # No documentation available.
-      m6i_12xlarge = "m6i.12xlarge"
+      M6I_12XLARGE = "m6i.12xlarge"
 
       # No documentation available.
-      m6i_16xlarge = "m6i.16xlarge"
+      M6I_16XLARGE = "m6i.16xlarge"
 
       # No documentation available.
-      m6i_24xlarge = "m6i.24xlarge"
+      M6I_24XLARGE = "m6i.24xlarge"
 
       # No documentation available.
-      m6i_32xlarge = "m6i.32xlarge"
+      M6I_32XLARGE = "m6i.32xlarge"
 
       # No documentation available.
-      m6i_metal = "m6i.metal"
+      M6I_METAL = "m6i.metal"
 
       # No documentation available.
-      mac1_metal = "mac1.metal"
+      MAC1_METAL = "mac1.metal"
 
       # No documentation available.
-      p2_xlarge = "p2.xlarge"
+      P2_XLARGE = "p2.xlarge"
 
       # No documentation available.
-      p2_8xlarge = "p2.8xlarge"
+      P2_8XLARGE = "p2.8xlarge"
 
       # No documentation available.
-      p2_16xlarge = "p2.16xlarge"
+      P2_16XLARGE = "p2.16xlarge"
 
       # No documentation available.
-      p3_2xlarge = "p3.2xlarge"
+      P3_2XLARGE = "p3.2xlarge"
 
       # No documentation available.
-      p3_8xlarge = "p3.8xlarge"
+      P3_8XLARGE = "p3.8xlarge"
 
       # No documentation available.
-      p3_16xlarge = "p3.16xlarge"
+      P3_16XLARGE = "p3.16xlarge"
 
       # No documentation available.
-      p3dn_24xlarge = "p3dn.24xlarge"
+      P3DN_24XLARGE = "p3dn.24xlarge"
 
       # No documentation available.
-      p4d_24xlarge = "p4d.24xlarge"
+      P4D_24XLARGE = "p4d.24xlarge"
 
       # No documentation available.
-      r3_large = "r3.large"
+      R3_LARGE = "r3.large"
 
       # No documentation available.
-      r3_xlarge = "r3.xlarge"
+      R3_XLARGE = "r3.xlarge"
 
       # No documentation available.
-      r3_2xlarge = "r3.2xlarge"
+      R3_2XLARGE = "r3.2xlarge"
 
       # No documentation available.
-      r3_4xlarge = "r3.4xlarge"
+      R3_4XLARGE = "r3.4xlarge"
 
       # No documentation available.
-      r3_8xlarge = "r3.8xlarge"
+      R3_8XLARGE = "r3.8xlarge"
 
       # No documentation available.
-      r4_large = "r4.large"
+      R4_LARGE = "r4.large"
 
       # No documentation available.
-      r4_xlarge = "r4.xlarge"
+      R4_XLARGE = "r4.xlarge"
 
       # No documentation available.
-      r4_2xlarge = "r4.2xlarge"
+      R4_2XLARGE = "r4.2xlarge"
 
       # No documentation available.
-      r4_4xlarge = "r4.4xlarge"
+      R4_4XLARGE = "r4.4xlarge"
 
       # No documentation available.
-      r4_8xlarge = "r4.8xlarge"
+      R4_8XLARGE = "r4.8xlarge"
 
       # No documentation available.
-      r4_16xlarge = "r4.16xlarge"
+      R4_16XLARGE = "r4.16xlarge"
 
       # No documentation available.
-      r5_large = "r5.large"
+      R5_LARGE = "r5.large"
 
       # No documentation available.
-      r5_xlarge = "r5.xlarge"
+      R5_XLARGE = "r5.xlarge"
 
       # No documentation available.
-      r5_2xlarge = "r5.2xlarge"
+      R5_2XLARGE = "r5.2xlarge"
 
       # No documentation available.
-      r5_4xlarge = "r5.4xlarge"
+      R5_4XLARGE = "r5.4xlarge"
 
       # No documentation available.
-      r5_8xlarge = "r5.8xlarge"
+      R5_8XLARGE = "r5.8xlarge"
 
       # No documentation available.
-      r5_12xlarge = "r5.12xlarge"
+      R5_12XLARGE = "r5.12xlarge"
 
       # No documentation available.
-      r5_16xlarge = "r5.16xlarge"
+      R5_16XLARGE = "r5.16xlarge"
 
       # No documentation available.
-      r5_24xlarge = "r5.24xlarge"
+      R5_24XLARGE = "r5.24xlarge"
 
       # No documentation available.
-      r5_metal = "r5.metal"
+      R5_METAL = "r5.metal"
 
       # No documentation available.
-      r5a_large = "r5a.large"
+      R5A_LARGE = "r5a.large"
 
       # No documentation available.
-      r5a_xlarge = "r5a.xlarge"
+      R5A_XLARGE = "r5a.xlarge"
 
       # No documentation available.
-      r5a_2xlarge = "r5a.2xlarge"
+      R5A_2XLARGE = "r5a.2xlarge"
 
       # No documentation available.
-      r5a_4xlarge = "r5a.4xlarge"
+      R5A_4XLARGE = "r5a.4xlarge"
 
       # No documentation available.
-      r5a_8xlarge = "r5a.8xlarge"
+      R5A_8XLARGE = "r5a.8xlarge"
 
       # No documentation available.
-      r5a_12xlarge = "r5a.12xlarge"
+      R5A_12XLARGE = "r5a.12xlarge"
 
       # No documentation available.
-      r5a_16xlarge = "r5a.16xlarge"
+      R5A_16XLARGE = "r5a.16xlarge"
 
       # No documentation available.
-      r5a_24xlarge = "r5a.24xlarge"
+      R5A_24XLARGE = "r5a.24xlarge"
 
       # No documentation available.
-      r5ad_large = "r5ad.large"
+      R5AD_LARGE = "r5ad.large"
 
       # No documentation available.
-      r5ad_xlarge = "r5ad.xlarge"
+      R5AD_XLARGE = "r5ad.xlarge"
 
       # No documentation available.
-      r5ad_2xlarge = "r5ad.2xlarge"
+      R5AD_2XLARGE = "r5ad.2xlarge"
 
       # No documentation available.
-      r5ad_4xlarge = "r5ad.4xlarge"
+      R5AD_4XLARGE = "r5ad.4xlarge"
 
       # No documentation available.
-      r5ad_8xlarge = "r5ad.8xlarge"
+      R5AD_8XLARGE = "r5ad.8xlarge"
 
       # No documentation available.
-      r5ad_12xlarge = "r5ad.12xlarge"
+      R5AD_12XLARGE = "r5ad.12xlarge"
 
       # No documentation available.
-      r5ad_16xlarge = "r5ad.16xlarge"
+      R5AD_16XLARGE = "r5ad.16xlarge"
 
       # No documentation available.
-      r5ad_24xlarge = "r5ad.24xlarge"
+      R5AD_24XLARGE = "r5ad.24xlarge"
 
       # No documentation available.
-      r5b_large = "r5b.large"
+      R5B_LARGE = "r5b.large"
 
       # No documentation available.
-      r5b_xlarge = "r5b.xlarge"
+      R5B_XLARGE = "r5b.xlarge"
 
       # No documentation available.
-      r5b_2xlarge = "r5b.2xlarge"
+      R5B_2XLARGE = "r5b.2xlarge"
 
       # No documentation available.
-      r5b_4xlarge = "r5b.4xlarge"
+      R5B_4XLARGE = "r5b.4xlarge"
 
       # No documentation available.
-      r5b_8xlarge = "r5b.8xlarge"
+      R5B_8XLARGE = "r5b.8xlarge"
 
       # No documentation available.
-      r5b_12xlarge = "r5b.12xlarge"
+      R5B_12XLARGE = "r5b.12xlarge"
 
       # No documentation available.
-      r5b_16xlarge = "r5b.16xlarge"
+      R5B_16XLARGE = "r5b.16xlarge"
 
       # No documentation available.
-      r5b_24xlarge = "r5b.24xlarge"
+      R5B_24XLARGE = "r5b.24xlarge"
 
       # No documentation available.
-      r5b_metal = "r5b.metal"
+      R5B_METAL = "r5b.metal"
 
       # No documentation available.
-      r5d_large = "r5d.large"
+      R5D_LARGE = "r5d.large"
 
       # No documentation available.
-      r5d_xlarge = "r5d.xlarge"
+      R5D_XLARGE = "r5d.xlarge"
 
       # No documentation available.
-      r5d_2xlarge = "r5d.2xlarge"
+      R5D_2XLARGE = "r5d.2xlarge"
 
       # No documentation available.
-      r5d_4xlarge = "r5d.4xlarge"
+      R5D_4XLARGE = "r5d.4xlarge"
 
       # No documentation available.
-      r5d_8xlarge = "r5d.8xlarge"
+      R5D_8XLARGE = "r5d.8xlarge"
 
       # No documentation available.
-      r5d_12xlarge = "r5d.12xlarge"
+      R5D_12XLARGE = "r5d.12xlarge"
 
       # No documentation available.
-      r5d_16xlarge = "r5d.16xlarge"
+      R5D_16XLARGE = "r5d.16xlarge"
 
       # No documentation available.
-      r5d_24xlarge = "r5d.24xlarge"
+      R5D_24XLARGE = "r5d.24xlarge"
 
       # No documentation available.
-      r5d_metal = "r5d.metal"
+      R5D_METAL = "r5d.metal"
 
       # No documentation available.
-      r5dn_large = "r5dn.large"
+      R5DN_LARGE = "r5dn.large"
 
       # No documentation available.
-      r5dn_xlarge = "r5dn.xlarge"
+      R5DN_XLARGE = "r5dn.xlarge"
 
       # No documentation available.
-      r5dn_2xlarge = "r5dn.2xlarge"
+      R5DN_2XLARGE = "r5dn.2xlarge"
 
       # No documentation available.
-      r5dn_4xlarge = "r5dn.4xlarge"
+      R5DN_4XLARGE = "r5dn.4xlarge"
 
       # No documentation available.
-      r5dn_8xlarge = "r5dn.8xlarge"
+      R5DN_8XLARGE = "r5dn.8xlarge"
 
       # No documentation available.
-      r5dn_12xlarge = "r5dn.12xlarge"
+      R5DN_12XLARGE = "r5dn.12xlarge"
 
       # No documentation available.
-      r5dn_16xlarge = "r5dn.16xlarge"
+      R5DN_16XLARGE = "r5dn.16xlarge"
 
       # No documentation available.
-      r5dn_24xlarge = "r5dn.24xlarge"
+      R5DN_24XLARGE = "r5dn.24xlarge"
 
       # No documentation available.
-      r5dn_metal = "r5dn.metal"
+      R5DN_METAL = "r5dn.metal"
 
       # No documentation available.
-      r5n_large = "r5n.large"
+      R5N_LARGE = "r5n.large"
 
       # No documentation available.
-      r5n_xlarge = "r5n.xlarge"
+      R5N_XLARGE = "r5n.xlarge"
 
       # No documentation available.
-      r5n_2xlarge = "r5n.2xlarge"
+      R5N_2XLARGE = "r5n.2xlarge"
 
       # No documentation available.
-      r5n_4xlarge = "r5n.4xlarge"
+      R5N_4XLARGE = "r5n.4xlarge"
 
       # No documentation available.
-      r5n_8xlarge = "r5n.8xlarge"
+      R5N_8XLARGE = "r5n.8xlarge"
 
       # No documentation available.
-      r5n_12xlarge = "r5n.12xlarge"
+      R5N_12XLARGE = "r5n.12xlarge"
 
       # No documentation available.
-      r5n_16xlarge = "r5n.16xlarge"
+      R5N_16XLARGE = "r5n.16xlarge"
 
       # No documentation available.
-      r5n_24xlarge = "r5n.24xlarge"
+      R5N_24XLARGE = "r5n.24xlarge"
 
       # No documentation available.
-      r5n_metal = "r5n.metal"
+      R5N_METAL = "r5n.metal"
 
       # No documentation available.
-      r6g_medium = "r6g.medium"
+      R6G_MEDIUM = "r6g.medium"
 
       # No documentation available.
-      r6g_large = "r6g.large"
+      R6G_LARGE = "r6g.large"
 
       # No documentation available.
-      r6g_xlarge = "r6g.xlarge"
+      R6G_XLARGE = "r6g.xlarge"
 
       # No documentation available.
-      r6g_2xlarge = "r6g.2xlarge"
+      R6G_2XLARGE = "r6g.2xlarge"
 
       # No documentation available.
-      r6g_4xlarge = "r6g.4xlarge"
+      R6G_4XLARGE = "r6g.4xlarge"
 
       # No documentation available.
-      r6g_8xlarge = "r6g.8xlarge"
+      R6G_8XLARGE = "r6g.8xlarge"
 
       # No documentation available.
-      r6g_12xlarge = "r6g.12xlarge"
+      R6G_12XLARGE = "r6g.12xlarge"
 
       # No documentation available.
-      r6g_16xlarge = "r6g.16xlarge"
+      R6G_16XLARGE = "r6g.16xlarge"
 
       # No documentation available.
-      r6g_metal = "r6g.metal"
+      R6G_METAL = "r6g.metal"
 
       # No documentation available.
-      r6gd_medium = "r6gd.medium"
+      R6GD_MEDIUM = "r6gd.medium"
 
       # No documentation available.
-      r6gd_large = "r6gd.large"
+      R6GD_LARGE = "r6gd.large"
 
       # No documentation available.
-      r6gd_xlarge = "r6gd.xlarge"
+      R6GD_XLARGE = "r6gd.xlarge"
 
       # No documentation available.
-      r6gd_2xlarge = "r6gd.2xlarge"
+      R6GD_2XLARGE = "r6gd.2xlarge"
 
       # No documentation available.
-      r6gd_4xlarge = "r6gd.4xlarge"
+      R6GD_4XLARGE = "r6gd.4xlarge"
 
       # No documentation available.
-      r6gd_8xlarge = "r6gd.8xlarge"
+      R6GD_8XLARGE = "r6gd.8xlarge"
 
       # No documentation available.
-      r6gd_12xlarge = "r6gd.12xlarge"
+      R6GD_12XLARGE = "r6gd.12xlarge"
 
       # No documentation available.
-      r6gd_16xlarge = "r6gd.16xlarge"
+      R6GD_16XLARGE = "r6gd.16xlarge"
 
       # No documentation available.
-      r6gd_metal = "r6gd.metal"
+      R6GD_METAL = "r6gd.metal"
 
       # No documentation available.
-      r6i_large = "r6i.large"
+      R6I_LARGE = "r6i.large"
 
       # No documentation available.
-      r6i_xlarge = "r6i.xlarge"
+      R6I_XLARGE = "r6i.xlarge"
 
       # No documentation available.
-      r6i_2xlarge = "r6i.2xlarge"
+      R6I_2XLARGE = "r6i.2xlarge"
 
       # No documentation available.
-      r6i_4xlarge = "r6i.4xlarge"
+      R6I_4XLARGE = "r6i.4xlarge"
 
       # No documentation available.
-      r6i_8xlarge = "r6i.8xlarge"
+      R6I_8XLARGE = "r6i.8xlarge"
 
       # No documentation available.
-      r6i_12xlarge = "r6i.12xlarge"
+      R6I_12XLARGE = "r6i.12xlarge"
 
       # No documentation available.
-      r6i_16xlarge = "r6i.16xlarge"
+      R6I_16XLARGE = "r6i.16xlarge"
 
       # No documentation available.
-      r6i_24xlarge = "r6i.24xlarge"
+      R6I_24XLARGE = "r6i.24xlarge"
 
       # No documentation available.
-      r6i_32xlarge = "r6i.32xlarge"
+      R6I_32XLARGE = "r6i.32xlarge"
 
       # No documentation available.
-      r6i_metal = "r6i.metal"
+      R6I_METAL = "r6i.metal"
 
       # No documentation available.
-      t1_micro = "t1.micro"
+      T1_MICRO = "t1.micro"
 
       # No documentation available.
-      t2_nano = "t2.nano"
+      T2_NANO = "t2.nano"
 
       # No documentation available.
-      t2_micro = "t2.micro"
+      T2_MICRO = "t2.micro"
 
       # No documentation available.
-      t2_small = "t2.small"
+      T2_SMALL = "t2.small"
 
       # No documentation available.
-      t2_medium = "t2.medium"
+      T2_MEDIUM = "t2.medium"
 
       # No documentation available.
-      t2_large = "t2.large"
+      T2_LARGE = "t2.large"
 
       # No documentation available.
-      t2_xlarge = "t2.xlarge"
+      T2_XLARGE = "t2.xlarge"
 
       # No documentation available.
-      t2_2xlarge = "t2.2xlarge"
+      T2_2XLARGE = "t2.2xlarge"
 
       # No documentation available.
-      t3_nano = "t3.nano"
+      T3_NANO = "t3.nano"
 
       # No documentation available.
-      t3_micro = "t3.micro"
+      T3_MICRO = "t3.micro"
 
       # No documentation available.
-      t3_small = "t3.small"
+      T3_SMALL = "t3.small"
 
       # No documentation available.
-      t3_medium = "t3.medium"
+      T3_MEDIUM = "t3.medium"
 
       # No documentation available.
-      t3_large = "t3.large"
+      T3_LARGE = "t3.large"
 
       # No documentation available.
-      t3_xlarge = "t3.xlarge"
+      T3_XLARGE = "t3.xlarge"
 
       # No documentation available.
-      t3_2xlarge = "t3.2xlarge"
+      T3_2XLARGE = "t3.2xlarge"
 
       # No documentation available.
-      t3a_nano = "t3a.nano"
+      T3A_NANO = "t3a.nano"
 
       # No documentation available.
-      t3a_micro = "t3a.micro"
+      T3A_MICRO = "t3a.micro"
 
       # No documentation available.
-      t3a_small = "t3a.small"
+      T3A_SMALL = "t3a.small"
 
       # No documentation available.
-      t3a_medium = "t3a.medium"
+      T3A_MEDIUM = "t3a.medium"
 
       # No documentation available.
-      t3a_large = "t3a.large"
+      T3A_LARGE = "t3a.large"
 
       # No documentation available.
-      t3a_xlarge = "t3a.xlarge"
+      T3A_XLARGE = "t3a.xlarge"
 
       # No documentation available.
-      t3a_2xlarge = "t3a.2xlarge"
+      T3A_2XLARGE = "t3a.2xlarge"
 
       # No documentation available.
-      t4g_nano = "t4g.nano"
+      T4G_NANO = "t4g.nano"
 
       # No documentation available.
-      t4g_micro = "t4g.micro"
+      T4G_MICRO = "t4g.micro"
 
       # No documentation available.
-      t4g_small = "t4g.small"
+      T4G_SMALL = "t4g.small"
 
       # No documentation available.
-      t4g_medium = "t4g.medium"
+      T4G_MEDIUM = "t4g.medium"
 
       # No documentation available.
-      t4g_large = "t4g.large"
+      T4G_LARGE = "t4g.large"
 
       # No documentation available.
-      t4g_xlarge = "t4g.xlarge"
+      T4G_XLARGE = "t4g.xlarge"
 
       # No documentation available.
-      t4g_2xlarge = "t4g.2xlarge"
+      T4G_2XLARGE = "t4g.2xlarge"
 
       # No documentation available.
-      u_6tb1_56xlarge = "u-6tb1.56xlarge"
+      U_6TB1_56XLARGE = "u-6tb1.56xlarge"
 
       # No documentation available.
-      u_6tb1_112xlarge = "u-6tb1.112xlarge"
+      U_6TB1_112XLARGE = "u-6tb1.112xlarge"
 
       # No documentation available.
-      u_9tb1_112xlarge = "u-9tb1.112xlarge"
+      U_9TB1_112XLARGE = "u-9tb1.112xlarge"
 
       # No documentation available.
-      u_12tb1_112xlarge = "u-12tb1.112xlarge"
+      U_12TB1_112XLARGE = "u-12tb1.112xlarge"
 
       # No documentation available.
-      u_6tb1_metal = "u-6tb1.metal"
+      U_6TB1_METAL = "u-6tb1.metal"
 
       # No documentation available.
-      u_9tb1_metal = "u-9tb1.metal"
+      U_9TB1_METAL = "u-9tb1.metal"
 
       # No documentation available.
-      u_12tb1_metal = "u-12tb1.metal"
+      U_12TB1_METAL = "u-12tb1.metal"
 
       # No documentation available.
-      u_18tb1_metal = "u-18tb1.metal"
+      U_18TB1_METAL = "u-18tb1.metal"
 
       # No documentation available.
-      u_24tb1_metal = "u-24tb1.metal"
+      U_24TB1_METAL = "u-24tb1.metal"
 
       # No documentation available.
-      vt1_3xlarge = "vt1.3xlarge"
+      VT1_3XLARGE = "vt1.3xlarge"
 
       # No documentation available.
-      vt1_6xlarge = "vt1.6xlarge"
+      VT1_6XLARGE = "vt1.6xlarge"
 
       # No documentation available.
-      vt1_24xlarge = "vt1.24xlarge"
+      VT1_24XLARGE = "vt1.24xlarge"
 
       # No documentation available.
-      x1_16xlarge = "x1.16xlarge"
+      X1_16XLARGE = "x1.16xlarge"
 
       # No documentation available.
-      x1_32xlarge = "x1.32xlarge"
+      X1_32XLARGE = "x1.32xlarge"
 
       # No documentation available.
-      x1e_xlarge = "x1e.xlarge"
+      X1E_XLARGE = "x1e.xlarge"
 
       # No documentation available.
-      x1e_2xlarge = "x1e.2xlarge"
+      X1E_2XLARGE = "x1e.2xlarge"
 
       # No documentation available.
-      x1e_4xlarge = "x1e.4xlarge"
+      X1E_4XLARGE = "x1e.4xlarge"
 
       # No documentation available.
-      x1e_8xlarge = "x1e.8xlarge"
+      X1E_8XLARGE = "x1e.8xlarge"
 
       # No documentation available.
-      x1e_16xlarge = "x1e.16xlarge"
+      X1E_16XLARGE = "x1e.16xlarge"
 
       # No documentation available.
-      x1e_32xlarge = "x1e.32xlarge"
+      X1E_32XLARGE = "x1e.32xlarge"
 
       # No documentation available.
-      x2iezn_2xlarge = "x2iezn.2xlarge"
+      X2IEZN_2XLARGE = "x2iezn.2xlarge"
 
       # No documentation available.
-      x2iezn_4xlarge = "x2iezn.4xlarge"
+      X2IEZN_4XLARGE = "x2iezn.4xlarge"
 
       # No documentation available.
-      x2iezn_6xlarge = "x2iezn.6xlarge"
+      X2IEZN_6XLARGE = "x2iezn.6xlarge"
 
       # No documentation available.
-      x2iezn_8xlarge = "x2iezn.8xlarge"
+      X2IEZN_8XLARGE = "x2iezn.8xlarge"
 
       # No documentation available.
-      x2iezn_12xlarge = "x2iezn.12xlarge"
+      X2IEZN_12XLARGE = "x2iezn.12xlarge"
 
       # No documentation available.
-      x2iezn_metal = "x2iezn.metal"
+      X2IEZN_METAL = "x2iezn.metal"
 
       # No documentation available.
-      x2gd_medium = "x2gd.medium"
+      X2GD_MEDIUM = "x2gd.medium"
 
       # No documentation available.
-      x2gd_large = "x2gd.large"
+      X2GD_LARGE = "x2gd.large"
 
       # No documentation available.
-      x2gd_xlarge = "x2gd.xlarge"
+      X2GD_XLARGE = "x2gd.xlarge"
 
       # No documentation available.
-      x2gd_2xlarge = "x2gd.2xlarge"
+      X2GD_2XLARGE = "x2gd.2xlarge"
 
       # No documentation available.
-      x2gd_4xlarge = "x2gd.4xlarge"
+      X2GD_4XLARGE = "x2gd.4xlarge"
 
       # No documentation available.
-      x2gd_8xlarge = "x2gd.8xlarge"
+      X2GD_8XLARGE = "x2gd.8xlarge"
 
       # No documentation available.
-      x2gd_12xlarge = "x2gd.12xlarge"
+      X2GD_12XLARGE = "x2gd.12xlarge"
 
       # No documentation available.
-      x2gd_16xlarge = "x2gd.16xlarge"
+      X2GD_16XLARGE = "x2gd.16xlarge"
 
       # No documentation available.
-      x2gd_metal = "x2gd.metal"
+      X2GD_METAL = "x2gd.metal"
 
       # No documentation available.
-      z1d_large = "z1d.large"
+      Z1D_LARGE = "z1d.large"
 
       # No documentation available.
-      z1d_xlarge = "z1d.xlarge"
+      Z1D_XLARGE = "z1d.xlarge"
 
       # No documentation available.
-      z1d_2xlarge = "z1d.2xlarge"
+      Z1D_2XLARGE = "z1d.2xlarge"
 
       # No documentation available.
-      z1d_3xlarge = "z1d.3xlarge"
+      Z1D_3XLARGE = "z1d.3xlarge"
 
       # No documentation available.
-      z1d_6xlarge = "z1d.6xlarge"
+      Z1D_6XLARGE = "z1d.6xlarge"
 
       # No documentation available.
-      z1d_12xlarge = "z1d.12xlarge"
+      Z1D_12XLARGE = "z1d.12xlarge"
 
       # No documentation available.
-      z1d_metal = "z1d.metal"
+      Z1D_METAL = "z1d.metal"
 
       # No documentation available.
-      x2idn_16xlarge = "x2idn.16xlarge"
+      X2IDN_16XLARGE = "x2idn.16xlarge"
 
       # No documentation available.
-      x2idn_24xlarge = "x2idn.24xlarge"
+      X2IDN_24XLARGE = "x2idn.24xlarge"
 
       # No documentation available.
-      x2idn_32xlarge = "x2idn.32xlarge"
+      X2IDN_32XLARGE = "x2idn.32xlarge"
 
       # No documentation available.
-      x2iedn_xlarge = "x2iedn.xlarge"
+      X2IEDN_XLARGE = "x2iedn.xlarge"
 
       # No documentation available.
-      x2iedn_2xlarge = "x2iedn.2xlarge"
+      X2IEDN_2XLARGE = "x2iedn.2xlarge"
 
       # No documentation available.
-      x2iedn_4xlarge = "x2iedn.4xlarge"
+      X2IEDN_4XLARGE = "x2iedn.4xlarge"
 
       # No documentation available.
-      x2iedn_8xlarge = "x2iedn.8xlarge"
+      X2IEDN_8XLARGE = "x2iedn.8xlarge"
 
       # No documentation available.
-      x2iedn_16xlarge = "x2iedn.16xlarge"
+      X2IEDN_16XLARGE = "x2iedn.16xlarge"
 
       # No documentation available.
-      x2iedn_24xlarge = "x2iedn.24xlarge"
+      X2IEDN_24XLARGE = "x2iedn.24xlarge"
 
       # No documentation available.
-      x2iedn_32xlarge = "x2iedn.32xlarge"
+      X2IEDN_32XLARGE = "x2iedn.32xlarge"
 
       # No documentation available.
-      c6a_large = "c6a.large"
+      C6A_LARGE = "c6a.large"
 
       # No documentation available.
-      c6a_xlarge = "c6a.xlarge"
+      C6A_XLARGE = "c6a.xlarge"
 
       # No documentation available.
-      c6a_2xlarge = "c6a.2xlarge"
+      C6A_2XLARGE = "c6a.2xlarge"
 
       # No documentation available.
-      c6a_4xlarge = "c6a.4xlarge"
+      C6A_4XLARGE = "c6a.4xlarge"
 
       # No documentation available.
-      c6a_8xlarge = "c6a.8xlarge"
+      C6A_8XLARGE = "c6a.8xlarge"
 
       # No documentation available.
-      c6a_12xlarge = "c6a.12xlarge"
+      C6A_12XLARGE = "c6a.12xlarge"
 
       # No documentation available.
-      c6a_16xlarge = "c6a.16xlarge"
+      C6A_16XLARGE = "c6a.16xlarge"
 
       # No documentation available.
-      c6a_24xlarge = "c6a.24xlarge"
+      C6A_24XLARGE = "c6a.24xlarge"
 
       # No documentation available.
-      c6a_32xlarge = "c6a.32xlarge"
+      C6A_32XLARGE = "c6a.32xlarge"
 
       # No documentation available.
-      c6a_48xlarge = "c6a.48xlarge"
+      C6A_48XLARGE = "c6a.48xlarge"
 
       # No documentation available.
-      c6a_metal = "c6a.metal"
+      C6A_METAL = "c6a.metal"
 
       # No documentation available.
-      m6a_metal = "m6a.metal"
+      M6A_METAL = "m6a.metal"
 
       # No documentation available.
-      i4i_large = "i4i.large"
+      I4I_LARGE = "i4i.large"
 
       # No documentation available.
-      i4i_xlarge = "i4i.xlarge"
+      I4I_XLARGE = "i4i.xlarge"
 
       # No documentation available.
-      i4i_2xlarge = "i4i.2xlarge"
+      I4I_2XLARGE = "i4i.2xlarge"
 
       # No documentation available.
-      i4i_4xlarge = "i4i.4xlarge"
+      I4I_4XLARGE = "i4i.4xlarge"
 
       # No documentation available.
-      i4i_8xlarge = "i4i.8xlarge"
+      I4I_8XLARGE = "i4i.8xlarge"
 
       # No documentation available.
-      i4i_16xlarge = "i4i.16xlarge"
+      I4I_16XLARGE = "i4i.16xlarge"
 
       # No documentation available.
-      i4i_32xlarge = "i4i.32xlarge"
+      I4I_32XLARGE = "i4i.32xlarge"
 
       # No documentation available.
-      i4i_metal = "i4i.metal"
+      I4I_METAL = "i4i.metal"
 
       # No documentation available.
-      x2idn_metal = "x2idn.metal"
+      X2IDN_METAL = "x2idn.metal"
 
       # No documentation available.
-      x2iedn_metal = "x2iedn.metal"
+      X2IEDN_METAL = "x2iedn.metal"
 
       # No documentation available.
-      c7g_medium = "c7g.medium"
+      C7G_MEDIUM = "c7g.medium"
 
       # No documentation available.
-      c7g_large = "c7g.large"
+      C7G_LARGE = "c7g.large"
 
       # No documentation available.
-      c7g_xlarge = "c7g.xlarge"
+      C7G_XLARGE = "c7g.xlarge"
 
       # No documentation available.
-      c7g_2xlarge = "c7g.2xlarge"
+      C7G_2XLARGE = "c7g.2xlarge"
 
       # No documentation available.
-      c7g_4xlarge = "c7g.4xlarge"
+      C7G_4XLARGE = "c7g.4xlarge"
 
       # No documentation available.
-      c7g_8xlarge = "c7g.8xlarge"
+      C7G_8XLARGE = "c7g.8xlarge"
 
       # No documentation available.
-      c7g_12xlarge = "c7g.12xlarge"
+      C7G_12XLARGE = "c7g.12xlarge"
 
       # No documentation available.
-      c7g_16xlarge = "c7g.16xlarge"
+      C7G_16XLARGE = "c7g.16xlarge"
 
       # No documentation available.
-      mac2_metal = "mac2.metal"
+      MAC2_METAL = "mac2.metal"
 
       # No documentation available.
-      c6id_large = "c6id.large"
+      C6ID_LARGE = "c6id.large"
 
       # No documentation available.
-      c6id_xlarge = "c6id.xlarge"
+      C6ID_XLARGE = "c6id.xlarge"
 
       # No documentation available.
-      c6id_2xlarge = "c6id.2xlarge"
+      C6ID_2XLARGE = "c6id.2xlarge"
 
       # No documentation available.
-      c6id_4xlarge = "c6id.4xlarge"
+      C6ID_4XLARGE = "c6id.4xlarge"
 
       # No documentation available.
-      c6id_8xlarge = "c6id.8xlarge"
+      C6ID_8XLARGE = "c6id.8xlarge"
 
       # No documentation available.
-      c6id_12xlarge = "c6id.12xlarge"
+      C6ID_12XLARGE = "c6id.12xlarge"
 
       # No documentation available.
-      c6id_16xlarge = "c6id.16xlarge"
+      C6ID_16XLARGE = "c6id.16xlarge"
 
       # No documentation available.
-      c6id_24xlarge = "c6id.24xlarge"
+      C6ID_24XLARGE = "c6id.24xlarge"
 
       # No documentation available.
-      c6id_32xlarge = "c6id.32xlarge"
+      C6ID_32XLARGE = "c6id.32xlarge"
 
       # No documentation available.
-      c6id_metal = "c6id.metal"
+      C6ID_METAL = "c6id.metal"
 
       # No documentation available.
-      m6id_large = "m6id.large"
+      M6ID_LARGE = "m6id.large"
 
       # No documentation available.
-      m6id_xlarge = "m6id.xlarge"
+      M6ID_XLARGE = "m6id.xlarge"
 
       # No documentation available.
-      m6id_2xlarge = "m6id.2xlarge"
+      M6ID_2XLARGE = "m6id.2xlarge"
 
       # No documentation available.
-      m6id_4xlarge = "m6id.4xlarge"
+      M6ID_4XLARGE = "m6id.4xlarge"
 
       # No documentation available.
-      m6id_8xlarge = "m6id.8xlarge"
+      M6ID_8XLARGE = "m6id.8xlarge"
 
       # No documentation available.
-      m6id_12xlarge = "m6id.12xlarge"
+      M6ID_12XLARGE = "m6id.12xlarge"
 
       # No documentation available.
-      m6id_16xlarge = "m6id.16xlarge"
+      M6ID_16XLARGE = "m6id.16xlarge"
 
       # No documentation available.
-      m6id_24xlarge = "m6id.24xlarge"
+      M6ID_24XLARGE = "m6id.24xlarge"
 
       # No documentation available.
-      m6id_32xlarge = "m6id.32xlarge"
+      M6ID_32XLARGE = "m6id.32xlarge"
 
       # No documentation available.
-      m6id_metal = "m6id.metal"
+      M6ID_METAL = "m6id.metal"
 
       # No documentation available.
-      r6id_large = "r6id.large"
+      R6ID_LARGE = "r6id.large"
 
       # No documentation available.
-      r6id_xlarge = "r6id.xlarge"
+      R6ID_XLARGE = "r6id.xlarge"
 
       # No documentation available.
-      r6id_2xlarge = "r6id.2xlarge"
+      R6ID_2XLARGE = "r6id.2xlarge"
 
       # No documentation available.
-      r6id_4xlarge = "r6id.4xlarge"
+      R6ID_4XLARGE = "r6id.4xlarge"
 
       # No documentation available.
-      r6id_8xlarge = "r6id.8xlarge"
+      R6ID_8XLARGE = "r6id.8xlarge"
 
       # No documentation available.
-      r6id_12xlarge = "r6id.12xlarge"
+      R6ID_12XLARGE = "r6id.12xlarge"
 
       # No documentation available.
-      r6id_16xlarge = "r6id.16xlarge"
+      R6ID_16XLARGE = "r6id.16xlarge"
 
       # No documentation available.
-      r6id_24xlarge = "r6id.24xlarge"
+      R6ID_24XLARGE = "r6id.24xlarge"
 
       # No documentation available.
-      r6id_32xlarge = "r6id.32xlarge"
+      R6ID_32XLARGE = "r6id.32xlarge"
 
       # No documentation available.
-      r6id_metal = "r6id.metal"
+      R6ID_METAL = "r6id.metal"
 
       # No documentation available.
-      r6a_large = "r6a.large"
+      R6A_LARGE = "r6a.large"
 
       # No documentation available.
-      r6a_xlarge = "r6a.xlarge"
+      R6A_XLARGE = "r6a.xlarge"
 
       # No documentation available.
-      r6a_2xlarge = "r6a.2xlarge"
+      R6A_2XLARGE = "r6a.2xlarge"
 
       # No documentation available.
-      r6a_4xlarge = "r6a.4xlarge"
+      R6A_4XLARGE = "r6a.4xlarge"
 
       # No documentation available.
-      r6a_8xlarge = "r6a.8xlarge"
+      R6A_8XLARGE = "r6a.8xlarge"
 
       # No documentation available.
-      r6a_12xlarge = "r6a.12xlarge"
+      R6A_12XLARGE = "r6a.12xlarge"
 
       # No documentation available.
-      r6a_16xlarge = "r6a.16xlarge"
+      R6A_16XLARGE = "r6a.16xlarge"
 
       # No documentation available.
-      r6a_24xlarge = "r6a.24xlarge"
+      R6A_24XLARGE = "r6a.24xlarge"
 
       # No documentation available.
-      r6a_32xlarge = "r6a.32xlarge"
+      R6A_32XLARGE = "r6a.32xlarge"
 
       # No documentation available.
-      r6a_48xlarge = "r6a.48xlarge"
+      R6A_48XLARGE = "r6a.48xlarge"
 
       # No documentation available.
-      r6a_metal = "r6a.metal"
+      R6A_METAL = "r6a.metal"
 
       # No documentation available.
-      p4de_24xlarge = "p4de.24xlarge"
+      P4DE_24XLARGE = "p4de.24xlarge"
 
       # No documentation available.
-      u_3tb1_56xlarge = "u-3tb1.56xlarge"
+      U_3TB1_56XLARGE = "u-3tb1.56xlarge"
 
       # No documentation available.
-      u_18tb1_112xlarge = "u-18tb1.112xlarge"
+      U_18TB1_112XLARGE = "u-18tb1.112xlarge"
 
       # No documentation available.
-      u_24tb1_112xlarge = "u-24tb1.112xlarge"
+      U_24TB1_112XLARGE = "u-24tb1.112xlarge"
 
       # No documentation available.
-      trn1_2xlarge = "trn1.2xlarge"
+      TRN1_2XLARGE = "trn1.2xlarge"
 
       # No documentation available.
-      trn1_32xlarge = "trn1.32xlarge"
+      TRN1_32XLARGE = "trn1.32xlarge"
 
       # No documentation available.
-      hpc6id_32xlarge = "hpc6id.32xlarge"
+      HPC6ID_32XLARGE = "hpc6id.32xlarge"
 
       # No documentation available.
-      c6in_large = "c6in.large"
+      C6IN_LARGE = "c6in.large"
 
       # No documentation available.
-      c6in_xlarge = "c6in.xlarge"
+      C6IN_XLARGE = "c6in.xlarge"
 
       # No documentation available.
-      c6in_2xlarge = "c6in.2xlarge"
+      C6IN_2XLARGE = "c6in.2xlarge"
 
       # No documentation available.
-      c6in_4xlarge = "c6in.4xlarge"
+      C6IN_4XLARGE = "c6in.4xlarge"
 
       # No documentation available.
-      c6in_8xlarge = "c6in.8xlarge"
+      C6IN_8XLARGE = "c6in.8xlarge"
 
       # No documentation available.
-      c6in_12xlarge = "c6in.12xlarge"
+      C6IN_12XLARGE = "c6in.12xlarge"
 
       # No documentation available.
-      c6in_16xlarge = "c6in.16xlarge"
+      C6IN_16XLARGE = "c6in.16xlarge"
 
       # No documentation available.
-      c6in_24xlarge = "c6in.24xlarge"
+      C6IN_24XLARGE = "c6in.24xlarge"
 
       # No documentation available.
-      c6in_32xlarge = "c6in.32xlarge"
+      C6IN_32XLARGE = "c6in.32xlarge"
 
       # No documentation available.
-      m6in_large = "m6in.large"
+      M6IN_LARGE = "m6in.large"
 
       # No documentation available.
-      m6in_xlarge = "m6in.xlarge"
+      M6IN_XLARGE = "m6in.xlarge"
 
       # No documentation available.
-      m6in_2xlarge = "m6in.2xlarge"
+      M6IN_2XLARGE = "m6in.2xlarge"
 
       # No documentation available.
-      m6in_4xlarge = "m6in.4xlarge"
+      M6IN_4XLARGE = "m6in.4xlarge"
 
       # No documentation available.
-      m6in_8xlarge = "m6in.8xlarge"
+      M6IN_8XLARGE = "m6in.8xlarge"
 
       # No documentation available.
-      m6in_12xlarge = "m6in.12xlarge"
+      M6IN_12XLARGE = "m6in.12xlarge"
 
       # No documentation available.
-      m6in_16xlarge = "m6in.16xlarge"
+      M6IN_16XLARGE = "m6in.16xlarge"
 
       # No documentation available.
-      m6in_24xlarge = "m6in.24xlarge"
+      M6IN_24XLARGE = "m6in.24xlarge"
 
       # No documentation available.
-      m6in_32xlarge = "m6in.32xlarge"
+      M6IN_32XLARGE = "m6in.32xlarge"
 
       # No documentation available.
-      m6idn_large = "m6idn.large"
+      M6IDN_LARGE = "m6idn.large"
 
       # No documentation available.
-      m6idn_xlarge = "m6idn.xlarge"
+      M6IDN_XLARGE = "m6idn.xlarge"
 
       # No documentation available.
-      m6idn_2xlarge = "m6idn.2xlarge"
+      M6IDN_2XLARGE = "m6idn.2xlarge"
 
       # No documentation available.
-      m6idn_4xlarge = "m6idn.4xlarge"
+      M6IDN_4XLARGE = "m6idn.4xlarge"
 
       # No documentation available.
-      m6idn_8xlarge = "m6idn.8xlarge"
+      M6IDN_8XLARGE = "m6idn.8xlarge"
 
       # No documentation available.
-      m6idn_12xlarge = "m6idn.12xlarge"
+      M6IDN_12XLARGE = "m6idn.12xlarge"
 
       # No documentation available.
-      m6idn_16xlarge = "m6idn.16xlarge"
+      M6IDN_16XLARGE = "m6idn.16xlarge"
 
       # No documentation available.
-      m6idn_24xlarge = "m6idn.24xlarge"
+      M6IDN_24XLARGE = "m6idn.24xlarge"
 
       # No documentation available.
-      m6idn_32xlarge = "m6idn.32xlarge"
+      M6IDN_32XLARGE = "m6idn.32xlarge"
 
       # No documentation available.
-      r6in_large = "r6in.large"
+      R6IN_LARGE = "r6in.large"
 
       # No documentation available.
-      r6in_xlarge = "r6in.xlarge"
+      R6IN_XLARGE = "r6in.xlarge"
 
       # No documentation available.
-      r6in_2xlarge = "r6in.2xlarge"
+      R6IN_2XLARGE = "r6in.2xlarge"
 
       # No documentation available.
-      r6in_4xlarge = "r6in.4xlarge"
+      R6IN_4XLARGE = "r6in.4xlarge"
 
       # No documentation available.
-      r6in_8xlarge = "r6in.8xlarge"
+      R6IN_8XLARGE = "r6in.8xlarge"
 
       # No documentation available.
-      r6in_12xlarge = "r6in.12xlarge"
+      R6IN_12XLARGE = "r6in.12xlarge"
 
       # No documentation available.
-      r6in_16xlarge = "r6in.16xlarge"
+      R6IN_16XLARGE = "r6in.16xlarge"
 
       # No documentation available.
-      r6in_24xlarge = "r6in.24xlarge"
+      R6IN_24XLARGE = "r6in.24xlarge"
 
       # No documentation available.
-      r6in_32xlarge = "r6in.32xlarge"
+      R6IN_32XLARGE = "r6in.32xlarge"
 
       # No documentation available.
-      r6idn_large = "r6idn.large"
+      R6IDN_LARGE = "r6idn.large"
 
       # No documentation available.
-      r6idn_xlarge = "r6idn.xlarge"
+      R6IDN_XLARGE = "r6idn.xlarge"
 
       # No documentation available.
-      r6idn_2xlarge = "r6idn.2xlarge"
+      R6IDN_2XLARGE = "r6idn.2xlarge"
 
       # No documentation available.
-      r6idn_4xlarge = "r6idn.4xlarge"
+      R6IDN_4XLARGE = "r6idn.4xlarge"
 
       # No documentation available.
-      r6idn_8xlarge = "r6idn.8xlarge"
+      R6IDN_8XLARGE = "r6idn.8xlarge"
 
       # No documentation available.
-      r6idn_12xlarge = "r6idn.12xlarge"
+      R6IDN_12XLARGE = "r6idn.12xlarge"
 
       # No documentation available.
-      r6idn_16xlarge = "r6idn.16xlarge"
+      R6IDN_16XLARGE = "r6idn.16xlarge"
 
       # No documentation available.
-      r6idn_24xlarge = "r6idn.24xlarge"
+      R6IDN_24XLARGE = "r6idn.24xlarge"
 
       # No documentation available.
-      r6idn_32xlarge = "r6idn.32xlarge"
+      R6IDN_32XLARGE = "r6idn.32xlarge"
 
       # No documentation available.
-      c7g_metal = "c7g.metal"
+      C7G_METAL = "c7g.metal"
 
       # No documentation available.
-      m7g_medium = "m7g.medium"
+      M7G_MEDIUM = "m7g.medium"
 
       # No documentation available.
-      m7g_large = "m7g.large"
+      M7G_LARGE = "m7g.large"
 
       # No documentation available.
-      m7g_xlarge = "m7g.xlarge"
+      M7G_XLARGE = "m7g.xlarge"
 
       # No documentation available.
-      m7g_2xlarge = "m7g.2xlarge"
+      M7G_2XLARGE = "m7g.2xlarge"
 
       # No documentation available.
-      m7g_4xlarge = "m7g.4xlarge"
+      M7G_4XLARGE = "m7g.4xlarge"
 
       # No documentation available.
-      m7g_8xlarge = "m7g.8xlarge"
+      M7G_8XLARGE = "m7g.8xlarge"
 
       # No documentation available.
-      m7g_12xlarge = "m7g.12xlarge"
+      M7G_12XLARGE = "m7g.12xlarge"
 
       # No documentation available.
-      m7g_16xlarge = "m7g.16xlarge"
+      M7G_16XLARGE = "m7g.16xlarge"
 
       # No documentation available.
-      m7g_metal = "m7g.metal"
+      M7G_METAL = "m7g.metal"
 
       # No documentation available.
-      r7g_medium = "r7g.medium"
+      R7G_MEDIUM = "r7g.medium"
 
       # No documentation available.
-      r7g_large = "r7g.large"
+      R7G_LARGE = "r7g.large"
 
       # No documentation available.
-      r7g_xlarge = "r7g.xlarge"
+      R7G_XLARGE = "r7g.xlarge"
 
       # No documentation available.
-      r7g_2xlarge = "r7g.2xlarge"
+      R7G_2XLARGE = "r7g.2xlarge"
 
       # No documentation available.
-      r7g_4xlarge = "r7g.4xlarge"
+      R7G_4XLARGE = "r7g.4xlarge"
 
       # No documentation available.
-      r7g_8xlarge = "r7g.8xlarge"
+      R7G_8XLARGE = "r7g.8xlarge"
 
       # No documentation available.
-      r7g_12xlarge = "r7g.12xlarge"
+      R7G_12XLARGE = "r7g.12xlarge"
 
       # No documentation available.
-      r7g_16xlarge = "r7g.16xlarge"
+      R7G_16XLARGE = "r7g.16xlarge"
 
       # No documentation available.
-      r7g_metal = "r7g.metal"
+      R7G_METAL = "r7g.metal"
 
       # No documentation available.
-      c6in_metal = "c6in.metal"
+      C6IN_METAL = "c6in.metal"
 
       # No documentation available.
-      m6in_metal = "m6in.metal"
+      M6IN_METAL = "m6in.metal"
 
       # No documentation available.
-      m6idn_metal = "m6idn.metal"
+      M6IDN_METAL = "m6idn.metal"
 
       # No documentation available.
-      r6in_metal = "r6in.metal"
+      R6IN_METAL = "r6in.metal"
 
       # No documentation available.
-      r6idn_metal = "r6idn.metal"
+      R6IDN_METAL = "r6idn.metal"
 
       # No documentation available.
-      inf2_xlarge = "inf2.xlarge"
+      INF2_XLARGE = "inf2.xlarge"
 
       # No documentation available.
-      inf2_8xlarge = "inf2.8xlarge"
+      INF2_8XLARGE = "inf2.8xlarge"
 
       # No documentation available.
-      inf2_24xlarge = "inf2.24xlarge"
+      INF2_24XLARGE = "inf2.24xlarge"
 
       # No documentation available.
-      inf2_48xlarge = "inf2.48xlarge"
+      INF2_48XLARGE = "inf2.48xlarge"
 
       # No documentation available.
-      trn1n_32xlarge = "trn1n.32xlarge"
+      TRN1N_32XLARGE = "trn1n.32xlarge"
 
       # No documentation available.
-      i4g_large = "i4g.large"
+      I4G_LARGE = "i4g.large"
 
       # No documentation available.
-      i4g_xlarge = "i4g.xlarge"
+      I4G_XLARGE = "i4g.xlarge"
 
       # No documentation available.
-      i4g_2xlarge = "i4g.2xlarge"
+      I4G_2XLARGE = "i4g.2xlarge"
 
       # No documentation available.
-      i4g_4xlarge = "i4g.4xlarge"
+      I4G_4XLARGE = "i4g.4xlarge"
 
       # No documentation available.
-      i4g_8xlarge = "i4g.8xlarge"
+      I4G_8XLARGE = "i4g.8xlarge"
 
       # No documentation available.
-      i4g_16xlarge = "i4g.16xlarge"
+      I4G_16XLARGE = "i4g.16xlarge"
 
       # No documentation available.
-      hpc7g_4xlarge = "hpc7g.4xlarge"
+      HPC7G_4XLARGE = "hpc7g.4xlarge"
 
       # No documentation available.
-      hpc7g_8xlarge = "hpc7g.8xlarge"
+      HPC7G_8XLARGE = "hpc7g.8xlarge"
 
       # No documentation available.
-      hpc7g_16xlarge = "hpc7g.16xlarge"
+      HPC7G_16XLARGE = "hpc7g.16xlarge"
 
       # No documentation available.
-      c7gn_medium = "c7gn.medium"
+      C7GN_MEDIUM = "c7gn.medium"
 
       # No documentation available.
-      c7gn_large = "c7gn.large"
+      C7GN_LARGE = "c7gn.large"
 
       # No documentation available.
-      c7gn_xlarge = "c7gn.xlarge"
+      C7GN_XLARGE = "c7gn.xlarge"
 
       # No documentation available.
-      c7gn_2xlarge = "c7gn.2xlarge"
+      C7GN_2XLARGE = "c7gn.2xlarge"
 
       # No documentation available.
-      c7gn_4xlarge = "c7gn.4xlarge"
+      C7GN_4XLARGE = "c7gn.4xlarge"
 
       # No documentation available.
-      c7gn_8xlarge = "c7gn.8xlarge"
+      C7GN_8XLARGE = "c7gn.8xlarge"
 
       # No documentation available.
-      c7gn_12xlarge = "c7gn.12xlarge"
+      C7GN_12XLARGE = "c7gn.12xlarge"
 
       # No documentation available.
-      c7gn_16xlarge = "c7gn.16xlarge"
+      C7GN_16XLARGE = "c7gn.16xlarge"
 
       # No documentation available.
-      p5_48xlarge = "p5.48xlarge"
+      P5_48XLARGE = "p5.48xlarge"
 
       # No documentation available.
-      m7i_large = "m7i.large"
+      M7I_LARGE = "m7i.large"
 
       # No documentation available.
-      m7i_xlarge = "m7i.xlarge"
+      M7I_XLARGE = "m7i.xlarge"
 
       # No documentation available.
-      m7i_2xlarge = "m7i.2xlarge"
+      M7I_2XLARGE = "m7i.2xlarge"
 
       # No documentation available.
-      m7i_4xlarge = "m7i.4xlarge"
+      M7I_4XLARGE = "m7i.4xlarge"
 
       # No documentation available.
-      m7i_8xlarge = "m7i.8xlarge"
+      M7I_8XLARGE = "m7i.8xlarge"
 
       # No documentation available.
-      m7i_12xlarge = "m7i.12xlarge"
+      M7I_12XLARGE = "m7i.12xlarge"
 
       # No documentation available.
-      m7i_16xlarge = "m7i.16xlarge"
+      M7I_16XLARGE = "m7i.16xlarge"
 
       # No documentation available.
-      m7i_24xlarge = "m7i.24xlarge"
+      M7I_24XLARGE = "m7i.24xlarge"
 
       # No documentation available.
-      m7i_48xlarge = "m7i.48xlarge"
+      M7I_48XLARGE = "m7i.48xlarge"
 
       # No documentation available.
-      m7i_flex_large = "m7i-flex.large"
+      M7I_FLEX_LARGE = "m7i-flex.large"
 
       # No documentation available.
-      m7i_flex_xlarge = "m7i-flex.xlarge"
+      M7I_FLEX_XLARGE = "m7i-flex.xlarge"
 
       # No documentation available.
-      m7i_flex_2xlarge = "m7i-flex.2xlarge"
+      M7I_FLEX_2XLARGE = "m7i-flex.2xlarge"
 
       # No documentation available.
-      m7i_flex_4xlarge = "m7i-flex.4xlarge"
+      M7I_FLEX_4XLARGE = "m7i-flex.4xlarge"
 
       # No documentation available.
-      m7i_flex_8xlarge = "m7i-flex.8xlarge"
+      M7I_FLEX_8XLARGE = "m7i-flex.8xlarge"
 
       # No documentation available.
-      m7a_medium = "m7a.medium"
+      M7A_MEDIUM = "m7a.medium"
 
       # No documentation available.
-      m7a_large = "m7a.large"
+      M7A_LARGE = "m7a.large"
 
       # No documentation available.
-      m7a_xlarge = "m7a.xlarge"
+      M7A_XLARGE = "m7a.xlarge"
 
       # No documentation available.
-      m7a_2xlarge = "m7a.2xlarge"
+      M7A_2XLARGE = "m7a.2xlarge"
 
       # No documentation available.
-      m7a_4xlarge = "m7a.4xlarge"
+      M7A_4XLARGE = "m7a.4xlarge"
 
       # No documentation available.
-      m7a_8xlarge = "m7a.8xlarge"
+      M7A_8XLARGE = "m7a.8xlarge"
 
       # No documentation available.
-      m7a_12xlarge = "m7a.12xlarge"
+      M7A_12XLARGE = "m7a.12xlarge"
 
       # No documentation available.
-      m7a_16xlarge = "m7a.16xlarge"
+      M7A_16XLARGE = "m7a.16xlarge"
 
       # No documentation available.
-      m7a_24xlarge = "m7a.24xlarge"
+      M7A_24XLARGE = "m7a.24xlarge"
 
       # No documentation available.
-      m7a_32xlarge = "m7a.32xlarge"
+      M7A_32XLARGE = "m7a.32xlarge"
 
       # No documentation available.
-      m7a_48xlarge = "m7a.48xlarge"
+      M7A_48XLARGE = "m7a.48xlarge"
 
       # No documentation available.
-      m7a_metal_48xl = "m7a.metal-48xl"
+      M7A_METAL_48XL = "m7a.metal-48xl"
 
       # No documentation available.
-      hpc7a_12xlarge = "hpc7a.12xlarge"
+      HPC7A_12XLARGE = "hpc7a.12xlarge"
 
       # No documentation available.
-      hpc7a_24xlarge = "hpc7a.24xlarge"
+      HPC7A_24XLARGE = "hpc7a.24xlarge"
 
       # No documentation available.
-      hpc7a_48xlarge = "hpc7a.48xlarge"
+      HPC7A_48XLARGE = "hpc7a.48xlarge"
 
       # No documentation available.
-      hpc7a_96xlarge = "hpc7a.96xlarge"
+      HPC7A_96XLARGE = "hpc7a.96xlarge"
 
       # No documentation available.
-      c7gd_medium = "c7gd.medium"
+      C7GD_MEDIUM = "c7gd.medium"
 
       # No documentation available.
-      c7gd_large = "c7gd.large"
+      C7GD_LARGE = "c7gd.large"
 
       # No documentation available.
-      c7gd_xlarge = "c7gd.xlarge"
+      C7GD_XLARGE = "c7gd.xlarge"
 
       # No documentation available.
-      c7gd_2xlarge = "c7gd.2xlarge"
+      C7GD_2XLARGE = "c7gd.2xlarge"
 
       # No documentation available.
-      c7gd_4xlarge = "c7gd.4xlarge"
+      C7GD_4XLARGE = "c7gd.4xlarge"
 
       # No documentation available.
-      c7gd_8xlarge = "c7gd.8xlarge"
+      C7GD_8XLARGE = "c7gd.8xlarge"
 
       # No documentation available.
-      c7gd_12xlarge = "c7gd.12xlarge"
+      C7GD_12XLARGE = "c7gd.12xlarge"
 
       # No documentation available.
-      c7gd_16xlarge = "c7gd.16xlarge"
+      C7GD_16XLARGE = "c7gd.16xlarge"
 
       # No documentation available.
-      m7gd_medium = "m7gd.medium"
+      M7GD_MEDIUM = "m7gd.medium"
 
       # No documentation available.
-      m7gd_large = "m7gd.large"
+      M7GD_LARGE = "m7gd.large"
 
       # No documentation available.
-      m7gd_xlarge = "m7gd.xlarge"
+      M7GD_XLARGE = "m7gd.xlarge"
 
       # No documentation available.
-      m7gd_2xlarge = "m7gd.2xlarge"
+      M7GD_2XLARGE = "m7gd.2xlarge"
 
       # No documentation available.
-      m7gd_4xlarge = "m7gd.4xlarge"
+      M7GD_4XLARGE = "m7gd.4xlarge"
 
       # No documentation available.
-      m7gd_8xlarge = "m7gd.8xlarge"
+      M7GD_8XLARGE = "m7gd.8xlarge"
 
       # No documentation available.
-      m7gd_12xlarge = "m7gd.12xlarge"
+      M7GD_12XLARGE = "m7gd.12xlarge"
 
       # No documentation available.
-      m7gd_16xlarge = "m7gd.16xlarge"
+      M7GD_16XLARGE = "m7gd.16xlarge"
 
       # No documentation available.
-      r7gd_medium = "r7gd.medium"
+      R7GD_MEDIUM = "r7gd.medium"
 
       # No documentation available.
-      r7gd_large = "r7gd.large"
+      R7GD_LARGE = "r7gd.large"
 
       # No documentation available.
-      r7gd_xlarge = "r7gd.xlarge"
+      R7GD_XLARGE = "r7gd.xlarge"
 
       # No documentation available.
-      r7gd_2xlarge = "r7gd.2xlarge"
+      R7GD_2XLARGE = "r7gd.2xlarge"
 
       # No documentation available.
-      r7gd_4xlarge = "r7gd.4xlarge"
+      R7GD_4XLARGE = "r7gd.4xlarge"
 
       # No documentation available.
-      r7gd_8xlarge = "r7gd.8xlarge"
+      R7GD_8XLARGE = "r7gd.8xlarge"
 
       # No documentation available.
-      r7gd_12xlarge = "r7gd.12xlarge"
+      R7GD_12XLARGE = "r7gd.12xlarge"
 
       # No documentation available.
-      r7gd_16xlarge = "r7gd.16xlarge"
+      R7GD_16XLARGE = "r7gd.16xlarge"
 
       # No documentation available.
-      r7a_medium = "r7a.medium"
+      R7A_MEDIUM = "r7a.medium"
 
       # No documentation available.
-      r7a_large = "r7a.large"
+      R7A_LARGE = "r7a.large"
 
       # No documentation available.
-      r7a_xlarge = "r7a.xlarge"
+      R7A_XLARGE = "r7a.xlarge"
 
       # No documentation available.
-      r7a_2xlarge = "r7a.2xlarge"
+      R7A_2XLARGE = "r7a.2xlarge"
 
       # No documentation available.
-      r7a_4xlarge = "r7a.4xlarge"
+      R7A_4XLARGE = "r7a.4xlarge"
 
       # No documentation available.
-      r7a_8xlarge = "r7a.8xlarge"
+      R7A_8XLARGE = "r7a.8xlarge"
 
       # No documentation available.
-      r7a_12xlarge = "r7a.12xlarge"
+      R7A_12XLARGE = "r7a.12xlarge"
 
       # No documentation available.
-      r7a_16xlarge = "r7a.16xlarge"
+      R7A_16XLARGE = "r7a.16xlarge"
 
       # No documentation available.
-      r7a_24xlarge = "r7a.24xlarge"
+      R7A_24XLARGE = "r7a.24xlarge"
 
       # No documentation available.
-      r7a_32xlarge = "r7a.32xlarge"
+      R7A_32XLARGE = "r7a.32xlarge"
 
       # No documentation available.
-      r7a_48xlarge = "r7a.48xlarge"
+      R7A_48XLARGE = "r7a.48xlarge"
 
       # No documentation available.
-      c7i_large = "c7i.large"
+      C7I_LARGE = "c7i.large"
 
       # No documentation available.
-      c7i_xlarge = "c7i.xlarge"
+      C7I_XLARGE = "c7i.xlarge"
 
       # No documentation available.
-      c7i_2xlarge = "c7i.2xlarge"
+      C7I_2XLARGE = "c7i.2xlarge"
 
       # No documentation available.
-      c7i_4xlarge = "c7i.4xlarge"
+      C7I_4XLARGE = "c7i.4xlarge"
 
       # No documentation available.
-      c7i_8xlarge = "c7i.8xlarge"
+      C7I_8XLARGE = "c7i.8xlarge"
 
       # No documentation available.
-      c7i_12xlarge = "c7i.12xlarge"
+      C7I_12XLARGE = "c7i.12xlarge"
 
       # No documentation available.
-      c7i_16xlarge = "c7i.16xlarge"
+      C7I_16XLARGE = "c7i.16xlarge"
 
       # No documentation available.
-      c7i_24xlarge = "c7i.24xlarge"
+      C7I_24XLARGE = "c7i.24xlarge"
 
       # No documentation available.
-      c7i_48xlarge = "c7i.48xlarge"
+      C7I_48XLARGE = "c7i.48xlarge"
 
       # No documentation available.
-      mac2_m2pro_metal = "mac2-m2pro.metal"
+      MAC2_M2PRO_METAL = "mac2-m2pro.metal"
 
       # No documentation available.
-      r7iz_large = "r7iz.large"
+      R7IZ_LARGE = "r7iz.large"
 
       # No documentation available.
-      r7iz_xlarge = "r7iz.xlarge"
+      R7IZ_XLARGE = "r7iz.xlarge"
 
       # No documentation available.
-      r7iz_2xlarge = "r7iz.2xlarge"
+      R7IZ_2XLARGE = "r7iz.2xlarge"
 
       # No documentation available.
-      r7iz_4xlarge = "r7iz.4xlarge"
+      R7IZ_4XLARGE = "r7iz.4xlarge"
 
       # No documentation available.
-      r7iz_8xlarge = "r7iz.8xlarge"
+      R7IZ_8XLARGE = "r7iz.8xlarge"
 
       # No documentation available.
-      r7iz_12xlarge = "r7iz.12xlarge"
+      R7IZ_12XLARGE = "r7iz.12xlarge"
 
       # No documentation available.
-      r7iz_16xlarge = "r7iz.16xlarge"
+      R7IZ_16XLARGE = "r7iz.16xlarge"
 
       # No documentation available.
-      r7iz_32xlarge = "r7iz.32xlarge"
+      R7IZ_32XLARGE = "r7iz.32xlarge"
 
       # No documentation available.
-      c7a_medium = "c7a.medium"
+      C7A_MEDIUM = "c7a.medium"
 
       # No documentation available.
-      c7a_large = "c7a.large"
+      C7A_LARGE = "c7a.large"
 
       # No documentation available.
-      c7a_xlarge = "c7a.xlarge"
+      C7A_XLARGE = "c7a.xlarge"
 
       # No documentation available.
-      c7a_2xlarge = "c7a.2xlarge"
+      C7A_2XLARGE = "c7a.2xlarge"
 
       # No documentation available.
-      c7a_4xlarge = "c7a.4xlarge"
+      C7A_4XLARGE = "c7a.4xlarge"
 
       # No documentation available.
-      c7a_8xlarge = "c7a.8xlarge"
+      C7A_8XLARGE = "c7a.8xlarge"
 
       # No documentation available.
-      c7a_12xlarge = "c7a.12xlarge"
+      C7A_12XLARGE = "c7a.12xlarge"
 
       # No documentation available.
-      c7a_16xlarge = "c7a.16xlarge"
+      C7A_16XLARGE = "c7a.16xlarge"
 
       # No documentation available.
-      c7a_24xlarge = "c7a.24xlarge"
+      C7A_24XLARGE = "c7a.24xlarge"
 
       # No documentation available.
-      c7a_32xlarge = "c7a.32xlarge"
+      C7A_32XLARGE = "c7a.32xlarge"
 
       # No documentation available.
-      c7a_48xlarge = "c7a.48xlarge"
+      C7A_48XLARGE = "c7a.48xlarge"
 
       # No documentation available.
-      c7a_metal_48xl = "c7a.metal-48xl"
+      C7A_METAL_48XL = "c7a.metal-48xl"
 
       # No documentation available.
-      r7a_metal_48xl = "r7a.metal-48xl"
+      R7A_METAL_48XL = "r7a.metal-48xl"
 
       # No documentation available.
-      r7i_large = "r7i.large"
+      R7I_LARGE = "r7i.large"
 
       # No documentation available.
-      r7i_xlarge = "r7i.xlarge"
+      R7I_XLARGE = "r7i.xlarge"
 
       # No documentation available.
-      r7i_2xlarge = "r7i.2xlarge"
+      R7I_2XLARGE = "r7i.2xlarge"
 
       # No documentation available.
-      r7i_4xlarge = "r7i.4xlarge"
+      R7I_4XLARGE = "r7i.4xlarge"
 
       # No documentation available.
-      r7i_8xlarge = "r7i.8xlarge"
+      R7I_8XLARGE = "r7i.8xlarge"
 
       # No documentation available.
-      r7i_12xlarge = "r7i.12xlarge"
+      R7I_12XLARGE = "r7i.12xlarge"
 
       # No documentation available.
-      r7i_16xlarge = "r7i.16xlarge"
+      R7I_16XLARGE = "r7i.16xlarge"
 
       # No documentation available.
-      r7i_24xlarge = "r7i.24xlarge"
+      R7I_24XLARGE = "r7i.24xlarge"
 
       # No documentation available.
-      r7i_48xlarge = "r7i.48xlarge"
+      R7I_48XLARGE = "r7i.48xlarge"
 
       # No documentation available.
-      dl2q_24xlarge = "dl2q.24xlarge"
+      DL2Q_24XLARGE = "dl2q.24xlarge"
 
       # No documentation available.
-      mac2_m2_metal = "mac2-m2.metal"
+      MAC2_M2_METAL = "mac2-m2.metal"
 
       # No documentation available.
-      i4i_12xlarge = "i4i.12xlarge"
+      I4I_12XLARGE = "i4i.12xlarge"
 
       # No documentation available.
-      i4i_24xlarge = "i4i.24xlarge"
+      I4I_24XLARGE = "i4i.24xlarge"
 
       # No documentation available.
-      c7i_metal_24xl = "c7i.metal-24xl"
+      C7I_METAL_24XL = "c7i.metal-24xl"
 
       # No documentation available.
-      c7i_metal_48xl = "c7i.metal-48xl"
+      C7I_METAL_48XL = "c7i.metal-48xl"
 
       # No documentation available.
-      m7i_metal_24xl = "m7i.metal-24xl"
+      M7I_METAL_24XL = "m7i.metal-24xl"
 
       # No documentation available.
-      m7i_metal_48xl = "m7i.metal-48xl"
+      M7I_METAL_48XL = "m7i.metal-48xl"
 
       # No documentation available.
-      r7i_metal_24xl = "r7i.metal-24xl"
+      R7I_METAL_24XL = "r7i.metal-24xl"
 
       # No documentation available.
-      r7i_metal_48xl = "r7i.metal-48xl"
+      R7I_METAL_48XL = "r7i.metal-48xl"
 
       # No documentation available.
-      r7iz_metal_16xl = "r7iz.metal-16xl"
+      R7IZ_METAL_16XL = "r7iz.metal-16xl"
 
       # No documentation available.
-      r7iz_metal_32xl = "r7iz.metal-32xl"
+      R7IZ_METAL_32XL = "r7iz.metal-32xl"
     end
 
     # Includes enum constants for InstanceTypeHypervisor
@@ -46422,13 +46422,13 @@ module AWS::SDK::EC2
     # Includes enum constants for IpAddressType
     module IpAddressType
       # No documentation available.
-      ipv4 = "ipv4"
+      IPV4 = "ipv4"
 
       # No documentation available.
-      dualstack = "dualstack"
+      DUALSTACK = "dualstack"
 
       # No documentation available.
-      ipv6 = "ipv6"
+      IPV6 = "ipv6"
     end
 
     # <p>Describes a set of permissions for a security group rule.</p>
@@ -46673,19 +46673,19 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamAddressHistoryResourceType
     module IpamAddressHistoryResourceType
       # No documentation available.
-      eip = "eip"
+      EIP = "eip"
 
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      subnet = "subnet"
+      SUBNET = "subnet"
 
       # No documentation available.
-      network_interface = "network-interface"
+      NETWORK_INTERFACE = "network-interface"
 
       # No documentation available.
-      instance = "instance"
+      INSTANCE = "instance"
     end
 
     # Includes enum constants for IpamAssociatedResourceDiscoveryStatus
@@ -46719,16 +46719,16 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamComplianceStatus
     module IpamComplianceStatus
       # No documentation available.
-      compliant = "compliant"
+      COMPLIANT = "compliant"
 
       # No documentation available.
-      noncompliant = "noncompliant"
+      NONCOMPLIANT = "noncompliant"
 
       # No documentation available.
-      unmanaged = "unmanaged"
+      UNMANAGED = "unmanaged"
 
       # No documentation available.
-      ignored = "ignored"
+      IGNORED = "ignored"
     end
 
     # <p>An IPAM discovered account. A discovered account is an Amazon Web Services account that is monitored under a resource discovery. If you have integrated IPAM with Amazon Web Services Organizations, all accounts in the organization are discovered accounts.</p>
@@ -46950,13 +46950,13 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamDiscoveryFailureCode
     module IpamDiscoveryFailureCode
       # No documentation available.
-      assume_role_failure = "assume-role-failure"
+      ASSUME_ROLE_FAILURE = "assume-role-failure"
 
       # No documentation available.
-      throttling_failure = "throttling-failure"
+      THROTTLING_FAILURE = "throttling-failure"
 
       # No documentation available.
-      unauthorized_failure = "unauthorized-failure"
+      UNAUTHORIZED_FAILURE = "unauthorized-failure"
     end
 
     # <p>The discovery failure reason.</p>
@@ -47007,13 +47007,13 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamManagementState
     module IpamManagementState
       # No documentation available.
-      managed = "managed"
+      MANAGED = "managed"
 
       # No documentation available.
-      unmanaged = "unmanaged"
+      UNMANAGED = "unmanaged"
 
       # No documentation available.
-      ignored = "ignored"
+      IGNORED = "ignored"
     end
 
     # <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
@@ -47034,13 +47034,13 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamOverlapStatus
     module IpamOverlapStatus
       # No documentation available.
-      overlapping = "overlapping"
+      OVERLAPPING = "overlapping"
 
       # No documentation available.
-      nonoverlapping = "nonoverlapping"
+      NONOVERLAPPING = "nonoverlapping"
 
       # No documentation available.
-      ignored = "ignored"
+      IGNORED = "ignored"
     end
 
     # <p>In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
@@ -47237,25 +47237,25 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamPoolAllocationResourceType
     module IpamPoolAllocationResourceType
       # No documentation available.
-      ipam_pool = "ipam-pool"
+      IPAM_POOL = "ipam-pool"
 
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      ec2_public_ipv4_pool = "ec2-public-ipv4-pool"
+      EC2_PUBLIC_IPV4_POOL = "ec2-public-ipv4-pool"
 
       # No documentation available.
-      custom = "custom"
+      CUSTOM = "custom"
 
       # No documentation available.
-      subnet = "subnet"
+      SUBNET = "subnet"
     end
 
     # Includes enum constants for IpamPoolAwsService
     module IpamPoolAwsService
       # No documentation available.
-      ec2 = "ec2"
+      EC2 = "ec2"
     end
 
     # <p>A CIDR provisioned to an IPAM pool.</p>
@@ -47297,10 +47297,10 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamPoolCidrFailureCode
     module IpamPoolCidrFailureCode
       # No documentation available.
-      cidr_not_available = "cidr-not-available"
+      CIDR_NOT_AVAILABLE = "cidr-not-available"
 
       # No documentation available.
-      limit_exceeded = "limit-exceeded"
+      LIMIT_EXCEEDED = "limit-exceeded"
     end
 
     # <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
@@ -47326,37 +47326,37 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamPoolCidrState
     module IpamPoolCidrState
       # No documentation available.
-      pending_provision = "pending-provision"
+      PENDING_PROVISION = "pending-provision"
 
       # No documentation available.
-      provisioned = "provisioned"
+      PROVISIONED = "provisioned"
 
       # No documentation available.
-      failed_provision = "failed-provision"
+      FAILED_PROVISION = "failed-provision"
 
       # No documentation available.
-      pending_deprovision = "pending-deprovision"
+      PENDING_DEPROVISION = "pending-deprovision"
 
       # No documentation available.
-      deprovisioned = "deprovisioned"
+      DEPROVISIONED = "deprovisioned"
 
       # No documentation available.
-      failed_deprovision = "failed-deprovision"
+      FAILED_DEPROVISION = "failed-deprovision"
 
       # No documentation available.
-      pending_import = "pending-import"
+      PENDING_IMPORT = "pending-import"
 
       # No documentation available.
-      failed_import = "failed-import"
+      FAILED_IMPORT = "failed-import"
     end
 
     # Includes enum constants for IpamPoolPublicIpSource
     module IpamPoolPublicIpSource
       # No documentation available.
-      amazon = "amazon"
+      AMAZON = "amazon"
 
       # No documentation available.
-      byoip = "byoip"
+      BYOIP = "byoip"
     end
 
     # <p>The resource used to provision CIDRs to a resource planning pool.</p>
@@ -47422,46 +47422,46 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamPoolSourceResourceType
     module IpamPoolSourceResourceType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
     end
 
     # Includes enum constants for IpamPoolState
     module IpamPoolState
       # No documentation available.
-      create_in_progress = "create-in-progress"
+      CREATE_IN_PROGRESS = "create-in-progress"
 
       # No documentation available.
-      create_complete = "create-complete"
+      CREATE_COMPLETE = "create-complete"
 
       # No documentation available.
-      create_failed = "create-failed"
+      CREATE_FAILED = "create-failed"
 
       # No documentation available.
-      modify_in_progress = "modify-in-progress"
+      MODIFY_IN_PROGRESS = "modify-in-progress"
 
       # No documentation available.
-      modify_complete = "modify-complete"
+      MODIFY_COMPLETE = "modify-complete"
 
       # No documentation available.
-      modify_failed = "modify-failed"
+      MODIFY_FAILED = "modify-failed"
 
       # No documentation available.
-      delete_in_progress = "delete-in-progress"
+      DELETE_IN_PROGRESS = "delete-in-progress"
 
       # No documentation available.
-      delete_complete = "delete-complete"
+      DELETE_COMPLETE = "delete-complete"
 
       # No documentation available.
-      delete_failed = "delete-failed"
+      DELETE_FAILED = "delete-failed"
 
       # No documentation available.
-      isolate_in_progress = "isolate-in-progress"
+      ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
       # No documentation available.
-      isolate_complete = "isolate-complete"
+      ISOLATE_COMPLETE = "isolate-complete"
 
       # No documentation available.
-      restore_in_progress = "restore-in-progress"
+      RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
     # Includes enum constants for IpamPublicAddressAssociationStatus
@@ -47491,7 +47491,7 @@ module AWS::SDK::EC2
       RDS = "relational-database-service"
 
       # No documentation available.
-      S2S_VPN = "site-to-site-vpn"
+      S2_S_VPN = "site-to-site-vpn"
 
       # No documentation available.
       EC2_LB = "load-balancer"
@@ -47988,22 +47988,22 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamResourceType
     module IpamResourceType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      subnet = "subnet"
+      SUBNET = "subnet"
 
       # No documentation available.
-      eip = "eip"
+      EIP = "eip"
 
       # No documentation available.
-      public_ipv4_pool = "public-ipv4-pool"
+      PUBLIC_IPV4_POOL = "public-ipv4-pool"
 
       # No documentation available.
-      ipv6_pool = "ipv6-pool"
+      IPV6_POOL = "ipv6-pool"
 
       # No documentation available.
-      eni = "eni"
+      ENI = "eni"
     end
 
     # <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
@@ -48077,97 +48077,97 @@ module AWS::SDK::EC2
     # Includes enum constants for IpamScopeState
     module IpamScopeState
       # No documentation available.
-      create_in_progress = "create-in-progress"
+      CREATE_IN_PROGRESS = "create-in-progress"
 
       # No documentation available.
-      create_complete = "create-complete"
+      CREATE_COMPLETE = "create-complete"
 
       # No documentation available.
-      create_failed = "create-failed"
+      CREATE_FAILED = "create-failed"
 
       # No documentation available.
-      modify_in_progress = "modify-in-progress"
+      MODIFY_IN_PROGRESS = "modify-in-progress"
 
       # No documentation available.
-      modify_complete = "modify-complete"
+      MODIFY_COMPLETE = "modify-complete"
 
       # No documentation available.
-      modify_failed = "modify-failed"
+      MODIFY_FAILED = "modify-failed"
 
       # No documentation available.
-      delete_in_progress = "delete-in-progress"
+      DELETE_IN_PROGRESS = "delete-in-progress"
 
       # No documentation available.
-      delete_complete = "delete-complete"
+      DELETE_COMPLETE = "delete-complete"
 
       # No documentation available.
-      delete_failed = "delete-failed"
+      DELETE_FAILED = "delete-failed"
 
       # No documentation available.
-      isolate_in_progress = "isolate-in-progress"
+      ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
       # No documentation available.
-      isolate_complete = "isolate-complete"
+      ISOLATE_COMPLETE = "isolate-complete"
 
       # No documentation available.
-      restore_in_progress = "restore-in-progress"
+      RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
     # Includes enum constants for IpamScopeType
     module IpamScopeType
       # No documentation available.
-      public = "public"
+      PUBLIC = "public"
 
       # No documentation available.
-      private = "private"
+      PRIVATE = "private"
     end
 
     # Includes enum constants for IpamState
     module IpamState
       # No documentation available.
-      create_in_progress = "create-in-progress"
+      CREATE_IN_PROGRESS = "create-in-progress"
 
       # No documentation available.
-      create_complete = "create-complete"
+      CREATE_COMPLETE = "create-complete"
 
       # No documentation available.
-      create_failed = "create-failed"
+      CREATE_FAILED = "create-failed"
 
       # No documentation available.
-      modify_in_progress = "modify-in-progress"
+      MODIFY_IN_PROGRESS = "modify-in-progress"
 
       # No documentation available.
-      modify_complete = "modify-complete"
+      MODIFY_COMPLETE = "modify-complete"
 
       # No documentation available.
-      modify_failed = "modify-failed"
+      MODIFY_FAILED = "modify-failed"
 
       # No documentation available.
-      delete_in_progress = "delete-in-progress"
+      DELETE_IN_PROGRESS = "delete-in-progress"
 
       # No documentation available.
-      delete_complete = "delete-complete"
+      DELETE_COMPLETE = "delete-complete"
 
       # No documentation available.
-      delete_failed = "delete-failed"
+      DELETE_FAILED = "delete-failed"
 
       # No documentation available.
-      isolate_in_progress = "isolate-in-progress"
+      ISOLATE_IN_PROGRESS = "isolate-in-progress"
 
       # No documentation available.
-      isolate_complete = "isolate-complete"
+      ISOLATE_COMPLETE = "isolate-complete"
 
       # No documentation available.
-      restore_in_progress = "restore-in-progress"
+      RESTORE_IN_PROGRESS = "restore-in-progress"
     end
 
     # Includes enum constants for IpamTier
     module IpamTier
       # No documentation available.
-      free = "free"
+      FREE = "free"
 
       # No documentation available.
-      advanced = "advanced"
+      ADVANCED = "advanced"
     end
 
     # <p>Describes an IPv4 prefix.</p>
@@ -48347,19 +48347,19 @@ module AWS::SDK::EC2
     # Includes enum constants for Ipv6SupportValue
     module Ipv6SupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for KeyFormat
     module KeyFormat
       # No documentation available.
-      pem = "pem"
+      PEM = "pem"
 
       # No documentation available.
-      ppk = "ppk"
+      PPK = "ppk"
     end
 
     # <p>Describes a key pair.</p>
@@ -48434,10 +48434,10 @@ module AWS::SDK::EC2
     # Includes enum constants for KeyType
     module KeyType
       # No documentation available.
-      rsa = "rsa"
+      RSA = "rsa"
 
       # No documentation available.
-      ed25519 = "ed25519"
+      ED25519 = "ed25519"
     end
 
     # <p>The last error that occurred for a VPC endpoint.</p>
@@ -48683,10 +48683,10 @@ module AWS::SDK::EC2
     # Includes enum constants for LaunchTemplateAutoRecoveryState
     module LaunchTemplateAutoRecoveryState
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # <p>Describes a block device mapping.</p>
@@ -49232,10 +49232,10 @@ module AWS::SDK::EC2
     # Includes enum constants for LaunchTemplateHttpTokensState
     module LaunchTemplateHttpTokensState
       # No documentation available.
-      optional = "optional"
+      OPTIONAL = "optional"
 
       # No documentation available.
-      required = "required"
+      REQUIRED = "required"
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -49351,10 +49351,10 @@ module AWS::SDK::EC2
     # Includes enum constants for LaunchTemplateInstanceMetadataEndpointState
     module LaunchTemplateInstanceMetadataEndpointState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the
@@ -49517,28 +49517,28 @@ module AWS::SDK::EC2
     # Includes enum constants for LaunchTemplateInstanceMetadataOptionsState
     module LaunchTemplateInstanceMetadataOptionsState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      applied = "applied"
+      APPLIED = "applied"
     end
 
     # Includes enum constants for LaunchTemplateInstanceMetadataProtocolIpv6
     module LaunchTemplateInstanceMetadataProtocolIpv6
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # Includes enum constants for LaunchTemplateInstanceMetadataTagsState
     module LaunchTemplateInstanceMetadataTagsState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
     end
 
     # <p>Describes a network interface.</p>
@@ -50484,31 +50484,31 @@ module AWS::SDK::EC2
     # Includes enum constants for ListingState
     module ListingState
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      sold = "sold"
+      SOLD = "sold"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
     end
 
     # Includes enum constants for ListingStatus
     module ListingStatus
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      closed = "closed"
+      CLOSED = "closed"
     end
 
     # <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
@@ -50695,19 +50695,19 @@ module AWS::SDK::EC2
     # Includes enum constants for LocalGatewayRouteState
     module LocalGatewayRouteState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      blackhole = "blackhole"
+      BLACKHOLE = "blackhole"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes a local gateway route table.</p>
@@ -50768,10 +50768,10 @@ module AWS::SDK::EC2
     # Includes enum constants for LocalGatewayRouteTableMode
     module LocalGatewayRouteTableMode
       # No documentation available.
-      direct_vpc_routing = "direct-vpc-routing"
+      DIRECT_VPC_ROUTING = "direct-vpc-routing"
 
       # No documentation available.
-      coip = "coip"
+      COIP = "coip"
     end
 
     # <p>Describes an association between a local gateway route table and a virtual interface group.</p>
@@ -50875,10 +50875,10 @@ module AWS::SDK::EC2
     # Includes enum constants for LocalGatewayRouteType
     module LocalGatewayRouteType
       # No documentation available.
-      static = "static"
+      STATIC = "static"
 
       # No documentation available.
-      propagated = "propagated"
+      PROPAGATED = "propagated"
     end
 
     # <p>Describes a local gateway virtual interface.</p>
@@ -50993,25 +50993,25 @@ module AWS::SDK::EC2
     # Includes enum constants for LocationType
     module LocationType
       # No documentation available.
-      region = "region"
+      REGION = "region"
 
       # No documentation available.
-      availability_zone = "availability-zone"
+      AVAILABILITY_ZONE = "availability-zone"
 
       # No documentation available.
-      availability_zone_id = "availability-zone-id"
+      AVAILABILITY_ZONE_ID = "availability-zone-id"
 
       # No documentation available.
-      outpost = "outpost"
+      OUTPOST = "outpost"
     end
 
     # Includes enum constants for LockMode
     module LockMode
       # No documentation available.
-      compliance = "compliance"
+      COMPLIANCE = "compliance"
 
       # No documentation available.
-      governance = "governance"
+      GOVERNANCE = "governance"
     end
 
     # @!method initialize(params = {})
@@ -51183,16 +51183,16 @@ module AWS::SDK::EC2
     # Includes enum constants for LockState
     module LockState
       # No documentation available.
-      compliance = "compliance"
+      COMPLIANCE = "compliance"
 
       # No documentation available.
-      governance = "governance"
+      GOVERNANCE = "governance"
 
       # No documentation available.
-      compliance_cooloff = "compliance-cooloff"
+      COMPLIANCE_COOLOFF = "compliance-cooloff"
 
       # No documentation available.
-      expired = "expired"
+      EXPIRED = "expired"
     end
 
     # <p>Information about a locked snapshot.</p>
@@ -51282,13 +51282,13 @@ module AWS::SDK::EC2
     # Includes enum constants for LogDestinationType
     module LogDestinationType
       # No documentation available.
-      cloud_watch_logs = "cloud-watch-logs"
+      CLOUD_WATCH_LOGS = "cloud-watch-logs"
 
       # No documentation available.
-      s3 = "s3"
+      S3 = "s3"
 
       # No documentation available.
-      kinesis_data_firehose = "kinesis-data-firehose"
+      KINESIS_DATA_FIREHOSE = "kinesis-data-firehose"
     end
 
     # <p>Details for Site-to-Site VPN tunnel endpoint maintenance events.</p>
@@ -51378,19 +51378,19 @@ module AWS::SDK::EC2
     # Includes enum constants for MarketType
     module MarketType
       # No documentation available.
-      spot = "spot"
+      SPOT = "spot"
 
       # No documentation available.
-      capacity_block = "capacity-block"
+      CAPACITY_BLOCK = "capacity-block"
     end
 
     # Includes enum constants for MembershipType
     module MembershipType
       # No documentation available.
-      static = "static"
+      STATIC = "static"
 
       # No documentation available.
-      igmp = "igmp"
+      IGMP = "igmp"
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -51524,7 +51524,7 @@ module AWS::SDK::EC2
     # Includes enum constants for MetricType
     module MetricType
       # No documentation available.
-      aggregate_latency = "aggregate-latency"
+      AGGREGATE_LATENCY = "aggregate-latency"
     end
 
     # @!method initialize(params = {})
@@ -51609,10 +51609,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ModifyAvailabilityZoneOptInStatus
     module ModifyAvailabilityZoneOptInStatus
       # No documentation available.
-      opted_in = "opted-in"
+      OPTED_IN = "opted-in"
 
       # No documentation available.
-      not_opted_in = "not-opted-in"
+      NOT_OPTED_IN = "not-opted-in"
     end
 
     # @!method initialize(params = {})
@@ -55899,16 +55899,16 @@ module AWS::SDK::EC2
     # Includes enum constants for MonitoringState
     module MonitoringState
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
 
       # No documentation available.
-      disabling = "disabling"
+      DISABLING = "disabling"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
     end
 
     # @!method initialize(params = {})
@@ -55996,10 +55996,10 @@ module AWS::SDK::EC2
     # Includes enum constants for MoveStatus
     module MoveStatus
       # No documentation available.
-      movingToVpc = "movingToVpc"
+      MOVING_TO_VPC = "movingToVpc"
 
       # No documentation available.
-      restoringToClassic = "restoringToClassic"
+      RESTORING_TO_CLASSIC = "restoringToClassic"
     end
 
     # <note>
@@ -56028,10 +56028,10 @@ module AWS::SDK::EC2
     # Includes enum constants for MulticastSupportValue
     module MulticastSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # <p>Describes a NAT gateway.</p>
@@ -57099,16 +57099,16 @@ module AWS::SDK::EC2
     # Includes enum constants for NetworkInterfaceAttribute
     module NetworkInterfaceAttribute
       # No documentation available.
-      description = "description"
+      DESCRIPTION = "description"
 
       # No documentation available.
-      groupSet = "groupSet"
+      GROUP_SET = "groupSet"
 
       # No documentation available.
-      sourceDestCheck = "sourceDestCheck"
+      SOURCE_DEST_CHECK = "sourceDestCheck"
 
       # No documentation available.
-      attachment = "attachment"
+      ATTACHMENT = "attachment"
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -57156,13 +57156,13 @@ module AWS::SDK::EC2
     # Includes enum constants for NetworkInterfaceCreationType
     module NetworkInterfaceCreationType
       # No documentation available.
-      efa = "efa"
+      EFA = "efa"
 
       # No documentation available.
-      branch = "branch"
+      BRANCH = "branch"
 
       # No documentation available.
-      trunk = "trunk"
+      TRUNK = "trunk"
     end
 
     # <p>Describes an IPv6 address associated with a network interface.</p>
@@ -57247,16 +57247,16 @@ module AWS::SDK::EC2
     # Includes enum constants for NetworkInterfacePermissionStateCode
     module NetworkInterfacePermissionStateCode
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      granted = "granted"
+      GRANTED = "granted"
 
       # No documentation available.
-      revoking = "revoking"
+      REVOKING = "revoking"
 
       # No documentation available.
-      revoked = "revoked"
+      REVOKED = "revoked"
     end
 
     # <p>Describes the private IPv4 address of a network interface.</p>
@@ -57291,73 +57291,73 @@ module AWS::SDK::EC2
     # Includes enum constants for NetworkInterfaceStatus
     module NetworkInterfaceStatus
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      attaching = "attaching"
+      ATTACHING = "attaching"
 
       # No documentation available.
-      in_use = "in-use"
+      IN_USE = "in-use"
 
       # No documentation available.
-      detaching = "detaching"
+      DETACHING = "detaching"
     end
 
     # Includes enum constants for NetworkInterfaceType
     module NetworkInterfaceType
       # No documentation available.
-      interface = "interface"
+      INTERFACE = "interface"
 
       # No documentation available.
-      natGateway = "natGateway"
+      NAT_GATEWAY = "natGateway"
 
       # No documentation available.
-      efa = "efa"
+      EFA = "efa"
 
       # No documentation available.
-      trunk = "trunk"
+      TRUNK = "trunk"
 
       # No documentation available.
-      load_balancer = "load_balancer"
+      LOAD_BALANCER = "load_balancer"
 
       # No documentation available.
-      network_load_balancer = "network_load_balancer"
+      NETWORK_LOAD_BALANCER = "network_load_balancer"
 
       # No documentation available.
-      vpc_endpoint = "vpc_endpoint"
+      VPC_ENDPOINT = "vpc_endpoint"
 
       # No documentation available.
-      branch = "branch"
+      BRANCH = "branch"
 
       # No documentation available.
-      transit_gateway = "transit_gateway"
+      TRANSIT_GATEWAY = "transit_gateway"
 
       # No documentation available.
-      lambda = "lambda"
+      LAMBDA = "lambda"
 
       # No documentation available.
-      quicksight = "quicksight"
+      QUICKSIGHT = "quicksight"
 
       # No documentation available.
-      global_accelerator_managed = "global_accelerator_managed"
+      GLOBAL_ACCELERATOR_MANAGED = "global_accelerator_managed"
 
       # No documentation available.
-      api_gateway_managed = "api_gateway_managed"
+      API_GATEWAY_MANAGED = "api_gateway_managed"
 
       # No documentation available.
-      gateway_load_balancer = "gateway_load_balancer"
+      GATEWAY_LOAD_BALANCER = "gateway_load_balancer"
 
       # No documentation available.
-      gateway_load_balancer_endpoint = "gateway_load_balancer_endpoint"
+      GATEWAY_LOAD_BALANCER_ENDPOINT = "gateway_load_balancer_endpoint"
 
       # No documentation available.
-      iot_rules_managed = "iot_rules_managed"
+      IOT_RULES_MANAGED = "iot_rules_managed"
 
       # No documentation available.
-      aws_codestar_connections_managed = "aws_codestar_connections_managed"
+      AWS_CODESTAR_CONNECTIONS_MANAGED = "aws_codestar_connections_managed"
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -57423,22 +57423,22 @@ module AWS::SDK::EC2
     # Includes enum constants for OfferingTypeValues
     module OfferingTypeValues
       # No documentation available.
-      Heavy_Utilization = "Heavy Utilization"
+      HEAVY_UTILIZATION = "Heavy Utilization"
 
       # No documentation available.
-      Medium_Utilization = "Medium Utilization"
+      MEDIUM_UTILIZATION = "Medium Utilization"
 
       # No documentation available.
-      Light_Utilization = "Light Utilization"
+      LIGHT_UTILIZATION = "Light Utilization"
 
       # No documentation available.
-      No_Upfront = "No Upfront"
+      NO_UPFRONT = "No Upfront"
 
       # No documentation available.
-      Partial_Upfront = "Partial Upfront"
+      PARTIAL_UPFRONT = "Partial Upfront"
 
       # No documentation available.
-      All_Upfront = "All Upfront"
+      ALL_UPFRONT = "All Upfront"
     end
 
     # <p>Describes the options for an OpenID Connect-compatible user-identity trust
@@ -57643,10 +57643,10 @@ module AWS::SDK::EC2
     # Includes enum constants for OperationType
     module OperationType
       # No documentation available.
-      add = "add"
+      ADD = "add"
 
       # No documentation available.
-      remove = "remove"
+      REMOVE = "remove"
     end
 
     # <p>Describes a packet header statement.</p>
@@ -57962,7 +57962,7 @@ module AWS::SDK::EC2
     # Includes enum constants for PayerResponsibility
     module PayerResponsibility
       # No documentation available.
-      ServiceOwner = "ServiceOwner"
+      SERVICE_OWNER = "ServiceOwner"
     end
 
     # Includes enum constants for PaymentOption
@@ -58107,28 +58107,28 @@ module AWS::SDK::EC2
     # Includes enum constants for PeriodType
     module PeriodType
       # No documentation available.
-      five_minutes = "five-minutes"
+      FIVE_MINUTES = "five-minutes"
 
       # No documentation available.
-      fifteen_minutes = "fifteen-minutes"
+      FIFTEEN_MINUTES = "fifteen-minutes"
 
       # No documentation available.
-      one_hour = "one-hour"
+      ONE_HOUR = "one-hour"
 
       # No documentation available.
-      three_hours = "three-hours"
+      THREE_HOURS = "three-hours"
 
       # No documentation available.
-      one_day = "one-day"
+      ONE_DAY = "one-day"
 
       # No documentation available.
-      one_week = "one-week"
+      ONE_WEEK = "one-week"
     end
 
     # Includes enum constants for PermissionGroup
     module PermissionGroup
       # No documentation available.
-      all = "all"
+      ALL = "all"
     end
 
     # <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
@@ -58447,28 +58447,28 @@ module AWS::SDK::EC2
     # Includes enum constants for PlacementGroupState
     module PlacementGroupState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # Includes enum constants for PlacementGroupStrategy
     module PlacementGroupStrategy
       # No documentation available.
-      cluster = "cluster"
+      CLUSTER = "cluster"
 
       # No documentation available.
-      partition = "partition"
+      PARTITION = "partition"
 
       # No documentation available.
-      spread = "spread"
+      SPREAD = "spread"
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -58488,19 +58488,19 @@ module AWS::SDK::EC2
     # Includes enum constants for PlacementStrategy
     module PlacementStrategy
       # No documentation available.
-      cluster = "cluster"
+      CLUSTER = "cluster"
 
       # No documentation available.
-      spread = "spread"
+      SPREAD = "spread"
 
       # No documentation available.
-      partition = "partition"
+      PARTITION = "partition"
     end
 
     # Includes enum constants for PlatformValues
     module PlatformValues
       # No documentation available.
-      Windows = "Windows"
+      WINDOWS = "Windows"
     end
 
     # <p>Describes a CIDR block for an address pool.</p>
@@ -58622,40 +58622,40 @@ module AWS::SDK::EC2
     # Includes enum constants for PrefixListState
     module PrefixListState
       # No documentation available.
-      create_in_progress = "create-in-progress"
+      CREATE_IN_PROGRESS = "create-in-progress"
 
       # No documentation available.
-      create_complete = "create-complete"
+      CREATE_COMPLETE = "create-complete"
 
       # No documentation available.
-      create_failed = "create-failed"
+      CREATE_FAILED = "create-failed"
 
       # No documentation available.
-      modify_in_progress = "modify-in-progress"
+      MODIFY_IN_PROGRESS = "modify-in-progress"
 
       # No documentation available.
-      modify_complete = "modify-complete"
+      MODIFY_COMPLETE = "modify-complete"
 
       # No documentation available.
-      modify_failed = "modify-failed"
+      MODIFY_FAILED = "modify-failed"
 
       # No documentation available.
-      restore_in_progress = "restore-in-progress"
+      RESTORE_IN_PROGRESS = "restore-in-progress"
 
       # No documentation available.
-      restore_complete = "restore-complete"
+      RESTORE_COMPLETE = "restore-complete"
 
       # No documentation available.
-      restore_failed = "restore-failed"
+      RESTORE_FAILED = "restore-failed"
 
       # No documentation available.
-      delete_in_progress = "delete-in-progress"
+      DELETE_IN_PROGRESS = "delete-in-progress"
 
       # No documentation available.
-      delete_complete = "delete-complete"
+      DELETE_COMPLETE = "delete-complete"
 
       # No documentation available.
-      delete_failed = "delete-failed"
+      DELETE_FAILED = "delete-failed"
     end
 
     # <p>Describes the price for a Reserved Instance.</p>
@@ -58757,22 +58757,22 @@ module AWS::SDK::EC2
     # Includes enum constants for PrincipalType
     module PrincipalType
       # No documentation available.
-      All = "All"
+      ALL = "All"
 
       # No documentation available.
-      Service = "Service"
+      SERVICE = "Service"
 
       # No documentation available.
-      OrganizationUnit = "OrganizationUnit"
+      ORGANIZATION_UNIT = "OrganizationUnit"
 
       # No documentation available.
-      Account = "Account"
+      ACCOUNT = "Account"
 
       # No documentation available.
-      User = "User"
+      USER = "User"
 
       # No documentation available.
-      Role = "Role"
+      ROLE = "Role"
     end
 
     # <p>Information about the Private DNS name for interface endpoints.</p>
@@ -58984,10 +58984,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ProductCodeValues
     module ProductCodeValues
       # No documentation available.
-      devpay = "devpay"
+      DEVPAY = "devpay"
 
       # No documentation available.
-      marketplace = "marketplace"
+      MARKETPLACE = "marketplace"
     end
 
     # <p>Describes a virtual private gateway propagating route.</p>
@@ -59007,16 +59007,16 @@ module AWS::SDK::EC2
     # Includes enum constants for Protocol
     module Protocol
       # No documentation available.
-      tcp = "tcp"
+      TCP = "tcp"
 
       # No documentation available.
-      udp = "udp"
+      UDP = "udp"
     end
 
     # Includes enum constants for ProtocolValue
     module ProtocolValue
       # No documentation available.
-      gre = "gre"
+      GRE = "gre"
     end
 
     # @!method initialize(params = {})
@@ -59672,16 +59672,16 @@ module AWS::SDK::EC2
     # Includes enum constants for RIProductDescription
     module RIProductDescription
       # No documentation available.
-      Linux_UNIX = "Linux/UNIX"
+      LINUX_UNIX = "Linux/UNIX"
 
       # No documentation available.
-      Linux_UNIX_Amazon_VPC_ = "Linux/UNIX (Amazon VPC)"
+      LINUX_UNIX_AMAZON_VPC_ = "Linux/UNIX (Amazon VPC)"
 
       # No documentation available.
-      Windows = "Windows"
+      WINDOWS = "Windows"
 
       # No documentation available.
-      Windows_Amazon_VPC_ = "Windows (Amazon VPC)"
+      WINDOWS_AMAZON_VPC_ = "Windows (Amazon VPC)"
     end
 
     # @!method initialize(params = {})
@@ -59736,7 +59736,7 @@ module AWS::SDK::EC2
     # Includes enum constants for RecurringChargeFrequency
     module RecurringChargeFrequency
       # No documentation available.
-      Hourly = "Hourly"
+      HOURLY = "Hourly"
     end
 
     # <p> Describes the security group that is referenced in the security group rule.</p>
@@ -60661,22 +60661,22 @@ module AWS::SDK::EC2
     # Includes enum constants for ReplaceRootVolumeTaskState
     module ReplaceRootVolumeTaskState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      in_progress = "in-progress"
+      IN_PROGRESS = "in-progress"
 
       # No documentation available.
-      failing = "failing"
+      FAILING = "failing"
 
       # No documentation available.
-      succeeded = "succeeded"
+      SUCCEEDED = "succeeded"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      failed_detached = "failed-detached"
+      FAILED_DETACHED = "failed-detached"
     end
 
     # @!method initialize(params = {})
@@ -60929,31 +60929,31 @@ module AWS::SDK::EC2
     # Includes enum constants for ReportInstanceReasonCodes
     module ReportInstanceReasonCodes
       # No documentation available.
-      instance_stuck_in_state = "instance-stuck-in-state"
+      INSTANCE_STUCK_IN_STATE = "instance-stuck-in-state"
 
       # No documentation available.
-      unresponsive = "unresponsive"
+      UNRESPONSIVE = "unresponsive"
 
       # No documentation available.
-      not_accepting_credentials = "not-accepting-credentials"
+      NOT_ACCEPTING_CREDENTIALS = "not-accepting-credentials"
 
       # No documentation available.
-      password_not_available = "password-not-available"
+      PASSWORD_NOT_AVAILABLE = "password-not-available"
 
       # No documentation available.
-      performance_network = "performance-network"
+      PERFORMANCE_NETWORK = "performance-network"
 
       # No documentation available.
-      performance_instance_store = "performance-instance-store"
+      PERFORMANCE_INSTANCE_STORE = "performance-instance-store"
 
       # No documentation available.
-      performance_ebs_volume = "performance-ebs-volume"
+      PERFORMANCE_EBS_VOLUME = "performance-ebs-volume"
 
       # No documentation available.
-      performance_other = "performance-other"
+      PERFORMANCE_OTHER = "performance-other"
 
       # No documentation available.
-      other = "other"
+      OTHER = "other"
     end
 
     # @!method initialize(params = {})
@@ -61058,10 +61058,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ReportStatusType
     module ReportStatusType
       # No documentation available.
-      ok = "ok"
+      OK = "ok"
 
       # No documentation available.
-      impaired = "impaired"
+      IMPAIRED = "impaired"
     end
 
     # <p>Describes a port range.</p>
@@ -61910,22 +61910,22 @@ module AWS::SDK::EC2
     # Includes enum constants for ReservedInstanceState
     module ReservedInstanceState
       # No documentation available.
-      payment_pending = "payment-pending"
+      PAYMENT_PENDING = "payment-pending"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      payment_failed = "payment-failed"
+      PAYMENT_FAILED = "payment-failed"
 
       # No documentation available.
-      retired = "retired"
+      RETIRED = "retired"
 
       # No documentation available.
-      queued = "queued"
+      QUEUED = "queued"
 
       # No documentation available.
-      queued_deleted = "queued-deleted"
+      QUEUED_DELETED = "queued-deleted"
     end
 
     # <p>Describes a Reserved Instance.</p>
@@ -62418,7 +62418,7 @@ module AWS::SDK::EC2
     # Includes enum constants for ResetFpgaImageAttributeName
     module ResetFpgaImageAttributeName
       # No documentation available.
-      loadPermission = "loadPermission"
+      LOAD_PERMISSION = "loadPermission"
     end
 
     # @!method initialize(params = {})
@@ -62464,7 +62464,7 @@ module AWS::SDK::EC2
     # Includes enum constants for ResetImageAttributeName
     module ResetImageAttributeName
       # No documentation available.
-      launchPermission = "launchPermission"
+      LAUNCH_PERMISSION = "launchPermission"
     end
 
     # @!method initialize(params = {})
@@ -62627,262 +62627,262 @@ module AWS::SDK::EC2
     # Includes enum constants for ResourceType
     module ResourceType
       # No documentation available.
-      capacity_reservation = "capacity-reservation"
+      CAPACITY_RESERVATION = "capacity-reservation"
 
       # No documentation available.
-      client_vpn_endpoint = "client-vpn-endpoint"
+      CLIENT_VPN_ENDPOINT = "client-vpn-endpoint"
 
       # No documentation available.
-      customer_gateway = "customer-gateway"
+      CUSTOMER_GATEWAY = "customer-gateway"
 
       # No documentation available.
-      carrier_gateway = "carrier-gateway"
+      CARRIER_GATEWAY = "carrier-gateway"
 
       # No documentation available.
-      coip_pool = "coip-pool"
+      COIP_POOL = "coip-pool"
 
       # No documentation available.
-      dedicated_host = "dedicated-host"
+      DEDICATED_HOST = "dedicated-host"
 
       # No documentation available.
-      dhcp_options = "dhcp-options"
+      DHCP_OPTIONS = "dhcp-options"
 
       # No documentation available.
-      egress_only_internet_gateway = "egress-only-internet-gateway"
+      EGRESS_ONLY_INTERNET_GATEWAY = "egress-only-internet-gateway"
 
       # No documentation available.
-      elastic_ip = "elastic-ip"
+      ELASTIC_IP = "elastic-ip"
 
       # No documentation available.
-      elastic_gpu = "elastic-gpu"
+      ELASTIC_GPU = "elastic-gpu"
 
       # No documentation available.
-      export_image_task = "export-image-task"
+      EXPORT_IMAGE_TASK = "export-image-task"
 
       # No documentation available.
-      export_instance_task = "export-instance-task"
+      EXPORT_INSTANCE_TASK = "export-instance-task"
 
       # No documentation available.
-      fleet = "fleet"
+      FLEET = "fleet"
 
       # No documentation available.
-      fpga_image = "fpga-image"
+      FPGA_IMAGE = "fpga-image"
 
       # No documentation available.
-      host_reservation = "host-reservation"
+      HOST_RESERVATION = "host-reservation"
 
       # No documentation available.
-      image = "image"
+      IMAGE = "image"
 
       # No documentation available.
-      import_image_task = "import-image-task"
+      IMPORT_IMAGE_TASK = "import-image-task"
 
       # No documentation available.
-      import_snapshot_task = "import-snapshot-task"
+      IMPORT_SNAPSHOT_TASK = "import-snapshot-task"
 
       # No documentation available.
-      instance = "instance"
+      INSTANCE = "instance"
 
       # No documentation available.
-      instance_event_window = "instance-event-window"
+      INSTANCE_EVENT_WINDOW = "instance-event-window"
 
       # No documentation available.
-      internet_gateway = "internet-gateway"
+      INTERNET_GATEWAY = "internet-gateway"
 
       # No documentation available.
-      ipam = "ipam"
+      IPAM = "ipam"
 
       # No documentation available.
-      ipam_pool = "ipam-pool"
+      IPAM_POOL = "ipam-pool"
 
       # No documentation available.
-      ipam_scope = "ipam-scope"
+      IPAM_SCOPE = "ipam-scope"
 
       # No documentation available.
-      ipv4pool_ec2 = "ipv4pool-ec2"
+      IPV4POOL_EC2 = "ipv4pool-ec2"
 
       # No documentation available.
-      ipv6pool_ec2 = "ipv6pool-ec2"
+      IPV6POOL_EC2 = "ipv6pool-ec2"
 
       # No documentation available.
-      key_pair = "key-pair"
+      KEY_PAIR = "key-pair"
 
       # No documentation available.
-      launch_template = "launch-template"
+      LAUNCH_TEMPLATE = "launch-template"
 
       # No documentation available.
-      local_gateway = "local-gateway"
+      LOCAL_GATEWAY = "local-gateway"
 
       # No documentation available.
-      local_gateway_route_table = "local-gateway-route-table"
+      LOCAL_GATEWAY_ROUTE_TABLE = "local-gateway-route-table"
 
       # No documentation available.
-      local_gateway_virtual_interface = "local-gateway-virtual-interface"
+      LOCAL_GATEWAY_VIRTUAL_INTERFACE = "local-gateway-virtual-interface"
 
       # No documentation available.
-      local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group"
+      LOCAL_GATEWAY_VIRTUAL_INTERFACE_GROUP = "local-gateway-virtual-interface-group"
 
       # No documentation available.
-      local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association"
+      LOCAL_GATEWAY_ROUTE_TABLE_VPC_ASSOCIATION = "local-gateway-route-table-vpc-association"
 
       # No documentation available.
-      local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association"
+      LOCAL_GATEWAY_ROUTE_TABLE_VIRTUAL_INTERFACE_GROUP_ASSOCIATION = "local-gateway-route-table-virtual-interface-group-association"
 
       # No documentation available.
-      natgateway = "natgateway"
+      NATGATEWAY = "natgateway"
 
       # No documentation available.
-      network_acl = "network-acl"
+      NETWORK_ACL = "network-acl"
 
       # No documentation available.
-      network_interface = "network-interface"
+      NETWORK_INTERFACE = "network-interface"
 
       # No documentation available.
-      network_insights_analysis = "network-insights-analysis"
+      NETWORK_INSIGHTS_ANALYSIS = "network-insights-analysis"
 
       # No documentation available.
-      network_insights_path = "network-insights-path"
+      NETWORK_INSIGHTS_PATH = "network-insights-path"
 
       # No documentation available.
-      network_insights_access_scope = "network-insights-access-scope"
+      NETWORK_INSIGHTS_ACCESS_SCOPE = "network-insights-access-scope"
 
       # No documentation available.
-      network_insights_access_scope_analysis = "network-insights-access-scope-analysis"
+      NETWORK_INSIGHTS_ACCESS_SCOPE_ANALYSIS = "network-insights-access-scope-analysis"
 
       # No documentation available.
-      placement_group = "placement-group"
+      PLACEMENT_GROUP = "placement-group"
 
       # No documentation available.
-      prefix_list = "prefix-list"
+      PREFIX_LIST = "prefix-list"
 
       # No documentation available.
-      replace_root_volume_task = "replace-root-volume-task"
+      REPLACE_ROOT_VOLUME_TASK = "replace-root-volume-task"
 
       # No documentation available.
-      reserved_instances = "reserved-instances"
+      RESERVED_INSTANCES = "reserved-instances"
 
       # No documentation available.
-      route_table = "route-table"
+      ROUTE_TABLE = "route-table"
 
       # No documentation available.
-      security_group = "security-group"
+      SECURITY_GROUP = "security-group"
 
       # No documentation available.
-      security_group_rule = "security-group-rule"
+      SECURITY_GROUP_RULE = "security-group-rule"
 
       # No documentation available.
-      snapshot = "snapshot"
+      SNAPSHOT = "snapshot"
 
       # No documentation available.
-      spot_fleet_request = "spot-fleet-request"
+      SPOT_FLEET_REQUEST = "spot-fleet-request"
 
       # No documentation available.
-      spot_instances_request = "spot-instances-request"
+      SPOT_INSTANCES_REQUEST = "spot-instances-request"
 
       # No documentation available.
-      subnet = "subnet"
+      SUBNET = "subnet"
 
       # No documentation available.
-      subnet_cidr_reservation = "subnet-cidr-reservation"
+      SUBNET_CIDR_RESERVATION = "subnet-cidr-reservation"
 
       # No documentation available.
-      traffic_mirror_filter = "traffic-mirror-filter"
+      TRAFFIC_MIRROR_FILTER = "traffic-mirror-filter"
 
       # No documentation available.
-      traffic_mirror_session = "traffic-mirror-session"
+      TRAFFIC_MIRROR_SESSION = "traffic-mirror-session"
 
       # No documentation available.
-      traffic_mirror_target = "traffic-mirror-target"
+      TRAFFIC_MIRROR_TARGET = "traffic-mirror-target"
 
       # No documentation available.
-      transit_gateway = "transit-gateway"
+      TRANSIT_GATEWAY = "transit-gateway"
 
       # No documentation available.
-      transit_gateway_attachment = "transit-gateway-attachment"
+      TRANSIT_GATEWAY_ATTACHMENT = "transit-gateway-attachment"
 
       # No documentation available.
-      transit_gateway_connect_peer = "transit-gateway-connect-peer"
+      TRANSIT_GATEWAY_CONNECT_PEER = "transit-gateway-connect-peer"
 
       # No documentation available.
-      transit_gateway_multicast_domain = "transit-gateway-multicast-domain"
+      TRANSIT_GATEWAY_MULTICAST_DOMAIN = "transit-gateway-multicast-domain"
 
       # No documentation available.
-      transit_gateway_policy_table = "transit-gateway-policy-table"
+      TRANSIT_GATEWAY_POLICY_TABLE = "transit-gateway-policy-table"
 
       # No documentation available.
-      transit_gateway_route_table = "transit-gateway-route-table"
+      TRANSIT_GATEWAY_ROUTE_TABLE = "transit-gateway-route-table"
 
       # No documentation available.
-      transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement"
+      TRANSIT_GATEWAY_ROUTE_TABLE_ANNOUNCEMENT = "transit-gateway-route-table-announcement"
 
       # No documentation available.
-      volume = "volume"
+      VOLUME = "volume"
 
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      vpc_endpoint = "vpc-endpoint"
+      VPC_ENDPOINT = "vpc-endpoint"
 
       # No documentation available.
-      vpc_endpoint_connection = "vpc-endpoint-connection"
+      VPC_ENDPOINT_CONNECTION = "vpc-endpoint-connection"
 
       # No documentation available.
-      vpc_endpoint_service = "vpc-endpoint-service"
+      VPC_ENDPOINT_SERVICE = "vpc-endpoint-service"
 
       # No documentation available.
-      vpc_endpoint_service_permission = "vpc-endpoint-service-permission"
+      VPC_ENDPOINT_SERVICE_PERMISSION = "vpc-endpoint-service-permission"
 
       # No documentation available.
-      vpc_peering_connection = "vpc-peering-connection"
+      VPC_PEERING_CONNECTION = "vpc-peering-connection"
 
       # No documentation available.
-      vpn_connection = "vpn-connection"
+      VPN_CONNECTION = "vpn-connection"
 
       # No documentation available.
-      vpn_gateway = "vpn-gateway"
+      VPN_GATEWAY = "vpn-gateway"
 
       # No documentation available.
-      vpc_flow_log = "vpc-flow-log"
+      VPC_FLOW_LOG = "vpc-flow-log"
 
       # No documentation available.
-      capacity_reservation_fleet = "capacity-reservation-fleet"
+      CAPACITY_RESERVATION_FLEET = "capacity-reservation-fleet"
 
       # No documentation available.
-      traffic_mirror_filter_rule = "traffic-mirror-filter-rule"
+      TRAFFIC_MIRROR_FILTER_RULE = "traffic-mirror-filter-rule"
 
       # No documentation available.
-      vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type"
+      VPC_ENDPOINT_CONNECTION_DEVICE_TYPE = "vpc-endpoint-connection-device-type"
 
       # No documentation available.
-      verified_access_instance = "verified-access-instance"
+      VERIFIED_ACCESS_INSTANCE = "verified-access-instance"
 
       # No documentation available.
-      verified_access_group = "verified-access-group"
+      VERIFIED_ACCESS_GROUP = "verified-access-group"
 
       # No documentation available.
-      verified_access_endpoint = "verified-access-endpoint"
+      VERIFIED_ACCESS_ENDPOINT = "verified-access-endpoint"
 
       # No documentation available.
-      verified_access_policy = "verified-access-policy"
+      VERIFIED_ACCESS_POLICY = "verified-access-policy"
 
       # No documentation available.
-      verified_access_trust_provider = "verified-access-trust-provider"
+      VERIFIED_ACCESS_TRUST_PROVIDER = "verified-access-trust-provider"
 
       # No documentation available.
-      vpn_connection_device_type = "vpn-connection-device-type"
+      VPN_CONNECTION_DEVICE_TYPE = "vpn-connection-device-type"
 
       # No documentation available.
-      vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion"
+      VPC_BLOCK_PUBLIC_ACCESS_EXCLUSION = "vpc-block-public-access-exclusion"
 
       # No documentation available.
-      ipam_resource_discovery = "ipam-resource-discovery"
+      IPAM_RESOURCE_DISCOVERY = "ipam-resource-discovery"
 
       # No documentation available.
-      ipam_resource_discovery_association = "ipam-resource-discovery-association"
+      IPAM_RESOURCE_DISCOVERY_ASSOCIATION = "ipam-resource-discovery-association"
 
       # No documentation available.
-      instance_connect_endpoint = "instance-connect-endpoint"
+      INSTANCE_CONNECT_ENDPOINT = "instance-connect-endpoint"
     end
 
     # <p>Describes the error that's returned when you cannot delete a launch template
@@ -63648,10 +63648,10 @@ module AWS::SDK::EC2
     # Includes enum constants for RootDeviceType
     module RootDeviceType
       # No documentation available.
-      ebs = "ebs"
+      EBS = "ebs"
 
       # No documentation available.
-      instance_store = "instance-store"
+      INSTANCE_STORE = "instance-store"
     end
 
     # <p>Describes a route in a route table.</p>
@@ -63764,22 +63764,22 @@ module AWS::SDK::EC2
     # Includes enum constants for RouteOrigin
     module RouteOrigin
       # No documentation available.
-      CreateRouteTable = "CreateRouteTable"
+      CREATE_ROUTE_TABLE = "CreateRouteTable"
 
       # No documentation available.
-      CreateRoute = "CreateRoute"
+      CREATE_ROUTE = "CreateRoute"
 
       # No documentation available.
-      EnableVgwRoutePropagation = "EnableVgwRoutePropagation"
+      ENABLE_VGW_ROUTE_PROPAGATION = "EnableVgwRoutePropagation"
     end
 
     # Includes enum constants for RouteState
     module RouteState
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      blackhole = "blackhole"
+      BLACKHOLE = "blackhole"
     end
 
     # <p>Describes a route table.</p>
@@ -63888,28 +63888,28 @@ module AWS::SDK::EC2
     # Includes enum constants for RouteTableAssociationStateCode
     module RouteTableAssociationStateCode
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # Includes enum constants for RuleAction
     module RuleAction
       # No documentation available.
-      allow = "allow"
+      ALLOW = "allow"
 
       # No documentation available.
-      deny = "deny"
+      DENY = "deny"
     end
 
     # <p>Describes the rule options for a stateful rule group.</p>
@@ -64580,13 +64580,13 @@ module AWS::SDK::EC2
     # Includes enum constants for SSEType
     module SSEType
       # No documentation available.
-      sse_ebs = "sse-ebs"
+      SSE_EBS = "sse-ebs"
 
       # No documentation available.
-      sse_kms = "sse-kms"
+      SSE_KMS = "sse-kms"
 
       # No documentation available.
-      none = "none"
+      NONE = "none"
     end
 
     # <p>Describes a Scheduled Instance.</p>
@@ -65560,10 +65560,10 @@ module AWS::SDK::EC2
     # Includes enum constants for SecurityGroupReferencingSupportValue
     module SecurityGroupReferencingSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # <p>Describes a security group rule.</p>
@@ -65761,10 +65761,10 @@ module AWS::SDK::EC2
     # Includes enum constants for SelfServicePortal
     module SelfServicePortal
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # @!method initialize(params = {})
@@ -65886,10 +65886,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ServiceConnectivityType
     module ServiceConnectivityType
       # No documentation available.
-      ipv4 = "ipv4"
+      IPV4 = "ipv4"
 
       # No documentation available.
-      ipv6 = "ipv6"
+      IPV6 = "ipv6"
     end
 
     # <p>Describes a VPC endpoint service.</p>
@@ -65983,31 +65983,31 @@ module AWS::SDK::EC2
     # Includes enum constants for ServiceState
     module ServiceState
       # No documentation available.
-      Pending = "Pending"
+      PENDING = "Pending"
 
       # No documentation available.
-      Available = "Available"
+      AVAILABLE = "Available"
 
       # No documentation available.
-      Deleting = "Deleting"
+      DELETING = "Deleting"
 
       # No documentation available.
-      Deleted = "Deleted"
+      DELETED = "Deleted"
 
       # No documentation available.
-      Failed = "Failed"
+      FAILED = "Failed"
     end
 
     # Includes enum constants for ServiceType
     module ServiceType
       # No documentation available.
-      Interface = "Interface"
+      INTERFACE = "Interface"
 
       # No documentation available.
-      Gateway = "Gateway"
+      GATEWAY = "Gateway"
 
       # No documentation available.
-      GatewayLoadBalancer = "GatewayLoadBalancer"
+      GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     end
 
     # <p>Describes the type of service for a VPC endpoint.</p>
@@ -66028,10 +66028,10 @@ module AWS::SDK::EC2
     # Includes enum constants for ShutdownBehavior
     module ShutdownBehavior
       # No documentation available.
-      stop = "stop"
+      STOP = "stop"
 
       # No documentation available.
-      terminate = "terminate"
+      TERMINATE = "terminate"
     end
 
     # <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
@@ -66193,22 +66193,22 @@ module AWS::SDK::EC2
     # Includes enum constants for SnapshotAttributeName
     module SnapshotAttributeName
       # No documentation available.
-      productCodes = "productCodes"
+      PRODUCT_CODES = "productCodes"
 
       # No documentation available.
-      createVolumePermission = "createVolumePermission"
+      CREATE_VOLUME_PERMISSION = "createVolumePermission"
     end
 
     # Includes enum constants for SnapshotBlockPublicAccessState
     module SnapshotBlockPublicAccessState
       # No documentation available.
-      block_all_sharing = "block-all-sharing"
+      BLOCK_ALL_SHARING = "block-all-sharing"
 
       # No documentation available.
-      block_new_sharing = "block-new-sharing"
+      BLOCK_NEW_SHARING = "block-new-sharing"
 
       # No documentation available.
-      unblocked = "unblocked"
+      UNBLOCKED = "unblocked"
     end
 
     # <p>Describes the snapshot created from the imported disk.</p>
@@ -66435,19 +66435,19 @@ module AWS::SDK::EC2
     # Includes enum constants for SnapshotState
     module SnapshotState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      completed = "completed"
+      COMPLETED = "completed"
 
       # No documentation available.
-      error = "error"
+      ERROR = "error"
 
       # No documentation available.
-      recoverable = "recoverable"
+      RECOVERABLE = "recoverable"
 
       # No documentation available.
-      recovering = "recovering"
+      RECOVERING = "recovering"
     end
 
     # <p>Details about the import snapshot task.</p>
@@ -67230,13 +67230,13 @@ module AWS::SDK::EC2
     # Includes enum constants for SpotInstanceInterruptionBehavior
     module SpotInstanceInterruptionBehavior
       # No documentation available.
-      hibernate = "hibernate"
+      HIBERNATE = "hibernate"
 
       # No documentation available.
-      stop = "stop"
+      STOP = "stop"
 
       # No documentation available.
-      terminate = "terminate"
+      TERMINATE = "terminate"
     end
 
     # <p>Describes a Spot Instance request.</p>
@@ -67371,22 +67371,22 @@ module AWS::SDK::EC2
     # Includes enum constants for SpotInstanceState
     module SpotInstanceState
       # No documentation available.
-      open = "open"
+      OPEN = "open"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      closed = "closed"
+      CLOSED = "closed"
 
       # No documentation available.
-      cancelled = "cancelled"
+      CANCELLED = "cancelled"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # <p>Describes a Spot Instance state change.</p>
@@ -67436,10 +67436,10 @@ module AWS::SDK::EC2
     # Includes enum constants for SpotInstanceType
     module SpotInstanceType
       # No documentation available.
-      one_time = "one-time"
+      ONE_TIME = "one-time"
 
       # No documentation available.
-      persistent = "persistent"
+      PERSISTENT = "persistent"
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -67894,10 +67894,10 @@ module AWS::SDK::EC2
     # Includes enum constants for SpreadLevel
     module SpreadLevel
       # No documentation available.
-      host = "host"
+      HOST = "host"
 
       # No documentation available.
-      rack = "rack"
+      RACK = "rack"
     end
 
     # <p>Describes a stale rule in a security group.</p>
@@ -68152,28 +68152,28 @@ module AWS::SDK::EC2
     # Includes enum constants for State
     module State
       # No documentation available.
-      PendingAcceptance = "PendingAcceptance"
+      PENDING_ACCEPTANCE = "PendingAcceptance"
 
       # No documentation available.
-      Pending = "Pending"
+      PENDING = "Pending"
 
       # No documentation available.
-      Available = "Available"
+      AVAILABLE = "Available"
 
       # No documentation available.
-      Deleting = "Deleting"
+      DELETING = "Deleting"
 
       # No documentation available.
-      Deleted = "Deleted"
+      DELETED = "Deleted"
 
       # No documentation available.
-      Rejected = "Rejected"
+      REJECTED = "Rejected"
 
       # No documentation available.
-      Failed = "Failed"
+      FAILED = "Failed"
 
       # No documentation available.
-      Expired = "Expired"
+      EXPIRED = "Expired"
     end
 
     # <p>Describes a state change.</p>
@@ -68265,49 +68265,49 @@ module AWS::SDK::EC2
     # Includes enum constants for StaticSourcesSupportValue
     module StaticSourcesSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # Includes enum constants for StatisticType
     module StatisticType
       # No documentation available.
-      p50 = "p50"
+      P50 = "p50"
     end
 
     # Includes enum constants for Status
     module Status
       # No documentation available.
-      moveInProgress = "MoveInProgress"
+      MOVE_IN_PROGRESS = "MoveInProgress"
 
       # No documentation available.
-      inVpc = "InVpc"
+      IN_VPC = "InVpc"
 
       # No documentation available.
-      inClassic = "InClassic"
+      IN_CLASSIC = "InClassic"
     end
 
     # Includes enum constants for StatusName
     module StatusName
       # No documentation available.
-      reachability = "reachability"
+      REACHABILITY = "reachability"
     end
 
     # Includes enum constants for StatusType
     module StatusType
       # No documentation available.
-      passed = "passed"
+      PASSED = "passed"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      insufficient_data = "insufficient-data"
+      INSUFFICIENT_DATA = "insufficient-data"
 
       # No documentation available.
-      initializing = "initializing"
+      INITIALIZING = "initializing"
     end
 
     # @!method initialize(params = {})
@@ -68399,10 +68399,10 @@ module AWS::SDK::EC2
     # Includes enum constants for StorageTier
     module StorageTier
       # No documentation available.
-      archive = "archive"
+      ARCHIVE = "archive"
 
       # No documentation available.
-      standard = "standard"
+      STANDARD = "standard"
     end
 
     # <p>The information about the AMI store task, including the progress of the task.</p>
@@ -68620,22 +68620,22 @@ module AWS::SDK::EC2
     # Includes enum constants for SubnetCidrBlockStateCode
     module SubnetCidrBlockStateCode
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
 
       # No documentation available.
-      failing = "failing"
+      FAILING = "failing"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # <p>Describes a subnet CIDR reservation.</p>
@@ -68686,10 +68686,10 @@ module AWS::SDK::EC2
     # Includes enum constants for SubnetCidrReservationType
     module SubnetCidrReservationType
       # No documentation available.
-      prefix = "prefix"
+      PREFIX = "prefix"
 
       # No documentation available.
-      explicit = "explicit"
+      EXPLICIT = "explicit"
     end
 
     # <p>Describes the configuration of a subnet for a VPC endpoint.</p>
@@ -68751,13 +68751,13 @@ module AWS::SDK::EC2
     # Includes enum constants for SubnetState
     module SubnetState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      unavailable = "unavailable"
+      UNAVAILABLE = "unavailable"
     end
 
     # <p>Describes an Infrastructure Performance subscription.</p>
@@ -68829,19 +68829,19 @@ module AWS::SDK::EC2
     # Includes enum constants for SummaryStatus
     module SummaryStatus
       # No documentation available.
-      ok = "ok"
+      OK = "ok"
 
       # No documentation available.
-      impaired = "impaired"
+      IMPAIRED = "impaired"
 
       # No documentation available.
-      insufficient_data = "insufficient-data"
+      INSUFFICIENT_DATA = "insufficient-data"
 
       # No documentation available.
-      not_applicable = "not-applicable"
+      NOT_APPLICABLE = "not-applicable"
 
       # No documentation available.
-      initializing = "initializing"
+      INITIALIZING = "initializing"
     end
 
     # Includes enum constants for SupportedAdditionalProcessorFeature
@@ -69168,7 +69168,7 @@ module AWS::SDK::EC2
     # Includes enum constants for TargetStorageTier
     module TargetStorageTier
       # No documentation available.
-      archive = "archive"
+      ARCHIVE = "archive"
     end
 
     # Includes enum constants for TelemetryStatus
@@ -69183,13 +69183,13 @@ module AWS::SDK::EC2
     # Includes enum constants for Tenancy
     module Tenancy
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
 
       # No documentation available.
-      dedicated = "dedicated"
+      DEDICATED = "dedicated"
 
       # No documentation available.
-      host = "host"
+      HOST = "host"
     end
 
     # @!method initialize(params = {})
@@ -69334,31 +69334,31 @@ module AWS::SDK::EC2
     # Includes enum constants for TieringOperationStatus
     module TieringOperationStatus
       # No documentation available.
-      archival_in_progress = "archival-in-progress"
+      ARCHIVAL_IN_PROGRESS = "archival-in-progress"
 
       # No documentation available.
-      archival_completed = "archival-completed"
+      ARCHIVAL_COMPLETED = "archival-completed"
 
       # No documentation available.
-      archival_failed = "archival-failed"
+      ARCHIVAL_FAILED = "archival-failed"
 
       # No documentation available.
-      temporary_restore_in_progress = "temporary-restore-in-progress"
+      TEMPORARY_RESTORE_IN_PROGRESS = "temporary-restore-in-progress"
 
       # No documentation available.
-      temporary_restore_completed = "temporary-restore-completed"
+      TEMPORARY_RESTORE_COMPLETED = "temporary-restore-completed"
 
       # No documentation available.
-      temporary_restore_failed = "temporary-restore-failed"
+      TEMPORARY_RESTORE_FAILED = "temporary-restore-failed"
 
       # No documentation available.
-      permanent_restore_in_progress = "permanent-restore-in-progress"
+      PERMANENT_RESTORE_IN_PROGRESS = "permanent-restore-in-progress"
 
       # No documentation available.
-      permanent_restore_completed = "permanent-restore-completed"
+      PERMANENT_RESTORE_COMPLETED = "permanent-restore-completed"
 
       # No documentation available.
-      permanent_restore_failed = "permanent-restore-failed"
+      PERMANENT_RESTORE_FAILED = "permanent-restore-failed"
     end
 
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -69406,16 +69406,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TpmSupportValues
     module TpmSupportValues
       # No documentation available.
-      v2_0 = "v2.0"
+      V2_0 = "v2.0"
     end
 
     # Includes enum constants for TrafficDirection
     module TrafficDirection
       # No documentation available.
-      ingress = "ingress"
+      INGRESS = "ingress"
 
       # No documentation available.
-      egress = "egress"
+      EGRESS = "egress"
     end
 
     # <p>Describes the Traffic Mirror filter.</p>
@@ -69526,22 +69526,22 @@ module AWS::SDK::EC2
     # Includes enum constants for TrafficMirrorFilterRuleField
     module TrafficMirrorFilterRuleField
       # No documentation available.
-      destination_port_range = "destination-port-range"
+      DESTINATION_PORT_RANGE = "destination-port-range"
 
       # No documentation available.
-      source_port_range = "source-port-range"
+      SOURCE_PORT_RANGE = "source-port-range"
 
       # No documentation available.
-      protocol = "protocol"
+      PROTOCOL = "protocol"
 
       # No documentation available.
-      description = "description"
+      DESCRIPTION = "description"
     end
 
     # Includes enum constants for TrafficMirrorNetworkService
     module TrafficMirrorNetworkService
       # No documentation available.
-      amazon_dns = "amazon-dns"
+      AMAZON_DNS = "amazon-dns"
     end
 
     # <p>Describes the Traffic Mirror port range.</p>
@@ -69585,10 +69585,10 @@ module AWS::SDK::EC2
     # Includes enum constants for TrafficMirrorRuleAction
     module TrafficMirrorRuleAction
       # No documentation available.
-      accept = "accept"
+      ACCEPT = "accept"
 
       # No documentation available.
-      reject = "reject"
+      REJECT = "reject"
     end
 
     # <p>Describes a Traffic Mirror session.</p>
@@ -69654,13 +69654,13 @@ module AWS::SDK::EC2
     # Includes enum constants for TrafficMirrorSessionField
     module TrafficMirrorSessionField
       # No documentation available.
-      packet_length = "packet-length"
+      PACKET_LENGTH = "packet-length"
 
       # No documentation available.
-      description = "description"
+      DESCRIPTION = "description"
 
       # No documentation available.
-      virtual_network_id = "virtual-network-id"
+      VIRTUAL_NETWORK_ID = "virtual-network-id"
     end
 
     # <p>Describes a Traffic Mirror target.</p>
@@ -69716,13 +69716,13 @@ module AWS::SDK::EC2
     # Includes enum constants for TrafficMirrorTargetType
     module TrafficMirrorTargetType
       # No documentation available.
-      network_interface = "network-interface"
+      NETWORK_INTERFACE = "network-interface"
 
       # No documentation available.
-      network_load_balancer = "network-load-balancer"
+      NETWORK_LOAD_BALANCER = "network-load-balancer"
 
       # No documentation available.
-      gateway_load_balancer_endpoint = "gateway-load-balancer-endpoint"
+      GATEWAY_LOAD_BALANCER_ENDPOINT = "gateway-load-balancer-endpoint"
     end
 
     # Includes enum constants for TrafficType
@@ -69826,16 +69826,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayAssociationState
     module TransitGatewayAssociationState
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
     end
 
     # <p>Describes an attachment between a resource and a transit gateway.</p>
@@ -69977,64 +69977,64 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayAttachmentResourceType
     module TransitGatewayAttachmentResourceType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
 
       # No documentation available.
-      vpn = "vpn"
+      VPN = "vpn"
 
       # No documentation available.
-      direct_connect_gateway = "direct-connect-gateway"
+      DIRECT_CONNECT_GATEWAY = "direct-connect-gateway"
 
       # No documentation available.
-      connect = "connect"
+      CONNECT = "connect"
 
       # No documentation available.
-      peering = "peering"
+      PEERING = "peering"
 
       # No documentation available.
-      tgw_peering = "tgw-peering"
+      TGW_PEERING = "tgw-peering"
     end
 
     # Includes enum constants for TransitGatewayAttachmentState
     module TransitGatewayAttachmentState
       # No documentation available.
-      initiating = "initiating"
+      INITIATING = "initiating"
 
       # No documentation available.
-      initiatingRequest = "initiatingRequest"
+      INITIATING_REQUEST = "initiatingRequest"
 
       # No documentation available.
-      pendingAcceptance = "pendingAcceptance"
+      PENDING_ACCEPTANCE = "pendingAcceptance"
 
       # No documentation available.
-      rollingBack = "rollingBack"
+      ROLLING_BACK = "rollingBack"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      modifying = "modifying"
+      MODIFYING = "modifying"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      rejected = "rejected"
+      REJECTED = "rejected"
 
       # No documentation available.
-      rejecting = "rejecting"
+      REJECTING = "rejecting"
 
       # No documentation available.
-      failing = "failing"
+      FAILING = "failing"
     end
 
     # <p>Describes a transit gateway Connect attachment.</p>
@@ -70175,16 +70175,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayConnectPeerState
     module TransitGatewayConnectPeerState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>The BGP options for the Connect attachment.</p>
@@ -70204,25 +70204,25 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayMulitcastDomainAssociationState
     module TransitGatewayMulitcastDomainAssociationState
       # No documentation available.
-      pendingAcceptance = "pendingAcceptance"
+      PENDING_ACCEPTANCE = "pendingAcceptance"
 
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
 
       # No documentation available.
-      rejected = "rejected"
+      REJECTED = "rejected"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # <p>Describes the deregistered  transit gateway multicast group members.</p>
@@ -70428,16 +70428,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayMulticastDomainState
     module TransitGatewayMulticastDomainState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes the  transit gateway multicast group resources.</p>
@@ -70854,16 +70854,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayPolicyTableState
     module TransitGatewayPolicyTableState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes a transit gateway prefix list attachment.</p>
@@ -70934,16 +70934,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayPrefixListReferenceState
     module TransitGatewayPrefixListReferenceState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      modifying = "modifying"
+      MODIFYING = "modifying"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
     end
 
     # <p>Describes route propagation.</p>
@@ -70990,16 +70990,16 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayPropagationState
     module TransitGatewayPropagationState
       # No documentation available.
-      enabling = "enabling"
+      ENABLING = "enabling"
 
       # No documentation available.
-      enabled = "enabled"
+      ENABLED = "enabled"
 
       # No documentation available.
-      disabling = "disabling"
+      DISABLING = "disabling"
 
       # No documentation available.
-      disabled = "disabled"
+      DISABLED = "disabled"
     end
 
     # <p>Describes the options for a transit gateway.</p>
@@ -71134,19 +71134,19 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayRouteState
     module TransitGatewayRouteState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      blackhole = "blackhole"
+      BLACKHOLE = "blackhole"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes a transit gateway route table.</p>
@@ -71263,31 +71263,31 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayRouteTableAnnouncementDirection
     module TransitGatewayRouteTableAnnouncementDirection
       # No documentation available.
-      outgoing = "outgoing"
+      OUTGOING = "outgoing"
 
       # No documentation available.
-      incoming = "incoming"
+      INCOMING = "incoming"
     end
 
     # Includes enum constants for TransitGatewayRouteTableAnnouncementState
     module TransitGatewayRouteTableAnnouncementState
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      failing = "failing"
+      FAILING = "failing"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes an association between a route table and a resource attachment.</p>
@@ -71412,43 +71412,43 @@ module AWS::SDK::EC2
     # Includes enum constants for TransitGatewayRouteTableState
     module TransitGatewayRouteTableState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # Includes enum constants for TransitGatewayRouteType
     module TransitGatewayRouteType
       # No documentation available.
-      static = "static"
+      STATIC = "static"
 
       # No documentation available.
-      propagated = "propagated"
+      PROPAGATED = "propagated"
     end
 
     # Includes enum constants for TransitGatewayState
     module TransitGatewayState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      modifying = "modifying"
+      MODIFYING = "modifying"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes a VPC attachment.</p>
@@ -71542,10 +71542,10 @@ module AWS::SDK::EC2
     # Includes enum constants for TransportProtocol
     module TransportProtocol
       # No documentation available.
-      tcp = "tcp"
+      TCP = "tcp"
 
       # No documentation available.
-      udp = "udp"
+      UDP = "udp"
     end
 
     # <p>Information about an association between a branch network interface with a trunk network interface.</p>
@@ -71596,19 +71596,19 @@ module AWS::SDK::EC2
     # Includes enum constants for TrustProviderType
     module TrustProviderType
       # No documentation available.
-      user = "user"
+      USER = "user"
 
       # No documentation available.
-      device = "device"
+      DEVICE = "device"
     end
 
     # Includes enum constants for TunnelInsideIpVersion
     module TunnelInsideIpVersion
       # No documentation available.
-      ipv4 = "ipv4"
+      IPV4 = "ipv4"
 
       # No documentation available.
-      ipv6 = "ipv6"
+      IPV6 = "ipv6"
     end
 
     # <p>The VPN tunnel options.</p>
@@ -71890,16 +71890,16 @@ module AWS::SDK::EC2
     # Includes enum constants for UnlimitedSupportedInstanceFamily
     module UnlimitedSupportedInstanceFamily
       # No documentation available.
-      t2 = "t2"
+      T2 = "t2"
 
       # No documentation available.
-      t3 = "t3"
+      T3 = "t3"
 
       # No documentation available.
-      t3a = "t3a"
+      T3A = "t3a"
 
       # No documentation available.
-      t4g = "t4g"
+      T4G = "t4g"
     end
 
     # @!method initialize(params = {})
@@ -72173,13 +72173,13 @@ module AWS::SDK::EC2
     # Includes enum constants for UsageClassType
     module UsageClassType
       # No documentation available.
-      spot = "spot"
+      SPOT = "spot"
 
       # No documentation available.
-      on_demand = "on-demand"
+      ON_DEMAND = "on-demand"
 
       # No documentation available.
-      capacity_block = "capacity-block"
+      CAPACITY_BLOCK = "capacity-block"
     end
 
     # <p>Describes the Amazon S3 bucket for the disk image.</p>
@@ -72297,10 +72297,10 @@ module AWS::SDK::EC2
     # Includes enum constants for UserTrustProviderType
     module UserTrustProviderType
       # No documentation available.
-      iam_identity_center = "iam-identity-center"
+      IAM_IDENTITY_CENTER = "iam-identity-center"
 
       # No documentation available.
-      oidc = "oidc"
+      OIDC = "oidc"
     end
 
     # <p>The minimum and maximum number of vCPUs.</p>
@@ -72531,7 +72531,7 @@ module AWS::SDK::EC2
     # Includes enum constants for VerifiedAccessEndpointAttachmentType
     module VerifiedAccessEndpointAttachmentType
       # No documentation available.
-      vpc = "vpc"
+      VPC = "vpc"
     end
 
     # <p>Options for a network-interface type endpoint.</p>
@@ -72593,10 +72593,10 @@ module AWS::SDK::EC2
     # Includes enum constants for VerifiedAccessEndpointProtocol
     module VerifiedAccessEndpointProtocol
       # No documentation available.
-      http = "http"
+      HTTP = "http"
 
       # No documentation available.
-      https = "https"
+      HTTPS = "https"
     end
 
     # <p>Describes the status of a Verified Access endpoint.</p>
@@ -72622,28 +72622,28 @@ module AWS::SDK::EC2
     # Includes enum constants for VerifiedAccessEndpointStatusCode
     module VerifiedAccessEndpointStatusCode
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      updating = "updating"
+      UPDATING = "updating"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # Includes enum constants for VerifiedAccessEndpointType
     module VerifiedAccessEndpointType
       # No documentation available.
-      load_balancer = "load-balancer"
+      LOAD_BALANCER = "load-balancer"
 
       # No documentation available.
-      network_interface = "network-interface"
+      NETWORK_INTERFACE = "network-interface"
     end
 
     # <p>Describes a Verified Access group.</p>
@@ -73217,10 +73217,10 @@ module AWS::SDK::EC2
     # Includes enum constants for VirtualizationType
     module VirtualizationType
       # No documentation available.
-      hvm = "hvm"
+      HVM = "hvm"
 
       # No documentation available.
-      paravirtual = "paravirtual"
+      PARAVIRTUAL = "paravirtual"
     end
 
     # <p>Describes a volume.</p>
@@ -73384,28 +73384,28 @@ module AWS::SDK::EC2
     # Includes enum constants for VolumeAttachmentState
     module VolumeAttachmentState
       # No documentation available.
-      attaching = "attaching"
+      ATTACHING = "attaching"
 
       # No documentation available.
-      attached = "attached"
+      ATTACHED = "attached"
 
       # No documentation available.
-      detaching = "detaching"
+      DETACHING = "detaching"
 
       # No documentation available.
-      detached = "detached"
+      DETACHED = "detached"
 
       # No documentation available.
-      busy = "busy"
+      BUSY = "busy"
     end
 
     # Includes enum constants for VolumeAttributeName
     module VolumeAttributeName
       # No documentation available.
-      autoEnableIO = "autoEnableIO"
+      AUTO_ENABLE_IO = "autoEnableIO"
 
       # No documentation available.
-      productCodes = "productCodes"
+      PRODUCT_CODES = "productCodes"
     end
 
     # <p>Describes an EBS volume.</p>
@@ -73519,37 +73519,37 @@ module AWS::SDK::EC2
     # Includes enum constants for VolumeModificationState
     module VolumeModificationState
       # No documentation available.
-      modifying = "modifying"
+      MODIFYING = "modifying"
 
       # No documentation available.
-      optimizing = "optimizing"
+      OPTIMIZING = "optimizing"
 
       # No documentation available.
-      completed = "completed"
+      COMPLETED = "completed"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # Includes enum constants for VolumeState
     module VolumeState
       # No documentation available.
-      creating = "creating"
+      CREATING = "creating"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      in_use = "in-use"
+      IN_USE = "in-use"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
 
       # No documentation available.
-      error = "error"
+      ERROR = "error"
     end
 
     # <p>Describes a volume status operation code.</p>
@@ -73682,13 +73682,13 @@ module AWS::SDK::EC2
     # Includes enum constants for VolumeStatusInfoStatus
     module VolumeStatusInfoStatus
       # No documentation available.
-      ok = "ok"
+      OK = "ok"
 
       # No documentation available.
-      impaired = "impaired"
+      IMPAIRED = "impaired"
 
       # No documentation available.
-      insufficient_data = "insufficient-data"
+      INSUFFICIENT_DATA = "insufficient-data"
     end
 
     # <p>Describes the volume status.</p>
@@ -73738,34 +73738,34 @@ module AWS::SDK::EC2
     # Includes enum constants for VolumeStatusName
     module VolumeStatusName
       # No documentation available.
-      io_enabled = "io-enabled"
+      IO_ENABLED = "io-enabled"
 
       # No documentation available.
-      io_performance = "io-performance"
+      IO_PERFORMANCE = "io-performance"
     end
 
     # Includes enum constants for VolumeType
     module VolumeType
       # No documentation available.
-      standard = "standard"
+      STANDARD = "standard"
 
       # No documentation available.
-      io1 = "io1"
+      IO1 = "io1"
 
       # No documentation available.
-      io2 = "io2"
+      IO2 = "io2"
 
       # No documentation available.
-      gp2 = "gp2"
+      GP2 = "gp2"
 
       # No documentation available.
-      sc1 = "sc1"
+      SC1 = "sc1"
 
       # No documentation available.
-      st1 = "st1"
+      ST1 = "st1"
 
       # No documentation available.
-      gp3 = "gp3"
+      GP3 = "gp3"
     end
 
     # <p>Describes a VPC.</p>
@@ -73852,13 +73852,13 @@ module AWS::SDK::EC2
     # Includes enum constants for VpcAttributeName
     module VpcAttributeName
       # No documentation available.
-      enableDnsSupport = "enableDnsSupport"
+      ENABLE_DNS_SUPPORT = "enableDnsSupport"
 
       # No documentation available.
-      enableDnsHostnames = "enableDnsHostnames"
+      ENABLE_DNS_HOSTNAMES = "enableDnsHostnames"
 
       # No documentation available.
-      enableNetworkAddressUsageMetrics = "enableNetworkAddressUsageMetrics"
+      ENABLE_NETWORK_ADDRESS_USAGE_METRICS = "enableNetworkAddressUsageMetrics"
     end
 
     # <p>Describes an IPv4 CIDR block associated with a VPC.</p>
@@ -73908,22 +73908,22 @@ module AWS::SDK::EC2
     # Includes enum constants for VpcCidrBlockStateCode
     module VpcCidrBlockStateCode
       # No documentation available.
-      associating = "associating"
+      ASSOCIATING = "associating"
 
       # No documentation available.
-      associated = "associated"
+      ASSOCIATED = "associated"
 
       # No documentation available.
-      disassociating = "disassociating"
+      DISASSOCIATING = "disassociating"
 
       # No documentation available.
-      disassociated = "disassociated"
+      DISASSOCIATED = "disassociated"
 
       # No documentation available.
-      failing = "failing"
+      FAILING = "failing"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
     end
 
     # <note>
@@ -74130,13 +74130,13 @@ module AWS::SDK::EC2
     # Includes enum constants for VpcEndpointType
     module VpcEndpointType
       # No documentation available.
-      Interface = "Interface"
+      INTERFACE = "Interface"
 
       # No documentation available.
-      Gateway = "Gateway"
+      GATEWAY = "Gateway"
 
       # No documentation available.
-      GatewayLoadBalancer = "GatewayLoadBalancer"
+      GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     end
 
     # <p>Describes an IPv6 CIDR block associated with a VPC.</p>
@@ -74261,31 +74261,31 @@ module AWS::SDK::EC2
     # Includes enum constants for VpcPeeringConnectionStateReasonCode
     module VpcPeeringConnectionStateReasonCode
       # No documentation available.
-      initiating_request = "initiating-request"
+      INITIATING_REQUEST = "initiating-request"
 
       # No documentation available.
-      pending_acceptance = "pending-acceptance"
+      PENDING_ACCEPTANCE = "pending-acceptance"
 
       # No documentation available.
-      active = "active"
+      ACTIVE = "active"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
 
       # No documentation available.
-      rejected = "rejected"
+      REJECTED = "rejected"
 
       # No documentation available.
-      failed = "failed"
+      FAILED = "failed"
 
       # No documentation available.
-      expired = "expired"
+      EXPIRED = "expired"
 
       # No documentation available.
-      provisioning = "provisioning"
+      PROVISIONING = "provisioning"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
     end
 
     # <p>Describes a VPC in a VPC peering connection.</p>
@@ -74335,16 +74335,16 @@ module AWS::SDK::EC2
     # Includes enum constants for VpcState
     module VpcState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
     end
 
     # Includes enum constants for VpcTenancy
     module VpcTenancy
       # No documentation available.
-      default = "default"
+      DEFAULT = "default"
     end
 
     # <p>Describes a VPN connection.</p>
@@ -74639,10 +74639,10 @@ module AWS::SDK::EC2
     # Includes enum constants for VpnEcmpSupportValue
     module VpnEcmpSupportValue
       # No documentation available.
-      enable = "enable"
+      ENABLE = "enable"
 
       # No documentation available.
-      disable = "disable"
+      DISABLE = "disable"
     end
 
     # <p>Describes a virtual private gateway.</p>
@@ -74696,22 +74696,22 @@ module AWS::SDK::EC2
     # Includes enum constants for VpnProtocol
     module VpnProtocol
       # No documentation available.
-      openvpn = "openvpn"
+      OPENVPN = "openvpn"
     end
 
     # Includes enum constants for VpnState
     module VpnState
       # No documentation available.
-      pending = "pending"
+      PENDING = "pending"
 
       # No documentation available.
-      available = "available"
+      AVAILABLE = "available"
 
       # No documentation available.
-      deleting = "deleting"
+      DELETING = "deleting"
 
       # No documentation available.
-      deleted = "deleted"
+      DELETED = "deleted"
     end
 
     # <p>Describes a static route for a VPN connection.</p>
@@ -74743,7 +74743,7 @@ module AWS::SDK::EC2
     # Includes enum constants for VpnStaticRouteSource
     module VpnStaticRouteSource
       # No documentation available.
-      Static = "Static"
+      STATIC = "Static"
     end
 
     # <p>Options for logging VPN tunnel activity.</p>
@@ -75020,25 +75020,25 @@ module AWS::SDK::EC2
     # Includes enum constants for WeekDay
     module WeekDay
       # No documentation available.
-      sunday = "sunday"
+      SUNDAY = "sunday"
 
       # No documentation available.
-      monday = "monday"
+      MONDAY = "monday"
 
       # No documentation available.
-      tuesday = "tuesday"
+      TUESDAY = "tuesday"
 
       # No documentation available.
-      wednesday = "wednesday"
+      WEDNESDAY = "wednesday"
 
       # No documentation available.
-      thursday = "thursday"
+      THURSDAY = "thursday"
 
       # No documentation available.
-      friday = "friday"
+      FRIDAY = "friday"
 
       # No documentation available.
-      saturday = "saturday"
+      SATURDAY = "saturday"
     end
 
     # @!method initialize(params = {})

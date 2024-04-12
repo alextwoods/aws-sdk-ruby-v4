@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/smithy-lang/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::STS
+  module Endpoint
+    class Params < ::Struct[untyped]
+      attr_accessor endpoint: ::String
+      attr_accessor use_dual_stack: bool
+      attr_accessor use_fips: bool
+      attr_accessor region: ::String
+      attr_accessor use_global_endpoint: bool
+    end
+
+    class Provider
+      def resolve: (Params params) -> Hearth::EndpointRules::Endpoint
+    end
+  end
+end

@@ -17,9 +17,9 @@ module AWS::SDK::SSO
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :get_role_credentials
           options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
         when :list_account_roles
@@ -28,7 +28,9 @@ module AWS::SDK::SSO
           options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
         when :logout
           options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
+        else nil
         end
+        options
       end
 
     end

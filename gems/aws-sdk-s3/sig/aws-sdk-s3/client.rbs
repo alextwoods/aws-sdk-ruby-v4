@@ -11,106 +11,1295 @@ module AWS::SDK::S3
   class Client
     include Hearth::ClientStubs
 
-    def self.plugins: () -> Hearth::PluginList
+    def self.plugins: () -> Hearth::PluginList[Config]
 
-    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?accelerate: bool,
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?disable_multi_region_access_points: bool,
+        ?disable_multiregion_access_points: bool,
+        ?disable_s3_express_session_auth: bool,
+        ?endpoint: String,
+        ?endpoint_provider: Hearth::_EndpointResolver[Endpoint::Params],
+        ?force_path_style: bool,
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?use_accelerate_endpoint: bool,
+        ?use_arn_region: bool,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
 
     attr_reader config: Config
 
-    def abort_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def complete_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def copy_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def create_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_lifecycle: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def delete_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_location: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_policy_status: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
-    def get_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_attributes: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_object_torrent: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
-    def get_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def head_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def head_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_bucket_analytics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_bucket_intelligent_tiering_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_bucket_inventory_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_bucket_metrics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_directory_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_multipart_uploads: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_object_versions: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_objects_v2: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_parts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def put_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def restore_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)?{ (::String) -> Hearth::BlockIO }-> Hearth::Output
-    def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def upload_part_copy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def write_get_object_response: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def abort_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AbortMultipartUploadOutput] |
+      (?Types::AbortMultipartUploadInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AbortMultipartUploadOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        upload_id: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::AbortMultipartUploadOutput]
+
+    def complete_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CompleteMultipartUploadOutput] |
+      (?Types::CompleteMultipartUploadInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CompleteMultipartUploadOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?multipart_upload: {
+          parts: ::Array[Types::CompletedPart]
+        },
+        upload_id: ::String,
+        ?checksum_crc32: ::String,
+        ?checksum_crc32_c: ::String,
+        ?checksum_sha1: ::String,
+        ?checksum_sha256: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String
+      ) -> Hearth::Output[Types::CompleteMultipartUploadOutput]
+
+    def copy_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CopyObjectOutput] |
+      (?Types::CopyObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CopyObjectOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
+        bucket: ::String,
+        ?cache_control: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?content_disposition: ::String,
+        ?content_encoding: ::String,
+        ?content_language: ::String,
+        ?content_type: ::String,
+        copy_source: ::String,
+        ?copy_source_if_match: ::String,
+        ?copy_source_if_modified_since: ::Time,
+        ?copy_source_if_none_match: ::String,
+        ?copy_source_if_unmodified_since: ::Time,
+        ?expires: ::Time,
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write_acp: ::String,
+        key: ::String,
+        ?metadata: ::Hash[::String, ::String],
+        ?metadata_directive: ("COPY" | "REPLACE"),
+        ?tagging_directive: ("COPY" | "REPLACE"),
+        ?server_side_encryption: ("AES256" | "aws:kms" | "aws:kms:dsse"),
+        ?storage_class: ("STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE"),
+        ?website_redirect_location: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?ssekms_key_id: ::String,
+        ?ssekms_encryption_context: ::String,
+        ?bucket_key_enabled: bool,
+        ?copy_source_sse_customer_algorithm: ::String,
+        ?copy_source_sse_customer_key: ::String,
+        ?copy_source_sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?tagging: ::String,
+        ?object_lock_mode: ("GOVERNANCE" | "COMPLIANCE"),
+        ?object_lock_retain_until_date: ::Time,
+        ?object_lock_legal_hold_status: ("ON" | "OFF"),
+        ?expected_bucket_owner: ::String,
+        ?expected_source_bucket_owner: ::String
+      ) -> Hearth::Output[Types::CopyObjectOutput]
+
+    def create_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateBucketOutput] |
+      (?Types::CreateBucketInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateBucketOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read"),
+        bucket: ::String,
+        ?create_bucket_configuration: {
+          location_constraint: ("af-south-1" | "ap-east-1" | "ap-northeast-1" | "ap-northeast-2" | "ap-northeast-3" | "ap-south-1" | "ap-south-2" | "ap-southeast-1" | "ap-southeast-2" | "ap-southeast-3" | "ca-central-1" | "cn-north-1" | "cn-northwest-1" | "EU" | "eu-central-1" | "eu-north-1" | "eu-south-1" | "eu-south-2" | "eu-west-1" | "eu-west-2" | "eu-west-3" | "me-south-1" | "sa-east-1" | "us-east-2" | "us-gov-east-1" | "us-gov-west-1" | "us-west-1" | "us-west-2"),
+          location: {
+            type: ::String,
+            name: ::String
+          },
+          bucket: {
+            data_redundancy: ::String,
+            type: ::String
+          }
+        },
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write: ::String,
+        ?grant_write_acp: ::String,
+        ?object_lock_enabled_for_bucket: bool,
+        ?object_ownership: ("BucketOwnerPreferred" | "ObjectWriter" | "BucketOwnerEnforced")
+      ) -> Hearth::Output[Types::CreateBucketOutput]
+
+    def create_multipart_upload: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateMultipartUploadOutput] |
+      (?Types::CreateMultipartUploadInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateMultipartUploadOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
+        bucket: ::String,
+        ?cache_control: ::String,
+        ?content_disposition: ::String,
+        ?content_encoding: ::String,
+        ?content_language: ::String,
+        ?content_type: ::String,
+        ?expires: ::Time,
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write_acp: ::String,
+        key: ::String,
+        ?metadata: ::Hash[::String, ::String],
+        ?server_side_encryption: ("AES256" | "aws:kms" | "aws:kms:dsse"),
+        ?storage_class: ("STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE"),
+        ?website_redirect_location: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?ssekms_key_id: ::String,
+        ?ssekms_encryption_context: ::String,
+        ?bucket_key_enabled: bool,
+        ?request_payer: ("requester"),
+        ?tagging: ::String,
+        ?object_lock_mode: ("GOVERNANCE" | "COMPLIANCE"),
+        ?object_lock_retain_until_date: ::Time,
+        ?object_lock_legal_hold_status: ("ON" | "OFF"),
+        ?expected_bucket_owner: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256")
+      ) -> Hearth::Output[Types::CreateMultipartUploadOutput]
+
+    def create_session: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSessionOutput] |
+      (?Types::CreateSessionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::CreateSessionOutput] |
+      (
+        ?session_mode: ("ReadOnly" | "ReadWrite"),
+        bucket: ::String
+      ) -> Hearth::Output[Types::CreateSessionOutput]
+
+    def delete_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketOutput] |
+      (?Types::DeleteBucketInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketOutput]
+
+    def delete_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketAnalyticsConfigurationOutput] |
+      (?Types::DeleteBucketAnalyticsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketAnalyticsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketAnalyticsConfigurationOutput]
+
+    def delete_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketCorsOutput] |
+      (?Types::DeleteBucketCorsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketCorsOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketCorsOutput]
+
+    def delete_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketEncryptionOutput] |
+      (?Types::DeleteBucketEncryptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketEncryptionOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketEncryptionOutput]
+
+    def delete_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketIntelligentTieringConfigurationOutput] |
+      (?Types::DeleteBucketIntelligentTieringConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketIntelligentTieringConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String
+      ) -> Hearth::Output[Types::DeleteBucketIntelligentTieringConfigurationOutput]
+
+    def delete_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketInventoryConfigurationOutput] |
+      (?Types::DeleteBucketInventoryConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketInventoryConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketInventoryConfigurationOutput]
+
+    def delete_bucket_lifecycle: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketLifecycleOutput] |
+      (?Types::DeleteBucketLifecycleInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketLifecycleOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketLifecycleOutput]
+
+    def delete_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketMetricsConfigurationOutput] |
+      (?Types::DeleteBucketMetricsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketMetricsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketMetricsConfigurationOutput]
+
+    def delete_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketOwnershipControlsOutput] |
+      (?Types::DeleteBucketOwnershipControlsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketOwnershipControlsOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketOwnershipControlsOutput]
+
+    def delete_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketPolicyOutput] |
+      (?Types::DeleteBucketPolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketPolicyOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketPolicyOutput]
+
+    def delete_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketReplicationOutput] |
+      (?Types::DeleteBucketReplicationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketReplicationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketReplicationOutput]
+
+    def delete_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketTaggingOutput] |
+      (?Types::DeleteBucketTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketTaggingOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketTaggingOutput]
+
+    def delete_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketWebsiteOutput] |
+      (?Types::DeleteBucketWebsiteInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteBucketWebsiteOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteBucketWebsiteOutput]
+
+    def delete_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectOutput] |
+      (?Types::DeleteObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?mfa: ::String,
+        ?version_id: ::String,
+        ?request_payer: ("requester"),
+        ?bypass_governance_retention: bool,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteObjectOutput]
+
+    def delete_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectTaggingOutput] |
+      (?Types::DeleteObjectTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectTaggingOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeleteObjectTaggingOutput]
+
+    def delete_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectsOutput] |
+      (?Types::DeleteObjectsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeleteObjectsOutput] |
+      (
+        bucket: ::String,
+        delete: {
+          objects: ::Array[Types::ObjectIdentifier],
+          quiet: bool
+        },
+        ?mfa: ::String,
+        ?request_payer: ("requester"),
+        ?bypass_governance_retention: bool,
+        ?expected_bucket_owner: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256")
+      ) -> Hearth::Output[Types::DeleteObjectsOutput]
+
+    def delete_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeletePublicAccessBlockOutput] |
+      (?Types::DeletePublicAccessBlockInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DeletePublicAccessBlockOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::DeletePublicAccessBlockOutput]
+
+    def get_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAccelerateConfigurationOutput] |
+      (?Types::GetBucketAccelerateConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAccelerateConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String,
+        ?request_payer: ("requester")
+      ) -> Hearth::Output[Types::GetBucketAccelerateConfigurationOutput]
+
+    def get_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAclOutput] |
+      (?Types::GetBucketAclInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAclOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketAclOutput]
+
+    def get_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAnalyticsConfigurationOutput] |
+      (?Types::GetBucketAnalyticsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketAnalyticsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketAnalyticsConfigurationOutput]
+
+    def get_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketCorsOutput] |
+      (?Types::GetBucketCorsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketCorsOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketCorsOutput]
+
+    def get_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketEncryptionOutput] |
+      (?Types::GetBucketEncryptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketEncryptionOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketEncryptionOutput]
+
+    def get_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketIntelligentTieringConfigurationOutput] |
+      (?Types::GetBucketIntelligentTieringConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketIntelligentTieringConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String
+      ) -> Hearth::Output[Types::GetBucketIntelligentTieringConfigurationOutput]
+
+    def get_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketInventoryConfigurationOutput] |
+      (?Types::GetBucketInventoryConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketInventoryConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketInventoryConfigurationOutput]
+
+    def get_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLifecycleConfigurationOutput] |
+      (?Types::GetBucketLifecycleConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLifecycleConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketLifecycleConfigurationOutput]
+
+    def get_bucket_location: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLocationOutput] |
+      (?Types::GetBucketLocationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLocationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketLocationOutput]
+
+    def get_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLoggingOutput] |
+      (?Types::GetBucketLoggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketLoggingOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketLoggingOutput]
+
+    def get_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketMetricsConfigurationOutput] |
+      (?Types::GetBucketMetricsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketMetricsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketMetricsConfigurationOutput]
+
+    def get_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketNotificationConfigurationOutput] |
+      (?Types::GetBucketNotificationConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketNotificationConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketNotificationConfigurationOutput]
+
+    def get_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketOwnershipControlsOutput] |
+      (?Types::GetBucketOwnershipControlsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketOwnershipControlsOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketOwnershipControlsOutput]
+
+    def get_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketPolicyOutput] |
+      (?Types::GetBucketPolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketPolicyOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketPolicyOutput]
+
+    def get_bucket_policy_status: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketPolicyStatusOutput] |
+      (?Types::GetBucketPolicyStatusInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketPolicyStatusOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketPolicyStatusOutput]
+
+    def get_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketReplicationOutput] |
+      (?Types::GetBucketReplicationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketReplicationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketReplicationOutput]
+
+    def get_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketRequestPaymentOutput] |
+      (?Types::GetBucketRequestPaymentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketRequestPaymentOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketRequestPaymentOutput]
+
+    def get_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketTaggingOutput] |
+      (?Types::GetBucketTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketTaggingOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketTaggingOutput]
+
+    def get_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketVersioningOutput] |
+      (?Types::GetBucketVersioningInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketVersioningOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketVersioningOutput]
+
+    def get_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketWebsiteOutput] |
+      (?Types::GetBucketWebsiteInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetBucketWebsiteOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetBucketWebsiteOutput]
+
+    def get_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectOutput] |
+      (?Types::GetObjectInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectOutput] |
+      (
+        bucket: ::String,
+        ?if_match: ::String,
+        ?if_modified_since: ::Time,
+        ?if_none_match: ::String,
+        ?if_unmodified_since: ::Time,
+        key: ::String,
+        ?range: ::String,
+        ?response_cache_control: ::String,
+        ?response_content_disposition: ::String,
+        ?response_content_encoding: ::String,
+        ?response_content_language: ::String,
+        ?response_content_type: ::String,
+        ?response_expires: ::Time,
+        ?version_id: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?part_number: ::Integer,
+        ?expected_bucket_owner: ::String,
+        ?checksum_mode: ("ENABLED")
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectOutput]
+
+    def get_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectAclOutput] |
+      (?Types::GetObjectAclInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectAclOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetObjectAclOutput]
+
+    def get_object_attributes: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectAttributesOutput] |
+      (?Types::GetObjectAttributesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectAttributesOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?max_parts: ::Integer,
+        ?part_number_marker: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        object_attributes: ::Array[("ETag" | "Checksum" | "ObjectParts" | "StorageClass" | "ObjectSize")]
+      ) -> Hearth::Output[Types::GetObjectAttributesOutput]
+
+    def get_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectLegalHoldOutput] |
+      (?Types::GetObjectLegalHoldInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectLegalHoldOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetObjectLegalHoldOutput]
+
+    def get_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectLockConfigurationOutput] |
+      (?Types::GetObjectLockConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectLockConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetObjectLockConfigurationOutput]
+
+    def get_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectRetentionOutput] |
+      (?Types::GetObjectRetentionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectRetentionOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetObjectRetentionOutput]
+
+    def get_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectTaggingOutput] |
+      (?Types::GetObjectTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetObjectTaggingOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?expected_bucket_owner: ::String,
+        ?request_payer: ("requester")
+      ) -> Hearth::Output[Types::GetObjectTaggingOutput]
+
+    def get_object_torrent: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectTorrentOutput] |
+      (?Types::GetObjectTorrentInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectTorrentOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::GetObjectTorrentOutput]
+
+    def get_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetPublicAccessBlockOutput] |
+      (?Types::GetPublicAccessBlockInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetPublicAccessBlockOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::GetPublicAccessBlockOutput]
+
+    def head_bucket: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::HeadBucketOutput] |
+      (?Types::HeadBucketInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::HeadBucketOutput] |
+      (
+        bucket: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::HeadBucketOutput]
+
+    def head_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::HeadObjectOutput] |
+      (?Types::HeadObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::HeadObjectOutput] |
+      (
+        bucket: ::String,
+        ?if_match: ::String,
+        ?if_modified_since: ::Time,
+        ?if_none_match: ::String,
+        ?if_unmodified_since: ::Time,
+        key: ::String,
+        ?range: ::String,
+        ?version_id: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?part_number: ::Integer,
+        ?expected_bucket_owner: ::String,
+        ?checksum_mode: ("ENABLED")
+      ) -> Hearth::Output[Types::HeadObjectOutput]
+
+    def list_bucket_analytics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketAnalyticsConfigurationsOutput] |
+      (?Types::ListBucketAnalyticsConfigurationsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketAnalyticsConfigurationsOutput] |
+      (
+        bucket: ::String,
+        ?continuation_token: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::ListBucketAnalyticsConfigurationsOutput]
+
+    def list_bucket_intelligent_tiering_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketIntelligentTieringConfigurationsOutput] |
+      (?Types::ListBucketIntelligentTieringConfigurationsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketIntelligentTieringConfigurationsOutput] |
+      (
+        bucket: ::String,
+        ?continuation_token: ::String
+      ) -> Hearth::Output[Types::ListBucketIntelligentTieringConfigurationsOutput]
+
+    def list_bucket_inventory_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketInventoryConfigurationsOutput] |
+      (?Types::ListBucketInventoryConfigurationsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketInventoryConfigurationsOutput] |
+      (
+        bucket: ::String,
+        ?continuation_token: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::ListBucketInventoryConfigurationsOutput]
+
+    def list_bucket_metrics_configurations: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketMetricsConfigurationsOutput] |
+      (?Types::ListBucketMetricsConfigurationsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketMetricsConfigurationsOutput] |
+      (
+        bucket: ::String,
+        ?continuation_token: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::ListBucketMetricsConfigurationsOutput]
+
+    def list_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketsOutput] |
+      (?Types::ListBucketsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListBucketsOutput]
+    def list_directory_buckets: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDirectoryBucketsOutput] |
+      (?Types::ListDirectoryBucketsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListDirectoryBucketsOutput] |
+      (
+        ?continuation_token: ::String,
+        ?max_directory_buckets: ::Integer
+      ) -> Hearth::Output[Types::ListDirectoryBucketsOutput]
+
+    def list_multipart_uploads: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListMultipartUploadsOutput] |
+      (?Types::ListMultipartUploadsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListMultipartUploadsOutput] |
+      (
+        bucket: ::String,
+        ?delimiter: ::String,
+        ?encoding_type: ("url"),
+        ?key_marker: ::String,
+        ?max_uploads: ::Integer,
+        ?prefix: ::String,
+        ?upload_id_marker: ::String,
+        ?expected_bucket_owner: ::String,
+        ?request_payer: ("requester")
+      ) -> Hearth::Output[Types::ListMultipartUploadsOutput]
+
+    def list_object_versions: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectVersionsOutput] |
+      (?Types::ListObjectVersionsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectVersionsOutput] |
+      (
+        bucket: ::String,
+        ?delimiter: ::String,
+        ?encoding_type: ("url"),
+        ?key_marker: ::String,
+        ?max_keys: ::Integer,
+        ?prefix: ::String,
+        ?version_id_marker: ::String,
+        ?expected_bucket_owner: ::String,
+        ?request_payer: ("requester"),
+        ?optional_object_attributes: ::Array[("RestoreStatus")]
+      ) -> Hearth::Output[Types::ListObjectVersionsOutput]
+
+    def list_objects: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectsOutput] |
+      (?Types::ListObjectsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectsOutput] |
+      (
+        bucket: ::String,
+        ?delimiter: ::String,
+        ?encoding_type: ("url"),
+        ?marker: ::String,
+        ?max_keys: ::Integer,
+        ?prefix: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        ?optional_object_attributes: ::Array[("RestoreStatus")]
+      ) -> Hearth::Output[Types::ListObjectsOutput]
+
+    def list_objects_v2: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectsV2Output] |
+      (?Types::ListObjectsV2Input params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListObjectsV2Output] |
+      (
+        bucket: ::String,
+        ?delimiter: ::String,
+        ?encoding_type: ("url"),
+        ?max_keys: ::Integer,
+        ?prefix: ::String,
+        ?continuation_token: ::String,
+        ?fetch_owner: bool,
+        ?start_after: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        ?optional_object_attributes: ::Array[("RestoreStatus")]
+      ) -> Hearth::Output[Types::ListObjectsV2Output]
+
+    def list_parts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListPartsOutput] |
+      (?Types::ListPartsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListPartsOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?max_parts: ::Integer,
+        ?part_number_marker: ::String,
+        upload_id: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String
+      ) -> Hearth::Output[Types::ListPartsOutput]
+
+    def put_bucket_accelerate_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAccelerateConfigurationOutput] |
+      (?Types::PutBucketAccelerateConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAccelerateConfigurationOutput] |
+      (
+        bucket: ::String,
+        accelerate_configuration: {
+          status: ("Enabled" | "Suspended")
+        },
+        ?expected_bucket_owner: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256")
+      ) -> Hearth::Output[Types::PutBucketAccelerateConfigurationOutput]
+
+    def put_bucket_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAclOutput] |
+      (?Types::PutBucketAclInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAclOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read"),
+        ?access_control_policy: {
+          grants: ::Array[Types::Grant],
+          owner: {
+            display_name: ::String,
+            id: ::String
+          }
+        },
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write: ::String,
+        ?grant_write_acp: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketAclOutput]
+
+    def put_bucket_analytics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAnalyticsConfigurationOutput] |
+      (?Types::PutBucketAnalyticsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketAnalyticsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        analytics_configuration: {
+          id: ::String,
+          filter: {
+            Prefix: ::String,
+            Tag: Types::Tag,
+            And: Types::AnalyticsAndOperator
+          },
+          storage_class_analysis: {
+            data_export: Types::StorageClassAnalysisDataExport
+          }
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketAnalyticsConfigurationOutput]
+
+    def put_bucket_cors: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketCorsOutput] |
+      (?Types::PutBucketCorsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketCorsOutput] |
+      (
+        bucket: ::String,
+        cors_configuration: {
+          cors_rules: ::Array[Types::CORSRule]
+        },
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketCorsOutput]
+
+    def put_bucket_encryption: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketEncryptionOutput] |
+      (?Types::PutBucketEncryptionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketEncryptionOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        server_side_encryption_configuration: {
+          rules: ::Array[Types::ServerSideEncryptionRule]
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketEncryptionOutput]
+
+    def put_bucket_intelligent_tiering_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketIntelligentTieringConfigurationOutput] |
+      (?Types::PutBucketIntelligentTieringConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketIntelligentTieringConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        intelligent_tiering_configuration: {
+          id: ::String,
+          filter: {
+            prefix: ::String,
+            tag: Types::Tag,
+            and: Types::IntelligentTieringAndOperator
+          },
+          status: ("Enabled" | "Disabled"),
+          tierings: ::Array[Types::Tiering]
+        }
+      ) -> Hearth::Output[Types::PutBucketIntelligentTieringConfigurationOutput]
+
+    def put_bucket_inventory_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketInventoryConfigurationOutput] |
+      (?Types::PutBucketInventoryConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketInventoryConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        inventory_configuration: {
+          destination: {
+            s3_bucket_destination: Types::InventoryS3BucketDestination
+          },
+          is_enabled: bool,
+          filter: {
+            prefix: ::String
+          },
+          id: ::String,
+          included_object_versions: ("All" | "Current"),
+          optional_fields: ::Array[::String],
+          schedule: {
+            frequency: ::String
+          }
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketInventoryConfigurationOutput]
+
+    def put_bucket_lifecycle_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketLifecycleConfigurationOutput] |
+      (?Types::PutBucketLifecycleConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketLifecycleConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?lifecycle_configuration: {
+          rules: ::Array[Types::LifecycleRule]
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketLifecycleConfigurationOutput]
+
+    def put_bucket_logging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketLoggingOutput] |
+      (?Types::PutBucketLoggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketLoggingOutput] |
+      (
+        bucket: ::String,
+        bucket_logging_status: {
+          logging_enabled: {
+            target_bucket: ::String,
+            target_grants: ::Array[Types::TargetGrant],
+            target_prefix: ::String,
+            target_object_key_format: Types::TargetObjectKeyFormat
+          }
+        },
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketLoggingOutput]
+
+    def put_bucket_metrics_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketMetricsConfigurationOutput] |
+      (?Types::PutBucketMetricsConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketMetricsConfigurationOutput] |
+      (
+        bucket: ::String,
+        id: ::String,
+        metrics_configuration: {
+          id: ::String,
+          filter: {
+            Prefix: ::String,
+            Tag: Types::Tag,
+            AccessPointArn: ::String,
+            And: Types::MetricsAndOperator
+          }
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketMetricsConfigurationOutput]
+
+    def put_bucket_notification_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketNotificationConfigurationOutput] |
+      (?Types::PutBucketNotificationConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketNotificationConfigurationOutput] |
+      (
+        bucket: ::String,
+        notification_configuration: {
+          topic_configurations: ::Array[Types::TopicConfiguration],
+          queue_configurations: ::Array[Types::QueueConfiguration],
+          lambda_function_configurations: ::Array[Types::LambdaFunctionConfiguration],
+          event_bridge_configuration: {
+
+          }
+        },
+        ?expected_bucket_owner: ::String,
+        ?skip_destination_validation: bool
+      ) -> Hearth::Output[Types::PutBucketNotificationConfigurationOutput]
+
+    def put_bucket_ownership_controls: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketOwnershipControlsOutput] |
+      (?Types::PutBucketOwnershipControlsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketOwnershipControlsOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?expected_bucket_owner: ::String,
+        ownership_controls: {
+          rules: ::Array[Types::OwnershipControlsRule]
+        }
+      ) -> Hearth::Output[Types::PutBucketOwnershipControlsOutput]
+
+    def put_bucket_policy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketPolicyOutput] |
+      (?Types::PutBucketPolicyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketPolicyOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?confirm_remove_self_bucket_access: bool,
+        policy: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketPolicyOutput]
+
+    def put_bucket_replication: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketReplicationOutput] |
+      (?Types::PutBucketReplicationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketReplicationOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        replication_configuration: {
+          role: ::String,
+          rules: ::Array[Types::ReplicationRule]
+        },
+        ?token: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketReplicationOutput]
+
+    def put_bucket_request_payment: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketRequestPaymentOutput] |
+      (?Types::PutBucketRequestPaymentInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketRequestPaymentOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        request_payment_configuration: {
+          payer: ("Requester" | "BucketOwner")
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketRequestPaymentOutput]
+
+    def put_bucket_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketTaggingOutput] |
+      (?Types::PutBucketTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketTaggingOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        tagging: {
+          tag_set: ::Array[Types::Tag]
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketTaggingOutput]
+
+    def put_bucket_versioning: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketVersioningOutput] |
+      (?Types::PutBucketVersioningInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketVersioningOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?mfa: ::String,
+        versioning_configuration: {
+          mfa_delete: ("Enabled" | "Disabled"),
+          status: ("Enabled" | "Suspended")
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketVersioningOutput]
+
+    def put_bucket_website: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketWebsiteOutput] |
+      (?Types::PutBucketWebsiteInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutBucketWebsiteOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        website_configuration: {
+          error_document: {
+            key: ::String
+          },
+          index_document: {
+            suffix: ::String
+          },
+          redirect_all_requests_to: {
+            host_name: ::String,
+            protocol: ::String
+          },
+          routing_rules: ::Array[Types::RoutingRule]
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutBucketWebsiteOutput]
+
+    def put_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectOutput] |
+      (?Types::PutObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
+        ?body: ::String,
+        bucket: ::String,
+        ?cache_control: ::String,
+        ?content_disposition: ::String,
+        ?content_encoding: ::String,
+        ?content_language: ::String,
+        ?content_length: ::Integer,
+        ?content_md5: ::String,
+        ?content_type: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?checksum_crc32: ::String,
+        ?checksum_crc32_c: ::String,
+        ?checksum_sha1: ::String,
+        ?checksum_sha256: ::String,
+        ?expires: ::Time,
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write_acp: ::String,
+        key: ::String,
+        ?metadata: ::Hash[::String, ::String],
+        ?server_side_encryption: ("AES256" | "aws:kms" | "aws:kms:dsse"),
+        ?storage_class: ("STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE"),
+        ?website_redirect_location: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?ssekms_key_id: ::String,
+        ?ssekms_encryption_context: ::String,
+        ?bucket_key_enabled: bool,
+        ?request_payer: ("requester"),
+        ?tagging: ::String,
+        ?object_lock_mode: ("GOVERNANCE" | "COMPLIANCE"),
+        ?object_lock_retain_until_date: ::Time,
+        ?object_lock_legal_hold_status: ("ON" | "OFF"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutObjectOutput]
+
+    def put_object_acl: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectAclOutput] |
+      (?Types::PutObjectAclInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectAclOutput] |
+      (
+        ?acl: ("private" | "public-read" | "public-read-write" | "authenticated-read" | "aws-exec-read" | "bucket-owner-read" | "bucket-owner-full-control"),
+        ?access_control_policy: {
+          grants: ::Array[Types::Grant],
+          owner: {
+            display_name: ::String,
+            id: ::String
+          }
+        },
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?grant_full_control: ::String,
+        ?grant_read: ::String,
+        ?grant_read_acp: ::String,
+        ?grant_write: ::String,
+        ?grant_write_acp: ::String,
+        key: ::String,
+        ?request_payer: ("requester"),
+        ?version_id: ::String,
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutObjectAclOutput]
+
+    def put_object_legal_hold: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectLegalHoldOutput] |
+      (?Types::PutObjectLegalHoldInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectLegalHoldOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?legal_hold: {
+          status: ("ON" | "OFF")
+        },
+        ?request_payer: ("requester"),
+        ?version_id: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutObjectLegalHoldOutput]
+
+    def put_object_lock_configuration: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectLockConfigurationOutput] |
+      (?Types::PutObjectLockConfigurationInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectLockConfigurationOutput] |
+      (
+        bucket: ::String,
+        ?object_lock_configuration: {
+          object_lock_enabled: ("Enabled"),
+          rule: {
+            default_retention: Types::DefaultRetention
+          }
+        },
+        ?request_payer: ("requester"),
+        ?token: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutObjectLockConfigurationOutput]
+
+    def put_object_retention: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectRetentionOutput] |
+      (?Types::PutObjectRetentionInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectRetentionOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?retention: {
+          mode: ("GOVERNANCE" | "COMPLIANCE"),
+          retain_until_date: ::Time
+        },
+        ?request_payer: ("requester"),
+        ?version_id: ::String,
+        ?bypass_governance_retention: bool,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutObjectRetentionOutput]
+
+    def put_object_tagging: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectTaggingOutput] |
+      (?Types::PutObjectTaggingInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutObjectTaggingOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        tagging: {
+          tag_set: ::Array[Types::Tag]
+        },
+        ?expected_bucket_owner: ::String,
+        ?request_payer: ("requester")
+      ) -> Hearth::Output[Types::PutObjectTaggingOutput]
+
+    def put_public_access_block: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutPublicAccessBlockOutput] |
+      (?Types::PutPublicAccessBlockInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::PutPublicAccessBlockOutput] |
+      (
+        bucket: ::String,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        public_access_block_configuration: {
+          block_public_acls: bool,
+          ignore_public_acls: bool,
+          block_public_policy: bool,
+          restrict_public_buckets: bool
+        },
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::PutPublicAccessBlockOutput]
+
+    def restore_object: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreObjectOutput] |
+      (?Types::RestoreObjectInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::RestoreObjectOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?version_id: ::String,
+        ?restore_request: {
+          days: ::Integer,
+          glacier_job_parameters: {
+            tier: ::String
+          },
+          type: ("SELECT"),
+          tier: ("Standard" | "Bulk" | "Expedited"),
+          description: ::String,
+          select_parameters: {
+            input_serialization: Types::InputSerialization,
+            expression_type: ::String,
+            expression: ::String,
+            output_serialization: Types::OutputSerialization
+          },
+          output_location: {
+            s3: Types::S3Location
+          }
+        },
+        ?request_payer: ("requester"),
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::RestoreObjectOutput]
+
+    def select_object_content: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (?Types::SelectObjectContentInput params, ?::Hash[::Symbol, untyped] options)  ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput] |
+      (
+        bucket: ::String,
+        key: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        expression: ::String,
+        expression_type: ("SQL"),
+        ?request_progress: {
+          enabled: bool
+        },
+        input_serialization: {
+          csv: {
+            file_header_info: ::String,
+            comments: ::String,
+            quote_escape_character: ::String,
+            record_delimiter: ::String,
+            field_delimiter: ::String,
+            quote_character: ::String,
+            allow_quoted_record_delimiter: bool
+          },
+          compression_type: ("NONE" | "GZIP" | "BZIP2"),
+          json: {
+            type: ::String
+          },
+          parquet: {
+
+          }
+        },
+        output_serialization: {
+          csv: {
+            quote_fields: ::String,
+            quote_escape_character: ::String,
+            record_delimiter: ::String,
+            field_delimiter: ::String,
+            quote_character: ::String
+          },
+          json: {
+            record_delimiter: ::String
+          }
+        },
+        ?scan_range: {
+          start: ::Integer,
+          end: ::Integer
+        },
+        ?expected_bucket_owner: ::String
+      ) ?{ (::String) -> Hearth::BlockIO } -> Hearth::Output[Types::SelectObjectContentOutput]
+
+    def upload_part: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
+      (?Types::UploadPartInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartOutput] |
+      (
+        ?body: ::String,
+        bucket: ::String,
+        ?content_length: ::Integer,
+        ?content_md5: ::String,
+        ?checksum_algorithm: ("CRC32" | "CRC32C" | "SHA1" | "SHA256"),
+        ?checksum_crc32: ::String,
+        ?checksum_crc32_c: ::String,
+        ?checksum_sha1: ::String,
+        ?checksum_sha256: ::String,
+        key: ::String,
+        part_number: ::Integer,
+        upload_id: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String
+      ) -> Hearth::Output[Types::UploadPartOutput]
+
+    def upload_part_copy: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartCopyOutput] |
+      (?Types::UploadPartCopyInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::UploadPartCopyOutput] |
+      (
+        bucket: ::String,
+        copy_source: ::String,
+        ?copy_source_if_match: ::String,
+        ?copy_source_if_modified_since: ::Time,
+        ?copy_source_if_none_match: ::String,
+        ?copy_source_if_unmodified_since: ::Time,
+        ?copy_source_range: ::String,
+        key: ::String,
+        part_number: ::Integer,
+        upload_id: ::String,
+        ?sse_customer_algorithm: ::String,
+        ?sse_customer_key: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?copy_source_sse_customer_algorithm: ::String,
+        ?copy_source_sse_customer_key: ::String,
+        ?copy_source_sse_customer_key_md5: ::String,
+        ?request_payer: ("requester"),
+        ?expected_bucket_owner: ::String,
+        ?expected_source_bucket_owner: ::String
+      ) -> Hearth::Output[Types::UploadPartCopyOutput]
+
+    def write_get_object_response: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::WriteGetObjectResponseOutput] |
+      (?Types::WriteGetObjectResponseInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::WriteGetObjectResponseOutput] |
+      (
+        request_route: ::String,
+        request_token: ::String,
+        ?body: ::String,
+        ?status_code: ::Integer,
+        ?error_code: ::String,
+        ?error_message: ::String,
+        ?accept_ranges: ::String,
+        ?cache_control: ::String,
+        ?content_disposition: ::String,
+        ?content_encoding: ::String,
+        ?content_language: ::String,
+        ?content_length: ::Integer,
+        ?content_range: ::String,
+        ?content_type: ::String,
+        ?checksum_crc32: ::String,
+        ?checksum_crc32_c: ::String,
+        ?checksum_sha1: ::String,
+        ?checksum_sha256: ::String,
+        ?delete_marker: bool,
+        ?e_tag: ::String,
+        ?expires: ::Time,
+        ?expiration: ::String,
+        ?last_modified: ::Time,
+        ?missing_meta: ::Integer,
+        ?metadata: ::Hash[::String, ::String],
+        ?object_lock_mode: ("GOVERNANCE" | "COMPLIANCE"),
+        ?object_lock_legal_hold_status: ("ON" | "OFF"),
+        ?object_lock_retain_until_date: ::Time,
+        ?parts_count: ::Integer,
+        ?replication_status: ("COMPLETE" | "PENDING" | "FAILED" | "REPLICA" | "COMPLETED"),
+        ?request_charged: ("requester"),
+        ?restore: ::String,
+        ?server_side_encryption: ("AES256" | "aws:kms" | "aws:kms:dsse"),
+        ?sse_customer_algorithm: ::String,
+        ?ssekms_key_id: ::String,
+        ?sse_customer_key_md5: ::String,
+        ?storage_class: ("STANDARD" | "REDUCED_REDUNDANCY" | "STANDARD_IA" | "ONEZONE_IA" | "INTELLIGENT_TIERING" | "GLACIER" | "DEEP_ARCHIVE" | "OUTPOSTS" | "GLACIER_IR" | "SNOW" | "EXPRESS_ONEZONE"),
+        ?tag_count: ::Integer,
+        ?version_id: ::String,
+        ?bucket_key_enabled: bool
+      ) -> Hearth::Output[Types::WriteGetObjectResponseOutput]
+
   end
 end

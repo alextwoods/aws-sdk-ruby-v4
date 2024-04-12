@@ -24,8 +24,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_bundle_tasks,
             acceptors: [
@@ -82,8 +82,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
@@ -130,8 +130,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
@@ -198,8 +198,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
@@ -246,8 +246,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_customer_gateways,
             acceptors: [
@@ -314,8 +314,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_export_tasks,
             acceptors: [
@@ -362,8 +362,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_export_tasks,
             acceptors: [
@@ -410,8 +410,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_images,
             acceptors: [
@@ -468,8 +468,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_images,
             acceptors: [
@@ -522,8 +522,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_import_snapshot_tasks,
             acceptors: [
@@ -580,8 +580,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 5 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 5,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
@@ -634,8 +634,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
@@ -718,8 +718,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
@@ -786,8 +786,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
@@ -854,8 +854,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instance_status,
             acceptors: [
@@ -908,8 +908,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instance_status,
             acceptors: [
@@ -956,8 +956,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 5 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 5,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_internet_gateways,
             acceptors: [
@@ -1010,8 +1010,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 5 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 5,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_key_pairs,
             acceptors: [
@@ -1064,8 +1064,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_nat_gateways,
             acceptors: [
@@ -1148,8 +1148,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_nat_gateways,
             acceptors: [
@@ -1202,8 +1202,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 20 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 20,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_network_interfaces,
             acceptors: [
@@ -1256,8 +1256,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 5 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 5,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_security_groups,
             acceptors: [
@@ -1310,8 +1310,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_snapshots,
             acceptors: [
@@ -1368,8 +1368,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_spot_instance_requests,
             acceptors: [
@@ -1472,8 +1472,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 5 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 5,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_store_image_tasks,
             acceptors: [
@@ -1540,8 +1540,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_subnets,
             acceptors: [
@@ -1588,8 +1588,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
@@ -1646,8 +1646,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
@@ -1700,8 +1700,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
@@ -1758,8 +1758,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpc_peering_connections,
             acceptors: [
@@ -1812,8 +1812,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpc_peering_connections,
             acceptors: [
@@ -1862,8 +1862,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpcs,
             acceptors: [
@@ -1910,8 +1910,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 1 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 1,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpcs,
             acceptors: [
@@ -1960,8 +1960,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpn_connections,
             acceptors: [
@@ -2028,8 +2028,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpn_connections,
             acceptors: [
@@ -2086,8 +2086,8 @@ module AWS::SDK::EC2
         @client = client
         @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
-          min_delay: 15 || options[:min_delay],
-          max_delay: 120 || options[:max_delay],
+          min_delay: options[:min_delay] || 15,
+          max_delay: options[:max_delay] || 120,
           poller: Hearth::Waiters::Poller.new(
             operation_name: :get_password_data,
             acceptors: [

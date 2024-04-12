@@ -11,11 +11,11 @@ module AWS::SDK::CloudWatch
   module Types
 
     module ActionsSuppressedBy
-      WaitPeriod: ::String
+      WAIT_PERIOD: ::String
 
-      ExtensionPeriod: ::String
+      EXTENSION_PERIOD: ::String
 
-      Alarm: ::String
+      ALARM: ::String
     end
 
     class AlarmHistoryItem < ::Struct[untyped]
@@ -29,26 +29,26 @@ module AWS::SDK::CloudWatch
     end
 
     module AlarmType
-      CompositeAlarm: ::String
+      COMPOSITE_ALARM: ::String
 
-      MetricAlarm: ::String
+      METRIC_ALARM: ::String
     end
 
     class AnomalyDetector < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor stat (): ::String
-      attr_accessor configuration (): AnomalyDetectorConfiguration
+      attr_accessor configuration (): Types::AnomalyDetectorConfiguration
       attr_accessor state_value (): ::String
-      attr_accessor single_metric_anomaly_detector (): SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): MetricMathAnomalyDetector
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
     end
 
     class AnomalyDetectorConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor excluded_time_ranges (): ::Array[Range]
+      attr_accessor excluded_time_ranges (): ::Array[Types::Range]
       attr_accessor metric_timezone (): ::String
     end
 
@@ -67,19 +67,19 @@ module AWS::SDK::CloudWatch
     end
 
     module ComparisonOperator
-      GreaterThanOrEqualToThreshold: ::String
+      GREATER_THAN_OR_EQUAL_TO_THRESHOLD: ::String
 
-      GreaterThanThreshold: ::String
+      GREATER_THAN_THRESHOLD: ::String
 
-      LessThanThreshold: ::String
+      LESS_THAN_THRESHOLD: ::String
 
-      LessThanOrEqualToThreshold: ::String
+      LESS_THAN_OR_EQUAL_TO_THRESHOLD: ::String
 
-      LessThanLowerOrGreaterThanUpperThreshold: ::String
+      LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD: ::String
 
-      LessThanLowerThreshold: ::String
+      LESS_THAN_LOWER_THRESHOLD: ::String
 
-      GreaterThanUpperThreshold: ::String
+      GREATER_THAN_UPPER_THRESHOLD: ::String
     end
 
     class CompositeAlarm < ::Struct[untyped]
@@ -121,7 +121,7 @@ module AWS::SDK::CloudWatch
     class DashboardInvalidInputError < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor message (): ::String
-      attr_accessor dashboard_validation_messages (): ::Array[DashboardValidationMessage]
+      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]
     end
 
     class DashboardNotFoundError < ::Struct[untyped]
@@ -160,10 +160,10 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor stat (): ::String
-      attr_accessor single_metric_anomaly_detector (): SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): MetricMathAnomalyDetector
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
     end
 
     class DeleteAnomalyDetectorOutput < ::Struct[untyped]
@@ -186,7 +186,7 @@ module AWS::SDK::CloudWatch
 
     class DeleteInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor failures (): ::Array[PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]
     end
 
     class DeleteMetricStreamInput < ::Struct[untyped]
@@ -212,7 +212,7 @@ module AWS::SDK::CloudWatch
 
     class DescribeAlarmHistoryOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor alarm_history_items (): ::Array[AlarmHistoryItem]
+      attr_accessor alarm_history_items (): ::Array[Types::AlarmHistoryItem]
       attr_accessor next_token (): ::String
     end
 
@@ -222,14 +222,14 @@ module AWS::SDK::CloudWatch
       attr_accessor namespace (): ::String
       attr_accessor statistic (): ::String
       attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor period (): ::Integer
       attr_accessor unit (): ::String
     end
 
     class DescribeAlarmsForMetricOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metric_alarms (): ::Array[MetricAlarm]
+      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]
     end
 
     class DescribeAlarmsInput < ::Struct[untyped]
@@ -247,8 +247,8 @@ module AWS::SDK::CloudWatch
 
     class DescribeAlarmsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor composite_alarms (): ::Array[CompositeAlarm]
-      attr_accessor metric_alarms (): ::Array[MetricAlarm]
+      attr_accessor composite_alarms (): ::Array[Types::CompositeAlarm]
+      attr_accessor metric_alarms (): ::Array[Types::MetricAlarm]
       attr_accessor next_token (): ::String
     end
 
@@ -258,13 +258,13 @@ module AWS::SDK::CloudWatch
       attr_accessor max_results (): ::Integer
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor anomaly_detector_types (): ::Array[::String]
     end
 
     class DescribeAnomalyDetectorsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor anomaly_detectors (): ::Array[AnomalyDetector]
+      attr_accessor anomaly_detectors (): ::Array[Types::AnomalyDetector]
       attr_accessor next_token (): ::String
     end
 
@@ -277,7 +277,7 @@ module AWS::SDK::CloudWatch
     class DescribeInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor next_token (): ::String
-      attr_accessor insight_rules (): ::Array[InsightRule]
+      attr_accessor insight_rules (): ::Array[Types::InsightRule]
     end
 
     class Dimension < ::Struct[untyped]
@@ -308,7 +308,7 @@ module AWS::SDK::CloudWatch
 
     class DisableInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor failures (): ::Array[PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]
     end
 
     class EnableAlarmActionsInput < ::Struct[untyped]
@@ -327,7 +327,7 @@ module AWS::SDK::CloudWatch
 
     class EnableInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor failures (): ::Array[PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]
     end
 
     module EvaluationState
@@ -363,33 +363,33 @@ module AWS::SDK::CloudWatch
       attr_accessor aggregation_statistic (): ::String
       attr_accessor aggregate_value (): ::Float
       attr_accessor approximate_unique_count (): ::Integer
-      attr_accessor contributors (): ::Array[InsightRuleContributor]
-      attr_accessor metric_datapoints (): ::Array[InsightRuleMetricDatapoint]
+      attr_accessor contributors (): ::Array[Types::InsightRuleContributor]
+      attr_accessor metric_datapoints (): ::Array[Types::InsightRuleMetricDatapoint]
     end
 
     class GetMetricDataInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metric_data_queries (): ::Array[MetricDataQuery]
+      attr_accessor metric_data_queries (): ::Array[Types::MetricDataQuery]
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
       attr_accessor next_token (): ::String
       attr_accessor scan_by (): ::String
       attr_accessor max_datapoints (): ::Integer
-      attr_accessor label_options (): LabelOptions
+      attr_accessor label_options (): Types::LabelOptions
     end
 
     class GetMetricDataOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metric_data_results (): ::Array[MetricDataResult]
+      attr_accessor metric_data_results (): ::Array[Types::MetricDataResult]
       attr_accessor next_token (): ::String
-      attr_accessor messages (): ::Array[MessageData]
+      attr_accessor messages (): ::Array[Types::MessageData]
     end
 
     class GetMetricStatisticsInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor start_time (): ::Time
       attr_accessor end_time (): ::Time
       attr_accessor period (): ::Integer
@@ -401,7 +401,7 @@ module AWS::SDK::CloudWatch
     class GetMetricStatisticsOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor label (): ::String
-      attr_accessor datapoints (): ::Array[Datapoint]
+      attr_accessor datapoints (): ::Array[Types::Datapoint]
     end
 
     class GetMetricStreamInput < ::Struct[untyped]
@@ -413,15 +413,15 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor arn (): ::String
       attr_accessor name (): ::String
-      attr_accessor include_filters (): ::Array[MetricStreamFilter]
-      attr_accessor exclude_filters (): ::Array[MetricStreamFilter]
+      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]
+      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]
       attr_accessor firehose_arn (): ::String
       attr_accessor role_arn (): ::String
       attr_accessor state (): ::String
       attr_accessor creation_date (): ::Time
       attr_accessor last_update_date (): ::Time
       attr_accessor output_format (): ::String
-      attr_accessor statistics_configurations (): ::Array[MetricStreamStatisticsConfiguration]
+      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]
       attr_accessor include_linked_accounts_metrics (): bool
     end
 
@@ -437,11 +437,11 @@ module AWS::SDK::CloudWatch
     end
 
     module HistoryItemType
-      ConfigurationUpdate: ::String
+      CONFIGURATION_UPDATE: ::String
 
-      StateUpdate: ::String
+      STATE_UPDATE: ::String
 
-      Action: ::String
+      ACTION: ::String
     end
 
     class InsightRule < ::Struct[untyped]
@@ -457,7 +457,7 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor keys (): ::Array[::String]
       attr_accessor approximate_aggregate_value (): ::Float
-      attr_accessor datapoints (): ::Array[InsightRuleContributorDatapoint]
+      attr_accessor datapoints (): ::Array[Types::InsightRuleContributorDatapoint]
     end
 
     class InsightRuleContributorDatapoint < ::Struct[untyped]
@@ -526,7 +526,7 @@ module AWS::SDK::CloudWatch
 
     class ListDashboardsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor dashboard_entries (): ::Array[DashboardEntry]
+      attr_accessor dashboard_entries (): ::Array[Types::DashboardEntry]
       attr_accessor next_token (): ::String
     end
 
@@ -539,7 +539,7 @@ module AWS::SDK::CloudWatch
 
     class ListManagedInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor managed_rules (): ::Array[ManagedRuleDescription]
+      attr_accessor managed_rules (): ::Array[Types::ManagedRuleDescription]
       attr_accessor next_token (): ::String
     end
 
@@ -552,14 +552,14 @@ module AWS::SDK::CloudWatch
     class ListMetricStreamsOutput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor next_token (): ::String
-      attr_accessor entries (): ::Array[MetricStreamEntry]
+      attr_accessor entries (): ::Array[Types::MetricStreamEntry]
     end
 
     class ListMetricsInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[DimensionFilter]
+      attr_accessor dimensions (): ::Array[Types::DimensionFilter]
       attr_accessor next_token (): ::String
       attr_accessor recently_active (): ::String
       attr_accessor include_linked_accounts (): bool
@@ -568,7 +568,7 @@ module AWS::SDK::CloudWatch
 
     class ListMetricsOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metrics (): ::Array[Metric]
+      attr_accessor metrics (): ::Array[Types::Metric]
       attr_accessor next_token (): ::String
       attr_accessor owning_accounts (): ::Array[::String]
     end
@@ -580,21 +580,21 @@ module AWS::SDK::CloudWatch
 
     class ListTagsForResourceOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class ManagedRule < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor template_name (): ::String
       attr_accessor resource_arn (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class ManagedRuleDescription < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor template_name (): ::String
       attr_accessor resource_arn (): ::String
-      attr_accessor rule_state (): ManagedRuleState
+      attr_accessor rule_state (): Types::ManagedRuleState
     end
 
     class ManagedRuleState < ::Struct[untyped]
@@ -613,7 +613,7 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
     end
 
     class MetricAlarm < ::Struct[untyped]
@@ -634,7 +634,7 @@ module AWS::SDK::CloudWatch
       attr_accessor namespace (): ::String
       attr_accessor statistic (): ::String
       attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor period (): ::Integer
       attr_accessor unit (): ::String
       attr_accessor evaluation_periods (): ::Integer
@@ -643,7 +643,7 @@ module AWS::SDK::CloudWatch
       attr_accessor comparison_operator (): ::String
       attr_accessor treat_missing_data (): ::String
       attr_accessor evaluate_low_sample_count_percentile (): ::String
-      attr_accessor metrics (): ::Array[MetricDataQuery]
+      attr_accessor metrics (): ::Array[Types::MetricDataQuery]
       attr_accessor threshold_metric_id (): ::String
       attr_accessor evaluation_state (): ::String
       attr_accessor state_transitioned_timestamp (): ::Time
@@ -652,7 +652,7 @@ module AWS::SDK::CloudWatch
     class MetricDataQuery < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor id (): ::String
-      attr_accessor metric_stat (): MetricStat
+      attr_accessor metric_stat (): Types::MetricStat
       attr_accessor expression (): ::String
       attr_accessor label (): ::String
       attr_accessor return_data (): bool
@@ -667,16 +667,16 @@ module AWS::SDK::CloudWatch
       attr_accessor timestamps (): ::Array[::Time]
       attr_accessor values (): ::Array[::Float]
       attr_accessor status_code (): ::String
-      attr_accessor messages (): ::Array[MessageData]
+      attr_accessor messages (): ::Array[Types::MessageData]
     end
 
     class MetricDatum < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor timestamp (): ::Time
       attr_accessor value (): ::Float
-      attr_accessor statistic_values (): StatisticSet
+      attr_accessor statistic_values (): Types::StatisticSet
       attr_accessor values (): ::Array[::Float]
       attr_accessor counts (): ::Array[::Float]
       attr_accessor unit (): ::String
@@ -685,12 +685,12 @@ module AWS::SDK::CloudWatch
 
     class MetricMathAnomalyDetector < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metric_data_queries (): ::Array[MetricDataQuery]
+      attr_accessor metric_data_queries (): ::Array[Types::MetricDataQuery]
     end
 
     class MetricStat < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor metric (): Metric
+      attr_accessor metric (): Types::Metric
       attr_accessor period (): ::Integer
       attr_accessor stat (): ::String
       attr_accessor unit (): ::String
@@ -723,7 +723,7 @@ module AWS::SDK::CloudWatch
 
     class MetricStreamStatisticsConfiguration < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor include_metrics (): ::Array[MetricStreamStatisticsMetric]
+      attr_accessor include_metrics (): ::Array[Types::MetricStreamStatisticsMetric]
       attr_accessor additional_statistics (): ::Array[::String]
     end
 
@@ -750,11 +750,11 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor stat (): ::String
-      attr_accessor configuration (): AnomalyDetectorConfiguration
-      attr_accessor single_metric_anomaly_detector (): SingleMetricAnomalyDetector
-      attr_accessor metric_math_anomaly_detector (): MetricMathAnomalyDetector
+      attr_accessor configuration (): Types::AnomalyDetectorConfiguration
+      attr_accessor single_metric_anomaly_detector (): Types::SingleMetricAnomalyDetector
+      attr_accessor metric_math_anomaly_detector (): Types::MetricMathAnomalyDetector
     end
 
     class PutAnomalyDetectorOutput < ::Struct[untyped]
@@ -770,7 +770,7 @@ module AWS::SDK::CloudWatch
       attr_accessor alarm_rule (): ::String
       attr_accessor insufficient_data_actions (): ::Array[::String]
       attr_accessor ok_actions (): ::Array[::String]
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor actions_suppressor (): ::String
       attr_accessor actions_suppressor_wait_period (): ::Integer
       attr_accessor actions_suppressor_extension_period (): ::Integer
@@ -788,7 +788,7 @@ module AWS::SDK::CloudWatch
 
     class PutDashboardOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor dashboard_validation_messages (): ::Array[DashboardValidationMessage]
+      attr_accessor dashboard_validation_messages (): ::Array[Types::DashboardValidationMessage]
     end
 
     class PutInsightRuleInput < ::Struct[untyped]
@@ -796,7 +796,7 @@ module AWS::SDK::CloudWatch
       attr_accessor rule_name (): ::String
       attr_accessor rule_state (): ::String
       attr_accessor rule_definition (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class PutInsightRuleOutput < ::Struct[untyped]
@@ -805,12 +805,12 @@ module AWS::SDK::CloudWatch
 
     class PutManagedInsightRulesInput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor managed_rules (): ::Array[ManagedRule]
+      attr_accessor managed_rules (): ::Array[Types::ManagedRule]
     end
 
     class PutManagedInsightRulesOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor failures (): ::Array[PartialFailure]
+      attr_accessor failures (): ::Array[Types::PartialFailure]
     end
 
     class PutMetricAlarmInput < ::Struct[untyped]
@@ -825,7 +825,7 @@ module AWS::SDK::CloudWatch
       attr_accessor namespace (): ::String
       attr_accessor statistic (): ::String
       attr_accessor extended_statistic (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor period (): ::Integer
       attr_accessor unit (): ::String
       attr_accessor evaluation_periods (): ::Integer
@@ -834,8 +834,8 @@ module AWS::SDK::CloudWatch
       attr_accessor comparison_operator (): ::String
       attr_accessor treat_missing_data (): ::String
       attr_accessor evaluate_low_sample_count_percentile (): ::String
-      attr_accessor metrics (): ::Array[MetricDataQuery]
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor metrics (): ::Array[Types::MetricDataQuery]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor threshold_metric_id (): ::String
     end
 
@@ -846,7 +846,7 @@ module AWS::SDK::CloudWatch
     class PutMetricDataInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor namespace (): ::String
-      attr_accessor metric_data (): ::Array[MetricDatum]
+      attr_accessor metric_data (): ::Array[Types::MetricDatum]
     end
 
     class PutMetricDataOutput < ::Struct[untyped]
@@ -856,13 +856,13 @@ module AWS::SDK::CloudWatch
     class PutMetricStreamInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor name (): ::String
-      attr_accessor include_filters (): ::Array[MetricStreamFilter]
-      attr_accessor exclude_filters (): ::Array[MetricStreamFilter]
+      attr_accessor include_filters (): ::Array[Types::MetricStreamFilter]
+      attr_accessor exclude_filters (): ::Array[Types::MetricStreamFilter]
       attr_accessor firehose_arn (): ::String
       attr_accessor role_arn (): ::String
       attr_accessor output_format (): ::String
-      attr_accessor tags (): ::Array[Tag]
-      attr_accessor statistics_configurations (): ::Array[MetricStreamStatisticsConfiguration]
+      attr_accessor tags (): ::Array[Types::Tag]
+      attr_accessor statistics_configurations (): ::Array[Types::MetricStreamStatisticsConfiguration]
       attr_accessor include_linked_accounts_metrics (): bool
     end
 
@@ -878,7 +878,7 @@ module AWS::SDK::CloudWatch
     end
 
     module RecentlyActive
-      PT3H: ::String
+      PT3_H: ::String
     end
 
     class ResourceNotFound < ::Struct[untyped]
@@ -915,64 +915,64 @@ module AWS::SDK::CloudWatch
       include Hearth::Structure
       attr_accessor namespace (): ::String
       attr_accessor metric_name (): ::String
-      attr_accessor dimensions (): ::Array[Dimension]
+      attr_accessor dimensions (): ::Array[Types::Dimension]
       attr_accessor stat (): ::String
     end
 
     module StandardUnit
-      Seconds: ::String
+      SECONDS: ::String
 
-      Microseconds: ::String
+      MICROSECONDS: ::String
 
-      Milliseconds: ::String
+      MILLISECONDS: ::String
 
-      Bytes: ::String
+      BYTES: ::String
 
-      Kilobytes: ::String
+      KILOBYTES: ::String
 
-      Megabytes: ::String
+      MEGABYTES: ::String
 
-      Gigabytes: ::String
+      GIGABYTES: ::String
 
-      Terabytes: ::String
+      TERABYTES: ::String
 
-      Bits: ::String
+      BITS: ::String
 
-      Kilobits: ::String
+      KILOBITS: ::String
 
-      Megabits: ::String
+      MEGABITS: ::String
 
-      Gigabits: ::String
+      GIGABITS: ::String
 
-      Terabits: ::String
+      TERABITS: ::String
 
-      Percent: ::String
+      PERCENT: ::String
 
-      Count: ::String
+      COUNT: ::String
 
-      Bytes_Second: ::String
+      BYTES_SECOND: ::String
 
-      Kilobytes_Second: ::String
+      KILOBYTES_SECOND: ::String
 
-      Megabytes_Second: ::String
+      MEGABYTES_SECOND: ::String
 
-      Gigabytes_Second: ::String
+      GIGABYTES_SECOND: ::String
 
-      Terabytes_Second: ::String
+      TERABYTES_SECOND: ::String
 
-      Bits_Second: ::String
+      BITS_SECOND: ::String
 
-      Kilobits_Second: ::String
+      KILOBITS_SECOND: ::String
 
-      Megabits_Second: ::String
+      MEGABITS_SECOND: ::String
 
-      Gigabits_Second: ::String
+      GIGABITS_SECOND: ::String
 
-      Terabits_Second: ::String
+      TERABITS_SECOND: ::String
 
-      Count_Second: ::String
+      COUNT_SECOND: ::String
 
-      None: ::String
+      NONE: ::String
     end
 
     class StartMetricStreamsInput < ::Struct[untyped]
@@ -993,15 +993,15 @@ module AWS::SDK::CloudWatch
     end
 
     module Statistic
-      SampleCount: ::String
+      SAMPLE_COUNT: ::String
 
-      Average: ::String
+      AVERAGE: ::String
 
-      Sum: ::String
+      SUM: ::String
 
-      Minimum: ::String
+      MINIMUM: ::String
 
-      Maximum: ::String
+      MAXIMUM: ::String
     end
 
     class StatisticSet < ::Struct[untyped]
@@ -1040,7 +1040,7 @@ module AWS::SDK::CloudWatch
     class TagResourceInput < ::Struct[untyped]
       include Hearth::Structure
       attr_accessor resource_arn (): ::String
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class TagResourceOutput < ::Struct[untyped]

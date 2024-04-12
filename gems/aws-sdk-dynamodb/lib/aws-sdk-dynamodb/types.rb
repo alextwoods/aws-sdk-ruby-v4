@@ -254,6 +254,10 @@ module AWS::SDK::DynamoDB
       end
 
       class Unknown < AttributeValue
+        def initialize(name:, value:)
+          super({name: name, value: value})
+        end
+
         def to_h
           { unknown: super(__getobj__) }
         end
@@ -1124,37 +1128,37 @@ module AWS::SDK::DynamoDB
     # Includes enum constants for BatchStatementErrorCodeEnum
     module BatchStatementErrorCodeEnum
       # No documentation available.
-      ConditionalCheckFailed = "ConditionalCheckFailed"
+      CONDITIONAL_CHECK_FAILED = "ConditionalCheckFailed"
 
       # No documentation available.
-      ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded"
+      ITEM_COLLECTION_SIZE_LIMIT_EXCEEDED = "ItemCollectionSizeLimitExceeded"
 
       # No documentation available.
-      RequestLimitExceeded = "RequestLimitExceeded"
+      REQUEST_LIMIT_EXCEEDED = "RequestLimitExceeded"
 
       # No documentation available.
-      ValidationError = "ValidationError"
+      VALIDATION_ERROR = "ValidationError"
 
       # No documentation available.
-      ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded"
+      PROVISIONED_THROUGHPUT_EXCEEDED = "ProvisionedThroughputExceeded"
 
       # No documentation available.
-      TransactionConflict = "TransactionConflict"
+      TRANSACTION_CONFLICT = "TransactionConflict"
 
       # No documentation available.
-      ThrottlingError = "ThrottlingError"
+      THROTTLING_ERROR = "ThrottlingError"
 
       # No documentation available.
-      InternalServerError = "InternalServerError"
+      INTERNAL_SERVER_ERROR = "InternalServerError"
 
       # No documentation available.
-      ResourceNotFound = "ResourceNotFound"
+      RESOURCE_NOT_FOUND = "ResourceNotFound"
 
       # No documentation available.
-      AccessDenied = "AccessDenied"
+      ACCESS_DENIED = "AccessDenied"
 
       # No documentation available.
-      DuplicateItem = "DuplicateItem"
+      DUPLICATE_ITEM = "DuplicateItem"
     end
 
     # <p> A PartiQL batch statement request. </p>
@@ -3517,7 +3521,7 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.cache_period_in_minutes ||= 0
+        self.cache_period_in_minutes = 0 if self.cache_period_in_minutes.nil?
       end
     end
 
@@ -5223,9 +5227,9 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.error_count ||= 0
-        self.processed_item_count ||= 0
-        self.imported_item_count ||= 0
+        self.error_count = 0 if self.error_count.nil?
+        self.processed_item_count = 0 if self.processed_item_count.nil?
+        self.imported_item_count = 0 if self.imported_item_count.nil?
       end
     end
 
@@ -5828,7 +5832,7 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.max_results ||= 0
+        self.max_results = 0 if self.max_results.nil?
       end
     end
 
@@ -7325,8 +7329,8 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.count ||= 0
-        self.scanned_count ||= 0
+        self.count = 0 if self.count.nil?
+        self.scanned_count = 0 if self.scanned_count.nil?
       end
     end
 
@@ -8768,8 +8772,8 @@ module AWS::SDK::DynamoDB
 
       def initialize(*)
         super
-        self.count ||= 0
-        self.scanned_count ||= 0
+        self.count = 0 if self.count.nil?
+        self.scanned_count = 0 if self.scanned_count.nil?
       end
     end
 

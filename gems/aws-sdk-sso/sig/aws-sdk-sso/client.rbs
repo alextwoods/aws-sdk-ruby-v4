@@ -11,15 +11,60 @@ module AWS::SDK::SSO
   class Client
     include Hearth::ClientStubs
 
-    def self.plugins: () -> Hearth::PluginList
+    def self.plugins: () -> Hearth::PluginList[Config]
 
-    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_provider: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
 
     attr_reader config: Config
 
-    def get_role_credentials: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_account_roles: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def list_accounts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def logout: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def get_role_credentials: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetRoleCredentialsOutput] |
+      (?Types::GetRoleCredentialsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetRoleCredentialsOutput] |
+      (
+        role_name: ::String,
+        account_id: ::String,
+        access_token: ::String
+      ) -> Hearth::Output[Types::GetRoleCredentialsOutput]
+
+    def list_account_roles: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccountRolesOutput] |
+      (?Types::ListAccountRolesInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccountRolesOutput] |
+      (
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        access_token: ::String,
+        account_id: ::String
+      ) -> Hearth::Output[Types::ListAccountRolesOutput]
+
+    def list_accounts: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccountsOutput] |
+      (?Types::ListAccountsInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::ListAccountsOutput] |
+      (
+        ?next_token: ::String,
+        ?max_results: ::Integer,
+        access_token: ::String
+      ) -> Hearth::Output[Types::ListAccountsOutput]
+
+    def logout: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::LogoutOutput] |
+      (?Types::LogoutInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::LogoutOutput] |
+      (
+        access_token: ::String
+      ) -> Hearth::Output[Types::LogoutOutput]
+
   end
 end

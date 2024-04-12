@@ -17,9 +17,9 @@ module AWS::SDK::KMS
 
     class Resolver
 
-      def resolve(auth_params)
+      def resolve(params)
         options = []
-        case auth_params.operation_name
+        case params.operation_name
         when :cancel_key_deletion
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :connect_custom_key_store
@@ -120,7 +120,9 @@ module AWS::SDK::KMS
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
         when :verify_mac
           options << Hearth::AuthOption.new(scheme_id: 'aws.auth#sigv4')
+        else nil
         end
+        options
       end
 
     end

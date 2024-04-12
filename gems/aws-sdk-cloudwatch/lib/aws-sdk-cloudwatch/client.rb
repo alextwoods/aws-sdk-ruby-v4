@@ -9,8 +9,6 @@
 
 require 'stringio'
 
-require_relative 'middleware/request_id'
-
 module AWS::SDK::CloudWatch
   # <p>Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services) resources and the
   # 			applications you run on Amazon Web Services in real time. You can use CloudWatch to collect and track
@@ -64,13 +62,13 @@ module AWS::SDK::CloudWatch
     #             <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
     # 			</p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteAlarmsInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteAlarmsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteAlarmsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_alarms(
     #     alarm_names: [
@@ -82,48 +80,10 @@ module AWS::SDK::CloudWatch
     def delete_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAlarmsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteAlarmsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteAlarms
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_alarms),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFound]
-        ),
-        data_parser: Parsers::DeleteAlarms
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFound],
-        stub_data_class: Stubs::DeleteAlarms,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteAlarms.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_alarms,
@@ -148,13 +108,13 @@ module AWS::SDK::CloudWatch
     # 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model">Deleting an anomaly detection model</a>
     # 			in the <i>CloudWatch User Guide</i>.
     # 		</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteAnomalyDetectorInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteAnomalyDetectorInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteAnomalyDetectorOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_anomaly_detector(
     #     namespace: 'Namespace',
@@ -198,48 +158,10 @@ module AWS::SDK::CloudWatch
     def delete_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAnomalyDetectorInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteAnomalyDetectorInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteAnomalyDetector
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_anomaly_detector),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::DeleteAnomalyDetector
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::DeleteAnomalyDetector,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteAnomalyDetector.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_anomaly_detector,
@@ -258,13 +180,13 @@ module AWS::SDK::CloudWatch
     # <p>Deletes all dashboards that you specify. You
     # 			can specify up to 100 dashboards to delete. If there is an error during this call, no dashboards are
     # 			deleted.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteDashboardsInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteDashboardsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteDashboardsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_dashboards(
     #     dashboard_names: [
@@ -276,48 +198,10 @@ module AWS::SDK::CloudWatch
     def delete_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDashboardsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteDashboardsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteDashboards
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_dashboards),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::DeleteDashboards
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::DeleteDashboards,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteDashboards.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_dashboards,
@@ -337,13 +221,13 @@ module AWS::SDK::CloudWatch
     #          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
     # 			the rule was created might
     # 			not be available.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_insight_rules(
     #     rule_names: [
@@ -361,48 +245,10 @@ module AWS::SDK::CloudWatch
     def delete_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::DeleteInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::DeleteInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_insight_rules,
@@ -419,13 +265,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Permanently deletes the metric stream that you specify.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DeleteMetricStreamInput] params
     #   Request parameters for this operation.
     #   See {Types::DeleteMetricStreamInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DeleteMetricStreamOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.delete_metric_stream(
     #     name: 'Name' # required
@@ -435,48 +281,10 @@ module AWS::SDK::CloudWatch
     def delete_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMetricStreamInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DeleteMetricStreamInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteMetricStream
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :delete_metric_stream),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::DeleteMetricStream
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::DeleteMetricStream,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DeleteMetricStream.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :delete_metric_stream,
@@ -498,13 +306,13 @@ module AWS::SDK::CloudWatch
     #          <p>To use this operation and return information about a composite alarm, you must be signed on with
     # 			the <code>cloudwatch:DescribeAlarmHistory</code> permission that is scoped to <code>*</code>. You can't return information
     # 			about composite alarms if your <code>cloudwatch:DescribeAlarmHistory</code> permission has a narrower scope.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeAlarmHistoryInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeAlarmHistoryInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeAlarmHistoryOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_alarm_history(
     #     alarm_name: 'AlarmName',
@@ -532,48 +340,10 @@ module AWS::SDK::CloudWatch
     def describe_alarm_history(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmHistoryInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeAlarmHistoryInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAlarmHistory
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_alarm_history),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken]
-        ),
-        data_parser: Parsers::DescribeAlarmHistory
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken],
-        stub_data_class: Stubs::DescribeAlarmHistory,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmHistory.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarm_history,
@@ -594,13 +364,13 @@ module AWS::SDK::CloudWatch
     #          <p>To use this operation and return information about composite alarms, you must be signed on with
     # 		the <code>cloudwatch:DescribeAlarms</code> permission that is scoped to <code>*</code>. You can't return information
     # 			about composite alarms if your <code>cloudwatch:DescribeAlarms</code> permission has a narrower scope.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeAlarmsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeAlarmsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeAlarmsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_alarms(
     #     alarm_names: [
@@ -694,48 +464,10 @@ module AWS::SDK::CloudWatch
     def describe_alarms(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeAlarmsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAlarms
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_alarms),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken]
-        ),
-        data_parser: Parsers::DescribeAlarms
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken],
-        stub_data_class: Stubs::DescribeAlarms,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarms.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarms,
@@ -756,13 +488,13 @@ module AWS::SDK::CloudWatch
     #          <p>This operation retrieves only standard alarms that are based on
     # 		the specified metric. It does not return alarms based on math expressions that
     # 		use the specified metric, or composite alarms that use the specified metric.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeAlarmsForMetricInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeAlarmsForMetricInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeAlarmsForMetricOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_alarms_for_metric(
     #     metric_name: 'MetricName', # required
@@ -833,48 +565,10 @@ module AWS::SDK::CloudWatch
     def describe_alarms_for_metric(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAlarmsForMetricInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeAlarmsForMetricInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAlarmsForMetric
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_alarms_for_metric),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::DescribeAlarmsForMetric
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DescribeAlarmsForMetric,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAlarmsForMetric.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_alarms_for_metric,
@@ -897,13 +591,13 @@ module AWS::SDK::CloudWatch
     # 			For metric math anomaly detectors,
     # 			you can list them by adding <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array.
     # 			This will return all metric math anomaly detectors in your account.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeAnomalyDetectorsInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeAnomalyDetectorsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeAnomalyDetectorsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_anomaly_detectors(
     #     next_token: 'NextToken',
@@ -964,48 +658,10 @@ module AWS::SDK::CloudWatch
     def describe_anomaly_detectors(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeAnomalyDetectorsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeAnomalyDetectorsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAnomalyDetectors
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_anomaly_detectors),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::DescribeAnomalyDetectors
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::DescribeAnomalyDetectors,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeAnomalyDetectors.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_anomaly_detectors,
@@ -1024,13 +680,13 @@ module AWS::SDK::CloudWatch
     # <p>Returns a list of all the Contributor Insights rules in your account.</p>
     #          <p>For more information about Contributor Insights, see
     # 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DescribeInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::DescribeInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DescribeInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.describe_insight_rules(
     #     next_token: 'NextToken',
@@ -1049,48 +705,10 @@ module AWS::SDK::CloudWatch
     def describe_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DescribeInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :describe_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken]
-        ),
-        data_parser: Parsers::DescribeInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken],
-        stub_data_class: Stubs::DescribeInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DescribeInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :describe_insight_rules,
@@ -1108,13 +726,13 @@ module AWS::SDK::CloudWatch
 
     # <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
     # 			alarm actions do not execute when the alarm state changes.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DisableAlarmActionsInput] params
     #   Request parameters for this operation.
     #   See {Types::DisableAlarmActionsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DisableAlarmActionsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.disable_alarm_actions(
     #     alarm_names: [
@@ -1126,48 +744,10 @@ module AWS::SDK::CloudWatch
     def disable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DisableAlarmActionsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DisableAlarmActionsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableAlarmActions
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :disable_alarm_actions),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::DisableAlarmActions
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::DisableAlarmActions,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DisableAlarmActions.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_alarm_actions,
@@ -1185,13 +765,13 @@ module AWS::SDK::CloudWatch
 
     # <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
     # 		not incur costs.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::DisableInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::DisableInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DisableInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.disable_insight_rules(
     #     rule_names: [
@@ -1209,48 +789,10 @@ module AWS::SDK::CloudWatch
     def disable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DisableInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DisableInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :disable_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::DisableInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::DisableInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::DisableInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :disable_insight_rules,
@@ -1267,13 +809,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Enables the actions for the specified alarms.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::EnableAlarmActionsInput] params
     #   Request parameters for this operation.
     #   See {Types::EnableAlarmActionsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::EnableAlarmActionsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.enable_alarm_actions(
     #     alarm_names: [
@@ -1285,48 +827,10 @@ module AWS::SDK::CloudWatch
     def enable_alarm_actions(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::EnableAlarmActionsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::EnableAlarmActionsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableAlarmActions
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :enable_alarm_actions),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::EnableAlarmActions
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::EnableAlarmActions,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::EnableAlarmActions.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_alarm_actions,
@@ -1343,13 +847,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::EnableInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::EnableInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::EnableInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.enable_insight_rules(
     #     rule_names: [
@@ -1367,48 +871,10 @@ module AWS::SDK::CloudWatch
     def enable_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::EnableInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::EnableInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :enable_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::EnableInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::EnableInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::EnableInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :enable_insight_rules,
@@ -1428,13 +894,13 @@ module AWS::SDK::CloudWatch
     #          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
     # 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
     # 			the copy.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetDashboardInput] params
     #   Request parameters for this operation.
     #   See {Types::GetDashboardInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetDashboardOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_dashboard(
     #     dashboard_name: 'DashboardName' # required
@@ -1447,48 +913,10 @@ module AWS::SDK::CloudWatch
     def get_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetDashboardInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetDashboardInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDashboard
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_dashboard),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::DashboardNotFoundError, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::GetDashboard
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::DashboardNotFoundError, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::GetDashboard,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetDashboard.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_dashboard,
@@ -1541,13 +969,13 @@ module AWS::SDK::CloudWatch
     #                   <code>Average</code> -- the average value from all contributors during the time period represented by that data point.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetInsightRuleReportInput] params
     #   Request parameters for this operation.
     #   See {Types::GetInsightRuleReportInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetInsightRuleReportOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_insight_rule_report(
     #     rule_name: 'RuleName', # required
@@ -1589,48 +1017,10 @@ module AWS::SDK::CloudWatch
     def get_insight_rule_report(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetInsightRuleReportInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetInsightRuleReportInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetInsightRuleReport
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_insight_rule_report),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::GetInsightRuleReport
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::GetInsightRuleReport,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetInsightRuleReport.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_insight_rule_report,
@@ -1694,13 +1084,13 @@ module AWS::SDK::CloudWatch
     # 			and can be used as input for a metric math expression that expects a single time series. A Metrics Insights
     # 			query with a <b>GROUP BY</b> clause returns an array of time-series (TS[]),
     # 			and can be used as input for a metric math expression that expects an array of time series. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetMetricDataInput] params
     #   Request parameters for this operation.
     #   See {Types::GetMetricDataInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetMetricDataOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_metric_data(
     #     metric_data_queries: [
@@ -1757,48 +1147,10 @@ module AWS::SDK::CloudWatch
     def get_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricDataInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetMetricDataInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMetricData
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_metric_data),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken]
-        ),
-        data_parser: Parsers::GetMetricData
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken],
-        stub_data_class: Stubs::GetMetricData,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricData.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_data,
@@ -1861,13 +1213,13 @@ module AWS::SDK::CloudWatch
     #          <p>For information about metrics and dimensions supported by Amazon Web Services services, see the
     # 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon CloudWatch Metrics and Dimensions Reference</a> in the
     # 			<i>Amazon CloudWatch User Guide</i>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetMetricStatisticsInput] params
     #   Request parameters for this operation.
     #   See {Types::GetMetricStatisticsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetMetricStatisticsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_metric_statistics(
     #     namespace: 'Namespace', # required
@@ -1906,48 +1258,10 @@ module AWS::SDK::CloudWatch
     def get_metric_statistics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricStatisticsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetMetricStatisticsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMetricStatistics
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_metric_statistics),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::GetMetricStatistics
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::GetMetricStatistics,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStatistics.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_statistics,
@@ -1964,13 +1278,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Returns information about the metric stream that you specify.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetMetricStreamInput] params
     #   Request parameters for this operation.
     #   See {Types::GetMetricStreamInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetMetricStreamOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_metric_stream(
     #     name: 'Name' # required
@@ -2003,48 +1317,10 @@ module AWS::SDK::CloudWatch
     def get_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricStreamInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetMetricStreamInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMetricStream
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_metric_stream),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::GetMetricStream
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::GetMetricStream,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricStream.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_stream,
@@ -2076,13 +1352,13 @@ module AWS::SDK::CloudWatch
     #                <p>Up to 100 KB uncompressed payload.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::GetMetricWidgetImageInput] params
     #   Request parameters for this operation.
     #   See {Types::GetMetricWidgetImageInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetMetricWidgetImageOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_metric_widget_image(
     #     metric_widget: 'MetricWidget', # required
@@ -2094,48 +1370,10 @@ module AWS::SDK::CloudWatch
     def get_metric_widget_image(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetMetricWidgetImageInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetMetricWidgetImageInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMetricWidgetImage
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_metric_widget_image),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetMetricWidgetImage
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetMetricWidgetImage,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::GetMetricWidgetImage.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_metric_widget_image,
@@ -2160,13 +1398,13 @@ module AWS::SDK::CloudWatch
     # 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
     # 		include the value you received for <code>NextToken</code> in the first call, to receive
     # 		the next 1000 results.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListDashboardsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListDashboardsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListDashboardsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_dashboards(
     #     dashboard_name_prefix: 'DashboardNamePrefix',
@@ -2184,48 +1422,10 @@ module AWS::SDK::CloudWatch
     def list_dashboards(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListDashboardsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListDashboardsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDashboards
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_dashboards),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::ListDashboards
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::ListDashboards,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::ListDashboards.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_dashboards,
@@ -2248,13 +1448,13 @@ module AWS::SDK::CloudWatch
     # 			in your account.
     # 			
     # 		</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListManagedInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::ListManagedInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListManagedInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_managed_insight_rules(
     #     resource_arn: 'ResourceARN', # required
@@ -2274,48 +1474,10 @@ module AWS::SDK::CloudWatch
     def list_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListManagedInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListManagedInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListManagedInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_managed_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::ListManagedInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::ListManagedInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::ListManagedInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_managed_insight_rules,
@@ -2332,13 +1494,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Returns a list of metric streams in this account.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListMetricStreamsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListMetricStreamsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListMetricStreamsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_metric_streams(
     #     next_token: 'NextToken',
@@ -2359,48 +1521,10 @@ module AWS::SDK::CloudWatch
     def list_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricStreamsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListMetricStreamsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListMetricStreams
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_metric_streams),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidNextToken, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::ListMetricStreams
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidNextToken, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::ListMetricStreams,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::ListMetricStreams.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_metric_streams,
@@ -2429,13 +1553,13 @@ module AWS::SDK::CloudWatch
     # 	reported data in the past two weeks. To retrieve those metrics, use
     # 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
     # 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListMetricsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListMetricsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListMetricsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_metrics(
     #     namespace: 'Namespace',
@@ -2467,48 +1591,10 @@ module AWS::SDK::CloudWatch
     def list_metrics(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListMetricsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListMetricsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListMetrics
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_metrics),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::ListMetrics
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::ListMetrics,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::ListMetrics.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_metrics,
@@ -2526,13 +1612,13 @@ module AWS::SDK::CloudWatch
 
     # <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
     # 			and Contributor Insights rules support tagging.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListTagsForResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::ListTagsForResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListTagsForResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_tags_for_resource(
     #     resource_arn: 'ResourceARN' # required
@@ -2546,48 +1632,10 @@ module AWS::SDK::CloudWatch
     def list_tags_for_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListTagsForResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsForResource
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_tags_for_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::ListTagsForResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::ListTagsForResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::ListTagsForResource.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_tags_for_resource,
@@ -2606,13 +1654,13 @@ module AWS::SDK::CloudWatch
     # <p>Creates an anomaly detection model for a CloudWatch metric. You can use the model
     # 			to display a band of expected normal values when the metric is graphed.</p>
     #          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html">CloudWatch Anomaly Detection</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutAnomalyDetectorInput] params
     #   Request parameters for this operation.
     #   See {Types::PutAnomalyDetectorInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutAnomalyDetectorOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_anomaly_detector(
     #     namespace: 'Namespace',
@@ -2665,48 +1713,10 @@ module AWS::SDK::CloudWatch
     def put_anomaly_detector(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutAnomalyDetectorInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutAnomalyDetectorInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutAnomalyDetector
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_anomaly_detector),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededException, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::PutAnomalyDetector
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::PutAnomalyDetector,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutAnomalyDetector.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_anomaly_detector,
@@ -2761,13 +1771,13 @@ module AWS::SDK::CloudWatch
     # 			composite alarms if your <code>cloudwatch:PutCompositeAlarm</code> permission has a narrower scope.</p>
     #          <p>If you are an IAM user, you must have <code>iam:CreateServiceLinkedRole</code> to create
     # 			a composite alarm that has Systems Manager OpsItem actions.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutCompositeAlarmInput] params
     #   Request parameters for this operation.
     #   See {Types::PutCompositeAlarmInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutCompositeAlarmOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_composite_alarm(
     #     actions_enabled: false,
@@ -2792,48 +1802,10 @@ module AWS::SDK::CloudWatch
     def put_composite_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutCompositeAlarmInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutCompositeAlarmInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutCompositeAlarm
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_composite_alarm),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededFault]
-        ),
-        data_parser: Parsers::PutCompositeAlarm
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededFault],
-        stub_data_class: Stubs::PutCompositeAlarm,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutCompositeAlarm.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_composite_alarm,
@@ -2863,13 +1835,13 @@ module AWS::SDK::CloudWatch
     # 		not be changed in the console. This message could also point console users to the location
     # 		of the <code>DashboardBody</code> script or the CloudFormation template used to create the
     # 		dashboard.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutDashboardInput] params
     #   Request parameters for this operation.
     #   See {Types::PutDashboardInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutDashboardOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_dashboard(
     #     dashboard_name: 'DashboardName', # required
@@ -2884,48 +1856,10 @@ module AWS::SDK::CloudWatch
     def put_dashboard(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutDashboardInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutDashboardInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutDashboard
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_dashboard),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::DashboardInvalidInputError, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::PutDashboard
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::DashboardInvalidInputError, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::PutDashboard,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutDashboard.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_dashboard,
@@ -2946,13 +1880,13 @@ module AWS::SDK::CloudWatch
     # 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
     #          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
     # 			the rule was created might not be available.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutInsightRuleInput] params
     #   Request parameters for this operation.
     #   See {Types::PutInsightRuleInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutInsightRuleOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_insight_rule(
     #     rule_name: 'RuleName', # required
@@ -2970,48 +1904,10 @@ module AWS::SDK::CloudWatch
     def put_insight_rule(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutInsightRuleInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutInsightRuleInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutInsightRule
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_insight_rule),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::PutInsightRule
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::PutInsightRule,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutInsightRule.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_insight_rule,
@@ -3044,13 +1940,13 @@ module AWS::SDK::CloudWatch
     # 			to describe all available rules.
     # 			
     # 		</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutManagedInsightRulesInput] params
     #   Request parameters for this operation.
     #   See {Types::PutManagedInsightRulesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutManagedInsightRulesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_managed_insight_rules(
     #     managed_rules: [
@@ -3077,48 +1973,10 @@ module AWS::SDK::CloudWatch
     def put_managed_insight_rules(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutManagedInsightRulesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutManagedInsightRulesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutManagedInsightRules
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_managed_insight_rules),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::PutManagedInsightRules
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::PutManagedInsightRules,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutManagedInsightRules.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_managed_insight_rules,
@@ -3187,13 +2045,13 @@ module AWS::SDK::CloudWatch
     # 						Cross-account cross-Region CloudWatch console</a>.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutMetricAlarmInput] params
     #   Request parameters for this operation.
     #   See {Types::PutMetricAlarmInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutMetricAlarmOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_metric_alarm(
     #     alarm_name: 'AlarmName', # required
@@ -3252,48 +2110,10 @@ module AWS::SDK::CloudWatch
     def put_metric_alarm(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricAlarmInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutMetricAlarmInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutMetricAlarm
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_metric_alarm),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::LimitExceededFault]
-        ),
-        data_parser: Parsers::PutMetricAlarm
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::LimitExceededFault],
-        stub_data_class: Stubs::PutMetricAlarm,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricAlarm.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_alarm,
@@ -3352,13 +2172,13 @@ module AWS::SDK::CloudWatch
     # 					multiplied by <code>SampleCount</code>.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::PutMetricDataInput] params
     #   Request parameters for this operation.
     #   See {Types::PutMetricDataInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutMetricDataOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_metric_data(
     #     namespace: 'Namespace', # required
@@ -3395,54 +2215,10 @@ module AWS::SDK::CloudWatch
     def put_metric_data(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricDataInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutMetricDataInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutMetricData
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::HTTP::Middleware::RequestCompression,
-        streaming: false,
-        encodings: ['gzip'],
-        request_min_compression_size_bytes: config.request_min_compression_size_bytes,
-        disable_request_compression: config.disable_request_compression
-      )
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_metric_data),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InternalServiceFault, Errors::InvalidParameterCombinationException, Errors::InvalidParameterValueException, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::PutMetricData
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InternalServiceFault, Stubs::InvalidParameterCombinationException, Stubs::InvalidParameterValueException, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::PutMetricData,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricData.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_data,
@@ -3492,13 +2268,13 @@ module AWS::SDK::CloudWatch
     #          <p>If you are using CloudWatch cross-account observability and you create a metric stream in a monitoring account,
     # 			you can choose whether to include metrics from source accounts in the stream. For more information, see
     # 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::PutMetricStreamInput] params
     #   Request parameters for this operation.
     #   See {Types::PutMetricStreamInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::PutMetricStreamOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.put_metric_stream(
     #     name: 'Name', # required
@@ -3540,48 +2316,10 @@ module AWS::SDK::CloudWatch
     def put_metric_stream(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::PutMetricStreamInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::PutMetricStreamInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutMetricStream
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :put_metric_stream),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterCombinationException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::PutMetricStream
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterCombinationException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::PutMetricStream,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::PutMetricStream.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :put_metric_stream,
@@ -3613,13 +2351,13 @@ module AWS::SDK::CloudWatch
     # 			configuration.</p>
     #          <p>If an alarm triggers EC2 Auto Scaling policies or application Auto Scaling policies, you must include
     # 		information in the <code>StateReasonData</code> parameter to enable the policy to take the correct action.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::SetAlarmStateInput] params
     #   Request parameters for this operation.
     #   See {Types::SetAlarmStateInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::SetAlarmStateOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.set_alarm_state(
     #     alarm_name: 'AlarmName', # required
@@ -3632,48 +2370,10 @@ module AWS::SDK::CloudWatch
     def set_alarm_state(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::SetAlarmStateInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::SetAlarmStateInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::SetAlarmState
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :set_alarm_state),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidFormatFault, Errors::ResourceNotFound]
-        ),
-        data_parser: Parsers::SetAlarmState
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidFormatFault, Stubs::ResourceNotFound],
-        stub_data_class: Stubs::SetAlarmState,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::SetAlarmState.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :set_alarm_state,
@@ -3690,13 +2390,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Starts the streaming of metrics for one or more of your metric streams.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::StartMetricStreamsInput] params
     #   Request parameters for this operation.
     #   See {Types::StartMetricStreamsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::StartMetricStreamsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.start_metric_streams(
     #     names: [
@@ -3708,48 +2408,10 @@ module AWS::SDK::CloudWatch
     def start_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::StartMetricStreamsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::StartMetricStreamsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::StartMetricStreams
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :start_metric_streams),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::StartMetricStreams
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::StartMetricStreams,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::StartMetricStreams.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :start_metric_streams,
@@ -3766,13 +2428,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Stops the streaming of metrics for one or more of your metric streams.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::StopMetricStreamsInput] params
     #   Request parameters for this operation.
     #   See {Types::StopMetricStreamsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::StopMetricStreamsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.stop_metric_streams(
     #     names: [
@@ -3784,48 +2446,10 @@ module AWS::SDK::CloudWatch
     def stop_metric_streams(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::StopMetricStreamsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::StopMetricStreamsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::StopMetricStreams
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :stop_metric_streams),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidParameterValueException, Errors::InternalServiceFault, Errors::MissingRequiredParameterException]
-        ),
-        data_parser: Parsers::StopMetricStreams
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidParameterValueException, Stubs::InternalServiceFault, Stubs::MissingRequiredParameterException],
-        stub_data_class: Stubs::StopMetricStreams,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::StopMetricStreams.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :stop_metric_streams,
@@ -3852,13 +2476,13 @@ module AWS::SDK::CloudWatch
     # 			with the alarm. If you specify a tag key that is already associated with the alarm, the new tag value that you specify replaces
     # 			the previous value for that tag.</p>
     #          <p>You can associate as many as 50 tags with a CloudWatch resource.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::TagResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::TagResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::TagResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.tag_resource(
     #     resource_arn: 'ResourceARN', # required
@@ -3874,48 +2498,10 @@ module AWS::SDK::CloudWatch
     def tag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::TagResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :tag_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::TagResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::TagResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::TagResource.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :tag_resource,
@@ -3932,13 +2518,13 @@ module AWS::SDK::CloudWatch
     end
 
     # <p>Removes one or more tags from the specified resource.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::UntagResourceInput] params
     #   Request parameters for this operation.
     #   See {Types::UntagResourceInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::UntagResourceOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.untag_resource(
     #     resource_arn: 'ResourceARN', # required
@@ -3951,48 +2537,10 @@ module AWS::SDK::CloudWatch
     def untag_resource(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::UntagResourceInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :untag_resource),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ResourceNotFoundException, Errors::ConcurrentModificationException, Errors::InvalidParameterValueException, Errors::InternalServiceFault]
-        ),
-        data_parser: Parsers::UntagResource
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ResourceNotFoundException, Stubs::ConcurrentModificationException, Stubs::InvalidParameterValueException, Stubs::InternalServiceFault],
-        stub_data_class: Stubs::UntagResource,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::CloudWatch::Middleware::UntagResource.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :untag_resource,

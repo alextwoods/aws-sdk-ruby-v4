@@ -2,7 +2,9 @@
 
 source 'https://rubygems.org'
 
-gem 'rake'
+gem 'rexml'
+
+gem 'rake', require: false
 
 # Use the latest hearth from Github
 gem 'hearth',
@@ -18,9 +20,15 @@ end
 group :development do
   gem 'rbs'
   gem 'rubocop'
+  gem 'racc' # required still by rubocop but moved to bundled gem in 3.3
   gem 'steep'
 end
 
-group :repl do
-  gem 'pry'
+group :benchmark do
+  gem 'memory_profiler'
+
+  # required for uploading archive/metrics
+  # TODO: Once supported and available, start using local V4 gems instead of v3
+  # gem 'aws-sdk-cloudwatch'
+  # gem 'aws-sdk-s3'
 end

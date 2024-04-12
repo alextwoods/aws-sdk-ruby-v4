@@ -13,58 +13,58 @@ module AWS::SDK::CloudWatch
     class DescribeAlarmHistory
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAlarmHistoryOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::CloudWatch::Types::AlarmHistoryItem], void]
     end
 
     class DescribeAlarms
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAlarmsOutput], void]
     end
 
     class DescribeAnomalyDetectors
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeAnomalyDetectorsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::CloudWatch::Types::AnomalyDetector], void]
     end
 
     class DescribeInsightRules
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::DescribeInsightRulesOutput], void]
     end
 
     class GetMetricData
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::GetMetricDataOutput], void]
     end
 
     class ListDashboards
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListDashboardsOutput], void]
       def items: () -> Enumerator[Array[AWS::SDK::CloudWatch::Types::DashboardEntry], void]
     end
 
     class ListManagedInsightRules
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListManagedInsightRulesOutput], void]
     end
 
     class ListMetrics
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListMetricsOutput], void]
     end
 
     class ListMetricStreams
       def initialize: (Client, ?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options) -> void
 
-      def pages: () -> ::Enumerator[Hearth::Output, void]
+      def pages: () -> ::Enumerator[Hearth::Output[Types::ListMetricStreamsOutput], void]
     end
 
   end

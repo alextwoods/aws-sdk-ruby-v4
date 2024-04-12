@@ -14,9 +14,9 @@ module AWS::SDK::SSO
       # @param [Client] client
       # @param (see Client#list_account_roles)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_account_roles operation.
@@ -25,15 +25,15 @@ module AWS::SDK::SSO
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:next_token]
-          response = @client.list_account_roles(params, @options)
-          e.yield(response)
-          output_token = response.next_token
+          output = @client.list_account_roles(params, @options)
+          e.yield(output)
+          output_token = output.data.next_token
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(next_token: output_token)
-            response = @client.list_account_roles(params, @options)
-            e.yield(response)
-            output_token = response.next_token
+            output = @client.list_account_roles(params, @options)
+            e.yield(output)
+            output_token = output.data.next_token
           end
         end
       end
@@ -43,7 +43,7 @@ module AWS::SDK::SSO
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.role_list.each do |item|
+            page.data.role_list.each do |item|
               e.yield(item)
             end
           end
@@ -55,9 +55,9 @@ module AWS::SDK::SSO
       # @param [Client] client
       # @param (see Client#list_accounts)
       def initialize(client, params = {}, options = {})
+        @client = client
         @params = params
         @options = options
-        @client = client
       end
 
       # Iterate all response pages of the list_accounts operation.
@@ -66,15 +66,15 @@ module AWS::SDK::SSO
         params = @params
         Enumerator.new do |e|
           @prev_token = params[:next_token]
-          response = @client.list_accounts(params, @options)
-          e.yield(response)
-          output_token = response.next_token
+          output = @client.list_accounts(params, @options)
+          e.yield(output)
+          output_token = output.data.next_token
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(next_token: output_token)
-            response = @client.list_accounts(params, @options)
-            e.yield(response)
-            output_token = response.next_token
+            output = @client.list_accounts(params, @options)
+            e.yield(output)
+            output_token = output.data.next_token
           end
         end
       end
@@ -84,7 +84,7 @@ module AWS::SDK::SSO
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.account_list.each do |item|
+            page.data.account_list.each do |item|
               e.yield(item)
             end
           end

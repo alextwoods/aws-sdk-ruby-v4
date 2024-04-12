@@ -274,7 +274,7 @@ module AWS::SDK::SSO
 
       def initialize(*)
         super
-        self.expiration ||= 0
+        self.expiration = 0 if self.expiration.nil?
       end
 
       def to_s

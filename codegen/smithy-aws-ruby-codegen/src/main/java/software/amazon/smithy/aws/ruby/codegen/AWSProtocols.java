@@ -1,5 +1,6 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.Ec2Query;
@@ -17,6 +18,13 @@ import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
+import software.amazon.smithy.ruby.codegen.rulesengine.BuiltInBinding;
+import software.amazon.smithy.ruby.codegen.rulesengine.FunctionBinding;
+import software.amazon.smithy.rulesengine.aws.language.functions.AwsBuiltIns;
+import software.amazon.smithy.rulesengine.aws.language.functions.AwsPartition;
+import software.amazon.smithy.rulesengine.aws.language.functions.IsVirtualHostableS3Bucket;
+import software.amazon.smithy.rulesengine.aws.language.functions.ParseArn;
+import software.amazon.smithy.rulesengine.aws.language.functions.partition.Partitions;
 import software.amazon.smithy.utils.ListUtils;
 
 import java.util.List;
@@ -43,6 +51,11 @@ public class AWSProtocols implements RubyIntegration {
                 .version("~> 4.0.0.pre1")
                 .addDependency(RubyDependency.HEARTH)
                 .build());
+    }
+
+    @Override
+    public List<ClientConfig> getAdditionalClientConfig(GenerationContext context) {
+        return List.of(AWSConfig.PROFILE);
     }
 
     @Override

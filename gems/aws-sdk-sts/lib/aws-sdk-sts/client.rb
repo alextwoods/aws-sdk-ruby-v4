@@ -9,8 +9,6 @@
 
 require 'stringio'
 
-require_relative 'middleware/request_id'
-
 module AWS::SDK::STS
   # <fullname>Security Token Service</fullname>
   #          <p>Security Token Service (STS) enables you to request temporary, limited-privilege
@@ -125,13 +123,13 @@ module AWS::SDK::STS
     #             <code>SerialNumber</code> value identifies the user's hardware or virtual MFA device.
     #          The <code>TokenCode</code> is the time-based one-time password (TOTP) that the MFA device
     #          produces. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::AssumeRoleInput] params
     #   Request parameters for this operation.
     #   See {Types::AssumeRoleInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::AssumeRoleOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.assume_role(
     #     role_arn: 'RoleArn', # required
@@ -219,48 +217,10 @@ module AWS::SDK::STS
     def assume_role(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::AssumeRoleInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRole
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :assume_role),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ExpiredTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-        ),
-        data_parser: Parsers::AssumeRole
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ExpiredTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
-        stub_data_class: Stubs::AssumeRole,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::AssumeRole.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role,
@@ -405,13 +365,13 @@ module AWS::SDK::STS
     #                   <i>IAM User Guide</i>. </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::AssumeRoleWithSAMLInput] params
     #   Request parameters for this operation.
     #   See {Types::AssumeRoleWithSAMLInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::AssumeRoleWithSAMLOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.assume_role_with_saml(
     #     role_arn: 'RoleArn', # required
@@ -473,48 +433,10 @@ module AWS::SDK::STS
     def assume_role_with_saml(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithSAMLInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::AssumeRoleWithSAMLInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithSAML
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :assume_role_with_saml),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ExpiredTokenException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-        ),
-        data_parser: Parsers::AssumeRoleWithSAML
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
-        stub_data_class: Stubs::AssumeRoleWithSAML,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithSAML.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role_with_saml,
@@ -662,13 +584,13 @@ module AWS::SDK::STS
     #                to content in Amazon S3. </p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::AssumeRoleWithWebIdentityInput] params
     #   Request parameters for this operation.
     #   See {Types::AssumeRoleWithWebIdentityInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::AssumeRoleWithWebIdentityOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.assume_role_with_web_identity(
     #     role_arn: 'RoleArn', # required
@@ -729,48 +651,10 @@ module AWS::SDK::STS
     def assume_role_with_web_identity(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithWebIdentityInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::AssumeRoleWithWebIdentityInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithWebIdentity
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :assume_role_with_web_identity),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::ExpiredTokenException, Errors::IDPCommunicationErrorException, Errors::IDPRejectedClaimException, Errors::InvalidIdentityTokenException, Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-        ),
-        data_parser: Parsers::AssumeRoleWithWebIdentity
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::ExpiredTokenException, Stubs::IDPCommunicationErrorException, Stubs::IDPRejectedClaimException, Stubs::InvalidIdentityTokenException, Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
-        stub_data_class: Stubs::AssumeRoleWithWebIdentity,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::AssumeRoleWithWebIdentity.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :assume_role_with_web_identity,
@@ -822,13 +706,13 @@ module AWS::SDK::STS
     #                <p>The values of condition keys in the context of the user's request.</p>
     #             </li>
     #          </ul>
-    # @param [Hash] params
+    # @param [Hash | Types::DecodeAuthorizationMessageInput] params
     #   Request parameters for this operation.
     #   See {Types::DecodeAuthorizationMessageInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::DecodeAuthorizationMessageOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.decode_authorization_message(
     #     encoded_message: 'EncodedMessage' # required
@@ -849,48 +733,10 @@ module AWS::SDK::STS
     def decode_authorization_message(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::DecodeAuthorizationMessageInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::DecodeAuthorizationMessageInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::DecodeAuthorizationMessage
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :decode_authorization_message),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidAuthorizationMessageException]
-        ),
-        data_parser: Parsers::DecodeAuthorizationMessage
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidAuthorizationMessageException],
-        stub_data_class: Stubs::DecodeAuthorizationMessage,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::DecodeAuthorizationMessage.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :decode_authorization_message,
@@ -923,13 +769,13 @@ module AWS::SDK::STS
     #          <p>This operation does not indicate the state of the access key. The key might be active,
     #          inactive, or deleted. Active keys might not have permissions to perform an operation.
     #          Providing a deleted access key might return an error that the key doesn't exist.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetAccessKeyInfoInput] params
     #   Request parameters for this operation.
     #   See {Types::GetAccessKeyInfoInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetAccessKeyInfoOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_access_key_info(
     #     access_key_id: 'AccessKeyId' # required
@@ -940,48 +786,10 @@ module AWS::SDK::STS
     def get_access_key_info(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessKeyInfoInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetAccessKeyInfoInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAccessKeyInfo
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_access_key_info),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetAccessKeyInfo
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetAccessKeyInfo,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::GetAccessKeyInfo.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_access_key_info,
@@ -1007,13 +815,13 @@ module AWS::SDK::STS
     #             denied. To view an example response, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_access-denied-delete-mfa">I Am Not Authorized to Perform: iam:DeleteVirtualMFADevice</a> in the
     #                <i>IAM User Guide</i>.</p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::GetCallerIdentityInput] params
     #   Request parameters for this operation.
     #   See {Types::GetCallerIdentityInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetCallerIdentityOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_caller_identity()
     # @example Response structure
@@ -1051,48 +859,10 @@ module AWS::SDK::STS
     def get_caller_identity(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetCallerIdentityInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetCallerIdentityInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCallerIdentity
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_caller_identity),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: []
-        ),
-        data_parser: Parsers::GetCallerIdentity
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [],
-        stub_data_class: Stubs::GetCallerIdentity,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::GetCallerIdentity.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_caller_identity,
@@ -1197,13 +967,13 @@ module AWS::SDK::STS
     #             <code>department</code>=<code>engineering</code> session tag. <code>Department</code>
     #          and <code>department</code> are not saved as separate tags, and the session tag passed in
     #          the request takes precedence over the user tag.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetFederationTokenInput] params
     #   Request parameters for this operation.
     #   See {Types::GetFederationTokenInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetFederationTokenOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_federation_token(
     #     name: 'Name', # required
@@ -1267,48 +1037,10 @@ module AWS::SDK::STS
     def get_federation_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetFederationTokenInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetFederationTokenInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFederationToken
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_federation_token),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::MalformedPolicyDocumentException, Errors::PackedPolicyTooLargeException, Errors::RegionDisabledException]
-        ),
-        data_parser: Parsers::GetFederationToken
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::MalformedPolicyDocumentException, Stubs::PackedPolicyTooLargeException, Stubs::RegionDisabledException],
-        stub_data_class: Stubs::GetFederationToken,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::GetFederationToken.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_federation_token,
@@ -1383,13 +1115,13 @@ module AWS::SDK::STS
     #          credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken">Temporary
     #             Credentials for Users in Untrusted Environments</a> in the
     #             <i>IAM User Guide</i>. </p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetSessionTokenInput] params
     #   Request parameters for this operation.
     #   See {Types::GetSessionTokenInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetSessionTokenOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_session_token(
     #     duration_seconds: 1,
@@ -1423,48 +1155,10 @@ module AWS::SDK::STS
     def get_session_token(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionTokenInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetSessionTokenInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSessionToken
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_session_token),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(AWS::SDK::Core::Middleware::SignatureV4,
-        signer: config.signer
-      )
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::RegionDisabledException]
-        ),
-        data_parser: Parsers::GetSessionToken
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::RegionDisabledException],
-        stub_data_class: Stubs::GetSessionToken,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::STS::Middleware::GetSessionToken.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_session_token,

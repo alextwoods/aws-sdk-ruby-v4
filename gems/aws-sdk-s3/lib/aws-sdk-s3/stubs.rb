@@ -692,7 +692,7 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amz-abort-date'] = Hearth::TimeHelper.to_date_time(stub[:abort_date]) unless stub[:abort_date].nil?
+        http_resp.headers['x-amz-abort-date'] = Hearth::TimeHelper.to_http_date(stub[:abort_date]) unless stub[:abort_date].nil?
         http_resp.headers['x-amz-abort-rule-id'] = stub[:abort_rule_id] unless stub[:abort_rule_id].nil? || stub[:abort_rule_id].empty?
         http_resp.headers['x-amz-server-side-encryption'] = stub[:server_side_encryption] unless stub[:server_side_encryption].nil? || stub[:server_side_encryption].empty?
         http_resp.headers['x-amz-server-side-encryption-customer-algorithm'] = stub[:sse_customer_algorithm] unless stub[:sse_customer_algorithm].nil? || stub[:sse_customer_algorithm].empty?
@@ -2038,7 +2038,7 @@ module AWS::SDK::S3
         http_resp.headers['accept-ranges'] = stub[:accept_ranges] unless stub[:accept_ranges].nil? || stub[:accept_ranges].empty?
         http_resp.headers['x-amz-expiration'] = stub[:expiration] unless stub[:expiration].nil? || stub[:expiration].empty?
         http_resp.headers['x-amz-restore'] = stub[:restore] unless stub[:restore].nil? || stub[:restore].empty?
-        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_http_date(stub[:last_modified]) unless stub[:last_modified].nil?
         http_resp.headers['Content-Length'] = stub[:content_length].to_s unless stub[:content_length].nil?
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['x-amz-checksum-crc32'] = stub[:checksum_crc32] unless stub[:checksum_crc32].nil? || stub[:checksum_crc32].empty?
@@ -2053,7 +2053,7 @@ module AWS::SDK::S3
         http_resp.headers['Content-Language'] = stub[:content_language] unless stub[:content_language].nil? || stub[:content_language].empty?
         http_resp.headers['Content-Range'] = stub[:content_range] unless stub[:content_range].nil? || stub[:content_range].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
-        http_resp.headers['Expires'] = Hearth::TimeHelper.to_date_time(stub[:expires]) unless stub[:expires].nil?
+        http_resp.headers['Expires'] = Hearth::TimeHelper.to_http_date(stub[:expires]) unless stub[:expires].nil?
         http_resp.headers['x-amz-website-redirect-location'] = stub[:website_redirect_location] unless stub[:website_redirect_location].nil? || stub[:website_redirect_location].empty?
         http_resp.headers['x-amz-server-side-encryption'] = stub[:server_side_encryption] unless stub[:server_side_encryption].nil? || stub[:server_side_encryption].empty?
         http_resp.headers['x-amz-server-side-encryption-customer-algorithm'] = stub[:sse_customer_algorithm] unless stub[:sse_customer_algorithm].nil? || stub[:sse_customer_algorithm].empty?
@@ -2133,7 +2133,7 @@ module AWS::SDK::S3
         data = {}
         http_resp.status = 200
         http_resp.headers['x-amz-delete-marker'] = stub[:delete_marker].to_s unless stub[:delete_marker].nil?
-        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_http_date(stub[:last_modified]) unless stub[:last_modified].nil?
         http_resp.headers['x-amz-version-id'] = stub[:version_id] unless stub[:version_id].nil? || stub[:version_id].empty?
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 
@@ -2476,7 +2476,7 @@ module AWS::SDK::S3
         http_resp.headers['x-amz-expiration'] = stub[:expiration] unless stub[:expiration].nil? || stub[:expiration].empty?
         http_resp.headers['x-amz-restore'] = stub[:restore] unless stub[:restore].nil? || stub[:restore].empty?
         http_resp.headers['x-amz-archive-status'] = stub[:archive_status] unless stub[:archive_status].nil? || stub[:archive_status].empty?
-        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        http_resp.headers['Last-Modified'] = Hearth::TimeHelper.to_http_date(stub[:last_modified]) unless stub[:last_modified].nil?
         http_resp.headers['Content-Length'] = stub[:content_length].to_s unless stub[:content_length].nil?
         http_resp.headers['x-amz-checksum-crc32'] = stub[:checksum_crc32] unless stub[:checksum_crc32].nil? || stub[:checksum_crc32].empty?
         http_resp.headers['x-amz-checksum-crc32c'] = stub[:checksum_crc32_c] unless stub[:checksum_crc32_c].nil? || stub[:checksum_crc32_c].empty?
@@ -2490,7 +2490,7 @@ module AWS::SDK::S3
         http_resp.headers['Content-Encoding'] = stub[:content_encoding] unless stub[:content_encoding].nil? || stub[:content_encoding].empty?
         http_resp.headers['Content-Language'] = stub[:content_language] unless stub[:content_language].nil? || stub[:content_language].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
-        http_resp.headers['Expires'] = Hearth::TimeHelper.to_date_time(stub[:expires]) unless stub[:expires].nil?
+        http_resp.headers['Expires'] = Hearth::TimeHelper.to_http_date(stub[:expires]) unless stub[:expires].nil?
         http_resp.headers['x-amz-website-redirect-location'] = stub[:website_redirect_location] unless stub[:website_redirect_location].nil? || stub[:website_redirect_location].empty?
         http_resp.headers['x-amz-server-side-encryption'] = stub[:server_side_encryption] unless stub[:server_side_encryption].nil? || stub[:server_side_encryption].empty?
         http_resp.headers['x-amz-server-side-encryption-customer-algorithm'] = stub[:sse_customer_algorithm] unless stub[:sse_customer_algorithm].nil? || stub[:sse_customer_algorithm].empty?
@@ -3412,7 +3412,7 @@ module AWS::SDK::S3
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.status = 200
-        http_resp.headers['x-amz-abort-date'] = Hearth::TimeHelper.to_date_time(stub[:abort_date]) unless stub[:abort_date].nil?
+        http_resp.headers['x-amz-abort-date'] = Hearth::TimeHelper.to_http_date(stub[:abort_date]) unless stub[:abort_date].nil?
         http_resp.headers['x-amz-abort-rule-id'] = stub[:abort_rule_id] unless stub[:abort_rule_id].nil? || stub[:abort_rule_id].empty?
         http_resp.headers['x-amz-request-charged'] = stub[:request_charged] unless stub[:request_charged].nil? || stub[:request_charged].empty?
 

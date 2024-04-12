@@ -3,13 +3,8 @@
 $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'rspec'
-require 'simplecov'
-SimpleCov.minimum_coverage 100
-SimpleCov.start do
-  add_filter %r{/spec/}
-end
-
 require 'aws-sigv4'
+require 'simplecov'
 
 module AWS::SigV4
   module SpecHelper

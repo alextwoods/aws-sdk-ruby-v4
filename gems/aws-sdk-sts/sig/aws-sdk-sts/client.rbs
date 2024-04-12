@@ -11,19 +11,118 @@ module AWS::SDK::STS
   class Client
     include Hearth::ClientStubs
 
-    def self.plugins: () -> Hearth::PluginList
+    def self.plugins: () -> Hearth::PluginList[Config]
 
-    def initialize: (?Config, ?::Hash[::Symbol, untyped] options) -> void
+    def initialize: (?::Hash[::Symbol, untyped] options) -> void |
+      (
+        ?auth_resolver: Hearth::_AuthResolver[Auth::Params],
+        ?auth_schemes: Array[Hearth::AuthSchemes::Base],
+        ?disable_host_prefix: bool,
+        ?endpoint: String,
+        ?endpoint_provider: Hearth::_EndpointResolver[Endpoint::Params],
+        ?http_client: Hearth::HTTP::Client,
+        ?interceptors: Hearth::InterceptorList,
+        ?logger: Logger,
+        ?plugins: Hearth::PluginList[Config],
+        ?profile: String,
+        ?region: String,
+        ?retry_strategy: Hearth::_RetryStrategy,
+        ?stub_responses: bool,
+        ?use_dualstack_endpoint: bool,
+        ?use_fips_endpoint: bool,
+        ?validate_input: bool
+      ) -> void
 
     attr_reader config: Config
 
-    def assume_role: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def assume_role_with_saml: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def assume_role_with_web_identity: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def decode_authorization_message: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_access_key_info: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_caller_identity: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_federation_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
-    def get_session_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)-> Hearth::Output
+    def assume_role: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleOutput] |
+      (?Types::AssumeRoleInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleOutput] |
+      (
+        role_arn: ::String,
+        role_session_name: ::String,
+        ?policy_arns: ::Array[{
+          arn: ::String
+        }],
+        ?policy: ::String,
+        ?duration_seconds: ::Integer,
+        ?tags: ::Array[{
+          key: ::String,
+          value: ::String
+        }],
+        ?transitive_tag_keys: ::Array[::String],
+        ?external_id: ::String,
+        ?serial_number: ::String,
+        ?token_code: ::String,
+        ?source_identity: ::String,
+        ?provided_contexts: ::Array[{
+          provider_arn: ::String,
+          context_assertion: ::String
+        }]
+      ) -> Hearth::Output[Types::AssumeRoleOutput]
+
+    def assume_role_with_saml: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleWithSAMLOutput] |
+      (?Types::AssumeRoleWithSAMLInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleWithSAMLOutput] |
+      (
+        role_arn: ::String,
+        principal_arn: ::String,
+        saml_assertion: ::String,
+        ?policy_arns: ::Array[{
+          arn: ::String
+        }],
+        ?policy: ::String,
+        ?duration_seconds: ::Integer
+      ) -> Hearth::Output[Types::AssumeRoleWithSAMLOutput]
+
+    def assume_role_with_web_identity: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleWithWebIdentityOutput] |
+      (?Types::AssumeRoleWithWebIdentityInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::AssumeRoleWithWebIdentityOutput] |
+      (
+        role_arn: ::String,
+        role_session_name: ::String,
+        web_identity_token: ::String,
+        ?provider_id: ::String,
+        ?policy_arns: ::Array[{
+          arn: ::String
+        }],
+        ?policy: ::String,
+        ?duration_seconds: ::Integer
+      ) -> Hearth::Output[Types::AssumeRoleWithWebIdentityOutput]
+
+    def decode_authorization_message: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecodeAuthorizationMessageOutput] |
+      (?Types::DecodeAuthorizationMessageInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::DecodeAuthorizationMessageOutput] |
+      (
+        encoded_message: ::String
+      ) -> Hearth::Output[Types::DecodeAuthorizationMessageOutput]
+
+    def get_access_key_info: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetAccessKeyInfoOutput] |
+      (?Types::GetAccessKeyInfoInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetAccessKeyInfoOutput] |
+      (
+        access_key_id: ::String
+      ) -> Hearth::Output[Types::GetAccessKeyInfoOutput]
+
+    def get_caller_identity: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetCallerIdentityOutput] |
+      (?Types::GetCallerIdentityInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetCallerIdentityOutput]
+    def get_federation_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetFederationTokenOutput] |
+      (?Types::GetFederationTokenInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetFederationTokenOutput] |
+      (
+        name: ::String,
+        ?policy: ::String,
+        ?policy_arns: ::Array[{
+          arn: ::String
+        }],
+        ?duration_seconds: ::Integer,
+        ?tags: ::Array[{
+          key: ::String,
+          value: ::String
+        }]
+      ) -> Hearth::Output[Types::GetFederationTokenOutput]
+
+    def get_session_token: (?::Hash[::Symbol, untyped] params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSessionTokenOutput] |
+      (?Types::GetSessionTokenInput params, ?::Hash[::Symbol, untyped] options)  -> Hearth::Output[Types::GetSessionTokenOutput] |
+      (
+        ?duration_seconds: ::Integer,
+        ?serial_number: ::String,
+        ?token_code: ::String
+      ) -> Hearth::Output[Types::GetSessionTokenOutput]
+
   end
 end

@@ -9,8 +9,6 @@
 
 require 'stringio'
 
-require_relative 'middleware/request_id'
-
 module AWS::SDK::SSO
   # <p>AWS IAM Identity Center (successor to AWS Single Sign-On) Portal is a web service that makes it easy for you to assign user access to
   #       IAM Identity Center resources such as the AWS access portal. Users can get AWS account applications and roles
@@ -51,13 +49,13 @@ module AWS::SDK::SSO
 
     # <p>Returns the STS short-term credentials for a given role name that is assigned to the
     #       user.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::GetRoleCredentialsInput] params
     #   Request parameters for this operation.
     #   See {Types::GetRoleCredentialsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::GetRoleCredentialsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.get_role_credentials(
     #     role_name: 'roleName', # required
@@ -74,45 +72,10 @@ module AWS::SDK::SSO
     def get_role_credentials(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::GetRoleCredentialsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::GetRoleCredentialsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetRoleCredentials
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :get_role_credentials),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-        ),
-        data_parser: Parsers::GetRoleCredentials
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
-        stub_data_class: Stubs::GetRoleCredentials,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::SSO::Middleware::GetRoleCredentials.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :get_role_credentials,
@@ -129,13 +92,13 @@ module AWS::SDK::SSO
     end
 
     # <p>Lists all roles that are assigned to the user for a given AWS account.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListAccountRolesInput] params
     #   Request parameters for this operation.
     #   See {Types::ListAccountRolesInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListAccountRolesOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_account_roles(
     #     next_token: 'nextToken',
@@ -153,45 +116,10 @@ module AWS::SDK::SSO
     def list_account_roles(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountRolesInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListAccountRolesInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListAccountRoles
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_account_roles),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-        ),
-        data_parser: Parsers::ListAccountRoles
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
-        stub_data_class: Stubs::ListAccountRoles,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::SSO::Middleware::ListAccountRoles.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_account_roles,
@@ -210,13 +138,13 @@ module AWS::SDK::SSO
     # <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
     #       administrator of the account. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers">Assign User Access</a> in the <i>IAM Identity Center User Guide</i>. This operation
     #       returns a paginated response.</p>
-    # @param [Hash] params
+    # @param [Hash | Types::ListAccountsInput] params
     #   Request parameters for this operation.
     #   See {Types::ListAccountsInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::ListAccountsOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.list_accounts(
     #     next_token: 'nextToken',
@@ -234,45 +162,10 @@ module AWS::SDK::SSO
     def list_accounts(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::ListAccountsInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListAccounts
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :list_accounts),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidRequestException, Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-        ),
-        data_parser: Parsers::ListAccounts
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidRequestException, Stubs::ResourceNotFoundException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
-        stub_data_class: Stubs::ListAccounts,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::SSO::Middleware::ListAccounts.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :list_accounts,
@@ -302,13 +195,13 @@ module AWS::SDK::SSO
     #           authentications</a> in the <i>IAM Identity Center User
     #         Guide</i>.</p>
     #          </note>
-    # @param [Hash] params
+    # @param [Hash | Types::LogoutInput] params
     #   Request parameters for this operation.
     #   See {Types::LogoutInput#initialize} for available parameters.
     # @param [Hash] options
     #   Request option override of configuration. See {Config#initialize} for available options.
     #   Some configurations cannot be overridden.
-    # @return [Types::LogoutOutput]
+    # @return [Hearth::Output]
     # @example Request syntax with placeholder values
     #   resp = client.logout(
     #     access_token: 'accessToken' # required
@@ -318,45 +211,10 @@ module AWS::SDK::SSO
     def logout(params = {}, options = {})
       response_body = ::StringIO.new
       config = operation_config(options)
-      stack = Hearth::MiddlewareStack.new
       input = Params::LogoutInput.build(params, context: 'params')
-      stack.use(Hearth::Middleware::Initialize)
-      stack.use(Hearth::Middleware::Validate,
-        validator: Validators::LogoutInput,
-        validate_input: config.validate_input
-      )
-      stack.use(Hearth::Middleware::Build,
-        builder: Builders::Logout
-      )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_strategy: config.retry_strategy,
-        error_inspector_class: Hearth::HTTP::ErrorInspector
-      )
-      stack.use(Hearth::Middleware::Auth,
-        auth_params: Auth::Params.new(operation_name: :logout),
-        auth_resolver: config.auth_resolver,
-        auth_schemes: config.auth_schemes
-      )
-      stack.use(Hearth::Middleware::Sign)
-      stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(
-          error_module: Errors,
-          success_status: 200,
-          errors: [Errors::InvalidRequestException, Errors::TooManyRequestsException, Errors::UnauthorizedException]
-        ),
-        data_parser: Parsers::Logout
-      )
-      stack.use(Middleware::RequestId)
-      stack.use(Hearth::Middleware::Send,
-        stub_responses: config.stub_responses,
-        client: config.http_client,
-        stub_error_classes: [Stubs::InvalidRequestException, Stubs::TooManyRequestsException, Stubs::UnauthorizedException],
-        stub_data_class: Stubs::Logout,
-        stubs: @stubs
-      )
+      stack = AWS::SDK::SSO::Middleware::Logout.build(config, @stubs)
       context = Hearth::Context.new(
-        request: Hearth::HTTP::Request.new(uri: URI(config.endpoint)),
+        request: Hearth::HTTP::Request.new(uri: URI('')),
         response: Hearth::HTTP::Response.new(body: response_body),
         logger: config.logger,
         operation_name: :logout,

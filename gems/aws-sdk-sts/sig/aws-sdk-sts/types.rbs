@@ -14,22 +14,22 @@ module AWS::SDK::STS
       include Hearth::Structure
       attr_accessor role_arn (): ::String
       attr_accessor role_session_name (): ::String
-      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
       attr_accessor policy (): ::String
       attr_accessor duration_seconds (): ::Integer
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
       attr_accessor transitive_tag_keys (): ::Array[::String]
       attr_accessor external_id (): ::String
       attr_accessor serial_number (): ::String
       attr_accessor token_code (): ::String
       attr_accessor source_identity (): ::String
-      attr_accessor provided_contexts (): ::Array[ProvidedContext]
+      attr_accessor provided_contexts (): ::Array[Types::ProvidedContext]
     end
 
     class AssumeRoleOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): Credentials
-      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor credentials (): Types::Credentials
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser
       attr_accessor packed_policy_size (): ::Integer
       attr_accessor source_identity (): ::String
     end
@@ -39,15 +39,15 @@ module AWS::SDK::STS
       attr_accessor role_arn (): ::String
       attr_accessor principal_arn (): ::String
       attr_accessor saml_assertion (): ::String
-      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
       attr_accessor policy (): ::String
       attr_accessor duration_seconds (): ::Integer
     end
 
     class AssumeRoleWithSAMLOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): Credentials
-      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor credentials (): Types::Credentials
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser
       attr_accessor packed_policy_size (): ::Integer
       attr_accessor subject (): ::String
       attr_accessor subject_type (): ::String
@@ -63,16 +63,16 @@ module AWS::SDK::STS
       attr_accessor role_session_name (): ::String
       attr_accessor web_identity_token (): ::String
       attr_accessor provider_id (): ::String
-      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
       attr_accessor policy (): ::String
       attr_accessor duration_seconds (): ::Integer
     end
 
     class AssumeRoleWithWebIdentityOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): Credentials
+      attr_accessor credentials (): Types::Credentials
       attr_accessor subject_from_web_identity_token (): ::String
-      attr_accessor assumed_role_user (): AssumedRoleUser
+      attr_accessor assumed_role_user (): Types::AssumedRoleUser
       attr_accessor packed_policy_size (): ::Integer
       attr_accessor provider (): ::String
       attr_accessor audience (): ::String
@@ -139,15 +139,15 @@ module AWS::SDK::STS
       include Hearth::Structure
       attr_accessor name (): ::String
       attr_accessor policy (): ::String
-      attr_accessor policy_arns (): ::Array[PolicyDescriptorType]
+      attr_accessor policy_arns (): ::Array[Types::PolicyDescriptorType]
       attr_accessor duration_seconds (): ::Integer
-      attr_accessor tags (): ::Array[Tag]
+      attr_accessor tags (): ::Array[Types::Tag]
     end
 
     class GetFederationTokenOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): Credentials
-      attr_accessor federated_user (): FederatedUser
+      attr_accessor credentials (): Types::Credentials
+      attr_accessor federated_user (): Types::FederatedUser
       attr_accessor packed_policy_size (): ::Integer
     end
 
@@ -160,7 +160,7 @@ module AWS::SDK::STS
 
     class GetSessionTokenOutput < ::Struct[untyped]
       include Hearth::Structure
-      attr_accessor credentials (): Credentials
+      attr_accessor credentials (): Types::Credentials
     end
 
     class IDPCommunicationErrorException < ::Struct[untyped]
