@@ -27,6 +27,7 @@ public final class AWSConfig {
             .documentationRbsAndValidationType("String")
             .documentation(regionDocumentation)
             .defaults(ConfigProviderChain.builder()
+                    .dynamicProvider("cfg[:stub_responses] ?  'us-stubbed-1' : nil")
                     .envProvider("AWS_REGION", "String")
                     .sharedConfigProvider("region", "String")
                     .build())
