@@ -1,8 +1,5 @@
 package software.amazon.smithy.aws.ruby.codegen;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import software.amazon.smithy.aws.ruby.codegen.protocol.ec2.Ec2Query;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json.AwsJson1_1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.json10.AwsJson1_0;
@@ -10,7 +7,6 @@ import software.amazon.smithy.aws.ruby.codegen.protocol.query.AwsQuery;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.RestJson1;
 import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
-import software.amazon.smithy.model.traits.HttpBasicAuthTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
@@ -18,16 +14,12 @@ import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
-import software.amazon.smithy.ruby.codegen.rulesengine.BuiltInBinding;
-import software.amazon.smithy.ruby.codegen.rulesengine.FunctionBinding;
-import software.amazon.smithy.rulesengine.aws.language.functions.AwsBuiltIns;
-import software.amazon.smithy.rulesengine.aws.language.functions.AwsPartition;
-import software.amazon.smithy.rulesengine.aws.language.functions.IsVirtualHostableS3Bucket;
-import software.amazon.smithy.rulesengine.aws.language.functions.ParseArn;
-import software.amazon.smithy.rulesengine.aws.language.functions.partition.Partitions;
 import software.amazon.smithy.utils.ListUtils;
 
 import java.util.List;
+import java.util.Map;
+
+import static software.amazon.smithy.aws.ruby.codegen.Aws.SIGV4_IDENTITY;
 
 public class AWSProtocols implements RubyIntegration {
     @Override
@@ -60,12 +52,75 @@ public class AWSProtocols implements RubyIntegration {
 
     @Override
     public List<AuthScheme> getAdditionalAuthSchemes(GenerationContext context) {
-        AuthScheme authScheme = AuthScheme.builder()
-                .shapeId(SigV4Trait.ID)
-                .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
-                .rubyIdentityType("AWS::SDK::Core::Identities::SigV4")
+        return List.of(sigv4AuthScheme());
+    }
+
+    private AuthScheme sigv4AuthScheme() {
+        String identityProviderDocumentation = """
+                A credential provider is a class that fetches your AWS credentials. This can be an instance
+                of any one of the following classes:
+                        
+                * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
+                  credentials.
+                        
+                * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
+                        
+                * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
+                  assume a role after providing credentials via the web using a token.
+                        
+                * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
+                  using an access token generated from `aws login`.
+                        
+                * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
+                  process that outputs JSON to stdout.
+                        
+                * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
+                  metadata service (IMDS) on an EC2 instance.
+                        
+                * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
+                  running in ECS.
+                        
+                * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
+                  from the Cognito Identity service.
+                        
+                When `:credential_provider` is not configured directly, the following
+                locations will be searched for credentials:
+                        
+                * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
+                  ENV variables that influence credentials.
+                * `~/.aws/credentials` and `~/.aws/config`
+                * EC2/ECS instance profiles.
+                  
+                @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN""";
+
+        String identityProviderChain = "nil"; // TODO: Add the actual credential/identity provider chain
+        String defaultIdentity = "%s.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret')"
+                .formatted(SIGV4_IDENTITY);
+        String defaultConfigValue = "cfg[:stub_responses] ? %s.new(proc { %s }) : %s"
+                .formatted(Hearth.IDENTITY_RESOLVER, defaultIdentity, identityProviderChain);
+
+        ClientConfig identityResolverConfig = ClientConfig.builder()
+                .name("sigv4_identity_resolver")
+                .documentation(identityProviderDocumentation)
+                .defaultDynamicValue(defaultConfigValue)
                 .build();
 
-        return List.of(authScheme);
+        return AuthScheme.builder()
+                .shapeId(SigV4Trait.ID)
+                .rubyAuthScheme("AWS::SDK::Core::AuthSchemes::SigV4.new")
+                .rubyIdentityType(Aws.SIGV4_IDENTITY.toString())
+                .identityResolverConfig(identityResolverConfig)
+                .extractSignerProperties((trait -> {
+                    SigV4Trait sigv4 = (SigV4Trait) trait;
+                    return Map.of(
+                            "service", "'" + sigv4.getName() + "'",
+                            "region", "params.region"
+                            );
+                }))
+                .additionalConfig(AWSConfig.REGION)
+                .additionalAuthParams(Map.of(
+                        "region", "config.region"
+                ))
+                .build();
     }
 }

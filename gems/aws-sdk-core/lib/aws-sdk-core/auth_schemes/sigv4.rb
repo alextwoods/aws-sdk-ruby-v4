@@ -3,7 +3,7 @@
 module AWS::SDK::Core
   module AuthSchemes
     # SigV4 authentication scheme.
-    class SigV4 < AuthSchemes::Base
+    class SigV4 < Hearth::AuthSchemes::Base
       def initialize
         super(
           scheme_id: 'aws.auth#sigv4',

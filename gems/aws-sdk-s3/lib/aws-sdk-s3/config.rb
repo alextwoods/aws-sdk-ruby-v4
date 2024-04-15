@@ -73,6 +73,42 @@ module AWS::SDK::S3
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
+  #   @option args [] :sigv4_identity_resolver
+  #     A credential provider is a class that fetches your AWS credentials. This can be an instance
+  #     of any one of the following classes:
+  #
+  #     * `AWS::SDK::Core::StaticCredentialProvider` - Used for fetching static, non-refreshing
+  #       credentials.
+  #
+  #     * `AWS::SDK::Core::AssumeRoleCredentialProvider` - Used when you need to assume a role.
+  #
+  #     * `AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider` - Used when you need to
+  #       assume a role after providing credentials via the web using a token.
+  #
+  #     * `AWS::SDK::Core::SSOCredentialProvider` - Used for loading credentials from AWS SSO
+  #       using an access token generated from `aws login`.
+  #
+  #     * `AWS::SDK::Core::ProcessCredentialProvider` - Used for loading credentials from a
+  #       process that outputs JSON to stdout.
+  #
+  #     * `AWS::SDK::Core::EC2CredentialProvider` - Used for loading credentials from the instance
+  #       metadata service (IMDS) on an EC2 instance.
+  #
+  #     * `AWS::SDK::Core::ECSCredentialProvider - Used for loading credentials from instances
+  #       running in ECS.
+  #
+  #     * `AWS::SDK::CognitoIdentity::CredentialProvider` - Used for loading credentials
+  #       from the Cognito Identity service.
+  #
+  #     When `:credential_provider` is not configured directly, the following
+  #     locations will be searched for credentials:
+  #
+  #     * ENV['AWS_ACCESS_KEY_ID'], ENV['AWS_SECRET_ACCESS_KEY'], and other
+  #       ENV variables that influence credentials.
+  #     * `~/.aws/credentials` and `~/.aws/config`
+  #     * EC2/ECS instance profiles.
+  #
+  #     @see AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN
   #   @option args [Boolean] :stub_responses (false)
   #     Enable response stubbing for testing. See {Hearth::ClientStubs#stub_responses}.
   #   @option args [Boolean] :use_accelerate_endpoint (false)
@@ -126,6 +162,8 @@ module AWS::SDK::S3
   #   @return [String]
   # @!attribute retry_strategy
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
+  # @!attribute sigv4_identity_resolver
+  #   @return []
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_accelerate_endpoint
@@ -156,6 +194,7 @@ module AWS::SDK::S3
     :profile,
     :region,
     :retry_strategy,
+    :sigv4_identity_resolver,
     :stub_responses,
     :use_accelerate_endpoint,
     :use_arn_region,
@@ -214,6 +253,7 @@ module AWS::SDK::S3
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
         region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
+        sigv4_identity_resolver: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityResolver.new(proc { AWS::SDK::Core::Identities::SigV4.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
         stub_responses: [false],
         use_accelerate_endpoint: [false],
         use_arn_region: [Hearth::Config::EnvProvider.new('AWS_S3_USE_ARN_REGION', type: 'Boolean'),AWS::SDK::Core::SharedConfigProvider.new('s3_use_arn_region', type: 'Boolean'),true],

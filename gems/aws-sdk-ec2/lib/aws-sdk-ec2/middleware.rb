@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::EC2
+  # @api private
   module Middleware
 
     class AcceptAddressTransfer
@@ -24,9 +25,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptAddressTransfer
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_address_transfer),
+          auth_params: Auth::Params.new(operation_name: :accept_address_transfer, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -74,9 +76,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptReservedInstancesExchangeQuote
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_reserved_instances_exchange_quote),
+          auth_params: Auth::Params.new(operation_name: :accept_reserved_instances_exchange_quote, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -124,9 +127,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptTransitGatewayMulticastDomainAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_multicast_domain_associations),
+          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_multicast_domain_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -174,9 +178,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptTransitGatewayPeeringAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_peering_attachment),
+          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_peering_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -224,9 +229,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptTransitGatewayVpcAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_vpc_attachment),
+          auth_params: Auth::Params.new(operation_name: :accept_transit_gateway_vpc_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -274,9 +280,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptVpcEndpointConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_vpc_endpoint_connections),
+          auth_params: Auth::Params.new(operation_name: :accept_vpc_endpoint_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -324,9 +331,10 @@ module AWS::SDK::EC2
           builder: Builders::AcceptVpcPeeringConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :accept_vpc_peering_connection),
+          auth_params: Auth::Params.new(operation_name: :accept_vpc_peering_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -374,9 +382,10 @@ module AWS::SDK::EC2
           builder: Builders::AdvertiseByoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :advertise_byoip_cidr),
+          auth_params: Auth::Params.new(operation_name: :advertise_byoip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -424,9 +433,10 @@ module AWS::SDK::EC2
           builder: Builders::AllocateAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :allocate_address),
+          auth_params: Auth::Params.new(operation_name: :allocate_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -474,9 +484,10 @@ module AWS::SDK::EC2
           builder: Builders::AllocateHosts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :allocate_hosts),
+          auth_params: Auth::Params.new(operation_name: :allocate_hosts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -524,9 +535,10 @@ module AWS::SDK::EC2
           builder: Builders::AllocateIpamPoolCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :allocate_ipam_pool_cidr),
+          auth_params: Auth::Params.new(operation_name: :allocate_ipam_pool_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -574,9 +586,10 @@ module AWS::SDK::EC2
           builder: Builders::ApplySecurityGroupsToClientVpnTargetNetwork
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :apply_security_groups_to_client_vpn_target_network),
+          auth_params: Auth::Params.new(operation_name: :apply_security_groups_to_client_vpn_target_network, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -624,9 +637,10 @@ module AWS::SDK::EC2
           builder: Builders::AssignIpv6Addresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :assign_ipv6_addresses),
+          auth_params: Auth::Params.new(operation_name: :assign_ipv6_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -674,9 +688,10 @@ module AWS::SDK::EC2
           builder: Builders::AssignPrivateIpAddresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :assign_private_ip_addresses),
+          auth_params: Auth::Params.new(operation_name: :assign_private_ip_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -724,9 +739,10 @@ module AWS::SDK::EC2
           builder: Builders::AssignPrivateNatGatewayAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :assign_private_nat_gateway_address),
+          auth_params: Auth::Params.new(operation_name: :assign_private_nat_gateway_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -774,9 +790,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_address),
+          auth_params: Auth::Params.new(operation_name: :associate_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -824,9 +841,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateClientVpnTargetNetwork
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_client_vpn_target_network),
+          auth_params: Auth::Params.new(operation_name: :associate_client_vpn_target_network, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -874,9 +892,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateDhcpOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_dhcp_options),
+          auth_params: Auth::Params.new(operation_name: :associate_dhcp_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -924,9 +943,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateEnclaveCertificateIamRole
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_enclave_certificate_iam_role),
+          auth_params: Auth::Params.new(operation_name: :associate_enclave_certificate_iam_role, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -974,9 +994,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateIamInstanceProfile
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_iam_instance_profile),
+          auth_params: Auth::Params.new(operation_name: :associate_iam_instance_profile, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1024,9 +1045,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateInstanceEventWindow
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_instance_event_window),
+          auth_params: Auth::Params.new(operation_name: :associate_instance_event_window, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1074,9 +1096,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateIpamByoasn
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_ipam_byoasn),
+          auth_params: Auth::Params.new(operation_name: :associate_ipam_byoasn, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1124,9 +1147,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateIpamResourceDiscovery
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_ipam_resource_discovery),
+          auth_params: Auth::Params.new(operation_name: :associate_ipam_resource_discovery, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1174,9 +1198,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateNatGatewayAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_nat_gateway_address),
+          auth_params: Auth::Params.new(operation_name: :associate_nat_gateway_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1224,9 +1249,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_route_table),
+          auth_params: Auth::Params.new(operation_name: :associate_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1274,9 +1300,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateSubnetCidrBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_subnet_cidr_block),
+          auth_params: Auth::Params.new(operation_name: :associate_subnet_cidr_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1324,9 +1351,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateTransitGatewayMulticastDomain
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_multicast_domain),
+          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_multicast_domain, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1374,9 +1402,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateTransitGatewayPolicyTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_policy_table),
+          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_policy_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1424,9 +1453,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateTransitGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :associate_transit_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1474,9 +1504,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateTrunkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_trunk_interface),
+          auth_params: Auth::Params.new(operation_name: :associate_trunk_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1524,9 +1555,10 @@ module AWS::SDK::EC2
           builder: Builders::AssociateVpcCidrBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :associate_vpc_cidr_block),
+          auth_params: Auth::Params.new(operation_name: :associate_vpc_cidr_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1574,9 +1606,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachClassicLinkVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_classic_link_vpc),
+          auth_params: Auth::Params.new(operation_name: :attach_classic_link_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1624,9 +1657,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :attach_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1674,9 +1708,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachNetworkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_network_interface),
+          auth_params: Auth::Params.new(operation_name: :attach_network_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1724,9 +1759,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachVerifiedAccessTrustProvider
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_verified_access_trust_provider),
+          auth_params: Auth::Params.new(operation_name: :attach_verified_access_trust_provider, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1774,9 +1810,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_volume),
+          auth_params: Auth::Params.new(operation_name: :attach_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1824,9 +1861,10 @@ module AWS::SDK::EC2
           builder: Builders::AttachVpnGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :attach_vpn_gateway),
+          auth_params: Auth::Params.new(operation_name: :attach_vpn_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1874,9 +1912,10 @@ module AWS::SDK::EC2
           builder: Builders::AuthorizeClientVpnIngress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :authorize_client_vpn_ingress),
+          auth_params: Auth::Params.new(operation_name: :authorize_client_vpn_ingress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1924,9 +1963,10 @@ module AWS::SDK::EC2
           builder: Builders::AuthorizeSecurityGroupEgress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :authorize_security_group_egress),
+          auth_params: Auth::Params.new(operation_name: :authorize_security_group_egress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1974,9 +2014,10 @@ module AWS::SDK::EC2
           builder: Builders::AuthorizeSecurityGroupIngress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :authorize_security_group_ingress),
+          auth_params: Auth::Params.new(operation_name: :authorize_security_group_ingress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2024,9 +2065,10 @@ module AWS::SDK::EC2
           builder: Builders::BundleInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :bundle_instance),
+          auth_params: Auth::Params.new(operation_name: :bundle_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2074,9 +2116,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelBundleTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_bundle_task),
+          auth_params: Auth::Params.new(operation_name: :cancel_bundle_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2124,9 +2167,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelCapacityReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_capacity_reservation),
+          auth_params: Auth::Params.new(operation_name: :cancel_capacity_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2174,9 +2218,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelCapacityReservationFleets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_capacity_reservation_fleets),
+          auth_params: Auth::Params.new(operation_name: :cancel_capacity_reservation_fleets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2224,9 +2269,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelConversionTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_conversion_task),
+          auth_params: Auth::Params.new(operation_name: :cancel_conversion_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2274,9 +2320,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelExportTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_export_task),
+          auth_params: Auth::Params.new(operation_name: :cancel_export_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2324,9 +2371,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelImageLaunchPermission
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_image_launch_permission),
+          auth_params: Auth::Params.new(operation_name: :cancel_image_launch_permission, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2374,9 +2422,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelImportTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_import_task),
+          auth_params: Auth::Params.new(operation_name: :cancel_import_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2424,9 +2473,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelReservedInstancesListing
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_reserved_instances_listing),
+          auth_params: Auth::Params.new(operation_name: :cancel_reserved_instances_listing, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2474,9 +2524,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelSpotFleetRequests
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_spot_fleet_requests),
+          auth_params: Auth::Params.new(operation_name: :cancel_spot_fleet_requests, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2524,9 +2575,10 @@ module AWS::SDK::EC2
           builder: Builders::CancelSpotInstanceRequests
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :cancel_spot_instance_requests),
+          auth_params: Auth::Params.new(operation_name: :cancel_spot_instance_requests, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2574,9 +2626,10 @@ module AWS::SDK::EC2
           builder: Builders::ConfirmProductInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :confirm_product_instance),
+          auth_params: Auth::Params.new(operation_name: :confirm_product_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2624,9 +2677,10 @@ module AWS::SDK::EC2
           builder: Builders::CopyFpgaImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :copy_fpga_image),
+          auth_params: Auth::Params.new(operation_name: :copy_fpga_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2674,9 +2728,10 @@ module AWS::SDK::EC2
           builder: Builders::CopyImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :copy_image),
+          auth_params: Auth::Params.new(operation_name: :copy_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2724,9 +2779,10 @@ module AWS::SDK::EC2
           builder: Builders::CopySnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :copy_snapshot),
+          auth_params: Auth::Params.new(operation_name: :copy_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2774,9 +2830,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCapacityReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_capacity_reservation),
+          auth_params: Auth::Params.new(operation_name: :create_capacity_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2824,9 +2881,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCapacityReservationFleet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_capacity_reservation_fleet),
+          auth_params: Auth::Params.new(operation_name: :create_capacity_reservation_fleet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2874,9 +2932,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCarrierGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_carrier_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_carrier_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2924,9 +2983,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateClientVpnEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_client_vpn_endpoint),
+          auth_params: Auth::Params.new(operation_name: :create_client_vpn_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -2974,9 +3034,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateClientVpnRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_client_vpn_route),
+          auth_params: Auth::Params.new(operation_name: :create_client_vpn_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3024,9 +3085,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_coip_cidr),
+          auth_params: Auth::Params.new(operation_name: :create_coip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3074,9 +3136,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCoipPool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_coip_pool),
+          auth_params: Auth::Params.new(operation_name: :create_coip_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3124,9 +3187,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateCustomerGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_customer_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_customer_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3174,9 +3238,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateDefaultSubnet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_default_subnet),
+          auth_params: Auth::Params.new(operation_name: :create_default_subnet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3224,9 +3289,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateDefaultVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_default_vpc),
+          auth_params: Auth::Params.new(operation_name: :create_default_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3274,9 +3340,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateDhcpOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_dhcp_options),
+          auth_params: Auth::Params.new(operation_name: :create_dhcp_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3324,9 +3391,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateEgressOnlyInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_egress_only_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_egress_only_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3374,9 +3442,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateFleet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_fleet),
+          auth_params: Auth::Params.new(operation_name: :create_fleet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3424,9 +3493,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateFlowLogs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_flow_logs),
+          auth_params: Auth::Params.new(operation_name: :create_flow_logs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3474,9 +3544,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateFpgaImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_fpga_image),
+          auth_params: Auth::Params.new(operation_name: :create_fpga_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3524,9 +3595,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_image),
+          auth_params: Auth::Params.new(operation_name: :create_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3574,9 +3646,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateInstanceConnectEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_instance_connect_endpoint),
+          auth_params: Auth::Params.new(operation_name: :create_instance_connect_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3624,9 +3697,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateInstanceEventWindow
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_instance_event_window),
+          auth_params: Auth::Params.new(operation_name: :create_instance_event_window, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3674,9 +3748,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateInstanceExportTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_instance_export_task),
+          auth_params: Auth::Params.new(operation_name: :create_instance_export_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3724,9 +3799,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3774,9 +3850,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateIpam
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_ipam),
+          auth_params: Auth::Params.new(operation_name: :create_ipam, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3824,9 +3901,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateIpamPool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_ipam_pool),
+          auth_params: Auth::Params.new(operation_name: :create_ipam_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3874,9 +3952,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateIpamResourceDiscovery
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_ipam_resource_discovery),
+          auth_params: Auth::Params.new(operation_name: :create_ipam_resource_discovery, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3924,9 +4003,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateIpamScope
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_ipam_scope),
+          auth_params: Auth::Params.new(operation_name: :create_ipam_scope, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -3974,9 +4054,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateKeyPair
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_key_pair),
+          auth_params: Auth::Params.new(operation_name: :create_key_pair, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4024,9 +4105,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLaunchTemplate
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_launch_template),
+          auth_params: Auth::Params.new(operation_name: :create_launch_template, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4074,9 +4156,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLaunchTemplateVersion
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_launch_template_version),
+          auth_params: Auth::Params.new(operation_name: :create_launch_template_version, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4124,9 +4207,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLocalGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4174,9 +4258,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLocalGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4224,9 +4309,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table_virtual_interface_group_association),
+          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table_virtual_interface_group_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4274,9 +4360,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateLocalGatewayRouteTableVpcAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table_vpc_association),
+          auth_params: Auth::Params.new(operation_name: :create_local_gateway_route_table_vpc_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4324,9 +4411,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateManagedPrefixList
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_managed_prefix_list),
+          auth_params: Auth::Params.new(operation_name: :create_managed_prefix_list, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4374,9 +4462,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNatGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_nat_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_nat_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4424,9 +4513,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_acl),
+          auth_params: Auth::Params.new(operation_name: :create_network_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4474,9 +4564,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkAclEntry
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_acl_entry),
+          auth_params: Auth::Params.new(operation_name: :create_network_acl_entry, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4524,9 +4615,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkInsightsAccessScope
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_insights_access_scope),
+          auth_params: Auth::Params.new(operation_name: :create_network_insights_access_scope, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4574,9 +4666,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkInsightsPath
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_insights_path),
+          auth_params: Auth::Params.new(operation_name: :create_network_insights_path, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4624,9 +4717,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_interface),
+          auth_params: Auth::Params.new(operation_name: :create_network_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4674,9 +4768,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateNetworkInterfacePermission
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_network_interface_permission),
+          auth_params: Auth::Params.new(operation_name: :create_network_interface_permission, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4724,9 +4819,10 @@ module AWS::SDK::EC2
           builder: Builders::CreatePlacementGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_placement_group),
+          auth_params: Auth::Params.new(operation_name: :create_placement_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4774,9 +4870,10 @@ module AWS::SDK::EC2
           builder: Builders::CreatePublicIpv4Pool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_public_ipv4_pool),
+          auth_params: Auth::Params.new(operation_name: :create_public_ipv4_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4824,9 +4921,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateReplaceRootVolumeTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_replace_root_volume_task),
+          auth_params: Auth::Params.new(operation_name: :create_replace_root_volume_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4874,9 +4972,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateReservedInstancesListing
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_reserved_instances_listing),
+          auth_params: Auth::Params.new(operation_name: :create_reserved_instances_listing, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4924,9 +5023,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateRestoreImageTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_restore_image_task),
+          auth_params: Auth::Params.new(operation_name: :create_restore_image_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -4974,9 +5074,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_route),
+          auth_params: Auth::Params.new(operation_name: :create_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5024,9 +5125,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_route_table),
+          auth_params: Auth::Params.new(operation_name: :create_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5074,9 +5176,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSecurityGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_security_group),
+          auth_params: Auth::Params.new(operation_name: :create_security_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5124,9 +5227,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_snapshot),
+          auth_params: Auth::Params.new(operation_name: :create_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5174,9 +5278,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSnapshots
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_snapshots),
+          auth_params: Auth::Params.new(operation_name: :create_snapshots, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5224,9 +5329,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSpotDatafeedSubscription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_spot_datafeed_subscription),
+          auth_params: Auth::Params.new(operation_name: :create_spot_datafeed_subscription, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5274,9 +5380,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateStoreImageTask
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_store_image_task),
+          auth_params: Auth::Params.new(operation_name: :create_store_image_task, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5324,9 +5431,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSubnet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_subnet),
+          auth_params: Auth::Params.new(operation_name: :create_subnet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5374,9 +5482,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateSubnetCidrReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_subnet_cidr_reservation),
+          auth_params: Auth::Params.new(operation_name: :create_subnet_cidr_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5424,9 +5533,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTags
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_tags),
+          auth_params: Auth::Params.new(operation_name: :create_tags, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5474,9 +5584,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTrafficMirrorFilter
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_filter),
+          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_filter, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5524,9 +5635,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTrafficMirrorFilterRule
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_filter_rule),
+          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_filter_rule, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5574,9 +5686,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTrafficMirrorSession
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_session),
+          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_session, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5624,9 +5737,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTrafficMirrorTarget
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_target),
+          auth_params: Auth::Params.new(operation_name: :create_traffic_mirror_target, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5674,9 +5788,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5724,9 +5839,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayConnect
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_connect),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_connect, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5774,9 +5890,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayConnectPeer
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_connect_peer),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_connect_peer, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5824,9 +5941,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayMulticastDomain
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_multicast_domain),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_multicast_domain, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5874,9 +5992,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayPeeringAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_peering_attachment),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_peering_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5924,9 +6043,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayPolicyTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_policy_table),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_policy_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -5974,9 +6094,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayPrefixListReference
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_prefix_list_reference),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_prefix_list_reference, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6024,9 +6145,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6074,9 +6196,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6124,9 +6247,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayRouteTableAnnouncement
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route_table_announcement),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_route_table_announcement, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6174,9 +6298,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateTransitGatewayVpcAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_vpc_attachment),
+          auth_params: Auth::Params.new(operation_name: :create_transit_gateway_vpc_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6224,9 +6349,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVerifiedAccessEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_verified_access_endpoint),
+          auth_params: Auth::Params.new(operation_name: :create_verified_access_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6274,9 +6400,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVerifiedAccessGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_verified_access_group),
+          auth_params: Auth::Params.new(operation_name: :create_verified_access_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6324,9 +6451,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVerifiedAccessInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_verified_access_instance),
+          auth_params: Auth::Params.new(operation_name: :create_verified_access_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6374,9 +6502,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVerifiedAccessTrustProvider
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_verified_access_trust_provider),
+          auth_params: Auth::Params.new(operation_name: :create_verified_access_trust_provider, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6424,9 +6553,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_volume),
+          auth_params: Auth::Params.new(operation_name: :create_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6474,9 +6604,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpc),
+          auth_params: Auth::Params.new(operation_name: :create_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6524,9 +6655,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpcEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint),
+          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6574,9 +6706,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpcEndpointConnectionNotification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint_connection_notification),
+          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint_connection_notification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6624,9 +6757,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpcEndpointServiceConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint_service_configuration),
+          auth_params: Auth::Params.new(operation_name: :create_vpc_endpoint_service_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6674,9 +6808,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpcPeeringConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpc_peering_connection),
+          auth_params: Auth::Params.new(operation_name: :create_vpc_peering_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6724,9 +6859,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpnConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpn_connection),
+          auth_params: Auth::Params.new(operation_name: :create_vpn_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6774,9 +6910,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpnConnectionRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpn_connection_route),
+          auth_params: Auth::Params.new(operation_name: :create_vpn_connection_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6824,9 +6961,10 @@ module AWS::SDK::EC2
           builder: Builders::CreateVpnGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :create_vpn_gateway),
+          auth_params: Auth::Params.new(operation_name: :create_vpn_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6874,9 +7012,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteCarrierGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_carrier_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_carrier_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6924,9 +7063,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteClientVpnEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_client_vpn_endpoint),
+          auth_params: Auth::Params.new(operation_name: :delete_client_vpn_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -6974,9 +7114,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteClientVpnRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_client_vpn_route),
+          auth_params: Auth::Params.new(operation_name: :delete_client_vpn_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7024,9 +7165,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteCoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_coip_cidr),
+          auth_params: Auth::Params.new(operation_name: :delete_coip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7074,9 +7216,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteCoipPool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_coip_pool),
+          auth_params: Auth::Params.new(operation_name: :delete_coip_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7124,9 +7267,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteCustomerGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_customer_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_customer_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7174,9 +7318,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteDhcpOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_dhcp_options),
+          auth_params: Auth::Params.new(operation_name: :delete_dhcp_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7224,9 +7369,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteEgressOnlyInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_egress_only_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_egress_only_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7274,9 +7420,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteFleets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_fleets),
+          auth_params: Auth::Params.new(operation_name: :delete_fleets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7324,9 +7471,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteFlowLogs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_flow_logs),
+          auth_params: Auth::Params.new(operation_name: :delete_flow_logs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7374,9 +7522,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteFpgaImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_fpga_image),
+          auth_params: Auth::Params.new(operation_name: :delete_fpga_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7424,9 +7573,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteInstanceConnectEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_instance_connect_endpoint),
+          auth_params: Auth::Params.new(operation_name: :delete_instance_connect_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7474,9 +7624,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteInstanceEventWindow
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_instance_event_window),
+          auth_params: Auth::Params.new(operation_name: :delete_instance_event_window, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7524,9 +7675,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7574,9 +7726,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteIpam
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_ipam),
+          auth_params: Auth::Params.new(operation_name: :delete_ipam, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7624,9 +7777,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteIpamPool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_ipam_pool),
+          auth_params: Auth::Params.new(operation_name: :delete_ipam_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7674,9 +7828,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteIpamResourceDiscovery
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_ipam_resource_discovery),
+          auth_params: Auth::Params.new(operation_name: :delete_ipam_resource_discovery, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7724,9 +7879,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteIpamScope
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_ipam_scope),
+          auth_params: Auth::Params.new(operation_name: :delete_ipam_scope, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7774,9 +7930,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteKeyPair
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_key_pair),
+          auth_params: Auth::Params.new(operation_name: :delete_key_pair, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7824,9 +7981,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLaunchTemplate
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_launch_template),
+          auth_params: Auth::Params.new(operation_name: :delete_launch_template, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7874,9 +8032,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLaunchTemplateVersions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_launch_template_versions),
+          auth_params: Auth::Params.new(operation_name: :delete_launch_template_versions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7924,9 +8083,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLocalGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -7974,9 +8134,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLocalGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8024,9 +8185,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table_virtual_interface_group_association),
+          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table_virtual_interface_group_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8074,9 +8236,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteLocalGatewayRouteTableVpcAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table_vpc_association),
+          auth_params: Auth::Params.new(operation_name: :delete_local_gateway_route_table_vpc_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8124,9 +8287,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteManagedPrefixList
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_managed_prefix_list),
+          auth_params: Auth::Params.new(operation_name: :delete_managed_prefix_list, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8174,9 +8338,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNatGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_nat_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_nat_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8224,9 +8389,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkAcl
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_acl),
+          auth_params: Auth::Params.new(operation_name: :delete_network_acl, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8274,9 +8440,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkAclEntry
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_acl_entry),
+          auth_params: Auth::Params.new(operation_name: :delete_network_acl_entry, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8324,9 +8491,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInsightsAccessScope
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_insights_access_scope),
+          auth_params: Auth::Params.new(operation_name: :delete_network_insights_access_scope, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8374,9 +8542,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInsightsAccessScopeAnalysis
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_insights_access_scope_analysis),
+          auth_params: Auth::Params.new(operation_name: :delete_network_insights_access_scope_analysis, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8424,9 +8593,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInsightsAnalysis
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_insights_analysis),
+          auth_params: Auth::Params.new(operation_name: :delete_network_insights_analysis, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8474,9 +8644,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInsightsPath
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_insights_path),
+          auth_params: Auth::Params.new(operation_name: :delete_network_insights_path, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8524,9 +8695,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_interface),
+          auth_params: Auth::Params.new(operation_name: :delete_network_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8574,9 +8746,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteNetworkInterfacePermission
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_network_interface_permission),
+          auth_params: Auth::Params.new(operation_name: :delete_network_interface_permission, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8624,9 +8797,10 @@ module AWS::SDK::EC2
           builder: Builders::DeletePlacementGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_placement_group),
+          auth_params: Auth::Params.new(operation_name: :delete_placement_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8674,9 +8848,10 @@ module AWS::SDK::EC2
           builder: Builders::DeletePublicIpv4Pool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_public_ipv4_pool),
+          auth_params: Auth::Params.new(operation_name: :delete_public_ipv4_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8724,9 +8899,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteQueuedReservedInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_queued_reserved_instances),
+          auth_params: Auth::Params.new(operation_name: :delete_queued_reserved_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8774,9 +8950,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_route),
+          auth_params: Auth::Params.new(operation_name: :delete_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8824,9 +9001,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_route_table),
+          auth_params: Auth::Params.new(operation_name: :delete_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8874,9 +9052,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteSecurityGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_security_group),
+          auth_params: Auth::Params.new(operation_name: :delete_security_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8924,9 +9103,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteSnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_snapshot),
+          auth_params: Auth::Params.new(operation_name: :delete_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -8974,9 +9154,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteSpotDatafeedSubscription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_spot_datafeed_subscription),
+          auth_params: Auth::Params.new(operation_name: :delete_spot_datafeed_subscription, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9024,9 +9205,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteSubnet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_subnet),
+          auth_params: Auth::Params.new(operation_name: :delete_subnet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9074,9 +9256,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteSubnetCidrReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_subnet_cidr_reservation),
+          auth_params: Auth::Params.new(operation_name: :delete_subnet_cidr_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9124,9 +9307,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTags
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_tags),
+          auth_params: Auth::Params.new(operation_name: :delete_tags, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9174,9 +9358,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTrafficMirrorFilter
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_filter),
+          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_filter, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9224,9 +9409,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTrafficMirrorFilterRule
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_filter_rule),
+          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_filter_rule, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9274,9 +9460,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTrafficMirrorSession
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_session),
+          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_session, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9324,9 +9511,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTrafficMirrorTarget
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_target),
+          auth_params: Auth::Params.new(operation_name: :delete_traffic_mirror_target, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9374,9 +9562,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9424,9 +9613,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayConnect
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_connect),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_connect, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9474,9 +9664,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayConnectPeer
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_connect_peer),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_connect_peer, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9524,9 +9715,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayMulticastDomain
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_multicast_domain),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_multicast_domain, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9574,9 +9766,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayPeeringAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_peering_attachment),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_peering_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9624,9 +9817,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayPolicyTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_policy_table),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_policy_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9674,9 +9868,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayPrefixListReference
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_prefix_list_reference),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_prefix_list_reference, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9724,9 +9919,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9774,9 +9970,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9824,9 +10021,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayRouteTableAnnouncement
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route_table_announcement),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_route_table_announcement, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9874,9 +10072,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteTransitGatewayVpcAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_vpc_attachment),
+          auth_params: Auth::Params.new(operation_name: :delete_transit_gateway_vpc_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9924,9 +10123,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVerifiedAccessEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_verified_access_endpoint),
+          auth_params: Auth::Params.new(operation_name: :delete_verified_access_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -9974,9 +10174,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVerifiedAccessGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_verified_access_group),
+          auth_params: Auth::Params.new(operation_name: :delete_verified_access_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10024,9 +10225,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVerifiedAccessInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_verified_access_instance),
+          auth_params: Auth::Params.new(operation_name: :delete_verified_access_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10074,9 +10276,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVerifiedAccessTrustProvider
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_verified_access_trust_provider),
+          auth_params: Auth::Params.new(operation_name: :delete_verified_access_trust_provider, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10124,9 +10327,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_volume),
+          auth_params: Auth::Params.new(operation_name: :delete_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10174,9 +10378,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpc),
+          auth_params: Auth::Params.new(operation_name: :delete_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10224,9 +10429,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpcEndpointConnectionNotifications
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoint_connection_notifications),
+          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoint_connection_notifications, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10274,9 +10480,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpcEndpointServiceConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoint_service_configurations),
+          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoint_service_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10324,9 +10531,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpcEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoints),
+          auth_params: Auth::Params.new(operation_name: :delete_vpc_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10374,9 +10582,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpcPeeringConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpc_peering_connection),
+          auth_params: Auth::Params.new(operation_name: :delete_vpc_peering_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10424,9 +10633,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpnConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpn_connection),
+          auth_params: Auth::Params.new(operation_name: :delete_vpn_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10474,9 +10684,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpnConnectionRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpn_connection_route),
+          auth_params: Auth::Params.new(operation_name: :delete_vpn_connection_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10524,9 +10735,10 @@ module AWS::SDK::EC2
           builder: Builders::DeleteVpnGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_vpn_gateway),
+          auth_params: Auth::Params.new(operation_name: :delete_vpn_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10574,9 +10786,10 @@ module AWS::SDK::EC2
           builder: Builders::DeprovisionByoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deprovision_byoip_cidr),
+          auth_params: Auth::Params.new(operation_name: :deprovision_byoip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10624,9 +10837,10 @@ module AWS::SDK::EC2
           builder: Builders::DeprovisionIpamByoasn
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deprovision_ipam_byoasn),
+          auth_params: Auth::Params.new(operation_name: :deprovision_ipam_byoasn, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10674,9 +10888,10 @@ module AWS::SDK::EC2
           builder: Builders::DeprovisionIpamPoolCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deprovision_ipam_pool_cidr),
+          auth_params: Auth::Params.new(operation_name: :deprovision_ipam_pool_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10724,9 +10939,10 @@ module AWS::SDK::EC2
           builder: Builders::DeprovisionPublicIpv4PoolCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deprovision_public_ipv4_pool_cidr),
+          auth_params: Auth::Params.new(operation_name: :deprovision_public_ipv4_pool_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10774,9 +10990,10 @@ module AWS::SDK::EC2
           builder: Builders::DeregisterImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deregister_image),
+          auth_params: Auth::Params.new(operation_name: :deregister_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10824,9 +11041,10 @@ module AWS::SDK::EC2
           builder: Builders::DeregisterInstanceEventNotificationAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deregister_instance_event_notification_attributes),
+          auth_params: Auth::Params.new(operation_name: :deregister_instance_event_notification_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10874,9 +11092,10 @@ module AWS::SDK::EC2
           builder: Builders::DeregisterTransitGatewayMulticastGroupMembers
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deregister_transit_gateway_multicast_group_members),
+          auth_params: Auth::Params.new(operation_name: :deregister_transit_gateway_multicast_group_members, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10924,9 +11143,10 @@ module AWS::SDK::EC2
           builder: Builders::DeregisterTransitGatewayMulticastGroupSources
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :deregister_transit_gateway_multicast_group_sources),
+          auth_params: Auth::Params.new(operation_name: :deregister_transit_gateway_multicast_group_sources, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -10974,9 +11194,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAccountAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_account_attributes),
+          auth_params: Auth::Params.new(operation_name: :describe_account_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11024,9 +11245,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAddressTransfers
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_address_transfers),
+          auth_params: Auth::Params.new(operation_name: :describe_address_transfers, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11074,9 +11296,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAddresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_addresses),
+          auth_params: Auth::Params.new(operation_name: :describe_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11124,9 +11347,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAddressesAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_addresses_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_addresses_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11174,9 +11398,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAggregateIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_aggregate_id_format),
+          auth_params: Auth::Params.new(operation_name: :describe_aggregate_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11224,9 +11449,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAvailabilityZones
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_availability_zones),
+          auth_params: Auth::Params.new(operation_name: :describe_availability_zones, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11274,9 +11500,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeAwsNetworkPerformanceMetricSubscriptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_aws_network_performance_metric_subscriptions),
+          auth_params: Auth::Params.new(operation_name: :describe_aws_network_performance_metric_subscriptions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11324,9 +11551,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeBundleTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_bundle_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_bundle_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11374,9 +11602,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeByoipCidrs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_byoip_cidrs),
+          auth_params: Auth::Params.new(operation_name: :describe_byoip_cidrs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11424,9 +11653,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCapacityBlockOfferings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_capacity_block_offerings),
+          auth_params: Auth::Params.new(operation_name: :describe_capacity_block_offerings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11474,9 +11704,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCapacityReservationFleets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_capacity_reservation_fleets),
+          auth_params: Auth::Params.new(operation_name: :describe_capacity_reservation_fleets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11524,9 +11755,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCapacityReservations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_capacity_reservations),
+          auth_params: Auth::Params.new(operation_name: :describe_capacity_reservations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11574,9 +11806,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCarrierGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_carrier_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_carrier_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11624,9 +11857,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClassicLinkInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_classic_link_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_classic_link_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11674,9 +11908,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClientVpnAuthorizationRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_authorization_rules),
+          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_authorization_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11724,9 +11959,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClientVpnConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_connections),
+          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11774,9 +12010,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClientVpnEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_endpoints),
+          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11824,9 +12061,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClientVpnRoutes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_routes),
+          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_routes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11874,9 +12112,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeClientVpnTargetNetworks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_target_networks),
+          auth_params: Auth::Params.new(operation_name: :describe_client_vpn_target_networks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11924,9 +12163,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCoipPools
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_coip_pools),
+          auth_params: Auth::Params.new(operation_name: :describe_coip_pools, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -11974,9 +12214,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeConversionTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_conversion_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_conversion_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12024,9 +12265,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeCustomerGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_customer_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_customer_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12074,9 +12316,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeDhcpOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_dhcp_options),
+          auth_params: Auth::Params.new(operation_name: :describe_dhcp_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12124,9 +12367,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeEgressOnlyInternetGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_egress_only_internet_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_egress_only_internet_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12174,9 +12418,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeElasticGpus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_elastic_gpus),
+          auth_params: Auth::Params.new(operation_name: :describe_elastic_gpus, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12224,9 +12469,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeExportImageTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_export_image_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_export_image_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12274,9 +12520,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeExportTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_export_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_export_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12324,9 +12571,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFastLaunchImages
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fast_launch_images),
+          auth_params: Auth::Params.new(operation_name: :describe_fast_launch_images, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12374,9 +12622,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFastSnapshotRestores
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fast_snapshot_restores),
+          auth_params: Auth::Params.new(operation_name: :describe_fast_snapshot_restores, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12424,9 +12673,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFleetHistory
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fleet_history),
+          auth_params: Auth::Params.new(operation_name: :describe_fleet_history, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12474,9 +12724,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFleetInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fleet_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_fleet_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12524,9 +12775,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFleets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fleets),
+          auth_params: Auth::Params.new(operation_name: :describe_fleets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12574,9 +12826,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFlowLogs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_flow_logs),
+          auth_params: Auth::Params.new(operation_name: :describe_flow_logs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12624,9 +12877,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFpgaImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fpga_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_fpga_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12674,9 +12928,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeFpgaImages
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_fpga_images),
+          auth_params: Auth::Params.new(operation_name: :describe_fpga_images, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12724,9 +12979,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeHostReservationOfferings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_host_reservation_offerings),
+          auth_params: Auth::Params.new(operation_name: :describe_host_reservation_offerings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12774,9 +13030,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeHostReservations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_host_reservations),
+          auth_params: Auth::Params.new(operation_name: :describe_host_reservations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12824,9 +13081,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeHosts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_hosts),
+          auth_params: Auth::Params.new(operation_name: :describe_hosts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12874,9 +13132,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIamInstanceProfileAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_iam_instance_profile_associations),
+          auth_params: Auth::Params.new(operation_name: :describe_iam_instance_profile_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12924,9 +13183,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_id_format),
+          auth_params: Auth::Params.new(operation_name: :describe_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -12974,9 +13234,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIdentityIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_identity_id_format),
+          auth_params: Auth::Params.new(operation_name: :describe_identity_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13024,9 +13285,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13074,9 +13336,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeImages
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_images),
+          auth_params: Auth::Params.new(operation_name: :describe_images, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13124,9 +13387,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeImportImageTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_import_image_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_import_image_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13174,9 +13438,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeImportSnapshotTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_import_snapshot_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_import_snapshot_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13224,9 +13489,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13274,9 +13540,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceConnectEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_connect_endpoints),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_connect_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13324,9 +13591,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceCreditSpecifications
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_credit_specifications),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_credit_specifications, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13374,9 +13642,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceEventNotificationAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_event_notification_attributes),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_event_notification_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13424,9 +13693,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceEventWindows
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_event_windows),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_event_windows, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13474,9 +13744,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_status),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13524,9 +13795,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceTopology
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_topology),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_topology, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13574,9 +13846,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceTypeOfferings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_type_offerings),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_type_offerings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13624,9 +13897,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstanceTypes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instance_types),
+          auth_params: Auth::Params.new(operation_name: :describe_instance_types, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13674,9 +13948,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13724,9 +13999,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeInternetGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_internet_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_internet_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13774,9 +14050,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpamByoasn
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipam_byoasn),
+          auth_params: Auth::Params.new(operation_name: :describe_ipam_byoasn, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13824,9 +14101,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpamPools
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipam_pools),
+          auth_params: Auth::Params.new(operation_name: :describe_ipam_pools, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13874,9 +14152,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpamResourceDiscoveries
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipam_resource_discoveries),
+          auth_params: Auth::Params.new(operation_name: :describe_ipam_resource_discoveries, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13924,9 +14203,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpamResourceDiscoveryAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipam_resource_discovery_associations),
+          auth_params: Auth::Params.new(operation_name: :describe_ipam_resource_discovery_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -13974,9 +14254,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpamScopes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipam_scopes),
+          auth_params: Auth::Params.new(operation_name: :describe_ipam_scopes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14024,9 +14305,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpams
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipams),
+          auth_params: Auth::Params.new(operation_name: :describe_ipams, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14074,9 +14356,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeIpv6Pools
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_ipv6_pools),
+          auth_params: Auth::Params.new(operation_name: :describe_ipv6_pools, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14124,9 +14407,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeKeyPairs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_key_pairs),
+          auth_params: Auth::Params.new(operation_name: :describe_key_pairs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14174,9 +14458,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLaunchTemplateVersions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_launch_template_versions),
+          auth_params: Auth::Params.new(operation_name: :describe_launch_template_versions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14224,9 +14509,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLaunchTemplates
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_launch_templates),
+          auth_params: Auth::Params.new(operation_name: :describe_launch_templates, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14274,9 +14560,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_table_virtual_interface_group_associations),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_table_virtual_interface_group_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14324,9 +14611,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGatewayRouteTableVpcAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_table_vpc_associations),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_table_vpc_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14374,9 +14662,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGatewayRouteTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_tables),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_route_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14424,9 +14713,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGatewayVirtualInterfaceGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_virtual_interface_groups),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_virtual_interface_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14474,9 +14764,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGatewayVirtualInterfaces
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_virtual_interfaces),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateway_virtual_interfaces, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14524,9 +14815,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLocalGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_local_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_local_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14574,9 +14866,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeLockedSnapshots
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_locked_snapshots),
+          auth_params: Auth::Params.new(operation_name: :describe_locked_snapshots, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14624,9 +14917,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeManagedPrefixLists
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_managed_prefix_lists),
+          auth_params: Auth::Params.new(operation_name: :describe_managed_prefix_lists, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14674,9 +14968,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeMovingAddresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_moving_addresses),
+          auth_params: Auth::Params.new(operation_name: :describe_moving_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14724,9 +15019,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNatGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_nat_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_nat_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14774,9 +15070,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkAcls
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_acls),
+          auth_params: Auth::Params.new(operation_name: :describe_network_acls, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14824,9 +15121,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInsightsAccessScopeAnalyses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_insights_access_scope_analyses),
+          auth_params: Auth::Params.new(operation_name: :describe_network_insights_access_scope_analyses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14874,9 +15172,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInsightsAccessScopes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_insights_access_scopes),
+          auth_params: Auth::Params.new(operation_name: :describe_network_insights_access_scopes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14924,9 +15223,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInsightsAnalyses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_insights_analyses),
+          auth_params: Auth::Params.new(operation_name: :describe_network_insights_analyses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -14974,9 +15274,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInsightsPaths
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_insights_paths),
+          auth_params: Auth::Params.new(operation_name: :describe_network_insights_paths, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15024,9 +15325,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInterfaceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_interface_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_network_interface_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15074,9 +15376,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInterfacePermissions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_interface_permissions),
+          auth_params: Auth::Params.new(operation_name: :describe_network_interface_permissions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15124,9 +15427,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeNetworkInterfaces
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_network_interfaces),
+          auth_params: Auth::Params.new(operation_name: :describe_network_interfaces, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15174,9 +15478,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribePlacementGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_placement_groups),
+          auth_params: Auth::Params.new(operation_name: :describe_placement_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15224,9 +15529,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribePrefixLists
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_prefix_lists),
+          auth_params: Auth::Params.new(operation_name: :describe_prefix_lists, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15274,9 +15580,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribePrincipalIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_principal_id_format),
+          auth_params: Auth::Params.new(operation_name: :describe_principal_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15324,9 +15631,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribePublicIpv4Pools
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_public_ipv4_pools),
+          auth_params: Auth::Params.new(operation_name: :describe_public_ipv4_pools, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15374,9 +15682,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeRegions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_regions),
+          auth_params: Auth::Params.new(operation_name: :describe_regions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15424,9 +15733,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeReplaceRootVolumeTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_replace_root_volume_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_replace_root_volume_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15474,9 +15784,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeReservedInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15524,9 +15835,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeReservedInstancesListings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_listings),
+          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_listings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15574,9 +15886,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeReservedInstancesModifications
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_modifications),
+          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_modifications, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15624,9 +15937,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeReservedInstancesOfferings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_offerings),
+          auth_params: Auth::Params.new(operation_name: :describe_reserved_instances_offerings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15674,9 +15988,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeRouteTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_route_tables),
+          auth_params: Auth::Params.new(operation_name: :describe_route_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15724,9 +16039,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeScheduledInstanceAvailability
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_scheduled_instance_availability),
+          auth_params: Auth::Params.new(operation_name: :describe_scheduled_instance_availability, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15774,9 +16090,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeScheduledInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_scheduled_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_scheduled_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15824,9 +16141,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSecurityGroupReferences
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_security_group_references),
+          auth_params: Auth::Params.new(operation_name: :describe_security_group_references, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15874,9 +16192,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSecurityGroupRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_security_group_rules),
+          auth_params: Auth::Params.new(operation_name: :describe_security_group_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15924,9 +16243,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSecurityGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_security_groups),
+          auth_params: Auth::Params.new(operation_name: :describe_security_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -15974,9 +16294,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSnapshotAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_snapshot_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_snapshot_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16024,9 +16345,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSnapshotTierStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_snapshot_tier_status),
+          auth_params: Auth::Params.new(operation_name: :describe_snapshot_tier_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16074,9 +16396,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSnapshots
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_snapshots),
+          auth_params: Auth::Params.new(operation_name: :describe_snapshots, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16124,9 +16447,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotDatafeedSubscription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_datafeed_subscription),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_datafeed_subscription, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16174,9 +16498,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotFleetInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16224,9 +16549,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotFleetRequestHistory
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_request_history),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_request_history, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16274,9 +16600,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotFleetRequests
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_requests),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_fleet_requests, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16324,9 +16651,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotInstanceRequests
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_instance_requests),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_instance_requests, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16374,9 +16702,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSpotPriceHistory
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_spot_price_history),
+          auth_params: Auth::Params.new(operation_name: :describe_spot_price_history, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16424,9 +16753,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeStaleSecurityGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_stale_security_groups),
+          auth_params: Auth::Params.new(operation_name: :describe_stale_security_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16474,9 +16804,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeStoreImageTasks
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_store_image_tasks),
+          auth_params: Auth::Params.new(operation_name: :describe_store_image_tasks, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16524,9 +16855,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeSubnets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_subnets),
+          auth_params: Auth::Params.new(operation_name: :describe_subnets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16574,9 +16906,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTags
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_tags),
+          auth_params: Auth::Params.new(operation_name: :describe_tags, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16624,9 +16957,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTrafficMirrorFilters
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_filters),
+          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_filters, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16674,9 +17008,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTrafficMirrorSessions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_sessions),
+          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_sessions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16724,9 +17059,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTrafficMirrorTargets
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_targets),
+          auth_params: Auth::Params.new(operation_name: :describe_traffic_mirror_targets, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16774,9 +17110,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayAttachments
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_attachments),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_attachments, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16824,9 +17161,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayConnectPeers
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_connect_peers),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_connect_peers, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16874,9 +17212,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayConnects
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_connects),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_connects, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16924,9 +17263,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayMulticastDomains
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_multicast_domains),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_multicast_domains, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -16974,9 +17314,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayPeeringAttachments
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_peering_attachments),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_peering_attachments, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17024,9 +17365,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayPolicyTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_policy_tables),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_policy_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17074,9 +17416,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayRouteTableAnnouncements
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_route_table_announcements),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_route_table_announcements, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17124,9 +17467,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayRouteTables
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_route_tables),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_route_tables, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17174,9 +17518,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGatewayVpcAttachments
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_vpc_attachments),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateway_vpc_attachments, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17224,9 +17569,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTransitGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_transit_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_transit_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17274,9 +17620,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeTrunkInterfaceAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_trunk_interface_associations),
+          auth_params: Auth::Params.new(operation_name: :describe_trunk_interface_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17324,9 +17671,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVerifiedAccessEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_verified_access_endpoints),
+          auth_params: Auth::Params.new(operation_name: :describe_verified_access_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17374,9 +17722,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVerifiedAccessGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_verified_access_groups),
+          auth_params: Auth::Params.new(operation_name: :describe_verified_access_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17424,9 +17773,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVerifiedAccessInstanceLoggingConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_verified_access_instance_logging_configurations),
+          auth_params: Auth::Params.new(operation_name: :describe_verified_access_instance_logging_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17474,9 +17824,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVerifiedAccessInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_verified_access_instances),
+          auth_params: Auth::Params.new(operation_name: :describe_verified_access_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17524,9 +17875,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVerifiedAccessTrustProviders
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_verified_access_trust_providers),
+          auth_params: Auth::Params.new(operation_name: :describe_verified_access_trust_providers, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17574,9 +17926,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVolumeAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_volume_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_volume_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17624,9 +17977,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVolumeStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_volume_status),
+          auth_params: Auth::Params.new(operation_name: :describe_volume_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17674,9 +18028,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVolumes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_volumes),
+          auth_params: Auth::Params.new(operation_name: :describe_volumes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17724,9 +18079,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVolumesModifications
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_volumes_modifications),
+          auth_params: Auth::Params.new(operation_name: :describe_volumes_modifications, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17774,9 +18130,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_attribute),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17824,9 +18181,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcClassicLink
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_classic_link),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_classic_link, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17874,9 +18232,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcClassicLinkDnsSupport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_classic_link_dns_support),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_classic_link_dns_support, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17924,9 +18283,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpointConnectionNotifications
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_connection_notifications),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_connection_notifications, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -17974,9 +18334,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpointConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_connections),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18024,9 +18385,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpointServiceConfigurations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_service_configurations),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_service_configurations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18074,9 +18436,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpointServicePermissions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_service_permissions),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_service_permissions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18124,9 +18487,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpointServices
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_services),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoint_services, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18174,9 +18538,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcEndpoints
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoints),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_endpoints, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18224,9 +18589,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcPeeringConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpc_peering_connections),
+          auth_params: Auth::Params.new(operation_name: :describe_vpc_peering_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18274,9 +18640,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpcs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpcs),
+          auth_params: Auth::Params.new(operation_name: :describe_vpcs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18324,9 +18691,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpnConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpn_connections),
+          auth_params: Auth::Params.new(operation_name: :describe_vpn_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18374,9 +18742,10 @@ module AWS::SDK::EC2
           builder: Builders::DescribeVpnGateways
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_vpn_gateways),
+          auth_params: Auth::Params.new(operation_name: :describe_vpn_gateways, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18424,9 +18793,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachClassicLinkVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_classic_link_vpc),
+          auth_params: Auth::Params.new(operation_name: :detach_classic_link_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18474,9 +18844,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachInternetGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_internet_gateway),
+          auth_params: Auth::Params.new(operation_name: :detach_internet_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18524,9 +18895,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachNetworkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_network_interface),
+          auth_params: Auth::Params.new(operation_name: :detach_network_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18574,9 +18946,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachVerifiedAccessTrustProvider
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_verified_access_trust_provider),
+          auth_params: Auth::Params.new(operation_name: :detach_verified_access_trust_provider, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18624,9 +18997,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_volume),
+          auth_params: Auth::Params.new(operation_name: :detach_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18674,9 +19048,10 @@ module AWS::SDK::EC2
           builder: Builders::DetachVpnGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :detach_vpn_gateway),
+          auth_params: Auth::Params.new(operation_name: :detach_vpn_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18724,9 +19099,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableAddressTransfer
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_address_transfer),
+          auth_params: Auth::Params.new(operation_name: :disable_address_transfer, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18774,9 +19150,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableAwsNetworkPerformanceMetricSubscription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_aws_network_performance_metric_subscription),
+          auth_params: Auth::Params.new(operation_name: :disable_aws_network_performance_metric_subscription, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18824,9 +19201,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableEbsEncryptionByDefault
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_ebs_encryption_by_default),
+          auth_params: Auth::Params.new(operation_name: :disable_ebs_encryption_by_default, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18874,9 +19252,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableFastLaunch
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_fast_launch),
+          auth_params: Auth::Params.new(operation_name: :disable_fast_launch, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18924,9 +19303,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableFastSnapshotRestores
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_fast_snapshot_restores),
+          auth_params: Auth::Params.new(operation_name: :disable_fast_snapshot_restores, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -18974,9 +19354,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_image),
+          auth_params: Auth::Params.new(operation_name: :disable_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19024,9 +19405,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableImageBlockPublicAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_image_block_public_access),
+          auth_params: Auth::Params.new(operation_name: :disable_image_block_public_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19074,9 +19456,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableImageDeprecation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_image_deprecation),
+          auth_params: Auth::Params.new(operation_name: :disable_image_deprecation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19124,9 +19507,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableIpamOrganizationAdminAccount
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_ipam_organization_admin_account),
+          auth_params: Auth::Params.new(operation_name: :disable_ipam_organization_admin_account, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19174,9 +19558,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableSerialConsoleAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_serial_console_access),
+          auth_params: Auth::Params.new(operation_name: :disable_serial_console_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19224,9 +19609,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableSnapshotBlockPublicAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_snapshot_block_public_access),
+          auth_params: Auth::Params.new(operation_name: :disable_snapshot_block_public_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19274,9 +19660,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableTransitGatewayRouteTablePropagation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_transit_gateway_route_table_propagation),
+          auth_params: Auth::Params.new(operation_name: :disable_transit_gateway_route_table_propagation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19324,9 +19711,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableVgwRoutePropagation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_vgw_route_propagation),
+          auth_params: Auth::Params.new(operation_name: :disable_vgw_route_propagation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19374,9 +19762,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableVpcClassicLink
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_vpc_classic_link),
+          auth_params: Auth::Params.new(operation_name: :disable_vpc_classic_link, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19424,9 +19813,10 @@ module AWS::SDK::EC2
           builder: Builders::DisableVpcClassicLinkDnsSupport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_vpc_classic_link_dns_support),
+          auth_params: Auth::Params.new(operation_name: :disable_vpc_classic_link_dns_support, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19474,9 +19864,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_address),
+          auth_params: Auth::Params.new(operation_name: :disassociate_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19524,9 +19915,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateClientVpnTargetNetwork
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_client_vpn_target_network),
+          auth_params: Auth::Params.new(operation_name: :disassociate_client_vpn_target_network, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19574,9 +19966,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateEnclaveCertificateIamRole
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_enclave_certificate_iam_role),
+          auth_params: Auth::Params.new(operation_name: :disassociate_enclave_certificate_iam_role, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19624,9 +20017,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateIamInstanceProfile
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_iam_instance_profile),
+          auth_params: Auth::Params.new(operation_name: :disassociate_iam_instance_profile, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19674,9 +20068,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateInstanceEventWindow
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_instance_event_window),
+          auth_params: Auth::Params.new(operation_name: :disassociate_instance_event_window, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19724,9 +20119,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateIpamByoasn
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_ipam_byoasn),
+          auth_params: Auth::Params.new(operation_name: :disassociate_ipam_byoasn, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19774,9 +20170,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateIpamResourceDiscovery
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_ipam_resource_discovery),
+          auth_params: Auth::Params.new(operation_name: :disassociate_ipam_resource_discovery, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19824,9 +20221,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateNatGatewayAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_nat_gateway_address),
+          auth_params: Auth::Params.new(operation_name: :disassociate_nat_gateway_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19874,9 +20272,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_route_table),
+          auth_params: Auth::Params.new(operation_name: :disassociate_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19924,9 +20323,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateSubnetCidrBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_subnet_cidr_block),
+          auth_params: Auth::Params.new(operation_name: :disassociate_subnet_cidr_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -19974,9 +20374,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateTransitGatewayMulticastDomain
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_multicast_domain),
+          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_multicast_domain, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20024,9 +20425,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateTransitGatewayPolicyTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_policy_table),
+          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_policy_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20074,9 +20476,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateTransitGatewayRouteTable
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_route_table),
+          auth_params: Auth::Params.new(operation_name: :disassociate_transit_gateway_route_table, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20124,9 +20527,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateTrunkInterface
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_trunk_interface),
+          auth_params: Auth::Params.new(operation_name: :disassociate_trunk_interface, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20174,9 +20578,10 @@ module AWS::SDK::EC2
           builder: Builders::DisassociateVpcCidrBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disassociate_vpc_cidr_block),
+          auth_params: Auth::Params.new(operation_name: :disassociate_vpc_cidr_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20224,9 +20629,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableAddressTransfer
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_address_transfer),
+          auth_params: Auth::Params.new(operation_name: :enable_address_transfer, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20274,9 +20680,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableAwsNetworkPerformanceMetricSubscription
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_aws_network_performance_metric_subscription),
+          auth_params: Auth::Params.new(operation_name: :enable_aws_network_performance_metric_subscription, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20324,9 +20731,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableEbsEncryptionByDefault
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_ebs_encryption_by_default),
+          auth_params: Auth::Params.new(operation_name: :enable_ebs_encryption_by_default, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20374,9 +20782,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableFastLaunch
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_fast_launch),
+          auth_params: Auth::Params.new(operation_name: :enable_fast_launch, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20424,9 +20833,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableFastSnapshotRestores
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_fast_snapshot_restores),
+          auth_params: Auth::Params.new(operation_name: :enable_fast_snapshot_restores, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20474,9 +20884,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_image),
+          auth_params: Auth::Params.new(operation_name: :enable_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20524,9 +20935,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableImageBlockPublicAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_image_block_public_access),
+          auth_params: Auth::Params.new(operation_name: :enable_image_block_public_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20574,9 +20986,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableImageDeprecation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_image_deprecation),
+          auth_params: Auth::Params.new(operation_name: :enable_image_deprecation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20624,9 +21037,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableIpamOrganizationAdminAccount
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_ipam_organization_admin_account),
+          auth_params: Auth::Params.new(operation_name: :enable_ipam_organization_admin_account, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20674,9 +21088,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableReachabilityAnalyzerOrganizationSharing
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_reachability_analyzer_organization_sharing),
+          auth_params: Auth::Params.new(operation_name: :enable_reachability_analyzer_organization_sharing, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20724,9 +21139,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableSerialConsoleAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_serial_console_access),
+          auth_params: Auth::Params.new(operation_name: :enable_serial_console_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20774,9 +21190,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableSnapshotBlockPublicAccess
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_snapshot_block_public_access),
+          auth_params: Auth::Params.new(operation_name: :enable_snapshot_block_public_access, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20824,9 +21241,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableTransitGatewayRouteTablePropagation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_transit_gateway_route_table_propagation),
+          auth_params: Auth::Params.new(operation_name: :enable_transit_gateway_route_table_propagation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20874,9 +21292,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableVgwRoutePropagation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_vgw_route_propagation),
+          auth_params: Auth::Params.new(operation_name: :enable_vgw_route_propagation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20924,9 +21343,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableVolumeIO
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_volume_io),
+          auth_params: Auth::Params.new(operation_name: :enable_volume_io, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -20974,9 +21394,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableVpcClassicLink
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_vpc_classic_link),
+          auth_params: Auth::Params.new(operation_name: :enable_vpc_classic_link, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21024,9 +21445,10 @@ module AWS::SDK::EC2
           builder: Builders::EnableVpcClassicLinkDnsSupport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_vpc_classic_link_dns_support),
+          auth_params: Auth::Params.new(operation_name: :enable_vpc_classic_link_dns_support, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21074,9 +21496,10 @@ module AWS::SDK::EC2
           builder: Builders::ExportClientVpnClientCertificateRevocationList
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :export_client_vpn_client_certificate_revocation_list),
+          auth_params: Auth::Params.new(operation_name: :export_client_vpn_client_certificate_revocation_list, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21124,9 +21547,10 @@ module AWS::SDK::EC2
           builder: Builders::ExportClientVpnClientConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :export_client_vpn_client_configuration),
+          auth_params: Auth::Params.new(operation_name: :export_client_vpn_client_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21174,9 +21598,10 @@ module AWS::SDK::EC2
           builder: Builders::ExportImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :export_image),
+          auth_params: Auth::Params.new(operation_name: :export_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21224,9 +21649,10 @@ module AWS::SDK::EC2
           builder: Builders::ExportTransitGatewayRoutes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :export_transit_gateway_routes),
+          auth_params: Auth::Params.new(operation_name: :export_transit_gateway_routes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21274,9 +21700,10 @@ module AWS::SDK::EC2
           builder: Builders::GetAssociatedEnclaveCertificateIamRoles
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_associated_enclave_certificate_iam_roles),
+          auth_params: Auth::Params.new(operation_name: :get_associated_enclave_certificate_iam_roles, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21324,9 +21751,10 @@ module AWS::SDK::EC2
           builder: Builders::GetAssociatedIpv6PoolCidrs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_associated_ipv6_pool_cidrs),
+          auth_params: Auth::Params.new(operation_name: :get_associated_ipv6_pool_cidrs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21374,9 +21802,10 @@ module AWS::SDK::EC2
           builder: Builders::GetAwsNetworkPerformanceData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_aws_network_performance_data),
+          auth_params: Auth::Params.new(operation_name: :get_aws_network_performance_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21424,9 +21853,10 @@ module AWS::SDK::EC2
           builder: Builders::GetCapacityReservationUsage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_capacity_reservation_usage),
+          auth_params: Auth::Params.new(operation_name: :get_capacity_reservation_usage, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21474,9 +21904,10 @@ module AWS::SDK::EC2
           builder: Builders::GetCoipPoolUsage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_coip_pool_usage),
+          auth_params: Auth::Params.new(operation_name: :get_coip_pool_usage, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21524,9 +21955,10 @@ module AWS::SDK::EC2
           builder: Builders::GetConsoleOutput
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_console_output),
+          auth_params: Auth::Params.new(operation_name: :get_console_output, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21574,9 +22006,10 @@ module AWS::SDK::EC2
           builder: Builders::GetConsoleScreenshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_console_screenshot),
+          auth_params: Auth::Params.new(operation_name: :get_console_screenshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21624,9 +22057,10 @@ module AWS::SDK::EC2
           builder: Builders::GetDefaultCreditSpecification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_default_credit_specification),
+          auth_params: Auth::Params.new(operation_name: :get_default_credit_specification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21674,9 +22108,10 @@ module AWS::SDK::EC2
           builder: Builders::GetEbsDefaultKmsKeyId
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ebs_default_kms_key_id),
+          auth_params: Auth::Params.new(operation_name: :get_ebs_default_kms_key_id, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21724,9 +22159,10 @@ module AWS::SDK::EC2
           builder: Builders::GetEbsEncryptionByDefault
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ebs_encryption_by_default),
+          auth_params: Auth::Params.new(operation_name: :get_ebs_encryption_by_default, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21774,9 +22210,10 @@ module AWS::SDK::EC2
           builder: Builders::GetFlowLogsIntegrationTemplate
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_flow_logs_integration_template),
+          auth_params: Auth::Params.new(operation_name: :get_flow_logs_integration_template, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21824,9 +22261,10 @@ module AWS::SDK::EC2
           builder: Builders::GetGroupsForCapacityReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_groups_for_capacity_reservation),
+          auth_params: Auth::Params.new(operation_name: :get_groups_for_capacity_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21874,9 +22312,10 @@ module AWS::SDK::EC2
           builder: Builders::GetHostReservationPurchasePreview
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_host_reservation_purchase_preview),
+          auth_params: Auth::Params.new(operation_name: :get_host_reservation_purchase_preview, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21924,9 +22363,10 @@ module AWS::SDK::EC2
           builder: Builders::GetImageBlockPublicAccessState
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_image_block_public_access_state),
+          auth_params: Auth::Params.new(operation_name: :get_image_block_public_access_state, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -21974,9 +22414,10 @@ module AWS::SDK::EC2
           builder: Builders::GetInstanceTypesFromInstanceRequirements
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_instance_types_from_instance_requirements),
+          auth_params: Auth::Params.new(operation_name: :get_instance_types_from_instance_requirements, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22024,9 +22465,10 @@ module AWS::SDK::EC2
           builder: Builders::GetInstanceUefiData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_instance_uefi_data),
+          auth_params: Auth::Params.new(operation_name: :get_instance_uefi_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22074,9 +22516,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamAddressHistory
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_address_history),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_address_history, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22124,9 +22567,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamDiscoveredAccounts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_accounts),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_accounts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22174,9 +22618,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamDiscoveredPublicAddresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_public_addresses),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_public_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22224,9 +22669,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamDiscoveredResourceCidrs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_resource_cidrs),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_discovered_resource_cidrs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22274,9 +22720,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamPoolAllocations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_pool_allocations),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_pool_allocations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22324,9 +22771,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamPoolCidrs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_pool_cidrs),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_pool_cidrs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22374,9 +22822,10 @@ module AWS::SDK::EC2
           builder: Builders::GetIpamResourceCidrs
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_ipam_resource_cidrs),
+          auth_params: Auth::Params.new(operation_name: :get_ipam_resource_cidrs, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22424,9 +22873,10 @@ module AWS::SDK::EC2
           builder: Builders::GetLaunchTemplateData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_launch_template_data),
+          auth_params: Auth::Params.new(operation_name: :get_launch_template_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22474,9 +22924,10 @@ module AWS::SDK::EC2
           builder: Builders::GetManagedPrefixListAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_managed_prefix_list_associations),
+          auth_params: Auth::Params.new(operation_name: :get_managed_prefix_list_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22524,9 +22975,10 @@ module AWS::SDK::EC2
           builder: Builders::GetManagedPrefixListEntries
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_managed_prefix_list_entries),
+          auth_params: Auth::Params.new(operation_name: :get_managed_prefix_list_entries, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22574,9 +23026,10 @@ module AWS::SDK::EC2
           builder: Builders::GetNetworkInsightsAccessScopeAnalysisFindings
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_network_insights_access_scope_analysis_findings),
+          auth_params: Auth::Params.new(operation_name: :get_network_insights_access_scope_analysis_findings, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22624,9 +23077,10 @@ module AWS::SDK::EC2
           builder: Builders::GetNetworkInsightsAccessScopeContent
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_network_insights_access_scope_content),
+          auth_params: Auth::Params.new(operation_name: :get_network_insights_access_scope_content, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22674,9 +23128,10 @@ module AWS::SDK::EC2
           builder: Builders::GetPasswordData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_password_data),
+          auth_params: Auth::Params.new(operation_name: :get_password_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22724,9 +23179,10 @@ module AWS::SDK::EC2
           builder: Builders::GetReservedInstancesExchangeQuote
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_reserved_instances_exchange_quote),
+          auth_params: Auth::Params.new(operation_name: :get_reserved_instances_exchange_quote, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22774,9 +23230,10 @@ module AWS::SDK::EC2
           builder: Builders::GetSecurityGroupsForVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_security_groups_for_vpc),
+          auth_params: Auth::Params.new(operation_name: :get_security_groups_for_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22824,9 +23281,10 @@ module AWS::SDK::EC2
           builder: Builders::GetSerialConsoleAccessStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_serial_console_access_status),
+          auth_params: Auth::Params.new(operation_name: :get_serial_console_access_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22874,9 +23332,10 @@ module AWS::SDK::EC2
           builder: Builders::GetSnapshotBlockPublicAccessState
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_snapshot_block_public_access_state),
+          auth_params: Auth::Params.new(operation_name: :get_snapshot_block_public_access_state, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22924,9 +23383,10 @@ module AWS::SDK::EC2
           builder: Builders::GetSpotPlacementScores
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_spot_placement_scores),
+          auth_params: Auth::Params.new(operation_name: :get_spot_placement_scores, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -22974,9 +23434,10 @@ module AWS::SDK::EC2
           builder: Builders::GetSubnetCidrReservations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_subnet_cidr_reservations),
+          auth_params: Auth::Params.new(operation_name: :get_subnet_cidr_reservations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23024,9 +23485,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayAttachmentPropagations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_attachment_propagations),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_attachment_propagations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23074,9 +23536,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayMulticastDomainAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_multicast_domain_associations),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_multicast_domain_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23124,9 +23587,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayPolicyTableAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_policy_table_associations),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_policy_table_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23174,9 +23638,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayPolicyTableEntries
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_policy_table_entries),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_policy_table_entries, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23224,9 +23689,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayPrefixListReferences
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_prefix_list_references),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_prefix_list_references, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23274,9 +23740,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayRouteTableAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_route_table_associations),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_route_table_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23324,9 +23791,10 @@ module AWS::SDK::EC2
           builder: Builders::GetTransitGatewayRouteTablePropagations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_route_table_propagations),
+          auth_params: Auth::Params.new(operation_name: :get_transit_gateway_route_table_propagations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23374,9 +23842,10 @@ module AWS::SDK::EC2
           builder: Builders::GetVerifiedAccessEndpointPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_verified_access_endpoint_policy),
+          auth_params: Auth::Params.new(operation_name: :get_verified_access_endpoint_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23424,9 +23893,10 @@ module AWS::SDK::EC2
           builder: Builders::GetVerifiedAccessGroupPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_verified_access_group_policy),
+          auth_params: Auth::Params.new(operation_name: :get_verified_access_group_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23474,9 +23944,10 @@ module AWS::SDK::EC2
           builder: Builders::GetVpnConnectionDeviceSampleConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_vpn_connection_device_sample_configuration),
+          auth_params: Auth::Params.new(operation_name: :get_vpn_connection_device_sample_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23524,9 +23995,10 @@ module AWS::SDK::EC2
           builder: Builders::GetVpnConnectionDeviceTypes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_vpn_connection_device_types),
+          auth_params: Auth::Params.new(operation_name: :get_vpn_connection_device_types, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23574,9 +24046,10 @@ module AWS::SDK::EC2
           builder: Builders::GetVpnTunnelReplacementStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_vpn_tunnel_replacement_status),
+          auth_params: Auth::Params.new(operation_name: :get_vpn_tunnel_replacement_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23624,9 +24097,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportClientVpnClientCertificateRevocationList
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_client_vpn_client_certificate_revocation_list),
+          auth_params: Auth::Params.new(operation_name: :import_client_vpn_client_certificate_revocation_list, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23674,9 +24148,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_image),
+          auth_params: Auth::Params.new(operation_name: :import_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23724,9 +24199,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_instance),
+          auth_params: Auth::Params.new(operation_name: :import_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23774,9 +24250,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportKeyPair
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_key_pair),
+          auth_params: Auth::Params.new(operation_name: :import_key_pair, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23824,9 +24301,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportSnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_snapshot),
+          auth_params: Auth::Params.new(operation_name: :import_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23874,9 +24352,10 @@ module AWS::SDK::EC2
           builder: Builders::ImportVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :import_volume),
+          auth_params: Auth::Params.new(operation_name: :import_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23924,9 +24403,10 @@ module AWS::SDK::EC2
           builder: Builders::ListImagesInRecycleBin
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_images_in_recycle_bin),
+          auth_params: Auth::Params.new(operation_name: :list_images_in_recycle_bin, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -23974,9 +24454,10 @@ module AWS::SDK::EC2
           builder: Builders::ListSnapshotsInRecycleBin
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_snapshots_in_recycle_bin),
+          auth_params: Auth::Params.new(operation_name: :list_snapshots_in_recycle_bin, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24024,9 +24505,10 @@ module AWS::SDK::EC2
           builder: Builders::LockSnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :lock_snapshot),
+          auth_params: Auth::Params.new(operation_name: :lock_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24074,9 +24556,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyAddressAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_address_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_address_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24124,9 +24607,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyAvailabilityZoneGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_availability_zone_group),
+          auth_params: Auth::Params.new(operation_name: :modify_availability_zone_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24174,9 +24658,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyCapacityReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_capacity_reservation),
+          auth_params: Auth::Params.new(operation_name: :modify_capacity_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24224,9 +24709,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyCapacityReservationFleet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_capacity_reservation_fleet),
+          auth_params: Auth::Params.new(operation_name: :modify_capacity_reservation_fleet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24274,9 +24760,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyClientVpnEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_client_vpn_endpoint),
+          auth_params: Auth::Params.new(operation_name: :modify_client_vpn_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24324,9 +24811,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyDefaultCreditSpecification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_default_credit_specification),
+          auth_params: Auth::Params.new(operation_name: :modify_default_credit_specification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24374,9 +24862,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyEbsDefaultKmsKeyId
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ebs_default_kms_key_id),
+          auth_params: Auth::Params.new(operation_name: :modify_ebs_default_kms_key_id, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24424,9 +24913,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyFleet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_fleet),
+          auth_params: Auth::Params.new(operation_name: :modify_fleet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24474,9 +24964,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyFpgaImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_fpga_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_fpga_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24524,9 +25015,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyHosts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_hosts),
+          auth_params: Auth::Params.new(operation_name: :modify_hosts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24574,9 +25066,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_id_format),
+          auth_params: Auth::Params.new(operation_name: :modify_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24624,9 +25117,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIdentityIdFormat
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_identity_id_format),
+          auth_params: Auth::Params.new(operation_name: :modify_identity_id_format, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24674,9 +25168,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24724,9 +25219,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24774,9 +25270,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceCapacityReservationAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_capacity_reservation_attributes),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_capacity_reservation_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24824,9 +25321,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceCreditSpecification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_credit_specification),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_credit_specification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24874,9 +25372,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceEventStartTime
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_event_start_time),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_event_start_time, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24924,9 +25423,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceEventWindow
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_event_window),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_event_window, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -24974,9 +25474,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceMaintenanceOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_maintenance_options),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_maintenance_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25024,9 +25525,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstanceMetadataOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_metadata_options),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_metadata_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25074,9 +25576,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyInstancePlacement
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_instance_placement),
+          auth_params: Auth::Params.new(operation_name: :modify_instance_placement, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25124,9 +25627,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIpam
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ipam),
+          auth_params: Auth::Params.new(operation_name: :modify_ipam, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25174,9 +25678,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIpamPool
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ipam_pool),
+          auth_params: Auth::Params.new(operation_name: :modify_ipam_pool, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25224,9 +25729,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIpamResourceCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ipam_resource_cidr),
+          auth_params: Auth::Params.new(operation_name: :modify_ipam_resource_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25274,9 +25780,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIpamResourceDiscovery
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ipam_resource_discovery),
+          auth_params: Auth::Params.new(operation_name: :modify_ipam_resource_discovery, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25324,9 +25831,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyIpamScope
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_ipam_scope),
+          auth_params: Auth::Params.new(operation_name: :modify_ipam_scope, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25374,9 +25882,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyLaunchTemplate
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_launch_template),
+          auth_params: Auth::Params.new(operation_name: :modify_launch_template, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25424,9 +25933,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyLocalGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_local_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :modify_local_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25474,9 +25984,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyManagedPrefixList
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_managed_prefix_list),
+          auth_params: Auth::Params.new(operation_name: :modify_managed_prefix_list, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25524,9 +26035,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyNetworkInterfaceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_network_interface_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_network_interface_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25574,9 +26086,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyPrivateDnsNameOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_private_dns_name_options),
+          auth_params: Auth::Params.new(operation_name: :modify_private_dns_name_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25624,9 +26137,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyReservedInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_reserved_instances),
+          auth_params: Auth::Params.new(operation_name: :modify_reserved_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25674,9 +26188,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifySecurityGroupRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_security_group_rules),
+          auth_params: Auth::Params.new(operation_name: :modify_security_group_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25724,9 +26239,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifySnapshotAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_snapshot_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_snapshot_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25774,9 +26290,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifySnapshotTier
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_snapshot_tier),
+          auth_params: Auth::Params.new(operation_name: :modify_snapshot_tier, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25824,9 +26341,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifySpotFleetRequest
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_spot_fleet_request),
+          auth_params: Auth::Params.new(operation_name: :modify_spot_fleet_request, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25874,9 +26392,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifySubnetAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_subnet_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_subnet_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25924,9 +26443,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTrafficMirrorFilterNetworkServices
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_filter_network_services),
+          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_filter_network_services, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -25974,9 +26494,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTrafficMirrorFilterRule
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_filter_rule),
+          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_filter_rule, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26024,9 +26545,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTrafficMirrorSession
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_session),
+          auth_params: Auth::Params.new(operation_name: :modify_traffic_mirror_session, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26074,9 +26596,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTransitGateway
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway),
+          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26124,9 +26647,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTransitGatewayPrefixListReference
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway_prefix_list_reference),
+          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway_prefix_list_reference, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26174,9 +26698,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyTransitGatewayVpcAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway_vpc_attachment),
+          auth_params: Auth::Params.new(operation_name: :modify_transit_gateway_vpc_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26224,9 +26749,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_endpoint),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26274,9 +26800,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessEndpointPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_endpoint_policy),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_endpoint_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26324,9 +26851,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessGroup
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_group),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_group, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26374,9 +26902,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessGroupPolicy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_group_policy),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_group_policy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26424,9 +26953,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessInstance
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_instance),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_instance, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26474,9 +27004,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessInstanceLoggingConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_instance_logging_configuration),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_instance_logging_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26524,9 +27055,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVerifiedAccessTrustProvider
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_verified_access_trust_provider),
+          auth_params: Auth::Params.new(operation_name: :modify_verified_access_trust_provider, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26574,9 +27106,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVolume
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_volume),
+          auth_params: Auth::Params.new(operation_name: :modify_volume, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26624,9 +27157,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVolumeAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_volume_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_volume_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26674,9 +27208,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_attribute),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26724,9 +27259,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcEndpoint
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26774,9 +27310,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcEndpointConnectionNotification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_connection_notification),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_connection_notification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26824,9 +27361,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcEndpointServiceConfiguration
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_configuration),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_configuration, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26874,9 +27412,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcEndpointServicePayerResponsibility
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_payer_responsibility),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_payer_responsibility, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26924,9 +27463,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcEndpointServicePermissions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_permissions),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_endpoint_service_permissions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -26974,9 +27514,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcPeeringConnectionOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_peering_connection_options),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_peering_connection_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27024,9 +27565,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpcTenancy
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpc_tenancy),
+          auth_params: Auth::Params.new(operation_name: :modify_vpc_tenancy, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27074,9 +27616,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpnConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpn_connection),
+          auth_params: Auth::Params.new(operation_name: :modify_vpn_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27124,9 +27667,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpnConnectionOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpn_connection_options),
+          auth_params: Auth::Params.new(operation_name: :modify_vpn_connection_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27174,9 +27718,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpnTunnelCertificate
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpn_tunnel_certificate),
+          auth_params: Auth::Params.new(operation_name: :modify_vpn_tunnel_certificate, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27224,9 +27769,10 @@ module AWS::SDK::EC2
           builder: Builders::ModifyVpnTunnelOptions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :modify_vpn_tunnel_options),
+          auth_params: Auth::Params.new(operation_name: :modify_vpn_tunnel_options, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27274,9 +27820,10 @@ module AWS::SDK::EC2
           builder: Builders::MonitorInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :monitor_instances),
+          auth_params: Auth::Params.new(operation_name: :monitor_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27324,9 +27871,10 @@ module AWS::SDK::EC2
           builder: Builders::MoveAddressToVpc
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :move_address_to_vpc),
+          auth_params: Auth::Params.new(operation_name: :move_address_to_vpc, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27374,9 +27922,10 @@ module AWS::SDK::EC2
           builder: Builders::MoveByoipCidrToIpam
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :move_byoip_cidr_to_ipam),
+          auth_params: Auth::Params.new(operation_name: :move_byoip_cidr_to_ipam, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27424,9 +27973,10 @@ module AWS::SDK::EC2
           builder: Builders::ProvisionByoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :provision_byoip_cidr),
+          auth_params: Auth::Params.new(operation_name: :provision_byoip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27474,9 +28024,10 @@ module AWS::SDK::EC2
           builder: Builders::ProvisionIpamByoasn
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :provision_ipam_byoasn),
+          auth_params: Auth::Params.new(operation_name: :provision_ipam_byoasn, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27524,9 +28075,10 @@ module AWS::SDK::EC2
           builder: Builders::ProvisionIpamPoolCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :provision_ipam_pool_cidr),
+          auth_params: Auth::Params.new(operation_name: :provision_ipam_pool_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27574,9 +28126,10 @@ module AWS::SDK::EC2
           builder: Builders::ProvisionPublicIpv4PoolCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :provision_public_ipv4_pool_cidr),
+          auth_params: Auth::Params.new(operation_name: :provision_public_ipv4_pool_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27624,9 +28177,10 @@ module AWS::SDK::EC2
           builder: Builders::PurchaseCapacityBlock
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :purchase_capacity_block),
+          auth_params: Auth::Params.new(operation_name: :purchase_capacity_block, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27674,9 +28228,10 @@ module AWS::SDK::EC2
           builder: Builders::PurchaseHostReservation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :purchase_host_reservation),
+          auth_params: Auth::Params.new(operation_name: :purchase_host_reservation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27724,9 +28279,10 @@ module AWS::SDK::EC2
           builder: Builders::PurchaseReservedInstancesOffering
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :purchase_reserved_instances_offering),
+          auth_params: Auth::Params.new(operation_name: :purchase_reserved_instances_offering, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27774,9 +28330,10 @@ module AWS::SDK::EC2
           builder: Builders::PurchaseScheduledInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :purchase_scheduled_instances),
+          auth_params: Auth::Params.new(operation_name: :purchase_scheduled_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27824,9 +28381,10 @@ module AWS::SDK::EC2
           builder: Builders::RebootInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reboot_instances),
+          auth_params: Auth::Params.new(operation_name: :reboot_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27874,9 +28432,10 @@ module AWS::SDK::EC2
           builder: Builders::RegisterImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :register_image),
+          auth_params: Auth::Params.new(operation_name: :register_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27924,9 +28483,10 @@ module AWS::SDK::EC2
           builder: Builders::RegisterInstanceEventNotificationAttributes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :register_instance_event_notification_attributes),
+          auth_params: Auth::Params.new(operation_name: :register_instance_event_notification_attributes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -27974,9 +28534,10 @@ module AWS::SDK::EC2
           builder: Builders::RegisterTransitGatewayMulticastGroupMembers
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :register_transit_gateway_multicast_group_members),
+          auth_params: Auth::Params.new(operation_name: :register_transit_gateway_multicast_group_members, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28024,9 +28585,10 @@ module AWS::SDK::EC2
           builder: Builders::RegisterTransitGatewayMulticastGroupSources
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :register_transit_gateway_multicast_group_sources),
+          auth_params: Auth::Params.new(operation_name: :register_transit_gateway_multicast_group_sources, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28074,9 +28636,10 @@ module AWS::SDK::EC2
           builder: Builders::RejectTransitGatewayMulticastDomainAssociations
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_multicast_domain_associations),
+          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_multicast_domain_associations, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28124,9 +28687,10 @@ module AWS::SDK::EC2
           builder: Builders::RejectTransitGatewayPeeringAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_peering_attachment),
+          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_peering_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28174,9 +28738,10 @@ module AWS::SDK::EC2
           builder: Builders::RejectTransitGatewayVpcAttachment
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_vpc_attachment),
+          auth_params: Auth::Params.new(operation_name: :reject_transit_gateway_vpc_attachment, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28224,9 +28789,10 @@ module AWS::SDK::EC2
           builder: Builders::RejectVpcEndpointConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reject_vpc_endpoint_connections),
+          auth_params: Auth::Params.new(operation_name: :reject_vpc_endpoint_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28274,9 +28840,10 @@ module AWS::SDK::EC2
           builder: Builders::RejectVpcPeeringConnection
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reject_vpc_peering_connection),
+          auth_params: Auth::Params.new(operation_name: :reject_vpc_peering_connection, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28324,9 +28891,10 @@ module AWS::SDK::EC2
           builder: Builders::ReleaseAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :release_address),
+          auth_params: Auth::Params.new(operation_name: :release_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28374,9 +28942,10 @@ module AWS::SDK::EC2
           builder: Builders::ReleaseHosts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :release_hosts),
+          auth_params: Auth::Params.new(operation_name: :release_hosts, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28424,9 +28993,10 @@ module AWS::SDK::EC2
           builder: Builders::ReleaseIpamPoolAllocation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :release_ipam_pool_allocation),
+          auth_params: Auth::Params.new(operation_name: :release_ipam_pool_allocation, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28474,9 +29044,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceIamInstanceProfileAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_iam_instance_profile_association),
+          auth_params: Auth::Params.new(operation_name: :replace_iam_instance_profile_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28524,9 +29095,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceNetworkAclAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_network_acl_association),
+          auth_params: Auth::Params.new(operation_name: :replace_network_acl_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28574,9 +29146,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceNetworkAclEntry
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_network_acl_entry),
+          auth_params: Auth::Params.new(operation_name: :replace_network_acl_entry, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28624,9 +29197,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_route),
+          auth_params: Auth::Params.new(operation_name: :replace_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28674,9 +29248,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceRouteTableAssociation
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_route_table_association),
+          auth_params: Auth::Params.new(operation_name: :replace_route_table_association, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28724,9 +29299,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceTransitGatewayRoute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_transit_gateway_route),
+          auth_params: Auth::Params.new(operation_name: :replace_transit_gateway_route, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28774,9 +29350,10 @@ module AWS::SDK::EC2
           builder: Builders::ReplaceVpnTunnel
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :replace_vpn_tunnel),
+          auth_params: Auth::Params.new(operation_name: :replace_vpn_tunnel, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28824,9 +29401,10 @@ module AWS::SDK::EC2
           builder: Builders::ReportInstanceStatus
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :report_instance_status),
+          auth_params: Auth::Params.new(operation_name: :report_instance_status, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28874,9 +29452,10 @@ module AWS::SDK::EC2
           builder: Builders::RequestSpotFleet
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :request_spot_fleet),
+          auth_params: Auth::Params.new(operation_name: :request_spot_fleet, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28924,9 +29503,10 @@ module AWS::SDK::EC2
           builder: Builders::RequestSpotInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :request_spot_instances),
+          auth_params: Auth::Params.new(operation_name: :request_spot_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -28974,9 +29554,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetAddressAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_address_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_address_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29024,9 +29605,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetEbsDefaultKmsKeyId
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_ebs_default_kms_key_id),
+          auth_params: Auth::Params.new(operation_name: :reset_ebs_default_kms_key_id, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29074,9 +29656,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetFpgaImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_fpga_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_fpga_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29124,9 +29707,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetImageAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_image_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_image_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29174,9 +29758,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetInstanceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_instance_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_instance_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29224,9 +29809,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetNetworkInterfaceAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_network_interface_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_network_interface_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29274,9 +29860,10 @@ module AWS::SDK::EC2
           builder: Builders::ResetSnapshotAttribute
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :reset_snapshot_attribute),
+          auth_params: Auth::Params.new(operation_name: :reset_snapshot_attribute, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29324,9 +29911,10 @@ module AWS::SDK::EC2
           builder: Builders::RestoreAddressToClassic
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_address_to_classic),
+          auth_params: Auth::Params.new(operation_name: :restore_address_to_classic, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29374,9 +29962,10 @@ module AWS::SDK::EC2
           builder: Builders::RestoreImageFromRecycleBin
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_image_from_recycle_bin),
+          auth_params: Auth::Params.new(operation_name: :restore_image_from_recycle_bin, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29424,9 +30013,10 @@ module AWS::SDK::EC2
           builder: Builders::RestoreManagedPrefixListVersion
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_managed_prefix_list_version),
+          auth_params: Auth::Params.new(operation_name: :restore_managed_prefix_list_version, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29474,9 +30064,10 @@ module AWS::SDK::EC2
           builder: Builders::RestoreSnapshotFromRecycleBin
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_snapshot_from_recycle_bin),
+          auth_params: Auth::Params.new(operation_name: :restore_snapshot_from_recycle_bin, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29524,9 +30115,10 @@ module AWS::SDK::EC2
           builder: Builders::RestoreSnapshotTier
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :restore_snapshot_tier),
+          auth_params: Auth::Params.new(operation_name: :restore_snapshot_tier, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29574,9 +30166,10 @@ module AWS::SDK::EC2
           builder: Builders::RevokeClientVpnIngress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :revoke_client_vpn_ingress),
+          auth_params: Auth::Params.new(operation_name: :revoke_client_vpn_ingress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29624,9 +30217,10 @@ module AWS::SDK::EC2
           builder: Builders::RevokeSecurityGroupEgress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :revoke_security_group_egress),
+          auth_params: Auth::Params.new(operation_name: :revoke_security_group_egress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29674,9 +30268,10 @@ module AWS::SDK::EC2
           builder: Builders::RevokeSecurityGroupIngress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :revoke_security_group_ingress),
+          auth_params: Auth::Params.new(operation_name: :revoke_security_group_ingress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29724,9 +30319,10 @@ module AWS::SDK::EC2
           builder: Builders::RunInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :run_instances),
+          auth_params: Auth::Params.new(operation_name: :run_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29774,9 +30370,10 @@ module AWS::SDK::EC2
           builder: Builders::RunScheduledInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :run_scheduled_instances),
+          auth_params: Auth::Params.new(operation_name: :run_scheduled_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29824,9 +30421,10 @@ module AWS::SDK::EC2
           builder: Builders::SearchLocalGatewayRoutes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :search_local_gateway_routes),
+          auth_params: Auth::Params.new(operation_name: :search_local_gateway_routes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29874,9 +30472,10 @@ module AWS::SDK::EC2
           builder: Builders::SearchTransitGatewayMulticastGroups
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :search_transit_gateway_multicast_groups),
+          auth_params: Auth::Params.new(operation_name: :search_transit_gateway_multicast_groups, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29924,9 +30523,10 @@ module AWS::SDK::EC2
           builder: Builders::SearchTransitGatewayRoutes
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :search_transit_gateway_routes),
+          auth_params: Auth::Params.new(operation_name: :search_transit_gateway_routes, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -29974,9 +30574,10 @@ module AWS::SDK::EC2
           builder: Builders::SendDiagnosticInterrupt
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :send_diagnostic_interrupt),
+          auth_params: Auth::Params.new(operation_name: :send_diagnostic_interrupt, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30024,9 +30625,10 @@ module AWS::SDK::EC2
           builder: Builders::StartInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :start_instances),
+          auth_params: Auth::Params.new(operation_name: :start_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30074,9 +30676,10 @@ module AWS::SDK::EC2
           builder: Builders::StartNetworkInsightsAccessScopeAnalysis
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :start_network_insights_access_scope_analysis),
+          auth_params: Auth::Params.new(operation_name: :start_network_insights_access_scope_analysis, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30124,9 +30727,10 @@ module AWS::SDK::EC2
           builder: Builders::StartNetworkInsightsAnalysis
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :start_network_insights_analysis),
+          auth_params: Auth::Params.new(operation_name: :start_network_insights_analysis, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30174,9 +30778,10 @@ module AWS::SDK::EC2
           builder: Builders::StartVpcEndpointServicePrivateDnsVerification
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :start_vpc_endpoint_service_private_dns_verification),
+          auth_params: Auth::Params.new(operation_name: :start_vpc_endpoint_service_private_dns_verification, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30224,9 +30829,10 @@ module AWS::SDK::EC2
           builder: Builders::StopInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :stop_instances),
+          auth_params: Auth::Params.new(operation_name: :stop_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30274,9 +30880,10 @@ module AWS::SDK::EC2
           builder: Builders::TerminateClientVpnConnections
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :terminate_client_vpn_connections),
+          auth_params: Auth::Params.new(operation_name: :terminate_client_vpn_connections, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30324,9 +30931,10 @@ module AWS::SDK::EC2
           builder: Builders::TerminateInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :terminate_instances),
+          auth_params: Auth::Params.new(operation_name: :terminate_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30374,9 +30982,10 @@ module AWS::SDK::EC2
           builder: Builders::UnassignIpv6Addresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :unassign_ipv6_addresses),
+          auth_params: Auth::Params.new(operation_name: :unassign_ipv6_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30424,9 +31033,10 @@ module AWS::SDK::EC2
           builder: Builders::UnassignPrivateIpAddresses
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :unassign_private_ip_addresses),
+          auth_params: Auth::Params.new(operation_name: :unassign_private_ip_addresses, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30474,9 +31084,10 @@ module AWS::SDK::EC2
           builder: Builders::UnassignPrivateNatGatewayAddress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :unassign_private_nat_gateway_address),
+          auth_params: Auth::Params.new(operation_name: :unassign_private_nat_gateway_address, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30524,9 +31135,10 @@ module AWS::SDK::EC2
           builder: Builders::UnlockSnapshot
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :unlock_snapshot),
+          auth_params: Auth::Params.new(operation_name: :unlock_snapshot, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30574,9 +31186,10 @@ module AWS::SDK::EC2
           builder: Builders::UnmonitorInstances
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :unmonitor_instances),
+          auth_params: Auth::Params.new(operation_name: :unmonitor_instances, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30624,9 +31237,10 @@ module AWS::SDK::EC2
           builder: Builders::UpdateSecurityGroupRuleDescriptionsEgress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_security_group_rule_descriptions_egress),
+          auth_params: Auth::Params.new(operation_name: :update_security_group_rule_descriptions_egress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30674,9 +31288,10 @@ module AWS::SDK::EC2
           builder: Builders::UpdateSecurityGroupRuleDescriptionsIngress
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :update_security_group_rule_descriptions_ingress),
+          auth_params: Auth::Params.new(operation_name: :update_security_group_rule_descriptions_ingress, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -30724,9 +31339,10 @@ module AWS::SDK::EC2
           builder: Builders::WithdrawByoipCidr
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :withdraw_byoip_cidr),
+          auth_params: Auth::Params.new(operation_name: :withdraw_byoip_cidr, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

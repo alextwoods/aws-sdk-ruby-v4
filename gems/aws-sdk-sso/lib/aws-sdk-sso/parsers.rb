@@ -31,7 +31,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Parser for GetRoleCredentials
     class GetRoleCredentials
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
@@ -51,7 +50,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Parser for ListAccountRoles
     class ListAccountRoles
       def self.parse(http_resp)
         data = Types::ListAccountRolesOutput.new
@@ -62,7 +60,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Parser for ListAccounts
     class ListAccounts
       def self.parse(http_resp)
         data = Types::ListAccountsOutput.new
@@ -73,7 +70,6 @@ module AWS::SDK::SSO
       end
     end
 
-    # Operation Parser for Logout
     class Logout
       def self.parse(http_resp)
         data = Types::LogoutOutput.new

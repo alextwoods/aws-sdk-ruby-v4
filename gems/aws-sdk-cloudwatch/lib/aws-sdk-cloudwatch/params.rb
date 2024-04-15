@@ -11,7 +11,7 @@ module AWS::SDK::CloudWatch
   # @api private
   module Params
 
-    module AlarmHistoryItem
+    class AlarmHistoryItem
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AlarmHistoryItem, context: context)
         type = Types::AlarmHistoryItem.new
@@ -26,7 +26,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AlarmHistoryItems
+    class AlarmHistoryItems
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -37,7 +37,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AlarmNames
+    class AlarmNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -48,7 +48,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AlarmTypes
+    class AlarmTypes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -59,7 +59,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AnomalyDetector
+    class AnomalyDetector
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnomalyDetector, context: context)
         type = Types::AnomalyDetector.new
@@ -76,7 +76,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AnomalyDetectorConfiguration
+    class AnomalyDetectorConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::AnomalyDetectorConfiguration, context: context)
         type = Types::AnomalyDetectorConfiguration.new
@@ -87,7 +87,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AnomalyDetectorExcludedTimeRanges
+    class AnomalyDetectorExcludedTimeRanges
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -98,7 +98,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AnomalyDetectorTypes
+    class AnomalyDetectorTypes
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -109,7 +109,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module AnomalyDetectors
+    class AnomalyDetectors
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -120,7 +120,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module BatchFailures
+    class BatchFailures
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -131,7 +131,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module CompositeAlarm
+    class CompositeAlarm
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::CompositeAlarm, context: context)
         type = Types::CompositeAlarm.new
@@ -159,7 +159,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module CompositeAlarms
+    class CompositeAlarms
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -170,7 +170,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ConcurrentModificationException
+    class ConcurrentModificationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ConcurrentModificationException, context: context)
         type = Types::ConcurrentModificationException.new
@@ -180,7 +180,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Counts
+    class Counts
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -191,7 +191,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardEntries
+    class DashboardEntries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -202,7 +202,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardEntry
+    class DashboardEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardEntry, context: context)
         type = Types::DashboardEntry.new
@@ -215,7 +215,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardInvalidInputError
+    class DashboardInvalidInputError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardInvalidInputError, context: context)
         type = Types::DashboardInvalidInputError.new
@@ -226,7 +226,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardNames
+    class DashboardNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -237,7 +237,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardNotFoundError
+    class DashboardNotFoundError
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardNotFoundError, context: context)
         type = Types::DashboardNotFoundError.new
@@ -247,7 +247,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardValidationMessage
+    class DashboardValidationMessage
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DashboardValidationMessage, context: context)
         type = Types::DashboardValidationMessage.new
@@ -258,7 +258,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DashboardValidationMessages
+    class DashboardValidationMessages
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -269,7 +269,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Datapoint
+    class Datapoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Datapoint, context: context)
         type = Types::Datapoint.new
@@ -286,7 +286,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DatapointValueMap
+    class DatapointValueMap
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, context: context)
         data = {}
@@ -297,7 +297,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DatapointValues
+    class DatapointValues
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -308,7 +308,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Datapoints
+    class Datapoints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -319,7 +319,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteAlarmsInput
+    class DeleteAlarmsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAlarmsInput, context: context)
         type = Types::DeleteAlarmsInput.new
@@ -329,7 +329,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteAlarmsOutput
+    class DeleteAlarmsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAlarmsOutput, context: context)
         type = Types::DeleteAlarmsOutput.new
@@ -338,7 +338,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteAnomalyDetectorInput
+    class DeleteAnomalyDetectorInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAnomalyDetectorInput, context: context)
         type = Types::DeleteAnomalyDetectorInput.new
@@ -353,7 +353,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteAnomalyDetectorOutput
+    class DeleteAnomalyDetectorOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteAnomalyDetectorOutput, context: context)
         type = Types::DeleteAnomalyDetectorOutput.new
@@ -362,7 +362,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteDashboardsInput
+    class DeleteDashboardsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDashboardsInput, context: context)
         type = Types::DeleteDashboardsInput.new
@@ -372,7 +372,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteDashboardsOutput
+    class DeleteDashboardsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteDashboardsOutput, context: context)
         type = Types::DeleteDashboardsOutput.new
@@ -381,7 +381,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteInsightRulesInput
+    class DeleteInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInsightRulesInput, context: context)
         type = Types::DeleteInsightRulesInput.new
@@ -391,7 +391,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteInsightRulesOutput
+    class DeleteInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteInsightRulesOutput, context: context)
         type = Types::DeleteInsightRulesOutput.new
@@ -401,7 +401,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteMetricStreamInput
+    class DeleteMetricStreamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMetricStreamInput, context: context)
         type = Types::DeleteMetricStreamInput.new
@@ -411,7 +411,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DeleteMetricStreamOutput
+    class DeleteMetricStreamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DeleteMetricStreamOutput, context: context)
         type = Types::DeleteMetricStreamOutput.new
@@ -420,7 +420,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmHistoryInput
+    class DescribeAlarmHistoryInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmHistoryInput, context: context)
         type = Types::DescribeAlarmHistoryInput.new
@@ -437,7 +437,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmHistoryOutput
+    class DescribeAlarmHistoryOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmHistoryOutput, context: context)
         type = Types::DescribeAlarmHistoryOutput.new
@@ -448,7 +448,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmsForMetricInput
+    class DescribeAlarmsForMetricInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmsForMetricInput, context: context)
         type = Types::DescribeAlarmsForMetricInput.new
@@ -464,7 +464,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmsForMetricOutput
+    class DescribeAlarmsForMetricOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmsForMetricOutput, context: context)
         type = Types::DescribeAlarmsForMetricOutput.new
@@ -474,7 +474,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmsInput
+    class DescribeAlarmsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmsInput, context: context)
         type = Types::DescribeAlarmsInput.new
@@ -492,7 +492,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAlarmsOutput
+    class DescribeAlarmsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAlarmsOutput, context: context)
         type = Types::DescribeAlarmsOutput.new
@@ -504,7 +504,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAnomalyDetectorsInput
+    class DescribeAnomalyDetectorsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAnomalyDetectorsInput, context: context)
         type = Types::DescribeAnomalyDetectorsInput.new
@@ -519,7 +519,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeAnomalyDetectorsOutput
+    class DescribeAnomalyDetectorsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeAnomalyDetectorsOutput, context: context)
         type = Types::DescribeAnomalyDetectorsOutput.new
@@ -530,7 +530,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeInsightRulesInput
+    class DescribeInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInsightRulesInput, context: context)
         type = Types::DescribeInsightRulesInput.new
@@ -541,7 +541,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DescribeInsightRulesOutput
+    class DescribeInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DescribeInsightRulesOutput, context: context)
         type = Types::DescribeInsightRulesOutput.new
@@ -552,7 +552,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Dimension
+    class Dimension
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Dimension, context: context)
         type = Types::Dimension.new
@@ -563,7 +563,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DimensionFilter
+    class DimensionFilter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DimensionFilter, context: context)
         type = Types::DimensionFilter.new
@@ -574,7 +574,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DimensionFilters
+    class DimensionFilters
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -585,7 +585,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Dimensions
+    class Dimensions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -596,7 +596,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DisableAlarmActionsInput
+    class DisableAlarmActionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAlarmActionsInput, context: context)
         type = Types::DisableAlarmActionsInput.new
@@ -606,7 +606,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DisableAlarmActionsOutput
+    class DisableAlarmActionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableAlarmActionsOutput, context: context)
         type = Types::DisableAlarmActionsOutput.new
@@ -615,7 +615,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DisableInsightRulesInput
+    class DisableInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableInsightRulesInput, context: context)
         type = Types::DisableInsightRulesInput.new
@@ -625,7 +625,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module DisableInsightRulesOutput
+    class DisableInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::DisableInsightRulesOutput, context: context)
         type = Types::DisableInsightRulesOutput.new
@@ -635,7 +635,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module EnableAlarmActionsInput
+    class EnableAlarmActionsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAlarmActionsInput, context: context)
         type = Types::EnableAlarmActionsInput.new
@@ -645,7 +645,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module EnableAlarmActionsOutput
+    class EnableAlarmActionsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableAlarmActionsOutput, context: context)
         type = Types::EnableAlarmActionsOutput.new
@@ -654,7 +654,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module EnableInsightRulesInput
+    class EnableInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableInsightRulesInput, context: context)
         type = Types::EnableInsightRulesInput.new
@@ -664,7 +664,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module EnableInsightRulesOutput
+    class EnableInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::EnableInsightRulesOutput, context: context)
         type = Types::EnableInsightRulesOutput.new
@@ -674,7 +674,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ExtendedStatistics
+    class ExtendedStatistics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -685,7 +685,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetDashboardInput
+    class GetDashboardInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDashboardInput, context: context)
         type = Types::GetDashboardInput.new
@@ -695,7 +695,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetDashboardOutput
+    class GetDashboardOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetDashboardOutput, context: context)
         type = Types::GetDashboardOutput.new
@@ -707,7 +707,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetInsightRuleReportInput
+    class GetInsightRuleReportInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInsightRuleReportInput, context: context)
         type = Types::GetInsightRuleReportInput.new
@@ -723,7 +723,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetInsightRuleReportOutput
+    class GetInsightRuleReportOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetInsightRuleReportOutput, context: context)
         type = Types::GetInsightRuleReportOutput.new
@@ -738,7 +738,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricDataInput
+    class GetMetricDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricDataInput, context: context)
         type = Types::GetMetricDataInput.new
@@ -754,7 +754,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricDataOutput
+    class GetMetricDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricDataOutput, context: context)
         type = Types::GetMetricDataOutput.new
@@ -766,7 +766,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricStatisticsInput
+    class GetMetricStatisticsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStatisticsInput, context: context)
         type = Types::GetMetricStatisticsInput.new
@@ -784,7 +784,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricStatisticsOutput
+    class GetMetricStatisticsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStatisticsOutput, context: context)
         type = Types::GetMetricStatisticsOutput.new
@@ -795,7 +795,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricStreamInput
+    class GetMetricStreamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStreamInput, context: context)
         type = Types::GetMetricStreamInput.new
@@ -805,7 +805,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricStreamOutput
+    class GetMetricStreamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricStreamOutput, context: context)
         type = Types::GetMetricStreamOutput.new
@@ -826,7 +826,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricWidgetImageInput
+    class GetMetricWidgetImageInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricWidgetImageInput, context: context)
         type = Types::GetMetricWidgetImageInput.new
@@ -837,7 +837,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module GetMetricWidgetImageOutput
+    class GetMetricWidgetImageOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::GetMetricWidgetImageOutput, context: context)
         type = Types::GetMetricWidgetImageOutput.new
@@ -847,7 +847,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRule
+    class InsightRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRule, context: context)
         type = Types::InsightRule.new
@@ -861,7 +861,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributor
+    class InsightRuleContributor
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRuleContributor, context: context)
         type = Types::InsightRuleContributor.new
@@ -873,7 +873,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributorDatapoint
+    class InsightRuleContributorDatapoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRuleContributorDatapoint, context: context)
         type = Types::InsightRuleContributorDatapoint.new
@@ -884,7 +884,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributorDatapoints
+    class InsightRuleContributorDatapoints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -895,7 +895,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributorKeyLabels
+    class InsightRuleContributorKeyLabels
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -906,7 +906,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributorKeys
+    class InsightRuleContributorKeys
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -917,7 +917,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleContributors
+    class InsightRuleContributors
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -928,7 +928,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleMetricDatapoint
+    class InsightRuleMetricDatapoint
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InsightRuleMetricDatapoint, context: context)
         type = Types::InsightRuleMetricDatapoint.new
@@ -945,7 +945,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleMetricDatapoints
+    class InsightRuleMetricDatapoints
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -956,7 +956,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleMetricList
+    class InsightRuleMetricList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -967,7 +967,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRuleNames
+    class InsightRuleNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -978,7 +978,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InsightRules
+    class InsightRules
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -989,7 +989,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InternalServiceFault
+    class InternalServiceFault
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InternalServiceFault, context: context)
         type = Types::InternalServiceFault.new
@@ -999,7 +999,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InvalidFormatFault
+    class InvalidFormatFault
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidFormatFault, context: context)
         type = Types::InvalidFormatFault.new
@@ -1009,7 +1009,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InvalidNextToken
+    class InvalidNextToken
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidNextToken, context: context)
         type = Types::InvalidNextToken.new
@@ -1019,7 +1019,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InvalidParameterCombinationException
+    class InvalidParameterCombinationException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidParameterCombinationException, context: context)
         type = Types::InvalidParameterCombinationException.new
@@ -1029,7 +1029,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module InvalidParameterValueException
+    class InvalidParameterValueException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::InvalidParameterValueException, context: context)
         type = Types::InvalidParameterValueException.new
@@ -1039,7 +1039,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module LabelOptions
+    class LabelOptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LabelOptions, context: context)
         type = Types::LabelOptions.new
@@ -1049,7 +1049,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module LimitExceededException
+    class LimitExceededException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededException, context: context)
         type = Types::LimitExceededException.new
@@ -1059,7 +1059,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module LimitExceededFault
+    class LimitExceededFault
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::LimitExceededFault, context: context)
         type = Types::LimitExceededFault.new
@@ -1069,7 +1069,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListDashboardsInput
+    class ListDashboardsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDashboardsInput, context: context)
         type = Types::ListDashboardsInput.new
@@ -1080,7 +1080,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListDashboardsOutput
+    class ListDashboardsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListDashboardsOutput, context: context)
         type = Types::ListDashboardsOutput.new
@@ -1091,7 +1091,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListManagedInsightRulesInput
+    class ListManagedInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListManagedInsightRulesInput, context: context)
         type = Types::ListManagedInsightRulesInput.new
@@ -1103,7 +1103,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListManagedInsightRulesOutput
+    class ListManagedInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListManagedInsightRulesOutput, context: context)
         type = Types::ListManagedInsightRulesOutput.new
@@ -1114,7 +1114,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListMetricStreamsInput
+    class ListMetricStreamsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricStreamsInput, context: context)
         type = Types::ListMetricStreamsInput.new
@@ -1125,7 +1125,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListMetricStreamsOutput
+    class ListMetricStreamsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricStreamsOutput, context: context)
         type = Types::ListMetricStreamsOutput.new
@@ -1136,7 +1136,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListMetricsInput
+    class ListMetricsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricsInput, context: context)
         type = Types::ListMetricsInput.new
@@ -1152,7 +1152,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListMetricsOutput
+    class ListMetricsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListMetricsOutput, context: context)
         type = Types::ListMetricsOutput.new
@@ -1164,7 +1164,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListTagsForResourceInput
+    class ListTagsForResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsForResourceInput, context: context)
         type = Types::ListTagsForResourceInput.new
@@ -1174,7 +1174,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ListTagsForResourceOutput
+    class ListTagsForResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ListTagsForResourceOutput, context: context)
         type = Types::ListTagsForResourceOutput.new
@@ -1184,7 +1184,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ManagedRule
+    class ManagedRule
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRule, context: context)
         type = Types::ManagedRule.new
@@ -1196,7 +1196,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ManagedRuleDescription
+    class ManagedRuleDescription
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRuleDescription, context: context)
         type = Types::ManagedRuleDescription.new
@@ -1208,7 +1208,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ManagedRuleDescriptions
+    class ManagedRuleDescriptions
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1219,7 +1219,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ManagedRuleState
+    class ManagedRuleState
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ManagedRuleState, context: context)
         type = Types::ManagedRuleState.new
@@ -1230,7 +1230,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ManagedRules
+    class ManagedRules
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1241,7 +1241,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MessageData
+    class MessageData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MessageData, context: context)
         type = Types::MessageData.new
@@ -1252,7 +1252,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Metric
+    class Metric
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Metric, context: context)
         type = Types::Metric.new
@@ -1264,7 +1264,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricAlarm
+    class MetricAlarm
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricAlarm, context: context)
         type = Types::MetricAlarm.new
@@ -1302,7 +1302,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricAlarms
+    class MetricAlarms
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1313,7 +1313,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricData
+    class MetricData
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1324,7 +1324,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDataQueries
+    class MetricDataQueries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1335,7 +1335,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDataQuery
+    class MetricDataQuery
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDataQuery, context: context)
         type = Types::MetricDataQuery.new
@@ -1351,7 +1351,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDataResult
+    class MetricDataResult
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDataResult, context: context)
         type = Types::MetricDataResult.new
@@ -1366,7 +1366,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDataResultMessages
+    class MetricDataResultMessages
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1377,7 +1377,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDataResults
+    class MetricDataResults
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1388,7 +1388,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricDatum
+    class MetricDatum
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricDatum, context: context)
         type = Types::MetricDatum.new
@@ -1406,7 +1406,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricMathAnomalyDetector
+    class MetricMathAnomalyDetector
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricMathAnomalyDetector, context: context)
         type = Types::MetricMathAnomalyDetector.new
@@ -1416,7 +1416,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStat
+    class MetricStat
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStat, context: context)
         type = Types::MetricStat.new
@@ -1429,7 +1429,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamEntries
+    class MetricStreamEntries
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1440,7 +1440,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamEntry
+    class MetricStreamEntry
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamEntry, context: context)
         type = Types::MetricStreamEntry.new
@@ -1456,7 +1456,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamFilter
+    class MetricStreamFilter
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamFilter, context: context)
         type = Types::MetricStreamFilter.new
@@ -1467,7 +1467,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamFilterMetricNames
+    class MetricStreamFilterMetricNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1478,7 +1478,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamFilters
+    class MetricStreamFilters
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1489,7 +1489,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamNames
+    class MetricStreamNames
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1500,7 +1500,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamStatisticsAdditionalStatistics
+    class MetricStreamStatisticsAdditionalStatistics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1511,7 +1511,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamStatisticsConfiguration
+    class MetricStreamStatisticsConfiguration
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamStatisticsConfiguration, context: context)
         type = Types::MetricStreamStatisticsConfiguration.new
@@ -1522,7 +1522,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamStatisticsConfigurations
+    class MetricStreamStatisticsConfigurations
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1533,7 +1533,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamStatisticsIncludeMetrics
+    class MetricStreamStatisticsIncludeMetrics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1544,7 +1544,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MetricStreamStatisticsMetric
+    class MetricStreamStatisticsMetric
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MetricStreamStatisticsMetric, context: context)
         type = Types::MetricStreamStatisticsMetric.new
@@ -1555,7 +1555,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Metrics
+    class Metrics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1566,7 +1566,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module MissingRequiredParameterException
+    class MissingRequiredParameterException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::MissingRequiredParameterException, context: context)
         type = Types::MissingRequiredParameterException.new
@@ -1576,7 +1576,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module OwningAccounts
+    class OwningAccounts
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1587,7 +1587,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PartialFailure
+    class PartialFailure
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PartialFailure, context: context)
         type = Types::PartialFailure.new
@@ -1600,7 +1600,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutAnomalyDetectorInput
+    class PutAnomalyDetectorInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutAnomalyDetectorInput, context: context)
         type = Types::PutAnomalyDetectorInput.new
@@ -1616,7 +1616,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutAnomalyDetectorOutput
+    class PutAnomalyDetectorOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutAnomalyDetectorOutput, context: context)
         type = Types::PutAnomalyDetectorOutput.new
@@ -1625,7 +1625,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutCompositeAlarmInput
+    class PutCompositeAlarmInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutCompositeAlarmInput, context: context)
         type = Types::PutCompositeAlarmInput.new
@@ -1645,7 +1645,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutCompositeAlarmOutput
+    class PutCompositeAlarmOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutCompositeAlarmOutput, context: context)
         type = Types::PutCompositeAlarmOutput.new
@@ -1654,7 +1654,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutDashboardInput
+    class PutDashboardInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutDashboardInput, context: context)
         type = Types::PutDashboardInput.new
@@ -1665,7 +1665,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutDashboardOutput
+    class PutDashboardOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutDashboardOutput, context: context)
         type = Types::PutDashboardOutput.new
@@ -1675,7 +1675,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutInsightRuleInput
+    class PutInsightRuleInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutInsightRuleInput, context: context)
         type = Types::PutInsightRuleInput.new
@@ -1688,7 +1688,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutInsightRuleOutput
+    class PutInsightRuleOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutInsightRuleOutput, context: context)
         type = Types::PutInsightRuleOutput.new
@@ -1697,7 +1697,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutManagedInsightRulesInput
+    class PutManagedInsightRulesInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutManagedInsightRulesInput, context: context)
         type = Types::PutManagedInsightRulesInput.new
@@ -1707,7 +1707,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutManagedInsightRulesOutput
+    class PutManagedInsightRulesOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutManagedInsightRulesOutput, context: context)
         type = Types::PutManagedInsightRulesOutput.new
@@ -1717,7 +1717,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricAlarmInput
+    class PutMetricAlarmInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricAlarmInput, context: context)
         type = Types::PutMetricAlarmInput.new
@@ -1748,7 +1748,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricAlarmOutput
+    class PutMetricAlarmOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricAlarmOutput, context: context)
         type = Types::PutMetricAlarmOutput.new
@@ -1757,7 +1757,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricDataInput
+    class PutMetricDataInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricDataInput, context: context)
         type = Types::PutMetricDataInput.new
@@ -1768,7 +1768,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricDataOutput
+    class PutMetricDataOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricDataOutput, context: context)
         type = Types::PutMetricDataOutput.new
@@ -1777,7 +1777,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricStreamInput
+    class PutMetricStreamInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricStreamInput, context: context)
         type = Types::PutMetricStreamInput.new
@@ -1795,7 +1795,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module PutMetricStreamOutput
+    class PutMetricStreamOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::PutMetricStreamOutput, context: context)
         type = Types::PutMetricStreamOutput.new
@@ -1805,7 +1805,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Range
+    class Range
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Range, context: context)
         type = Types::Range.new
@@ -1816,7 +1816,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ResourceList
+    class ResourceList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1827,7 +1827,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ResourceNotFound
+    class ResourceNotFound
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFound, context: context)
         type = Types::ResourceNotFound.new
@@ -1837,7 +1837,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module ResourceNotFoundException
+    class ResourceNotFoundException
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::ResourceNotFoundException, context: context)
         type = Types::ResourceNotFoundException.new
@@ -1849,7 +1849,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module SetAlarmStateInput
+    class SetAlarmStateInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SetAlarmStateInput, context: context)
         type = Types::SetAlarmStateInput.new
@@ -1862,7 +1862,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module SetAlarmStateOutput
+    class SetAlarmStateOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SetAlarmStateOutput, context: context)
         type = Types::SetAlarmStateOutput.new
@@ -1871,7 +1871,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module SingleMetricAnomalyDetector
+    class SingleMetricAnomalyDetector
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::SingleMetricAnomalyDetector, context: context)
         type = Types::SingleMetricAnomalyDetector.new
@@ -1884,7 +1884,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module StartMetricStreamsInput
+    class StartMetricStreamsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartMetricStreamsInput, context: context)
         type = Types::StartMetricStreamsInput.new
@@ -1894,7 +1894,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module StartMetricStreamsOutput
+    class StartMetricStreamsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StartMetricStreamsOutput, context: context)
         type = Types::StartMetricStreamsOutput.new
@@ -1903,7 +1903,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module StatisticSet
+    class StatisticSet
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StatisticSet, context: context)
         type = Types::StatisticSet.new
@@ -1916,7 +1916,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Statistics
+    class Statistics
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1927,7 +1927,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module StopMetricStreamsInput
+    class StopMetricStreamsInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopMetricStreamsInput, context: context)
         type = Types::StopMetricStreamsInput.new
@@ -1937,7 +1937,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module StopMetricStreamsOutput
+    class StopMetricStreamsOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::StopMetricStreamsOutput, context: context)
         type = Types::StopMetricStreamsOutput.new
@@ -1946,7 +1946,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Tag
+    class Tag
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
@@ -1957,7 +1957,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module TagKeyList
+    class TagKeyList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1968,7 +1968,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module TagList
+    class TagList
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -1979,7 +1979,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module TagResourceInput
+    class TagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
@@ -1990,7 +1990,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module TagResourceOutput
+    class TagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::TagResourceOutput, context: context)
         type = Types::TagResourceOutput.new
@@ -1999,7 +1999,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Timestamps
+    class Timestamps
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []
@@ -2010,7 +2010,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module UntagResourceInput
+    class UntagResourceInput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
@@ -2021,7 +2021,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module UntagResourceOutput
+    class UntagResourceOutput
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Hash, Types::UntagResourceOutput, context: context)
         type = Types::UntagResourceOutput.new
@@ -2030,7 +2030,7 @@ module AWS::SDK::CloudWatch
       end
     end
 
-    module Values
+    class Values
       def self.build(params, context:)
         Hearth::Validator.validate_types!(params, ::Array, context: context)
         data = []

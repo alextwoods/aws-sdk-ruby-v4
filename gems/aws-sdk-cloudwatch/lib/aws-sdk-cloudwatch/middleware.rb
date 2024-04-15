@@ -10,6 +10,7 @@
 require_relative 'middleware/request_id'
 
 module AWS::SDK::CloudWatch
+  # @api private
   module Middleware
 
     class DeleteAlarms
@@ -24,9 +25,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DeleteAlarms
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_alarms),
+          auth_params: Auth::Params.new(operation_name: :delete_alarms, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -74,9 +76,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DeleteAnomalyDetector
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_anomaly_detector),
+          auth_params: Auth::Params.new(operation_name: :delete_anomaly_detector, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -124,9 +127,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DeleteDashboards
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_dashboards),
+          auth_params: Auth::Params.new(operation_name: :delete_dashboards, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -174,9 +178,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DeleteInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :delete_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -224,9 +229,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DeleteMetricStream
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :delete_metric_stream),
+          auth_params: Auth::Params.new(operation_name: :delete_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -274,9 +280,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DescribeAlarmHistory
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_alarm_history),
+          auth_params: Auth::Params.new(operation_name: :describe_alarm_history, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -324,9 +331,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DescribeAlarms
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_alarms),
+          auth_params: Auth::Params.new(operation_name: :describe_alarms, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -374,9 +382,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DescribeAlarmsForMetric
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_alarms_for_metric),
+          auth_params: Auth::Params.new(operation_name: :describe_alarms_for_metric, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -424,9 +433,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DescribeAnomalyDetectors
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_anomaly_detectors),
+          auth_params: Auth::Params.new(operation_name: :describe_anomaly_detectors, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -474,9 +484,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DescribeInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :describe_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :describe_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -524,9 +535,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DisableAlarmActions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_alarm_actions),
+          auth_params: Auth::Params.new(operation_name: :disable_alarm_actions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -574,9 +586,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::DisableInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :disable_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :disable_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -624,9 +637,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::EnableAlarmActions
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_alarm_actions),
+          auth_params: Auth::Params.new(operation_name: :enable_alarm_actions, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -674,9 +688,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::EnableInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :enable_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :enable_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -724,9 +739,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetDashboard
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_dashboard),
+          auth_params: Auth::Params.new(operation_name: :get_dashboard, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -774,9 +790,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetInsightRuleReport
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_insight_rule_report),
+          auth_params: Auth::Params.new(operation_name: :get_insight_rule_report, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -824,9 +841,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetMetricData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_metric_data),
+          auth_params: Auth::Params.new(operation_name: :get_metric_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -874,9 +892,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetMetricStatistics
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_metric_statistics),
+          auth_params: Auth::Params.new(operation_name: :get_metric_statistics, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -924,9 +943,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetMetricStream
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_metric_stream),
+          auth_params: Auth::Params.new(operation_name: :get_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -974,9 +994,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::GetMetricWidgetImage
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_metric_widget_image),
+          auth_params: Auth::Params.new(operation_name: :get_metric_widget_image, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1024,9 +1045,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::ListDashboards
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_dashboards),
+          auth_params: Auth::Params.new(operation_name: :list_dashboards, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1074,9 +1096,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::ListManagedInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_managed_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :list_managed_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1124,9 +1147,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::ListMetricStreams
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_metric_streams),
+          auth_params: Auth::Params.new(operation_name: :list_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1174,9 +1198,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::ListMetrics
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_metrics),
+          auth_params: Auth::Params.new(operation_name: :list_metrics, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1224,9 +1249,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::ListTagsForResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_tags_for_resource),
+          auth_params: Auth::Params.new(operation_name: :list_tags_for_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1274,9 +1300,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutAnomalyDetector
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_anomaly_detector),
+          auth_params: Auth::Params.new(operation_name: :put_anomaly_detector, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1324,9 +1351,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutCompositeAlarm
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_composite_alarm),
+          auth_params: Auth::Params.new(operation_name: :put_composite_alarm, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1374,9 +1402,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutDashboard
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_dashboard),
+          auth_params: Auth::Params.new(operation_name: :put_dashboard, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1424,9 +1453,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutInsightRule
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_insight_rule),
+          auth_params: Auth::Params.new(operation_name: :put_insight_rule, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1474,9 +1504,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutManagedInsightRules
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_managed_insight_rules),
+          auth_params: Auth::Params.new(operation_name: :put_managed_insight_rules, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1524,9 +1555,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutMetricAlarm
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_metric_alarm),
+          auth_params: Auth::Params.new(operation_name: :put_metric_alarm, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1574,9 +1606,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutMetricData
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_metric_data),
+          auth_params: Auth::Params.new(operation_name: :put_metric_data, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::HTTP::Middleware::RequestCompression,
@@ -1630,9 +1663,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::PutMetricStream
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :put_metric_stream),
+          auth_params: Auth::Params.new(operation_name: :put_metric_stream, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1680,9 +1714,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::SetAlarmState
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :set_alarm_state),
+          auth_params: Auth::Params.new(operation_name: :set_alarm_state, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1730,9 +1765,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::StartMetricStreams
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :start_metric_streams),
+          auth_params: Auth::Params.new(operation_name: :start_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1780,9 +1816,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::StopMetricStreams
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :stop_metric_streams),
+          auth_params: Auth::Params.new(operation_name: :stop_metric_streams, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1830,9 +1867,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::TagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :tag_resource),
+          auth_params: Auth::Params.new(operation_name: :tag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -1880,9 +1918,10 @@ module AWS::SDK::CloudWatch
           builder: Builders::UntagResource
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :untag_resource),
+          auth_params: Auth::Params.new(operation_name: :untag_resource, region: config.region),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes
+          auth_schemes: config.auth_schemes,
+          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

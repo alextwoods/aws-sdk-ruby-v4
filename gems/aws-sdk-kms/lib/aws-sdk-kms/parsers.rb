@@ -45,7 +45,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for CancelKeyDeletion
     class CancelKeyDeletion
       def self.parse(http_resp)
         data = Types::CancelKeyDeletionOutput.new
@@ -117,7 +116,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ConnectCustomKeyStore
     class ConnectCustomKeyStore
       def self.parse(http_resp)
         data = Types::ConnectCustomKeyStoreOutput.new
@@ -128,7 +126,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for CreateAlias
     class CreateAlias
       def self.parse(http_resp)
         data = Types::CreateAliasOutput.new
@@ -139,7 +136,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for CreateCustomKeyStore
     class CreateCustomKeyStore
       def self.parse(http_resp)
         data = Types::CreateCustomKeyStoreOutput.new
@@ -151,7 +147,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for CreateGrant
     class CreateGrant
       def self.parse(http_resp)
         data = Types::CreateGrantOutput.new
@@ -164,7 +159,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for CreateKey
     class CreateKey
       def self.parse(http_resp)
         data = Types::CreateKeyOutput.new
@@ -248,7 +242,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Decrypt
     class Decrypt
       def self.parse(http_resp)
         data = Types::DecryptOutput.new
@@ -263,7 +256,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DeleteAlias
     class DeleteAlias
       def self.parse(http_resp)
         data = Types::DeleteAliasOutput.new
@@ -274,7 +266,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DeleteCustomKeyStore
     class DeleteCustomKeyStore
       def self.parse(http_resp)
         data = Types::DeleteCustomKeyStoreOutput.new
@@ -285,7 +276,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DeleteImportedKeyMaterial
     class DeleteImportedKeyMaterial
       def self.parse(http_resp)
         data = Types::DeleteImportedKeyMaterialOutput.new
@@ -308,7 +298,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DescribeCustomKeyStores
     class DescribeCustomKeyStores
       def self.parse(http_resp)
         data = Types::DescribeCustomKeyStoresOutput.new
@@ -322,7 +311,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DescribeKey
     class DescribeKey
       def self.parse(http_resp)
         data = Types::DescribeKeyOutput.new
@@ -334,7 +322,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DisableKey
     class DisableKey
       def self.parse(http_resp)
         data = Types::DisableKeyOutput.new
@@ -345,7 +332,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DisableKeyRotation
     class DisableKeyRotation
       def self.parse(http_resp)
         data = Types::DisableKeyRotationOutput.new
@@ -368,7 +354,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for DisconnectCustomKeyStore
     class DisconnectCustomKeyStore
       def self.parse(http_resp)
         data = Types::DisconnectCustomKeyStoreOutput.new
@@ -391,7 +376,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for EnableKey
     class EnableKey
       def self.parse(http_resp)
         data = Types::EnableKeyOutput.new
@@ -402,7 +386,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for EnableKeyRotation
     class EnableKeyRotation
       def self.parse(http_resp)
         data = Types::EnableKeyRotationOutput.new
@@ -413,7 +396,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Encrypt
     class Encrypt
       def self.parse(http_resp)
         data = Types::EncryptOutput.new
@@ -457,7 +439,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKey
     class GenerateDataKey
       def self.parse(http_resp)
         data = Types::GenerateDataKeyOutput.new
@@ -472,7 +453,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyPair
     class GenerateDataKeyPair
       def self.parse(http_resp)
         data = Types::GenerateDataKeyPairOutput.new
@@ -489,7 +469,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyPairWithoutPlaintext
     class GenerateDataKeyPairWithoutPlaintext
       def self.parse(http_resp)
         data = Types::GenerateDataKeyPairWithoutPlaintextOutput.new
@@ -504,7 +483,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateDataKeyWithoutPlaintext
     class GenerateDataKeyWithoutPlaintext
       def self.parse(http_resp)
         data = Types::GenerateDataKeyWithoutPlaintextOutput.new
@@ -517,7 +495,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateMac
     class GenerateMac
       def self.parse(http_resp)
         data = Types::GenerateMacOutput.new
@@ -531,7 +508,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GenerateRandom
     class GenerateRandom
       def self.parse(http_resp)
         data = Types::GenerateRandomOutput.new
@@ -544,7 +520,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GetKeyPolicy
     class GetKeyPolicy
       def self.parse(http_resp)
         data = Types::GetKeyPolicyOutput.new
@@ -556,7 +531,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GetKeyRotationStatus
     class GetKeyRotationStatus
       def self.parse(http_resp)
         data = Types::GetKeyRotationStatusOutput.new
@@ -568,7 +542,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GetParametersForImport
     class GetParametersForImport
       def self.parse(http_resp)
         data = Types::GetParametersForImportOutput.new
@@ -583,7 +556,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for GetPublicKey
     class GetPublicKey
       def self.parse(http_resp)
         data = Types::GetPublicKeyOutput.new
@@ -642,7 +614,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ImportKeyMaterial
     class ImportKeyMaterial
       def self.parse(http_resp)
         data = Types::ImportKeyMaterialOutput.new
@@ -905,7 +876,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListAliases
     class ListAliases
       def self.parse(http_resp)
         data = Types::ListAliasesOutput.new
@@ -919,7 +889,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListGrants
     class ListGrants
       def self.parse(http_resp)
         data = Types::ListGrantsOutput.new
@@ -933,7 +902,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListKeyPolicies
     class ListKeyPolicies
       def self.parse(http_resp)
         data = Types::ListKeyPoliciesOutput.new
@@ -947,7 +915,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListKeys
     class ListKeys
       def self.parse(http_resp)
         data = Types::ListKeysOutput.new
@@ -961,7 +928,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListResourceTags
     class ListResourceTags
       def self.parse(http_resp)
         data = Types::ListResourceTagsOutput.new
@@ -975,7 +941,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ListRetirableGrants
     class ListRetirableGrants
       def self.parse(http_resp)
         data = Types::ListRetirableGrantsOutput.new
@@ -1056,7 +1021,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for PutKeyPolicy
     class PutKeyPolicy
       def self.parse(http_resp)
         data = Types::PutKeyPolicyOutput.new
@@ -1067,7 +1031,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ReEncrypt
     class ReEncrypt
       def self.parse(http_resp)
         data = Types::ReEncryptOutput.new
@@ -1083,7 +1046,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ReplicateKey
     class ReplicateKey
       def self.parse(http_resp)
         data = Types::ReplicateKeyOutput.new
@@ -1097,7 +1059,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for RetireGrant
     class RetireGrant
       def self.parse(http_resp)
         data = Types::RetireGrantOutput.new
@@ -1108,7 +1069,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for RevokeGrant
     class RevokeGrant
       def self.parse(http_resp)
         data = Types::RevokeGrantOutput.new
@@ -1119,7 +1079,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for ScheduleKeyDeletion
     class ScheduleKeyDeletion
       def self.parse(http_resp)
         data = Types::ScheduleKeyDeletionOutput.new
@@ -1134,7 +1093,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Sign
     class Sign
       def self.parse(http_resp)
         data = Types::SignOutput.new
@@ -1185,7 +1143,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for TagResource
     class TagResource
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
@@ -1208,7 +1165,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for UntagResource
     class UntagResource
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
@@ -1219,7 +1175,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for UpdateAlias
     class UpdateAlias
       def self.parse(http_resp)
         data = Types::UpdateAliasOutput.new
@@ -1230,7 +1185,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for UpdateCustomKeyStore
     class UpdateCustomKeyStore
       def self.parse(http_resp)
         data = Types::UpdateCustomKeyStoreOutput.new
@@ -1241,7 +1195,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for UpdateKeyDescription
     class UpdateKeyDescription
       def self.parse(http_resp)
         data = Types::UpdateKeyDescriptionOutput.new
@@ -1252,7 +1205,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for UpdatePrimaryRegion
     class UpdatePrimaryRegion
       def self.parse(http_resp)
         data = Types::UpdatePrimaryRegionOutput.new
@@ -1263,7 +1215,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for Verify
     class Verify
       def self.parse(http_resp)
         data = Types::VerifyOutput.new
@@ -1277,7 +1228,6 @@ module AWS::SDK::KMS
       end
     end
 
-    # Operation Parser for VerifyMac
     class VerifyMac
       def self.parse(http_resp)
         data = Types::VerifyMacOutput.new

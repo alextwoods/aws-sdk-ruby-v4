@@ -211,7 +211,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for BatchExecuteStatement
     class BatchExecuteStatement
       def self.parse(http_resp)
         data = Types::BatchExecuteStatementOutput.new
@@ -224,7 +223,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for BatchGetItem
     class BatchGetItem
       def self.parse(http_resp)
         data = Types::BatchGetItemOutput.new
@@ -278,7 +276,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for BatchWriteItem
     class BatchWriteItem
       def self.parse(http_resp)
         data = Types::BatchWriteItemOutput.new
@@ -429,7 +426,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for CreateBackup
     class CreateBackup
       def self.parse(http_resp)
         data = Types::CreateBackupOutput.new
@@ -441,7 +437,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for CreateGlobalTable
     class CreateGlobalTable
       def self.parse(http_resp)
         data = Types::CreateGlobalTableOutput.new
@@ -453,7 +448,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for CreateTable
     class CreateTable
       def self.parse(http_resp)
         data = Types::CreateTableOutput.new
@@ -482,7 +476,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DeleteBackup
     class DeleteBackup
       def self.parse(http_resp)
         data = Types::DeleteBackupOutput.new
@@ -494,7 +487,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DeleteItem
     class DeleteItem
       def self.parse(http_resp)
         data = Types::DeleteItemOutput.new
@@ -516,7 +508,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DeleteTable
     class DeleteTable
       def self.parse(http_resp)
         data = Types::DeleteTableOutput.new
@@ -528,7 +519,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeBackup
     class DescribeBackup
       def self.parse(http_resp)
         data = Types::DescribeBackupOutput.new
@@ -540,7 +530,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeContinuousBackups
     class DescribeContinuousBackups
       def self.parse(http_resp)
         data = Types::DescribeContinuousBackupsOutput.new
@@ -552,7 +541,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeContributorInsights
     class DescribeContributorInsights
       def self.parse(http_resp)
         data = Types::DescribeContributorInsightsOutput.new
@@ -569,7 +557,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeEndpoints
     class DescribeEndpoints
       def self.parse(http_resp)
         data = Types::DescribeEndpointsOutput.new
@@ -581,7 +568,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeExport
     class DescribeExport
       def self.parse(http_resp)
         data = Types::DescribeExportOutput.new
@@ -593,7 +579,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeGlobalTable
     class DescribeGlobalTable
       def self.parse(http_resp)
         data = Types::DescribeGlobalTableOutput.new
@@ -605,7 +590,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
       def self.parse(http_resp)
         data = Types::DescribeGlobalTableSettingsOutput.new
@@ -618,7 +602,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeImport
     class DescribeImport
       def self.parse(http_resp)
         data = Types::DescribeImportOutput.new
@@ -630,7 +613,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::DescribeKinesisStreamingDestinationOutput.new
@@ -643,7 +625,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeLimits
     class DescribeLimits
       def self.parse(http_resp)
         data = Types::DescribeLimitsOutput.new
@@ -658,7 +639,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeTable
     class DescribeTable
       def self.parse(http_resp)
         data = Types::DescribeTableOutput.new
@@ -670,7 +650,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
       def self.parse(http_resp)
         data = Types::DescribeTableReplicaAutoScalingOutput.new
@@ -682,7 +661,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DescribeTimeToLive
     class DescribeTimeToLive
       def self.parse(http_resp)
         data = Types::DescribeTimeToLiveOutput.new
@@ -694,7 +672,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::DisableKinesisStreamingDestinationOutput.new
@@ -729,7 +706,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::EnableKinesisStreamingDestinationOutput.new
@@ -761,7 +737,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExecuteStatement
     class ExecuteStatement
       def self.parse(http_resp)
         data = Types::ExecuteStatementOutput.new
@@ -776,7 +751,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExecuteTransaction
     class ExecuteTransaction
       def self.parse(http_resp)
         data = Types::ExecuteTransactionOutput.new
@@ -859,7 +833,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ExportTableToPointInTime
     class ExportTableToPointInTime
       def self.parse(http_resp)
         data = Types::ExportTableToPointInTimeOutput.new
@@ -890,7 +863,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for GetItem
     class GetItem
       def self.parse(http_resp)
         data = Types::GetItemOutput.new
@@ -1077,7 +1049,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ImportTable
     class ImportTable
       def self.parse(http_resp)
         data = Types::ImportTableOutput.new
@@ -1360,7 +1331,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListBackups
     class ListBackups
       def self.parse(http_resp)
         data = Types::ListBackupsOutput.new
@@ -1373,7 +1343,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListContributorInsights
     class ListContributorInsights
       def self.parse(http_resp)
         data = Types::ListContributorInsightsOutput.new
@@ -1386,7 +1355,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListExports
     class ListExports
       def self.parse(http_resp)
         data = Types::ListExportsOutput.new
@@ -1399,7 +1367,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListGlobalTables
     class ListGlobalTables
       def self.parse(http_resp)
         data = Types::ListGlobalTablesOutput.new
@@ -1412,7 +1379,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListImports
     class ListImports
       def self.parse(http_resp)
         data = Types::ListImportsOutput.new
@@ -1425,7 +1391,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListTables
     class ListTables
       def self.parse(http_resp)
         data = Types::ListTablesOutput.new
@@ -1438,7 +1403,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for ListTagsOfResource
     class ListTagsOfResource
       def self.parse(http_resp)
         data = Types::ListTagsOfResourceOutput.new
@@ -1596,7 +1560,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for PutItem
     class PutItem
       def self.parse(http_resp)
         data = Types::PutItemOutput.new
@@ -1628,7 +1591,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for Query
     class Query
       def self.parse(http_resp)
         data = Types::QueryOutput.new
@@ -1856,7 +1818,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for RestoreTableFromBackup
     class RestoreTableFromBackup
       def self.parse(http_resp)
         data = Types::RestoreTableFromBackupOutput.new
@@ -1868,7 +1829,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for RestoreTableToPointInTime
     class RestoreTableToPointInTime
       def self.parse(http_resp)
         data = Types::RestoreTableToPointInTimeOutput.new
@@ -1911,7 +1871,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for Scan
     class Scan
       def self.parse(http_resp)
         data = Types::ScanOutput.new
@@ -2106,7 +2065,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for TagResource
     class TagResource
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
@@ -2135,7 +2093,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for TransactGetItems
     class TransactGetItems
       def self.parse(http_resp)
         data = Types::TransactGetItemsOutput.new
@@ -2148,7 +2105,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for TransactWriteItems
     class TransactWriteItems
       def self.parse(http_resp)
         data = Types::TransactWriteItemsOutput.new
@@ -2198,7 +2154,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UntagResource
     class UntagResource
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
@@ -2209,7 +2164,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateContinuousBackups
     class UpdateContinuousBackups
       def self.parse(http_resp)
         data = Types::UpdateContinuousBackupsOutput.new
@@ -2221,7 +2175,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateContributorInsights
     class UpdateContributorInsights
       def self.parse(http_resp)
         data = Types::UpdateContributorInsightsOutput.new
@@ -2235,7 +2188,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateGlobalTable
     class UpdateGlobalTable
       def self.parse(http_resp)
         data = Types::UpdateGlobalTableOutput.new
@@ -2247,7 +2199,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
       def self.parse(http_resp)
         data = Types::UpdateGlobalTableSettingsOutput.new
@@ -2260,7 +2211,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateItem
     class UpdateItem
       def self.parse(http_resp)
         data = Types::UpdateItemOutput.new
@@ -2282,7 +2232,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateKinesisStreamingDestination
     class UpdateKinesisStreamingDestination
       def self.parse(http_resp)
         data = Types::UpdateKinesisStreamingDestinationOutput.new
@@ -2297,7 +2246,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateTable
     class UpdateTable
       def self.parse(http_resp)
         data = Types::UpdateTableOutput.new
@@ -2309,7 +2257,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
       def self.parse(http_resp)
         data = Types::UpdateTableReplicaAutoScalingOutput.new
@@ -2321,7 +2268,6 @@ module AWS::SDK::DynamoDB
       end
     end
 
-    # Operation Parser for UpdateTimeToLive
     class UpdateTimeToLive
       def self.parse(http_resp)
         data = Types::UpdateTimeToLiveOutput.new

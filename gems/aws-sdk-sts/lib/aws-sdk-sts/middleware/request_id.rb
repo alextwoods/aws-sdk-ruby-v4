@@ -24,4 +24,5 @@ module AWS::SDK::STS
       end
     end
   end
+
 end

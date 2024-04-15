@@ -3,7 +3,7 @@
 module AWS::SDK::Core
   module Identities
     # Identity class for SigV4.
-    class SigV4 < Identities::Base
+    class SigV4 < Hearth::Identities::Base
       def initialize(access_key_id:, secret_access_key:, session_token: nil,
                      **kwargs)
         super(**kwargs)

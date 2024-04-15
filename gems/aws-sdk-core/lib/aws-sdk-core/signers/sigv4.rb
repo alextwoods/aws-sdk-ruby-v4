@@ -3,13 +3,13 @@
 module AWS::SDK::Core
   module Signers
     # A signer that signs requests using the SigV4 Auth scheme.
-    class SigV4 < Signers::Base
+    class SigV4 < Hearth::Signers::Base
       def sign(request:, identity:, properties:)
         # TODO: should this come from config?
         signer = AWS::SigV4::Signer.new
 
         # TODO: how to get this property?
-        if request.url.scheme.eql?('https') && properties[:unsigned_body]
+        if request.uri.scheme.eql?('https') && properties[:unsigned_body]
           request.headers['X-Amz-Content-Sha256'] ||= 'UNSIGNED-PAYLOAD'
         end
 

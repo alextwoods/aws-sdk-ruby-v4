@@ -87,6 +87,11 @@ require_relative 'aws-sdk-core/middleware'
 # Endpoint Rules
 require_relative 'aws-sdk-core/endpoint_rules'
 
+# SigV4
+require_relative 'aws-sdk-core/auth_schemes/sigv4'
+require_relative 'aws-sdk-core/identities/sigv4'
+require_relative 'aws-sdk-core/signers/sigv4'
+
 # Namespace for AWS::SDK Core components
 module AWS::SDK::Core
   GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip

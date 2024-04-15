@@ -16,6 +16,7 @@ module AWS::SDK::CloudWatch
     attr_accessor region (): String
     attr_accessor request_min_compression_size_bytes (): Integer
     attr_accessor retry_strategy (): Hearth::_RetryStrategy
+    attr_accessor sigv4_identity_resolver (): untyped
     attr_accessor stub_responses (): bool
     attr_accessor use_dualstack_endpoint (): bool
     attr_accessor use_fips_endpoint (): bool

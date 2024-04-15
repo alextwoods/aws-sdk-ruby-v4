@@ -24,4 +24,5 @@ module AWS::SDK::DynamoDB
       end
     end
   end
+
 end

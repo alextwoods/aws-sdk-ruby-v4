@@ -24,4 +24,5 @@ module AWS::SDK::CloudWatch
       end
     end
   end
+
 end

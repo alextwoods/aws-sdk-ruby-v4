@@ -11,6 +11,7 @@ module AWS::SDK::KMS
   module Auth
     class Params < ::Struct[untyped]
       attr_accessor operation_name (): ::Symbol
+      attr_accessor region (): untyped
     end
 
     SCHEMES: ::Array[Hearth::AuthSchemes::Base]

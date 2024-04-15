@@ -27,6 +27,7 @@ module AWS::SDK::STS
         ?profile: String,
         ?region: String,
         ?retry_strategy: Hearth::_RetryStrategy,
+        ?sigv4_identity_resolver: untyped,
         ?stub_responses: bool,
         ?use_dualstack_endpoint: bool,
         ?use_fips_endpoint: bool,
