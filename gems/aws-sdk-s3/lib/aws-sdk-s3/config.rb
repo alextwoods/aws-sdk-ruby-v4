@@ -73,7 +73,7 @@ module AWS::SDK::S3
   #     * `Retry::Adaptive` - An experimental retry mode that includes all the functionality
   #       of `standard` mode along with automatic client side throttling. This is a provisional
   #       mode that may change behavior in the future.
-  #   @option args [] :sigv4_identity_resolver
+  #   @option args [Hearth::IdentityResolver] :sigv4_identity_resolver
   #     A credential provider is a class that fetches your AWS credentials. This can be an instance
   #     of any one of the following classes:
   #
@@ -163,7 +163,7 @@ module AWS::SDK::S3
   # @!attribute retry_strategy
   #   @return [#acquire_initial_retry_token(token_scope),#refresh_retry_token(retry_token, error_info),#record_success(retry_token)]
   # @!attribute sigv4_identity_resolver
-  #   @return []
+  #   @return [Hearth::IdentityResolver]
   # @!attribute stub_responses
   #   @return [Boolean]
   # @!attribute use_accelerate_endpoint
@@ -224,6 +224,7 @@ module AWS::SDK::S3
       Hearth::Validator.validate_types!(profile, String, context: 'config[:profile]')
       Hearth::Validator.validate_types!(region, String, context: 'config[:region]')
       Hearth::Validator.validate_responds_to!(retry_strategy, :acquire_initial_retry_token, :refresh_retry_token, :record_success, context: 'config[:retry_strategy]')
+      Hearth::Validator.validate_types!(sigv4_identity_resolver, Hearth::IdentityResolver, context: 'config[:sigv4_identity_resolver]')
       Hearth::Validator.validate_types!(stub_responses, TrueClass, FalseClass, context: 'config[:stub_responses]')
       Hearth::Validator.validate_types!(use_accelerate_endpoint, TrueClass, FalseClass, context: 'config[:use_accelerate_endpoint]')
       Hearth::Validator.validate_types!(use_arn_region, TrueClass, FalseClass, context: 'config[:use_arn_region]')

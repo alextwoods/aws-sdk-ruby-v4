@@ -101,6 +101,7 @@ public class AWSProtocols implements RubyIntegration {
 
         ClientConfig identityResolverConfig = ClientConfig.builder()
                 .name("sigv4_identity_resolver")
+                .documentationRbsAndValidationType(Hearth.IDENTITY_RESOLVER.toString())
                 .documentation(identityProviderDocumentation)
                 .defaultDynamicValue(defaultConfigValue)
                 .build();
