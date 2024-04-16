@@ -168,7 +168,7 @@ module AWS::SDK::DynamoDB
         data = Types::BackupInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -180,7 +180,7 @@ module AWS::SDK::DynamoDB
         data = Types::BackupNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::DynamoDB
         data = Types::BatchExecuteStatementOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (PartiQLBatchResponse.parse(map['Responses']) unless map['Responses'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
@@ -228,7 +228,7 @@ module AWS::SDK::DynamoDB
         data = Types::BatchGetItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (BatchGetResponseMap.parse(map['Responses']) unless map['Responses'].nil?)
         data.unprocessed_keys = (BatchGetRequestMap.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -281,7 +281,7 @@ module AWS::SDK::DynamoDB
         data = Types::BatchWriteItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.unprocessed_items = (BatchWriteItemRequestMap.parse(map['UnprocessedItems']) unless map['UnprocessedItems'].nil?)
         data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -350,7 +350,7 @@ module AWS::SDK::DynamoDB
         data = Types::ConditionalCheckFailedException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
         data
@@ -394,7 +394,7 @@ module AWS::SDK::DynamoDB
         data = Types::ContinuousBackupsUnavailableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::DynamoDB
         data = Types::CreateBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_details = (BackupDetails.parse(map['BackupDetails']) unless map['BackupDetails'].nil?)
         data
       end
@@ -442,7 +442,7 @@ module AWS::SDK::DynamoDB
         data = Types::CreateGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
@@ -453,7 +453,7 @@ module AWS::SDK::DynamoDB
         data = Types::CreateTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -481,7 +481,7 @@ module AWS::SDK::DynamoDB
         data = Types::DeleteBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
         data
       end
@@ -492,7 +492,7 @@ module AWS::SDK::DynamoDB
         data = Types::DeleteItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -513,7 +513,7 @@ module AWS::SDK::DynamoDB
         data = Types::DeleteTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -524,7 +524,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_description = (BackupDescription.parse(map['BackupDescription']) unless map['BackupDescription'].nil?)
         data
       end
@@ -535,7 +535,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeContinuousBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
         data
       end
@@ -546,7 +546,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.index_name = map['IndexName']
         data.contributor_insights_rule_list = (ContributorInsightsRuleList.parse(map['ContributorInsightsRuleList']) unless map['ContributorInsightsRuleList'].nil?)
@@ -562,7 +562,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeEndpointsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data
       end
@@ -573,7 +573,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeExportOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
         data
       end
@@ -584,7 +584,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
@@ -595,7 +595,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeGlobalTableSettingsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_name = map['GlobalTableName']
         data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
         data
@@ -607,7 +607,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeImportOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
         data
       end
@@ -618,7 +618,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.kinesis_data_stream_destinations = (KinesisDataStreamDestinations.parse(map['KinesisDataStreamDestinations']) unless map['KinesisDataStreamDestinations'].nil?)
         data
@@ -630,7 +630,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeLimitsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.account_max_read_capacity_units = map['AccountMaxReadCapacityUnits']
         data.account_max_write_capacity_units = map['AccountMaxWriteCapacityUnits']
         data.table_max_read_capacity_units = map['TableMaxReadCapacityUnits']
@@ -644,7 +644,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table = (TableDescription.parse(map['Table']) unless map['Table'].nil?)
         data
       end
@@ -655,7 +655,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeTableReplicaAutoScalingOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
         data
       end
@@ -666,7 +666,7 @@ module AWS::SDK::DynamoDB
         data = Types::DescribeTimeToLiveOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.time_to_live_description = (TimeToLiveDescription.parse(map['TimeToLiveDescription']) unless map['TimeToLiveDescription'].nil?)
         data
       end
@@ -677,7 +677,7 @@ module AWS::SDK::DynamoDB
         data = Types::DisableKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -692,7 +692,7 @@ module AWS::SDK::DynamoDB
         data = Types::DuplicateItemException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::DynamoDB
         data = Types::EnableKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -742,7 +742,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExecuteStatementOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
@@ -756,7 +756,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExecuteTransactionOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
@@ -769,7 +769,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -809,7 +809,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -838,7 +838,7 @@ module AWS::SDK::DynamoDB
         data = Types::ExportTableToPointInTimeOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_description = (ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
         data
       end
@@ -868,7 +868,7 @@ module AWS::SDK::DynamoDB
         data = Types::GetItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.item = (AttributeMap.parse(map['Item']) unless map['Item'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data
@@ -952,7 +952,7 @@ module AWS::SDK::DynamoDB
         data = Types::GlobalTableAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -984,7 +984,7 @@ module AWS::SDK::DynamoDB
         data = Types::GlobalTableNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -996,7 +996,7 @@ module AWS::SDK::DynamoDB
         data = Types::IdempotentParameterMismatchException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
@@ -1008,7 +1008,7 @@ module AWS::SDK::DynamoDB
         data = Types::ImportConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1020,7 +1020,7 @@ module AWS::SDK::DynamoDB
         data = Types::ImportNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1054,7 +1054,7 @@ module AWS::SDK::DynamoDB
         data = Types::ImportTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_table_description = (ImportTableDescription.parse(map['ImportTableDescription']) unless map['ImportTableDescription'].nil?)
         data
       end
@@ -1102,7 +1102,7 @@ module AWS::SDK::DynamoDB
         data = Types::IndexNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1122,7 +1122,7 @@ module AWS::SDK::DynamoDB
         data = Types::InternalServerError.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1134,7 +1134,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidEndpointException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
@@ -1146,7 +1146,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidExportTimeException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1158,7 +1158,7 @@ module AWS::SDK::DynamoDB
         data = Types::InvalidRestoreTimeException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1215,7 +1215,7 @@ module AWS::SDK::DynamoDB
         data = Types::ItemCollectionSizeLimitExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1317,7 +1317,7 @@ module AWS::SDK::DynamoDB
         data = Types::LimitExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1336,7 +1336,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.backup_summaries = (BackupSummaries.parse(map['BackupSummaries']) unless map['BackupSummaries'].nil?)
         data.last_evaluated_backup_arn = map['LastEvaluatedBackupArn']
         data
@@ -1348,7 +1348,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.contributor_insights_summaries = (ContributorInsightsSummaries.parse(map['ContributorInsightsSummaries']) unless map['ContributorInsightsSummaries'].nil?)
         data.next_token = map['NextToken']
         data
@@ -1360,7 +1360,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListExportsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.export_summaries = (ExportSummaries.parse(map['ExportSummaries']) unless map['ExportSummaries'].nil?)
         data.next_token = map['NextToken']
         data
@@ -1372,7 +1372,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListGlobalTablesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_tables = (GlobalTableList.parse(map['GlobalTables']) unless map['GlobalTables'].nil?)
         data.last_evaluated_global_table_name = map['LastEvaluatedGlobalTableName']
         data
@@ -1384,7 +1384,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListImportsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.import_summary_list = (ImportSummaryList.parse(map['ImportSummaryList']) unless map['ImportSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
@@ -1396,7 +1396,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListTablesOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_names = (TableNameList.parse(map['TableNames']) unless map['TableNames'].nil?)
         data.last_evaluated_table_name = map['LastEvaluatedTableName']
         data
@@ -1408,7 +1408,7 @@ module AWS::SDK::DynamoDB
         data = Types::ListTagsOfResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
@@ -1504,7 +1504,7 @@ module AWS::SDK::DynamoDB
         data = Types::PointInTimeRecoveryUnavailableException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1546,7 +1546,7 @@ module AWS::SDK::DynamoDB
         data = Types::ProvisionedThroughputExceededException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1565,7 +1565,7 @@ module AWS::SDK::DynamoDB
         data = Types::PutItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -1596,7 +1596,7 @@ module AWS::SDK::DynamoDB
         data = Types::QueryOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.count = map['Count']
         data.scanned_count = map['ScannedCount']
@@ -1620,7 +1620,7 @@ module AWS::SDK::DynamoDB
         data = Types::ReplicaAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1741,7 +1741,7 @@ module AWS::SDK::DynamoDB
         data = Types::ReplicaNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1777,7 +1777,7 @@ module AWS::SDK::DynamoDB
         data = Types::RequestLimitExceeded.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1789,7 +1789,7 @@ module AWS::SDK::DynamoDB
         data = Types::ResourceInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1801,7 +1801,7 @@ module AWS::SDK::DynamoDB
         data = Types::ResourceNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -1823,7 +1823,7 @@ module AWS::SDK::DynamoDB
         data = Types::RestoreTableFromBackupOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -1834,7 +1834,7 @@ module AWS::SDK::DynamoDB
         data = Types::RestoreTableToPointInTimeOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -1876,7 +1876,7 @@ module AWS::SDK::DynamoDB
         data = Types::ScanOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.count = map['Count']
         data.scanned_count = map['ScannedCount']
@@ -1947,7 +1947,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableAlreadyExistsException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2022,7 +2022,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableInUseException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2042,7 +2042,7 @@ module AWS::SDK::DynamoDB
         data = Types::TableNotFoundException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2070,7 +2070,7 @@ module AWS::SDK::DynamoDB
         data = Types::TagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -2098,7 +2098,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactGetItemsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.responses = (ItemResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data
@@ -2110,7 +2110,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactWriteItemsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.consumed_capacity = (ConsumedCapacityMultiple.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetricsPerTable.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
         data
@@ -2123,7 +2123,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionCanceledException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data.cancellation_reasons = (CancellationReasonList.parse(map['CancellationReasons']) unless map['CancellationReasons'].nil?)
         data
@@ -2136,7 +2136,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionConflictException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['message']
         data
       end
@@ -2148,7 +2148,7 @@ module AWS::SDK::DynamoDB
         data = Types::TransactionInProgressException.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.message = map['Message']
         data
       end
@@ -2159,7 +2159,7 @@ module AWS::SDK::DynamoDB
         data = Types::UntagResourceOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data
       end
     end
@@ -2169,7 +2169,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateContinuousBackupsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.continuous_backups_description = (ContinuousBackupsDescription.parse(map['ContinuousBackupsDescription']) unless map['ContinuousBackupsDescription'].nil?)
         data
       end
@@ -2180,7 +2180,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateContributorInsightsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.index_name = map['IndexName']
         data.contributor_insights_status = map['ContributorInsightsStatus']
@@ -2193,7 +2193,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateGlobalTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_description = (GlobalTableDescription.parse(map['GlobalTableDescription']) unless map['GlobalTableDescription'].nil?)
         data
       end
@@ -2204,7 +2204,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateGlobalTableSettingsOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.global_table_name = map['GlobalTableName']
         data.replica_settings = (ReplicaSettingsDescriptionList.parse(map['ReplicaSettings']) unless map['ReplicaSettings'].nil?)
         data
@@ -2216,7 +2216,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateItemOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.consumed_capacity = (ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
         data.item_collection_metrics = (ItemCollectionMetrics.parse(map['ItemCollectionMetrics']) unless map['ItemCollectionMetrics'].nil?)
@@ -2237,7 +2237,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateKinesisStreamingDestinationOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_name = map['TableName']
         data.stream_arn = map['StreamArn']
         data.destination_status = map['DestinationStatus']
@@ -2251,7 +2251,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateTableOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_description = (TableDescription.parse(map['TableDescription']) unless map['TableDescription'].nil?)
         data
       end
@@ -2262,7 +2262,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateTableReplicaAutoScalingOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.table_auto_scaling_description = (TableAutoScalingDescription.parse(map['TableAutoScalingDescription']) unless map['TableAutoScalingDescription'].nil?)
         data
       end
@@ -2273,7 +2273,7 @@ module AWS::SDK::DynamoDB
         data = Types::UpdateTimeToLiveOutput.new
         body = http_resp.body.read
         return data if body.empty?
-        map = Hearth::JSON.load(body)
+        map = Hearth::JSON.parse(body)
         data.time_to_live_specification = (TimeToLiveSpecification.parse(map['TimeToLiveSpecification']) unless map['TimeToLiveSpecification'].nil?)
         data
       end

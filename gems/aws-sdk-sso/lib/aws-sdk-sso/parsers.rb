@@ -34,7 +34,7 @@ module AWS::SDK::SSO
     class GetRoleCredentials
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.role_credentials = (RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
         data
       end
@@ -44,7 +44,7 @@ module AWS::SDK::SSO
     class InvalidRequestException
       def self.parse(http_resp)
         data = Types::InvalidRequestException.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.message = map['message'] || map['Message']
         data
       end
@@ -53,7 +53,7 @@ module AWS::SDK::SSO
     class ListAccountRoles
       def self.parse(http_resp)
         data = Types::ListAccountRolesOutput.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.next_token = map['nextToken']
         data.role_list = (RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
         data
@@ -63,7 +63,7 @@ module AWS::SDK::SSO
     class ListAccounts
       def self.parse(http_resp)
         data = Types::ListAccountsOutput.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.next_token = map['nextToken']
         data.account_list = (AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
         data
@@ -73,7 +73,7 @@ module AWS::SDK::SSO
     class Logout
       def self.parse(http_resp)
         data = Types::LogoutOutput.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data
       end
     end
@@ -82,7 +82,7 @@ module AWS::SDK::SSO
     class ResourceNotFoundException
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.message = map['message'] || map['Message']
         data
       end
@@ -122,7 +122,7 @@ module AWS::SDK::SSO
     class TooManyRequestsException
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.message = map['message'] || map['Message']
         data
       end
@@ -132,7 +132,7 @@ module AWS::SDK::SSO
     class UnauthorizedException
       def self.parse(http_resp)
         data = Types::UnauthorizedException.new
-        map = Hearth::JSON.load(http_resp.body)
+        map = Hearth::JSON.parse(http_resp.body)
         data.message = map['message'] || map['Message']
         data
       end

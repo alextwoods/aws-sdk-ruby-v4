@@ -197,7 +197,7 @@ module AWS::SDK::KMS
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
-        region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
+        region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         retry_strategy: [Hearth::Retry::Standard.new],
         sigv4_identity_resolver: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityResolver.new(proc { AWS::SDK::Core::Identities::SigV4.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
         stub_responses: [false],

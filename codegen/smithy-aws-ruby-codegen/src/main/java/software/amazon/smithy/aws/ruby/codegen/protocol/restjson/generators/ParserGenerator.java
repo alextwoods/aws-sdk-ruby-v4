@@ -34,7 +34,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
     @Override
     protected void renderBodyParser(Shape outputShape) {
-        writer.write("map = $T.load(http_resp.body)", Hearth.JSON);
+        writer.write("map = $T.parse(http_resp.body)", Hearth.JSON);
         renderMemberParsers(outputShape);
     }
 
@@ -300,7 +300,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         @Override
         public Void documentShape(DocumentShape shape) {
             writer
-                    .write("payload = $T.load(http_resp.body.read)", Hearth.JSON)
+                    .write("payload = $T.parse(http_resp.body.read)", Hearth.JSON)
                     .write("$Lpayload", dataSetter);
             return null;
         }
@@ -331,7 +331,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         private void defaultComplexDeserializer(Shape shape) {
             writer
-                    .write("json = $T.load(http_resp.body)", Hearth.JSON)
+                    .write("json = $T.parse(http_resp.body)", Hearth.JSON)
                     .write("$L$L.parse(json)", dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 

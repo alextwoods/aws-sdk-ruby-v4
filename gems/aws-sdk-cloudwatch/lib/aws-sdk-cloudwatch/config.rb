@@ -212,7 +212,7 @@ module AWS::SDK::CloudWatch
         logger: [Logger.new(IO::NULL)],
         plugins: [Hearth::PluginList.new],
         profile: [Hearth::Config::EnvProvider.new('AWS_PROFILE', type: 'String'),'default'],
-        region: [Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
+        region: [proc { |cfg| cfg[:stub_responses] ?  'us-stubbed-1' : nil },Hearth::Config::EnvProvider.new('AWS_REGION', type: 'String'),AWS::SDK::Core::SharedConfigProvider.new('region', type: 'String')],
         request_min_compression_size_bytes: [10240],
         retry_strategy: [Hearth::Retry::Standard.new],
         sigv4_identity_resolver: [proc { |cfg| cfg[:stub_responses] ? Hearth::IdentityResolver.new(proc { AWS::SDK::Core::Identities::SigV4.new(access_key_id: 'stubbed-akid', secret_access_key: 'stubbed-secret') }) : nil }],
