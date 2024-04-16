@@ -7,7 +7,6 @@ module AWS::SDK::Core
       def sign(request:, identity:, properties:)
         signer = AWS::SigV4::Signer.new
 
-        # TODO: how to get this property?
         apply_unsigned_body(request, properties)
 
         signature = signer.sign_request(request: {
@@ -38,6 +37,7 @@ module AWS::SDK::Core
       end
 
       def apply_unsigned_body(request, properties)
+        # TODO: how to get this property?
         if request.uri.scheme.eql?('https') && properties[:unsigned_body]
           request.headers['X-Amz-Content-Sha256'] ||= 'UNSIGNED-PAYLOAD'
         end
