@@ -11,7 +11,7 @@ module AWS::SDK::EC2
   module Auth
     class Params < ::Struct[untyped]
       attr_accessor operation_name (): ::Symbol
-      attr_accessor region (): untyped
+      attr_accessor region (): ::String
     end
 
     SCHEMES: ::Array[Hearth::AuthSchemes::Base]

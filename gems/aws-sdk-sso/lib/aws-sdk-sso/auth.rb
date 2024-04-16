@@ -15,24 +15,6 @@ module AWS::SDK::SSO
       Hearth::AuthSchemes::Anonymous.new
     ].freeze
 
-    class Resolver
-
-      def resolve(params)
-        options = []
-        case params.operation_name
-        when :get_role_credentials
-          options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
-        when :list_account_roles
-          options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
-        when :list_accounts
-          options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
-        when :logout
-          options << Hearth::AuthOption.new(scheme_id: 'smithy.api#noAuth')
-        else nil
-        end
-        options
-      end
-
-    end
+    Resolver = Hearth::AnonymousAuthResolver
   end
 end

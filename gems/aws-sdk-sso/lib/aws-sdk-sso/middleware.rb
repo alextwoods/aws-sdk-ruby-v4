@@ -25,10 +25,9 @@ module AWS::SDK::SSO
           builder: Builders::GetRoleCredentials
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :get_role_credentials, region: config.region),
+          auth_params: Auth::Params.new(operation_name: :get_role_credentials),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          auth_schemes: config.auth_schemes
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -76,10 +75,9 @@ module AWS::SDK::SSO
           builder: Builders::ListAccountRoles
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_account_roles, region: config.region),
+          auth_params: Auth::Params.new(operation_name: :list_account_roles),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          auth_schemes: config.auth_schemes
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -127,10 +125,9 @@ module AWS::SDK::SSO
           builder: Builders::ListAccounts
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :list_accounts, region: config.region),
+          auth_params: Auth::Params.new(operation_name: :list_accounts),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          auth_schemes: config.auth_schemes
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,
@@ -178,10 +175,9 @@ module AWS::SDK::SSO
           builder: Builders::Logout
         )
         stack.use(Hearth::Middleware::Auth,
-          auth_params: Auth::Params.new(operation_name: :logout, region: config.region),
+          auth_params: Auth::Params.new(operation_name: :logout),
           auth_resolver: config.auth_resolver,
-          auth_schemes: config.auth_schemes,
-          AWS::SDK::Core::Identities::SigV4 => config.sigv4_identity_resolver
+          auth_schemes: config.auth_schemes
         )
         stack.use(Hearth::HTTP::Middleware::ContentLength)
         stack.use(Hearth::Middleware::Endpoint,

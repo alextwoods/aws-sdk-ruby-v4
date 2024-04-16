@@ -12,6 +12,7 @@ import software.amazon.smithy.ruby.codegen.Hearth;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
 import software.amazon.smithy.ruby.codegen.RubyDependency;
 import software.amazon.smithy.ruby.codegen.RubyIntegration;
+import software.amazon.smithy.ruby.codegen.auth.AuthParam;
 import software.amazon.smithy.ruby.codegen.auth.AuthScheme;
 import software.amazon.smithy.ruby.codegen.config.ClientConfig;
 import software.amazon.smithy.utils.ListUtils;
@@ -119,9 +120,12 @@ public class AWSProtocols implements RubyIntegration {
                             );
                 }))
                 .additionalConfig(AWSConfig.REGION)
-                .additionalAuthParams(Map.of(
-                        "region", "config.region"
-                ))
+                .additionalAuthParam(AuthParam.builder()
+                        .name("region")
+                        .rbsType("::String")
+                        .paramValue("config.region")
+                        .build()
+                )
                 .build();
     }
 }
